@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { auth } from '../firebase'; // Ensure this path is correct
+import { auth } from '../firebase'; // Adjust the path based on your structure
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import './Signup.css';
 
