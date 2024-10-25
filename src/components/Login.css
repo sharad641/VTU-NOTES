@@ -1,0 +1,115 @@
+/* src/components/Login.css */
+.login-container {
+    max-width: 400px; /* Set max width for the container */
+    margin: 100px auto; /* Center the container */
+    padding: 20px; /* Add padding */
+    border: 1px solid #0c0c0c; /* Add border */
+    border-radius: 8px; /* Round corners */
+    background-color: #e1dada; /* Background color */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
+    transition: box-shadow 0.3s;
+     /* Smooth shadow transition */
+}
+
+.login-container:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); 
+    /* Increase shadow on hover */
+}
+
+h2 {
+    text-align: center; /* Center the heading */
+    margin-bottom: 20px; 
+    margin-top:30px;/* Space below heading */
+    color: #00796b; /* Heading color */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form groups */
+}
+
+label {
+    display: block; /* Block display for labels */
+    margin-bottom: 5px; /* Space below labels */
+    font-weight: bold;
+     /* Bold labels */
+}
+
+.input-field {
+    width: 100%; /* Full width for input fields */
+    padding: 10px; /* Padding for input fields */
+    border: 1px solid #0d0c0c; /* Border for input fields */
+    border-radius: 4px; /* Round corners */
+    transition: border-color 0.3s; /* Smooth border transition */
+}
+
+.input-field:focus {
+    border-color: #00796b; /* Border color on focus */
+    outline: none; /* Remove outline */
+}
+
+/* Add margin-top to the button for better spacing */
+.login-button {
+    width: 100%; /* Full width for button */
+    padding: 10px; /* Padding for button */
+    background-color: #00796b; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Round corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size for button */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+    margin-top: 10px; /* Space above the button */
+}
+
+.login-button:hover {
+    background-color: #005b4f; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.signup-option {
+    text-align: center; /* Center text */
+    margin-top: 10px; /* Space above */
+}
+
+.signup-option a {
+    color: #00796b; /* Link color */
+    text-decoration: underline; /* Underline link */
+    transition: color 0.3s; 
+    /* Smooth color transition */
+}
+
+.signup-option a:hover {
+    color: #005b4f; /* Darker shade on hover */
+}
+
+.error-message {
+    color: red; /* Red color for error message */
+    text-align: center; /* Center error message */
+    margin-bottom: 15px; /* Space below error message */
+}
+/* Add this to your existing Login.css */
+.google-login-button {
+    width: 100%; /* Full width for button */
+    padding: 10px; /* Padding for button */
+    background-color: #db4437; /* Google color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Round corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size for button */
+    margin-top: 5px; /* Space above the button */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.google-login-button:hover {
+    background-color: #c13528; /* Darker shade on hover */
+}
+
+.divider {
+    text-align: center; /* Center the divider */
+    margin: 10px 5; /* Space above and below */
+    margin-top:30px;
+    font-weight: bold;
+     /* Bold text */
+}
+

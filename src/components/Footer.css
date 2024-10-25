@@ -1,0 +1,88 @@
+/* src/components/Footer.css */
+.footer {
+    background: linear-gradient(to right, #2c3e50, #3498db); /* Dark to light blue gradient */
+    color: #ffffff; /* White text for contrast */
+    padding: 30px 20px; /* More spacious padding */
+    text-align: center;
+    font-family: 'Montserrat', sans-serif; /* Modern font */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px; /* Increased gap for better separation */
+}
+
+.footer-content h3 {
+    font-size: 1.6rem; /* Slightly larger font size for headings */
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-transform: uppercase; /* Uppercase heading for emphasis */
+    letter-spacing: 1px; /* Spacing between letters */
+}
+
+.footer-content p {
+    font-size: 1rem; /* Increased font size for readability */
+    margin-bottom: 10px;
+    color: #ecf0f1; /* Light gray for secondary text */
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px; /* Wider spacing between icons */
+}
+
+.social-icons a {
+    color: #ffffff; /* White color for icons */
+    font-size: 1.5rem; /* Larger icon size */
+    transition: transform 0.3s ease; /* Smooth transform effect */
+}
+
+.social-icons a:hover {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+    color: #16a085; /* Light teal on hover */
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px; /* Wider spacing between links */
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #ffffff; /* White color for links */
+    text-decoration: none;
+    font-size: 1rem; /* Increased font size for links */
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #16a085; /* Light teal on hover */
+    text-decoration: underline; /* Underline on hover */
+}
+
+.footer-bottom {
+    font-size: 0.9rem; /* Slightly larger text for footer bottom */
+    color: #ecf0f1; /* Light gray for footer bottom */
+    margin-top: 10px;
+}
+
+/* Responsive design for smaller devices */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

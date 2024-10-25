@@ -1,0 +1,128 @@
+/* Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px; /* Reduced padding */
+  background: linear-gradient(to right, #f9fbe7, #639abc);/* Glassmorphism effect */
+  backdrop-filter: blur(10px);
+  color: #fff; /* White text for contrast */
+  position: sticky; /* Sticky positioning */
+  top: 0; /* Stick to top */
+  z-index: 1000; /* Ensure it’s above other content */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Bottom border for separation */
+}
+
+.navbar-logo {
+  font-size: 2rem; /* Increased size for visibility */
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff4081, #ffcc00); /* Vibrant gradient effect */
+  background-clip: text;
+  -webkit-text-fill-color: transparent; /* Transparent text fill */
+  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1.5px;
+  transition: transform 0.3s ease; /* Transition for hover effect */
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.hamburger {
+  display: none; /* Hide by default for desktop */
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  height: 3px;
+  width: 28px; /* Increased width for consistency */
+  background-color: #fff; /* White bars */
+  margin: 3px 0;
+  transition: transform 0.3s, opacity 0.3s; /* Smooth transition */
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex; /* Horizontal layout for desktop */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  font-size: 1.1rem; /* Adjusted font size */
+  font-weight: 500;
+  padding: 8px 15px; /* Padding for items */
+  border-radius: 30px; /* Rounded corners */
+  background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow */
+  transition: all 0.3s ease; /* Smooth transition */
+  backdrop-filter: blur(5px); /* Additional blur for effect */
+}
+
+.nav-item a {
+  color: #fff; /* White text color for links */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.nav-item a:hover {
+  color: rgba(255, 255, 255, 0.8); /* Slightly lighter on hover */
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.3); /* Lighter background on hover */
+  color: #ffcc00; /* Change text color on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Lift effect */
+  transform: translateY(-1px); /* Slight lift effect */
+}
+
+/* Active state for hamburger menu */
+.hamburger.active .bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0; /* Hide the middle bar */
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Show hamburger on mobile */
+  }
+
+  .nav-links {
+    position: fixed; /* Fixed position for dropdown */
+    top: 70px; /* Position below the navbar */
+    right: 0;
+    height: 60vh; /* Height for dropdown */
+    width: 100%; /* Full width */
+    background: rgba(36, 37, 42, 0.95); /* Darker glass effect */
+    backdrop-filter: blur(10px);
+    flex-direction: column; /* Vertical layout for mobile */
+    display: none; /* Hide by default */
+    z-index: 999; /* Ensure it’s above other content */
+    transition: transform 0.3s ease-in-out; /* Smooth dropdown effect */
+    transform: translateX(100%); /* Slide-out effect */
+  }
+
+  .nav-links.active {
+    display: flex; /* Show links when active */
+    transform: translateX(0); /* Slide-in effect */
+  }
+
+  .nav-item {
+    margin: 10px 0; /* Margin for vertical items */
+    text-align: center; /* Center text */
+    padding: 15px 20px; /* Adjusted padding */
+  }
+}

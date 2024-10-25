@@ -1,0 +1,100 @@
+/* src/components/Subjects.css */
+.subjects {
+    padding: 100px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #f1f8e9, #a5d6a7);
+    color: #1b5e20;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+.subjects h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #2e7d32;
+    letter-spacing: 3px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.subjects h2::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 5px;
+    background-color: #66bb6a;
+    bottom: 0;
+    left: 10%;
+    border-radius: 50px;
+}
+
+.subjects h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: #388e3c;
+    letter-spacing: 1px;
+}
+
+.subjects ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.subjects li {
+    width: 200px;
+    background: #81c784;
+    padding: 15px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.subjects li:hover {
+    background: #4caf50;
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.subjects li button {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.subjects li button:hover {
+    color: #e8f5e9;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.subjects li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+    transform: rotate(45deg);
+}
+
+.subjects li:hover::before {
+    left: 100%;
+}

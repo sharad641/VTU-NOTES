@@ -1,0 +1,125 @@
+{
+    "cse": {
+      "1": {
+        "Mathematics": [
+          { "title": "Module 1", "url":"https://drive.google.com/file/d/1RfWvCNp1jlr2QEKFB21X-PtA5oTT_j5P/view?usp=drive_link"},
+          { "title": "Module 2", "url": "https://drive.google.com/file/d/1RfWvCNp1jlr2QEKFB21X-PtA5oTT_j5P/view?usp=drive_link" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem1/math/module3.pdf" }
+        ],
+        "Physics": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem1/physics/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem1/physics/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem1/physics/module3.pdf" }
+        ],
+        "Chemistry": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem1/chemistry/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem1/chemistry/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem1/chemistry/module3.pdf" }
+        ]
+      },
+      "2": {
+        "Data Structures": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem2/data_structures/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem2/data_structures/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem2/data_structures/module3.pdf" }
+        ],
+        "Discrete Mathematics": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem2/discrete_math/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem2/discrete_math/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem2/discrete_math/module3.pdf" }
+        ]
+      },
+      "3": {
+        "Computer Networks": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem3/computer_networks/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem3/computer_networks/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem3/computer_networks/module3.pdf" }
+        ],
+        "Database Management Systems": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem3/dbms/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem3/dbms/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem3/dbms/module3.pdf" }
+        ]
+      },
+      "4": {
+        "Software Engineering": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem4/software_engineering/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem4/software_engineering/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem4/software_engineering/module3.pdf" }
+        ],
+        "Operating Systems": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem4/operating_systems/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem4/operating_systems/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem4/operating_systems/module3.pdf" }
+        ]
+      },
+      "5": {
+        "Computer Networks": [
+          { "title": "Module 1", "url": "https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=drive_link" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem5/web_technology/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem5/web_technology/module3.pdf" },
+          { "title": "Module 4", "url": "https://example.com/cse/sem5/web_technology/module3.pdf" },
+          { "title": "Module 5", "url": "https://example.com/cse/sem5/web_technology/module3.pdf" }
+        ],
+        "Software Engineering": [
+          { "title": "Module 1", "url": "https://drive.google.com/file/d/11zSATLLhk3bFxg7_WRWyTWkdQE4SMeH8/view?usp=drive_link" },
+          { "title": "Module 2", "url": "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=drive_link" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem5/mobile_computing/module3.pdf" },
+          { "title": "Module 4", "url": "https://example.com/cse/sem5/web_technology/module3.pdf" },
+          { "title": "Module 5", "url": "https://example.com/cse/sem5/web_technology/module3.pdf" }
+        ],
+        "Theory oF Computation": [
+          { "title": "Module 1", "url": "https://drive.google.com/file/d/1oq8zg8uECixF-0JSIcv60ZBX2hcMmIG8/view?usp=sharing" },
+          { "title": "Module 2", "url": "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=drive_link" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem5/mobile_computing/module3.pdf" },
+          { "title": "Module 4", "url": "https://example.com/cse/sem5/web_technology/module3.pdf" },
+          { "title": "Module 5", "url": "https://example.com/cse/sem5/web_technology/module3.pdf" },
+          { "title": "QUESTION BANK", "url": "https://example.com/cse/sem5/web_technology/module3.pdf" }
+          
+        ],
+        "RMIP": [
+          { "title": "Module 1", "url": "https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing" },
+          { "title": "Module 2", "url": "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=drive_link" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem5/mobile_computing/module3.pdf" },
+          { "title": "Module 4", "url": "https://example.com/cse/sem5/web_technology/module3.pdf" },
+          { "title": "Module 5", "url": "https://example.com/cse/sem5/web_technology/module3.pdf" },
+          { "title": "QUESTION BANK", "url": "https://example.com/cse/sem5/web_technology/module3.pdf" }
+        ]
+      },
+      "6": {
+        "Machine Learning": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem6/machine_learning/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem6/machine_learning/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem6/machine_learning/module3.pdf" }
+        ],
+        "Compiler Design": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem6/compiler_design/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem6/compiler_design/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem6/compiler_design/module3.pdf" }
+        ]
+      },
+      "7": {
+        "Cloud Computing": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem7/cloud_computing/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem7/cloud_computing/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem7/cloud_computing/module3.pdf" }
+        ],
+        "Big Data": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem7/big_data/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem7/big_data/module2.pdf" },
+          { "title": "Module 3", "url": "https://example.com/cse/sem7/big_data/module3.pdf" }
+        ]
+      },
+      "8": {
+        "Project Work": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem8/project_work/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem8/project_work/module2.pdf" }
+        ],
+        "Entrepreneurship": [
+          { "title": "Module 1", "url": "https://example.com/cse/sem8/entrepreneurship/module1.pdf" },
+          { "title": "Module 2", "url": "https://example.com/cse/sem8/entrepreneurship/module2.pdf" }
+        ]
+      }
+    }
+  }
+  

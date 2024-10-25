@@ -1,0 +1,48 @@
+/* src/components/Signup.css */
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #e0f7fa; /* Background color */
+}
+
+.signup-container h2 {
+    margin-bottom: 20px;
+}
+
+.signup-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.signup-container input {
+    padding: 10px;
+    border: 1px solid #00796b;
+    border-radius: 5px;
+}
+
+.signup-container button {
+    padding: 10px;
+    border: none;
+    background-color: #00796b;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-container button:hover {
+    background-color: #004d40; /* Darker shade on hover */
+}
+
+.google-signup {
+    background-color: #4285F4; /* Google blue */
+    color: white;
+    margin-top: 10px;
+}
+
+.google-signup:hover {
+    background-color: #357ae8; /* Darker Google blue */
+}

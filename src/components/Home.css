@@ -1,0 +1,97 @@
+/* Home.css */
+
+/* Container for the main content */
+.home-container {
+  background: linear-gradient(135deg, #f1f8e9, #a5d6a7);
+  color: #1b5e20;
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+/* Header style for the homepage */
+.home-header {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ff7f50, #ffcc00);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Courses section styles */
+.courses-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Course card styling */
+.course-card {
+  background: linear-gradient(135deg, #ff4081, #ffcc00); /* Vibrant gradient */
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  position: relative; /* For pseudo-elements */
+  overflow: hidden; /* To hide overflow */
+}
+
+/* Pseudo-element for a modern look */
+.course-card::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+  z-index: 0; /* Behind content */
+}
+
+.course-card:hover::before {
+  transform: translate(-50%, -50%) scale(1.5); /* Expand on hover */
+}
+
+/* Course card hover effect */
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Links within the course cards */
+.course-card a {
+  color: #fff; /* Bright text color */
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  position: relative; /* For pseudo-elements */
+  z-index: 1; /* Above the background */
+  transition: color 0.3s ease;
+}
+
+.course-card a:hover {
+  color: #ffcc00; /* Change color on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .home-container {
+    padding: 15px;
+  }
+
+  .home-header {
+    font-size: 2rem;
+  }
+
+  .course-card {
+    background: linear-gradient(135deg, #3f51b5, #2196f3); /* Different gradient for mobile */
+  }
+}

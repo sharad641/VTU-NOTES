@@ -1,0 +1,98 @@
+/* src/components/Branch.css */
+.branch {
+    padding: 100px 20px;
+    text-align: center;
+    background: linear-gradient(to right, #f9fbe7, #639abc); /* Softer background gradient */
+    color: #4e342e;
+    min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+}
+
+.branch h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #3e2723;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.branch h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 4px;
+    background-color: #ff7043;
+    border-radius: 50px;
+}
+
+.branch p {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    color: #5d4037;
+}
+
+.branch ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px; /* Consistent spacing between items */
+}
+
+.branch li {
+    width: 280px;
+    height: 70px;
+    background-color: #3e2723; /* Darker, richer background for boxes */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.branch li::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 200%;
+    background-color: rgba(255, 112, 67, 0.2); /* Orange highlight on hover */
+    transition: all 0.4s ease;
+    transform: rotate(30deg);
+}
+
+.branch li:hover::before {
+    top: 0;
+}
+
+.branch li:hover {
+    transform: translateY(-8px); /* Lift effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25); /* Deeper shadow on hover */
+}
+
+.branch li a {
+    text-decoration: none;
+    color: #ffffff; /* White text color */
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1; /* Keep text above highlight effect */
+    transition: color 0.3s ease;
+}
+
+.branch li a:hover {
+    color: #ffcc80; /* Highlight text color on hover */
+}
