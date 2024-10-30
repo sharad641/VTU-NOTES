@@ -1,107 +1,100 @@
-.signup-container {
-    max-width: 400px; /* Set max width for the container */
-    margin: 100px auto; /* Center the container */
-    padding: 20px; /* Add padding */
-    border: 1px solid #0c0c0c; /* Add border */
-    border-radius: 8px; /* Round corners */
-    background-color: #e1dada; /* Background color */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
-    transition: box-shadow 0.3s; /* Smooth shadow transition */
+/* src/components/Subjects.css */
+.subjects {
+    padding: 100px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #f1f8e9, #a5d6a7);
+    color: #1b5e20;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
 }
 
-.signup-container:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+.subjects h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #2e7d32;
+    letter-spacing: 3px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
-.signup-container h2 {
-    text-align: center; /* Center the heading */
-    margin-bottom: 20px; 
-    margin-top: 30px; /* Space below heading */
-    color: #00796b; /* Heading color */
+.subjects h2::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 5px;
+    background-color: #66bb6a;
+    bottom: 0;
+    left: 10%;
+    border-radius: 50px;
 }
 
-.form-group {
-    margin-bottom: 15px; /* Space between form groups */
+.subjects h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: #388e3c;
+    letter-spacing: 1px;
 }
 
-.signup-container label {
-    display: block; /* Block display for labels */
-    margin-bottom: 5px; /* Space below labels */
-    font-weight: bold; /* Bold labels */
+.subjects ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
 
-.signup-container .input-field {
-    width: 100%; /* Full width for input fields */
-    padding: 10px; /* Padding for input fields */
-    border: 1px solid #0d0c0c; /* Border for input fields */
-    border-radius: 4px; /* Round corners */
-    transition: border-color 0.3s; /* Smooth border transition */
+.subjects li {
+    width: 200px;
+    background: #81c784;
+    padding: 15px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
 }
 
-.signup-container .input-field:focus {
-    border-color: #00796b; /* Border color on focus */
-    outline: none; /* Remove outline */
+.subjects li:hover {
+    background: #4caf50;
+    transform: translateY(-10px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
 }
 
-.signup-container .signup-button {
-    width: 100%; /* Full width for button */
-    padding: 10px; /* Padding for button */
-    background-color: #00796b; /* Button background color */
-    color: white; /* Button text color */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Round corners */
-    cursor: pointer; /* Pointer cursor */
-    font-size: 16px; /* Font size for button */
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
-    margin-top: 10px; /* Space above the button */
+.subjects li button {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.signup-container .signup-button:hover {
-    background-color: #005b4f; /* Darker shade on hover */
-    transform: translateY(-2px); /* Slight lift effect on hover */
+.subjects li button:hover {
+    color: #e8f5e9;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
-.google-signup {
-    width: 100%; /* Full width for button */
-    padding: 10px; /* Padding for button */
-    background-color: #db4437; /* Google color */
-    color: white; /* Button text color */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Round corners */
-    cursor: pointer; /* Pointer cursor */
-    font-size: 16px; /* Font size for button */
-    margin-top: 5px; /* Space above the button */
-    transition: background-color 0.3s; /* Smooth transition */
+.subjects li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.4s ease;
+    transform: rotate(45deg);
 }
 
-.google-signup:hover {
-    background-color: #c13528; /* Darker shade on hover */
-}
-
-.divider {
-    text-align: center; /* Center the divider */
-    margin: 10px 0; /* Space above and below */
-    font-weight: bold; /* Bold text */
-    margin-top: 30px;
-}
-
-.signup-option {
-    text-align: center; /* Center text */
-    margin-top: 10px; /* Space above */
-}
-
-.signup-option a {
-    color: #00796b; /* Link color */
-    text-decoration: underline; /* Underline link */
-    transition: color 0.3s; /* Smooth color transition */
-}
-
-.signup-option a:hover {
-    color: #005b4f; /* Darker shade on hover */
-}
-
-.error-message {
-    color: red; /* Red color for error message */
-    text-align: center; /* Center error message */
-    margin-bottom: 15px; /* Space below error message */
+.subjects li:hover::before {
+    left: 100%;
 }
