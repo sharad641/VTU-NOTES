@@ -29,7 +29,7 @@ const Signup = () => {
         setIsSubmitting(true);
 
         try {
-            const result = await signInWithPopup(auth, provider);
+            await signInWithPopup(auth, provider); // Removed 'result' variable to avoid ESLint error
             alert('Signup with Google successful!');
         } catch (err) {
             setError(`Error: ${err.message}`);
