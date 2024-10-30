@@ -1,5 +1,3 @@
-/* Home.css */
-
 /* Container for the main content */
 .home-container {
   background: linear-gradient(135deg, #f1f8e9, #a5d6a7);
@@ -8,7 +6,6 @@
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  color: #fff;
   margin-bottom: 40px;
 }
 
@@ -19,6 +16,7 @@
   margin-bottom: 20px;
   background: linear-gradient(135deg, #ff7f50, #ffcc00);
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -27,25 +25,30 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 20px;
+  margin-top: 20px;
 }
 
 /* Course card styling */
 .course-card {
-  background: linear-gradient(135deg, #ff4081, #ffcc00); /* Vibrant gradient */
+  background: linear-gradient(135deg, #ff4081, #ffcc00);
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
-  position: relative; /* For pseudo-elements */
-  overflow: hidden; /* To hide overflow */
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Pseudo-element for a modern look */
 .course-card::before {
   content: '';
   position: absolute;
-  top: 10%;
+  top: 50%;
   left: 50%;
   width: 300%;
   height: 300%;
@@ -53,11 +56,11 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
   transition: transform 0.3s ease;
-  z-index: 0; /* Behind content */
+  z-index: 0;
 }
 
 .course-card:hover::before {
-  transform: translate(-50%, -50%) scale(1.5); /* Expand on hover */
+  transform: translate(-50%, -50%) scale(1.5);
 }
 
 /* Course card hover effect */
@@ -68,17 +71,17 @@
 
 /* Links within the course cards */
 .course-card a {
-  color: #fff; /* Bright text color */
+  color: #fff;
   text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
-  position: relative; /* For pseudo-elements */
-  z-index: 1; /* Above the background */
+  position: relative;
+  z-index: 1;
   transition: color 0.3s ease;
 }
 
 .course-card a:hover {
-  color: #ffcc00; /* Change color on hover */
+  color: #ffcc00;
 }
 
 /* Responsive styles */
@@ -91,7 +94,30 @@
     font-size: 2rem;
   }
 
+  /* Full-width course cards on mobile */
+  .courses-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
   .course-card {
-    background: linear-gradient(135deg, #3f51b5, #2196f3); /* Different gradient for mobile */
+    background: linear-gradient(135deg, #3f51b5, #2196f3);
+    width: 100%;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .home-container {
+    padding: 10px;
+  }
+
+  .home-header {
+    font-size: 1.8rem;
+  }
+
+  .course-card a {
+    font-size: 1rem;
   }
 }
