@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { auth } from '../firebase'; // Adjust the path based on your structure
+import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import './Signup.css';
 
@@ -7,53 +7,54 @@ const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [isSubmitting, setIsSubmitting] = useState(false); // State to handle loading
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(''); // Clear previous errors
-        setIsSubmitting(true); // Set loading state
+        setError('');
+        setIsSubmitting(true);
 
         try {
-            // Create a new user with email and password
             await createUserWithEmailAndPassword(auth, email, password);
             console.log('User signed up:', email);
-            alert('Signup successful!'); // Optional: Notify the user
+            alert('Signup successful!');
         } catch (err) {
-            setError(`Error: ${err.message}`); // Set error message
+            setError(`Error: ${err.message}`);
             console.error('Error signing up:', err.message);
         } finally {
-            setIsSubmitting(false); // Reset loading state
+            setIsSubmitting(false);
         }
     };
 
     const handleGoogleSignup = async () => {
         const provider = new GoogleAuthProvider();
-        setIsSubmitting(true); // Set loading state
+        setError('');
+        setIsSubmitting(true);
+
         try {
-            // Sign in with Google
             const result = await signInWithPopup(auth, provider);
             console.log('User signed up with Google:', result.user);
-            alert('Signup with Google successful!'); // Optional: Notify the user
+            alert('Signup with Google successful!');
         } catch (err) {
-            setError(`Error: ${err.message}`); // Set error message
+            setError(`Error: ${err.message}`);
             console.error('Error signing up with Google:', err.message);
         } finally {
-            setIsSubmitting(false); // Reset loading state
+            setIsSubmitting(false);
         }
     };
 
     return (
         <div className="signup-container">
             <h2>Sign Up</h2>
-            {error && <p className="error">{error}</p>} {/* Display error message */}
-            <form onSubmit={handleSubmit}>
+            {error && <p className="error">{error}</p>}
+            <form onSubmit={handleSubmit} aria-busy={isSubmitting}>
                 <input
                     type="email"
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    disabled={isSubmitting}
                 />
                 <input
                     type="password"
@@ -61,12 +62,17 @@ const Signup = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    disabled={isSubmitting}
                 />
                 <button type="submit" disabled={isSubmitting}>
                     {isSubmitting ? 'Signing Up...' : 'Sign Up'}
                 </button>
             </form>
-            <button className="google-signup" onClick={handleGoogleSignup} disabled={isSubmitting}>
+            <button
+                className="google-signup"
+                onClick={handleGoogleSignup}
+                disabled={isSubmitting}
+            >
                 {isSubmitting ? 'Signing Up with Google...' : 'Sign Up with Google'}
             </button>
         </div>
