@@ -4,45 +4,113 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Full viewport height */
-    background-color: #e0f7fa; /* Background color */
+    min-height: 100vh; /* Full viewport height */
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2); /* Modern gradient background */
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .signup-container h2 {
     margin-bottom: 20px;
+    color: #004d40;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
 }
 
 .signup-container form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    width: 100%;
+    max-width: 400px; /* Set max width for desktop */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    animation: fadeIn 0.5s ease-in-out; /* Subtle animation on load */
 }
 
 .signup-container input {
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #00796b;
-    border-radius: 5px;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.signup-container input:focus {
+    border-color: #004d40; /* Highlight on focus */
 }
 
 .signup-container button {
-    padding: 10px;
+    padding: 12px;
     border: none;
     background-color: #00796b;
     color: white;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
 }
 
 .signup-container button:hover {
     background-color: #004d40; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 .google-signup {
     background-color: #4285F4; /* Google blue */
     color: white;
     margin-top: 10px;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 .google-signup:hover {
     background-color: #357ae8; /* Darker Google blue */
+    transform: scale(1.05);
+}
+
+/* Error message styling */
+.error {
+    color: #d32f2f;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #d32f2f;
+    border-radius: 5px;
+    background-color: #ffebee;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .signup-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .signup-container form {
+        padding: 15px;
+        max-width: 100%; /* Full width on smaller screens */
+        box-shadow: none; /* Remove shadow for simplicity on mobile */
+    }
+
+    .signup-container input, 
+    .signup-container button, 
+    .google-signup {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
