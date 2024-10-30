@@ -7,32 +7,39 @@ const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false); // State to handle loading
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(''); // Clear previous errors
+        setIsSubmitting(true); // Set loading state
 
         try {
             // Create a new user with email and password
             await createUserWithEmailAndPassword(auth, email, password);
             console.log('User signed up:', email);
-            // Optionally redirect or show a success message
+            alert('Signup successful!'); // Optional: Notify the user
         } catch (err) {
-            setError(err.message); // Set error message
+            setError(`Error: ${err.message}`); // Set error message
             console.error('Error signing up:', err.message);
+        } finally {
+            setIsSubmitting(false); // Reset loading state
         }
     };
 
     const handleGoogleSignup = async () => {
         const provider = new GoogleAuthProvider();
+        setIsSubmitting(true); // Set loading state
         try {
             // Sign in with Google
             const result = await signInWithPopup(auth, provider);
             console.log('User signed up with Google:', result.user);
-            // Optionally redirect or show a success message
+            alert('Signup with Google successful!'); // Optional: Notify the user
         } catch (err) {
-            setError(err.message); // Set error message
+            setError(`Error: ${err.message}`); // Set error message
             console.error('Error signing up with Google:', err.message);
+        } finally {
+            setIsSubmitting(false); // Reset loading state
         }
     };
 
@@ -55,10 +62,12 @@ const Signup = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-                <button type="submit">Sign Up</button>
+                <button type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? 'Signing Up...' : 'Sign Up'}
+                </button>
             </form>
-            <button className="google-signup" onClick={handleGoogleSignup}>
-                Sign Up with Google
+            <button className="google-signup" onClick={handleGoogleSignup} disabled={isSubmitting}>
+                {isSubmitting ? 'Signing Up with Google...' : 'Sign Up with Google'}
             </button>
         </div>
     );
