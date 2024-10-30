@@ -1,26 +1,71 @@
-// src/firebase.js
-import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
-import { getStorage } from 'firebase/storage';
-import { getFirestore } from 'firebase/firestore';
+import React, { useState } from 'react';
+import { auth } from '../firebase';
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import './Signup.css';
 
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCsVGY76nf-BpVOaU8USwAbyt6_nXgenB4",
-  authDomain: "vtu-notes-e1d8d.firebaseapp.com",
-  projectId: "vtu-notes-e1d8d",
-  storageBucket: "vtu-notes-e1d8d.appspot.com",
-  messagingSenderId: "572338268953",
-  appId: "1:572338268953:web:b99b118dda90819a817388",
-  measurementId: "G-79CH5X9VL3"
+const Signup = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('');
+        setIsSubmitting(true);
+
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            alert('Signup successful!');
+        } catch (err) {
+            setError(`Error: ${err.message}`);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    const handleGoogleSignup = async () => {
+        const provider = new GoogleAuthProvider();
+        setIsSubmitting(true);
+
+        try {
+            const result = await signInWithPopup(auth, provider);
+            alert('Signup with Google successful!');
+        } catch (err) {
+            setError(`Error: ${err.message}`);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    return (
+        <div className="signup-container">
+            <h2>Sign Up</h2>
+            {error && <p className="error">{error}</p>}
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
+                <input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
+                <button type="submit" disabled={isSubmitting}>
+                    {isSubmitting ? 'Signing Up...' : 'Sign Up'}
+                </button>
+            </form>
+            <button className="google-signup" onClick={handleGoogleSignup} disabled={isSubmitting}>
+                {isSubmitting ? 'Signing Up with Google...' : 'Sign Up with Google'}
+            </button>
+        </div>
+    );
 };
 
-// Initialize Firebase app if not already initialized
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-
-// Initialize Firebase services
-const auth = getAuth(app);
-const storage = getStorage(app);
-const firestore = getFirestore(app);
-
-export { auth, storage, firestore };
+export default Signup;
