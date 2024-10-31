@@ -646,6 +646,169 @@ const ModuleDetail = () => {
                 },
             }
         
+        ],
+        5: [
+            {
+                title: 'Software Engineering & Project Managements',
+                modules: [
+                    { title: 'Module 1: Notes', content: 'Comprehensive notes for Module 1.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 2: Notes', content: 'Comprehensive notes for Module 2.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                    { title: 'Module 3: Notes', content: 'Comprehensive notes for Module 3.', downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing' },
+                    { title: 'Module 4: Notes', content: 'Comprehensive notes for Module 4.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 5: Notes', content: 'Comprehensive notes for Module 5.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                ],
+                questionPaper: {
+                    title: 'Question Paper',
+                    content: 'Past question paper for Mathematics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing',
+                },
+                questionBank: {
+                    title: 'Question Bank',
+                    content: 'Question bank for Mathematics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing',
+                },
+            },
+            {
+                title: 'COMPUTER NETWORKS',
+                modules: [
+                    { title: 'Module 1: Notes', content: 'Introduction to Digital Design', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 2: Notes', content: 'Combinational Logic.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                    { title: 'Module 3: Notes', content: 'Comprehensive notes for Module 3.', downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing' },
+                    { title: 'Module 4: Notes', content: 'Comprehensive notes for Module 4.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 5: Notes', content: 'Comprehensive notes for Module 5.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                ],
+                questionPaper: {
+                    title: 'Question Paper',
+                    content: 'Past question paper for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing',
+                },
+                questionBank: {
+                    title: 'Question Bank',
+                    content: 'Question bank for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing',
+                },
+            },
+            {
+                title: 'THEORY OF COMPUTATION ',
+                modules: [
+                    { title: 'Module 1: Notes', content: 'Comprehensive notes for Module 1.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 2: Notes', content: 'Comprehensive notes for Module 2.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                    { title: 'Module 3: Notes', content: 'Comprehensive notes for Module 3.', downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing' },
+                    { title: 'Module 4: Notes', content: 'Comprehensive notes for Module 4.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 5: Notes', content: 'Comprehensive notes for Module 5.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                ],
+                questionPaper: {
+                    title: 'Question Paper',
+                    content: 'Past question paper for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing',
+                },
+                questionBank: {
+                    title: 'Question Bank',
+                    content: 'Question bank for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing',
+                },
+            },
+            {
+                title: 'ARTIFICIAL INTELLIGENCE  ',
+                modules: [
+                    { title: 'Module 1: Notes', content: 'Comprehensive notes for Module 1.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 2: Notes', content: 'Comprehensive notes for Module 2.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                    { title: 'Module 3: Notes', content: 'Comprehensive notes for Module 3.', downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing' },
+                    { title: 'Module 4: Notes', content: 'Comprehensive notes for Module 4.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 5: Notes', content: 'Comprehensive notes for Module 5.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                ],
+                questionPaper: {
+                    title: 'Question Paper',
+                    content: 'Past question paper for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing',
+                },
+                questionBank: {
+                    title: 'Question Bank',
+                    content: 'Question bank for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing',
+                },
+            },
+            {
+                title: 'FULL STACK DEVELOPMENT',
+                modules: [
+                    { title: 'Module 1: Notes', content: 'Comprehensive notes for Module 1.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 2: Notes', content: 'Comprehensive notes for Module 2.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                    { title: 'Module 3: Notes', content: 'Comprehensive notes for Module 3.', downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing' },
+                    { title: 'Module 4: Notes', content: 'Comprehensive notes for Module 4.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 5: Notes', content: 'Comprehensive notes for Module 5.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                ],
+                questionPaper: {
+                    title: 'Question Paper',
+                    content: 'Past question paper for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing',
+                },
+                questionBank: {
+                    title: 'Question Bank',
+                    content: 'Question bank for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing',
+                },
+            },
+            {
+                title: 'Analysis & Design of Algorithms Lab',
+                modules: [
+                    { title: 'Module 1: Notes', content: 'Comprehensive notes for Module 1.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 2: Notes', content: 'Comprehensive notes for Module 2.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                    { title: 'Module 3: Notes', content: 'Comprehensive notes for Module 3.', downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing' },
+                    { title: 'Module 4: Notes', content: 'Comprehensive notes for Module 4.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 5: Notes', content: 'Comprehensive notes for Module 5.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                ],
+                questionPaper: {
+                    title: 'Question Paper',
+                    content: 'Past question paper for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing',
+                },
+                questionBank: {
+                    title: 'Question Bank',
+                    content: 'Question bank for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing',
+                },
+            },
+            {
+                title: 'ARTIFICIAL INTELLIGENCE',
+                modules: [
+                    { title: 'Module 1: Notes', content: 'Comprehensive notes for Module 1.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 2: Notes', content: 'Comprehensive notes for Module 2.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                    { title: 'Module 3: Notes', content: 'Comprehensive notes for Module 3.', downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing' },
+                    { title: 'Module 4: Notes', content: 'Comprehensive notes for Module 4.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 5: Notes', content: 'Comprehensive notes for Module 5.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                ],
+                questionPaper: {
+                    title: 'Question Paper',
+                    content: 'Past question paper for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing',
+                },
+                questionBank: {
+                    title: 'Question Bank',
+                    content: 'Question bank for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing',
+                },
+            },
+            {
+                title: 'OPTIMIZATION TECHNIQUE',
+                modules: [
+                    { title: 'Module 1: Notes', content: 'Comprehensive notes for Module 1.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 2: Notes', content: 'Comprehensive notes for Module 2.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                    { title: 'Module 3: Notes', content: 'Comprehensive notes for Module 3.', downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing' },
+                    { title: 'Module 4: Notes', content: 'Comprehensive notes for Module 4.', downloadUrl: 'https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/view?usp=sharing' },
+                    { title: 'Module 5: Notes', content: 'Comprehensive notes for Module 5.', downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing' },
+                ],
+                questionPaper: {
+                    title: 'Question Paper',
+                    content: 'Past question paper for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing',
+                },
+                questionBank: {
+                    title: 'Question Bank',
+                    content: 'Question bank for Applied Physics for CSE.',
+                    downloadUrl: 'https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing',
+                },
+            }
+        
         ]
        }
        
