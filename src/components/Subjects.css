@@ -1,15 +1,16 @@
 /* src/components/Subjects.css */
+
 .subjects {
-    padding: 100px 20px;
+    padding: 80px 20px;
     text-align: center;
-    background: linear-gradient(135deg, #f1f8e9, #a5d6a7);
+    background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
     color: #1b5e20;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
 }
 
 .subjects h2 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 30px;
     text-transform: uppercase;
     font-weight: 700;
@@ -32,7 +33,7 @@
 }
 
 .subjects h3 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     margin-bottom: 20px;
     font-weight: 400;
     color: #388e3c;
@@ -42,30 +43,69 @@
 .subjects ul {
     list-style-type: none;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ensured minimum width */
     gap: 20px;
+    justify-items: center;
 }
 
 .subjects li {
-    width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.subject-box {
     background: #81c784;
-    padding: 15px;
+    padding: 20px;
     border-radius: 15px;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    text-align: left;
+    width: 100%;
+    height: 250px; /* Fixed height for uniformity */
+    max-width: 300px; /* Set a max width for better sizing */
 }
 
-.subjects li:hover {
+.subject-box:hover {
     background: #4caf50;
-    transform: translateY(-10px);
+    transform: translateY(-10px) scale(1.03);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
 }
 
-.subjects li button {
+.subject-box .subject-info {
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.subject-box .subject-code {
+    font-size: 0.9rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.subject-box .credits-box {
+    font-size: 1rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 5px; /* Add some spacing between code and credits */
+}
+
+.subject-box .subject-details {
+    font-size: 1rem;
+    color: #fff;
+    margin-top: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.subject-box button {
     text-decoration: none;
     color: #ffffff;
     font-weight: 600;
@@ -75,15 +115,16 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    font-size: 1.2rem;
 }
 
-.subjects li button:hover {
+.subject-box button:hover {
     color: #e8f5e9;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
-.subjects li::before {
+.subject-box::before {
     content: '';
     position: absolute;
     top: 0;
@@ -95,6 +136,63 @@
     transform: rotate(45deg);
 }
 
-.subjects li:hover::before {
+.subject-box:hover::before {
     left: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .subjects h2 {
+        font-size: 2.8rem;
+    }
+
+    .subjects h3 {
+        font-size: 2rem;
+    }
+
+    .subject-box {
+        padding: 15px;
+        max-width: 90%; /* Ensure boxes fit nicely on smaller screens */
+        height: 220px; /* Slightly adjust height for smaller screens */
+    }
+
+    .subject-box .subject-code {
+        font-size: 0.8rem;
+    }
+
+    .subject-box .credits-box {
+        font-size: 0.9rem; /* Adjust credit box font size for smaller screens */
+    }
+
+    .subject-box button {
+        font-size: 1rem;
+    }
+
+    .subject-details {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .subjects h2 {
+        font-size: 2.5rem;
+    }
+
+    .subjects h3 {
+        font-size: 1.8rem;
+    }
+
+    .subject-box {
+        padding: 10px;
+        max-width: 95%; /* Further adjust for very small screens */
+        height: 200px; /* Reduce height for very small screens */
+    }
+
+    .subject-box .subject-code {
+        font-size: 0.7rem;
+    }
+
+    .subject-box .credits-box {
+        font-size: 0.8rem; /* Adjust credit box font size for extra small screens */
+    }
 }

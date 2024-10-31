@@ -1,11 +1,9 @@
-/* Navbar.css */
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px; /* Reduced padding */
-  background: linear-gradient(to right, #f9fbe7, #639abc);/* Glassmorphism effect */
+  background: linear-gradient(to right, #f9fbe7, #639abc); /* Glassmorphism effect */
   backdrop-filter: blur(10px);
   color: #fff; /* White text for contrast */
   position: sticky; /* Sticky positioning */
@@ -50,6 +48,7 @@
   display: flex; /* Horizontal layout for desktop */
   margin: 0;
   padding: 0;
+  gap: 20px; /* Added gap between items for spacing */
 }
 
 .nav-item {

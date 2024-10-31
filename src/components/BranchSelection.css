@@ -1,0 +1,148 @@
+/* src/components/BranchSelection.css */
+
+.branch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #6C63FF, #3E64FF);
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+.branch-header {
+  font-size: 2.5rem; /* Increased size for larger screens */
+  font-weight: 800;
+  margin-bottom: 30px;
+  color: #FFFFFF;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Deeper shadow for more contrast */
+  animation: fadeIn 1s ease-in-out; /* Added fade-in effect */
+}
+
+.branch-section {
+  display: grid;
+  grid-template-columns: 1fr; /* Default to single column */
+  gap: 20px; /* Increased gap for better spacing */
+  width: 90%;
+  max-width: 1200px; /* Maximum width for larger screens */
+  padding: 0 20px;
+  animation: fadeInUp 1s ease-in-out; /* Animation for section appearance */
+}
+
+.branch-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 140px; /* Adjusted height */
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Slightly darker shadow */
+  backdrop-filter: blur(10px); /* Background blur effect */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* More visible border */
+  cursor: pointer; /* Pointer cursor for interactivity */
+  transition: all 0.3s ease; /* Smooth transitions */
+  position: relative; /* Positioned for pseudo-element */
+  overflow: hidden; /* Prevent overflow */
+  text-align: center;
+  width: 100%; /* Full width */
+}
+
+.branch-card:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2)); /* Layered gradient effect */
+  z-index: 1; /* Place below text */
+  opacity: 0; /* Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth appearance */
+}
+
+.branch-card:hover:before {
+  opacity: 1; /* Show on hover */
+}
+
+.branch-card:hover {
+  transform: translateY(-6px) scale(1.03); /* Enhanced hover effect */
+  background: rgba(255, 255, 255, 0.25); /* Lighten on hover */
+}
+
+.branch-card .branch-card-text {
+  z-index: 2; /* Above the background layer */
+  font-size: 1.3rem; /* Increased font size for better readability */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow for text */
+}
+
+/* Responsive Layouts */
+@media (max-width: 600px) {
+  .branch-header {
+    font-size: 2.2rem; /* Smaller font size for mobile */
+  }
+
+  .branch-card {
+    padding: 15px; /* Adjusted padding */
+    min-height: 120px; /* Reduced height for smaller screens */
+  }
+}
+
+@media (min-width: 600px) {
+  .branch-header {
+    font-size: 2.4rem; /* Medium screens */
+  }
+
+  .branch-card {
+    padding: 20px; /* Padding for medium screens */
+    min-height: 130px; /* Height adjustment */
+  }
+}
+
+@media (min-width: 768px) {
+  .branch-section {
+    grid-template-columns: 1fr 1fr; /* Two columns for tablets */
+  }
+
+  .branch-header {
+    font-size: 2.6rem; /* Larger font for tablets */
+  }
+
+  .branch-card {
+    font-size: 1.2rem; /* Font size for cards */
+    min-height: 140px; /* Consistent height */
+  }
+}
+
+@media (min-width: 1024px) {
+  .branch-section {
+    grid-template-columns: 1fr 1fr 1fr; /* Three columns for desktops */
+  }
+
+  .branch-card {
+    padding: 25px; /* Increased padding */
+    min-height: 150px; /* Height adjustment */
+    font-size: 1.3rem; /* Font size for cards */
+  }
+
+  .branch-header {
+    font-size: 2.8rem; /* Header size for larger screens */
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

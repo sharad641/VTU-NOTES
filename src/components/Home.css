@@ -1,97 +1,302 @@
-/* Home.css */
+/* src/components/Home.css */
 
-/* Container for the main content */
+/* Main container styling */
 .home-container {
-  background: linear-gradient(135deg, #f1f8e9, #a5d6a7);
-  color: #1b5e20;
-  backdrop-filter: blur(10px);
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  color: #fff;
-  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
 }
 
-/* Header style for the homepage */
-.home-header {
-  font-size: 2.5rem;
-  font-weight: bold;
+/* Headline message */
+.headline-message {
+  background: linear-gradient(135deg, #ff8a65, #ff7043);
+  padding: 20px 30px;
+  border-radius: 10px;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #ff7f50, #ffcc00);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Courses section styles */
-.courses-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-/* Course card styling */
-.course-card {
-  background: linear-gradient(135deg, #ff4081, #ffcc00); /* Vibrant gradient */
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s, box-shadow 0.3s;
-  text-align: center;
-  position: relative; /* For pseudo-elements */
-  overflow: hidden; /* To hide overflow */
-}
-
-/* Pseudo-element for a modern look */
-.course-card::before {
-  content: '';
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  width: 300%;
-  height: 300%;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 0.3s ease;
-  z-index: 0; /* Behind content */
-}
-
-.course-card:hover::before {
-  transform: translate(-50%, -50%) scale(1.5); /* Expand on hover */
-}
-
-/* Course card hover effect */
-.course-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* Links within the course cards */
-.course-card a {
-  color: #fff; /* Bright text color */
-  text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
-  position: relative; /* For pseudo-elements */
-  z-index: 1; /* Above the background */
-  transition: color 0.3s ease;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.2s ease-in-out, slideIn 0.5s ease forwards;
 }
 
-.course-card a:hover {
-  color: #ffcc00; /* Change color on hover */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Responsive styles */
+@keyframes slideIn {
+  from { transform: translateY(-20px); }
+  to { transform: translateY(0); }
+}
+
+/* Marquee Text */
+.marquee-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 12s linear infinite;
+}
+
+/* Keyframes for marquee */
+@keyframes marquee {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+/* Scheme Selection Box */
+.scheme-selection-box {
+  background: linear-gradient(135deg, #a8e063, #56ab2f);
+  padding: 35px;
+  border-radius: 15px;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+  margin-bottom: 25px;
+  transition: transform 0.3s, background 0.3s ease;
+  animation: fadeIn 1s ease;
+}
+
+.scheme-selection-box:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #56ab2f, #a8e063); /* Reversed gradient on hover */
+}
+
+.scheme-selection-box h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+/* Links */
+.scheme-link {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background-color: #333;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  transition: background-color 0.3s, transform 0.2s ease, box-shadow 0.2s;
+}
+
+.scheme-link:hover {
+  background-color: #555;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Links */
+.scheme-link {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 12px 24px;
+  border-radius: 10px; /* More rounded corners for a softer look */
+  background-color: #444; /* Darker background for better contrast */
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  position: relative; /* For positioning the pseudo-element */
+  overflow: hidden; /* To contain the pseudo-element */
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.scheme-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2); /* Subtle highlight effect */
+  transform: translateX(-100%) scaleX(0);
+  transition: transform 0.4s ease;
+  z-index: 0; /* Behind the text */
+  border-radius: 10px; /* Match border radius */
+}
+
+.scheme-link:hover {
+  background-color: #555;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.scheme-link:hover::before {
+  transform: translateX(0) scaleX(1); /* Show highlight effect on hover */
+}
+
+.scheme-link span {
+  position: relative; /* Position text above the pseudo-element */
+  z-index: 1; /* Ensure text is above the highlight */
+}
+
+/* Social Links Box */
+.social-links-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #4e8de4, #16222a); /* More vibrant gradient */
+  padding: 40px; /* Increased padding for a spacious look */
+  border-radius: 15px; /* Rounded corners */
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+  margin-bottom: 30px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 1s ease;
+}
+
+.social-links-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.5); /* Deeper shadow on hover */
+}
+
+.social-links-box h2 {
+  font-size: 2.2rem; /* Slightly larger for emphasis */
+  color: #fff;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+/* Social Links Container */
+.social-links-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Social Link Styling */
+.social-link {
+  display: inline-block;
+  padding: 14px 20px; /* Adjusted for a rectangular look */
+  font-size: 1.1rem;
+  border-radius: 8px; /* Rounded corners */
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s, background-color 0.3s;
+  position: relative; /* For pseudo-element positioning */
+  overflow: hidden; /* To contain the pseudo-element */
+}
+
+.social-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2); /* Highlight effect */
+  transform: translateX(-100%) scaleX(0);
+  transition: transform 0.4s ease;
+  z-index: 0; /* Behind the text */
+  border-radius: 8px; /* Match border radius */
+}
+
+.social-link.instagram { background-color: #E4405F; }
+.social-link.telegram { background-color: #0088CC; }
+.social-link.whatsapp { background-color: #25D366; }
+
+.social-link:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+.social-link:hover::before {
+  transform: translateX(0) scaleX(1); /* Show highlight effect on hover */
+}
+
+.social-link span {
+  position: relative; /* Position text above the pseudo-element */
+  z-index: 1; /* Ensure text is above the highlight */
+}
+
+
+/* Contact Box */
+.contact-box {
+  background: linear-gradient(135deg, #4568dc, #b06ab3);
+  color: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  box-shadow: 0px 10px 25px rgba(245, 231, 231, 0.3);
+  animation: fadeIn 1s ease;
+}
+
+.contact-box h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.contact-box p {
+  font-size: 1.2rem;
+  margin: 8px 0;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .scheme-selection-box, .social-links-box, .contact-box {
+    padding: 20px;
+  }
+
+  .scheme-selection-box h2, .social-links-box h2, .contact-box h2 {
+    font-size: 1.6rem;
+  }
+
+  .scheme-link {
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.4rem;
+    padding: 15px 30px;
+    border-radius: 10px;
+    background-color: #333;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 12px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+}
+
 @media (max-width: 768px) {
-  .home-container {
+  .headline-message, .scheme-selection-box, .social-links-box, .contact-box {
     padding: 15px;
   }
 
-  .home-header {
-    font-size: 2rem;
+  .scheme-selection-box h2, .social-links-box h2, .contact-box h2 {
+    font-size: 1.4rem;
   }
 
-  .course-card {
-    background: linear-gradient(135deg, #3f51b5, #2196f3); /* Different gradient for mobile */
+  .scheme-link {
+    font-size: 1rem;
+    padding: 10px 18px;
+  }
+
+  .social-link {
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline-message {
+    font-size: 1.2rem;
+  }
+
+  .scheme-selection-box h2, .social-links-box h2, .contact-box h2 {
+    font-size: 1.3rem;
   }
 }

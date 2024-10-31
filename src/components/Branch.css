@@ -1,39 +1,49 @@
 /* src/components/Branch.css */
 .branch {
-    padding: 100px 20px;
+    padding: 20px 20px; /* Reduced top padding further */
     text-align: center;
-    background: linear-gradient(to right, #f9fbe7, #639abc); /* Softer background gradient */
+    background: linear-gradient(to right, #e0f7fa, #80deea); /* Softer gradient */
     color: #4e342e;
-    min-height: 100vh;
+    min-height: 100vh; /* Full height for visual impact */
     font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .branch h2 {
-    font-size: 3rem;
-    margin-bottom: 40px;
+    font-size: 3rem; /* Slightly reduced font size for better fit */
+    margin: 10px 0; /* Adjusted margin for better positioning */
     color: #3e2723;
     letter-spacing: 2px;
     text-transform: uppercase;
     position: relative;
     display: inline-block;
+    animation: fadeInUp 1s ease; /* Animation on load */
 }
 
 .branch h2::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
+    width: 70%;
     height: 4px;
     background-color: #ff7043;
     border-radius: 50px;
+    transition: transform 0.3s ease; /* Animate underline */
+}
+
+.branch h2:hover::after {
+    transform: translateX(-50%) scaleX(1.2); /* Scale underline on hover */
 }
 
 .branch p {
-    font-size: 1.4rem;
-    margin-bottom: 40px;
+    font-size: 1.4rem; /* Slightly reduced font size */
+    margin-bottom: 30px; /* Reduced margin */
     color: #5d4037;
+    animation: fadeInUp 1.2s ease; /* Animation on load */
 }
 
 .branch ul {
@@ -42,22 +52,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 25px; /* Consistent spacing between items */
+    gap: 20px;
 }
 
 .branch li {
-    width: 280px;
+    width: 300px;
     height: 70px;
-    background-color: #3e2723; /* Darker, richer background for boxes */
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+    background-color: #3e2723;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.4s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
     position: relative;
-    cursor: pointer; /* Pointer cursor on hover */
+    cursor: pointer;
+    animation: fadeInUp 1.4s ease; /* Animation on load */
 }
 
 .branch li::before {
@@ -67,8 +78,8 @@
     left: 0;
     width: 100%;
     height: 200%;
-    background-color: rgba(255, 112, 67, 0.2); /* Orange highlight on hover */
-    transition: all 0.4s ease;
+    background-color: rgba(255, 112, 67, 0.15);
+    transition: transform 0.3s ease;
     transform: rotate(30deg);
 }
 
@@ -77,22 +88,83 @@
 }
 
 .branch li:hover {
-    transform: translateY(-8px); /* Lift effect */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25); /* Deeper shadow on hover */
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
 }
 
 .branch li a {
     text-decoration: none;
-    color: #ffffff; /* White text color */
+    color: #ffffff;
     font-weight: 700;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     letter-spacing: 1.2px;
     text-transform: uppercase;
     position: relative;
-    z-index: 1; /* Keep text above highlight effect */
-    transition: color 0.3s ease;
+    z-index: 1;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .branch li a:hover {
-    color: #ffcc80; /* Highlight text color on hover */
+    color: #ffcc80;
+    transform: scale(1.05);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .branch {
+        padding: 20px 10px; /* Reduced padding for mobile */
+    }
+
+    .branch h2 {
+        font-size: 2.2rem; /* Smaller heading for mobile */
+        margin: 10px 0; /* Adjusted margin for mobile */
+    }
+
+    .branch p {
+        font-size: 1.2rem; /* Smaller paragraph text */
+    }
+
+    .branch ul {
+        gap: 15px; /* Slightly reduced gap */
+    }
+
+    .branch li {
+        width: 90%; /* Full-width on mobile */
+        height: 60px; /* Slightly shorter boxes */
+    }
+
+    .branch li a {
+        font-size: 1.2rem; /* Smaller link text */
+    }
+}
+
+@media (max-width: 480px) {
+    .branch h2 {
+        font-size: 1.8rem; /* Further reduced heading size */
+        margin: 5px 0; /* Further adjusted margin */
+    }
+
+    .branch p {
+        font-size: 1rem; /* Smaller paragraph text */
+    }
+
+    .branch li {
+        height: 50px; /* Shorter boxes on very small screens */
+    }
+
+    .branch li a {
+        font-size: 1rem; /* Smaller link text */
+    }
+}
+
+/* Keyframes for animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

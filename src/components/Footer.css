@@ -2,13 +2,15 @@
 .footer {
     background: linear-gradient(to right, #2c3e50, #3498db); /* Dark to light blue gradient */
     color: #ffffff; /* White text for contrast */
-    padding: 30px 20px; /* More spacious padding */
+    padding: 20px; /* Reduced padding for a more compact design */
     text-align: center;
     font-family: 'Montserrat', sans-serif; /* Modern font */
     position: relative;
     bottom: 0;
-    width: 100%;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    width: 95%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
+    border-radius: 8px; /* Slight rounding of corners */
+    margin-top: 20px; /* Space above the footer */
 }
 
 .footer-content {
@@ -16,11 +18,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px; /* Increased gap for better separation */
+    gap: 10px; /* Compact gap for better separation */
 }
 
 .footer-content h3 {
-    font-size: 1.6rem; /* Slightly larger font size for headings */
+    font-size: 1.4rem; /* Slightly smaller for a more compact look */
     font-weight: bold;
     margin-bottom: 5px;
     text-transform: uppercase; /* Uppercase heading for emphasis */
@@ -28,14 +30,14 @@
 }
 
 .footer-content p {
-    font-size: 1rem; /* Increased font size for readability */
+    font-size: 0.9rem; /* Smaller font size for readability */
     margin-bottom: 10px;
     color: #ecf0f1; /* Light gray for secondary text */
 }
 
 .social-icons {
     display: flex;
-    gap: 15px; /* Wider spacing between icons */
+    gap: 10px; /* Compact spacing between icons */
 }
 
 .social-icons a {
@@ -45,13 +47,13 @@
 }
 
 .social-icons a:hover {
-    transform: scale(1.2); /* Slight zoom effect on hover */
+    transform: scale(1.3); /* Slight zoom effect on hover */
     color: #16a085; /* Light teal on hover */
 }
 
 .footer-links {
     display: flex;
-    gap: 20px; /* Wider spacing between links */
+    gap: 15px; /* Compact spacing between links */
     justify-content: center;
     margin-bottom: 15px;
 }
@@ -59,7 +61,7 @@
 .footer-links a {
     color: #ffffff; /* White color for links */
     text-decoration: none;
-    font-size: 1rem; /* Increased font size for links */
+    font-size: 0.9rem; /* Smaller font size for links */
     transition: color 0.3s ease;
 }
 
@@ -69,13 +71,17 @@
 }
 
 .footer-bottom {
-    font-size: 0.9rem; /* Slightly larger text for footer bottom */
+    font-size: 0.8rem; /* Slightly smaller text for footer bottom */
     color: #ecf0f1; /* Light gray for footer bottom */
     margin-top: 10px;
 }
 
 /* Responsive design for smaller devices */
 @media (max-width: 768px) {
+    .footer {
+        padding: 15px; /* Adjusted padding for mobile */
+    }
+
     .footer-content {
         flex-direction: column;
         text-align: center;
@@ -83,6 +89,6 @@
 
     .footer-links {
         flex-direction: column;
-        gap: 10px;
+        gap: 5px; /* Further compact for mobile */
     }
 }
