@@ -31,7 +31,7 @@ function Branch() {
 
     return (
         <div className="branch" style={{ marginTop: '80px' }}>
-            <h2>{branch.toUpperCase()} Notes</h2>
+            <h2>{branch.toUpperCase()} NOTES</h2>
             <p>Select a semester:</p>
             <ul>
                 {semesterLinks}
