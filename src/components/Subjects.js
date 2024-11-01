@@ -12,7 +12,7 @@ const Subjects = () => {
   const subjectsData = {
     'first-year': {
       1: [
-        { name: 'Mathematics For CSE', code: 'BMATS101', credits: 4, info: 'First Semester Mathematics for CSE Module 1 to 5 Notes, Solved Model Question papers, Lab Manual' },
+        { name: 'Mathematics For CSE', code: 'BMATS101', credits: 4, info: 'First Semester Mathematics for CSE Module 1 to 5 Notes,  Model Question papers,Question Bank, Lab Manual' },
         { name: 'Applied Physics For CSE', code: 'BPHYS102/202', credits: 3, info: 'First Semester Physics Module 1 to 5 Notes, Solved Model Question papers, Lab Manual' },
         { name: 'Principle of Programming Using C', code: 'BPOP103/203', credits: 4, info: 'First Semester Principles of Programming Using C for CSE Module 1 to 5 Notes, Solved Model Question papers, Lab Manual.' },
         { name: 'Communicative English', code: 'BENGK106', credits: 2, info: 'First Semester Communicative English Module 1 to 5 MCQ, Solved Model Question papers' },
@@ -91,18 +91,28 @@ const Subjects = () => {
       <h2>{branch.toUpperCase()} - Semester {semester}</h2>
       <h3>Subjects:</h3>
       <ul>
-        {subjects.map((subject) => (
-          <li key={subject.name} className="subject-item">
-            <div className="subject-box" onClick={() => handleSubjectClick(subject)}>
-              <div className="subject-info">
-                <h4>{subject.name}</h4>
-                <span className="subject-code">{subject.code}</span>
+        {subjects.length > 0 ? (
+          subjects.map((subject) => (
+            <li key={`${branch}-${semester}-${subject.name}`} className="subject-item">
+              <div
+                className="subject-box"
+                onClick={() => handleSubjectClick(subject)}
+                role="button"
+                tabIndex={0} // Make it keyboard accessible
+                onKeyPress={(e) => e.key === 'Enter' && handleSubjectClick(subject)} // Handle Enter key
+              >
+                <div className="subject-info">
+                  <h4>{subject.name}</h4>
+                  <span className="subject-code">{subject.code}</span>
+                </div>
+                <div className="credits-box">Credits: {subject.credits}</div>
+                <div className="subject-details">{subject.info}</div>
               </div>
-              <div className="credits-box">Credits: {subject.credits}</div>
-              <div className="subject-details">{subject.info}</div>
-            </div>
-          </li>
-        ))}
+            </li>
+          ))
+        ) : (
+          <li>No subjects available for this branch and semester.</li>
+        )}
       </ul>
     </div>
   );

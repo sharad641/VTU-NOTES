@@ -1,19 +1,18 @@
-// src/App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Home from './components/Home';               // Scheme selection page
-import BranchSelection from './components/BranchSelection'; // Branch selection page
-import Branch from './components/Branch';           // Import Branch component
-import Subjects from './components/Subjects';       // Subjects component
-import ModuleDetail from './components/ModuleDetail'; // Import ModuleDetail component
-import PdfViewer from './components/PdfViewer';     // Import PdfViewer component
+import Home from './components/Home';
+import BranchSelection from './components/BranchSelection';
+import Branch from './components/Branch';
+import Subjects from './components/Subjects';
+import ModuleDetail from './components/ModuleDetail';
+import PdfViewer from './components/PdfViewer';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Signup from './components/Signup';
 
 function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false); // Authentication state
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     return (
         <Router>
@@ -31,7 +30,7 @@ function App() {
                     />
                     <Route 
                         path="/branch/:branch" 
-                        element={isAuthenticated ? <Branch /> : <Navigate to="/login" />} // Route for Branch
+                        element={isAuthenticated ? <Branch /> : <Navigate to="/login" />} 
                     />
                     <Route 
                         path="/branch/:branch/:semester" 
@@ -39,11 +38,11 @@ function App() {
                     />
                     <Route 
                         path="/branch/:branch/:semester/modules/:subjectName" 
-                        element={isAuthenticated ? <ModuleDetail /> : <Navigate to="/login" />} // Route for ModuleDetail
+                        element={isAuthenticated ? <ModuleDetail /> : <Navigate to="/login" />} 
                     />
                     <Route 
                         path="/pdf/:pdfUrl" 
-                        element={isAuthenticated ? <PdfViewer /> : <Navigate to="/login" />} // Route for PdfViewer
+                        element={isAuthenticated ? <PdfViewer /> : <Navigate to="/login" />} 
                     />
                     
                     {/* Authentication Routes */}
@@ -55,6 +54,9 @@ function App() {
                         path="/signup" 
                         element={<Signup />} 
                     />
+
+                    {/* Catch-All Route */}
+                    <Route path="*" element={<Navigate to="/" />} />
                 </Routes>
                 <Footer />
             </div>

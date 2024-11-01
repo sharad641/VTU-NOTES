@@ -1,9 +1,10 @@
-// src/components/PdfViewer.js
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import './PdfViewer.css';
 
 const PdfViewer = () => {
-    const directPdfUrl = "https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/preview";
+    const { pdfUrl } = useParams();
+    const directPdfUrl = decodeURIComponent(pdfUrl); // Decode the URL for safety
 
     return (
         <div className="pdf-viewer">
@@ -17,7 +18,7 @@ const PdfViewer = () => {
                 allow="autoplay"
             ></iframe>
             <div className="download-button-container">
-                <a href="https://drive.google.com/uc?export=download&id=1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs" download>
+                <a href={`${directPdfUrl}?export=download`} download>
                     <button className="download-button">
                         Download PDF
                     </button>

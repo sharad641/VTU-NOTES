@@ -14,7 +14,7 @@ body {
     border-radius: 12px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     max-width: 800px;
-    margin: 20px auto; /* Added margin for mobile */
+    margin: 20px auto; /* Center on larger screens */
     transition: background 0.3s; /* Smooth background transition */
 }
 
@@ -34,7 +34,7 @@ h2 {
 .modules-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 20px; /* Space between modules */
 }
 
 /* Module Card Styles */
@@ -56,7 +56,7 @@ h2 {
 h3 {
     font-size: 1.5rem;
     margin-bottom: 10px;
-    color: #0d47a1;
+    color: #0d47a1; /* Consistent title color */
 }
 
 p {
@@ -65,29 +65,36 @@ p {
     color: #37474f; /* Dark grey for better readability */
 }
 
-/* Download Button Container */
+/* Button Styles */
 .download-buttons {
     display: flex;
     justify-content: center;
     margin-top: 10px;
-    gap: 15px;
+    gap: 15px; /* Space between buttons */
 }
 
-/* Button Styles */
 .download-buttons button {
-    padding: 12px 20px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 6px;
-    background-color: #42a5f5;
+    border-radius: 8px;
+    background-color: #42a5f5; /* Base color */
     color: white;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Button shadow */
 }
 
 .download-buttons button:hover {
-    background-color: #1e88e5;
-    transform: scale(1.05);
+    background-color: #1e88e5; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow */
+}
+
+.download-buttons button:active {
+    transform: translateY(0); /* Reset on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Original shadow */
 }
 
 /* Responsive Styles */
