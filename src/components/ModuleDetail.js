@@ -837,7 +837,7 @@ const ModuleDetail = () => {
         ],
         },
         {
-          title: "DATA STRUCTURES AND APPLICATIONS ",
+          title: "DATA STRUCTURES AND APPLICATIONS",
           modules: [
             {
               title: "Module 1: Notes",
@@ -1484,19 +1484,19 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1YceYR78zBUnVX63fFEH5uB6bMPPlSJsJ/preview",
             },
-          ],
-          questionPaper: {
+         {
             title: "Question Paper",
             content: "Past question paper for Mathematics for CSE.",
             downloadUrl:
-              "https://drive.google.com/file/d/1YceYR78zBUnVX63fFEH5uB6bMPPlSJsJ/preview",
+              "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
           },
-          questionBank: {
+          {
             title: "Question Bank",
             content: "Question bank for Mathematics for CSE.",
             downloadUrl:
-              "https://drive.google.com/file/d/1YceYR78zBUnVX63fFEH5uB6bMPPlSJsJ/preview",
+              "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
           },
+        ],
         },
         {
           title: "COMPUTER NETWORKS",
@@ -1511,39 +1511,39 @@ const ModuleDetail = () => {
               title: "Module 2: Notes",
               content: "Combinational Logic.",
               previewUrl:
-                "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/preview",
+                "https://drive.google.com/file/d/1-Gx-zVGQVROn5FDEpUaKxP6y76flSflJ/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/preview",
+                "https://drive.google.com/file/d/1QT3yYQF4fQjN62WD46Sld482WsbA1iAu/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/preview",
+                "https://drive.google.com/file/d/1C-NdZoBMlowJOaKTi_JUvEhcqaYHSEId/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/preview",
+                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
             },
-          ],
-          questionPaper: {
+          {
             title: "Question Paper",
             content: "Past question paper for Applied Physics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing",
+              "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
           },
-          questionBank: {
+           {
             title: "Question Bank",
             content: "Question bank for Applied Physics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing",
+              "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
           },
+        ],
         },
         {
           title: "THEORY OF COMPUTATION",
@@ -1645,7 +1645,7 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
+                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
             },
             {
               title: "Module 2: Notes",
@@ -1692,31 +1692,31 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1488bz-wC4p1fKK302WYxC0w7lyzresF5/preview",
+                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1488bz-wC4p1fKK302WYxC0w7lyzresF5/preview",
+                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1488bz-wC4p1fKK302WYxC0w7lyzresF5/preview",
+                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1488bz-wC4p1fKK302WYxC0w7lyzresF5/preview",
+                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1488bz-wC4p1fKK302WYxC0w7lyzresF5/preview",
+                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
             },
           ],
           questionPaper: {

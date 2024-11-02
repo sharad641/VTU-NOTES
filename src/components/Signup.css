@@ -132,3 +132,19 @@
     from { opacity: 0; }
     to { opacity: 1; }
 }
+.google-signup-button {
+    width: 100%; /* Full width for button */
+    padding: 10px; /* Padding for button */
+    background-color: #db4437; /* Google color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Round corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size for button */
+    margin-top: 10px; /* Space above the button */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.google-signup-button:hover {
+    background-color: #c13528; /* Darker shade on hover */
+}

@@ -1,3 +1,4 @@
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -17,28 +18,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%; /* Circular effect */
-  overflow: hidden; /* Crop the image to fit the circle */
-  width: 120px; /* Set width */
-  height: 120px; /* Set height for a circular logo */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  transition: transform 0.3s ease; /* Transition for hover effect */
+  border-radius: 50%;
+  overflow: hidden;
+  width: 120px;
+  height: 120px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
 .navbar-logo {
-  width: 100%; /* Make logo fill the container */
-  height: auto; /* Maintain aspect ratio */
-  transition: transform 0.3s ease; /* Smooth scaling effect */
+  width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
 }
 
 .navbar-logo-container:hover {
-  transform: scale(1.05); /* Slight zoom effect on hover */
+  transform: scale(1.05);
 }
 
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
+  z-index: 1001; /* Ensure the hamburger is above other elements */
 }
 
 .hamburger .bar {
@@ -119,6 +121,7 @@
     z-index: 999;
     transition: transform 0.3s ease-in-out;
     transform: translateX(100%);
+    padding: 20px; /* Add padding for better spacing */
   }
 
   .nav-links.active {
@@ -130,10 +133,20 @@
     margin: 10px 0;
     text-align: center;
     padding: 15px 20px;
+    font-size: 1.2rem; /* Increased font size for better readability */
   }
 
   .navbar-logo-container {
     width: 80px; /* Adjusted size for mobile */
     height: 80px; /* Adjusted size for mobile */
+  }
+
+  /* Enhance hamburger transition */
+  .hamburger {
+    transition: transform 0.3s;
+  }
+
+  .hamburger:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
   }
 }

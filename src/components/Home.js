@@ -27,9 +27,10 @@ const Home = () => {
             {/* Message/Headline with marquee effect */}
             <div className="headline-message">
                 <div className="marquee-text">
-                    📢 Latest Updates: New notes for 5th Semester are now available!(module 1 and 2 only) Check them out!
+                    📢 Latest Updates: New notes for 5th Semester are now available!(Not All) Check them out!
                     <span style={{ display: 'block', marginTop: '10px' }}></span>
                     ✨ Wishing the VTU-NOTES Family a Bright and Joyous Diwali! May your days be filled with light, laughter, and success! 🪔
+                    
                 </div>
             </div>
             <div className="vtu-notes-info-box">
@@ -88,7 +89,7 @@ const Home = () => {
                     Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a>
                 </p>
                 <p>
-                    Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a>
+                    Phone: <a href="tel:+916364060716" className="contact-link">+91</a>
                 </p>
             </div>
         </div>

@@ -217,7 +217,7 @@
   }
 
   .headline-message {
-    font-size: 1.3rem; /* Reduced font size for headline */
+    font-size: 1.1rem; /* Reduced font size for headline */
   }
 
   .scheme-selection-box h2,
@@ -225,7 +225,7 @@
   .social-links-box h2,
   .contact-box h2,
   .vtu-notes-info-box h2 {
-    font-size: 1.5rem; /* Reduced heading sizes */
+    font-size: 1.4rem; /* Reduced heading sizes */
   }
 
   .scheme-link,

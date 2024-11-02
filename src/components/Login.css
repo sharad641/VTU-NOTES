@@ -1,11 +1,4 @@
-
-
-
-
-
-
 /* Other styles remain unchanged... */
-
 
 .login-container {
     max-width: 400px; /* Set max width for the container */
@@ -53,6 +46,7 @@ label {
     border: 1px solid #0d0c0c; /* Border for input fields */
     border-radius: 4px; /* Round corners */
     transition: border-color 0.3s; /* Smooth border transition */
+    font-size: 16px; /* Consistent font size */
 }
 
 .input-field:focus {
@@ -62,7 +56,7 @@ label {
 
 .login-button {
     width: 100%; /* Full width for button */
-    padding: 10px; /* Padding for button */
+    padding: 12px; /* Increase padding for better touch targets */
     background-color: #00796b; /* Button background color */
     color: white; /* Button text color */
     border: none; /* Remove border */
@@ -102,7 +96,7 @@ label {
 
 .google-login-button {
     width: 100%; /* Full width for button */
-    padding: 10px; /* Padding for button */
+    padding: 12px; /* Increase padding for better touch targets */
     background-color: #db4437; /* Google color */
     color: white; /* Button text color */
     border: none; /* Remove border */
@@ -148,7 +142,7 @@ label {
     .login-button,
     .google-login-button {
         font-size: 14px; /* Smaller font for mobile */
-        padding: 8px; /* Reduced padding */
+        padding: 10px; /* Increased padding for better touch targets */
     }
 
     .signup-option a {
@@ -159,3 +153,37 @@ label {
         font-size: 14px; /* Adjust divider size */
     }
 }
+
+/* Additional styles for better usability */
+body {
+    font-family: 'Arial', sans-serif; /* Consistent font across the body */
+    background-color: #f7f7f7; /* Light background for contrast */
+    line-height: 1.6; /* Improved readability */
+}
+
+input[type="text"], input[type="password"] {
+    box-sizing: border-box; /* Include padding in width */
+}
+.google-login-button {
+    width: 100%; /* Full width for button */
+    padding: 10px; /* Padding for button */
+    background-color: #db4437; /* Google color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Round corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 16px; /* Font size for button */
+    margin-top: 10px; /* Space above the button */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.google-login-button:hover {
+    background-color: #c13528; /* Darker shade on hover */
+}
+.google-login-notice {
+    text-align: center; /* Center the notice text */
+    margin: 15px 0; /* Space around the notice */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    color: #555; /* Gray color for less emphasis */
+}
+
