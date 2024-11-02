@@ -1168,7 +1168,7 @@ const ModuleDetail = () => {
         ],
         },
         {
-          title: "DATABASE MANAGEMENT SYSTEM ",
+          title: "DATABASE MANAGEMENT SYSTEM",
           modules: [
             {
               title: "Module 1: Notes",
