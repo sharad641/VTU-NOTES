@@ -7,19 +7,23 @@
     border-radius: 8px; /* Round corners */
     background-color: #e1dada; /* Background color */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
-    transition: box-shadow 0.3s;
-     /* Smooth shadow transition */
+    transition: box-shadow 0.3s; /* Smooth shadow transition */
 }
 
 .login-container:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); 
-    /* Increase shadow on hover */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.vtu-logo {
+    display: block; /* Ensure it takes full width */
+    margin: 0 auto 20px; /* Center the logo and add space below */
+    width: 80%; /* Set a max width for the logo */
+    max-width: 200px; /* Prevent it from being too large */
 }
 
 h2 {
     text-align: center; /* Center the heading */
-    margin-bottom: 20px; 
-    margin-top:30px;/* Space below heading */
+    margin: 30px 0 20px; /* Space above and below heading */
     color: #00796b; /* Heading color */
 }
 
@@ -30,8 +34,7 @@ h2 {
 label {
     display: block; /* Block display for labels */
     margin-bottom: 5px; /* Space below labels */
-    font-weight: bold;
-     /* Bold labels */
+    font-weight: bold; /* Bold labels */
 }
 
 .input-field {
@@ -47,7 +50,6 @@ label {
     outline: none; /* Remove outline */
 }
 
-/* Add margin-top to the button for better spacing */
 .login-button {
     width: 100%; /* Full width for button */
     padding: 10px; /* Padding for button */
@@ -74,8 +76,7 @@ label {
 .signup-option a {
     color: #00796b; /* Link color */
     text-decoration: underline; /* Underline link */
-    transition: color 0.3s; 
-    /* Smooth color transition */
+    transition: color 0.3s; /* Smooth color transition */
 }
 
 .signup-option a:hover {
@@ -87,7 +88,7 @@ label {
     text-align: center; /* Center error message */
     margin-bottom: 15px; /* Space below error message */
 }
-/* Add this to your existing Login.css */
+
 .google-login-button {
     width: 100%; /* Full width for button */
     padding: 10px; /* Padding for button */
@@ -107,9 +108,7 @@ label {
 
 .divider {
     text-align: center; /* Center the divider */
-    margin: 10px 5; /* Space above and below */
-    margin-top:30px;
-    font-weight: bold;
-     /* Bold text */
+    margin: 30px 0; /* Space above and below */
+    font-weight: bold; /* Bold text */
 }
 

@@ -5,11 +5,11 @@ import { auth } from '../firebase'; // Ensure this path is correct
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Login.css';
 
-const Login = ({ setIsAuthenticated }) => {
+const Login = ({ setIsAuthenticated }) => { // Accept setIsAuthenticated as a prop
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // Initialize useNavigate
   const provider = new GoogleAuthProvider();
 
   const handleLogin = async (e) => {
@@ -19,8 +19,8 @@ const Login = ({ setIsAuthenticated }) => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log("Login successful", userCredential.user);
-      setIsAuthenticated(true);
-      navigate('/'); 
+      setIsAuthenticated(true); // Update authentication state
+      navigate('/'); // Redirect to home after successful login
     } catch (error) {
       console.error("Login failed", error.message);
       setError("Invalid email or password. Please try again.");
@@ -28,15 +28,14 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   const handleGoogleLogin = async () => {
-    setError(''); // Clear previous error messages
     try {
       const userCredential = await signInWithPopup(auth, provider);
       console.log("Google login successful", userCredential.user);
-      setIsAuthenticated(true);
-      navigate('/'); 
+      setIsAuthenticated(true); // Update authentication state
+      navigate('/'); // Redirect to home after successful login
     } catch (error) {
-      console.error("Google login failed", error);
-      setError("Google login failed. " + (error.message || "Please try again."));
+      console.error("Google login failed", error.message);
+      setError("Google login failed. Please try again.");
     }
   };
 

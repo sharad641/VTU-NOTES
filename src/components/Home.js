@@ -52,8 +52,12 @@ const Home = () => {
             {/* Contact Box */}
             <div className="contact-box">
     <h2>Contact</h2>
+    <p>If you have any questions or need assistance regarding notes, study-related issues, or any other concerns, please don’t hesitate to contact us.  </p>
+    <p>Our team is always available to support you and provide the guidance you need to succeed in your studies. Your success is our priority, and we are committed to helping you every step of the way.
+
+Feel free to reach out anytime!</p>
     <p>
-        Email: <a href="mailto:vtunotes5@gmail.com" className="contact-link">vtunotes5@gmail.com</a>
+        Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a>
     </p>
     <p>
         Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a>

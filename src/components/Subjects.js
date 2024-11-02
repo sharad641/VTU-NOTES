@@ -54,20 +54,17 @@ const Subjects = () => {
         { name: 'GRAPH THEORY   ', code: 'BCS405B', credits: 3, info: ' Fourth Semester GRAPH THEORY  For CSE Module 1 to 5 Notes, Solved Model Question papers.. ' },
         { name: 'Analysis & Design of Algorithms Lab ', code: 'BCSL404', credits: 1, info: ' Fourth Semester Analysis & Design of Algorithms Lab  For CSE Module 1 to 5 Notes, Solved Model Question papers..' },
         { name: 'ARTIFICIAL INTELLIGENCE  ', code: 'BAD402', credits: 4, info: 'Fourth Semester ARTIFICIAL INTELLIGENCE  For CSE Module 1 to 5 Notes, Solved Model Question papers.. ' },
-        { name: 'OPTIMIZATION TECHNIQUE   ', code: 'BCS405C', credits: 3, info: 'Fourth Semester OPTIMIZATION TECHNIQUE  For CSE Module 1 to 5 Notes, Solved Model Question papers..' },
+        { name: 'BIOLOLY FOR ENGINEERS  ', code: 'BCS405C', credits: 2, info: 'Fourth Semester OPTIMIZATION TECHNIQUE  For CSE Module 1 to 5 Notes, Solved Model Question papers..' },
 
       ],
       5: [
         { name: 'Software Engineering & Project Management ', code: 'BCS501', credits: 4, info: 'Fifth Semester Software Engineering & Project Management For CSE Module 1 to 5 Notes, Solved Model Question papers.. ' },
         { name: 'COMPUTER NETWORKS ', code: 'BCS502', credits: 4, info: 'Fifth Semester COMPUTER NETWORKS For CSE Module 1 to 5 Notes, Solved Model Question papers..' },
   
-        { name: 'THEORY OF COMPUTATION   ', code: 'BCS503', credits: 4, info: 'Fifth Semester THEORY OF COMPUTATION For CSE Module 1 to 5 Notes, Solved Model Question papers..' },
+        { name: 'THEORY OF COMPUTATION ', code: 'BCS503', credits: 4, info: 'Fifth Semester THEORY OF COMPUTATION For CSE Module 1 to 5 Notes, Solved Model Question papers..' },
         { name: ' ARTIFICIAL INTELLIGENCE   ', code: 'BCS525B', credits: 3, info: 'Fourth SemesterARTIFICIAL INTELLIGENCE For CSE Module 1 to 5 Notes, Solved Model Question papers.. ' },
         { name: 'FULL STACK DEVELOPMENT     ', code: 'BIC515C', credits: 3, info: ' Fourth Semester FULL STACK DEVELOPMENT  For CSE Module 1 to 5 Notes, Solved Model Question papers.. ' },
-        { name: 'Analysis & Design of Algorithms Lab ', code: 'BCSL404', credits: 1, info: ' Fourth Semester Analysis & Design of Algorithms Lab  For CSE Module 1 to 5 Notes, Solved Model Question papers..' },
-        { name: 'ARTIFICIAL INTELLIGENCE  ', code: 'BAD402', credits: 4, info: 'Fourth Semester ARTIFICIAL INTELLIGENCE  For CSE Module 1 to 5 Notes, Solved Model Question papers.. ' },
-        { name: 'OPTIMIZATION TECHNIQUE   ', code: 'BCS405C', credits: 3, info: 'Fourth Semester OPTIMIZATION TECHNIQUE  For CSE Module 1 to 5 Notes, Solved Model Question papers..' },
-
+        { name: 'RESEARCH AND METHO AND IPR', code: 'BRMK557', credits: 3, info: 'Fourth SemesterARTIFICIAL INTELLIGENCE For CSE Module 1 to 5 Notes, Solved Model Question papers.. ' },
       ],
     },
     ece: {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css'; // Import CSS for styling
+import vtuLogo from '../assets/logo.jpg'; // Correct path to the logo
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false); // State to handle menu toggle
@@ -10,15 +11,12 @@ const Navbar = () => {
         setIsOpen(!isOpen);
     };
 
-    // Close the menu after clicking a link
-    const closeMenu = () => {
-        setIsOpen(false);
-    };
-
     return (
-        <nav className="navbar header">
+        <nav className="navbar">
             {/* Logo */}
-            <h1 className="navbar-logo">VTU-NOTES</h1>
+            <div className="navbar-logo-container">
+                <img src={vtuLogo} alt="VTU Logo" className="navbar-logo" />
+            </div>
             
             {/* Hamburger Icon */}
             <div 
@@ -34,19 +32,19 @@ const Navbar = () => {
             {/* Navbar Links */}
             <ul className={isOpen ? "nav-links active" : "nav-links"}>
                 <li className="nav-item">
-                    <Link to="/" onClick={closeMenu}>Home</Link>
+                    <Link to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/about" onClick={closeMenu}>About</Link>
+                    <Link to="/about">About</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/branch/cse" onClick={closeMenu}>Computer Science</Link>
+                    <Link to="/branch/cse">Computer Science</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/upload" onClick={closeMenu}>Upload Notes</Link> {/* Ensure correct route */}
+                    <Link to="/upload">Upload Notes</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="/login" onClick={closeMenu}>Login</Link>
+                    <Link to="/login">Login</Link>
                 </li>
             </ul>
         </nav>
