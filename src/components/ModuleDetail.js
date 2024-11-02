@@ -1487,13 +1487,13 @@ const ModuleDetail = () => {
          {
             title: "Question Paper",
             content: "Past question paper for Mathematics for CSE.",
-            downloadUrl:
+            previewUrl:
               "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
           },
           {
             title: "Question Bank",
             content: "Question bank for Mathematics for CSE.",
-            downloadUrl:
+            previewUrl:
               "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
           },
         ],
@@ -1593,7 +1593,7 @@ const ModuleDetail = () => {
           },
         },
         {
-          title: "ARTIFICIAL INTELLIGENCE  ",
+          title: "ARTIFICIAL INTELLIGENCE",
           modules: [
             {
               title: "Module 1: Notes",
