@@ -1,4 +1,12 @@
-/* src/components/Login.css */
+
+
+
+
+
+
+/* Other styles remain unchanged... */
+
+
 .login-container {
     max-width: 400px; /* Set max width for the container */
     margin: 100px auto; /* Center the container */
@@ -25,6 +33,8 @@ h2 {
     text-align: center; /* Center the heading */
     margin: 30px 0 20px; /* Space above and below heading */
     color: #00796b; /* Heading color */
+    font-family: 'Arial', sans-serif; /* Use a clean font */
+    font-size: 1.8rem; /* Responsive font size */
 }
 
 .form-group {
@@ -77,6 +87,7 @@ label {
     color: #00796b; /* Link color */
     text-decoration: underline; /* Underline link */
     transition: color 0.3s; /* Smooth color transition */
+    font-weight: bold; /* Make link bold */
 }
 
 .signup-option a:hover {
@@ -112,3 +123,39 @@ label {
     font-weight: bold; /* Bold text */
 }
 
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+    .headline-message {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+        padding: 10px; /* Reduce padding for mobile */
+    }
+
+    .marquee-text {
+        font-size: 1rem; /* Smaller font for marquee text */
+        animation: marquee 10s linear infinite; /* Slightly faster animation */
+    }
+
+    .login-container {
+        margin: 50px 10px; /* Reduce margin on mobile */
+        padding: 15px; /* Reduce padding */
+    }
+
+    h2 {
+        font-size: 1.6rem; /* Adjust heading size for mobile */
+    }
+
+    .input-field,
+    .login-button,
+    .google-login-button {
+        font-size: 14px; /* Smaller font for mobile */
+        padding: 8px; /* Reduced padding */
+    }
+
+    .signup-option a {
+        font-size: 14px; /* Adjust link size */
+    }
+
+    .divider {
+        font-size: 14px; /* Adjust divider size */
+    }
+}
