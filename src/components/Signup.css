@@ -1,5 +1,4 @@
-/* Updated Signup.css */
-
+/* Signup Container Styles */
 .signup-container {
     display: flex;
     flex-direction: column;
@@ -21,6 +20,7 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* Form Styles */
 .signup-container form {
     display: flex;
     flex-direction: column;
@@ -34,6 +34,7 @@
     animation: fadeIn 0.5s ease-in-out;
 }
 
+/* Input Styles */
 .signup-container input {
     padding: 14px;
     border: 1px solid #00796b;
@@ -44,11 +45,13 @@
     background-color: #f9f9f9;
 }
 
+/* Focus State */
 .signup-container input:focus {
     border-color: #004d40;
     background-color: #e0f7fa;
 }
 
+/* Button Styles */
 .signup-container button {
     padding: 12px;
     border: none;
@@ -61,16 +64,19 @@
     transition: background-color 0.3s, transform 0.2s;
 }
 
+/* Button Hover Effect */
 .signup-container button:hover {
     background-color: #004d40;
     transform: scale(1.06);
 }
 
+/* Disabled Button Style */
 .signup-container button:disabled {
     background-color: #b2dfdb;
     cursor: not-allowed;
 }
 
+/* Google Signup Button */
 .google-signup {
     background-color: #4285F4;
     color: white;
@@ -82,12 +88,13 @@
     transition: background-color 0.3s, transform 0.2s;
 }
 
+/* Google Signup Hover Effect */
 .google-signup:hover {
     background-color: #357ae8;
     transform: scale(1.06);
 }
 
-/* Error message styling */
+/* Error Message Styling */
 .error {
     color: #d32f2f;
     font-size: 0.95rem;
@@ -99,15 +106,15 @@
     background-color: #ffebee;
 }
 
-/* Responsive styling */
+/* Responsive Styles */
 @media (max-width: 768px) {
     .signup-container h2 {
-        font-size: 1.8rem;
+        font-size: 1.8rem; /* Adjust heading size for smaller screens */
     }
 
     .signup-container form {
         padding: 16px;
-        max-width: 100%;
+        max-width: 90%; /* Allow form to be wider on mobile */
         box-shadow: none;
         border: 1px solid #e0f2f1;
     }
@@ -115,12 +122,12 @@
     .signup-container input, 
     .signup-container button, 
     .google-signup {
-        font-size: 1rem;
-        padding: 12px;
+        font-size: 1rem; /* Keep button and input sizes consistent */
+        padding: 12px; /* Uniform padding */
     }
 }
 
-/* Fade-in animation */
+/* Fade-in Animation */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }

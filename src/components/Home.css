@@ -20,13 +20,13 @@
   padding: 20px 30px;
   border-radius: 10px;
   margin-bottom: 20px;
-  font-size: 1.1rem; /* Increased font size for better visibility */
+  font-size: 1rem; /* Increased font size for better visibility */
   font-weight: bold;
   color: #fff;
   text-align: center;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 1.2s ease-in-out, slideIn 0.5s ease forwards;
+  animation: fadeIn 1s ease-in-out, slideIn 0.4s ease forwards;
 }
 
 @keyframes fadeIn {
@@ -51,7 +51,7 @@
   to { transform: translateX(-100%); }
 }
 
-/* Scheme Selection Box */
+/* Box Styles */
 .scheme-selection-box,
 .upload-notes-box,
 .social-links-box,
@@ -78,6 +78,7 @@
   background: linear-gradient(135deg, #56ab2f, #a8e063); /* Reversed gradient on hover */
 }
 
+/* Headings */
 .scheme-selection-box h2,
 .upload-notes-box h2,
 .social-links-box h2,
@@ -86,59 +87,26 @@
   font-size: 2rem;
   color: #fff;
   margin-bottom: 15px;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); /* Added text shadow for depth */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* About Box */
-.about-box {
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Soft pink gradient */
-  padding: 40px;
-  border-radius: 15px;
-  text-align: center;
-  width: 100%;
-  max-width: 800px;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
-  margin-bottom: 25px;
-  animation: fadeIn 1s ease;
-  position: relative; /* For pseudo-element positioning */
-}
-
-.about-box:hover {
-  transform: scale(1.05);
-  background: linear-gradient(135deg, #fad0c4, #ff9a9e); /* Reverse gradient on hover */
-  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
-}
-
-/* Heading inside About Box */
-.about-box h2 {
-  font-size: 2.2rem;
-  color: #fff;
+/* Info Message Style */
+.info-message {
+  font-size: 1.2rem;
+  color: #1976d2;
+  margin-top: 15px;
   margin-bottom: 15px;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-}
-
-/* Paragraph text inside About Box */
-.about-box p
- {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #2c3e50;
-  margin-bottom: 10px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.9); /* Light background for contrast */
-  border-left: 4px solid #ff8a65; /* Accent border */
+  background: rgba(225, 242, 254, 0.8);
+  border: 1px solid #1976d2;
   border-radius: 5px;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  transition: opacity 0.5s ease;
 }
 
-.about-box p:hover {
-  color: #2980b9; /* Change text color on hover */
-  background-color: rgba(255, 255, 255, 1); /* Make background fully opaque */
-  transform: translateY(-2px); /* Subtle lift effect */
-}
-
-/* About Box Link */
-.about-link {
+/* Links */
+.scheme-link,
+.upload-link,
+.social-link {
   color: #fff;
   font-weight: bold;
   font-size: 1.3rem;
@@ -151,88 +119,12 @@
   transition: background-color 0.3s, transform 0.2s ease;
 }
 
-.about-link:hover {
-  background-color: #555;
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-/* Pseudo-element for additional styling */
-.about-box::before {
-  content: '';
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: calc(100% - 40px);
-  height: calc(100% - 40px);
-  background: rgba(255, 255, 255, 0.1); /* Subtle highlight effect */
-  border-radius: 15px;
-  z-index: 0; /* Behind the content */
-  transition: opacity 0.4s ease;
-}
-
-.about-box:hover::before {
-  opacity: 0.2; /* More visible on hover */
-}
-
-.about-box h2, .about-box p {
-  position: relative;
-  z-index: 1; /* Ensure text is above the highlight */
-}
-
-/* Links */
-.scheme-link,
-.upload-link,
-.social-link {
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.3rem;
-  padding: 12px 20px; /* Adjusted for consistency */
-  border-radius: 10px; /* More rounded corners for a softer look */
-  background-color: #333; /* Darker background for better contrast */
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 10px;
-  position: relative; /* For positioning the pseudo-element */
-  overflow: hidden; /* To contain the pseudo-element */
-  transition: background-color 0.3s, transform 0.2s ease;
-}
-
 .scheme-link:hover,
 .upload-link:hover,
 .social-link:hover {
   background-color: #555;
   transform: translateY(-3px) scale(1.02);
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.scheme-link::before,
-.upload-link::before,
-.social-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.2); /* Subtle highlight effect */
-  transform: translateX(-100%) scaleX(0);
-  transition: transform 0.4s ease;
-  z-index: 0; /* Behind the text */
-  border-radius: 10px; /* Match border radius */
-}
-
-.scheme-link:hover::before,
-.upload-link:hover::before,
-.social-link:hover::before {
-  transform: translateX(0) scaleX(1); /* Show highlight effect on hover */
-}
-
-.scheme-link span,
-.upload-link span,
-.social-link span {
-  position: relative; /* Position text above the pseudo-element */
-  z-index: 1; /* Ensure text is above the highlight */
 }
 
 /* Social Links Box */
@@ -291,51 +183,105 @@
 
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
-  .scheme-selection-box, .upload-notes-box, .social-links-box, .contact-box, .vtu-notes-info-box,
-  .about-box {
-    padding: 20px;
+  .scheme-selection-box,
+  .upload-notes-box,
+  .social-links-box,
+  .contact-box,
+  .vtu-notes-info-box {
+    padding: 25px; /* Reduced padding for medium screens */
   }
 
-  .scheme-selection-box h2, .upload-notes-box h2, .social-links-box h2, .contact-box h2, .vtu-notes-info-box h2,
-  .about-box h2 {
-    font-size: 1.8rem; /* Adjusted for responsiveness */
+  .scheme-selection-box h2,
+  .upload-notes-box h2,
+  .social-links-box h2,
+  .contact-box h2,
+  .vtu-notes-info-box h2 {
+    font-size: 1.8rem; /* Slightly smaller headings */
   }
 
-  .scheme-link, .upload-link {
-    font-size: 1.4rem;
-    padding: 15px 30px;
+  .scheme-link,
+  .upload-link {
+    font-size: 1.2rem; /* Adjusted link sizes */
+    padding: 10px 15px; /* Smaller padding */
   }
 }
 
 @media (max-width: 768px) {
-  .headline-message, .scheme-selection-box, .upload-notes-box, .social-links-box, .contact-box, .vtu-notes-info-box,
-  .about-box {
-    padding: 15px;
+  .headline-message,
+  .scheme-selection-box,
+  .upload-notes-box,
+  .social-links-box,
+  .contact-box,
+  .vtu-notes-info-box {
+    padding: 15px; /* Further reduced padding for small screens */
   }
 
-  .scheme-selection-box h2, .upload-notes-box h2, .social-links-box h2, .contact-box h2, .vtu-notes-info-box h2,
-  .about-box h2 {
-    font-size: 1.5rem; /* Adjusted for responsiveness */
+  .headline-message {
+    font-size: 1.3rem; /* Reduced font size for headline */
   }
 
-  .scheme-link, .upload-link {
-    font-size: 1rem;
-    padding: 10px 18px;
+  .scheme-selection-box h2,
+  .upload-notes-box h2,
+  .social-links-box h2,
+  .contact-box h2,
+  .vtu-notes-info-box h2 {
+    font-size: 1.5rem; /* Reduced heading sizes */
+  }
+
+  .scheme-link,
+  .upload-link {
+    font-size: 1rem; /* Adjusted link sizes */
+    padding: 10px 18px; /* Smaller padding */
   }
 
   .social-link {
-    padding: 12px 16px;
-    font-size: 0.9rem;
+    padding: 12px 16px; /* Adjusted social link padding */
+    font-size: 0.9rem; /* Slightly smaller font size */
   }
 }
 
 @media (max-width: 480px) {
   .headline-message {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Further reduce font size for smaller devices */
   }
 
-  .scheme-selection-box h2, .upload-notes-box h2, .social-links-box h2, .contact-box h2, .vtu-notes-info-box h2,
-  .about-box h2 {
-    font-size: 1.3rem; /* Adjusted for responsiveness */
+  .scheme-selection-box h2,
+  .upload-notes-box h2,
+  .social-links-box h2,
+  .contact-box h2,
+  .vtu-notes-info-box h2 {
+    font-size: 1.3rem; /* Adjusted heading sizes for mobile */
   }
+
+  .scheme-link,
+  .upload-link {
+    font-size: 0.9rem; /* Smaller link sizes */
+  }
+}
+/* Logo Container */
+.logo-container {
+  margin-bottom: 20px; /* Space below the logo */
+  max-width: 100%; /* Ensure it doesn't exceed the container */
+  display: flex;
+  justify-content: center; /* Center the logo */
+}
+
+.logo {
+  width: 100%; /* Set width to 100% to be responsive */
+  max-width: 150px; /* Maximum width to prevent it from getting too big */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* ...rest of your existing CSS... */
+.logo-container {
+  margin-bottom: 20px; /* Space below the logo */
+  max-width: 100%; /* Ensure it doesn't exceed the container */
+  display: flex;
+  justify-content: center; /* Center the logo */
+}
+
+.logo {
+  width: 100%; /* Set width to 100% to be responsive */
+  max-width: 150px; /* Maximum width to prevent it from getting too big */
+  height: auto; /* Maintain aspect ratio */
 }

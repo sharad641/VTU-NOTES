@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Signup.css';
 
@@ -19,21 +19,6 @@ const Signup = () => {
         try {
             await createUserWithEmailAndPassword(auth, email, password);
             alert('Signup successful!');
-            navigate('/login'); // Redirect to login page
-        } catch (err) {
-            setError(`Error: ${err.message}`);
-        } finally {
-            setIsSubmitting(false);
-        }
-    };
-
-    const handleGoogleSignup = async () => {
-        const provider = new GoogleAuthProvider();
-        setIsSubmitting(true);
-
-        try {
-            await signInWithPopup(auth, provider);
-            alert('Signup with Google successful!');
             navigate('/login'); // Redirect to login page
         } catch (err) {
             setError(`Error: ${err.message}`);
@@ -65,9 +50,9 @@ const Signup = () => {
                     {isSubmitting ? 'Signing Up...' : 'Sign Up'}
                 </button>
             </form>
-            <button className="google-signup" onClick={handleGoogleSignup} disabled={isSubmitting}>
-                {isSubmitting ? 'Signing Up with Google...' : 'Sign Up with Google'}
-            </button>
+            <div className="redirect-to-login">
+                <p>Already have an account? <a href="/login">Login here</a></p>
+            </div>
         </div>
     );
 };

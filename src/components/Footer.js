@@ -9,11 +9,7 @@ function Footer() {
         <h3>VTU-NOTES</h3>
         <p>Helping Engineering Students Succeed with High-Quality Notes & Resources</p>
        
-        <div className="footer-links">
-          
-          <a href="/contact">Contact</a>
-          
-        </div>
+        
       </div>
       <div className="footer-bottom">
         &copy; 2024 VTU-NOTES | All Rights Reserved
