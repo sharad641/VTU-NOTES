@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Signup.css';
 
 const Signup = () => {
@@ -8,6 +9,7 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const navigate = useNavigate(); // Initialize navigate
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -17,6 +19,7 @@ const Signup = () => {
         try {
             await createUserWithEmailAndPassword(auth, email, password);
             alert('Signup successful!');
+            navigate('/login'); // Redirect to login page
         } catch (err) {
             setError(`Error: ${err.message}`);
         } finally {
@@ -29,8 +32,9 @@ const Signup = () => {
         setIsSubmitting(true);
 
         try {
-            await signInWithPopup(auth, provider); // Removed 'result' variable to avoid ESLint error
+            await signInWithPopup(auth, provider);
             alert('Signup with Google successful!');
+            navigate('/login'); // Redirect to login page
         } catch (err) {
             setError(`Error: ${err.message}`);
         } finally {

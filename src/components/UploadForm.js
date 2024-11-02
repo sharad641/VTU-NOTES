@@ -132,7 +132,7 @@ const UploadForm = () => {
                         id="message"
                         value={message}
                         onChange={handleMessageChange}
-                        required 
+                        
                         style={{ width: '100%', height: '100px', marginTop: '8px' }} // Styling for the message field
                     />
                 </div>
