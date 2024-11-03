@@ -1,132 +1,122 @@
 /* Container for the upload form */
 .upload-form {
-    max-width: 500px; /* Set a maximum width for the form */
-    margin: 2rem auto; /* Center the form on the page */
-    padding: 2rem; /* Add padding inside the form */
-    border-radius: 12px; /* More rounded corners */
-    background: #ffffff; /* White background */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    transition: transform 0.3s; /* Smooth transition for hover effect */
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
 .upload-form:hover {
-    transform: scale(1.02); /* Slightly enlarge on hover */
+    transform: scale(1.02);
 }
 
 .upload-form h2 {
-    text-align: center; /* Center the heading */
-    color: #333; /* Darker text color */
-    margin-bottom: 1.5rem; /* Space below the heading */
-    font-size: 1.8rem; /* Larger font size for the heading */
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .form-group {
-    margin-bottom: 1.5rem; /* Space below each form group */
+    margin-bottom: 1.5rem;
 }
 
 .upload-form label {
-    display: block; /* Make labels block elements */
-    margin-bottom: 0.5rem; /* Space below labels */
-    font-weight: 600; /* Bold text */
-    color: #555; /* Medium gray text color */
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #555;
 }
 
 /* Inputs styling */
 .upload-form input[type="text"],
-.upload-form input[type="file"],
 .upload-form textarea {
-    width: 100%; /* Full width input */
-    padding: 0.75rem; /* Padding inside inputs */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 6px; /* Rounded corners */
-    font-size: 1rem; /* Font size for inputs */
-    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 /* Focus state for inputs */
 .upload-form input[type="text"]:focus,
-.upload-form input[type="file"]:focus,
 .upload-form textarea:focus {
-    border-color: #007bff; /* Change border color on focus */
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
-    outline: none; /* Remove default outline */
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
 }
 
 /* Textarea specific styling */
 .upload-form textarea {
-    resize: none; /* Disable resizing of the textarea */
-    min-height: 100px; /* Minimum height for the textarea */
+    resize: none;
+    min-height: 100px;
 }
 
 /* Button styling */
-.upload-form button {
-    width: 100%; /* Full width button */
-    padding: 0.75rem; /* Padding inside button */
-    background-color: #007bff; /* Bootstrap primary color */
-    color: #fff; /* White text color */
-    border: none; /* Remove border */
-    border-radius: 6px; /* Rounded corners */
-    font-size: 1rem; /* Font size for button */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+.upload-form button,
+.file-upload-label {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.upload-form button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
-/* Progress text styling */
-.upload-progress {
-    text-align: center; /* Center text for progress */
-    margin-top: 1rem; /* Space above progress text */
-    font-weight: 600; /* Bold text */
-    color: #333; /* Dark text color */
-}
-
-/* Message styling */
-.upload-message {
-    text-align: center; /* Center message text */
-    margin-top: 1rem; /* Space above message text */
-    font-weight: 600; /* Bold text */
-    padding: 0.75rem; /* Padding inside message box */
-    border-radius: 6px; /* Rounded corners */
-}
-
-/* Success message styling */
-.upload-success {
-    color: #28a745; /* Green for success messages */
-    background: rgba(40, 167, 69, 0.1); /* Light green background */
-}
-
-/* Error message styling */
-.upload-error {
-    color: #dc3545; /* Red for error messages */
-    background: rgba(220, 53, 69, 0.1); /* Light red background */
+.upload-form button:hover,
+.file-upload-label:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 /* Custom File Input Styling */
 .upload-form input[type="file"] {
-    display: none; /* Hide the default file input */
+    display: none;
 }
 
 .file-upload-label {
-    display: inline-block; /* Make the label behave like a button */
-    padding: 0.75rem 1.5rem; /* Padding for the button */
-    background-color: #007bff; /* Button background color */
-    color: white; /* Text color */
-    border-radius: 6px; /* Rounded corners */
-    font-size: 1rem; /* Font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
-}
-
-.file-upload-label:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 1rem;
 }
 
 .file-upload-text {
-    margin-top: 0.5rem; /* Space above the text */
-    color: #666; /* Gray text for file name */
+    margin-top: 0.5rem;
+    color: #666;
+}
+
+/* Progress text styling */
+.upload-progress {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Message styling */
+.upload-message {
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 600;
+    padding: 0.75rem;
+    border-radius: 6px;
+}
+
+/* Success message styling */
+.upload-success {
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+}
+
+/* Error message styling */
+.upload-error {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
 }
