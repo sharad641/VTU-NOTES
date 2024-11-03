@@ -34,12 +34,10 @@ const UploadForm = () => {
         borderRadius: '10px',
         backgroundColor: '#ffffff',
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
-        transition: 'transform 0.2s',
     };
 
     const formGroupStyle = {
         marginBottom: '20px',
-        transition: 'all 0.3s',
     };
 
     const labelStyle = {
@@ -59,7 +57,6 @@ const UploadForm = () => {
         outline: 'none',
         marginBottom: '5px',
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-        transition: 'border-color 0.3s',
     };
 
     const textAreaStyle = {
@@ -81,7 +78,6 @@ const UploadForm = () => {
     };
 
     const buttonHoverStyle = {
-        ...buttonStyle,
         backgroundColor: '#0056b3',
         transform: 'scale(1.05)',
     };
@@ -94,11 +90,13 @@ const UploadForm = () => {
     const successMessageStyle = {
         color: 'green',
         fontWeight: 'bold',
+        marginBottom: '20px',
     };
 
     const errorMessageStyle = {
         color: 'red',
         fontWeight: 'bold',
+        marginBottom: '20px',
     };
 
     // Handle file selection and validation for PDF type
@@ -152,6 +150,9 @@ const UploadForm = () => {
             (snapshot) => {
                 const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                 setUploadProgress(progress);
+                if (progress === 100) {
+                    setUploadMessage('Thank you for your contribution! Your note has been uploaded successfully.');
+                }
             },
             (error) => {
                 console.error('Upload failed:', error);
@@ -189,12 +190,22 @@ const UploadForm = () => {
         setSubjectCode('');
         setMessage('');
         setUploadProgress(0);
+        setUploadMessage(''); // Clear message on reset
+        setUploadSuccess(false); // Reset success state
     };
 
     return (
         <div style={containerStyle}>
             <div style={formStyle}>
                 <h2 style={{ textAlign: 'center', marginBottom: '20px', color: '#333' }}>Upload a Note</h2>
+
+                {/* Display success or error messages here */}
+                {uploadMessage && (
+                    <p style={uploadSuccess ? successMessageStyle : errorMessageStyle}>
+                        {uploadMessage}
+                    </p>
+                )}
+
                 <form onSubmit={handleUpload}>
                     <div style={formGroupStyle}>
                         <label htmlFor="semester" style={labelStyle}>Semester:</label>
@@ -259,11 +270,6 @@ const UploadForm = () => {
                     {uploadProgress > 0 && 
                         <p style={progressStyle}>Upload progress: {uploadProgress.toFixed(2)}%</p>
                     }
-                    {uploadMessage && (
-                        <p style={uploadSuccess ? successMessageStyle : errorMessageStyle}>
-                            {uploadMessage}
-                        </p>
-                    )}
                 </form>
             </div>
         </div>
