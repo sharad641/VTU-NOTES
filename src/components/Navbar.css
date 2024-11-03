@@ -6,7 +6,7 @@
   padding: 10px 20px;
   background: linear-gradient(to right, #f9fbe7, #639abc);
   backdrop-filter: blur(10px);
-  color: #fff;
+  color: #000;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -14,41 +14,27 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+/* Logo Container */
 .navbar-logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   overflow: hidden;
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
+  cursor: pointer;
 }
 
 .navbar-logo {
   width: 100%;
   height: auto;
-  transition: transform 0.3s ease;
 }
 
 .navbar-logo-container:hover {
   transform: scale(1.05);
-}
-
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  z-index: 1001; /* Ensure the hamburger is above other elements */
-}
-
-.hamburger .bar {
-  height: 3px;
-  width: 28px;
-  background-color: #fff;
-  margin: 3px 0;
-  transition: transform 0.3s, opacity 0.3s;
 }
 
 /* Navigation Links */
@@ -60,93 +46,68 @@
   gap: 20px;
 }
 
+/* Common styles for navigation items (links and buttons) */
 .nav-item {
   font-size: 1.1rem;
   font-weight: 500;
-  padding: 8px 15px;
+}
+
+/* Common styles for Login and Logout */
+.nav-item a,
+.nav-item button {
+  padding: 10px 20px;
   border-radius: 30px;
-  background: rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, #007acc, #00bcd4);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none; /* Remove underline from links */
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect */
+.nav-item a:hover,
+.nav-item button:hover {
+  background: linear-gradient(135deg, #00bcd4, #007acc);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Active Effect */
+.nav-item a:active,
+.nav-item button:active {
+  transform: translateY(1px);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-  backdrop-filter: blur(5px);
 }
 
-.nav-item a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
 }
 
-.nav-item a:hover {
-  color: rgba(255, 255, 255, 0.8);
+body.dark-mode .navbar {
+  background-color: #333;
+  color: #ffffff;
 }
 
-.nav-item:hover {
-  background: rgba(255, 255, 255, 0.3);
-  color: #ffcc00;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transform: translateY(-1px);
+body.dark-mode .nav-item a,
+body.dark-mode .nav-item button {
+  background: linear-gradient(135deg, #00bcd4, #009688);
+  color: #ffffff;
 }
 
-/* Active state for hamburger menu */
-.hamburger.active .bar:nth-child(1) {
-  transform: translateY(6px) rotate(45deg);
+body.dark-mode .nav-item a:hover,
+body.dark-mode .nav-item button:hover {
+  background: linear-gradient(135deg, #009688, #00bcd4);
 }
 
-.hamburger.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(3) {
-  transform: translateY(-6px) rotate(-45deg);
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-  .hamburger {
-    display: flex; /* Show hamburger on mobile */
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 70px;
-    right: 0;
-    height: 60vh;
-    width: 100%;
-    background: rgba(36, 37, 42, 0.95);
-    backdrop-filter: blur(10px);
-    flex-direction: column;
-    display: none; /* Hide by default */
-    z-index: 999;
-    transition: transform 0.3s ease-in-out;
-    transform: translateX(100%);
-    padding: 20px; /* Add padding for better spacing */
-  }
-
-  .nav-links.active {
-    display: flex;
-    transform: translateX(0);
-  }
-
-  .nav-item {
-    margin: 10px 0;
-    text-align: center;
-    padding: 15px 20px;
-    font-size: 1.2rem; /* Increased font size for better readability */
-  }
-
-  .navbar-logo-container {
-    width: 80px; /* Adjusted size for mobile */
-    height: 80px; /* Adjusted size for mobile */
-  }
-
-  /* Enhance hamburger transition */
-  .hamburger {
-    transition: transform 0.3s;
-  }
-
-  .hamburger:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
-  }
+/* Focus Style */
+.nav-item a:focus,
+.nav-item button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 122, 204, 0.4);
 }
