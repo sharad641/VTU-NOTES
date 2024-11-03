@@ -149,11 +149,11 @@
 
     .subject-box .subject-code,
     .subject-box .credits-box {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 
     .subject-box button {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 
     .subject-box .subject-details {
@@ -163,11 +163,11 @@
 
 @media (max-width: 480px) {
     .subjects h2 {
-        font-size: 2.5rem;
+        font-size: 2.6rem;
     }
 
     .subjects h3 {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
     }
 
     .subjects ul {
@@ -183,6 +183,6 @@
 
     .subject-box .subject-code,
     .subject-box .credits-box {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 }

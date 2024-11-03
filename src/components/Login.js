@@ -1,6 +1,7 @@
 // src/components/Login.js
 import React, { useState, useEffect } from 'react';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from 'firebase/auth';
+
 import { auth } from '../firebase'; // Ensure this path is correct
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Login.css';

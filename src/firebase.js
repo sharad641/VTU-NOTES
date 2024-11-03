@@ -3,6 +3,8 @@ import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
 import { getFirestore } from 'firebase/firestore';
+import { getDatabase } from 'firebase/database'; // Import Realtime Database
+import { getAnalytics } from 'firebase/analytics'; // Import Analytics
 
 // Firebase configuration
 const firebaseConfig = {
@@ -22,5 +24,7 @@ const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const auth = getAuth(app);
 const storage = getStorage(app);
 const firestore = getFirestore(app);
+const database = getDatabase(app); // Initialize Realtime Database
+const analytics = getAnalytics(app); // Initialize Analytics
 
-export { auth, storage, firestore };
+export { auth, storage, firestore, database, analytics }; // Export analytics
