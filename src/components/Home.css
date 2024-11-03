@@ -1,5 +1,3 @@
-/* src/components/Home.css */
-
 /* Main container styling */
 .home-container {
   display: flex;
@@ -9,7 +7,6 @@
   max-width: 900px;
   margin: 0 auto;
   background: linear-gradient(135deg, #36d1dc, #5b86e5);
-
   border-radius: 12px;
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
   overflow: hidden;
@@ -18,7 +15,6 @@
 /* Headline message */
 .headline-message {
   background: linear-gradient(135deg, #36d1dc, #5b86e5);
-
   padding: 20px 30px;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -61,9 +57,6 @@
 .contact-box,
 .vtu-notes-info-box {
   background: linear-gradient(135deg, #4facfe, #00f2fe);
-
-
-
   padding: 35px;
   border-radius: 15px;
   text-align: center;
@@ -82,7 +75,6 @@
 .contact-box:hover,
 .vtu-notes-info-box:hover {
   transform: scale(1.05);
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
 }
 
 /* Headings */
@@ -134,7 +126,6 @@
 .social-link:hover {
   background-color: #555;
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Social Links Box */
@@ -181,7 +172,6 @@
 /* Contact Box */
 .contact-box {
   background: linear-gradient(135deg, #36d1dc, #5b86e5);
-
   color: #fff;
   padding: 30px;
   border-radius: 15px;
@@ -274,6 +264,7 @@
     font-size: 1.2rem; /* Smaller link sizes */
   }
 }
+
 /* Logo Container */
 .logo-container {
   margin-bottom: 20px; /* Space below the logo */
@@ -288,19 +279,6 @@
   height: auto; /* Maintain aspect ratio */
 }
 
-/* ...rest of your existing CSS... */
-.logo-container {
-  margin-bottom: 20px; /* Space below the logo */
-  max-width: 100%; /* Ensure it doesn't exceed the container */
-  display: flex;
-  justify-content: center; /* Center the logo */
-}
-
-.logo {
-  width: 100%; /* Set width to 100% to be responsive */
-  max-width: 150px; /* Maximum width to prevent it from getting too big */
-  height: auto; /* Maintain aspect ratio */
-}
 /* Enhanced Paragraph Styles */
 .vtu-notes-info-box p,
 .calculator-box p,
@@ -311,11 +289,71 @@
   font-size: 1.1rem; /* Standard paragraph font size */
   line-height: 1.8; /* Increased line height for readability */
   margin: 10px 0;
-  color: rgb(27, 21, 21); /* White text color for paragraphs */
+  color: rgb(27, 21, 21); /* Text color */
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Soft text shadow for depth */
   transition: color 0.3s, transform 0.3s; /* Smooth transitions */
 }
-/* Calculator Box */
 
+/* News Box */
+.news-box {
+  background: linear-gradient(135deg, #4facfe, #00f2fe); /* Warm gradient background */
+  padding: 35px; /* Generous padding */
+  border-radius: 15px; /* Rounded corners */
+  width: 100%; /* Full width */
+  max-width: 800px; /* Maximum width */
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+  margin-bottom: 25px; /* Space below the box */
+  animation: fadeIn 1s ease; /* Fade-in animation */
+}
 
+.news-box h2 {
+  font-size: 2rem; /* Large font size for heading */
+  color: #fff; /* White text color */
+  margin-bottom: 20px; /* Space below heading */
+  text-shadow: 1px 1px 5px rgba(180, 167, 167, 0.3); /* Soft shadow for depth */
+}
 
+.news-list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+}
+
+.news-list li {
+  margin: 15px 0; /* Increased space between list items */
+  padding: 15px; /* Padding around each list item */
+  background: rgba(255, 255, 255, 0.9); /* Light background for news items */
+  border-left: 5px solid #ff6347; /* Accent color on the left */
+  border-radius: 8px; /* Rounded corners for news items */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+}
+
+.news-list li:hover {
+  transform: translateY(-3px); /* Lift effect on hover */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+.news-list a {
+  text-decoration: none; /* Remove underline */
+  color: #3b3b58; /* Dark slate color for links */
+  font-weight: bold; /* Bold text for links */
+  display: block; /* Make the link block-level for easier clicking */
+}
+
+.news-list a:hover {
+  color: #ff6347; /* Tomato color for text on hover */
+}
+
+/* Enhanced paragraph styles within news box */
+.news-box p {
+  font-size: 1.1rem; /* Standard paragraph font size */
+  line-height: 1.8; /* Increased line height for readability */
+  margin: 10px 0; /* Margins for spacing */
+  color: rgb(27, 21, 21); /* Text color */
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Soft text shadow for depth */
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

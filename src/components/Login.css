@@ -41,12 +41,14 @@ label {
 }
 
 .input-field {
-    width: 100%; /* Full width for input fields */
-    padding: 10px; /* Padding for input fields */
+    width: 100%; /* Ensure it takes full width */
+    padding: 10px; /* Padding for better touch targets */
     border: 1px solid #0d0c0c; /* Border for input fields */
-    border-radius: 4px; /* Round corners */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
     transition: border-color 0.3s; /* Smooth border transition */
     font-size: 16px; /* Consistent font size */
+    max-width: 100%; /* Prevent overflow */
 }
 
 .input-field:focus {
@@ -93,23 +95,58 @@ label {
     text-align: center; /* Center error message */
     margin-bottom: 15px; /* Space below error message */
 }
-
 .google-login-button {
     width: 100%; /* Full width for button */
     padding: 12px; /* Increase padding for better touch targets */
-    background-color: #db4437; /* Google color */
-    color: white; /* Button text color */
+    background-color: #f8f2f2; /* Google red background color */
+    color: rgb(11, 7, 7); /* Button text color */
     border: none; /* Remove border */
     border-radius: 4px; /* Round corners */
     cursor: pointer; /* Pointer cursor */
     font-size: 16px; /* Font size for button */
-    margin-top: 5px; /* Space above the button */
-    transition: background-color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transition */
+    margin-top: 10px; /* Space above the button */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
 }
 
 .google-login-button:hover {
-    background-color: #c13528; /* Darker shade on hover */
+    background-color: #f7f0ef; /* Darker shade on hover */
+    transform: scale(1.02); /* Slightly increase size on hover */
 }
+
+.google-logo {
+    width: 20px; /* Set width for the logo */
+    height: 20px; /* Set height for the logo */
+    margin-right: 8px; /* Space between logo and text */
+}
+
+/* Additional styles for centering the button container */
+.google-login-container {
+    display: flex; /* Use flexbox for the container */
+    justify-content: center; /* Center the button container */
+    margin-top: 20px; /* Space above the container */
+}
+
+
+
+
+   
+.google-login-notice {
+    text-align: center; /* Center the text */
+    margin: 15px 0; /* Space around the notice */
+    font-size: 1rem; /* Base font size */
+    color: #555; /* Dark gray color for the text */
+    font-weight: 500; /* Medium weight for emphasis */
+}
+
+.google-login-notice p {
+    margin: 0; /* Remove default margin */
+}
+
+/* Optional: Add a background or border to make it stand out */
+
 
 .divider {
     text-align: center; /* Center the divider */
@@ -164,26 +201,23 @@ body {
 input[type="text"], input[type="password"] {
     box-sizing: border-box; /* Include padding in width */
 }
-.google-login-button {
-    width: 100%; /* Full width for button */
-    padding: 10px; /* Padding for button */
-    background-color: #db4437; /* Google color */
-    color: white; /* Button text color */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Round corners */
-    cursor: pointer; /* Pointer cursor */
-    font-size: 16px; /* Font size for button */
-    margin-top: 10px; /* Space above the button */
-    transition: background-color 0.3s; /* Smooth transition */
-}
 
-.google-login-button:hover {
-    background-color: #c13528; /* Darker shade on hover */
-}
-.google-login-notice {
-    text-align: center; /* Center the notice text */
+
+/* Signup Notice Styles */
+.signup-notice {
     margin: 15px 0; /* Space around the notice */
-    font-size: 0.9rem; /* Slightly smaller font size */
-    color: #555; /* Gray color for less emphasis */
+    font-size: 1rem; /* Base font size */
+    color: #004d40; /* Consistent color with the theme */
+    text-align: center; /* Center the text */
 }
 
+.signup-notice a {
+    color: #00796b; /* Link color */
+    font-weight: bold; /* Bold text for emphasis */
+    text-decoration: underline; /* Underline for links */
+    transition: color 0.3s; /* Smooth transition for hover effects */
+}
+
+.signup-notice a:hover {
+    color: #004d40; /* Darker shade on hover */
+}

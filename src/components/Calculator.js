@@ -222,7 +222,7 @@ const Calculator = () => {
 
     return (
         <div className="calculator-container">
-            <h1>VTU-Notes CGPA Calculators</h1>
+            <h1>VTU CGPA Calculators</h1>
             <div className="calculator-select">
                 <button className="button" onClick={() => handleCalculatorSelect('sgpa')}>SGPA Calculator</button>
                 <button className="button" onClick={() => handleCalculatorSelect('cgpa')}>CGPA Calculator</button>

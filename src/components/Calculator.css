@@ -109,6 +109,10 @@
     .calculator-section h4 {
         font-size: 1.4rem;
     }
+
+    .input-group {
+        margin-bottom: 15px; /* Reduce space for mobile */
+    }
 }
 
 /* Additional enhancements */
@@ -131,4 +135,30 @@ h3, h4 {
 
 .calculator-section input {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styles for mobile */
+.footer {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items */
+    padding: 15px 10px; /* Add some padding */
+    background-color: #f8f9fa; /* Same as calculator background */
+    border-top: 1px solid #eaeaea; /* Light border on top */
+    margin-top: 20px; /* Space above footer */
+}
+
+.footer p {
+    margin: 5px 0; /* Reduce margin between footer items */
+    font-size: 1rem; /* Make font size appropriate */
+    text-align: center; /* Center align text */
+}
+
+.footer a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Underline on hover */
 }

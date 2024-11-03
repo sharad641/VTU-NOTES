@@ -34,12 +34,12 @@ const Home = () => {
                     "The notes for ECE have not been uploaded yet; work is in progress. Please wait for some time."
                 </div>
             </div>
+            
 
             <div className="vtu-notes-info-box">
                 <h2>About VTU Notes</h2>
                 <p>
                 VTU-NOTES is your go-to resource for academic success! We offer curated notes, extensive question banks, and essential questions to help you excel in your exams.
-                
                 </p>
             </div>
 
@@ -64,7 +64,14 @@ const Home = () => {
             </div>
 
             {/* SGPA Calculator Link */}
-            
+            <div className="calculator-box">
+                <h2>VTU Calculators</h2>
+                <p>Need help calculating your SGPA, CGPA? Use our calculator for accurate results!</p>
+                <Link to="/calculator" className="calculator-link">Go to SGPA Calculator</Link>
+            </div>
+
+            {/* News and Internship Opportunities */}
+           
 
             {/* Upload Notes Link */}
             <div className="upload-notes-box">
@@ -72,11 +79,22 @@ const Home = () => {
                 <p>Do you have notes that can assist fellow students? Share your materials and contribute to our growing resource library! </p>
                 <Link to="/upload" className="upload-link">Upload Notes</Link>
             </div>
-
-            <div className="calculator-box">
-                <h2>VTU Calculators</h2>
-                <p>Need help calculating your SGPA,CGPA? Use our calculator for accurate results!</p>
-                <Link to="/calculator" className="calculator-link">Go to SGPA Calculator</Link>
+            <div className="news-box">
+                <h2>Latest News & Internship Opportunities</h2>
+                <ul className="news-list">
+                    <li>
+                        <a href="https://www.missionstartupkarnataka.org/elevate-karnataka?en" target="_blank" rel="noopener noreferrer">👉👉👉Idea2PoC / ELEVATE Program - </a>
+                        <p>ELEVATE 2024
+                        The Idea2PoC/ELEVATE program is a Government of Karnataka initiative designed to support and fund innovative startups in Karnataka, helping them validate proof of concept and scale their solutions to the next level.</p>
+                    </li>
+                    <li>
+                        <a href="https://example.com/news-1" target="_blank" rel="noopener noreferrer">Placement News:</a>
+                    </li>
+                    <li>
+                        <a href="https://www.business-standard.com/companies/news/tech-spending-strong-ai-and-copilot-driving-momentum-microsoft-india-prez-124110300383_1.html" target="_blank" rel="noopener noreferrer">Tech spending strong, AI and Copilot driving momentum: Microsoft India Prez</a>
+                    </li>
+                    {/* Add more items as needed */}
+                </ul>
             </div>
 
             {/* Social Links */}
@@ -92,7 +110,7 @@ const Home = () => {
             {/* Contact Box */}
             <div className="contact-box">
                 <h2>Contact</h2>
-                <p>If you have any questions or require assistance regarding notes,  please don’t hesitate to reach out to us. We are here to help you succeed!</p>
+                <p>If you have any questions or require assistance regarding notes, please don’t hesitate to reach out to us. We are here to help you succeed!</p>
                 <p>
                     Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a>
                 </p>
