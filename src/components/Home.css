@@ -8,7 +8,8 @@
   padding: 30px;
   max-width: 900px;
   margin: 0 auto;
-  background: linear-gradient(135deg, #e0f7fa, #e3f2fd);
+  background: linear-gradient(135deg, #36d1dc, #5b86e5);
+
   border-radius: 12px;
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
   overflow: hidden;
@@ -54,6 +55,7 @@
 
 /* Box Styles */
 .scheme-selection-box,
+.calculator-box,
 .upload-notes-box,
 .social-links-box,
 .contact-box,
@@ -74,6 +76,7 @@
 }
 
 .scheme-selection-box:hover,
+.calculator-box:hover,
 .upload-notes-box:hover,
 .social-links-box:hover,
 .contact-box:hover,
@@ -84,6 +87,7 @@
 
 /* Headings */
 .scheme-selection-box h2,
+.calculator-box h2,
 .upload-notes-box h2,
 .social-links-box h2,
 .contact-box h2,
@@ -110,6 +114,7 @@
 /* Links */
 .scheme-link,
 .upload-link,
+.calculator-link,
 .social-link {
   color: #fff;
   font-weight: bold;
@@ -124,6 +129,7 @@
 }
 
 .scheme-link:hover,
+.calculator-box:hover,
 .upload-link:hover,
 .social-link:hover {
   background-color: #555;
@@ -189,6 +195,7 @@
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
   .scheme-selection-box,
+  .calculator-box,
   .upload-notes-box,
   .social-links-box,
   .contact-box,
@@ -197,6 +204,7 @@
   }
 
   .scheme-selection-box h2,
+  .calculator-box h2,
   .upload-notes-box h2,
   .social-links-box h2,
   .contact-box h2,
@@ -213,6 +221,7 @@
 
 @media (max-width: 768px) {
   .headline-message,
+  .calculator-box,
   .scheme-selection-box,
   .upload-notes-box,
   .social-links-box,
@@ -226,6 +235,7 @@
   }
 
   .scheme-selection-box h2,
+  .calculator-box h2,
   .upload-notes-box h2,
   .social-links-box h2,
   .contact-box h2,
@@ -251,6 +261,7 @@
   }
 
   .scheme-selection-box h2,
+  .calculator-box h2,
   .upload-notes-box h2,
   .social-links-box h2,
   .contact-box h2,
@@ -292,6 +303,7 @@
 }
 /* Enhanced Paragraph Styles */
 .vtu-notes-info-box p,
+.calculator-box p,
 .scheme-selection-box p,
 .upload-notes-box p,
 .social-links-box p,
@@ -303,3 +315,7 @@
   text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Soft text shadow for depth */
   transition: color 0.3s, transform 0.3s; /* Smooth transitions */
 }
+/* Calculator Box */
+
+
+

@@ -1,3 +1,5 @@
+// src/App.js
+
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -11,6 +13,7 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import UploadForm from './components/UploadForm'; // Import the UploadForm component
+import Calculator from './components/Calculator'; // Import the Calculator component
 import { auth } from './firebase'; // Import Firebase auth
 
 function App() {
@@ -43,6 +46,7 @@ function App() {
                     <Route path="/branch/:branch/:semester/modules/:subjectName" element={<ProtectedRoute element={<ModuleDetail />} />} />
                     <Route path="/pdf/:pdfUrl" element={<ProtectedRoute element={<PdfViewer />} />} />
                     <Route path="/upload" element={<ProtectedRoute element={<UploadForm />} />} /> {/* New UploadForm route */}
+                    <Route path="/calculator" element={<ProtectedRoute element={<Calculator />} />} /> {/* New Calculator route */}
                     
                     {/* Authentication Routes */}
                     <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />

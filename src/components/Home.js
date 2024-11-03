@@ -62,11 +62,20 @@ const Home = () => {
                 <p>VTU-NOTES serves as your trusted guide through academic challenges. Explore our extensive offerings to find the notes you need for success in your studies.</p>
             </div>
 
+            {/* SGPA Calculator Link */}
+            
+
             {/* Upload Notes Link */}
             <div className="upload-notes-box">
                 <h2>Upload Your Notes</h2>
                 <p>Do you have notes that can assist fellow students? Share your materials and contribute to our growing resource library! Your input is invaluable in supporting others in their academic journey.</p>
                 <Link to="/upload" className="upload-link">Upload Notes</Link>
+            </div>
+
+            <div className="calculator-box">
+                <h2>VTU Calculators</h2>
+                <p>Need help calculating your SGPA,CGPA? Use our calculator for accurate results!</p>
+                <Link to="/calculator" className="calculator-link">Go to SGPA Calculator</Link>
             </div>
 
             {/* Social Links */}
@@ -87,7 +96,7 @@ const Home = () => {
                     Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a>
                 </p>
                 <p>
-                    Phone: <a href="tel:+916364060716" className="contact-link">+91 6364</a>
+                    Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a>
                 </p>
             </div>
         </div>

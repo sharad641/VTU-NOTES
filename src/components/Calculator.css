@@ -1,0 +1,134 @@
+/* General layout for the container */
+.calculator-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #ffffff, #f8f9fa);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Title styling */
+.calculator-container h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Calculator section styling */
+.calculator-section {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.calculator-section h3,
+.calculator-section h4 {
+    font-size: 1.6rem;
+    color: #555;
+}
+
+/* Styling for input fields */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    outline: none;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-field:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Buttons */
+.button {
+    padding: 12px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    color: #fff;
+    background-color: #007bff;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.button:active {
+    transform: translateY(1px);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .calculator-container {
+        padding: 20px;
+    }
+
+    .button {
+        width: 100%;
+        margin: 8px 0;
+    }
+
+    .calculator-container h1 {
+        font-size: 2rem;
+    }
+
+    .calculator-section h2 {
+        font-size: 1.8rem;
+    }
+
+    .calculator-section h3,
+    .calculator-section h4 {
+        font-size: 1.4rem;
+    }
+}
+
+/* Additional enhancements */
+.calculator-select {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.calculator-select .button {
+    flex: 1 1 30%;
+    margin: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+h3, h4 {
+    margin-top: 15px;
+}
+
+.calculator-section input {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
