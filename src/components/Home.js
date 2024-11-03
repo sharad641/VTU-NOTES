@@ -25,21 +25,21 @@ const Home = () => {
     return (
         <div className="home-container">
             {/* Logo Display */}
-            
+
             {/* Message/Headline with marquee effect */}
             <div className="headline-message">
                 <div className="marquee-text">
-                    📢 Latest Updates: New notes for 5th Semester are now available!(Not All) Check them out!
+                    📢 Latest Updates: New notes for the 5th Semester are now available! (Not all) Check them out!
                     <span style={{ display: 'block', marginTop: '10px' }}></span>
                     "The notes for ECE have not been uploaded yet; work is in progress. Please wait for some time."
                 </div>
             </div>
+
             <div className="vtu-notes-info-box">
                 <h2>About VTU Notes</h2>
                 <p>
-                    VTU-NOTES is your go-to resource for academic success. We offer curated notes, extensive question banks, and important questions to help you excel in your exams. Remember, these VTU notes are handled by students just like you, currently studying at various VTU colleges. Your contributions make a difference!
+                VTU-NOTES is your go-to resource for academic success! We offer curated notes, extensive question banks, and essential questions to help you excel in your exams. All our notes are managed exclusively by VTU students, ensuring you get the best insights. Join us in this collaborative effort—your contributions can make a real difference!
                 </p>
-               
             </div>
 
             {/* Scheme Selection */}
@@ -59,15 +59,13 @@ const Home = () => {
                 
                 {showMessage && <p className="info-message">{message}</p>}
 
-                <p>VTU-NOTES is your go-to resource for academic success. We offer curated notes, extensive question banks, and important questions to help you excel in your exams.</p>
-                
+                <p>VTU-NOTES serves as your trusted guide through academic challenges. Explore our extensive offerings to find the notes you need for success in your studies.</p>
             </div>
 
             {/* Upload Notes Link */}
             <div className="upload-notes-box">
                 <h2>Upload Your Notes</h2>
-                <p>Do you have notes to share? Upload your materials to help fellow students! Take this step to contribute and support others in their studies.</p>
-               
+                <p>Do you have notes that can assist fellow students? Share your materials and contribute to our growing resource library! Your input is invaluable in supporting others in their academic journey.</p>
                 <Link to="/upload" className="upload-link">Upload Notes</Link>
             </div>
 
@@ -84,13 +82,12 @@ const Home = () => {
             {/* Contact Box */}
             <div className="contact-box">
                 <h2>Contact</h2>
-                <p>If you have any questions or need assistance regarding notes, study-related issues, or any other concerns, please don’t hesitate to contact us.</p>
-                
+                <p>If you have any questions or require assistance regarding notes, study-related issues, or any other concerns, please don’t hesitate to reach out to us. We are here to help you succeed!</p>
                 <p>
                     Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a>
                 </p>
                 <p>
-                    Phone:6364 <a href="tel:+916364060716" className="contact-link">+91</a>
+                    Phone: <a href="tel:+916364060716" className="contact-link">+91 6364</a>
                 </p>
             </div>
         </div>
