@@ -1,5 +1,3 @@
-// src/components/UploadForm.js
-
 import React, { useState } from 'react';
 import { storage, firestore } from '../firebase'; // Ensure your firebase setup is correct
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
@@ -32,8 +30,8 @@ const UploadForm = () => {
         padding: '30px',
         border: '1px solid #ddd',
         borderRadius: '10px',
-        backgroundColor: '#ffffff',
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+        background: 'rgba(255, 255, 255, 0.9)',
+        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.1)',
     };
 
     const formGroupStyle = {
@@ -50,13 +48,14 @@ const UploadForm = () => {
 
     const inputStyle = {
         width: '100%',
-        padding: '10px',
+        padding: '12px',
         fontSize: '14px',
         border: '1px solid #ccc',
         borderRadius: '5px',
         outline: 'none',
         marginBottom: '5px',
         boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+        transition: 'border-color 0.3s, box-shadow 0.3s',
     };
 
     const textAreaStyle = {
@@ -197,7 +196,7 @@ const UploadForm = () => {
     return (
         <div style={containerStyle}>
             <div style={formStyle}>
-                <h2 style={{ textAlign: 'center', marginBottom: '20px', color: '#333' }}>Upload a Note</h2>
+                <h2 style={{ textAlign: 'center', marginBottom: '20px', color: '#007BFF' }}>Upload a Note</h2>
 
                 {/* Display success or error messages here */}
                 {uploadMessage && (

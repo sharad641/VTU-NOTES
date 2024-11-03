@@ -38,7 +38,8 @@ const Home = () => {
             <div className="vtu-notes-info-box">
                 <h2>About VTU Notes</h2>
                 <p>
-                VTU-NOTES is your go-to resource for academic success! We offer curated notes, extensive question banks, and essential questions to help you excel in your exams. All our notes are managed exclusively by VTU students, ensuring you get the best insights. Join us in this collaborative effort—your contributions can make a real difference!
+                VTU-NOTES is your go-to resource for academic success! We offer curated notes, extensive question banks, and essential questions to help you excel in your exams.
+                
                 </p>
             </div>
 
@@ -68,7 +69,7 @@ const Home = () => {
             {/* Upload Notes Link */}
             <div className="upload-notes-box">
                 <h2>Upload Your Notes</h2>
-                <p>Do you have notes that can assist fellow students? Share your materials and contribute to our growing resource library! Your input is invaluable in supporting others in their academic journey.</p>
+                <p>Do you have notes that can assist fellow students? Share your materials and contribute to our growing resource library! </p>
                 <Link to="/upload" className="upload-link">Upload Notes</Link>
             </div>
 
@@ -91,7 +92,7 @@ const Home = () => {
             {/* Contact Box */}
             <div className="contact-box">
                 <h2>Contact</h2>
-                <p>If you have any questions or require assistance regarding notes, study-related issues, or any other concerns, please don’t hesitate to reach out to us. We are here to help you succeed!</p>
+                <p>If you have any questions or require assistance regarding notes,  please don’t hesitate to reach out to us. We are here to help you succeed!</p>
                 <p>
                     Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a>
                 </p>
