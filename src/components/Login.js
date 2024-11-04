@@ -38,7 +38,7 @@ const Login = ({ setIsAuthenticated }) => {
       setIsAuthenticated(true);
       navigate('/'); // Redirect to home on successful login
     } catch (error) {
-      console.error("Login failed", error.message);
+      console.error("Login failed", error); // Avoid logging sensitive information
       setError("Invalid email or password. Please try again.");
     } finally {
       setLoading(false);
@@ -53,7 +53,7 @@ const Login = ({ setIsAuthenticated }) => {
       setIsAuthenticated(true);
       navigate('/'); // Redirect to home on successful Google login
     } catch (error) {
-      console.error("Google Login failed", error.message);
+      console.error("Google Login failed", error); // Avoid logging sensitive information
       setError("Failed to login with Google. Please try again.");
     } finally {
       setLoading(false);
