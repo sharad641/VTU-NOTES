@@ -42,7 +42,7 @@ const PlacementGuide = () => {
                 { label: 'Mock Interview Platform', url: 'https://www.interviewbit.com/peer-mock-interview/' },
                 { label: 'Behavioral Interview Guide', url: 'https://in.redrob.io/blog/behavioral-and-competency-based-interview-questions-guide/' },
             ],
-            pdf: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_4', // Update with actual Google Drive PDF ID
+            pdf: 'https://drive.google.com/file/d/1dZeO-PnPiAmN-Ikt3tuYUTkGif6tNlzm/view?usp=sharing', // Update with actual Google Drive PDF ID
         },
         {
             title: 'Soft Skills and Communication',
@@ -51,7 +51,7 @@ const PlacementGuide = () => {
                 { label: 'Public Speaking Tips', url: 'https://alison.com/course/introduction-to-public-speaking?utm_source=bing&utm_medium=cpc&utm_campaign=531498932&utm_content=1360098421544507&utm_term=kwd-85007315307112:loc-90&msclkid=e81f1ed9a17a17576ac579f10560d4a4' },
                 { label: 'Effective Communication Strategies', url: 'https://www.bing.com/videos/search?view=detail&q=Effective+Communication+Strategies&&mid=A06F8B5E074E1974C35BA06F8B5E074E1974C35B&&FORM=VRDGAR' },
             ],
-            pdf: 'https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_5', // Update with actual Google Drive PDF ID
+            pdf: 'https://drive.google.com/file/d/1uL5PUHe1AJsji-GDzImr5J3G80EfBOMe/view?usp=sharing', // Update with actual Google Drive PDF ID
         }
     ];
 

@@ -5,7 +5,6 @@
   align-items: center;
   padding: 20px;
   background: linear-gradient(135deg, #36d1dc, #5b86e5);
-
   color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
@@ -15,15 +14,17 @@
   font-size: 2.5rem; /* Default size */
   font-weight: 800;
   margin-bottom: 30px;
-  color: #FFFFFF;
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for contrast */
   animation: fadeIn 1s ease-in-out; /* Fade-in effect */
 }
 
+/* Enhanced Section Styles */
 .branch-section {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  display: flex; /* Use flex for centering */
+  flex-wrap: wrap; /* Allow wrapping */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
   gap: 20px; /* Space between cards */
   width: 90%;
   max-width: 1200px; /* Maximum width for larger screens */
@@ -31,12 +32,13 @@
   animation: fadeInUp 1s ease-in-out; /* Animation for section appearance */
 }
 
+/* Card Styles */
 .branch-card {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
-  min-height: 140px; /* Minimum height for cards */
+  min-height: 160px; /* Increased minimum height for better content fit */
   font-size: 1.1rem;
   font-weight: 700;
   color: #FFFFFF;
@@ -51,6 +53,7 @@
   overflow: hidden; /* Prevent overflow */
   text-align: center;
   width: 100%; /* Full width */
+  max-width: 300px; /* Limit max width for each card */
 }
 
 .branch-card:before {
@@ -84,12 +87,14 @@
 /* Responsive Layouts */
 @media (max-width: 600px) {
   .branch-header {
-    font-size: 2.2rem; /* Smaller font for mobile */
+    font-size: 2rem; /* Smaller font for mobile */
+    margin-bottom: 20px; /* Reduced margin */
   }
 
   .branch-card {
     padding: 15px; /* Adjusted padding */
-    min-height: 120px; /* Reduced height for smaller screens */
+    min-height: 140px; /* Height adjustment */
+    font-size: 1rem; /* Adjusted font size */
   }
 }
 
@@ -100,7 +105,7 @@
 
   .branch-card {
     padding: 20px; /* Padding for medium screens */
-    min-height: 130px; /* Height adjustment */
+    min-height: 150px; /* Height adjustment */
   }
 }
 
@@ -111,7 +116,7 @@
 
   .branch-card {
     font-size: 1.2rem; /* Font size for cards */
-    min-height: 140px; /* Consistent height */
+    min-height: 160px; /* Consistent height */
   }
 }
 
@@ -122,13 +127,14 @@
 
   .branch-card {
     padding: 25px; /* Increased padding */
-    min-height: 150px; /* Height adjustment */
+    min-height: 170px; /* Height adjustment */
     font-size: 1.3rem; /* Font size for cards */
   }
 
   /* Grid layout for larger screens */
   .branch-section {
-    grid-template-columns: repeat(3, 1fr); /* Three columns for desktops */
+    flex-direction: row; /* Ensure row layout on larger screens */
+    justify-content: center; /* Center the cards */
   }
 }
 

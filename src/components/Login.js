@@ -14,6 +14,7 @@ const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const provider = new GoogleAuthProvider();
 
@@ -31,6 +32,7 @@ const Login = ({ setIsAuthenticated }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
     try {
       await signInWithEmailAndPassword(auth, email, password);
       setIsAuthenticated(true);
@@ -38,11 +40,14 @@ const Login = ({ setIsAuthenticated }) => {
     } catch (error) {
       console.error("Login failed", error.message);
       setError("Invalid email or password. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleGoogleLogin = async () => {
     setError('');
+    setLoading(true);
     try {
       await signInWithPopup(auth, provider);
       setIsAuthenticated(true);
@@ -50,6 +55,8 @@ const Login = ({ setIsAuthenticated }) => {
     } catch (error) {
       console.error("Google Login failed", error.message);
       setError("Failed to login with Google. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -67,6 +74,7 @@ const Login = ({ setIsAuthenticated }) => {
             required 
             className="input-field"
             placeholder="Enter your email"
+            aria-label="Email address"
           />
         </div>
         <div className="form-group">
@@ -78,16 +86,19 @@ const Login = ({ setIsAuthenticated }) => {
             required 
             className="input-field"
             placeholder="Enter your password"
+            aria-label="Password"
           />
         </div>
-        <button type="submit" className="login-button">Login</button>
+        <button type="submit" className="login-button" disabled={loading}>
+          {loading ? 'Logging in...' : 'Login'}
+        </button>
       </form>
       <p className="signup-notice">
         Don't have an account? <a href="/signup">Sign up here</a>.
       </p>
-      <button onClick={handleGoogleLogin} className="google-login-button">
+      <button onClick={handleGoogleLogin} className="google-login-button" aria-label="Login with Google" disabled={loading}>
         <img src={googleLogo} alt="Google Logo" className="google-logo" />
-        Google
+        {loading ? 'Logging in...' : 'Login with Google'}
       </button>
     </div>
   );
