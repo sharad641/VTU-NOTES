@@ -61,6 +61,7 @@ const PlacementGuide = () => {
                 <h1>Placement Preparation Guide</h1>
                 <p>Navigate through each phase of the placement process with structured resources, tips, and practice materials.</p>
             </header>
+            
 
             <section className="section-list">
                 {sections.map((section, index) => (
@@ -128,7 +129,19 @@ const PlacementGuide = () => {
                     </div>
                 </div>
             </footer>
+            <div className="placement-guide-container">
+    <header className="header">
+        <h1>Career Guidance</h1>
+        <p>If you need personalized career guidance, please reach out to us via email. Our experts are ready to assist you!</p>
+    </header>
+    <div className="contact-info">
+        <p>Email us at: <a href="vtunotesforall@gmail.com" className="email-link">vtunotesforall@gmail.com</a></p>
+        <p>We look forward to helping you navigate your career path!</p>
+    </div>
+</div>
+
         </div>
+        
     );
 };
 

@@ -105,7 +105,7 @@ const Home = () => {
                     Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a>
                 </p>
                 <p>
-                    Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a>
+                    Phone: <a href="tel:+916364060716" className="contact-link">+91 </a>
                 </p>
             </div>
         </div>
