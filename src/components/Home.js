@@ -42,6 +42,13 @@ const Home = () => {
                 VTU-NOTES is your go-to resource for academic success! We offer curated notes, extensive question banks, and essential questions to help you excel in your exams.
                 </p>
             </div>
+            <div className="news-box">
+             <h2>Placement Preparation Guide & Internship Opportunities link </h2>
+             <div className="link-button">
+           {/* Link to the Placement Guide component */}
+               <Link to="/placement-guide" className="button">👉 Placement & Internship Guide</Link>
+      </div>
+</div>
 
             {/* Scheme Selection */}
             <div className="scheme-selection-box">
@@ -79,24 +86,7 @@ const Home = () => {
                 <p>Do you have notes that can assist fellow students? Share your materials and contribute to our growing resource library! </p>
                 <Link to="/upload" className="upload-link">Upload Notes</Link>
             </div>
-            <div className="news-box">
-                <h2>Latest News & Internship Opportunities</h2>
-                <ul className="news-list">
-                    <li>
-                        <a href="https://www.missionstartupkarnataka.org/elevate-karnataka?en" target="_blank" rel="noopener noreferrer">👉👉👉Idea2PoC / ELEVATE Program - </a>
-                        <p>ELEVATE 2024
-                        The Idea2PoC/ELEVATE program is a Government of Karnataka initiative designed to support and fund innovative startups in Karnataka, helping them validate proof of concept and scale their solutions to the next level.</p>
-                    </li>
-                    <li>
-                        <a href="https://example.com/news-1" target="_blank" rel="noopener noreferrer">Placement News:</a>
-                    </li>
-                    <li>
-                        <a href="https://www.business-standard.com/companies/news/tech-spending-strong-ai-and-copilot-driving-momentum-microsoft-india-prez-124110300383_1.html" target="_blank" rel="noopener noreferrer">Tech spending strong, AI and Copilot driving momentum: Microsoft India Prez</a>
-                    </li>
-                    {/* Add more items as needed */}
-                </ul>
-            </div>
-
+            
             {/* Social Links */}
             <div className="social-links-box">
                 <h2>Student Discussion Group Links</h2>

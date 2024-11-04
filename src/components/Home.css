@@ -1,4 +1,4 @@
-/* Main container styling */
+/* Main Container Styling */
 .home-container {
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-/* Headline message */
+/* Headline Message */
 .headline-message {
   background: linear-gradient(135deg, #36d1dc, #5b86e5);
   padding: 20px 30px;
@@ -27,6 +27,7 @@
   animation: fadeIn 1s ease-in-out, slideIn 0.4s ease forwards;
 }
 
+/* Animations */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -55,7 +56,8 @@
 .upload-notes-box,
 .social-links-box,
 .contact-box,
-.vtu-notes-info-box {
+.vtu-notes-info-box,
+.news-box { /* Added news box to the selectors */
   background: linear-gradient(135deg, #4facfe, #00f2fe);
   padding: 35px;
   border-radius: 15px;
@@ -73,7 +75,8 @@
 .upload-notes-box:hover,
 .social-links-box:hover,
 .contact-box:hover,
-.vtu-notes-info-box:hover {
+.vtu-notes-info-box:hover,
+.news-box:hover { /* Added news box hover effect */
   transform: scale(1.05);
 }
 
@@ -83,7 +86,8 @@
 .upload-notes-box h2,
 .social-links-box h2,
 .contact-box h2,
-.vtu-notes-info-box h2 {
+.vtu-notes-info-box h2,
+.news-box h2 { /* Added news box heading */
   font-size: 2rem;
   color: #fff;
   margin-bottom: 15px;
@@ -94,8 +98,7 @@
 .info-message {
   font-size: 1.2rem;
   color: #1976d2;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin: 15px 0;
   padding: 10px;
   background: rgba(225, 242, 254, 0.8);
   border: 1px solid #1976d2;
@@ -121,7 +124,7 @@
 }
 
 .scheme-link:hover,
-.calculator-box:hover,
+.calculator-link:hover,
 .upload-link:hover,
 .social-link:hover {
   background-color: #555;
@@ -182,6 +185,49 @@
   animation: fadeIn 1s ease;
 }
 
+/* News Box */
+.news-box {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  padding: 35px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+  margin-bottom: 25px;
+  animation: fadeIn 1s ease;
+}
+
+/* Title Styling for News Box */
+.news-box h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 5px rgba(180, 167, 167, 0.3);
+}
+
+/* Link Button Styling */
+
+/* Active State */
+.link-button:active {
+  transform: translateY(1px); /* Pressed effect */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); /* Reduced shadow when pressed */
+}
+
+/* Enhanced Paragraph Styles */
+.vtu-notes-info-box p,
+.calculator-box p,
+.scheme-selection-box p,
+.upload-notes-box p,
+.social-links-box p,
+.contact-box p,
+.news-box p { /* Added news box paragraph styles */
+  font-size: 1.1rem; /* Standard paragraph font size */
+  line-height: 1.8; /* Increased line height for readability */
+  margin: 10px 0;
+  color: rgb(27, 21, 21); /* Text color */
+  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Soft text shadow for depth */
+}
+
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
   .scheme-selection-box,
@@ -189,7 +235,8 @@
   .upload-notes-box,
   .social-links-box,
   .contact-box,
-  .vtu-notes-info-box {
+  .vtu-notes-info-box,
+  .news-box { /* Added news box to the responsive styles */
     padding: 25px; /* Reduced padding for medium screens */
   }
 
@@ -198,8 +245,9 @@
   .upload-notes-box h2,
   .social-links-box h2,
   .contact-box h2,
-  .vtu-notes-info-box h2 {
-    font-size: 1.8rem; /* Slightly smaller headings */
+  .vtu-notes-info-box h2,
+  .news-box h2 { /* Reduced heading sizes */
+    font-size: 1.8rem;
   }
 
   .scheme-link,
@@ -216,7 +264,8 @@
   .upload-notes-box,
   .social-links-box,
   .contact-box,
-  .vtu-notes-info-box {
+  .vtu-notes-info-box,
+  .news-box { /* Added news box to the responsive styles */
     padding: 15px; /* Further reduced padding for small screens */
   }
 
@@ -229,8 +278,9 @@
   .upload-notes-box h2,
   .social-links-box h2,
   .contact-box h2,
-  .vtu-notes-info-box h2 {
-    font-size: 1.4rem; /* Reduced heading sizes */
+  .vtu-notes-info-box h2,
+  .news-box h2 { /* Reduced heading sizes */
+    font-size: 1.4rem;
   }
 
   .scheme-link,
@@ -255,8 +305,9 @@
   .upload-notes-box h2,
   .social-links-box h2,
   .contact-box h2,
-  .vtu-notes-info-box h2 {
-    font-size: 1.3rem; /* Adjusted heading sizes for mobile */
+  .vtu-notes-info-box h2,
+  .news-box h2 { /* Adjusted heading sizes for mobile */
+    font-size: 1.3rem;
   }
 
   .scheme-link,
@@ -277,83 +328,4 @@
   width: 100%; /* Set width to 100% to be responsive */
   max-width: 150px; /* Maximum width to prevent it from getting too big */
   height: auto; /* Maintain aspect ratio */
-}
-
-/* Enhanced Paragraph Styles */
-.vtu-notes-info-box p,
-.calculator-box p,
-.scheme-selection-box p,
-.upload-notes-box p,
-.social-links-box p,
-.contact-box p {
-  font-size: 1.1rem; /* Standard paragraph font size */
-  line-height: 1.8; /* Increased line height for readability */
-  margin: 10px 0;
-  color: rgb(27, 21, 21); /* Text color */
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Soft text shadow for depth */
-  transition: color 0.3s, transform 0.3s; /* Smooth transitions */
-}
-
-/* News Box */
-.news-box {
-  background: linear-gradient(135deg, #4facfe, #00f2fe); /* Warm gradient background */
-  padding: 35px; /* Generous padding */
-  border-radius: 15px; /* Rounded corners */
-  width: 100%; /* Full width */
-  max-width: 800px; /* Maximum width */
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
-  margin-bottom: 25px; /* Space below the box */
-  animation: fadeIn 1s ease; /* Fade-in animation */
-}
-
-.news-box h2 {
-  font-size: 2rem; /* Large font size for heading */
-  color: #fff; /* White text color */
-  margin-bottom: 20px; /* Space below heading */
-  text-shadow: 1px 1px 5px rgba(180, 167, 167, 0.3); /* Soft shadow for depth */
-}
-
-.news-list {
-  list-style-type: none; /* Remove default list styling */
-  padding: 0; /* Remove padding */
-}
-
-.news-list li {
-  margin: 15px 0; /* Increased space between list items */
-  padding: 15px; /* Padding around each list item */
-  background: rgba(255, 255, 255, 0.9); /* Light background for news items */
-  border-left: 5px solid #ff6347; /* Accent color on the left */
-  border-radius: 8px; /* Rounded corners for news items */
-  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
-}
-
-.news-list li:hover {
-  transform: translateY(-3px); /* Lift effect on hover */
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Shadow on hover */
-}
-
-.news-list a {
-  text-decoration: none; /* Remove underline */
-  color: #3b3b58; /* Dark slate color for links */
-  font-weight: bold; /* Bold text for links */
-  display: block; /* Make the link block-level for easier clicking */
-}
-
-.news-list a:hover {
-  color: #ff6347; /* Tomato color for text on hover */
-}
-
-/* Enhanced paragraph styles within news box */
-.news-box p {
-  font-size: 1.1rem; /* Standard paragraph font size */
-  line-height: 1.8; /* Increased line height for readability */
-  margin: 10px 0; /* Margins for spacing */
-  color: rgb(27, 21, 21); /* Text color */
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Soft text shadow for depth */
-}
-
-/* Animation Keyframes */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }

@@ -12,9 +12,10 @@ import PdfViewer from './components/PdfViewer';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import UploadForm from './components/UploadForm'; // Import the UploadForm component
-import Calculator from './components/Calculator'; // Import the Calculator component
-import { auth } from './firebase'; // Import Firebase auth
+import UploadForm from './components/UploadForm';
+import Calculator from './components/Calculator';
+import PlacementGuide from './components/PlacementGuide'; // Import the PlacementGuide component
+import { auth } from './firebase';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -45,9 +46,10 @@ function App() {
                     <Route path="/branch/:branch/:semester" element={<ProtectedRoute element={<Subjects />} />} />
                     <Route path="/branch/:branch/:semester/modules/:subjectName" element={<ProtectedRoute element={<ModuleDetail />} />} />
                     <Route path="/pdf/:pdfUrl" element={<ProtectedRoute element={<PdfViewer />} />} />
-                    <Route path="/upload" element={<ProtectedRoute element={<UploadForm />} />} /> {/* New UploadForm route */}
-                    <Route path="/calculator" element={<ProtectedRoute element={<Calculator />} />} /> {/* New Calculator route */}
-                    
+                    <Route path="/upload" element={<ProtectedRoute element={<UploadForm />} />} />
+                    <Route path="/calculator" element={<ProtectedRoute element={<Calculator />} />} />
+                    <Route path="/placement-guide" element={<ProtectedRoute element={<PlacementGuide />} />} /> {/* New PlacementGuide route */}
+
                     {/* Authentication Routes */}
                     <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
                     <Route path="/signup" element={<Signup />} />
