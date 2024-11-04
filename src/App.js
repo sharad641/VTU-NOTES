@@ -48,11 +48,11 @@ function App() {
                     <Route path="/pdf/:pdfUrl" element={<ProtectedRoute element={<PdfViewer />} />} />
                     <Route path="/upload" element={<ProtectedRoute element={<UploadForm />} />} />
                     <Route path="/calculator" element={<ProtectedRoute element={<Calculator />} />} />
-                    <Route path="/placement-guide" element={<ProtectedRoute element={<PlacementGuide />} />} /> {/* New PlacementGuide route */}
+                    <Route path="/placement-guide" element={<ProtectedRoute element={<PlacementGuide />} />} />
 
                     {/* Authentication Routes */}
                     <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/signup" element={<Signup />} /> {/* Signup with Phone Verification */}
 
                     {/* Catch-All Route */}
                     <Route path="*" element={<Navigate to="/" />} />

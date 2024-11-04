@@ -1,8 +1,8 @@
-// src/components/Signup.js
 import React, { useState } from 'react';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom'; 
+import PhoneVerification from './PhoneVerification'; // Import the PhoneVerification component
 import './Signup.css';
 
 const Signup = () => {
@@ -10,10 +10,10 @@ const Signup = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const navigate = useNavigate(); // Initialize navigate
-    const provider = new GoogleAuthProvider(); // Initialize GoogleAuthProvider
+    const [isPhoneVerified, setIsPhoneVerified] = useState(false);
+    const navigate = useNavigate();
+    const provider = new GoogleAuthProvider();
 
-    // Handle email/password signup
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
@@ -21,8 +21,8 @@ const Signup = () => {
 
         try {
             await createUserWithEmailAndPassword(auth, email, password);
-            alert('Signup successful!');
-            navigate('/login'); // Redirect to login page
+            alert('Signup successful! Please verify your phone number.');
+            setIsPhoneVerified(false); // Reset phone verification status
         } catch (err) {
             setError(`Error: ${err.message}`);
         } finally {
@@ -30,15 +30,14 @@ const Signup = () => {
         }
     };
 
-    // Handle Google signup
     const handleGoogleSignup = async () => {
         setError('');
         setIsSubmitting(true);
 
         try {
             await signInWithPopup(auth, provider);
-            alert('Google Signup successful!');
-            navigate('/login'); // Redirect to login page
+            alert('Google Signup successful! Please verify your phone number.');
+            setIsPhoneVerified(false);
         } catch (err) {
             setError(`Error: ${err.message}`);
         } finally {
@@ -46,29 +45,38 @@ const Signup = () => {
         }
     };
 
+    const handlePhoneVerified = () => {
+        setIsPhoneVerified(true);
+        navigate('/login'); // Redirect to login page after successful phone verification
+    };
+
     return (
         <div className="signup-container">
             <h2>Sign Up</h2>
             {error && <p className="error">{error}</p>}
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? 'Signing Up...' : 'Sign Up'}
-                </button>
-            </form>
+            {!isPhoneVerified ? (
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <button type="submit" disabled={isSubmitting}>
+                        {isSubmitting ? 'Signing Up...' : 'Sign Up'}
+                    </button>
+                </form>
+            ) : (
+                <PhoneVerification onVerified={handlePhoneVerified} />
+            )}
             <button onClick={handleGoogleSignup} className="google-signup-button" disabled={isSubmitting}>
                 {isSubmitting ? 'Signing Up with Google...' : 'Sign Up with Google'}
             </button>

@@ -1,0 +1,25 @@
+/* src/components/PhoneVerification.css */
+
+.phone-verification-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.input-field {
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.verify-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+}
+
+.error {
+    color: red;
+    margin-top: 10px;
+}
