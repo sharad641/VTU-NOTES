@@ -48,8 +48,16 @@ const Login = ({ setIsAuthenticated }) => {
   const handleGoogleLogin = async () => {
     setError('');
     setLoading(true);
+
     try {
+      // Force the email selection prompt by using the 'prompt' option
+      provider.setCustomParameters({
+        prompt: 'select_account',  // This ensures the email chooser screen appears if necessary
+      });
+      
+      // Sign in with Google
       await signInWithPopup(auth, provider);
+
       setIsAuthenticated(true);
       navigate('/'); // Redirect to home on successful Google login
     } catch (error) {
