@@ -9,22 +9,26 @@ const PlacementGuide = () => {
             title: 'Aptitude Preparation',
             info: 'Sharpen your quantitative, logical reasoning, and analytical skills, as these tests are essential in initial screening rounds. Regular practice with sample questions enhances problem-solving abilities and boosts confidence, making you better prepared for competitive exams and interviews.',
             resources: [
-                { label: 'Top Aptitude Practice Site', url: 'https://www.geeksforgeeks.org/aptitude-for-placements/' },
-                { label: 'Math and Logic Practice', url: 'https://www.indiabix.com/' },
+                { label: 'Top Aptitude Practice Site Links', url: 'https://www.geeksforgeeks.org/aptitude-for-placements/' },
+                { label: 'Math and Logic Practice Links', url: 'https://www.indiabix.com/' },
             ],
-            pdf: 'https://drive.google.com/file/d/1e319ug9dlYbX3HixOYPyWLpLYqSMg_zY/view?usp=drive_link',
-           
+            pdfs: [
+                'https://drive.google.com/file/d/1e319ug9dlYbX3HixOYPyWLpLYqSMg_zY/view?usp=drive_link'
+            ],
         },
         {
             title: 'Technical Skills',
             info: 'Enhance your coding skills by mastering data structures and algorithms. Familiarize yourself with various problem-solving strategies and practice optimizing your code for efficiency. This foundational knowledge is crucial for technical interviews and will significantly improve your programming capabilities.',
             resources: [
-                { label: 'Data Structures and Algorithms', url: 'https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/?ref=shm' },
-                { label: 'Coding Practice', url: 'https://www.interviewbit.com/practice/' },
-                { label: 'System Design Basics', url: 'https://www.geeksforgeeks.org/what-is-system-design-learn-system-design/' }
+                { label: 'Data Structures and Algorithms Links', url: 'https://www.geeksforgeeks.org/learn-data-structures-and-algorithms-dsa-tutorial/?ref=shm' },
+                { label: 'Coding Practice Links', url: 'https://www.interviewbit.com/practice/' },
+                { label: 'System Design Basics Links', url: 'https://www.geeksforgeeks.org/what-is-system-design-learn-system-design/' }
             ],
-            pdf: 'https://drive.google.com/file/d/1HSyuSTtHV9BDBpFygw7j0QNtSdRqSHFg/view?usp=drive_link',
-            
+            pdfs: [
+                'https://drive.google.com/file/d/1HSyuSTtHV9BDBpFygw7j0QNtSdRqSHFg/view?usp=drive_link',
+                'https://drive.google.com/file/d/1C205XEaMlVUbudWxqUzftXGRyhqgvhAf/view?usp=sharing', // Replace with the actual PDF link
+                'https://drive.google.com/file/d/1AZAaqV1poGvLWHkVWuLtUyP44V5tZzgm/view?usp=sharing' // Replace with the actual PDF link
+            ]
         },
         {
             title: 'Resume and Cover Letter',
@@ -33,7 +37,9 @@ const PlacementGuide = () => {
                 { label: 'Resume Templates and Tips', url: 'https://zety.com/blog/resume-formats?utm_source=bing&utm_medium=sem&utm_campaign=567883115&utm_term=resume%20formats&network=o&device=c&adposition=&adgroupid=1183076252669210&placement=&utm_source=bing&utm_medium=sem&utm_campaign=567883115&utm_term=resume%20formats&network=o&device=c&adposition=&adgroupid=1183076252669210&placement=&msclkid=966147280157117139ad2000a62b8877' },
                 { label: 'Cover Letter Examples', url: 'https://www.linkedin.com/posts/sohansethi_using-this-cv-will-help-you-get-interviews-activity-7246524212721434625-hH4M?utm_source=share&utm_medium=member_android' },
             ],
-            pdf: 'https://drive.google.com/file/d/1tyXiV0fOids1O0m_0Rg99VZBNAbYl8df/view?usp=drive_link', // Update with actual Google Drive PDF ID
+            pdfs: [
+                'https://drive.google.com/file/d/1tyXiV0fOids1O0m_0Rg99VZBNAbYl8df/view?usp=drive_link' // Update with actual Google Drive PDF ID
+            ],
         },
         {
             title: 'Mock Interviews and Behavioral Questions',
@@ -42,7 +48,9 @@ const PlacementGuide = () => {
                 { label: 'Mock Interview Platform', url: 'https://www.interviewbit.com/peer-mock-interview/' },
                 { label: 'Behavioral Interview Guide', url: 'https://in.redrob.io/blog/behavioral-and-competency-based-interview-questions-guide/' },
             ],
-            pdf: 'https://drive.google.com/file/d/1dZeO-PnPiAmN-Ikt3tuYUTkGif6tNlzm/view?usp=sharing', // Update with actual Google Drive PDF ID
+            pdfs: [
+                'https://drive.google.com/file/d/1dZeO-PnPiAmN-Ikt3tuYUTkGif6tNlzm/view?usp=sharing' // Update with actual Google Drive PDF ID
+            ],
         },
         {
             title: 'Soft Skills and Communication',
@@ -51,7 +59,9 @@ const PlacementGuide = () => {
                 { label: 'Public Speaking Tips', url: 'https://alison.com/course/introduction-to-public-speaking?utm_source=bing&utm_medium=cpc&utm_campaign=531498932&utm_content=1360098421544507&utm_term=kwd-85007315307112:loc-90&msclkid=e81f1ed9a17a17576ac579f10560d4a4' },
                 { label: 'Effective Communication Strategies', url: 'https://www.bing.com/videos/search?view=detail&q=Effective+Communication+Strategies&&mid=A06F8B5E074E1974C35BA06F8B5E074E1974C35B&&FORM=VRDGAR' },
             ],
-            pdf: 'https://drive.google.com/file/d/1uL5PUHe1AJsji-GDzImr5J3G80EfBOMe/view?usp=sharing', // Update with actual Google Drive PDF ID
+            pdfs: [
+                'https://drive.google.com/file/d/1uL5PUHe1AJsji-GDzImr5J3G80EfBOMe/view?usp=sharing' // Update with actual Google Drive PDF ID
+            ],
         }
     ];
 
@@ -61,7 +71,6 @@ const PlacementGuide = () => {
                 <h1>Placement Preparation Guide</h1>
                 <p>Navigate through each phase of the placement process with structured resources, tips, and practice materials.</p>
             </header>
-            
 
             <section className="section-list">
                 {sections.map((section, index) => (
@@ -75,7 +84,9 @@ const PlacementGuide = () => {
                                 </li>
                             ))}
                         </ul>
-                        <a href={section.pdf} download className="download-button">Download PDF</a> {/* Download link for PDF */}
+                        {section.pdfs.map((pdf, i) => (
+                            <a key={i} href={pdf} target="_blank" rel="noopener noreferrer" className="download-button">Download PDF {}</a>
+                        ))}
                     </div>
                 ))}
             </section>
@@ -85,6 +96,7 @@ const PlacementGuide = () => {
                 <ul className="additional-resources">
                     <li><a href="https://www.glassdoor.co.in/Reviews/index.htm" target="_blank" rel="noopener noreferrer">Company Reviews & Interview Insights</a></li>
                     <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn Learning for Skills</a></li>
+                    
                 </ul>
             </section>
 
@@ -109,9 +121,10 @@ const PlacementGuide = () => {
                         </p>
                         <button 
                             className="career-footer-button" 
-                        
                         >
-                            Latest Internship & Job Opportunities
+                            <a href="https://www.missionstartupkarnataka.org/elevate-karnataka?en" target="_blank" rel="noopener noreferrer">
+                                Latest Internship & Job Opportunities
+                            </a>
                         </button>
                     </div>
                     <div className="career-footer-links">
@@ -119,29 +132,22 @@ const PlacementGuide = () => {
                         <ul className="career-footer-links-list">
                             <li className="career-footer-link-item">
                                 <a href="https://www.missionstartupkarnataka.org/elevate-karnataka?en" target="_blank" rel="noopener noreferrer">
-                                👉👉👉Idea2PoC / ELEVATE Program
+                                    👉👉👉Idea2PoC / ELEVATE Program
                                 </a>
                                 <p className="career-footer-link-description">👉👉👉Idea2PoC / ELEVATE Program - ELEVATE 2024
-                                The Idea2PoC/ELEVATE program is a Government of Karnataka initiative designed to support and fund innovative startups in Karnataka, helping them validate proof of concept and scale their solutions to the next level.</p>
+                                    The Idea2PoC/ELEVATE program is a Government of Karnataka initiative designed to support and fund innovative startups in Karnataka, helping them validate proof of concept and scale their solutions to the next level.
+                                </p>
                             </li>
-                            
+                            <li className="career-footer-link-item">
+                                <a href="mailto:info@missionstartupkarnataka.org?subject=Internship Inquiry&body=Hi, I am interested in internship opportunities. Please provide more information." target="_blank" rel="noopener noreferrer">
+                                    Interested in Internships? Contact Us
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </footer>
-            <div className="placement-guide-container">
-    <header className="header">
-        <h1>Career Guidance</h1>
-        <p>If you need personalized career guidance, please reach out to us via email. Our experts are ready to assist you!</p>
-    </header>
-    <div className="contact-info">
-        <p>Email us at: <a href="vtunotesforall@gmail.com" className="email-link">vtunotesforall@gmail.com</a></p>
-        <p>We look forward to helping you navigate your career path!</p>
-    </div>
-</div>
-
         </div>
-        
     );
 };
 

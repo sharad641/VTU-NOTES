@@ -329,3 +329,74 @@
   max-width: 150px; /* Maximum width to prevent it from getting too big */
   height: auto; /* Maintain aspect ratio */
 }
+/* Unique styling for the FAQ section */
+.faq-section {
+  max-width: 1000px; /* Max width for the container */
+  margin: 50px auto; /* Center the container */
+  padding: 40px; /* Increased padding for better spacing */
+  background: #f9f9f9; /* Light background for the container */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  border-radius: 15px; /* Rounded corners */
+  font-family: 'Roboto', sans-serif; /* Modern font */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+/* Title styling */
+.faq-title {
+  text-align: center; /* Center the heading */
+  font-size: 2.5rem; /* Font size for heading */
+  color: #333; /* Dark text color */
+  margin-bottom: 20px; /* Space below heading */
+  position: relative; /* Position relative for the underline effect */
+}
+
+/* Underline effect for the FAQ title */
+.faq-title::after {
+  content: ''; /* Underline effect */
+  display: block;
+  width: 80px; /* Width of the underline */
+  height: 3px; /* Height of the underline */
+  background-color: #007BFF; /* Color of the underline */
+  margin: 10px auto; /* Center the underline */
+  border-radius: 2px; /* Slightly rounded corners */
+}
+
+/* Description styling */
+.faq-description {
+  text-align: center; /* Center the paragraph */
+  font-size: 1.2rem; /* Font size for description */
+  color: #555; /* Dark gray text for description */
+  margin-bottom: 20px; /* Space below description */
+  line-height: 1.6; /* Improved line height for readability */
+}
+
+/* Link button styling */
+.faq-link {
+  display: inline-block; /* Make the link block-level for better spacing */
+  padding: 10px 20px; /* Inner padding for the button effect */
+  background: #007BFF; /* Primary background color */
+  color: #ffffff; /* White text for contrast */
+  border-radius: 8px; /* Rounded corners for the button */
+  text-decoration: none; /* Remove underline from link */
+  font-weight: bold; /* Bold text for emphasis */
+  transition: background 0.3s ease; /* Smooth background transition */
+}
+
+.faq-link:hover {
+  background: #0056b3; /* Darken the background on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .faq-section {
+      padding: 20px; /* Reduce padding on smaller screens */
+  }
+
+  .faq-title {
+      font-size: 2rem; /* Smaller heading font size */
+  }
+
+  .faq-description {
+      font-size: 1rem; /* Smaller font size for description */
+  }
+}

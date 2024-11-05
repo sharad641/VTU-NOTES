@@ -69,6 +69,7 @@ const Home = () => {
 
                 <p>VTU-NOTES serves as your trusted guide through academic challenges. Explore our extensive offerings to find the notes you need for success in your studies.</p>
             </div>
+            
 
             {/* SGPA Calculator Link */}
             <div className="calculator-box">
@@ -96,6 +97,16 @@ const Home = () => {
                     <a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" target="_blank" rel="noopener noreferrer" className="social-link whatsapp">WhatsApp</a>
                 </div>
             </div>
+           
+            <div className="faq-box">
+    <div className="faq-section">
+        <h2 className="faq-title">Frequently Asked Questions (FAQs)</h2>
+        <p className="faq-description">If you have any questions regarding your courses, exams, or other related topics, feel free to explore our FAQs for comprehensive and detailed answers!</p>
+        <Link to="/faqs" className="faq-link">Go to FAQs</Link>
+    </div>
+</div>
+
+
 
             {/* Contact Box */}
             <div className="contact-box">

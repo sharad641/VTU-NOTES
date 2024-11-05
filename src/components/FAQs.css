@@ -1,0 +1,158 @@
+/* Container for the FAQ section */
+.faqs-container {
+    max-width: 1000px; /* Max width for the container */
+    margin: 50px auto; /* Center the container */
+    padding: 40px; /* Increased padding for better spacing */
+    background: #f9f9f9; /* Light background for the container */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    border-radius: 15px; /* Rounded corners */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.faqs-container h2 {
+    text-align: center; /* Center the heading */
+    font-size: 2.5rem; /* Font size for heading */
+    color: #333; /* Dark text color */
+    margin-bottom: 20px; /* Space below heading */
+    position: relative; /* Position relative for the underline effect */
+}
+
+/* Underline effect for the heading */
+.faqs-container h2::after {
+    content: ''; /* Underline effect */
+    display: block;
+    width: 80px; /* Width of the underline */
+    height: 3px; /* Height of the underline */
+    background-color: #007BFF; /* Color of the underline */
+    margin: 10px auto; /* Center the underline */
+    border-radius: 2px; /* Slightly rounded corners */
+}
+
+/* Styling for the list of FAQs */
+.faq-list {
+    display: flex; /* Flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    gap: 15px; /* Space between items */
+}
+
+/* Individual FAQ item styling */
+.faq-item {
+    background: #ffffff; /* White background for each FAQ item */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Increased padding for a better feel */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05); /* Soft shadow */
+    transition: transform 0.2s, box-shadow 0.2s; /* Smooth hover transition */
+    overflow: hidden; /* Ensures the content does not overflow */
+}
+
+.faq-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Increased shadow on hover */
+}
+
+/* FAQ question styling */
+.faq-item h4 {
+    font-size: 1.5rem; /* Font size for questions */
+    color: #007BFF; /* Color for question text */
+    margin: 0; /* Remove default margin */
+    cursor: pointer; /* Pointer cursor for interactivity */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between text and arrow */
+    align-items: center; /* Center vertically */
+    transition: color 0.3s ease-in-out; /* Smooth color change on hover */
+}
+
+/* Hover effect for questions */
+.faq-item h4:hover {
+    color: #0056b3; /* Darker color when hovered */
+}
+
+/* FAQ answer styling */
+.faq-item p {
+    font-size: 1rem; /* Font size for answers */
+    color: #555; /* Dark gray for answer text */
+    margin-top: 10px; /* Space above answers */
+    line-height: 1.6; /* Improved line spacing */
+    
+    max-height: 100; /* Start with no height */
+    
+    overflow: hidden; /* Hide overflow */
+    
+    transition: opacity 0.3s ease, max-height 0.3s ease, padding 0.3s ease; /* Smooth transition */
+}
+
+/* Active state for expanded answer */
+.faq-item.active p {
+    opacity: 1; /* Fully visible when active */
+    max-height: 1000px; /* Expand to a high max-height to allow for content */
+    animation: fadeIn 0.3s ease-in-out; /* Fade-in effect */
+    padding-top: 10px; /* Space for the answer when expanded */
+}
+
+/* Arrow symbol for FAQ item */
+.faq-item h4::after {
+    content: '\002B'; /* Plus symbol */
+    font-size: 1.5rem; /* Size for the arrow */
+    color: #007BFF; /* Arrow color */
+    transition: transform 0.3s; /* Transition for rotation */
+}
+
+/* Change arrow to minus when active */
+.faq-item.active h4::after {
+    content: '\2212'; /* Minus symbol when active */
+}
+
+/* Fade-in animation for answers */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start invisible */
+        transform: translateY(-10px); /* Start slightly higher */
+    }
+    to {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0); /* End in original position */
+    }
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    .faqs-container {
+        padding: 20px; /* Reduce padding on smaller screens */
+    }
+
+    .faqs-container h2 {
+        font-size: 2rem; /* Smaller heading font size */
+    }
+
+    .faq-item {
+        padding: 15px; /* Reduce padding on smaller screens */
+    }
+
+    .faq-item h4 {
+        font-size: 1.3rem; /* Smaller font size for questions */
+    }
+
+    .faq-item p {
+        font-size: 0.95rem; /* Smaller font size for answers */
+    }
+}
+
+/* Larger screens (desktop) */
+@media (min-width: 1024px) {
+    .faqs-container {
+        padding: 50px 60px; /* More padding for larger screens */
+    }
+
+    .faq-item {
+        padding: 25px; /* More padding for larger screens */
+    }
+
+    .faq-item h4 {
+        font-size: 1.6rem; /* Larger font size for questions */
+    }
+
+    .faq-item p {
+        font-size: 1.1rem; /* Larger font size for answers */
+    }
+}

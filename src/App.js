@@ -14,7 +14,8 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import UploadForm from './components/UploadForm';
 import Calculator from './components/Calculator';
-import PlacementGuide from './components/PlacementGuide'; // Import the PlacementGuide component
+import PlacementGuide from './components/PlacementGuide'; 
+import FAQs from './components/FAQs'; // Import the FAQs component
 import { auth } from './firebase';
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
                     <Route path="/upload" element={<ProtectedRoute element={<UploadForm />} />} />
                     <Route path="/calculator" element={<ProtectedRoute element={<Calculator />} />} />
                     <Route path="/placement-guide" element={<ProtectedRoute element={<PlacementGuide />} />} />
+                    <Route path="/faqs" element={<ProtectedRoute element={<FAQs />} />} />
 
                     {/* Authentication Routes */}
                     <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
