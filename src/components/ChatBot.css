@@ -145,7 +145,7 @@ button:hover {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .chatbot-container {
-        width: 95%;
+        width: 95%; /* Full width on mobile */
         height: 95%; /* Full height on mobile */
         max-width: none; /* Remove max-width to allow full screen */
         bottom: 5; /* Position at the bottom */
@@ -157,22 +157,22 @@ button:hover {
 
     .messages {
         max-height: 80%; /* Adjust max-height for mobile */
-        padding: 10px;
+        padding: 10px; /* Adjust padding */
     }
 
     .input-container {
         flex-direction: column; /* Stack input and button vertically */
-        gap: 8px;
+        gap: 8px; /* Space between input and button */
     }
 
     input {
         width: 95%; /* Full width for better touch input */
-        padding: 12px;
+        padding: 12px; /* Increase padding for touch targets */
     }
 
     button {
         width: 90%; /* Full width button */
-        padding: 12px;
+        padding: 12px; /* Increase padding for touch targets */
     }
 
     .messages .user, .messages .bot {

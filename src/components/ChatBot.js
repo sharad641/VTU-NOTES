@@ -7,11 +7,13 @@ import './ChatBot.css';
 const ChatBot = () => {
     const [input, setInput] = useState('');
     const [messages, setMessages] = useState([]);
+    const messagesRef = React.useRef(null); // Reference to the messages area
 
     // Initial greeting when the chatbot opens
     useEffect(() => {
         const greetingMessage = { text: "Hi! I'm your VTU Notes assistant. How can I help you today?", sender: 'bot' };
         setMessages([greetingMessage]);
+        adjustChatbotHeight(); // Initial height adjustment
     }, []);
 
     const faqs = {
@@ -108,12 +110,38 @@ const ChatBot = () => {
         }
 
         setInput('');
+        adjustChatbotHeight(); // Adjust height after sending a message
     };
+
+    // Function to adjust the messages area height based on input
+    const adjustChatbotHeight = () => {
+        const containerHeight = window.innerHeight * 0.95; // 95% of the viewport height
+        const inputHeight = document.querySelector('.input-container').offsetHeight;
+        const availableHeight = containerHeight - inputHeight - 20; // 20 for margins/padding
+
+        if (messagesRef.current) {
+            messagesRef.current.style.maxHeight = availableHeight + 'px'; // Set max-height based on available space
+        }
+    };
+
+    // Event listeners to adjust the height on input
+    useEffect(() => {
+        const handleResize = () => adjustChatbotHeight();
+        window.addEventListener('resize', handleResize);
+        
+        // Initial adjustment
+        adjustChatbotHeight();
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     return (
         <div className="chatbot-container">
             <h2>Chat with Us (Just for trial)</h2>
-            <div className="messages">
+            <div className="messages" ref={messagesRef}>
                 {messages.map((message, index) => (
                     <div key={index} className={message.sender}>
                         {typeof message.text === 'string' ? message.text : message.text}
