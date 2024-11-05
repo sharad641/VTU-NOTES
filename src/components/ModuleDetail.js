@@ -1464,7 +1464,7 @@ const ModuleDetail = () => {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1YceYR78zBUnVX63fFEH5uB6bMPPlSJsJ/preview",
+                "https://drive.google.com/file/d/1wjzil3KMApZyD4YYhc_xGRFCf09rgjf6/preview",
             },
             {
               title: "Module 3: Notes",
@@ -1494,7 +1494,7 @@ const ModuleDetail = () => {
             title: "Question Bank",
             content: "Question bank for Mathematics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
+              "https://drive.google.com/file/d/1wjzil3KMApZyD4YYhc_xGRFCf09rgjf6/preview",
           },
         ],
         },
@@ -1511,13 +1511,13 @@ const ModuleDetail = () => {
               title: "Module 2: Notes",
               content: "Combinational Logic.",
               previewUrl:
-                "https://drive.google.com/file/d/1-Gx-zVGQVROn5FDEpUaKxP6y76flSflJ/preview",
+                "https://drive.google.com/file/d/1LcRreI5gnutx7__Jy7FvcQNbkglXL7RN/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1QT3yYQF4fQjN62WD46Sld482WsbA1iAu/preview",
+                "https://drive.google.com/file/d/1RbXDmPnarTPkZGXvgfh7hPu2Kw28kK09/preview",
             },
             {
               title: "Module 4: Notes",
@@ -1692,31 +1692,31 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
+                "https://drive.google.com/file/d/12XV1cjmFfoK1EbO1seCI0doee-E646fb/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
+                "https://drive.google.com/file/d/1qMPTksEWPlVmnmtuCtaXD_VKLUQLMtS0/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
+                "https://drive.google.com/file/d/1GBnRYbeY7k1t--znjc7-QWiC6aJKu1Vu/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
+                "https://drive.google.com/file/d/1GBnRYbeY7k1t--znjc7-QWiC6aJKu1Vu/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
+                "https://drive.google.com/file/d/1fjS2554OaHsnXHf6YOd_Vx0DBOSqejmf/preview",
             },
           ],
           questionPaper: {
