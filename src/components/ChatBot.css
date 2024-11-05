@@ -1,0 +1,205 @@
+/* General Chatbot Container */
+.chatbot-container {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    left: 5px;
+    width: 100%;
+    max-width: 400px; /* Slightly wider for better readability */
+    height: 500px;
+    background-color: #f8f9fa;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+/* Header */
+.chatbot-container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #0056b3;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Messages Area */
+.messages {
+    overflow-y: auto;
+    flex-grow: 1;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    max-height: 320px;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.messages .user {
+    text-align: right;
+    background-color: #0056b3;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 15px 15px 0 15px;
+    align-self: flex-end;
+    font-weight: 500;
+}
+
+.messages .bot {
+    text-align: left;
+    background-color: #e3f2fd;
+    color: #333;
+    padding: 10px;
+    border-radius: 15px 15px 15px 0;
+    align-self: flex-start;
+}
+
+.messages .bot a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.messages .bot a:hover {
+    text-decoration: underline;
+}
+
+/* Input and Button Section */
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+input {
+    width: 80%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
+}
+
+button {
+    width: 15%;
+    background-color: #0056b3;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #004099;
+}
+
+/* Scrollbar Customization */
+.messages::-webkit-scrollbar {
+    width: 8px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background-color: #b0c4de;
+    border-radius: 4px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* Link to FAQ */
+.faq-link {
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #0056b3;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+.faq-link:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .chatbot-container {
+        width: 95%;
+        height: 95%; /* Full height on mobile */
+        max-width: none; /* Remove max-width to allow full screen */
+        bottom: 5; /* Position at the bottom */
+        right: 0; /* Position at the right */
+        left: 0; /* Position at the left */
+        border-radius: 0; /* Remove border-radius for full-screen effect */
+        box-shadow: none; /* Remove shadow for simplicity */
+    }
+
+    .messages {
+        max-height: 80%; /* Adjust max-height for mobile */
+        padding: 10px;
+    }
+
+    .input-container {
+        flex-direction: column; /* Stack input and button vertically */
+        gap: 8px;
+    }
+
+    input {
+        width: 95%; /* Full width for better touch input */
+        padding: 12px;
+    }
+
+    button {
+        width: 90%; /* Full width button */
+        padding: 12px;
+    }
+
+    .messages .user, .messages .bot {
+        max-width: 100%; /* No overflow issues */
+    }
+}
+
+/* Tablet View */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .chatbot-container {
+        max-width: 85%; /* Adjusted max width for tablet */
+        height: 480px;
+    }
+
+    .messages {
+        max-height: 300px;
+    }
+
+    .input-container {
+        flex-direction: row; /* Input and button in a row */
+    }
+
+    input {
+        width: 75%;
+    }
+
+    button {
+        width: 20%;
+    }
+}

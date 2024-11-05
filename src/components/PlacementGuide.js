@@ -34,8 +34,8 @@ const PlacementGuide = () => {
             title: 'Resume and Cover Letter',
             info: 'Build a strong resume and cover letter to showcase your technical and soft skills effectively. Tailor each document for specific job roles.',
             resources: [
-                { label: 'Resume Templates and Tips', url: 'https://zety.com/blog/resume-formats?utm_source=bing&utm_medium=sem&utm_campaign=567883115&utm_term=resume%20formats&network=o&device=c&adposition=&adgroupid=1183076252669210&placement=&utm_source=bing&utm_medium=sem&utm_campaign=567883115&utm_term=resume%20formats&network=o&device=c&adposition=&adgroupid=1183076252669210&placement=&msclkid=966147280157117139ad2000a62b8877' },
-                { label: 'Cover Letter Examples', url: 'https://www.linkedin.com/posts/sohansethi_using-this-cv-will-help-you-get-interviews-activity-7246524212721434625-hH4M?utm_source=share&utm_medium=member_android' },
+                { label: 'Resume Templates and Tips Links', url: 'https://zety.com/blog/resume-formats?utm_source=bing&utm_medium=sem&utm_campaign=567883115&utm_term=resume%20formats&network=o&device=c&adposition=&adgroupid=1183076252669210&placement=&utm_source=bing&utm_medium=sem&utm_campaign=567883115&utm_term=resume%20formats&network=o&device=c&adposition=&adgroupid=1183076252669210&placement=&msclkid=966147280157117139ad2000a62b8877' },
+                { label: 'Cover Letter Examples Links', url: 'https://www.linkedin.com/posts/sohansethi_using-this-cv-will-help-you-get-interviews-activity-7246524212721434625-hH4M?utm_source=share&utm_medium=member_android' },
             ],
             pdfs: [
                 'https://drive.google.com/file/d/1tyXiV0fOids1O0m_0Rg99VZBNAbYl8df/view?usp=drive_link' // Update with actual Google Drive PDF ID
@@ -45,8 +45,8 @@ const PlacementGuide = () => {
             title: 'Mock Interviews and Behavioral Questions',
             info: 'Practice mock interviews to build confidence. Familiarize yourself with commonly asked behavioral questions and practice your responses.',
             resources: [
-                { label: 'Mock Interview Platform', url: 'https://www.interviewbit.com/peer-mock-interview/' },
-                { label: 'Behavioral Interview Guide', url: 'https://in.redrob.io/blog/behavioral-and-competency-based-interview-questions-guide/' },
+                { label: 'Mock Interview Platform Links', url: 'https://www.interviewbit.com/peer-mock-interview/' },
+                { label: 'Behavioral Interview Guide Links', url: 'https://in.redrob.io/blog/behavioral-and-competency-based-interview-questions-guide/' },
             ],
             pdfs: [
                 'https://drive.google.com/file/d/1dZeO-PnPiAmN-Ikt3tuYUTkGif6tNlzm/view?usp=sharing' // Update with actual Google Drive PDF ID
@@ -56,8 +56,8 @@ const PlacementGuide = () => {
             title: 'Soft Skills and Communication',
             info: 'Cultivate essential soft skills such as effective communication, teamwork, and leadership. These skills are vital for success in group discussions and interviews, as they demonstrate your ability to collaborate and convey ideas clearly.',
             resources: [
-                { label: 'Public Speaking Tips', url: 'https://alison.com/course/introduction-to-public-speaking?utm_source=bing&utm_medium=cpc&utm_campaign=531498932&utm_content=1360098421544507&utm_term=kwd-85007315307112:loc-90&msclkid=e81f1ed9a17a17576ac579f10560d4a4' },
-                { label: 'Effective Communication Strategies', url: 'https://www.bing.com/videos/search?view=detail&q=Effective+Communication+Strategies&&mid=A06F8B5E074E1974C35BA06F8B5E074E1974C35B&&FORM=VRDGAR' },
+                { label: 'Public Speaking Tips Links', url: 'https://alison.com/course/introduction-to-public-speaking?utm_source=bing&utm_medium=cpc&utm_campaign=531498932&utm_content=1360098421544507&utm_term=kwd-85007315307112:loc-90&msclkid=e81f1ed9a17a17576ac579f10560d4a4' },
+                { label: 'Effective Communication Strategies Links', url: 'https://www.bing.com/videos/search?view=detail&q=Effective+Communication+Strategies&&mid=A06F8B5E074E1974C35BA06F8B5E074E1974C35B&&FORM=VRDGAR' },
             ],
             pdfs: [
                 'https://drive.google.com/file/d/1uL5PUHe1AJsji-GDzImr5J3G80EfBOMe/view?usp=sharing' // Update with actual Google Drive PDF ID

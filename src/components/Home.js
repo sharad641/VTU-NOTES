@@ -106,6 +106,15 @@ const Home = () => {
     </div>
 </div>
 
+<div className="chatbot-section">
+    <h2 className="chatbot-title">Chat with Us!</h2>
+    <p className="chatbot-description">
+    Please note that while the chatbot is designed to answer simple questions and basic VTU-related queries, it may not provide answers to every topic
+    </p>
+    <div className="chatbot-interface">
+        <Link to="/chatbot" className="chatbot-link">Start Chatting with the Chatbot</Link>
+    </div>
+</div>
 
 
             {/* Contact Box */}

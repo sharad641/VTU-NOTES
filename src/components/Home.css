@@ -400,3 +400,64 @@
       font-size: 1rem; /* Smaller font size for description */
   }
 }
+/* src/components/ChatBot.css */
+
+.chatbot-section {
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding around the content */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  margin: 20px 0; /* Margin around the section */
+  text-align: center; /* Center align text */
+  transition: transform 0.2s; /* Animation on hover */
+}
+
+.chatbot-section:hover {
+  transform: scale(1.02); /* Slight scale effect on hover */
+}
+
+.chatbot-title {
+  font-size: 24px; /* Larger title font size */
+  color: #333; /* Darker text color for contrast */
+  margin-bottom: 10px; /* Space below the title */
+}
+
+.chatbot-description {
+  font-size: 16px; /* Standard font size for description */
+  color: #555; /* Medium gray color for description */
+  margin-bottom: 15px; /* Space below the description */
+}
+
+.chatbot-interface {
+  margin-top: 15px; /* Space above the interface */
+}
+
+.chatbot-link {
+  display: inline-block; /* Make the link behave like a button */
+  padding: 12px 20px; /* Padding inside the button */
+  background-color: #007bff; /* Primary color for the button */
+  color: white; /* White text color */
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Bold text for emphasis */
+  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.chatbot-link:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+@media (max-width: 600px) {
+  .chatbot-section {
+      padding: 15px; /* Adjust padding for smaller screens */
+  }
+
+  .chatbot-title {
+      font-size: 20px; /* Smaller title font size for mobile */
+  }
+
+  .chatbot-description {
+      font-size: 14px; /* Smaller description font size for mobile */
+  }
+}
