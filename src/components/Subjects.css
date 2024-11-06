@@ -1,13 +1,18 @@
 /* src/components/Subjects.css */
 
 .subjects {
-    margin: 0; /* Remove margin */
-  /* Adjusted padding: less on top */
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
     background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
     color: #1b5e20;
-    min-height: 100vh;
-    font-family: 'Poppins', sans-serif;
+   
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+    max-width: 1200px;
+    margin: 0 auto; 
     
 }
 

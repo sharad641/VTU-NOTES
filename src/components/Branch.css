@@ -1,6 +1,7 @@
 /* src/components/Branch.css */
 
 .branch {
+    
     display: flex;
     flex-direction: column;
     align-items: center;
