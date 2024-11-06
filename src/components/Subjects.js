@@ -70,10 +70,33 @@ const Subjects = () => {
     },
     ece: {
       3: [
-        { name: 'Mathematics', code: 'BMATH301', credits: 4, info: 'Advanced mathematics for electrical engineering.' },
-        { name: 'Electronics', code: 'BELE301', credits: 3, info: 'Introduction to electronic circuits.' },
+        { name: 'AV Mathematics-III for EC Engineering', code: 'BMATEC301', credits: 3, info: 'Advanced mathematics for electrical engineering.' },
+        { name: 'Digital System Design using Verilog ', code: 'BEC302', credits: 4, info: 'Introduction to electronic circuits.' },
+        { name: 'Electronic Principles and Circuits ', code: 'BEC303', credits: 4, info: 'Design and analyse the BJT circuits as an amplifier and voltage regulation.' },
+        { name: 'Network Analysis ', code: 'BEC304', credits: 3, info: 'Introduction to electronic circuits.' },
+        { name: 'Computer Organization and Architecture ', code: 'BEC302', credits: 3, info: 'Introduction to electronic circuits.' },
+        { name: 'Applied Numerical Methods for EC Engineers', code: 'BEC302', credits: 3, info: 'Introduction to electronic circuits.' },
+      ],
+      4:[
+        { name: 'ELECTROMAGNETIC	THEORY', code: 'BEC401', credits: 3, info: 'Study the different coordinate systems, Physical significance of Divergence, Curl' },
+        { name: 'PRINCIPLES OF COMMUNICATION SYSTEMS', code: 'BEC402', credits: 4, info: 'Understand and analyse concepts of Analog Modulation schemes viz; AM, FM' },
+        { name: 'Electronic Principles and Circuits ', code: 'BEC303', credits: 4, info: 'Design and analyse the BJT circuits as an amplifier and voltage regulation.' },
+        { name: 'Control Systems', code: 'BEC404', credits: 4, info: 'Understand Time domain and Frequency domain analysis.' },
+        { name: 'MICROCONTROLLERS ', code: ' BEC405A', credits: 3, info: 'Analyze the basic architecture of 8051microcontroller.' },
+        { name: 'Industrial Electronics  ', code: 'BEC405B', credits: 3, info: 'Introduction to electronic circuits.' },
+
+      ],
+      5:[
+        { name: 'Technological Innovation and Management Entrepreneurship', code: 'BEC501 ', credits: 3, info: 'Understand the need for Entrepreneurs and their skills.' },
+        { name: 'Digital Signal Processing ', code: 'BEC502', credits: 4, info: ' Preparation: To prepare students with fundamental knowledge/ overview in the field of Digital Signal Processing ' },
+        { name: 'Digital Communication ', code: 'BEC503', credits: 4, info: ' Preparation: To prepare students with fundamental knowledge/ overview in the field of Digital Signal Processing ' },
+        { name: 'Digital Communication Lab', code: 'BECL504 ', credits: 1, info: ' Understand the concept of signal processing of digital data and signal conversion to symbols at the transmitter and receiver.' },
+        { name: 'Intelligent Systems and Machine Learning Algorithms ', code: 'BEC515A', credits: 3, info: 'Become familiar with basic principles of AI toward Problem-Solving' },
+        { name: 'Research Methodology and IPR', code: 'BRMK557 ', credits: 3, info: 'Learn about the petent filing and all rules' },
+
       ],
     },
+
   };
 
   // Function to handle subject click and navigate to ModuleDetail
