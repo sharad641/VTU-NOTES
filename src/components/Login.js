@@ -69,6 +69,15 @@ const Login = ({ setIsAuthenticated }) => {
   };
 
   return (
+    <div>
+        {/* Headline Message Section */}
+        <div className="headline-messageess">
+            <div className="marquee-text">
+                
+                <span style={{ display: 'block', marginTop: '10px' }}></span>
+                WELCOME TO VTU-NOTES WEBSITE
+            </div>
+        </div>
     <div className="login-container">
       <h2>Login</h2>
       {error && <p className="error-message">{error}</p>}
@@ -108,6 +117,7 @@ const Login = ({ setIsAuthenticated }) => {
         <img src={googleLogo} alt="Google Logo" className="google-logo" />
         {loading ? 'Logging in...' : 'Login with Google'}
       </button>
+    </div>
     </div>
   );
 };

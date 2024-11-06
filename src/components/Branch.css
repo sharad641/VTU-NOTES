@@ -116,3 +116,51 @@
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
 }
+.headline-messages {
+    background: linear-gradient(135deg, #6C63FF, #3E64FF);
+    padding: 15px 20px; /* Adjusted padding for mobile */
+    border-radius: 8px;
+    margin-top: 15px;
+    
+    font-size: 1rem; /* Slightly smaller font for mobile */
+    font-weight: bold;
+    color: #0a0808;
+    text-align: center;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out, slideIn 0.4s ease forwards;
+    overflow: hidden; /* Prevents overflow on mobile */
+  }
+  
+  /* Marquee Container */
+  .marquee-container {
+    width: 100%; /* Full width for better fit */
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  /* Marquee Text */
+  .marquee-text {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    padding-left: 100%; /* Start the animation from outside the screen */
+  }
+  
+  @keyframes marquee {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+  
+  /* Adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .headline-message {
+      padding: 10px 15px;
+      font-size: 1rem;
+      margin-top: 20px;
+    }
+  
+    .marquee-text {
+      animation-duration: 20s; /* Slower for readability */
+    }
+  }
+  

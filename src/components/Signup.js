@@ -44,6 +44,15 @@ const Signup = () => {
     };
 
     return (
+        <div>
+        {/* Headline Message Section */}
+        <div className="headline-messageess">
+            <div className="marquee-text">
+                
+                <span style={{ display: 'block', marginTop: '10px' }}></span>
+                WELCOME TO VTU-NOTES WEBSITE
+            </div>
+        </div>
         <div className="signup-container">
             <h2>Sign Up</h2>
             {error && <p className="error">{error}</p>}
@@ -72,6 +81,7 @@ const Signup = () => {
             <div className="redirect-to-login">
                 <p>Already have an account? <a href="/login">Login here</a></p>
             </div>
+        </div>
         </div>
     );
 };

@@ -87,7 +87,7 @@ const Subjects = () => {
   return (
     <div>
         {/* Headline Message Section */}
-        <div className="headline-message">
+        <div className="headline-messagee">
             <div className="marquee-text">
                 Notes for the ECE (Electrical and Computer Engineering) and Civil Engineering streams are yet to be uploaded.
                 <span style={{ display: 'block', marginTop: '10px' }}></span>

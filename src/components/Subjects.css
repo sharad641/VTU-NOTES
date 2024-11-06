@@ -2,7 +2,7 @@
 
 .subjects {
     margin: 0; /* Remove margin */
-    padding: 60px 20px 80px; /* Adjusted padding: less on top */
+  /* Adjusted padding: less on top */
     text-align: center;
     background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
     color: #1b5e20;
@@ -223,15 +223,16 @@
         font-size: 0.8rem;
     }
 }
-.headline-message {
-    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+.headline-messagee {
+    background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
+    color: #1b5e20;
     padding: 15px 20px; /* Adjusted padding for mobile */
     border-radius: 8px;
     margin-top: 15px;
     
     font-size: 1rem; /* Slightly smaller font for mobile */
     font-weight: bold;
-    color: #fff;
+   
     text-align: center;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
     text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
@@ -263,7 +264,7 @@
     .headline-message {
       padding: 10px 15px;
       font-size: 1rem;
-      margin: 0;
+      margin-top: 20px;
     }
   
     .marquee-text {

@@ -1,8 +1,57 @@
-/* Other styles remain unchanged... */
+.headline-messageess {
+    background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
+    color: #1b5e20;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out, slideIn 0.4s ease forwards;
+    overflow: hidden;
+}
+
+/* Marquee Wrapper to limit movement */
+.marquee-wrapper {
+    width: 70%; /* Limit the marquee container width */
+    margin: 0 auto; /* Center the container */
+    overflow: hidden;
+}
+
+/* Marquee Text */
+.marquee-text {
+    display: inline-block;
+    animation: marquee 25s linear infinite;
+    padding-left: 1%; /* Start the animation from outside the screen */
+}
+
+@keyframes marquee {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .headline-message {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        margin-top: 20px;
+    }
+
+    .marquee-text {
+        animation-duration: 20s;
+    }
+}
+
+ 
+  
+
 
 .login-container {
     max-width: 400px; /* Set max width for the container */
-    margin: 100px auto; /* Center the container */
+    margin: 50px auto; /* Reduced top and bottom margin */
     padding: 20px; /* Add padding */
     border: 1px solid #0c0c0c; /* Add border */
     border-radius: 8px; /* Round corners */
@@ -10,6 +59,7 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
     transition: box-shadow 0.3s; /* Smooth shadow transition */
 }
+
 
 .login-container:hover {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
