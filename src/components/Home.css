@@ -3,11 +3,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
-  max-width: 900px;
-  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
   background: linear-gradient(135deg, #36d1dc, #5b86e5);
-  border-radius: 12px;
+ 
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
   overflow: hidden;
 }
@@ -16,7 +15,7 @@
 .headline-message {
   background: linear-gradient(135deg, #36d1dc, #5b86e5);
   padding: 20px 30px;
-  border-radius: 10px;
+ 
   margin-bottom: 20px;
   font-size: 1rem; /* Increased font size for better visibility */
   font-weight: bold;

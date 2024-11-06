@@ -161,7 +161,7 @@
   text-align: center;
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
   text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 1s ease-in-out, slideIn 0.4s ease forwards;
+  animation: fadeIn 1s ease-in-out, slideIn 0.s ease forwards;
   overflow: hidden; /* Prevents overflow on mobile */
 }
 
@@ -175,7 +175,7 @@
 /* Marquee Text */
 .marquee-text {
   display: inline-block;
-  animation: marquee 15s linear infinite;
+  animation: marquee 9s linear infinite;
   padding-left: 100%; /* Start the animation from outside the screen */
 }
 
@@ -193,6 +193,6 @@
   }
 
   .marquee-text {
-    animation-duration: 20s; /* Slower for readability */
+    animation-duration: 15s; /* Slower for readability */
   }
 }

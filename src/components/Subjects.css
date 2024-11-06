@@ -8,7 +8,6 @@
     min-height: 100vh;
     background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
     color: #1b5e20;
-   
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
     max-width: 1200px;
@@ -64,12 +63,7 @@
 .subject-box {
     background: linear-gradient(135deg, #a7d603, #3b8a1c);
 
-
-
-
-
-
- /* Vibrant gradient */
+/* Vibrant gradient */
     padding: 20px;
     border-radius: 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
