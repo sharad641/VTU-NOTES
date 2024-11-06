@@ -426,6 +426,7 @@
   font-size: 16px; /* Standard font size for description */
   color: #555; /* Medium gray color for description */
   margin-bottom: 15px; /* Space below the description */
+  font-size: 16px;
 }
 
 .chatbot-interface {

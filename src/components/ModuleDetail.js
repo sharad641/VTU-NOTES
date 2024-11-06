@@ -401,6 +401,53 @@ const ModuleDetail = () => {
           ],
         },
         {
+          title: "Introduction to Python Programming",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/176FQ4JP8TBnVp13Up3kU3e2NnwqZepwM/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1oxEARMoSL3mNe__8pb9pg_kZO4rc0Hwo/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1dOyBTLBoYHYpWl9mOL0QOId3cW1UFLLk/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1kVzP3a-n7vcltowW8HpJez68622gXCQM/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1BS2HK9KGuc191E8NM6JZoG6oxJBtev-3/preview",
+            },
+            {
+              title: "Question Paper",
+              content: "Past question paper for Applied Physics for CSE.",
+              previewUrl:
+                "https://drive.google.com/file/d/1aylHWxDTEvZ9W3oZDX2vUy3luveUwKlX/preview",
+            },
+            {
+              title: "Question Bank",
+              content: "Question bank for Applied Physics for CSE.",
+              previewUrl:
+                "https://drive.google.com/file/d/1aylHWxDTEvZ9W3oZDX2vUy3luveUwKlX/preview",
+            },
+          ],
+        },
+        {
           title: "Computer Aided Engineering Drawing",
           modules: [
             {
@@ -580,53 +627,7 @@ const ModuleDetail = () => {
             },
           ],
         },
-        {
-          title: "Introduction to Python Programming ",
-          modules: [
-            {
-              title: "Module 1: Notes",
-              content: "Comprehensive notes for Module 1.",
-              previewUrl:
-                "https://drive.google.com/file/d/176FQ4JP8TBnVp13Up3kU3e2NnwqZepwM/preview",
-            },
-            {
-              title: "Module 2: Notes",
-              content: "Comprehensive notes for Module 2.",
-              previewUrl:
-                "https://drive.google.com/file/d/1oxEARMoSL3mNe__8pb9pg_kZO4rc0Hwo/preview",
-            },
-            {
-              title: "Module 3: Notes",
-              content: "Comprehensive notes for Module 3.",
-              previewUrl:
-                "https://drive.google.com/file/d/1dOyBTLBoYHYpWl9mOL0QOId3cW1UFLLk/preview",
-            },
-            {
-              title: "Module 4: Notes",
-              content: "Comprehensive notes for Module 4.",
-              previewUrl:
-                "https://drive.google.com/file/d/1kVzP3a-n7vcltowW8HpJez68622gXCQM/preview",
-            },
-            {
-              title: "Module 5: Notes",
-              content: "Comprehensive notes for Module 5.",
-              previewUrl:
-                "https://drive.google.com/file/d/1kVzP3a-n7vcltowW8HpJez68622gXCQM/preview",
-            },
-            {
-              title: "Question Paper",
-              content: "Past question paper for Applied Physics for CSE.",
-              previewUrl:
-                "https://drive.google.com/file/d/1kVzP3a-n7vcltowW8HpJez68622gXCQM/preview",
-            },
-            {
-              title: "Question Bank",
-              content: "Question bank for Applied Physics for CSE.",
-              previewUrl:
-                "https://drive.google.com/file/d/1kVzP3a-n7vcltowW8HpJez68622gXCQM/preview",
-            },
-          ],
-        },
+        
         {
           title: "Introduction to Electrical Engineering",
           modules: [
@@ -1488,13 +1489,13 @@ const ModuleDetail = () => {
             title: "Question Paper",
             content: "Past question paper for Mathematics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
+              "https://drive.google.com/file/d/1VJov7BHVh2EsgwN89cMoodm3XxWlsA1p/preview",
           },
           {
             title: "Question Bank",
             content: "Question bank for Mathematics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1wjzil3KMApZyD4YYhc_xGRFCf09rgjf6/preview",
+              "https://drive.google.com/file/d/1VJov7BHVh2EsgwN89cMoodm3XxWlsA1p/preview",
           },
         ],
         },

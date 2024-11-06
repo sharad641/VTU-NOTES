@@ -23,11 +23,12 @@ const Subjects = () => {
       2: [
         { name: 'Mathematics For CSE', code: 'BMATS201', credits: 4, info: 'Second Semester Mathematics Module 1 to 5 Notes, Solved Model Question papers' },
         { name: 'Applied Chemistry For CSE', code: 'BCHES102/202', credits: 3, info: 'Second Semester Applied Chemistry For CSE Module 1 to 5 Notes, Solved Model Question papers' },
+        { name: 'Introduction to Python Programming', code: 'BPLCK105/205B', credits: 4, info: 'Second Semester Introduction to Programming Language Module 1 to 5 Notes, Solved Model Question papers' },
         { name: 'Computer Aided Engineering Drawing', code: 'BCEDK203', credits: 3, info: 'Second Semester Computer Aided Engineering Drawing Module 1 to 5 Notes, Solved Model Question papers' },
         { name: 'Professional Writing Skills in English', code: 'BPWSK206', credits: 2, info: 'Second Semester Professional Writing Skills in English Module 1 to 5 Notes, Solved Model Question papers' },
         { name: 'Samskrutika Kannada', code: 'BKSKK207', credits: 2, info: 'Second Semester Samskrutika Kannada Module 1 to 5 Notes, Solved Model Question papers.' },
         { name: 'Innovation and Design Thinking', code: 'BIDTK258', credits: 3, info: 'Second Semester Innovation and Design Thinking Module 1 to 5 Notes, Solved Model Question papers.' },
-        { name: 'Introduction to Programming Language', code: 'BPLCK105/205B', credits: 4, info: 'Second Semester Introduction to Programming Language Module 1 to 5 Notes, Solved Model Question papers' },
+       
         { name: 'Introduction to Electrical Engineering', code: 'BESCK104/204B', credits: 3, info: 'Second Semester Introduction to Electrical Engineering Module 1 to 5 Notes, Solved Model Question papers.' },
       ],
     },
