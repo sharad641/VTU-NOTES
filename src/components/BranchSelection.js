@@ -17,23 +17,36 @@ function BranchSelection() {
     };
 
     return (
-        <div className="branch-container" style={{ marginTop: '80px' }}>
-            <h1 className="branch-header">VTU Notes Categories</h1>
-            <div className="branch-section">
-                <div className="branch-card" onClick={() => handleBranchClick('first-year')}>
-                    1ST YEAR ENGINEERING
+        <div>
+            {/* Headline Message Section */}
+            <div className="headline-message">
+                <div className="marquee-text">
+                Notes for the ECE (Electrical and Computer Engineering) and Civil Engineering streams are yet to be uploaded.
+                    <span style={{ display: 'block', marginTop: '10px' }}></span>
+                    "Explore the notes for both the First Year and CSE (Computer Science Engineering) streams, along with the question banks,question papers And many more."
                 </div>
-                <div className="branch-card" onClick={() => handleBranchClick('cse')}>
-                    CSE STREAM
+            </div>
+
+            {/* Main Content */}
+            <div className="branch-container" style={{ marginTop: '20px' }}>
+                <h1 className="branch-header">VTU Notes Categories</h1>
+                
+                {/* Branch Cards Section */}
+                <div className="branch-section">
+                    <div className="branch-card" onClick={() => handleBranchClick('first-year')}>
+                        1ST YEAR ENGINEERING
+                    </div>
+                    <div className="branch-card" onClick={() => handleBranchClick('cse')}>
+                        CSE STREAM
+                    </div>
+                    <div className="branch-card" onClick={() => handleBranchClick('ece')}>
+                        ECE STREAM
+                    </div>
+                    <div className="branch-card" onClick={() => handleBranchClick('civil')}>
+                        Civil Engineering
+                    </div>
+                    {/* Add more branches as needed */}
                 </div>
-                <div className="branch-card" onClick={() => handleBranchClick('ece')}>
-                    ECE STREAM
-                </div>
-               
-                <div className="branch-card" onClick={() => handleBranchClick('civil')}>
-                    Civil Engineering
-                </div>
-                {/* Add more branches as needed */}
             </div>
         </div>
     );

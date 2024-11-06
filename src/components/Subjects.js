@@ -85,6 +85,17 @@ const Subjects = () => {
   const subjects = subjectsData[branch.toLowerCase()]?.[parseInt(semester)] || [];
 
   return (
+    <div>
+        {/* Headline Message Section */}
+        <div className="headline-message">
+            <div className="marquee-text">
+                Notes for the ECE (Electrical and Computer Engineering) and Civil Engineering streams are yet to be uploaded.
+                <span style={{ display: 'block', marginTop: '10px' }}></span>
+                Explore the notes for both the First Year and CSE (Computer Science Engineering) streams, along with the question banks, question papers, and many more.
+            </div>
+        </div>
+
+    
     <div className="subjects" style={{ marginTop: '80px' }}>
       <h2>{branch.toUpperCase()} - Semester {semester}</h2>
       <h3>Subjects:</h3>
@@ -112,8 +123,11 @@ const Subjects = () => {
           <li>No subjects available for this branch and semester.</li>
         )}
       </ul>
+      </div>
     </div>
+    
   );
-};
+  }
+
 
 export default Subjects;

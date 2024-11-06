@@ -1,13 +1,16 @@
 /* src/components/Subjects.css */
 
 .subjects {
-    padding: 80px 20px;
+    margin: 0; /* Remove margin */
+    padding: 60px 20px 80px; /* Adjusted padding: less on top */
     text-align: center;
     background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
     color: #1b5e20;
     min-height: 100vh;
     font-family: 'Poppins', sans-serif;
+    
 }
+
 
 .subjects h2 {
     font-size: 3.5rem;
@@ -220,3 +223,51 @@
         font-size: 0.8rem;
     }
 }
+.headline-message {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+    padding: 15px 20px; /* Adjusted padding for mobile */
+    border-radius: 8px;
+    margin-top: 15px;
+    
+    font-size: 1rem; /* Slightly smaller font for mobile */
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out, slideIn 0.4s ease forwards;
+    overflow: hidden; /* Prevents overflow on mobile */
+  }
+  
+  /* Marquee Container */
+  .marquee-container {
+    width: 100%; /* Full width for better fit */
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  /* Marquee Text */
+  .marquee-text {
+    display: inline-block;
+    animation: marquee 15s linear infinite;
+    padding-left: 100%; /* Start the animation from outside the screen */
+  }
+  
+  @keyframes marquee {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+  
+  /* Adjustments for smaller screens */
+  @media (max-width: 768px) {
+    .headline-message {
+      padding: 10px 15px;
+      font-size: 1rem;
+      margin: 0;
+    }
+  
+    .marquee-text {
+      animation-duration: 20s; /* Slower for readability */
+    }
+  }
+  

@@ -30,12 +30,24 @@ function Branch() {
     }
 
     return (
-        <div className="branch" style={{ marginTop: '80px' }}>
-            <h2>{branch.toUpperCase()} NOTES</h2>
-            <p>Select a semester:</p>
-            <ul>
-                {semesterLinks}
-            </ul>
+        <div>
+            {/* Headline Message Section */}
+            <div className="headline-message">
+                <div className="marquee-text">
+                    Notes for the ECE (Electrical and Computer Engineering) and Civil Engineering streams are yet to be uploaded.
+                    <span style={{ display: 'block', marginTop: '10px' }}></span>
+                    Explore the notes for both the First Year and CSE (Computer Science Engineering) streams, along with the question banks, question papers, and many more.
+                </div>
+            </div>
+
+            {/* Branch Section */}
+            <div className="branch" style={{ marginTop: '20px' }}>
+                <h2>{branch.toUpperCase()} NOTES</h2>
+                <p>Select a semester:</p>
+                <ul>
+                    {semesterLinks}
+                </ul>
+            </div>
         </div>
     );
 }
