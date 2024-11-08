@@ -1,111 +1,116 @@
 /* Footer Styling */
 .footer {
-    background: linear-gradient(135deg, #2c3e50, #3498db); /* Dark to light blue gradient */
-    color: #fff; /* White text for contrast */
-    padding: 30px 50px; /* Adjusted padding for more balanced design */
-    text-align: center;
-    font-family: 'Montserrat', sans-serif; /* Modern, clean font */
-    width: 100%; /* Full width to cover the screen */
-    position: relative;
-    bottom: 0;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
-    border-radius: 10px 10px 0 0; /* Rounded top corners */
-    margin-top: 40px; /* Space above footer */
-    z-index: 10;
-    overflow: hidden;
-  }
-  
-  /* Footer Content */
-  .footer-content {
+    background: linear-gradient(135deg, #6e7ff3, #00d2d2); /* Modern gradient */
+    color: #fff;
+    padding: 50px 20px;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 15px; /* Added space between elements for better separation */
+    text-align: center;
   }
   
-  /* Footer Headline */
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    width: 100%;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .footer-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
   .footer-content h3 {
-    font-size: 1.5rem; /* Larger, more prominent heading */
-    font-weight: 600;
-    margin-bottom: 10px;
-    text-transform: uppercase; /* Uppercase heading for emphasis */
-    letter-spacing: 1px;
-    color: #ecf0f1; /* Light gray for the heading */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Slight text shadow for depth */
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
   }
   
-  /* Footer Paragraph */
   .footer-content p {
-    font-size: 1rem; /* Slightly larger for readability */
-    margin-bottom: 20px;
-    color: #ecf0f1; /* Light gray for the text */
+    font-size: 1.1rem;
+    color: #d1d1d1;
     line-height: 1.6;
+    margin-bottom: 15px;
   }
   
-  /* Social Media Icons */
-  .social-icons {
-    display: flex;
-    gap: 15px; /* Added more space between icons */
-    justify-content: center;
+  .footer-links,
+  .footer-social {
+    flex: 1;
+    padding: 20px;
+    max-width: 300px;
   }
   
-  .social-icons a {
-    color: #fff; /* White color for icons */
-    font-size: 1.8rem; /* Slightly larger icons */
-    transition: transform 0.3s ease, color 0.3s ease; /* Smooth animation on hover */
-  }
-  
-  .social-icons a:hover {
-    transform: scale(1.2); /* Slight zoom effect on hover */
-    color: #16a085; /* Light teal color on hover */
-  }
-  
-  /* Footer Links */
-  .footer-links {
-    display: flex;
-    gap: 25px; /* Increased space between links */
-    justify-content: center;
+  .footer-links h4,
+  .footer-social h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
     margin-bottom: 20px;
   }
   
-  .footer-links a {
-    color: #fff; /* White color for links */
+  .footer-links ul,
+  .footer-social ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-links li,
+  .footer-social li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links a,
+  .footer-social a {
     text-decoration: none;
-    font-size: 1rem; /* Medium font size */
-    transition: color 0.3s ease, text-decoration 0.3s ease;
+    color: #fff;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
   }
   
-  .footer-links a:hover {
-    color: #16a085; /* Light teal color on hover */
-    text-decoration: underline; /* Underline effect on hover */
+  .footer-links a:hover,
+  .footer-social a:hover {
+    color: #00d2d2; /* Highlight color on hover */
   }
   
-  /* Footer Bottom Text */
   .footer-bottom {
-    font-size: 0.9rem; /* Slightly smaller footer bottom text */
-    color: #ecf0f1; /* Light gray for footer bottom text */
-    margin-top: 20px;
+    margin-top: 30px;
+    font-size: 1rem;
+    color: #d1d1d1;
+    text-align: center;
   }
   
-  /* Responsive Design - For mobile devices */
+  .footer-bottom p {
+    margin: 0;
+  }
+  
   @media (max-width: 768px) {
-    .footer {
-      padding: 20px; /* Reduced padding on smaller screens */
-    }
-  
-    .footer-content {
+    .footer-top {
       flex-direction: column;
+      align-items: center;
+    }
+  
+    .footer-content,
+    .footer-links,
+    .footer-social {
       text-align: center;
+      margin-bottom: 20px;
     }
   
-    .footer-links {
-      flex-direction: column; /* Stack the links vertically */
-      gap: 10px; /* Compact space between links */
+    .footer-content h3 {
+      font-size: 2rem;
     }
   
-    .social-icons {
-      gap: 20px; /* Increased space between icons on mobile */
+    .footer-links h4,
+    .footer-social h4 {
+      font-size: 1.2rem;
+    }
+  
+    .footer-links a,
+    .footer-social a {
+      font-size: 1rem;
     }
   }
   

@@ -121,14 +121,8 @@ const Home = () => {
                 </p>
             </div>
              {/* Social Links */}
-             <div className="social-links-box">
-                <h2>Student Discussion Group Links</h2>
-                <div className="social-links-container">
-                    <a href="https://www.instagram.com/vtuno_tes/" target="_blank" rel="noopener noreferrer" className="social-link instagram">Instagram</a>
-                    <a href="https://t.me/+stUpGmJvk1JkNWE1" target="_blank" rel="noopener noreferrer" className="social-link telegram">Telegram</a>
-                    <a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" target="_blank" rel="noopener noreferrer" className="social-link whatsapp">WhatsApp</a>
-                </div>
-            </div>
+             
+            
         </div>
     );
 };
