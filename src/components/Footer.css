@@ -1,94 +1,111 @@
-/* src/components/Footer.css */
+/* Footer Styling */
 .footer {
-    background: linear-gradient(to right, #2c3e50, #3498db); /* Dark to light blue gradient */
-    color: #ffffff; /* White text for contrast */
-    padding: 20px; /* Reduced padding for a more compact design */
+    background: linear-gradient(135deg, #2c3e50, #3498db); /* Dark to light blue gradient */
+    color: #fff; /* White text for contrast */
+    padding: 30px 50px; /* Adjusted padding for more balanced design */
     text-align: center;
-    font-family: 'Montserrat', sans-serif; /* Modern font */
+    font-family: 'Montserrat', sans-serif; /* Modern, clean font */
+    width: 100%; /* Full width to cover the screen */
     position: relative;
     bottom: 0;
-    width: 95%;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow effect */
-    border-radius: 8px; /* Slight rounding of corners */
-    margin-top: 20px; /* Space above the footer */
-}
-
-.footer-content {
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+    margin-top: 40px; /* Space above footer */
+    z-index: 10;
+    overflow: hidden;
+  }
+  
+  /* Footer Content */
+  .footer-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Compact gap for better separation */
-}
-
-.footer-content h3 {
-    font-size: 1.4rem; /* Slightly smaller for a more compact look */
-    font-weight: bold;
-    margin-bottom: 5px;
-    text-transform: uppercase; /* Uppercase heading for emphasis */
-    letter-spacing: 1px; /* Spacing between letters */
-}
-
-.footer-content p {
-    font-size: 0.9rem; /* Smaller font size for readability */
+    gap: 15px; /* Added space between elements for better separation */
+  }
+  
+  /* Footer Headline */
+  .footer-content h3 {
+    font-size: 1.5rem; /* Larger, more prominent heading */
+    font-weight: 600;
     margin-bottom: 10px;
-    color: #ecf0f1; /* Light gray for secondary text */
-}
-
-.social-icons {
+    text-transform: uppercase; /* Uppercase heading for emphasis */
+    letter-spacing: 1px;
+    color: #ecf0f1; /* Light gray for the heading */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Slight text shadow for depth */
+  }
+  
+  /* Footer Paragraph */
+  .footer-content p {
+    font-size: 1rem; /* Slightly larger for readability */
+    margin-bottom: 20px;
+    color: #ecf0f1; /* Light gray for the text */
+    line-height: 1.6;
+  }
+  
+  /* Social Media Icons */
+  .social-icons {
     display: flex;
-    gap: 10px; /* Compact spacing between icons */
-}
-
-.social-icons a {
-    color: #ffffff; /* White color for icons */
-    font-size: 1.5rem; /* Larger icon size */
-    transition: transform 0.3s ease; /* Smooth transform effect */
-}
-
-.social-icons a:hover {
-    transform: scale(1.3); /* Slight zoom effect on hover */
-    color: #16a085; /* Light teal on hover */
-}
-
-.footer-links {
-    display: flex;
-    gap: 15px; /* Compact spacing between links */
+    gap: 15px; /* Added more space between icons */
     justify-content: center;
-    margin-bottom: 15px;
-}
-
-.footer-links a {
-    color: #ffffff; /* White color for links */
+  }
+  
+  .social-icons a {
+    color: #fff; /* White color for icons */
+    font-size: 1.8rem; /* Slightly larger icons */
+    transition: transform 0.3s ease, color 0.3s ease; /* Smooth animation on hover */
+  }
+  
+  .social-icons a:hover {
+    transform: scale(1.2); /* Slight zoom effect on hover */
+    color: #16a085; /* Light teal color on hover */
+  }
+  
+  /* Footer Links */
+  .footer-links {
+    display: flex;
+    gap: 25px; /* Increased space between links */
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .footer-links a {
+    color: #fff; /* White color for links */
     text-decoration: none;
-    font-size: 0.9rem; /* Smaller font size for links */
-    transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: #16a085; /* Light teal on hover */
-    text-decoration: underline; /* Underline on hover */
-}
-
-.footer-bottom {
-    font-size: 0.8rem; /* Slightly smaller text for footer bottom */
-    color: #ecf0f1; /* Light gray for footer bottom */
-    margin-top: 10px;
-}
-
-/* Responsive design for smaller devices */
-@media (max-width: 768px) {
+    font-size: 1rem; /* Medium font size */
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #16a085; /* Light teal color on hover */
+    text-decoration: underline; /* Underline effect on hover */
+  }
+  
+  /* Footer Bottom Text */
+  .footer-bottom {
+    font-size: 0.9rem; /* Slightly smaller footer bottom text */
+    color: #ecf0f1; /* Light gray for footer bottom text */
+    margin-top: 20px;
+  }
+  
+  /* Responsive Design - For mobile devices */
+  @media (max-width: 768px) {
     .footer {
-        padding: 15px; /* Adjusted padding for mobile */
+      padding: 20px; /* Reduced padding on smaller screens */
     }
-
+  
     .footer-content {
-        flex-direction: column;
-        text-align: center;
+      flex-direction: column;
+      text-align: center;
     }
-
+  
     .footer-links {
-        flex-direction: column;
-        gap: 5px; /* Further compact for mobile */
+      flex-direction: column; /* Stack the links vertically */
+      gap: 10px; /* Compact space between links */
     }
-}
+  
+    .social-icons {
+      gap: 20px; /* Increased space between icons on mobile */
+    }
+  }
+  

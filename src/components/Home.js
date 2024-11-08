@@ -88,15 +88,7 @@ const Home = () => {
                 <Link to="/upload" className="upload-link">Upload Notes</Link>
             </div>
             
-            {/* Social Links */}
-            <div className="social-links-box">
-                <h2>Student Discussion Group Links</h2>
-                <div className="social-links-container">
-                    <a href="https://www.instagram.com/vtuno_tes/" target="_blank" rel="noopener noreferrer" className="social-link instagram">Instagram</a>
-                    <a href="https://t.me/+stUpGmJvk1JkNWE1" target="_blank" rel="noopener noreferrer" className="social-link telegram">Telegram</a>
-                    <a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" target="_blank" rel="noopener noreferrer" className="social-link whatsapp">WhatsApp</a>
-                </div>
-            </div>
+           
            
             <div className="faq-box">
     <div className="faq-section">
@@ -109,10 +101,10 @@ const Home = () => {
 <div className="chatbot-section">
     <h2 className="chatbot-title">Chat with Us!</h2>
     <p className="chatbot-description">
-    Please note that while the chatbot is designed to answer simple questions and basic VTU-related queries, it may not provide answers to every topic
+     chatbot 
     </p>
     <div className="chatbot-interface">
-        <Link to="/chatbot" className="chatbot-link">Start Chatting with the Chatbot</Link>
+        <Link to="/chatbot" className="chatbot-link">chat</Link>
     </div>
 </div>
 
@@ -127,6 +119,15 @@ const Home = () => {
                 <p>
                     Phone: <a href="tel:+916364060716" className="contact-link">+91 </a>
                 </p>
+            </div>
+             {/* Social Links */}
+             <div className="social-links-box">
+                <h2>Student Discussion Group Links</h2>
+                <div className="social-links-container">
+                    <a href="https://www.instagram.com/vtuno_tes/" target="_blank" rel="noopener noreferrer" className="social-link instagram">Instagram</a>
+                    <a href="https://t.me/+stUpGmJvk1JkNWE1" target="_blank" rel="noopener noreferrer" className="social-link telegram">Telegram</a>
+                    <a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" target="_blank" rel="noopener noreferrer" className="social-link whatsapp">WhatsApp</a>
+                </div>
             </div>
         </div>
     );

@@ -1,463 +1,382 @@
+/* Ensure no body margin and padding */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set full height for html and body */
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
 /* Main Container Styling */
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #36d1dc, #5b86e5);
- 
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+  justify-content: flex-start;
+  min-height: 100vh;  /* Ensure full height */
+  width: 100%; /* Full width to cover the screen */
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #6e7ff3, #00d2d2); /* Soft gradient for background */
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1); /* Soft shadow for a clean look */
+  padding: 40px;
+  position: relative;
   overflow: hidden;
+  padding-bottom: 90px; /* Ensure the bottom padding accounts for the chatbot button */
 }
 
-/* Headline Message */
+/* Header / Headline Section */
 .headline-message {
-  background: linear-gradient(135deg, #36d1dc, #5b86e5);
-  padding: 20px 30px;
- 
-  margin-bottom: 20px;
-  font-size: 1rem; /* Increased font size for better visibility */
-  font-weight: bold;
-  color: #fff;
+  background: rgba(255, 255, 255, 0.9); /* Semi-transparent background for the message */
+  color: #333;
+  padding: 25px 40px;
+  font-size: 2rem;
+  font-weight: 600;
   text-align: center;
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 1s ease-in-out, slideIn 0.4s ease forwards;
+  border-radius: 15px;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
+  width: 100%;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease-in-out;
 }
 
-/* Animations */
+/* Fade-in animation */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-@keyframes slideIn {
-  from { transform: translateY(-20px); }
-  to { transform: translateY(0); }
-}
-
-/* Marquee Text */
-.marquee-text {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee 12s linear infinite;
-}
-
-@keyframes marquee {
-  from { transform: translateX(100%); }
-  to { transform: translateX(-100%); }
-}
-
-/* Box Styles */
+/* Box Styling (Cards) */
 .scheme-selection-box,
 .calculator-box,
 .upload-notes-box,
 .social-links-box,
 .contact-box,
 .vtu-notes-info-box,
-.news-box { /* Added news box to the selectors */
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  padding: 35px;
-  border-radius: 15px;
+.news-box,
+.faqs-box {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 100%;
-  max-width: 800px;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
-  margin-bottom: 25px;
-  transition: transform 0.3s, background 0.3s ease;
+  max-width: 1100px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   animation: fadeIn 1s ease;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Hover effect for all boxes */
 .scheme-selection-box:hover,
 .calculator-box:hover,
 .upload-notes-box:hover,
 .social-links-box:hover,
 .contact-box:hover,
 .vtu-notes-info-box:hover,
-.news-box:hover { /* Added news box hover effect */
-  transform: scale(1.05);
+.news-box:hover,
+.faqs-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Headings */
+/* Title Styling inside Boxes */
 .scheme-selection-box h2,
 .calculator-box h2,
 .upload-notes-box h2,
 .social-links-box h2,
 .contact-box h2,
 .vtu-notes-info-box h2,
-.news-box h2 { /* Added news box heading */
-  font-size: 2rem;
-  color: #fff;
-  margin-bottom: 15px;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+.news-box h2,
+.faqs-box h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Info Message Style */
-.info-message {
+/* Paragraph Styling inside Boxes */
+.scheme-selection-box p,
+.calculator-box p,
+.upload-notes-box p,
+.social-links-box p,
+.contact-box p,
+.vtu-notes-info-box p,
+.news-box p,
+.faqs-box p {
   font-size: 1.2rem;
-  color: #1976d2;
-  margin: 15px 0;
-  padding: 10px;
-  background: rgba(225, 242, 254, 0.8);
-  border: 1px solid #1976d2;
-  border-radius: 5px;
-  transition: opacity 0.5s ease;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  font-weight: 400;
+  text-align: center;
 }
 
-/* Links */
+/* Link Button Styling */
 .scheme-link,
 .upload-link,
-.calculator-link,
-.social-link {
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.3rem;
-  padding: 12px 20px;
-  border-radius: 10px;
-  background-color: #333;
-  text-decoration: none;
+.calculator-link {
   display: inline-block;
-  margin-top: 10px;
-  transition: background-color 0.3s, transform 0.2s ease;
+  padding: 12px 25px;
+  background-color: #00d2d2;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 30px;
+  margin-top: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .scheme-link:hover,
-.calculator-link:hover,
 .upload-link:hover,
-.social-link:hover {
-  background-color: #555;
-  transform: translateY(-3px) scale(1.02);
+.calculator-link:hover {
+  background-color: #00b4b4;
+  transform: translateY(-3px);
 }
 
-/* Social Links Box */
+/* Icon Button Styling */
+.social-link {
+  display: inline-block;
+  background-color: #fff;
+  color: #333;
+  border: 2px solid #333;
+  font-size: 1.5rem;
+  padding: 15px;
+  border-radius: 50%;
+  margin: 10px;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: #333;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Social Links Box Styling */
 .social-links-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  background: linear-gradient(135deg, #6e7ff3, #00d2d2); /* Gradient background */
   padding: 40px;
   border-radius: 15px;
   width: 100%;
   max-width: 900px;
-  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .social-links-container {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
-  width: 100%;
+  margin-top: 20px;
+}
+/* Chatbot Button Styling - Modern and /* Chatbot Button Styling - Bright, Modern and Noticeable */
+.chatbot-section {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: linear-gradient(135deg, #ff8a00, #e52e71); /* Brighter gradient for recognition */
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+  z-index: 1000;
+  overflow: hidden;
 }
 
-/* Social Link Styling */
-.social-link {
-  display: inline-block;
-  padding: 14px 20px;
-  font-size: 1.1rem;
-  border-radius: 8px;
-  color: #fff;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s, background-color 0.3s;
+.chatbot-section::before {
+  content: '';
+  position: absolute;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(rgba(255, 255, 255, 0.4), transparent);
+  top: -40%;
+  left: -40%;
+  animation: pulse 2s infinite ease-in-out;
 }
 
-.social-link.instagram { background-color: #E4405F; }
-.social-link.telegram { background-color: #0088CC; }
-.social-link.whatsapp { background-color: #25D366; }
-
-.social-link:hover {
+/* Hover and Active State for Chatbot */
+.chatbot-section:hover {
   transform: scale(1.1);
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #ff6a00, #d5265c); /* Slightly darker gradient on hover */
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.25);
 }
 
-/* Contact Box */
-.contact-box {
-  background: linear-gradient(135deg, #36d1dc, #5b86e5);
-  color: #fff;
-  padding: 30px;
-  border-radius: 15px;
-  width: 100%;
-  max-width: 900px;
-  text-align: center;
-  box-shadow: 0px 10px 25px rgba(245, 231, 231, 0.3);
-  animation: fadeIn 1s ease;
-}
-
-/* News Box */
-.news-box {
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
-  padding: 35px;
-  border-radius: 15px;
-  width: 100%;
-  max-width: 800px;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
-  margin-bottom: 25px;
-  animation: fadeIn 1s ease;
-}
-
-/* Title Styling for News Box */
-.news-box h2 {
+/* Chatbot Icon */
+.chatbot-link {
+  color: #ffffff;
   font-size: 2rem;
-  color: #fff;
-  margin-bottom: 20px;
-  text-shadow: 1px 1px 5px rgba(180, 167, 167, 0.3);
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 10;
+  transition: transform 0.3s ease;
 }
 
-/* Link Button Styling */
-
-/* Active State */
-.link-button:active {
-  transform: translateY(1px); /* Pressed effect */
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2); /* Reduced shadow when pressed */
+.chatbot-section:hover .chatbot-link {
+  transform: rotate(15deg);
 }
 
-/* Enhanced Paragraph Styles */
-.vtu-notes-info-box p,
-.calculator-box p,
-.scheme-selection-box p,
-.upload-notes-box p,
-.social-links-box p,
-.contact-box p,
-.news-box p { /* Added news box paragraph styles */
-  font-size: 1.1rem; /* Standard paragraph font size */
-  line-height: 1.8; /* Increased line height for readability */
-  margin: 10px 0;
-  color: rgb(27, 21, 21); /* Text color */
-  text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); /* Soft text shadow for depth */
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.9);
+    opacity: 0.7;
+  }
 }
 
 /* Responsive Adjustments */
-@media (max-width: 1024px) {
-  .scheme-selection-box,
-  .calculator-box,
-  .upload-notes-box,
-  .social-links-box,
-  .contact-box,
-  .vtu-notes-info-box,
-  .news-box { /* Added news box to the responsive styles */
-    padding: 25px; /* Reduced padding for medium screens */
+@media screen and (max-width: 768px) {
+  .chatbot-section {
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
   }
-
-  .scheme-selection-box h2,
-  .calculator-box h2,
-  .upload-notes-box h2,
-  .social-links-box h2,
-  .contact-box h2,
-  .vtu-notes-info-box h2,
-  .news-box h2 { /* Reduced heading sizes */
-    font-size: 1.8rem;
-  }
-
-  .scheme-link,
-  .upload-link {
-    font-size: 1.2rem; /* Adjusted link sizes */
-    padding: 10px 15px; /* Smaller padding */
+  
+  .chatbot-link {
+    font-size: 1.6rem;
   }
 }
 
-@media (max-width: 768px) {
-  .headline-message,
-  .calculator-box,
-  .scheme-selection-box,
-  .upload-notes-box,
-  .social-links-box,
-  .contact-box,
-  .vtu-notes-info-box,
-  .news-box { /* Added news box to the responsive styles */
-    padding: 15px; /* Further reduced padding for small screens */
-  }
 
-  .headline-message {
-    font-size: 1.1rem; /* Reduced font size for headline */
-  }
 
+  /* Reduce font size in cards */
   .scheme-selection-box h2,
   .calculator-box h2,
   .upload-notes-box h2,
   .social-links-box h2,
   .contact-box h2,
   .vtu-notes-info-box h2,
-  .news-box h2 { /* Reduced heading sizes */
-    font-size: 1.4rem;
+  .news-box h2,
+  .faq-box h2 {
+    font-size: 2rem;
   }
 
+  /* Adjust button sizes and padding */
   .scheme-link,
-  .upload-link {
-    font-size: 1rem; /* Adjusted link sizes */
-    padding: 10px 18px; /* Smaller padding */
+  .upload-link,
+  .calculator-link {
+    padding: 10px 20px;
+    font-size: 1rem;
   }
 
+  /* Social link size */
   .social-link {
-    padding: 12px 16px; /* Adjusted social link padding */
-    font-size: 1.2rem; /* Slightly smaller font size */
-  }
-}
-
-@media (max-width: 480px) {
-  .headline-message {
-    font-size: 1.2rem; /* Further reduce font size for smaller devices */
+    font-size: 1.2rem;
+    padding: 12px;
   }
 
-  .scheme-selection-box h2,
-  .calculator-box h2,
-  .upload-notes-box h2,
-  .social-links-box h2,
-  .contact-box h2,
-  .vtu-notes-info-box h2,
-  .news-box h2 { /* Adjusted heading sizes for mobile */
-    font-size: 1.3rem;
+  /* Adjust chatbot button size on mobile */
+  .chatbot-section {
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
   }
 
-  .scheme-link,
-  .upload-link {
-    font-size: 1.2rem; /* Smaller link sizes */
-  }
-}
-
-/* Logo Container */
-.logo-container {
-  margin-bottom: 20px; /* Space below the logo */
-  max-width: 100%; /* Ensure it doesn't exceed the container */
+.faq-box {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 1100px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
-  justify-content: center; /* Center the logo */
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 1s ease;
+  position: relative;
+  overflow: hidden;
 }
 
-.logo {
-  width: 100%; /* Set width to 100% to be responsive */
-  max-width: 150px; /* Maximum width to prevent it from getting too big */
-  height: auto; /* Maintain aspect ratio */
-}
-/* Unique styling for the FAQ section */
-.faq-section {
-  max-width: 1000px; /* Max width for the container */
-  margin: 50px auto; /* Center the container */
-  padding: 40px; /* Increased padding for better spacing */
-  background: #f9f9f9; /* Light background for the container */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
-  border-radius: 15px; /* Rounded corners */
-  font-family: 'Roboto', sans-serif; /* Modern font */
-  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+.faq-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.15);
 }
 
-/* Title styling */
-.faq-title {
-  text-align: center; /* Center the heading */
-  font-size: 2.5rem; /* Font size for heading */
-  color: #333; /* Dark text color */
-  margin-bottom: 20px; /* Space below heading */
-  position: relative; /* Position relative for the underline effect */
+.faq-box h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Underline effect for the FAQ title */
-.faq-title::after {
-  content: ''; /* Underline effect */
-  display: block;
-  width: 80px; /* Width of the underline */
-  height: 3px; /* Height of the underline */
-  background-color: #007BFF; /* Color of the underline */
-  margin: 10px auto; /* Center the underline */
-  border-radius: 2px; /* Slightly rounded corners */
+.faq-box p {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  font-weight: 400;
+  text-align: center;
 }
 
-/* Description styling */
-.faq-description {
-  text-align: center; /* Center the paragraph */
-  font-size: 1.2rem; /* Font size for description */
-  color: #555; /* Dark gray text for description */
-  margin-bottom: 20px; /* Space below description */
-  line-height: 1.6; /* Improved line height for readability */
-}
-
-/* Link button styling */
 .faq-link {
-  display: inline-block; /* Make the link block-level for better spacing */
-  padding: 10px 20px; /* Inner padding for the button effect */
-  background: #007BFF; /* Primary background color */
-  color: #ffffff; /* White text for contrast */
-  border-radius: 8px; /* Rounded corners for the button */
-  text-decoration: none; /* Remove underline from link */
-  font-weight: bold; /* Bold text for emphasis */
-  transition: background 0.3s ease; /* Smooth background transition */
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #00d2d2;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 30px;
+  margin-top: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .faq-link:hover {
-  background: #0056b3; /* Darken the background on hover */
+  background-color: #00b4b4;
+  transform: translateY(-3px);
 }
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-  .faq-section {
-      padding: 20px; /* Reduce padding on smaller screens */
+@media screen and (max-width: 768px) {
+  .faq-box h2 {
+    font-size: 2rem;
   }
 
-  .faq-title {
-      font-size: 2rem; /* Smaller heading font size */
+  .faq-box p {
+    font-size: 1rem;
   }
 
-  .faq-description {
-      font-size: 1rem; /* Smaller font size for description */
+  .faq-link {
+    padding: 10px 20px;
+    font-size: 1rem;
   }
 }
-/* src/components/ChatBot.css */
 
-.chatbot-section {
-  background-color: #f9f9f9; /* Light background color */
-  border-radius: 8px; /* Rounded corners */
-  padding: 20px; /* Padding around the content */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  margin: 20px 0; /* Margin around the section */
-  text-align: center; /* Center align text */
-  transition: transform 0.2s; /* Animation on hover */
-}
 
-.chatbot-section:hover {
-  transform: scale(1.02); /* Slight scale effect on hover */
-}
-
-.chatbot-title {
-  font-size: 24px; /* Larger title font size */
-  color: #333; /* Darker text color for contrast */
-  margin-bottom: 10px; /* Space below the title */
-}
-
-.chatbot-description {
-  font-size: 16px; /* Standard font size for description */
-  color: #555; /* Medium gray color for description */
-  margin-bottom: 15px; /* Space below the description */
-  font-size: 16px;
-}
-
-.chatbot-interface {
-  margin-top: 15px; /* Space above the interface */
-}
-
-.chatbot-link {
-  display: inline-block; /* Make the link behave like a button */
-  padding: 12px 20px; /* Padding inside the button */
-  background-color: #007bff; /* Primary color for the button */
-  color: white; /* White text color */
-  border-radius: 5px; /* Rounded corners */
-  text-decoration: none; /* Remove underline */
-  font-weight: bold; /* Bold text for emphasis */
-  transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
-}
-
-.chatbot-link:hover {
-  background-color: #0056b3; /* Darker shade on hover */
-  transform: translateY(-2px); /* Slight lift effect on hover */
-}
-
-@media (max-width: 600px) {
-  .chatbot-section {
-      padding: 15px; /* Adjust padding for smaller screens */
-  }
-
-  .chatbot-title {
-      font-size: 20px; /* Smaller title font size for mobile */
-  }
-
-  .chatbot-description {
-      font-size: 14px; /* Smaller description font size for mobile */
-  }
-}

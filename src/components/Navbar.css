@@ -1,22 +1,25 @@
-/* Navbar */
+/* Navbar Styling */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 20px 30px; /* Increased padding for balance */
   background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Soft gradient */
-  backdrop-filter: blur(12px);  /* Subtle background blur */
-  color: #fff;  /* White text for better contrast */
+  backdrop-filter: blur(12px); /* Subtle background blur */
+  color: #fff; /* White text for better contrast */
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);  /* Subtle shadow */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  transition: background 0.3s ease;  /* Smooth background transition */
+  width: 100%; /* Full width to cover the whole screen */
+  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth background transition */
 }
 
+/* Navbar Hover Effect */
 .navbar:hover {
   background: linear-gradient(135deg, #2193b0, #6dd5ed); /* Reverse gradient on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
 /* Logo Container */
@@ -40,14 +43,14 @@
 }
 
 .navbar-logo-container:hover {
-  transform: scale(1.1);  /* Slight zoom on hover */
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);  /* Stronger shadow on hover */
+  transform: scale(1.1); /* Slight zoom effect on hover */
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
 }
 
-/* Navbar Links (If added) */
+/* Navbar Links */
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 30px; /* Increased gap for balance */
   font-size: 16px;
   font-weight: 500;
   list-style: none;
@@ -64,49 +67,11 @@
 }
 
 .nav-links li a:hover {
-  color: #f0a500;  /* Highlight color on hover */
-  transform: translateY(-3px);  /* Slight lift effect */
+  color: #f0a500; /* Highlight color on hover */
+  transform: translateY(-3px); /* Slight lift effect */
 }
 
-/* For Mobile - Hamburger Menu */
-.hamburger {
-  display: none;
-  cursor: pointer;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.hamburger .bar {
-  width: 30px;
-  height: 4px;
-  background-color: #fff;
-  border-radius: 5px;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 80px;
-    right: 0;
-    background: rgba(0, 0, 0, 0.8);
-    width: 100%;
-    height: 100vh;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    display: none;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-}
+/* Dropdown Menu */
 .nav-links .dropdown {
   position: relative;
 }
@@ -126,6 +91,9 @@
   padding: 10px 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .nav-links .dropdown-content a {
@@ -139,5 +107,59 @@
 }
 
 .nav-links .dropdown-content a:hover {
-  background-color: #f0a500;
+  background-color: #f0a500; /* Highlight color for dropdown items */
+}
+
+.nav-links .dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hamburger .bar {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  /* Navbar Links in Mobile */
+  .nav-links {
+    position: absolute;
+    top: 80px;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8); /* Dark background for mobile menu */
+    width: 100%;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    display: none; /* Initially hidden */
+  }
+
+  /* Active class for the navbar menu */
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* Hamburger Menu */
+  .hamburger {
+    display: flex; /* Show hamburger on mobile */
+  }
+
+  /* Navbar Logo on Mobile */
+  .navbar-logo-container {
+    width: 60px; /* Smaller logo size for mobile */
+    height: 60px;
+  }
 }
