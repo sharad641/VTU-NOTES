@@ -5,8 +5,8 @@
     padding: 2rem;
     border-radius: 12px;
     background: #ffffff;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
 .upload-form:hover {
@@ -17,13 +17,15 @@
     text-align: center;
     color: #333;
     margin-bottom: 1.5rem;
-    font-size: 1.8rem;
+    font-size: clamp(1.6rem, 4vw, 1.8rem); /* Fluid typography */
 }
 
+/* Form Group for inputs and labels */
 .form-group {
     margin-bottom: 1.5rem;
 }
 
+/* Labels */
 .upload-form label {
     display: block;
     margin-bottom: 0.5rem;
@@ -37,23 +39,24 @@
     width: 100%;
     padding: 0.75rem;
     border: 1px solid #ccc;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box;
 }
 
 /* Focus state for inputs */
 .upload-form input[type="text"]:focus,
 .upload-form textarea:focus {
     border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
     outline: none;
 }
 
 /* Textarea specific styling */
 .upload-form textarea {
     resize: none;
-    min-height: 100px;
+    min-height: 120px;
 }
 
 /* Button styling */
@@ -64,19 +67,21 @@
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    box-sizing: border-box;
 }
 
+/* Button hover effects */
 .upload-form button:hover,
 .file-upload-label:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
 }
 
-/* Custom File Input Styling */
+/* File Input Hidden, Custom Label Styling */
 .upload-form input[type="file"] {
     display: none;
 }
@@ -85,11 +90,15 @@
     display: inline-block;
     text-align: center;
     margin-bottom: 1rem;
+    cursor: pointer;
+    font-weight: 600;
 }
 
+/* File upload label text */
 .file-upload-text {
     margin-top: 0.5rem;
     color: #666;
+    font-size: 1rem;
 }
 
 /* Progress text styling */
@@ -106,7 +115,8 @@
     margin-top: 1rem;
     font-weight: 600;
     padding: 0.75rem;
-    border-radius: 6px;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
 
 /* Success message styling */
@@ -119,4 +129,32 @@
 .upload-error {
     color: #dc3545;
     background: rgba(220, 53, 69, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .upload-form {
+        padding: 1.5rem;
+    }
+
+    .upload-form h2 {
+        font-size: 1.6rem; /* Slightly smaller on mobile */
+    }
+
+    .upload-form button,
+    .file-upload-label {
+        padding: 1rem; /* Increase button size on mobile */
+    }
+
+    .upload-form textarea {
+        min-height: 120px;
+    }
+
+    .file-upload-label {
+        font-size: 1.1rem;
+    }
+
+    .file-upload-text {
+        font-size: 0.9rem;
+    }
 }

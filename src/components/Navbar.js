@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link for internal navigation
 import './Navbar.css';
 import vtuLogo from '../assets/logo.jpg';
 
@@ -17,11 +18,13 @@ const Navbar = () => {
 
             {/* Navbar Links */}
             <ul className={`nav-links ${isMobile ? 'active' : ''}`}>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Placement Guide</a></li>
-                <li><a href="#portfolio">Chatbot</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><Link to="/">Home</Link></li> {/* Link to Home Page */}
+                <li><Link to="/about">About</Link></li> {/* Link to About Page */}
+                <li><Link to="/placement-guide">Placement Guide</Link></li> {/* Link to Placement Guide */}
+                <li><Link to="/chatbot">Chatbot</Link></li> {/* Link to Chatbot Page */}
+                <li><Link to="/contact">Contact</Link></li> {/* Link to Contact Page */}
+
+                {/* Dropdown Menu */}
                 <li className="dropdown">
                     <a href="#more">More</a>
                     <div className="dropdown-content">

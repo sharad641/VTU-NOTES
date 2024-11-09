@@ -1,47 +1,67 @@
+/* Global Variables (CSS Custom Properties) */
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #81ecec;
+    --accent-color: #00cec9;
+    --highlight-color: #0984e3;
+    --bg-color: #f4f4fc;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --font-family: 'Poppins', sans-serif;
+    --font-family-secondary: Arial, sans-serif;
+}
+
+/* General Container */
 .placement-guide-container {
     padding: 20px;
     margin: auto;
     max-width: 1100px;
-    background-color: #f4f4fc; /* Soft, off-white background */
+    background-color: var(--bg-color); /* Soft, off-white background */
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for a modern effect */
-    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 8px 20px var(--shadow-color); /* Modern shadow effect */
+    font-family: var(--font-family);
+    transition: all 0.3s ease-in-out;
 }
 
+.placement-guide-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Header Styles */
 .header {
     text-align: center;
     margin-bottom: 20px;
-    background: linear-gradient(90deg, #6c5ce7 0%, #81ecec 100%); /* Gradient background for the header */
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%); /* Gradient background for the header */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(108, 92, 231, 0.2); /* Subtle shadow */
+    transition: transform 0.3s ease-in-out;
 }
 
 .header h1 {
-    font-size: 36px;
+    font-size: clamp(2rem, 6vw, 3.6rem); /* Fluid typography */
     color: #2c3e50; /* Dark blue-grey for contrast */
     margin-bottom: 15px;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); /* Light text shadow for depth */
 }
 
 .header p {
-    color: #ffffff; /* White text for clear readability */
-    font-size: 20px;
+    color: #ffffff;
+    font-size: 1.25rem; /* Larger font for readability */
     font-weight: 500;
 }
 
-/* Additional general styling for a modern touch */
+/* Section Box Styling */
 .section-box {
-    background-color: #e3f2fd; /* Soft, light blue */
+    background-color: #e3f2fd; /* Light blue */
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 10px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 8px var(--shadow-color);
+    transition: transform 0.2s, box-shadow 0.2s ease-in-out;
 }
 
 .section-box:hover {
-    transform: translateY(-3px);
+    transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
@@ -57,86 +77,63 @@
     line-height: 1.6;
 }
 
-/* Link styling */
+/* Link Styling */
 a {
-    color: #00cec9; /* Vivid teal */
+    color: var(--accent-color); /* Vivid teal */
     font-weight: bold;
     text-decoration: none;
     position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 a:hover {
-    color: #0984e3; /* Bright blue */
+    color: var(--highlight-color); /* Bright blue */
+    transform: scale(1.05);
     text-decoration: underline;
 }
 
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .header h1 {
-        font-size: 28px;
-    }
-
-    .header p {
-        font-size: 16px;
-    }
-
-    .placement-guide-container {
-        padding: 15px;
-    }
-
-    .section-box {
-        padding: 15px;
-    }
-}
-
-
+/* Section List Styling */
 .section-list .section-box {
     background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%); /* Gradient effect */
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .section-list .section-box:hover {
-    transform: translateY(-5px);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-.section-box h2 {
+.section-list .section-box h2 {
     color: #2d3436; /* Dark grey */
     font-size: 26px;
     margin-bottom: 12px;
 }
 
-.section-box p {
+.section-list .section-box p {
     color: #2c3e50; /* Rich dark blue */
     margin-bottom: 15px;
-    
     line-height: 1.5;
 }
 
+/* Resources & Links */
 .resources-list li {
     margin-bottom: 10px;
 }
 
 .resources-list a,
-.additional-links a
-{
+.additional-links a {
     color: #d63031; /* Bright red */
     font-weight: 600;
     text-decoration: none;
     position: relative;
+    transition: color 0.3s ease;
 }
 
 .resources-list a:hover,
-.additional-links a:hover
-
-{
+.additional-links a:hover {
     color: #e17055; /* Lighter, warmer red */
 }
 
+/* Additional Links */
 .additional-links {
     background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%); /* Gradient effect */
     border-radius: 12px;
@@ -149,10 +146,7 @@ a:hover {
     color: #2d3436;
 }
 
-.additional-resources li {
-    margin-bottom: 10px;
-}
-
+/* Placement Checklist */
 .placement-checklist {
     background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); /* Pink to coral gradient */
     border-radius: 12px;
@@ -176,24 +170,24 @@ a:hover {
     color: #060707;
 }
 
+/* Career Footer */
 .career-footer {
     background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Purple to blue gradient */
     color: #ffffff;
     border-radius: 15px;
     padding: 30px 20px;
     margin-top: 40px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 .career-footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
 .career-footer-info {
-    flex: 1;
-    min-width: 250px;
+    padding-right: 20px;
 }
 
 .career-footer-title {
@@ -227,13 +221,12 @@ a:hover {
 
 .career-footer-links {
     flex: 1;
-    min-width: 250px;
 }
 
 .career-footer-links-title {
     font-size: 20px;
     margin-bottom: 10px;
-    color:#030608;
+    color: #030608;
 }
 
 .career-footer-links-list li {
@@ -253,37 +246,11 @@ a:hover {
     font-size: 14px;
 }
 
-
-@media (max-width: 768px) {
-    .header h1 {
-        font-size: 28px;
-    }
-
-    .header p, .section-box p, .career-footer-description {
-        font-size: 16px;
-    }
-
-    .placement-guide-container {
-        padding: 15px;
-    }
-
-    .career-footer {
-        padding: 20px;
-    }
-
-    .career-footer-title {
-        font-size: 24px;
-    }
-
-    .career-footer-button {
-        font-size: 14px;
-        padding: 8px 16px;
-    }
-}
+/* Download Button */
 .download-button {
     display: inline-block;
     margin-top: 15px;
-    padding: 10px 20px;
+    padding: 12px 25px;
     background-color: #6c63ff; /* Button color */
     color: white;
     border-radius: 5px;
@@ -295,69 +262,25 @@ a:hover {
     background-color: #5a54e5; /* Darker shade on hover */
     transform: scale(1.05);
 }
-.placement-guide {
-    font-family: Arial, sans-serif;
-}
 
-.section-title {
-    font-size: 1.5em; /* Title font size */
-    margin-bottom: 0.5em; /* Space below the title */
-}
-
-.section-info {
-    font-size: 1.2em; /* Increase info font size */
-    line-height: 1.5; /* Improve readability */
-    margin-bottom: 1em; /* Space below info */
-}
-
-.resources {
-    font-size: 2em; /* Resources font size */
-    margin-left: 1em; /* Indent for resources */
-}
-
-.pdf-link {
-    font-size: 1em; /* PDF link font size */
-    color: blue; /* Link color */
-}
+/* Career Guidance Container */
 .career-guidance-container {
     padding: 20px;
-   
     max-width: 800px;
-    background-color: #ffffff; /* Clean white background */
+    background-color: #ffffff;
     border-radius: 15px;
     margin-top: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
-    font-family: 'Poppins', sans-serif;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease-in-out;
 }
 
 .career-guidance-container:hover {
     transform: translateY(-5px); /* Lift effect on hover */
 }
 
-.header {
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    background: linear-gradient(90deg, #6c5ce7 0%, #81ecec 100%); /* Gradient background */
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-}
-
-.header h1 {
-    font-size: 36px;
-    margin: 0;
-}
-
-.header p {
-    font-size: 20px;
-    margin: 5px 0 0;
-}
-
 /* Contact Info Styling */
 .contact-info {
-    background-color: #f9f9f9; /* Light gray background for contrast */
+    background-color: #f9f9f9;
     border-radius: 12px;
     padding: 20px;
     font-size: 16px;
@@ -367,34 +290,8 @@ a:hover {
 
 .contact-info p {
     font-size: 16px;
-    color: #2d3436; /* Dark gray for readability */
-    line-height: 1.6; /* Improved readability */
-}
-
-.email-link {
-    color: #6c63ff; /* Link color */
-    font-weight: bold;
-    text-decoration: none;
-    position: relative;
-}
-
-.email-link:hover {
-    color: #4e4ee9; /* Darker shade on hover */
-    text-decoration: underline; /* Underline effect on hover */
-}
-
-.email-link::after {
-    content: '';
-    display: block;
-    width: 100%;
-    height: 2px;
-    background: #6c63ff;
-    transition: transform 0.3s;
-    transform: scaleX(0);
-}
-
-.email-link:hover::after {
-    transform: scaleX(1); /* Underline effect on hover */
+    color: #2d3436;
+    line-height: 1.6;
 }
 
 /* Responsive adjustments */
@@ -404,11 +301,15 @@ a:hover {
     }
 
     .header h1 {
-        font-size: 28px; /* Smaller title for mobile */
+        font-size: clamp(1.5rem, 6vw, 2.8rem);
     }
 
     .header p,
     .contact-info p {
-        font-size: 15px; /* Smaller text for better fit */
+        font-size: 15px;
+    }
+
+    .career-footer-content {
+        grid-template-columns: 1fr;
     }
 }

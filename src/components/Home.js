@@ -1,128 +1,103 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { analytics } from '../firebase'; // Import analytics
+import { analytics } from '../firebase';
 import { logEvent } from 'firebase/analytics';
 import './Home.css';
+import ChatBot from './ChatBot'; // Importing the ChatBot component
 
 const Home = () => {
-    const [message, setMessage] = useState('');
-    const [showMessage, setShowMessage] = useState(false);
+    const [message, setMessage] = useState('');  // For displaying messages about scheme availability
+    const [showMessage, setShowMessage] = useState(false); // To show/hide the message
+    const [showChatbot, setShowChatbot] = useState(false); // To toggle the visibility of the ChatBot
 
+    // Handle Scheme Click
     const handleSchemeClick = (scheme) => {
         setMessage(`The ${scheme} Scheme is currently under development. Please check back later!`);
         setShowMessage(true);
 
-        // Log the event to Firebase Analytics
-        logEvent(analytics, 'scheme_click', { scheme_name: scheme }); // Log the scheme click event
+        // Log the scheme selection event
+        logEvent(analytics, 'scheme_click', { scheme_name: scheme });
 
-        // Clear the message after 5 seconds
+        // Hide the message after 4 seconds
         setTimeout(() => {
             setMessage('');
             setShowMessage(false);
         }, 4000);
     };
 
+    // Toggle the visibility of the chatbot
+    const toggleChatbot = () => setShowChatbot(!showChatbot);
+
     return (
         <div className="home-container">
-            {/* Logo Display */}
-
-            {/* Message/Headline with marquee effect */}
+            {/* Headline with marquee effect */}
             <div className="headline-message">
                 <div className="marquee-text">
                     📢 Latest Updates: New notes for the 5th Semester are now available! (Not all) Check them out!
-                    <span style={{ display: 'block', marginTop: '10px' }}></span>
-                    "The notes for ECE have not been uploaded yet; work is in progress. Please wait for some time."
+                    <span> "The notes for ECE have not been uploaded yet; work is in progress. Please wait for some time."</span>
                 </div>
             </div>
-            
 
-            <div className="vtu-notes-info-box">
+            {/* VTU Notes Info Box */}
+            <section className="vtu-notes-info-box">
                 <h2>About VTU Notes</h2>
-                <p>
-                VTU-NOTES is your go-to resource for academic success! We offer curated notes, extensive question banks, and essential questions to help you excel in your exams.
-                </p>
-            </div>
-            <div className="news-box">
-             <h2>Placement Preparation Guide & Internship Opportunities link </h2>
-             <div className="link-button">
-           {/* Link to the Placement Guide component */}
-               <Link to="/placement-guide" className="button">👉 Placement & Internship Guide</Link>
-      </div>
-</div>
+                <p>VTU-NOTES is your go-to resource for academic success! We offer curated notes, question banks, and essential questions to help you excel in your exams.</p>
+            </section>
+
+            {/* Placement Preparation Link */}
+            <section className="news-box">
+                <h2>Placement Preparation Guide & Internship Opportunities</h2>
+                <Link to="/placement-guide" className="button">👉 Placement & Internship Guide</Link>
+            </section>
 
             {/* Scheme Selection */}
-            <div className="scheme-selection-box">
+            <section className="scheme-selection-box">
                 <h2>Select Scheme For Notes</h2>
                 <Link to="/branch-selection/2022" className="scheme-link">2022 Scheme</Link>
-                <span 
-                    className="scheme-link clickable" 
-                    onClick={() => handleSchemeClick('2021')}>
-                    2021 Scheme
-                </span>
-                <span 
-                    className="scheme-link clickable" 
-                    onClick={() => handleSchemeClick('2018')}>
-                    2018 Scheme
-                </span>
-                
+                <span className="scheme-link clickable" onClick={() => handleSchemeClick('2021')}>2021 Scheme</span>
+                <span className="scheme-link clickable" onClick={() => handleSchemeClick('2018')}>2018 Scheme</span>
                 {showMessage && <p className="info-message">{message}</p>}
-
                 <p>VTU-NOTES serves as your trusted guide through academic challenges. Explore our extensive offerings to find the notes you need for success in your studies.</p>
-            </div>
-            
+            </section>
 
-            {/* SGPA Calculator Link */}
-            <div className="calculator-box">
+            {/* SGPA Calculator */}
+            <section className="calculator-box">
                 <h2>VTU Calculators</h2>
-                <p>Need help calculating your SGPA, CGPA? Use our calculator for accurate results!</p>
+                <p>Need help calculating your SGPA or CGPA? Use our calculator for accurate results!</p>
                 <Link to="/calculator" className="calculator-link">Go to SGPA Calculator</Link>
-            </div>
+            </section>
 
-            {/* News and Internship Opportunities */}
-           
-
-            {/* Upload Notes Link */}
-            <div className="upload-notes-box">
+            {/* Upload Notes */}
+            <section className="upload-notes-box">
                 <h2>Upload Your Notes</h2>
-                <p>Do you have notes that can assist fellow students? Share your materials and contribute to our growing resource library! </p>
+                <p>Have notes that could help other students? Share your materials and contribute to our growing library!</p>
                 <Link to="/upload" className="upload-link">Upload Notes</Link>
+            </section>
+
+            {/* FAQs Section */}
+            <section className="faq-box">
+                <h2>Frequently Asked Questions (FAQs)</h2>
+                <p>If you have questions about your courses, exams, or related topics, check out our FAQs for answers!</p>
+                <Link to="/faqs" className="faq-link">Go to FAQs</Link>
+            </section>
+
+            {/* Chatbot Toggle */}
+            <div className="chatbot-button-container">
+                <button className="chatbot-toggle-btn" onClick={toggleChatbot}>
+                    {showChatbot ? 'Hide Chatbot' : 'Chat with Us!'}
+                </button>
             </div>
-            
-           
-           
-            <div className="faq-box">
-    <div className="faq-section">
-        <h2 className="faq-title">Frequently Asked Questions (FAQs)</h2>
-        <p className="faq-description">If you have any questions regarding your courses, exams, or other related topics, feel free to explore our FAQs for comprehensive and detailed answers!</p>
-        <Link to="/faqs" className="faq-link">Go to FAQs</Link>
-    </div>
-</div>
 
-
-  <div className="chatbot-section">
-      <h2 className="chatbot-title">Chat with Us!</h2>
-      <p className="chatbot-description"></p>
-      <div className="chatbot-interface">
-          <Link to="/chatbot" className="chatbot-link">chat</Link>
-      </div>
-  
-</div>
-
+            {/* Conditionally render the ChatBot component */}
+            {showChatbot && <ChatBot />}
 
             {/* Contact Box */}
-            <div className="contact-box">
+            <section className="contact-box">
                 <h2>Contact</h2>
-                <p>If you have any questions or require assistance regarding notes, please don’t hesitate to reach out to us. We are here to help you succeed!</p>
-                <p>
-                    Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a>
-                </p>
-                <p>
-                    Phone: <a href="tel:+916364060716" className="contact-link">+91 </a>
-                </p>
-            </div>
-             {/* Social Links */}
-             
-            
+                <p>If you have questions or need assistance with notes, please reach out to us. We’re here to help!</p>
+                <p>Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a></p>
+                <p>Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a></p>
+            </section>
         </div>
     );
 };

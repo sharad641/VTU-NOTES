@@ -1,20 +1,39 @@
+/* Global Variables (CSS Custom Properties) */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #f8f9fa;
+    --accent-color: #0056b3;
+    --text-color: #333;
+    --bg-color: #ffffff;
+    --input-border: #ccc;
+    --input-focus-color: #007bff;
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-dark: rgba(0, 0, 0, 0.2);
+    --font-family: 'Roboto', sans-serif;
+}
+
 /* General layout for the container */
 .calculator-container {
     max-width: 800px;
     margin: 50px auto;
     padding: 30px;
     border-radius: 15px;
-    background: linear-gradient(135deg, #ffffff, #f8f9fa);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, var(--bg-color), var(--secondary-color));
+    box-shadow: 0 10px 30px var(--shadow-light);
+    font-family: var(--font-family);
     transition: background-color 0.3s ease, transform 0.3s ease;
+    overflow: hidden;
+}
+
+.calculator-container:hover {
+    transform: translateY(-5px);
 }
 
 /* Title styling */
 .calculator-container h1 {
     text-align: center;
-    font-size: 2.5rem;
-    color: #333;
+    font-size: clamp(2rem, 5vw, 2.5rem); /* Fluid typography */
+    color: var(--text-color);
     margin-bottom: 30px;
     text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
@@ -25,13 +44,13 @@
     padding: 20px;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px var(--shadow-light);
 }
 
 .calculator-section h2 {
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 4vw, 2rem);
     margin-bottom: 15px;
-    color: #007bff;
+    color: var(--primary-color);
 }
 
 .calculator-section h3,
@@ -50,16 +69,16 @@
 .input-field {
     padding: 12px;
     border-radius: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border);
     margin-bottom: 10px;
     outline: none;
     font-size: 1rem;
     transition: border-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px var(--shadow-light);
 }
 
 .input-field:focus {
-    border-color: #007bff;
+    border-color: var(--input-focus-color);
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
@@ -72,13 +91,13 @@
     font-size: 1rem;
     cursor: pointer;
     color: #fff;
-    background-color: #007bff;
-    transition: background-color 0.3s, transform 0.3s;
+    background-color: var(--primary-color);
+    transition: background-color 0.3s, transform 0.3s ease-in-out;
     box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: var(--accent-color);
     transform: translateY(-2px);
 }
 
@@ -126,7 +145,7 @@
 .calculator-select .button {
     flex: 1 1 30%;
     margin: 10px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 6px var(--shadow-light);
 }
 
 h3, h4 {
@@ -134,7 +153,7 @@ h3, h4 {
 }
 
 .calculator-section input {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px var(--shadow-light);
 }
 
 /* Footer styles for mobile */
@@ -143,7 +162,7 @@ h3, h4 {
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items */
     padding: 15px 10px; /* Add some padding */
-    background-color: #f8f9fa; /* Same as calculator background */
+    background-color: var(--secondary-color); /* Same as calculator background */
     border-top: 1px solid #eaeaea; /* Light border on top */
     margin-top: 20px; /* Space above footer */
 }
@@ -155,7 +174,7 @@ h3, h4 {
 }
 
 .footer a {
-    color: #007bff; /* Link color */
+    color: var(--primary-color); /* Link color */
     text-decoration: none; /* Remove underline */
 }
 
