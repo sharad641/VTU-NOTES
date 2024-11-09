@@ -191,25 +191,26 @@ html, body {
   margin-top: 20px;
 }
 
-/* Chatbot Button Styling - Bright and Noticeable */
+/* Chatbot Section Styles */
 .chatbot-section {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background: linear-gradient(135deg, #ff8a00, #e52e71);
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 70px; /* Slightly increased size for better accessibility */
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
   z-index: 1000;
   overflow: hidden;
 }
 
+/* Pulse Effect */
 .chatbot-section::before {
   content: '';
   position: absolute;
@@ -219,6 +220,22 @@ html, body {
   top: -40%;
   left: -40%;
   animation: pulse 2s infinite ease-in-out;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
 }
 
 /* Hover and Active State for Chatbot */
@@ -231,16 +248,67 @@ html, body {
 /* Chatbot Icon */
 .chatbot-link {
   color: #ffffff;
-  font-size: 1.6rem;
+  font-size: 2.2rem; /* Larger icon size for better visibility */
   font-weight: bold;
   text-decoration: none;
   z-index: 10;
   transition: transform 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Hover Effect on the Icon */
 .chatbot-section:hover .chatbot-link {
   transform: rotate(15deg);
 }
+
+/* Chatbot Icon (using font-awesome or similar icon library) */
+.chatbot-link::before {
+  content: "\f0e0"; /* Font Awesome chat icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: block;
+  font-size: 1.8rem;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .chatbot-section {
+    width: 60px; /* Slightly smaller size for mobile */
+    height: 60px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .chatbot-link {
+    font-size: 1.5rem;
+  }
+}
+
+/* Very Small Screens (e.g., Portrait Mobile) */
+@media (max-width: 480px) {
+  .chatbot-section {
+    width: 50px; /* Even smaller for very small screens */
+    height: 50px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .chatbot-link {
+    font-size: 1.3rem; /* Smaller icon on small devices */
+  }
+}
+
+/* Logged-In State (Optional: Modify based on user status) */
+.chatbot-section.logged-in {
+  background: linear-gradient(135deg, #4caf50, #388e3c); /* Green for logged-in users */
+}
+
+.chatbot-section.logged-in:hover {
+  background: linear-gradient(135deg, #388e3c, #2c6b2f);
+}
+
 
 /* Pulse Animation */
 @keyframes pulse {

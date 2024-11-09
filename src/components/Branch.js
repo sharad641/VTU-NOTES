@@ -34,7 +34,7 @@ function Branch() {
             {/* Headline Message Section */}
             <div className="headline-messages">
                 <div className="marquee-text">
-                    Notes for the ECE (Electrical and Computer Engineering) and Civil Engineering streams are yet to be uploaded.
+                    
                     <span style={{ display: 'block', marginTop: '10px' }}></span>
                     Explore the notes for both the First Year and CSE (Computer Science Engineering) streams, along with the question banks, question papers, and many more.
                 </div>

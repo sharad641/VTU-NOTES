@@ -1,117 +1,99 @@
-/* src/components/Subjects.css */
-
+/* General styles for subjects */
 .subjects {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 10px 15px;
     min-height: 100vh;
     background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
     color: #1b5e20;
     font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
     max-width: 1200px;
-    margin: 0 auto; 
-    
+    margin: 0 auto;
+    gap: 10px; /* Reduced space between headline and subjects */
 }
 
-
 .subjects h2 {
-    font-size: 3.5rem;
-    margin-bottom: 30px;
+    font-size: 2.8rem;
+    margin: 10px 0 15px 0;
     text-transform: uppercase;
     font-weight: 700;
     color: #2e7d32;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    padding-bottom: 8px;
     position: relative;
-    display: inline-block;
-    padding-bottom: 10px;
 }
 
 .subjects h2::after {
     content: '';
     position: absolute;
     width: 80%;
-    height: 5px;
+    height: 4px;
     background: linear-gradient(135deg, #a8e063, #56ab2f);
     bottom: 0;
     left: 10%;
     border-radius: 50px;
 }
 
-.subjects h3 {
-    font-size: 2.4rem;
-    margin-bottom: 20px;
-    font-weight: 400;
-    color: #388e3c;
-    letter-spacing: 1px;
-}
-
+/* Grid Layout for Subject Boxes */
 .subjects ul {
     list-style-type: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px; /* Adjusted for responsiveness */
     justify-items: center;
+    width: 100%;
 }
 
-.subjects li {
-    display: flex;
-    justify-content: center;
-}
+/* Subject Box Styling */
 .subject-box {
     background: linear-gradient(135deg, #a7d603, #3b8a1c);
-
-/* Vibrant gradient */
     padding: 20px;
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     position: relative;
     overflow: hidden;
     text-align: left;
     width: 100%;
-    max-width: 300px;
-    height: 250px; /* Fixed height */
+    max-width: 350px; /* Increased maximum width */
+    height: 350px; /* Increased height for better content space */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: #ffffff; /* White text for contrast */
-    font-family: 'Arial', sans-serif; /* Change to a modern font */
+    color: #ffffff;
 }
 
 .subject-box h3 {
-    font-size: 1.5em; /* Larger heading */
-    margin: 0; /* Remove default margin */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow for depth */
+    font-size: 1.5em;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .subject-box p {
-    font-size: 1em; /* Normal paragraph size */
-    line-height: 1.4; /* Better readability */
-    margin: 10px 0 0 0; /* Margin for spacing */
+    font-size: 1em;
+    line-height: 1.4;
+    margin: 10px 0 0 0;
 }
 
 .subject-box:hover {
     transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
-    background: linear-gradient(135deg, #ff6ec4, #a45ee9); /* Change gradient on hover for effect */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #ff6ec4, #a45ee9);
 }
 
-/* Optional: Add a small border for additional styling */
 .subject-box::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 20px;
     border-radius: 15px;
-    border: 2px solid rgba(255, 255, 255, 0.5); /* Subtle white border */
-    pointer-events: none; /* Prevent interaction */
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    pointer-events: none;
 }
-
 .subject-box .subject-info {
     margin-bottom: 10px;
     cursor: pointer;
@@ -130,19 +112,17 @@
 .subject-box .subject-details {
     font-size: 1rem;
     color: #fff;
-    margin-top: 10px;
+    margin-top: 8px;
     background: rgba(0, 0, 0, 0.1);
     padding: 10px;
     border-radius: 5px;
 }
 
 .subject-box button {
-    text-decoration: none;
     color: #ffffff;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    display: block;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -155,119 +135,131 @@
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
-.subject-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 300%;
-    height: 300%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: rotate(45deg);
-}
-
 /* Responsive Styles */
-@media (max-width: 768px) {
+
+/* Large Screens (Desktops) */
+@media (min-width: 1024px) {
     .subjects h2 {
         font-size: 2.8rem;
     }
 
-    .subjects h3 {
-        font-size: 2rem;
+    .subject-box {
+        max-width: 280px;
+        height: 250px;
+    }
+}
+
+/* Tablets (up to 1024px) */
+@media (max-width: 1024px) {
+    .subjects {
+        padding: 15px;
+    }
+
+    .subjects h2 {
+        font-size: 2.4rem;
     }
 
     .subject-box {
-        padding: 15px;
-        max-width: 100%;
-        height: 220px;
-        min-height: 220px;
-    }
-
-    .subject-box .subject-code,
-    .subject-box .credits-box {
-        font-size: 0.9rem;
+        max-width: 90%; /* Increased width to fit tablet screens */
+        height: 230px; /* Adjusted for medium screens */
     }
 
     .subject-box button {
         font-size: 1.1rem;
     }
-
-    .subject-box .subject-details {
-        font-size: 0.9rem;
-    }
 }
 
-@media (max-width: 480px) {
-    .subjects h2 {
-        font-size: 2.6rem;
+/* Mobile Portrait (up to 768px) */
+@media (max-width: 768px) {
+    .subjects {
+        padding: 10px;
     }
 
-    .subjects h3 {
-        font-size: 1.9rem;
+    .subjects h2 {
+        font-size: 2rem;
     }
 
     .subjects ul {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr; /* Two columns on smaller screens */
     }
 
     .subject-box {
-        padding: 10px;
-        max-width: 95%;
-        height: 220px;
-        min-height: 220px;
+        max-width: 100%; /* Full width for smaller screens */
+        height: 200px;
     }
 
-    .subject-box .subject-code,
-    .subject-box .credits-box {
-        font-size: 0.8rem;
+    .subject-box h3 {
+        font-size: 1.4em;
+    }
+
+    .subject-box button {
+        font-size: 1rem;
     }
 }
+
+/* Mobile Landscape (up to 480px) */
+@media (max-width: 480px) {
+    .subjects h2 {
+        font-size: 1.8rem;
+    }
+
+    .subjects ul {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+
+    .subject-box {
+        max-width: 100%;
+        height: 180px;
+    }
+
+    .subject-box h3 {
+        font-size: 1.2em;
+    }
+
+    .headline-messagee {
+        padding: 8px;
+        font-size: 1rem;
+    }
+}
+
+/* Marquee styling */
 .headline-messagee {
     background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
     color: #1b5e20;
-    padding: 15px 20px; /* Adjusted padding for mobile */
+    padding: 10px;
     border-radius: 8px;
-    margin-top: 15px;
-    
-    font-size: 1rem; /* Slightly smaller font for mobile */
+    margin: 15px auto;
+    font-size: 1.1rem;
     font-weight: bold;
-   
     text-align: center;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease-in-out, slideIn 0.4s ease forwards;
-    overflow: hidden; /* Prevents overflow on mobile */
-  }
-  
-  /* Marquee Container */
-  .marquee-container {
-    width: 100%; /* Full width for better fit */
+    overflow: hidden;
+}
+
+.marquee-container {
+    width: 100%;
     overflow: hidden;
     white-space: nowrap;
-  }
-  
-  /* Marquee Text */
-  .marquee-text {
+}
+
+.marquee-text {
     display: inline-block;
     animation: marquee 15s linear infinite;
-    padding-left: 100%; /* Start the animation from outside the screen */
-  }
-  
-  @keyframes marquee {
+    padding-left: 100%;
+}
+
+@keyframes marquee {
     from { transform: translateX(100%); }
     to { transform: translateX(-100%); }
-  }
-  
-  /* Adjustments for smaller screens */
-  @media (max-width: 768px) {
-    .headline-message {
-      padding: 10px 15px;
-      font-size: 1rem;
-      margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .headline-messagee {
+        padding: 8px;
+        font-size: 1rem;
     }
-  
+
     .marquee-text {
-      animation-duration: 20s; /* Slower for readability */
+        animation-duration: 20s;
     }
-  }
-  
+}

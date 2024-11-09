@@ -8,14 +8,14 @@ body {
 
 /* Module Detail Container */
 .module-detail {
-    padding: 30px;
+    padding: 40px;
     background: linear-gradient(135deg, #e3f2fd, #bbdefb);
     color: #0d47a1;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 20px auto; /* Center on larger screens */
-    transition: background 0.3s; /* Smooth background transition */
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    max-width: 850px;
+    margin: 25px auto;
+    transition: background 0.4s ease; /* Smooth background transition */
 }
 
 .module-detail:hover {
@@ -24,125 +24,142 @@ body {
 
 /* Header Styles */
 h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
     text-align: center;
-    color: #1e88e5; /* Darker blue for emphasis */
+    color: #1565c0;
+    font-weight: 600;
 }
 
 /* Modules Container */
 .modules-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Space between modules */
+    gap: 25px; /* Increased space between modules */
 }
 
 /* Module Card Styles */
 .module-card {
-    padding: 20px;
+    padding: 25px;
     background: #90caf9;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
-    text-align: center; /* Center text for better aesthetics */
+    text-align: center;
 }
 
 .module-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Module Title and Content */
 h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #0d47a1; /* Consistent title color */
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    color: #0d47a1;
+    font-weight: 500;
 }
 
 p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-    color: #37474f; /* Dark grey for better readability */
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    color: #455a64;
+    line-height: 1.6; /* Improved readability */
 }
 
 /* Button Styles */
 .download-buttons {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
-    gap: 15px; /* Space between buttons */
+    margin-top: 12px;
+    gap: 20px; /* More space between buttons */
 }
 
 .download-buttons button {
-    padding: 12px 24px;
+    padding: 14px 28px;
     border: none;
     border-radius: 8px;
-    background-color: #42a5f5; /* Base color */
+    background-color: #42a5f5;
     color: white;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Button shadow */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .download-buttons button:hover {
-    background-color: #1e88e5; /* Darker shade on hover */
-    transform: translateY(-2px); /* Slight lift on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow */
+    background-color: #1e88e5;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .download-buttons button:active {
-    transform: translateY(0); /* Reset on click */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Original shadow */
+    transform: translateY(0);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     .module-detail {
-        padding: 20px;
-        margin: 10px; /* Reduced margin for mobile devices */
+        padding: 25px;
+        margin: 15px;
     }
 
     h2 {
-        font-size: 1.5rem; /* Smaller heading on mobile */
+        font-size: 1.7rem;
     }
 
     h3 {
-        font-size: 1.3rem; /* Smaller subheading on mobile */
+        font-size: 1.4rem;
     }
 
     p {
-        font-size: 0.9rem; /* Smaller paragraph text */
+        font-size: 1rem;
     }
 
     .module-card {
-        padding: 15px; /* Adjust padding for mobile */
+        padding: 20px;
     }
 
     .download-buttons button {
-        padding: 10px 15px; /* Smaller button size on mobile */
-        font-size: 0.9rem; /* Smaller font size for buttons */
+        padding: 12px 20px;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 480px) {
+    .module-detail {
+        padding: 20px;
+        margin: 12px;
+    }
+
     h2 {
-        font-size: 1.2rem; /* Further reduce heading size for very small screens */
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 0.9rem;
     }
 
     .module-card {
-        padding: 15px; /* Adjust padding for small screens */
-        margin: 10px; /* Add margin for spacing */
+        padding: 18px;
+        margin: 10px;
     }
 
     .download-buttons {
-        flex-direction: column; /* Stack buttons vertically on small screens */
-        gap: 10px; /* Adjust gap */
+        flex-direction: column;
+        gap: 12px;
     }
 
-    /* Additional style for better touch targets */
     .download-buttons button {
-        width: 100%; /* Full width for buttons */
+        width: 100%;
+        padding: 12px;
+        font-size: 0.9rem;
     }
 }

@@ -98,14 +98,14 @@ const Home = () => {
     </div>
 </div>
 
-<div className="chatbot-section">
-    <h2 className="chatbot-title">Chat with Us!</h2>
-    <p className="chatbot-description">
-     chatbot 
-    </p>
-    <div className="chatbot-interface">
-        <Link to="/chatbot" className="chatbot-link">chat</Link>
-    </div>
+
+  <div className="chatbot-section">
+      <h2 className="chatbot-title">Chat with Us!</h2>
+      <p className="chatbot-description"></p>
+      <div className="chatbot-interface">
+          <Link to="/chatbot" className="chatbot-link">chat</Link>
+      </div>
+  
 </div>
 
 
