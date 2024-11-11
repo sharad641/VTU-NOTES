@@ -324,7 +324,7 @@ html, body {
 /* Optional: Chatbot Button Container Styling */
 .chatbot-button-container {
   position: fixed;
-  bottom: 100px; /* Adjusted space from bottom */
+  bottom: 20px; /* Ensuring it's positioned at the bottom */
   right: 20px;  /* Ensure there's enough space on the right */
   z-index: 1000;
   display: flex;
@@ -338,39 +338,68 @@ html, body {
   padding: 12px 20px;
   background-color: #ff6a00;
   color: #fff;
-  border: none;
-  border-radius: 30px;
-  font-size: 1.2rem;
+  border: 2px solid #ff6a00; /* Adding border for a subtle outline effect */
+  border-radius: 50px;  /* Rounded button for a modern look */
+  font-size: 1.1rem;
+  font-weight: 600; /* Slightly bolder text for emphasis */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  text-transform: uppercase; /* Capitalized text for a more polished feel */
 }
 
+/* Chatbot Button Hover Effects */
 .chatbot-toggle-btn:hover {
   background-color: #d5265c; /* Change color on hover */
+  border-color: #d5265c; /* Match border color with background on hover */
+  transform: translateY(-3px); /* Slight lift on hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Increase shadow on hover for depth */
 }
 
 .chatbot-toggle-btn:focus {
   outline: none; /* Remove focus outline */
+  box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.6); /* Add focus shadow for accessibility */
 }
 
-/* Hover effects on the toggle button for desktop */
-.chatbot-toggle-btn:hover {
-  background-color: #d5265c; /* Darker background on hover */
-  transform: scale(1.05); /* Slight scaling effect on hover */
+/* Responsive Styles for Different Screen Sizes */
+
+/* For small screens (Mobile-first design) */
+@media (max-width: 767px) {
+  .chatbot-toggle-btn {
+    padding: 14px 24px; /* Adjust padding for mobile */
+    font-size: 1.2rem;  /* Slightly larger font for mobile */
+  }
+
+  .chatbot-button-container {
+    bottom: 20px;  /* Position the button slightly higher on small screens */
+  }
 }
 
-/* Adjust the chat button size and position for desktop */
+/* For medium screens (Tablets and smaller desktops) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .chatbot-toggle-btn {
+    padding: 16px 28px; /* Adjust padding for tablets */
+    font-size: 1.3rem;  /* Adjust font size for tablets */
+  }
+
+  .chatbot-button-container {
+    bottom: 40px;  /* Position the button higher on tablet-sized screens */
+  }
+}
+
+/* For large screens (Desktops and above) */
 @media (min-width: 1024px) {
   .chatbot-button-container {
-    bottom: 130px;  /* Slightly higher from the bottom for desktops */
+    bottom: 30px;  /* Slightly higher from the bottom for desktops */
   }
 
   .chatbot-toggle-btn {
-    padding: 14px 28px; /* Slightly larger button size */
-    font-size: 1.4rem;   /* Increase font size for better readability on desktop */
+    padding: 18px 32px; /* Larger padding for desktop */
+    font-size: 1.5rem;  /* Larger font size for readability on desktop */
+    border-radius: 50px; /* Keep rounded corners for a modern design */
   }
 }
 
@@ -422,4 +451,34 @@ html, body {
     padding: 12px;
   }
 
-  
+  /* Container for the test link button */
+
+
+/* Styling for the button */
+.test-link-button {
+  background-color: #4CAF50; /* Green background */
+  color: white;
+  font-size: 14px; /* Smaller text size */
+  font-weight: 500; /* Medium font weight */
+  padding: 10px 20px; /* Compact padding */
+  border-radius: 25px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: all 0.2s ease-in-out; /* Smooth transition for hover effect */
+  cursor: pointer; /* Pointer cursor on hover */
+  text-align: center;
+  display: inline-block;
+}
+
+/* Hover effect */
+.test-link-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: translateY(-2px); /* Small upward movement */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly bigger shadow */
+}
+
+/* Focus effect for accessibility */
+.test-link-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.4); /* Green glow effect on focus */
+}

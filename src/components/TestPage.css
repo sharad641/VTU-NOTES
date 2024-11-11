@@ -1,0 +1,235 @@
+/* General Styles */
+.test-page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #f7f8fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header Styling */
+.test-page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.test-page-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.test-page-header p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-top: 0;
+}
+
+/* Test and Difficulty Selection */
+.test-selection, .difficulty-selection {
+    text-align: center;
+}
+
+.test-options button, .difficulty-options button {
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.test-options button:hover, .difficulty-options button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+progress {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background-color: #42e647;
+    border-radius: 10px;
+}
+
+/* Timer */
+.timer {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #f1260f;
+}
+
+/* Questions Section */
+.test-questions {
+    margin-top: 40px;
+}
+
+.question-box {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.question-box.correct {
+    background-color: #d4edda; /* Green for correct */
+}
+
+.question-box.incorrect {
+    background-color: #f8d7da; /* Red for incorrect */
+}
+
+.question-box:hover {
+    transform: scale(1.02);
+}
+
+/* Options Section */
+.options-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; /* Stack options vertically by default */
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.option {
+    padding: 12px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option input[type="radio"] {
+    display: none; /* Hides the radio button */
+}
+
+.option label {
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.option label:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+}
+
+/* Change color when the radio button is checked */
+.option input[type="radio"]:checked + label {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Submit and Score Section */
+.submit-button {
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto 0;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.score-display {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Adjust container padding */
+    .test-page-container {
+        padding: 20px;
+    }
+
+    /* Adjust header size */
+    .test-page-header h1 {
+        font-size: 2rem;
+    }
+
+    .test-page-header p {
+        font-size: 1rem;
+    }
+
+    /* Stack options vertically on smaller screens */
+    .options-container {
+        flex-direction: column; /* Stack options vertically */
+    }
+
+    /* Full width for the submit button */
+    .submit-button, .difficulty-options button {
+        width: 100%;
+    }
+
+    .question-box {
+        padding: 15px;
+    }
+
+    .timer {
+        font-size: 1rem;
+    }
+
+    /* Adjust button padding and font-size for better readability on mobile */
+    .test-options button, .difficulty-options button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* For Larger Screens (Desktop) */
+@media (min-width: 1024px) {
+    .options-container {
+        flex-direction: row; /* Align options horizontally on larger screens */
+        justify-content: space-between;
+    }
+
+    .question-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

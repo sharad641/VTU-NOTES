@@ -1,6 +1,7 @@
 // src/components/PlacementGuide.js
 
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './PlacementGuide.css';
 
 const PlacementGuide = () => {
@@ -70,6 +71,11 @@ const PlacementGuide = () => {
             <header className="header">
                 <h1>Placement Preparation Guide</h1>
                 <p>Navigate through each phase of the placement process with structured resources, tips, and practice materials.</p>
+                
+                {/* Link to the TestPage */}
+                <div className="test-link-container">
+                    <Link to="/test" className="test-link-button">Take the Practice Test</Link>
+                </div>
             </header>
 
             <section className="section-list">
@@ -85,7 +91,7 @@ const PlacementGuide = () => {
                             ))}
                         </ul>
                         {section.pdfs.map((pdf, i) => (
-                            <a key={i} href={pdf} target="_blank" rel="noopener noreferrer" className="download-button">Download PDF {}</a>
+                            <a key={i} href={pdf} target="_blank" rel="noopener noreferrer" className="download-button">Download PDF</a>
                         ))}
                     </div>
                 ))}
@@ -96,7 +102,6 @@ const PlacementGuide = () => {
                 <ul className="additional-resources">
                     <li><a href="https://www.glassdoor.co.in/Reviews/index.htm" target="_blank" rel="noopener noreferrer">Company Reviews & Interview Insights</a></li>
                     <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn Learning for Skills</a></li>
-                    
                 </ul>
             </section>
 
@@ -119,9 +124,7 @@ const PlacementGuide = () => {
                         <p className="career-footer-description">
                             Stay updated with the latest internship and job opportunities in tech, along with resources to help you prepare.
                         </p>
-                        <button 
-                            className="career-footer-button" 
-                        >
+                        <button className="career-footer-button">
                             <a href="https://www.missionstartupkarnataka.org/elevate-karnataka?en" target="_blank" rel="noopener noreferrer">
                                 Latest Internship & Job Opportunities
                             </a>
@@ -134,9 +137,7 @@ const PlacementGuide = () => {
                                 <a href="https://www.missionstartupkarnataka.org/elevate-karnataka?en" target="_blank" rel="noopener noreferrer">
                                     👉👉👉Idea2PoC / ELEVATE Program
                                 </a>
-                                <p className="career-footer-link-description">👉👉👉Idea2PoC / ELEVATE Program - ELEVATE 2024
-                                    The Idea2PoC/ELEVATE program is a Government of Karnataka initiative designed to support and fund innovative startups in Karnataka, helping them validate proof of concept and scale their solutions to the next level.
-                                </p>
+                                <p className="career-footer-link-description">The Idea2PoC/ELEVATE program is a Government of Karnataka initiative designed to support and fund innovative startups in Karnataka, helping them validate proof of concept and scale their solutions to the next level.</p>
                             </li>
                             <li className="career-footer-link-item">
                                 <a href="mailto:info@missionstartupkarnataka.org?subject=Internship Inquiry&body=Hi, I am interested in internship opportunities. Please provide more information." target="_blank" rel="noopener noreferrer">

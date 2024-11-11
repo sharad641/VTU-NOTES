@@ -12,9 +12,7 @@ const Home = () => {
 
     // Handle Scheme Click
     const handleSchemeClick = (scheme) => {
-        setMessage(`The ${scheme} Scheme is currently under development. Please check back later!`);
-        setShowMessage(true);
-
+       
         // Log the scheme selection event
         logEvent(analytics, 'scheme_click', { scheme_name: scheme });
 
@@ -33,7 +31,7 @@ const Home = () => {
             {/* Headline with marquee effect */}
             <div className="headline-message">
                 <div className="marquee-text">
-                    📢 Latest Updates: New notes for the 5th Semester are now available! (Not all) Check them out!
+                   
                     <span> "The notes for ECE have not been uploaded yet; work is in progress. Please wait for some time."</span>
                 </div>
             </div>
@@ -48,6 +46,9 @@ const Home = () => {
             <section className="news-box">
                 <h2>Placement Preparation Guide & Internship Opportunities</h2>
                 <Link to="/placement-guide" className="button">👉 Placement & Internship Guide</Link>
+                <div className="test-link-container">
+                    <Link to="/test" className="test-link-button">Take the Practice Test</Link>
+                </div>
             </section>
 
             {/* Scheme Selection */}
@@ -57,7 +58,7 @@ const Home = () => {
                 <span className="scheme-link clickable" onClick={() => handleSchemeClick('2021')}>2021 Scheme</span>
                 <span className="scheme-link clickable" onClick={() => handleSchemeClick('2018')}>2018 Scheme</span>
                 {showMessage && <p className="info-message">{message}</p>}
-                <p>VTU-NOTES serves as your trusted guide through academic challenges. Explore our extensive offerings to find the notes you need for success in your studies.</p>
+                <p></p>
             </section>
 
             {/* SGPA Calculator */}
@@ -102,4 +103,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Home;  

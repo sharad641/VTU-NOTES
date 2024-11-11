@@ -1,5 +1,3 @@
-// src/App.js
-
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -14,9 +12,10 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import UploadForm from './components/UploadForm';
 import Calculator from './components/Calculator';
-import PlacementGuide from './components/PlacementGuide'; 
+import PlacementGuide from './components/PlacementGuide';
 import FAQs from './components/FAQs'; // Import the FAQs component
 import ChatBot from './components/ChatBot'; // Import the ChatBot component
+import TestPage from './components/TestPage'; // Import the TestPage component
 import { auth } from './firebase';
 
 function App() {
@@ -55,6 +54,9 @@ function App() {
 
                     {/* Chatbot Route */}
                     <Route path="/chatbot" element={<ProtectedRoute element={<ChatBot />} />} />
+
+                    {/* Test Page Route */}
+                    <Route path="/test" element={<ProtectedRoute element={<TestPage />} />} /> {/* Add Test Page route */}
 
                     {/* Authentication Routes */}
                     <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
