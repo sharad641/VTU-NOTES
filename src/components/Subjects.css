@@ -3,32 +3,34 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 15px;
+    padding: 20px 15px;
     min-height: 100vh;
     background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
     color: #1b5e20;
     font-family: 'Roboto', sans-serif;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 10px; /* Reduced space between headline and subjects */
+    gap: 20px; /* Spacing between headline and subjects */
 }
 
+/* Subject Title */
 .subjects h2 {
-    font-size: 2.8rem;
-    margin: 10px 0 15px 0;
+    font-size: 2.5rem;
+    margin: 20px 0;
     text-transform: uppercase;
     font-weight: 700;
     color: #2e7d32;
-    letter-spacing: 2px;
-    padding-bottom: 8px;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
     position: relative;
+    text-align: center;
 }
 
 .subjects h2::after {
     content: '';
     position: absolute;
     width: 80%;
-    height: 4px;
+    height: 3px;
     background: linear-gradient(135deg, #a8e063, #56ab2f);
     bottom: 0;
     left: 10%;
@@ -40,70 +42,66 @@
     list-style-type: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px; /* Adjusted for responsiveness */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
     justify-items: center;
     width: 100%;
 }
 
-/* Subject Box Styling */
+/* Subject Box Styling with Dynamic Height */
 .subject-box {
-    background: linear-gradient(135deg, #a7d603, #3b8a1c);
+    background: linear-gradient(135deg, #56ab2f, #a8e063); /* Light gradient */
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
     text-align: left;
     width: 100%;
-    max-width: 350px; /* Increased maximum width */
-    height: 350px; /* Increased height for better content space */
+    max-width: 320px; /* Adjusted for better mobile fit */
+    height: var(--box-height, 320px); /* Dynamic height using CSS variable */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     color: #ffffff;
+    overflow-y: auto; /* Add scrollbar if content overflows */
 }
 
+/* Dynamic Hover Effect */
+.subject-box:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #ff6ec4, #a45ee9); /* Vibrant hover effect */
+}
+
+/* Subject Box Heading */
 .subject-box h3 {
-    font-size: 1.5em;
+    font-size: 1.6rem;
     margin: 0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .subject-box p {
-    font-size: 1em;
-    line-height: 1.4;
-    margin: 10px 0 0 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-top: 10px;
 }
 
-.subject-box:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #ff6ec4, #a45ee9);
-}
-
-.subject-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 20px;
-    border-radius: 15px;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    pointer-events: none;
-}
+/* Subject Info Section */
 .subject-box .subject-info {
     margin-bottom: 10px;
     cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .subject-box .subject-code,
 .subject-box .credits-box {
     font-size: 0.9rem;
     color: #fff;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.3);
     padding: 5px 10px;
     border-radius: 5px;
     margin-top: 5px;
@@ -113,11 +111,12 @@
     font-size: 1rem;
     color: #fff;
     margin-top: 8px;
-    background: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.15);
     padding: 10px;
     border-radius: 5px;
 }
 
+/* Button Styling */
 .subject-box button {
     color: #ffffff;
     font-weight: 600;
@@ -128,6 +127,7 @@
     cursor: pointer;
     transition: color 0.3s ease, text-shadow 0.3s ease;
     font-size: 1.2rem;
+    margin-top: 15px;
 }
 
 .subject-box button:hover {
@@ -144,15 +144,15 @@
     }
 
     .subject-box {
+        --box-height: 250px; /* Dynamic height for desktops */
         max-width: 280px;
-        height: 250px;
     }
 }
 
 /* Tablets (up to 1024px) */
 @media (max-width: 1024px) {
     .subjects {
-        padding: 15px;
+        padding: 20px;
     }
 
     .subjects h2 {
@@ -160,8 +160,8 @@
     }
 
     .subject-box {
+        --box-height: 230px; /* Slightly smaller for tablets */
         max-width: 90%; /* Increased width to fit tablet screens */
-        height: 230px; /* Adjusted for medium screens */
     }
 
     .subject-box button {
@@ -184,8 +184,8 @@
     }
 
     .subject-box {
+        --box-height: 200px; /* Dynamic height for smaller screens */
         max-width: 100%; /* Full width for smaller screens */
-        height: 200px;
     }
 
     .subject-box h3 {
@@ -208,17 +208,12 @@
     }
 
     .subject-box {
+        --box-height: 180px; /* Smaller dynamic height for mobile */
         max-width: 100%;
-        height: 180px;
     }
 
     .subject-box h3 {
         font-size: 1.2em;
-    }
-
-    .headline-messagee {
-        padding: 8px;
-        font-size: 1rem;
     }
 }
 

@@ -6,25 +6,28 @@ import BranchSelection from './components/BranchSelection';
 import Branch from './components/Branch';
 import Subjects from './components/Subjects';
 import ModuleDetail from './components/ModuleDetail';
-import PdfViewer from './components/PdfViewer';
+import PdfViewer from './components/PdfViewer'; // PDF Viewer import
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import UploadForm from './components/UploadForm';
 import Calculator from './components/Calculator';
 import PlacementGuide from './components/PlacementGuide';
-import FAQs from './components/FAQs'; // Import the FAQs component
-import ChatBot from './components/ChatBot'; // Import the ChatBot component
-import TestPage from './components/TestPage'; // Import the TestPage component
+import FAQs from './components/FAQs';
+import ChatBot from './components/ChatBot';
+import TestPage from './components/TestPage';
 import { auth } from './firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 function App() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     // Check user authentication state on mount
     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged(user => {
+        const unsubscribe = onAuthStateChanged(auth, user => {
             setIsAuthenticated(!!user); // Set authentication state based on user
+            setLoading(false); // Stop loading after the user state is checked
         });
 
         return () => unsubscribe(); // Clean up subscription on unmount
@@ -35,32 +38,48 @@ function App() {
         isAuthenticated ? element : <Navigate to="/login" />
     );
 
+    // Guest route wrapper to allow access without authentication
+    const GuestRoute = ({ element }) => element;
+
+    // Redirect authenticated users away from login/signup
+    const RedirectAuthenticatedUser = ({ element }) => (
+        isAuthenticated ? <Navigate to="/" /> : element
+    );
+
+    if (loading) {
+        return <div>Loading...</div>; // Optional: Loading state while checking authentication
+    }
+
     return (
         <Router>
             <div>
                 <Navbar />
                 <Routes>
-                    {/* Protected Routes */}
-                    <Route path="/" element={<ProtectedRoute element={<Home />} />} />
-                    <Route path="/branch-selection/:scheme" element={<ProtectedRoute element={<BranchSelection />} />} />
-                    <Route path="/branch/:branch" element={<ProtectedRoute element={<Branch />} />} />
-                    <Route path="/branch/:branch/:semester" element={<ProtectedRoute element={<Subjects />} />} />
-                    <Route path="/branch/:branch/:semester/modules/:subjectName" element={<ProtectedRoute element={<ModuleDetail />} />} />
-                    <Route path="/pdf/:pdfUrl" element={<ProtectedRoute element={<PdfViewer />} />} />
-                    <Route path="/upload" element={<ProtectedRoute element={<UploadForm />} />} />
-                    <Route path="/calculator" element={<ProtectedRoute element={<Calculator />} />} />
+                    {/* Public Routes */}
+                    <Route path="/" element={<GuestRoute element={<Home />} />} />
+                    <Route path="/branch-selection/:scheme" element={<GuestRoute element={<BranchSelection />} />} />
+                    <Route path="/branch/:branch" element={<GuestRoute element={<Branch />} />} />
+                    <Route path="/branch/:branch/:semester" element={<GuestRoute element={<Subjects />} />} />
+                    <Route path="/branch/:branch/:semester/modules/:subjectName" element={<GuestRoute element={<ModuleDetail />} />} />
+                    <Route path="/faqs" element={<GuestRoute element={<FAQs />} />} />
+
+                    {/* PDF Viewing Route (Public) */}
+                    <Route path="/pdf/:pdfUrl" element={<GuestRoute element={<PdfViewer />} />} />
+
+                    {/* Authenticated Routes */}
                     <Route path="/placement-guide" element={<ProtectedRoute element={<PlacementGuide />} />} />
-                    <Route path="/faqs" element={<ProtectedRoute element={<FAQs />} />} />
+                    <Route path="/test" element={<ProtectedRoute element={<TestPage />} />} />
+
+                    {/* Public Routes */}
+                    <Route path="/upload" element={<GuestRoute element={<UploadForm />} />} />
+                    <Route path="/calculator" element={<GuestRoute element={<Calculator />} />} />
 
                     {/* Chatbot Route */}
-                    <Route path="/chatbot" element={<ProtectedRoute element={<ChatBot />} />} />
-
-                    {/* Test Page Route */}
-                    <Route path="/test" element={<ProtectedRoute element={<TestPage />} />} /> {/* Add Test Page route */}
+                    <Route path="/chatbot" element={<GuestRoute element={<ChatBot />} />} />
 
                     {/* Authentication Routes */}
-                    <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
-                    <Route path="/signup" element={<Signup />} /> {/* Signup with Phone Verification */}
+                    <Route path="/login" element={<RedirectAuthenticatedUser element={<Login setIsAuthenticated={setIsAuthenticated} />} />} />
+                    <Route path="/signup" element={<RedirectAuthenticatedUser element={<Signup />} />} />
 
                     {/* Catch-All Route */}
                     <Route path="*" element={<Navigate to="/" />} />

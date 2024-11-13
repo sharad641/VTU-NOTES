@@ -24,7 +24,7 @@ html, body {
   width: 100%;
   background: linear-gradient(135deg, #6e7ff3, #00d2d2);
   box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.1);
-  padding: 20px 20px 90px;
+  padding: 40px 40px 90px; /* Increased padding for desktop */
   position: relative;
   overflow: hidden;
   transition: padding-bottom 0.3s ease-in-out;
@@ -34,22 +34,16 @@ html, body {
 .headline-message {
   background: rgba(255, 255, 255, 0.9);
   color: #333;
-  padding: 20px 15px;  /* Reduced padding */
-  font-size: 1.6rem;  /* Slightly smaller font */
+  padding: 25px 20px;
+  font-size: 2rem;  /* Larger font for headline on desktop */
   font-weight: 600;
   text-align: center;
   border-radius: 15px;
   box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.1);
-  max-width: 100%;
   width: 100%;
+  max-width: 1200px;  /* Increased width */
   margin-bottom: 40px;
   animation: fadeIn 1s ease-in-out;
-}
-
-/* Fade-in animation */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 /* Box Styling (Cards) */
@@ -62,13 +56,13 @@ html, body {
 .news-box,
 .faq-box {
   background: #ffffff;
-  padding: 20px 12px; /* Reduced padding */
+  padding: 25px 20px; /* Slightly larger padding */
   border-radius: 20px;
   box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 100%;
-  max-width: 100%;
-  margin-bottom: 20px;
+  max-width: 1200px; /* Increased max-width for larger boxes */
+  margin-bottom: 30px; /* Increased margin between sections */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -87,8 +81,8 @@ html, body {
 .vtu-notes-info-box:hover,
 .news-box:hover,
 .faqs-box:hover {
-  transform: translateY(-8px);
-  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-10px);  /* Slightly more pronounced hover effect */
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 /* Title Styling inside Boxes */
@@ -100,10 +94,10 @@ html, body {
 .vtu-notes-info-box h2,
 .news-box h2,
 .faqs-box h2 {
-  font-size: 1.8rem;  /* Slightly smaller font */
+  font-size: 2rem;  /* Larger font size for desktop */
   font-weight: 600;
   color: #333;
-  margin-bottom: 15px;
+  margin-bottom: 20px; /* Increased margin */
   text-transform: uppercase;
   letter-spacing: 1px;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
@@ -118,10 +112,10 @@ html, body {
 .vtu-notes-info-box p,
 .news-box p,
 .faqs-box p {
-  font-size: 1rem;
+  font-size: 1.2rem;  /* Larger font size for better readability */
   color: #666;
-  margin-bottom: 15px;
-  line-height: 1.6;
+  margin-bottom: 20px;
+  line-height: 1.7;
   font-weight: 400;
   text-align: center;
 }
@@ -132,15 +126,16 @@ html, body {
 .calculator-link,
 .faq-link {
   display: inline-block;
-  padding: 6px 12px; /* Reduced padding */
+  padding: 10px 20px; /* Increased padding for desktop */
   background-color: #00d2d2;
   color: #fff;
-  font-size: 0.8rem;  /* Smaller font size */
+  font-size: 1rem;  /* Larger font size */
   font-weight: 500;
-  border-radius: 20px; /* Slightly more rounded edges */
-  margin-top: 10px;
+  border-radius: 20px;
+  margin-top: 20px;
   text-decoration: none;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 /* Button Hover Effect */
@@ -149,7 +144,7 @@ html, body {
 .calculator-link:hover,
 .faq-link:hover {
   background-color: #00b4b4;
-  transform: translateY(-3px);
+  transform: translateY(-5px); /* Slight hover effect */
 }
 
 /* Social Link Icon Button */
@@ -158,28 +153,22 @@ html, body {
   background-color: #fff;
   color: #333;
   border: 2px solid #333;
-  font-size: 1.4rem; /* Slightly smaller icon */
-  padding: 10px;
+  font-size: 1.6rem; /* Slightly larger icon */
+  padding: 12px;
   border-radius: 50%;
-  margin: 5px;
+  margin: 8px;
   transition: all 0.3s ease;
-}
-
-.social-link:hover {
-  background-color: #333;
-  color: #fff;
-  transform: translateY(-3px);
 }
 
 /* Social Links Box Styling */
 .social-links-box {
   background: linear-gradient(135deg, #6e7ff3, #00d2d2);
-  padding: 20px 12px; /* Reduced padding */
+  padding: 30px 25px; /* Increased padding */
   border-radius: 15px;
   width: 100%;
-  max-width: 900px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  max-width: 1000px; /* Increased max-width */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px; /* Increased margin */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -187,7 +176,7 @@ html, body {
 
 .social-links-container {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   justify-content: center;
   margin-top: 20px;
 }
@@ -195,12 +184,12 @@ html, body {
 /* Chatbot Section Styles (Desktop) */
 .chatbot-section {
   position: fixed;
-  bottom: 10px;
-  right: 30px;
+  bottom: 20px;
+  right: 40px;  /* Adjusted for larger screens */
   background: linear-gradient(135deg, #ff8a00, #e52e71);
   border-radius: 50%;
-  width: 80px;  /* Reduced size */
-  height: 80px;  /* Reduced size */
+  width: 90px;  /* Slightly larger size */
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -208,18 +197,17 @@ html, body {
   cursor: pointer;
   transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
   z-index: 1000;
-  overflow: hidden;
 }
 
 /* Pulse Effect */
 .chatbot-section::before {
   content: '';
   position: absolute;
-  width: 140%;
-  height: 140%;
+  width: 160%;
+  height: 160%;
   background: radial-gradient(rgba(255, 255, 255, 0.4), transparent);
-  top: -40%;
-  left: -40%;
+  top: -50%;
+  left: -50%;
   animation: pulse 2s infinite ease-in-out;
 }
 
@@ -249,7 +237,7 @@ html, body {
 /* Chatbot Icon */
 .chatbot-link {
   color: #ffffff;
-  font-size: 2rem;  /* Slightly smaller icon */
+  font-size: 2.2rem;  /* Larger icon */
   font-weight: bold;
   text-decoration: none;
   z-index: 10;
@@ -261,7 +249,7 @@ html, body {
 
 /* Hover Effect on the Icon */
 .chatbot-section:hover .chatbot-link {
-  transform: rotate(15deg);
+  transform: rotate(20deg);  /* Slightly more rotation */
 }
 
 /* Chatbot Icon (using Font Awesome or similar) */
@@ -270,61 +258,14 @@ html, body {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   display: block;
-  font-size: 1.8rem;
-}
-
-/* Mobile View Adjustments */
-@media (max-width: 768px) {
-  .chatbot-section {
-    width: 60px;
-    height: 60px;
-    bottom: 15px;
-    right: 15px;
-  }
-
-  .chatbot-link {
-    font-size: 1.5rem;
-  }
-
-  .chatbot-section::before {
-    width: 130%;
-    height: 130%;
-  }
-
-  .chatbot-button-container {
-    bottom: 90px;
-  }
-
-  .chatbot-toggle-btn {
-    font-size: 1rem;
-    padding: 10px;
-  }
-}
-
-/* Very Small Screens (e.g., Portrait Mobile) */
-@media (max-width: 480px) {
-  .chatbot-section {
-    width: 50px;
-    height: 50px;
-    bottom: 10px;
-    right: 10px;
-  }
-
-  .chatbot-link {
-    font-size: 1.3rem;
-  }
-
-  .chatbot-section::before {
-    width: 120%;
-    height: 120%;
-  }
+  font-size: 2rem;
 }
 
 /* Optional: Chatbot Button Container Styling */
 .chatbot-button-container {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 30px;
+  right: 30px;
   z-index: 1000;
   display: flex;
   justify-content: center;
@@ -334,19 +275,19 @@ html, body {
 
 /* Chatbot Toggle Button */
 .chatbot-toggle-btn {
-  padding: 10px 18px;  /* Reduced padding */
+  padding: 12px 25px;  /* Larger padding */
   background-color: #ff6a00;
   color: #fff;
   border: 2px solid #ff6a00;
   border-radius: 50px;
-  font-size: 1rem;  /* Slightly smaller font */
+  font-size: 1.2rem;  /* Larger font size */
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   text-transform: uppercase;
 }
 
@@ -354,14 +295,15 @@ html, body {
 .chatbot-toggle-btn:hover {
   background-color: #d5265c;
   border-color: #d5265c;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .chatbot-toggle-btn:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.6);
 }
+
 
 @media (min-width: 1024px) {
   .scheme-link,

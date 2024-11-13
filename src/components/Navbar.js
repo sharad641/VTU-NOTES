@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Import Link for internal navigation
-import './Navbar.css';
+import './Navbar.css'; // Assuming you have corresponding CSS file
 import vtuLogo from '../assets/logo.jpg';
+import { FaBars, FaTimes } from 'react-icons/fa'; // Import icons for mobile menu toggle
 
 const Navbar = () => {
     const [isMobile, setIsMobile] = useState(false);
@@ -18,28 +19,27 @@ const Navbar = () => {
 
             {/* Navbar Links */}
             <ul className={`nav-links ${isMobile ? 'active' : ''}`}>
-                <li><Link to="/">Home</Link></li> {/* Link to Home Page */}
-                <li><Link to="/about">About</Link></li> {/* Link to About Page */}
-                <li><Link to="/placement-guide">Placement Guide</Link></li> {/* Link to Placement Guide */}
-                <li><Link to="/chatbot">Chatbot</Link></li> {/* Link to Chatbot Page */}
-                <li><Link to="/contact">Contact</Link></li> {/* Link to Contact Page */}
+                <li><Link to="/" className="nav-link">Home</Link></li>
+                <li><Link to="/about" className="nav-link">About</Link></li>
+                <li><Link to="/placement-guide" className="nav-link">Placement Guide</Link></li>
+                <li><Link to="/chatbot" className="nav-link">Chatbot</Link></li>
+                <li><Link to="/contact" className="nav-link">Contact</Link></li>
 
                 {/* Dropdown Menu */}
                 <li className="dropdown">
-                    <a href="#more">More</a>
+                    <a href="#more" className="dropdown-toggle">More</a>
                     <div className="dropdown-content">
-                        <a href="#team">Team</a>
-                        <a href="#blog">Blog</a>
-                        <a href="#careers">Careers</a>
+                        
+                        <Link to="/upload" className="dropdown-item">Upload Notes</Link>
+                        <Link to="/calculator" className="dropdown-item">CGPA Calculator</Link>
+                        <Link to="/faqs" className="dropdown-item">FAQs</Link>
                     </div>
                 </li>
             </ul>
 
             {/* Hamburger Menu for Mobile */}
-            <div className="hamburger" onClick={toggleMenu}>
-                <span className="bar"></span>
-                <span className="bar"></span>
-                <span className="bar"></span>
+            <div className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation menu">
+                {isMobile ? <FaTimes size={30} color="#fff" /> : <FaBars size={30} color="#fff" />}
             </div>
         </nav>
     );

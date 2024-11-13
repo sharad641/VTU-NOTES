@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import './Signup.css';
 
 const Signup = () => {
@@ -12,6 +12,7 @@ const Signup = () => {
     const navigate = useNavigate();
     const provider = new GoogleAuthProvider();
 
+    // Handle normal email/password signup
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
@@ -28,6 +29,7 @@ const Signup = () => {
         }
     };
 
+    // Handle Google signup
     const handleGoogleSignup = async () => {
         setError('');
         setIsSubmitting(true);
@@ -45,43 +47,70 @@ const Signup = () => {
 
     return (
         <div>
-        {/* Headline Message Section */}
-        <div className="headline-messageess">
-            <div className="marquee-text">
-                
-                <span style={{ display: 'block', marginTop: '10px' }}></span>
-                WELCOME TO VTU-NOTES WEBSITE
+            {/* Headline Message Section */}
+            <div className="headline-messageess">
+                <div className="marquee-text">
+                    <span style={{ display: 'block', marginTop: '10px' }}></span>
+                    WELCOME TO VTU-NOTES WEBSITE
+                </div>
             </div>
-        </div>
-        <div className="signup-container">
-            <h2>Sign Up</h2>
-            {error && <p className="error">{error}</p>}
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit" disabled={isSubmitting}>
-                    {isSubmitting ? 'Signing Up...' : 'Sign Up'}
+
+            <div className="signup-container">
+                <h2>Sign Up</h2>
+
+                {/* Error message display */}
+                {error && <p className="error">{error}</p>}
+
+                {/* Signup form for email/password */}
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="email">Email:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            className="input-field"
+                            aria-label="Email address"
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="password">Password:</label>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            className="input-field"
+                            aria-label="Password"
+                        />
+                    </div>
+
+                    <button type="submit" className="signup-button" disabled={isSubmitting}>
+                        {isSubmitting ? 'Signing Up...' : 'Sign Up'}
+                    </button>
+                </form>
+
+                {/* Google Signup Button */}
+                <button
+                    onClick={handleGoogleSignup}
+                    className="google-signup-button"
+                    disabled={isSubmitting}
+                    aria-label="Sign up with Google"
+                >
+                    {isSubmitting ? 'Signing Up with Google...' : 'Sign Up with Google'}
                 </button>
-            </form>
-            <button onClick={handleGoogleSignup} className="google-signup-button" disabled={isSubmitting}>
-                {isSubmitting ? 'Signing Up with Google...' : 'Sign Up with Google'}
-            </button>
-            <div className="redirect-to-login">
-                <p>Already have an account? <a href="/login">Login here</a></p>
+
+                {/* Redirect to login if already have an account */}
+                <div className="redirect-to-login">
+                    <p>Already have an account? <a href="/login">Login here</a></p>
+                </div>
             </div>
-        </div>
         </div>
     );
 };
