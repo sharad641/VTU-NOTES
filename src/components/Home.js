@@ -30,7 +30,7 @@ const Home = () => {
         <div className="home-container">
             {/* Headline with marquee effect */}
             <div className="headline-message">
-                <div className="marquee-text">
+                <div className="marquee-text">A new feature has been added for placement test login. Please review it.
                    
                     <span> "The notes for ECE have not been uploaded yet; work is in progress. Please wait for some time."</span>
                 </div>

@@ -1,25 +1,25 @@
-/* General styles for subjects */
+/* General Styles for the Subjects Section */
 .subjects {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px 15px;
+    padding: 30px 20px;
     min-height: 100vh;
-    background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
-    color: #1b5e20;
+    background: #f4f6f9; /* Light gray background for contrast */
+    color: #333; /* Dark gray text for readability */
     font-family: 'Roboto', sans-serif;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 20px; /* Spacing between headline and subjects */
+    gap: 30px;
 }
 
 /* Subject Title */
 .subjects h2 {
-    font-size: 2.5rem;
-    margin: 20px 0;
+    font-size: 2.8rem;
+    margin: 30px 0;
     text-transform: uppercase;
     font-weight: 700;
-    color: #2e7d32;
+    color: #0277bd; /* Soft blue title color */
     letter-spacing: 1px;
     padding-bottom: 10px;
     position: relative;
@@ -29,11 +29,11 @@
 .subjects h2::after {
     content: '';
     position: absolute;
-    width: 80%;
+    width: 60%;
     height: 3px;
-    background: linear-gradient(135deg, #a8e063, #56ab2f);
+    background: #0288d1; /* Slightly darker blue for the underline */
     bottom: 0;
-    left: 10%;
+    left: 20%;
     border-radius: 50px;
 }
 
@@ -48,45 +48,48 @@
     width: 100%;
 }
 
-/* Subject Box Styling with Dynamic Height */
+/* Subject Box Styling */
 .subject-box {
-    background: linear-gradient(135deg, #56ab2f, #a8e063); /* Light gradient */
+    background: #ffffff; /* White background for clear visibility */
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
     text-align: left;
     width: 100%;
-    max-width: 320px; /* Adjusted for better mobile fit */
-    height: var(--box-height, 320px); /* Dynamic height using CSS variable */
+    max-width: 320px;
+    height: var(--box-height, 300px); /* Dynamic height using CSS variable */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: #ffffff;
+    color: #333; /* Dark text color */
     overflow-y: auto; /* Add scrollbar if content overflows */
 }
 
-/* Dynamic Hover Effect */
+/* Hover Effect */
 .subject-box:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(135deg, #ff6ec4, #a45ee9); /* Vibrant hover effect */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    background: #f0f4f7; /* Lighter gray for hover effect */
 }
 
 /* Subject Box Heading */
 .subject-box h3 {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     margin: 0;
     font-weight: 600;
+    color: #0277bd; /* Soft blue for headings */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+/* Paragraph Styling */
 .subject-box p {
     font-size: 1rem;
-    line-height: 1.5;
+    line-height: 1.6;
     margin-top: 10px;
+    color: #555; /* Darker gray for the body text */
 }
 
 /* Subject Info Section */
@@ -95,23 +98,31 @@
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
+    color: #0288d1; /* Blue for the info link */
+    transition: color 0.3s ease;
 }
 
+.subject-box .subject-info:hover {
+    color: #01579b; /* Darker blue on hover */
+}
+
+/* Subject Code and Credits Box */
 .subject-box .subject-code,
 .subject-box .credits-box {
     font-size: 0.9rem;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    background: #0277bd; /* Matching blue background */
     padding: 5px 10px;
     border-radius: 5px;
     margin-top: 5px;
 }
 
+/* Subject Details Box */
 .subject-box .subject-details {
     font-size: 1rem;
-    color: #fff;
+    color: #080303;
     margin-top: 8px;
-    background: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.1);
     padding: 10px;
     border-radius: 5px;
 }
@@ -122,16 +133,18 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: transparent;
+    background: #0288d1; /* Blue button */
     border: none;
     cursor: pointer;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: background-color 0.3s ease, text-shadow 0.3s ease;
     font-size: 1.2rem;
     margin-top: 15px;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
 .subject-box button:hover {
-    color: #e8f5e9;
+    background-color: #01579b; /* Darker blue on hover */
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
 }
 
@@ -140,28 +153,23 @@
 /* Large Screens (Desktops) */
 @media (min-width: 1024px) {
     .subjects h2 {
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
 
     .subject-box {
-        --box-height: 250px; /* Dynamic height for desktops */
+        --box-height: 250px;
         max-width: 280px;
     }
 }
 
 /* Tablets (up to 1024px) */
 @media (max-width: 1024px) {
-    .subjects {
-        padding: 20px;
-    }
-
     .subjects h2 {
         font-size: 2.4rem;
     }
 
     .subject-box {
-        --box-height: 230px; /* Slightly smaller for tablets */
-        max-width: 90%; /* Increased width to fit tablet screens */
+        --box-height: 230px;
     }
 
     .subject-box button {
@@ -171,21 +179,17 @@
 
 /* Mobile Portrait (up to 768px) */
 @media (max-width: 768px) {
-    .subjects {
-        padding: 10px;
-    }
-
     .subjects h2 {
         font-size: 2rem;
     }
 
     .subjects ul {
-        grid-template-columns: 1fr 1fr; /* Two columns on smaller screens */
+        grid-template-columns: 1fr 1fr;
     }
 
     .subject-box {
-        --box-height: 200px; /* Dynamic height for smaller screens */
-        max-width: 100%; /* Full width for smaller screens */
+        --box-height: 200px;
+        max-width: 100%;
     }
 
     .subject-box h3 {
@@ -204,11 +208,11 @@
     }
 
     .subjects ul {
-        grid-template-columns: 1fr; /* Single column layout */
+        grid-template-columns: 1fr;
     }
 
     .subject-box {
-        --box-height: 180px; /* Smaller dynamic height for mobile */
+        --box-height: 180px;
         max-width: 100%;
     }
 
@@ -217,17 +221,17 @@
     }
 }
 
-/* Marquee styling */
+/* Marquee Styling */
 .headline-messagee {
-    background: linear-gradient(135deg, #e8f5e9, #a5d6a7);
-    color: #1b5e20;
-    padding: 10px;
+    background: #e1f5fe; /* Soft light blue background for headlines */
+    color: #0277bd;
+    padding: 12px;
     border-radius: 8px;
     margin: 15px auto;
     font-size: 1.1rem;
     font-weight: bold;
     text-align: center;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
 
@@ -244,13 +248,17 @@
 }
 
 @keyframes marquee {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
 }
 
 @media (max-width: 768px) {
     .headline-messagee {
-        padding: 8px;
+        padding: 10px;
         font-size: 1rem;
     }
 
