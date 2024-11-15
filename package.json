@@ -13,6 +13,7 @@
     "express": "^4.21.1",
     "firebase": "^10.14.1",
     "font-awesome": "^4.7.0",
+    "howler": "^2.2.4",
     "mongoose": "^8.7.1",
     "multer": "^1.4.5-lts.1",
     "natural": "^8.0.1",
@@ -24,6 +25,7 @@
     "react-router-dom": "^6.27.0",
     "react-scripts": "5.0.1",
     "stream-browserify": "^3.0.0",
+    "three": "^0.170.0",
     "url": "^0.11.4",
     "util": "^0.12.5",
     "web-vitals": "^2.1.4"

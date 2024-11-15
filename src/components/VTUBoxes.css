@@ -1,0 +1,36 @@
+/* Container that holds all the boxes */
+.vtu-boxes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));  /* Create a responsive grid */
+    gap: 20px;  /* Spacing between boxes */
+    padding: 20px;  /* Padding around the container */
+    justify-items: center;  /* Center boxes horizontally */
+  }
+  
+  /* Individual box styling */
+  .vtu-box {
+    background-color: #4CAF50;  /* Green background for the boxes */
+    color: white;  /* White text */
+    display: flex;  /* Flexbox to center content */
+    justify-content: center;  /* Center horizontally */
+    align-items: center;  /* Center vertically */
+    height: 200px;  /* Fixed height for the boxes */
+    width: 100%;  /* Fill the available width */
+    border-radius: 10px;  /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Light shadow for depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Animation for hover effect */
+  }
+  
+  /* Center the text inside the box */
+  .vtu-text {
+    font-size: 24px;  /* Text size */
+    font-weight: bold;  /* Bold text */
+    text-align: center;  /* Center text horizontally */
+  }
+  
+  /* Hover effects for interactivity */
+  .vtu-box:hover {
+    transform: scale(1.05);  /* Slight scale-up effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Stronger shadow on hover */
+  }
+  

@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import BeeScene from './components/BeeScene'; // Import the BeeScene component
 import BranchSelection from './components/BranchSelection';
 import Branch from './components/Branch';
 import Subjects from './components/Subjects';
 import ModuleDetail from './components/ModuleDetail';
-import PdfViewer from './components/PdfViewer'; // PDF Viewer import
+import PdfViewer from './components/PdfViewer';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -18,76 +19,120 @@ import ChatBot from './components/ChatBot';
 import TestPage from './components/TestPage';
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
+import './App.css'; // Import the CSS file
 
 function App() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [loading, setLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
-    // Check user authentication state on mount
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, user => {
-            setIsAuthenticated(!!user); // Set authentication state based on user
-            setLoading(false); // Stop loading after the user state is checked
-        });
+  // Check user authentication state on mount
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, user => {
+      setIsAuthenticated(!!user); // Set authentication state based on user
+    });
 
-        return () => unsubscribe(); // Clean up subscription on unmount
-    }, []);
+    // Set a timer to keep the spinner on screen for 5 seconds
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 5000); // 5 seconds
 
-    // Protected route wrapper to reduce repetition
-    const ProtectedRoute = ({ element }) => (
-        isAuthenticated ? element : <Navigate to="/login" />
-    );
+    return () => {
+      unsubscribe();
+      clearTimeout(timer); // Clean up timeout on unmount
+    };
+  }, []);
 
-    // Guest route wrapper to allow access without authentication
-    const GuestRoute = ({ element }) => element;
+  // Protected route wrapper to reduce repetition
+  const ProtectedRoute = ({ element }) => (
+    isAuthenticated ? element : <Navigate to="/login" />
+  );
 
-    // Redirect authenticated users away from login/signup
-    const RedirectAuthenticatedUser = ({ element }) => (
-        isAuthenticated ? <Navigate to="/" /> : element
-    );
+  // Guest route wrapper to allow access without authentication
+  const GuestRoute = ({ element }) => element;
 
-    if (loading) {
-        return <div>Loading...</div>; // Optional: Loading state while checking authentication
-    }
+  // Redirect authenticated users away from login/signup
+  const RedirectAuthenticatedUser = ({ element }) => (
+    isAuthenticated ? <Navigate to="/" /> : element
+  );
 
+  if (loading) {
     return (
-        <Router>
-            <div>
-                <Navbar />
-                <Routes>
-                    {/* Public Routes */}
-                    <Route path="/" element={<GuestRoute element={<Home />} />} />
-                    <Route path="/branch-selection/:scheme" element={<GuestRoute element={<BranchSelection />} />} />
-                    <Route path="/branch/:branch" element={<GuestRoute element={<Branch />} />} />
-                    <Route path="/branch/:branch/:semester" element={<GuestRoute element={<Subjects />} />} />
-                    <Route path="/branch/:branch/:semester/modules/:subjectName" element={<GuestRoute element={<ModuleDetail />} />} />
-                    <Route path="/faqs" element={<GuestRoute element={<FAQs />} />} />
-
-                    {/* PDF Viewing Route (Public) */}
-                    <Route path="/pdf/:pdfUrl" element={<GuestRoute element={<PdfViewer />} />} />
-
-                    {/* Authenticated Routes */}
-                    <Route path="/placement-guide" element={<ProtectedRoute element={<PlacementGuide />} />} />
-                    <Route path="/test" element={<ProtectedRoute element={<TestPage />} />} />
-
-                    {/* Public Routes */}
-                    <Route path="/upload" element={<GuestRoute element={<UploadForm />} />} />
-                    <Route path="/calculator" element={<GuestRoute element={<Calculator />} />} />
-
-                    {/* Chatbot Route */}
-                    <Route path="/chatbot" element={<GuestRoute element={<ChatBot />} />} />
-
-                    {/* Authentication Routes */}
-                    <Route path="/login" element={<RedirectAuthenticatedUser element={<Login setIsAuthenticated={setIsAuthenticated} />} />} />
-                    <Route path="/signup" element={<RedirectAuthenticatedUser element={<Signup />} />} />
-
-                    {/* Catch-All Route */}
-                    <Route path="*" element={<Navigate to="/" />} />
-                </Routes>
-                <Footer />
+      <div className="loading-container">
+        <div className="loader-wrapper">
+          <div className="cubes-container">
+            <div className="cube">
+              <div className="front"></div>
+              <div className="back"></div>
+              <div className="left"></div>
+              <div className="right"></div>
+              <div className="top"></div>
+              <div className="bottom"></div>
             </div>
-        </Router>
-    );
+            <div className="cube">
+              <div className="front"></div>
+              <div className="back"></div>
+              <div className="left"></div>
+              <div className="right"></div>
+              <div className="top"></div>
+              <div className="bottom"></div>
+            </div>
+            <div className="cube">
+              <div className="front"></div>
+              <div className="back"></div>
+              <div className="left"></div>
+              <div className="right"></div>
+              <div className="top"></div>
+              <div className="bottom"></div>
+            </div>
+          </div>
+          <div className="welcome-text">
+            <h1>Welcome </h1>
+          </div>
+        </div>
+      </div>
+    ); // 3D Cube Loader
+  }
+
+  return (
+    <Router>
+      <div className="app-container">
+        <Navbar />
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/" element={<GuestRoute element={<Home />} />} />
+          <Route path="/bee-scene" element={<GuestRoute element={<BeeScene />} />} />
+          <Route path="/branch-selection/:scheme" element={<GuestRoute element={<BranchSelection />} />} />
+          <Route path="/branch/:branch" element={<GuestRoute element={<Branch />} />} />
+          <Route path="/branch/:branch/:semester" element={<GuestRoute element={<Subjects />} />} />
+          <Route path="/branch/:branch/:semester/modules/:subjectName" element={<GuestRoute element={<ModuleDetail />} />} />
+          <Route path="/faqs" element={<GuestRoute element={<FAQs />} />} />
+
+          {/* PDF Viewing Route */}
+          <Route path="/pdf/:pdfUrl" element={<GuestRoute element={<PdfViewer />} />} />
+
+          {/* Authenticated Routes */}
+          <Route path="/placement-guide" element={<ProtectedRoute element={<PlacementGuide />} />} />
+          <Route path="/test" element={<ProtectedRoute element={<TestPage />} />} />
+
+          {/* Other Public Routes */}
+          <Route path="/upload" element={<GuestRoute element={<UploadForm />} />} />
+          <Route path="/calculator" element={<GuestRoute element={<Calculator />} />} />
+
+          {/* Chatbot Route */}
+          <Route path="/chatbot" element={<GuestRoute element={<ChatBot />} />} />
+
+          {/* Authentication Routes */}
+          <Route path="/login" element={<RedirectAuthenticatedUser element={<Login setIsAuthenticated={setIsAuthenticated} />} />} />
+          <Route path="/signup" element={<RedirectAuthenticatedUser element={<Signup />} />} />
+
+          {/* Catch-All Route */}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+
+        <Footer />
+      </div>
+    </Router>
+  );
 }
 
 export default App;
