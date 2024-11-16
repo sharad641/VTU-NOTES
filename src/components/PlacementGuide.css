@@ -1,13 +1,47 @@
 /* Global Variables (CSS Custom Properties) */
 :root {
     --primary-color: #6c5ce7;
-    --secondary-color: #81ecec;
-    --accent-color: #00cec9;
+    --secondary-color: #589595;
+    --accent-color: #040606;
     --highlight-color: #0984e3;
     --bg-color: #f4f4fc;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --font-family: 'Poppins', sans-serif;
     --font-family-secondary: Arial, sans-serif;
+    --dark-blue-grey: #2c3e50;
+    --slate-blue: #34495e;
+    --dark-gray: #2d3436;
+    --rich-dark-blue: #2c3e50;
+    --light-blue: #e3f2fd;
+    --bright-red: #d63031;
+    --light-warm-red: #e17055;
+    --vivid-pink: #e84393;
+    --purple-blue-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+}
+
+/* Background animation for placement-guide-container */
+@keyframes backgroundShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Fade-in effect */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Slide-in effect */
+@keyframes slideIn {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+/* Slide-up effect */
+@keyframes slideUp {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
 /* General Container */
@@ -15,11 +49,12 @@
     padding: 20px;
     margin: auto;
     max-width: 1100px;
-    background-color: var(--bg-color); /* Soft, off-white background */
+    background-color: var(--bg-color);
     border-radius: 15px;
-    box-shadow: 0 8px 20px var(--shadow-color); /* Modern shadow effect */
+    box-shadow: 0 8px 20px var(--shadow-color);
     font-family: var(--font-family);
     transition: all 0.3s ease-in-out;
+    animation: fadeIn 1s ease-in-out, slideIn 0.5s ease-out;
 }
 
 .placement-guide-container:hover {
@@ -30,34 +65,36 @@
 .header {
     text-align: center;
     margin-bottom: 20px;
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%); /* Gradient background for the header */
+    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(108, 92, 231, 0.2); /* Subtle shadow */
+    box-shadow: 0 4px 10px rgba(108, 92, 231, 0.2);
     transition: transform 0.3s ease-in-out;
+    animation: fadeIn 1s ease-in-out, slideIn 0.5s ease-out;
 }
 
 .header h1 {
     font-size: clamp(2rem, 6vw, 3.6rem); /* Fluid typography */
-    color: #2c3e50; /* Dark blue-grey for contrast */
+    color: var(--dark-blue-grey);
     margin-bottom: 15px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); /* Light text shadow for depth */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header p {
     color: #ffffff;
-    font-size: 1.25rem; /* Larger font for readability */
+    font-size: 1.25rem;
     font-weight: 500;
 }
 
-/* Section Box Styling */
+/* Section Box Styling with Slow Pulse and Slide-up Effects */
 .section-box {
-    background-color: #e3f2fd; /* Light blue */
+    background-color: var(--light-blue);
     border-radius: 12px;
     padding: 20px;
     margin-bottom: 10px;
     box-shadow: 0 3px 8px var(--shadow-color);
     transition: transform 0.2s, box-shadow 0.2s ease-in-out;
+    animation: pulse-slow 4s infinite, slideUp 0.6s ease-out; /* Slower pulse effect */
 }
 
 .section-box:hover {
@@ -66,20 +103,20 @@
 }
 
 .section-box h2 {
-    color: #34495e; /* Slate blue */
+    color: var(--slate-blue);
     font-size: 26px;
     margin-bottom: 12px;
 }
 
 .section-box p {
-    color: #2d3436; /* Darker gray for text */
+    color: var(--dark-gray);
     font-size: 16px;
     line-height: 1.6;
 }
 
 /* Link Styling */
 a {
-    color: var(--accent-color); /* Vivid teal */
+    color: var(--accent-color);
     font-weight: bold;
     text-decoration: none;
     position: relative;
@@ -87,15 +124,16 @@ a {
 }
 
 a:hover {
-    color: var(--highlight-color); /* Bright blue */
+    color: var(--highlight-color);
     transform: scale(1.05);
     text-decoration: underline;
 }
 
 /* Section List Styling */
 .section-list .section-box {
-    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%); /* Gradient effect */
+    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    animation: pulse-slow 4s infinite, slideUp 0.6s ease-out; /* Slower pulse */
 }
 
 .section-list .section-box:hover {
@@ -103,81 +141,81 @@ a:hover {
 }
 
 .section-list .section-box h2 {
-    color: #2d3436; /* Dark grey */
+    color: var(--dark-gray);
     font-size: 26px;
     margin-bottom: 12px;
 }
 
 .section-list .section-box p {
-    color: #2c3e50; /* Rich dark blue */
+    color: var(--rich-dark-blue);
     margin-bottom: 15px;
     line-height: 1.5;
 }
-
-/* Resources & Links */
-.resources-list li {
-    margin-bottom: 10px;
-}
-
-.resources-list a,
-.additional-links a {
-    color: #d63031; /* Bright red */
+/* Container Styling */
+.download-button-container {
+    display: flex;
+    justify-content: center;  /* Centers the button horizontally */
+    align-items: center;      /* Centers the button vertically */
+    margin-top: 30px;         /* Space above the button */
+    margin-bottom: 30px;      /* Space below the button */
+  }
+  
+  /* Button Styling */
+  .download-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #6c63ff, #e52e71);  /* Gradient background */
+    color: #fff;
+    font-size: 1.2rem;
     font-weight: 600;
-    text-decoration: none;
-    position: relative;
-    transition: color 0.3s ease;
+    text-decoration: none;  /* Removes underline */
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease, transform 0.2s ease;  /* Smooth transitions for hover and click effects */
+  }
+  
+  /* Hover Effect */
+  .download-button:hover {
+    background: linear-gradient(135deg, #5a54e5, #d5265c);  /* Darker gradient for hover */
+    transform: translateY(-5px) scale(1.05);  /* Slightly lift and scale the button */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Active Effect (on click) */
+  .download-button:active {
+    transform: translateY(2px);  /* Slightly sink the button */
+  }
+  
+  /* Focus Effect (for accessibility) */
+  .download-button:focus {
+    outline: none;  /* Removes default focus outline */
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.6);  /* Adds custom outline on focus */
+  }
+  
+  /* Responsive Design for Small Screens */
+  @media (max-width: 768px) {
+    .download-button {
+      font-size: 1rem;   /* Smaller font size on smaller screens */
+      padding: 12px 25px; /* Adjusted padding for smaller screens */
+    }
+  }
+  
+/* Active Effect (on click) */
+.download-button:active {
+    transform: translateY(2px);  /* Slightly sink the button when clicked */
 }
 
-.resources-list a:hover,
-.additional-links a:hover {
-    color: #e17055; /* Lighter, warmer red */
-}
-
-/* Additional Links */
-.additional-links {
-    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%); /* Gradient effect */
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 30px;
-}
-
-.additional-links h2 {
-    font-size: 24px;
-    color: #2d3436;
-}
-
-/* Placement Checklist */
-.placement-checklist {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); /* Pink to coral gradient */
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 30px;
-}
-
-.placement-checklist h2 {
-    color: #071214;
-    margin-bottom: 15px;
-}
-
-.placement-checklist p {
-    color: #030608;
-}
-
-.placement-checklist ul {
-    margin: 0;
-    padding-left: 20px;
-    list-style-type: disc;
-    color: #060707;
-}
 
 /* Career Footer */
 .career-footer {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Purple to blue gradient */
+    background: var(--purple-blue-gradient);
     color: #ffffff;
     border-radius: 15px;
     padding: 30px 20px;
     margin-top: 40px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
 .career-footer-content {
@@ -204,7 +242,7 @@ a:hover {
 }
 
 .career-footer-button {
-    background-color: #e84393; /* Vivid pink */
+    background-color: var(--vivid-pink);
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -215,51 +253,7 @@ a:hover {
 }
 
 .career-footer-button:hover {
-    background-color: #d63031;
-    transform: scale(1.05);
-}
-
-.career-footer-links {
-    flex: 1;
-}
-
-.career-footer-links-title {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #030608;
-}
-
-.career-footer-links-list li {
-    margin-bottom: 12px;
-}
-
-.career-footer-link-item a {
-    color: #ffffff;
-    font-weight: bold;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 10px;
-}
-
-.career-footer-link-description {
-    color: #dfe6e9;
-    font-size: 14px;
-}
-
-/* Download Button */
-.download-button {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 25px;
-    background-color: #6c63ff; /* Button color */
-    color: white;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.download-button:hover {
-    background-color: #5a54e5; /* Darker shade on hover */
+    background-color: var(--bright-red);
     transform: scale(1.05);
 }
 
@@ -270,12 +264,13 @@ a:hover {
     background-color: #ffffff;
     border-radius: 15px;
     margin-top: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
+    animation: fadeIn 1s ease-in-out, slideIn 0.5s ease-out;
 }
 
 .career-guidance-container:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+    transform: translateY(-5px);
 }
 
 /* Contact Info Styling */
@@ -286,17 +281,89 @@ a:hover {
     font-size: 16px;
     margin-top: 20px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 1s ease-in-out;
 }
 
 .contact-info p {
     font-size: 16px;
-    color: #2d3436;
+    color: var(--dark-gray);
     line-height: 1.6;
+}
+
+/* Additional Links Section */
+.additional-links {
+    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 8px var(--shadow-color);
+    animation: pulse-slow 4s infinite, slideIn 0.5s ease-out; /* Slower pulse */
+}
+
+.additional-links h2 {
+    font-size: 24px;
+    color: var(--dark-blue-grey);
+    margin-bottom: 15px;
+}
+
+.additional-resources {
+    list-style-type: none;
+    padding: 0;
+}
+
+.additional-resources li {
+    margin-bottom: 10px;
+}
+
+.additional-resources a {
+    color: var(--accent-color);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.additional-resources a:hover {
+    color: var(--highlight-color);
+    transform: scale(1.05);
+    text-decoration: underline;
+}
+
+/* Placement Checklist Section */
+.placement-checklist {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+    animation: pulse-slow 4s infinite, slideIn 0.5s ease-out; /* Slower pulse */
+}
+
+.placement-checklist h2 {
+    font-size: 24px;
+    color: var(--dark-blue-grey);
+    margin-bottom: 15px;
+}
+
+.placement-checklist p {
+    color: var(--dark-gray);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.placement-checklist ul {
+    margin: 0;
+    padding-left: 20px;
+    list-style-type: disc;
+    color: var(--rich-dark-blue);
+}
+
+.placement-checklist li {
+    margin-bottom: 10px;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    .career-guidance-container {
+    .placement-guide-container {
         padding: 15px;
     }
 
@@ -312,5 +379,74 @@ a:hover {
     .career-footer-content {
         grid-template-columns: 1fr;
     }
-}
 
+    .section-box, .additional-links, .placement-checklist {
+        padding: 15px;
+    }
+
+    .section-box h2,
+    .additional-links h2,
+    .placement-checklist h2 {
+        font-size: 20px;
+    }
+
+    .section-box p,
+    .additional-links p,
+    .placement-checklist p {
+        font-size: 14px;
+    }
+
+    .download-button {
+        padding: 10px 20px;
+    }
+}
+/* Container Styling */
+.test-link-container {
+    display: flex;
+    justify-content: center;  /* Centers the button horizontally */
+    align-items: center;      /* Centers the button vertically */
+    margin-top: 30px;         /* Space above the button */
+    margin-bottom: 30px;      /* Space below the button */
+  }
+  
+  /* Button Styling */
+  .test-link-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #ff8a00, #e52e71);  /* Gradient background */
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-decoration: none;  /* Removes underline */
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease, transform 0.2s ease;  /* Smooth transitions for hover and click effects */
+  }
+  
+  /* Hover Effect */
+  .test-link-button:hover {
+    background: linear-gradient(135deg, #ff6a00, #d5265c);  /* Darker gradient for hover */
+    transform: translateY(-5px) scale(1.05);  /* Slightly lift and scale the button */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Active Effect (on click) */
+  .test-link-button:active {
+    transform: translateY(2px);  /* Slightly sink the button */
+  }
+  
+  /* Focus Effect (for accessibility) */
+  .test-link-button:focus {
+    outline: none;  /* Removes default focus outline */
+    box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.6);  /* Adds custom outline on focus */
+  }
+  
+  /* Responsive Design for Small Screens */
+  @media (max-width: 768px) {
+    .test-link-button {
+      font-size: 1rem;   /* Smaller font size on smaller screens */
+      padding: 12px 25px; /* Adjusted padding for smaller screens */
+    }
+  }
+  

@@ -15,6 +15,19 @@ html, body {
   overflow-x: hidden; /* Prevent horizontal scrolling */
   scroll-behavior: smooth; /* Smooth scrolling */
 }
+/* Slide-up effect */
+@keyframes slideUp {
+    0% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+
+
+/* Slide-in effect */
+@keyframes slideIn {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
 
 /* Main Container Styling */
 .home-container {
@@ -30,7 +43,7 @@ html, body {
   position: relative;
   overflow: hidden;
   transition: padding-bottom 0.3s ease-in-out;
-  animation: backgroundAnimation 5s ease infinite; /* Animated background */
+  animation: backgroundAnimation 4s ease infinite; /* Animated background */
 }
 
 /* Animated Background Gradient */
