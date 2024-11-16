@@ -109,13 +109,12 @@ html, body {
   animation: slideIn 1s ease-out, rotateBox 2s ease-in-out infinite; /* Added 3D rotation */
 }
 
-/* 3D Rotate Animation */
 @keyframes rotateBox {
   0% {
     transform: rotateY(0deg);
   }
   50% {
-    transform: rotateY(10deg);
+    transform: rotateY(10deg); /* Slight rotation */
   }
   100% {
     transform: rotateY(0deg);
@@ -125,7 +124,7 @@ html, body {
 /* Slide-in Animation */
 @keyframes slideIn {
   0% {
-    transform: translateX(100%);
+    transform: translateX(100%); /* Slide in from the right */
     opacity: 0;
   }
   100% {
@@ -133,6 +132,7 @@ html, body {
     opacity: 1;
   }
 }
+
 
 /* Hover effect for all boxes */
 .scheme-selection-box:hover,
