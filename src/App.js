@@ -34,7 +34,7 @@ function App() {
     // Set a timer to keep the spinner on screen for 5 seconds
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 5000); // 5 seconds
+    }, 4000); // 5 seconds
 
     return () => {
       unsubscribe();
@@ -57,41 +57,63 @@ function App() {
 
   if (loading) {
     return (
-      <div className="loading-container">
-        <div className="loader-wrapper">
-          <div className="cubes-container">
-            <div className="cube">
-              <div className="front"></div>
-              <div className="back"></div>
-              <div className="left"></div>
-              <div className="right"></div>
-              <div className="top"></div>
-              <div className="bottom"></div>
+      <div className="loading-overlay">
+        <div className="loading-container">
+          <div className="loader-wrapper">
+            {/* 4 Large Cubes */}
+            <div className="cubes-container">
+              <div className="cube large">
+                <div className="side front"></div>
+                <div className="side back"></div>
+                <div className="side left"></div>
+                <div className="side right"></div>
+                <div className="side top"></div>
+                <div className="side bottom"></div>
+              </div>
+              <div className="cube large">
+                <div className="side front"></div>
+                <div className="side back"></div>
+                <div className="side left"></div>
+                <div className="side right"></div>
+                <div className="side top"></div>
+                <div className="side bottom"></div>
+              </div>
+              <div className="cube large">
+                <div className="side front"></div>
+                <div className="side back"></div>
+                <div className="side left"></div>
+                <div className="side right"></div>
+                <div className="side top"></div>
+                <div className="side bottom"></div>
+              </div>
+              <div className="cube large">
+                <div className="side front"></div>
+                <div className="side back"></div>
+                <div className="side left"></div>
+                <div className="side right"></div>
+                <div className="side top"></div>
+                <div className="side bottom"></div>
+              </div>
             </div>
-            <div className="cube">
-              <div className="front"></div>
-              <div className="back"></div>
-              <div className="left"></div>
-              <div className="right"></div>
-              <div className="top"></div>
-              <div className="bottom"></div>
+  
+            {/* 4 Smaller Boxes at each direction */}
+            <div className="small-boxes">
+              <div className="small-box top"></div>
+              <div className="small-box bottom"></div>
+              <div className="small-box left"></div>
+              <div className="small-box right"></div>
             </div>
-            <div className="cube">
-              <div className="front"></div>
-              <div className="back"></div>
-              <div className="left"></div>
-              <div className="right"></div>
-              <div className="top"></div>
-              <div className="bottom"></div>
+  
+            <div className="welcome-text">
+              <h1>Welcome to VTU-NOTES</h1>
+              <p>Please wait while we load the content...</p>
             </div>
-          </div>
-          <div className="welcome-text">
-            <h1>Welcome </h1>
           </div>
         </div>
       </div>
-    ); // 3D Cube Loader
+    );
   }
+  
 
   return (
     <Router>
