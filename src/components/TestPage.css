@@ -8,6 +8,7 @@
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
+    color: #333;
 }
 
 /* Header Styling */
@@ -21,6 +22,7 @@
     color: #1e293b;
     margin-bottom: 15px;
     letter-spacing: 0.5px;
+    font-weight: 700;
 }
 
 .test-page-header p {
@@ -35,7 +37,7 @@
 }
 
 .test-options button, .difficulty-options button {
-    padding: 14px 30px;
+    padding: 16px 32px;
     margin: 12px;
     font-size: 1.1rem;
     color: #fff;
@@ -64,6 +66,7 @@ progress {
     height: 18px;
     margin-bottom: 10px;
     border-radius: 10px;
+    appearance: none;
 }
 
 progress::-webkit-progress-bar {
@@ -277,25 +280,31 @@ progress::-webkit-progress-value {
         align-items: center;
     }
 }
-.correct {
-    color: #4CAF50; /* Green */
-    font-weight: bold;
+
+/* Animation: Slide in effect for question-box */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.incorrect {
-    color: #f44336; /* Red */
-    font-weight: bold;
+.question-box {
+    animation: slideIn 0.5s ease-out;
 }
 
-.option {
-    padding: 12px;
-    background-color: #f1f1f1;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+/* Added border transition for options */
+.option input[type="radio"]:checked + label {
+    border: 2px solid #4CAF50; /* Green border for checked option */
 }
 
-.option:hover {
-    background-color: #ddd;
-    transform: scale(1.05);
+/* Adjust text contrast for readability */
+.question-review p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
 }

@@ -19,7 +19,8 @@ import ChatBot from './components/ChatBot';
 import TestPage from './components/TestPage';
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-import './App.css'; // Import the CSS file
+import './App.css';
+import vtuLogo from './logo.jpg';  // Import the CSS file
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -95,6 +96,10 @@ function App() {
                 <div className="side bottom"></div>
               </div>
             </div>
+             {/* Logo in a similar style to your Navbar */}
+             <div className="navbar-logo-container1 show">
+          <img src={vtuLogo} alt="VTU Logo" className="navbar-logo" />
+        </div>
   
             {/* 4 Smaller Boxes at each direction */}
             <div className="small-boxes">

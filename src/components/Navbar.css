@@ -3,35 +3,35 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px; /* Increased padding for balance */
+  padding: 15px 30px; /* Adjusted padding for better balance */
   background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Soft gradient */
-  backdrop-filter: blur(12px); /* Subtle background blur */
-  color: #fff; /* White text for better contrast */
+  backdrop-filter: blur(8px); /* Slightly reduced blur for better text readability */
+  color: #fff; /* White text for contrast */
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  width: 100%; /* Full width to cover the whole screen */
-  transition: background 0.3s ease, box-shadow 0.3s ease; /* Smooth background transition */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Reduced shadow for a lighter feel */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  width: 100%;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Added smooth transition */
 }
 
-/* Navbar Hover Effect */
 .navbar:hover {
   background: linear-gradient(135deg, #2193b0, #6dd5ed); /* Reverse gradient on hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
+  transform: translateY(-2px); /* Slight elevation on hover */
 }
 
-/* Logo Container */
+/* Navbar Logo Container */
 .navbar-logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
   overflow: hidden;
-  width: 90px;
-  height: 90px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); /* Slightly stronger shadow */
+  width: 100px; /* Updated logo container size */
+  height: 100px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Refined shadow */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
@@ -39,20 +39,20 @@
 .navbar-logo {
   width: 100%;
   height: auto;
-  object-fit: cover; /* Ensure logo maintains aspect ratio */
+  object-fit: cover;
 }
 
 .navbar-logo-container:hover {
-  transform: scale(1.1); /* Slight zoom effect on hover */
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
 }
 
 /* Navbar Links */
 .nav-links {
   display: flex;
-  gap: 30px; /* Increased gap for balance */
+  gap: 30px; /* Balanced gap between links */
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600; /* Slightly bolder font weight */
   list-style: none;
 }
 
@@ -67,8 +67,8 @@
 }
 
 .nav-links li a:hover {
-  color: #f0a500; /* Highlight color on hover */
-  transform: translateY(-3px); /* Slight lift effect */
+  color: #f0a500; /* Highlight color */
+  transform: translateY(-4px); /* More pronounced lift effect */
 }
 
 /* Dropdown Menu */
@@ -87,10 +87,10 @@
   left: 0;
   background-color: #fff;
   color: #000;
-  min-width: 200px;
+  min-width: 220px; /* Slightly wider dropdown */
   padding: 10px 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
+  border-radius: 8px; /* Rounded corners */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -99,10 +99,10 @@
 .nav-links .dropdown-content a {
   color: #000;
   padding: 12px 20px;
-  font-size: 14px;
+  font-size: 15px;
   text-decoration: none;
   display: block;
-  border-radius: 4px;
+  border-radius: 6px; /* Rounded corners for dropdown items */
   transition: background 0.3s ease;
 }
 
@@ -143,7 +143,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: 25px; /* Adjusted gap */
     display: none; /* Initially hidden */
   }
 
@@ -159,7 +159,7 @@
 
   /* Navbar Logo on Mobile */
   .navbar-logo-container {
-    width: 60px; /* Smaller logo size for mobile */
-    height: 60px;
+    width: 80px; /* Adjusted logo size for mobile */
+    height: 80px;
   }
 }
