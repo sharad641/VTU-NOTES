@@ -62,40 +62,7 @@ function App() {
         <div className="loading-container">
           <div className="loader-wrapper">
             {/* 4 Large Cubes */}
-            <div className="cubes-container">
-              <div className="cube large">
-                <div className="side front"></div>
-                <div className="side back"></div>
-                <div className="side left"></div>
-                <div className="side right"></div>
-                <div className="side top"></div>
-                <div className="side bottom"></div>
-              </div>
-              <div className="cube large">
-                <div className="side front"></div>
-                <div className="side back"></div>
-                <div className="side left"></div>
-                <div className="side right"></div>
-                <div className="side top"></div>
-                <div className="side bottom"></div>
-              </div>
-              <div className="cube large">
-                <div className="side front"></div>
-                <div className="side back"></div>
-                <div className="side left"></div>
-                <div className="side right"></div>
-                <div className="side top"></div>
-                <div className="side bottom"></div>
-              </div>
-              <div className="cube large">
-                <div className="side front"></div>
-                <div className="side back"></div>
-                <div className="side left"></div>
-                <div className="side right"></div>
-                <div className="side top"></div>
-                <div className="side bottom"></div>
-              </div>
-            </div>
+            
              {/* Logo in a similar style to your Navbar */}
              <div className="navbar-logo-container1 show">
           <img src={vtuLogo} alt="VTU Logo" className="navbar-logo" />
