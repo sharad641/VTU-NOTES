@@ -1,6 +1,6 @@
 /* Footer Styling */
 .footer {
-  background: linear-gradient(135deg, #6e7ff3, #00d2d2); /* Modern gradient */
+  background: linear-gradient(135deg, #6a1b9a, #00bcd4); /* Bold gradient with purple and teal */
   color: #fff;
   padding: 60px 20px; /* Increased padding for better spacing */
   font-family: 'Poppins', sans-serif;
@@ -11,6 +11,9 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Add shadow for modern feel */
+  border-top-left-radius: 20px; /* Rounded corners */
+  border-top-right-radius: 20px;
 }
 
 /* Adding a subtle background blur effect for the footer */
@@ -21,7 +24,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.1); /* Subtle overlay for improved readability */
+  background: rgba(0, 0, 0, 0.15); /* Subtle overlay for improved readability */
   z-index: -1;
 }
 
@@ -32,20 +35,84 @@
   width: 100%;
   margin-bottom: 40px;
   flex-wrap: wrap;
-  gap: 30px; /* Added gap between the footer sections */
+  gap: 30px;
+  transition: all 0.3s ease-in-out;
 }
 
-.footer-content {
+/* Footer Content Styling */
+.footer-content,
+.footer-links,
+.footer-social,
+.footer-discussion-box {
   flex: 1;
   padding: 20px;
   max-width: 400px;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background for depth */
+  transition: transform 0.3s ease-in-out;
 }
 
+.footer-content:hover,
+.footer-links:hover,
+.footer-social:hover,
+.footer-discussion-box:hover {
+  transform: translateY(-10px); /* Hover effect for interactivity */
+}
+
+/* Student Group Discussions Styling */
+.footer-discussion-box {
+  background-color: #212121; /* Darker background for contrast */
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer-discussion-box h4 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #00bcd4; /* Cyan color for headings */
+}
+
+.footer-discussion-box p {
+  font-size: 1.1rem;
+  color: #e0e0e0; /* Light grey for text */
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.footer-discussion-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-discussion-box li {
+  margin-bottom: 12px;
+}
+
+.footer-discussion-box a {
+  color: #ff4081; /* Bright pink for links */
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.footer-discussion-box a:hover {
+  color: #fff; /* White color on hover */
+  transform: translateX(5px); /* Smooth sliding effect on hover */
+}
+
+/* Footer Content Styling */
 .footer-content h3 {
-  font-size: 2.8rem; /* Larger heading for better emphasis */
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 15px;
-  letter-spacing: 1px; /* Added letter spacing for a modern feel */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
 }
 
 .footer-content p {
@@ -53,28 +120,16 @@
   color: #d1d1d1;
   line-height: 1.8;
   margin-bottom: 15px;
-  opacity: 0.9; /* Slightly reduced opacity for text */
-  transition: opacity 0.3s ease;
-}
-
-.footer-content p:hover {
-  opacity: 1; /* Hover effect to increase visibility */
-}
-
-.footer-links,
-.footer-social {
-  flex: 1;
-  padding: 20px;
-  max-width: 300px;
 }
 
 .footer-links h4,
 .footer-social h4 {
-  font-size: 1.8rem; /* Slightly larger subheadings */
+  font-size: 1.8rem;
   font-weight: 600;
   margin-bottom: 20px;
-  text-transform: uppercase; /* Uppercase text for style */
-  letter-spacing: 1px; /* Added letter spacing */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
 }
 
 .footer-links ul,
@@ -94,20 +149,24 @@
   color: #fff;
   font-size: 1.2rem;
   transition: color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .footer-links a:hover,
 .footer-social a:hover {
-  color: #00d2d2; /* Highlight color on hover */
-  transform: translateX(5px); /* Smooth sliding effect on hover */
+  color: #ff4081; /* Bright pink on hover */
+  transform: translateX(5px); /* Smooth sliding effect */
 }
 
+/* Footer Bottom */
 .footer-bottom {
   margin-top: 40px;
   font-size: 1rem;
   color: #d1d1d1;
   text-align: center;
   font-weight: 400;
+  opacity: 0.8;
 }
 
 .footer-bottom p {
@@ -115,28 +174,36 @@
   letter-spacing: 0.5px;
 }
 
+/* Footer Social Icons */
+.footer-social a::before {
+  content: '➤';
+  margin-right: 10px;
+}
+
 /* Responsive Design for Smaller Screens */
 @media (max-width: 768px) {
   .footer-top {
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Reduced gap for mobile */
+    gap: 20px;
   }
 
   .footer-content,
   .footer-links,
-  .footer-social {
+  .footer-social,
+  .footer-discussion-box {
     text-align: center;
     margin-bottom: 25px;
+    max-width: 100%;
   }
 
   .footer-content h3 {
-    font-size: 2.2rem; /* Slightly smaller heading */
+    font-size: 2.4rem;
   }
 
   .footer-links h4,
   .footer-social h4 {
-    font-size: 1.4rem; /* Slightly smaller subheading */
+    font-size: 1.5rem;
   }
 
   .footer-links a,
@@ -147,9 +214,13 @@
   .footer-bottom {
     font-size: 0.9rem;
   }
+
+  .footer-discussion-box {
+    width: 100%;
+  }
 }
 
-/* Animations for Footer Content (to make it more engaging) */
+/* Animation */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -163,7 +234,8 @@
 
 .footer-content,
 .footer-links,
-.footer-social {
+.footer-social,
+.footer-discussion-box {
   animation: fadeInUp 0.6s ease-in-out;
 }
 
@@ -177,4 +249,8 @@
 
 .footer-social:nth-child(3) {
   animation-delay: 0.5s;
+}
+
+.footer-discussion-box {
+  animation-delay: 0.6s;
 }

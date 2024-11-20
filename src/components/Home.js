@@ -94,11 +94,20 @@ const Home = () => {
 
             {/* Contact Box */}
             <section className="contact-box">
-                <h2>Contact</h2>
-                <p>If you have questions or need assistance with notes, please reach out to us. We’re here to help!</p>
-                <p>Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a></p>
-                <p>Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a></p>
-            </section>
+    <h2>Contact</h2>
+    <p>If you have questions or need assistance with notes, please reach out to us. We’re here to help!</p>
+    <p>Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a></p>
+    <p>Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a></p>
+    <p>LinkedIn:
+        <a href="https://www.linkedin.com/in/sharad-patil-691902259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           className="contact-link">
+            LinkedIn
+        </a>
+    </p>
+</section>
+
         </div>
     );
 };
