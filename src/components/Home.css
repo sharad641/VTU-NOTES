@@ -475,3 +475,162 @@ html, body {
   }
 
 }
+/* Container for Follow Us Section */
+.follow-us-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 40px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc, #0e0c82); /* Multi-color gradient */
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  position: relative;
+}
+
+.follow-us-container:hover {
+  transform: translateY(-8px);  /* Slight lift effect on hover */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.15); /* Darken on hover for contrast */
+}
+
+/* Heading Style for Follow Us */
+.follow-us-container h4 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 25px;
+  text-align: center;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Enhanced text shadow */
+  font-family: 'Poppins', sans-serif; /* Modern, clean font */
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+/* Responsive Font Size for Heading */
+@media (max-width: 768px) {
+  .follow-us-container h4 {
+    font-size: 2rem;
+  }
+}
+
+/* Styling the Follow Us List (Social Media Links) */
+.follow-us-list {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 30px;
+  margin: 0;
+  transition: transform 0.3s ease;
+}
+
+.follow-us-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+/* Styling individual social media links */
+.follow-us-list li a {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #0c0a0a;
+  text-decoration: none;
+  padding: 20px 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2); /* Lighter background for social links */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 180px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px); /* Blur effect behind the button */
+}
+
+/* Hover effects for individual social media links */
+.follow-us-list li a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #090808;
+  transform: scale(1.1);  /* Slight zoom-in effect */
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.follow-us-list li a i {
+  font-size: 2.4rem;
+  margin-right: 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Icon color and size change on hover */
+.follow-us-list li a:hover i {
+  color: #FFD700; /* Golden color for icons on hover */
+  transform: scale(1.4); /* Increase icon size */
+}
+
+/* Add a glowing effect when hovered over */
+.follow-us-list li a:hover::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.4), rgba(255, 215, 0, 0));
+  animation: glowing 1.5s infinite ease-in-out;
+}
+
+@keyframes glowing {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Active Effect when clicked (Press down) */
+.follow-us-list li a:active {
+  transform: translateY(3px);  /* Simulate press-down effect */
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .follow-us-container {
+      padding: 30px;
+      width: 90%;
+  }
+
+  .follow-us-list {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .follow-us-list li a {
+      width: 160px;
+      height: 160px;
+  }
+  
+  .follow-us-container h4 {
+      font-size: 2rem;
+  }
+}

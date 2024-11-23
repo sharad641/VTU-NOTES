@@ -88,6 +88,7 @@ const Home = () => {
                     {showChatbot ? 'Hide Chatbot' : 'Chat with Us!'}
                 </button>
             </div>
+           
 
             {/* Conditionally render the ChatBot component */}
             {showChatbot && <ChatBot />}
@@ -98,15 +99,19 @@ const Home = () => {
     <p>If you have questions or need assistance with notes, please reach out to us. We’re here to help!</p>
     <p>Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a></p>
     <p>Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a></p>
-    <p>LinkedIn:
-        <a href="https://www.linkedin.com/in/sharad-patil-691902259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           className="contact-link">
-            LinkedIn
-        </a>
-    </p>
+    
+
+    {/* Follow Us Section */}
+    <h4>Follow Us</h4>
+    <ul className="follow-us-list">
+    <li><a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Whatsapp 1</a></li>
+    <li><a href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Whatsapp 2</a></li>
+    <li><a href="https://www.linkedin.com/in/sharad-patil-691902259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
+    <li><a href="https://www.instagram.com/vtuno_tes/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i>Instagram</a></li>
+</ul>
+
 </section>
+
 
         </div>
     );
