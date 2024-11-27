@@ -43,7 +43,7 @@
 .calculator-section {
     margin-top: 20px;
     padding: 25px;
-    background: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
+    background: rgba(18, 12, 12, 0.85); /* Slightly transparent white */
     border-radius: 20px;
     box-shadow: 0 8px 25px var(--shadow-light);
     backdrop-filter: blur(10px); /* Subtle glassmorphism effect */
@@ -102,7 +102,7 @@
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    color: #1a1717;
+    color: #ede9e9;
     background-color: var(--button-color);
     transition: background-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     box-shadow: 0 6px 15px rgba(130, 192, 165, 0.2);

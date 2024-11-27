@@ -1,57 +1,65 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Import Link for internal navigation
-import './Navbar.css'; // Assuming you have corresponding CSS file
-import vtuLogo from '../assets/logo.jpg';
-import { FaBars, FaTimes } from 'react-icons/fa'; // Import icons for mobile menu toggle
+import { Link } from 'react-router-dom';
+import './Navbar.css';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import vtuLogo from '../assets/logo.jpg'; // Adjust the path if needed
 
 const Navbar = () => {
     const [isMobile, setIsMobile] = useState(false);
 
-    // Function to toggle the mobile menu
+    // Toggle the mobile menu
     const toggleMenu = () => setIsMobile(!isMobile);
 
-    // Function to close the menu when the Home link is clicked
+    // Close the mobile menu
     const closeMenu = () => setIsMobile(false);
 
     return (
         <nav className="navbar">
-            {/* Logo */}
+            {/* Logo Section */}
             <div className="navbar-logo-container">
-                <img src={vtuLogo} alt="VTU Logo" className="navbar-logo" />
+                <Link to="/" onClick={closeMenu}>
+                    <img src={vtuLogo} alt="VTU Logo" className="navbar-logo" />
+                </Link>
             </div>
 
-            {/* Navbar Links */}
+            {/* Navigation Links */}
             <ul className={`nav-links ${isMobile ? 'active' : ''}`}>
                 <li>
-                    {/* Close the mobile menu when Home is clicked */}
                     <Link to="/" className="nav-link" onClick={closeMenu}>Home</Link>
                 </li>
+                
                 <li>
-                    <Link to="/about" className="nav-link" onClick={closeMenu}>About</Link>
+                    <Link to="/calculator" className="nav-link" onClick={closeMenu}>CGPA Calculator</Link>
                 </li>
                 <li>
                     <Link to="/placement-guide" className="nav-link" onClick={closeMenu}>Placement Guide</Link>
                 </li>
                 <li>
+                    <Link to="/faqs" className="nav-link" onClick={closeMenu}>FAQs</Link>
+                </li>
+                <li>
                     <Link to="/chatbot" className="nav-link" onClick={closeMenu}>Chatbot</Link>
                 </li>
                 <li>
-                    <Link to="/contact" className="nav-link" onClick={closeMenu}>Contact</Link>
+                    <Link to="/upload" className="nav-link" onClick={closeMenu}>Upload Notes</Link>
                 </li>
-
-                {/* Dropdown Menu */}
                 <li className="dropdown">
-                    <a href="#more" className="dropdown-toggle">More</a>
+                    {/* Dropdown for Branch Selection */}
+                    <span className="dropdown-toggle">Branches</span>
                     <div className="dropdown-content">
-                        <Link to="/upload" className="dropdown-item" onClick={closeMenu}>Upload Notes</Link>
-                        <Link to="/calculator" className="dropdown-item" onClick={closeMenu}>CGPA Calculator</Link>
-                        <Link to="/faqs" className="dropdown-item" onClick={closeMenu}>FAQs</Link>
+                        <Link to="/branch-selection/2021" className="dropdown-item" onClick={closeMenu}>Scheme 2021</Link>
+                        <Link to="/branch/cse" className="dropdown-item" onClick={closeMenu}>CSE</Link>
+                        <Link to="/branch/ece" className="dropdown-item" onClick={closeMenu}>ECE</Link>
+                        {/* Add other branches if needed */}
+                        <li>
+                    <Link to="/bee-scene" className="nav-link" onClick={closeMenu}>Bee Scene(just for fun)</Link>
+                </li>
                     </div>
                 </li>
             </ul>
 
-            {/* Hamburger Menu for Mobile */}
-            <div className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation menu">
+            {/* Mobile Menu Hamburger Icon */}
+            <div className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation">
                 {isMobile ? <FaTimes size={30} color="#fff" /> : <FaBars size={30} color="#fff" />}
             </div>
         </nav>
