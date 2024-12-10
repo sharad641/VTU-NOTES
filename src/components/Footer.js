@@ -32,8 +32,18 @@ function Footer() {
         </a>
         <a href="https://www.linkedin.com/in/sharad-patil-691902259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer" className="social-icon">
           <i className="fab fa-linkedin-in"></i>
+          
         </a>
+        
       </div>
+       {/* Follow Us Section */}
+    <h4>Follow Us</h4>
+    <ul className="follow-us-list">
+    <li><a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Whatsapp </a></li>
+    <li><a href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Whatsapp </a></li>
+    
+    
+</ul>
 
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} VTU-NOTES | All Rights Reserved</p>

@@ -101,16 +101,13 @@ const Home = () => {
     <p>Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a></p>
     
 
-    {/* Follow Us Section */}
-    <h4>Follow Us</h4>
-    <ul className="follow-us-list">
-    <li><a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Whatsapp </a></li>
-    <li><a href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Whatsapp </a></li>
-    <li><a href="https://www.linkedin.com/in/sharad-patil-691902259?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
-    <li><a href="https://www.instagram.com/vtuno_tes/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i>Instagram</a></li>
-</ul>
+   
+    
+
 
 </section>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9499544849301534"
+     crossorigin="anonymous"></script>
 
 
         </div>
