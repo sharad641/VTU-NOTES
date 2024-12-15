@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { analytics } from '../firebase';
 import { logEvent } from 'firebase/analytics';
+
 import './Home.css';
 import ChatBot from './ChatBot'; // Importing the ChatBot component
 
@@ -12,7 +13,6 @@ const Home = () => {
 
     // Handle Scheme Click
     const handleSchemeClick = (scheme) => {
-       
         // Log the scheme selection event
         logEvent(analytics, 'scheme_click', { scheme_name: scheme });
 
@@ -30,8 +30,8 @@ const Home = () => {
         <div className="home-container">
             {/* Headline with marquee effect */}
             <div className="headline-message">
-                <div className="marquee-text">A new feature has been added for placement test login. Please review it.
-                   
+                <div className="marquee-text">
+                    A new feature has been added for placement test login. Please review it.
                     <span> "The notes for ECE have not been uploaded yet; work is in progress. Please wait for some time."</span>
                 </div>
             </div>
@@ -51,6 +51,20 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Google AdSense Ad */}
+            <section className="ad-container">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9499544849301534" crossorigin="anonymous"></script>
+                <ins className="adsbygoogle"
+                    style={{ display: 'block' }}
+                    data-ad-client="ca-pub-9499544849301534"
+                    data-ad-slot="5533994362"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    {`(adsbygoogle = window.adsbygoogle || []).push({});`}
+                </script>
+            </section>
+
             {/* Scheme Selection */}
             <section className="scheme-selection-box">
                 <h2>Select Scheme For Notes</h2>
@@ -58,7 +72,6 @@ const Home = () => {
                 <span className="scheme-link clickable" onClick={() => handleSchemeClick('2021')}>2021 Scheme</span>
                 <span className="scheme-link clickable" onClick={() => handleSchemeClick('2018')}>2018 Scheme</span>
                 {showMessage && <p className="info-message">{message}</p>}
-                <p></p>
             </section>
 
             {/* SGPA Calculator */}
@@ -88,30 +101,19 @@ const Home = () => {
                     {showChatbot ? 'Hide Chatbot' : 'Chat with Us!'}
                 </button>
             </div>
-           
 
             {/* Conditionally render the ChatBot component */}
             {showChatbot && <ChatBot />}
 
             {/* Contact Box */}
             <section className="contact-box">
-    <h2>Contact</h2>
-    <p>If you have questions or need assistance with notes, please reach out to us. We’re here to help!</p>
-    <p>Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a></p>
-    <p>Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a></p>
-    
-
-   
-    
-
-
-</section>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9499544849301534"
-     crossorigin="anonymous"></script>
-
-
+                <h2>Contact</h2>
+                <p>If you have questions or need assistance with notes, please reach out to us. We’re here to help!</p>
+                <p>Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a></p>
+                <p>Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a></p>
+            </section>
         </div>
     );
 };
 
-export default Home;  
+export default Home;

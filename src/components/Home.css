@@ -556,3 +556,7 @@ html, body {
     font-size: 1.8rem;
   }
 }
+.ad-container {
+  margin: 20px 0;
+  text-align: center;
+}

@@ -1474,16 +1474,16 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1YceYR78zBUnVX63fFEH5uB6bMPPlSJsJ/preview",
             },
             {
-              title: "Module 4: Notes",
+              title: "All Modules : Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1YceYR78zBUnVX63fFEH5uB6bMPPlSJsJ/preview",
+                "https://drive.google.com/file/d/1aJrf2UKi1_49OP9AxYrmWKnQ2oJjs5Je/preview",
             },
             {
-              title: "Module 5: Notes",
+              title: "All Module : Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1YceYR78zBUnVX63fFEH5uB6bMPPlSJsJ/preview",
+                "https://drive.google.com/file/d/1aJrf2UKi1_49OP9AxYrmWKnQ2oJjs5Je/preview",
             },
          {
             title: "Question Paper",
@@ -1518,19 +1518,19 @@ const ModuleDetail = () => {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1RbXDmPnarTPkZGXvgfh7hPu2Kw28kK09/preview",
+                "https://drive.google.com/file/d/1IqLTWccbeljeD8St7l0Y_4UYwH1oSvaI/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1C-NdZoBMlowJOaKTi_JUvEhcqaYHSEId/preview",
+                "https://drive.google.com/file/d/13eEHod_0uInsozf1IiOMYw486sYhuRZp/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
+                "https://drive.google.com/file/d/13eEHod_0uInsozf1IiOMYw486sYhuRZp/preview",
             },
           {
             title: "Question Paper",
@@ -1562,16 +1562,16 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1UqP3Q51_T-0aGTk8QQeBjWSF2y4oeEto/preview",
             },
             {
-              title: "Module 3: Notes",
+              title: "All modules: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1UqP3Q51_T-0aGTk8QQeBjWSF2y4oeEto/preview",
+                "https://drive.google.com/file/d/1qA6AdWzxYGo7NNPSQPAMFIwkV6ffQjXP/preview",
             },
             {
-              title: "Module 4: Notes",
+              title: " All Modules : Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1UqP3Q51_T-0aGTk8QQeBjWSF2y4oeEto/preview",
+                "https://drive.google.com/file/d/1VI2ROOwN_G0wvYjNXtqzDq047P4eiOyg/preview",
             },
             {
               title: "Module 5: Notes",
