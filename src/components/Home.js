@@ -111,6 +111,11 @@ const Home = () => {
                 <p>If you have questions or need assistance with notes, please reach out to us. We’re here to help!</p>
                 <p>Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a></p>
                 <p>Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a></p>
+               
+    <ul className="follow-us-list1">
+    <li><a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Whatsapp group 1</a></li>
+    <li><a href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Whatsapp group 2</a></li>
+    </ul>
             </section>
         </div>
     );

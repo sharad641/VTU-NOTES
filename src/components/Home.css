@@ -560,3 +560,82 @@ html, body {
   margin: 20px 0;
   text-align: center;
 }
+/* Follow Us Section */
+h4 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  font-family: var(--font-family);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.follow-us-list1 {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.follow-us-list1 li {
+  display: inline-block;
+  margin: 10px 20px;
+}
+
+.follow-us-list1 li a {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 25px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--dark-blue-grey);
+  background-color: var(--light-blue);
+  border-radius: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.follow-us-list1 li a i {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Hover Effects */
+.follow-us-list1 li a:hover {
+  background-color: var(--highlight-color);
+  color: #ffffff;
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Active State */
+.follow-us-list1 li a:active {
+  transform: translateY(2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .follow-us-list1 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .follow-us-list1 li {
+      margin: 10px 0;
+  }
+
+  h4 {
+      font-size: 1.8rem;
+  }
+
+  .follow-us-list1 li a {
+      font-size: 1rem;
+      padding: 10px 20px;
+  }
+
+  .follow-us-list1 li a i {
+      font-size: 1.3rem;
+  }
+}

@@ -3,23 +3,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px; /* Adjusted padding for better balance */
-  background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Soft gradient */
-  backdrop-filter: blur(8px); /* Slightly reduced blur for better text readability */
-  color: #fff; /* White text for contrast */
+  padding: 15px 30px;
+  background: linear-gradient(135deg, #6dd5ed, #2193b0);
+  backdrop-filter: blur(10px);
+  color: #fff;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Reduced shadow for a lighter feel */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   width: 100%;
-  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease; /* Added smooth transition */
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar:hover {
-  background: linear-gradient(135deg, #2193b0, #6dd5ed); /* Reverse gradient on hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
-  transform: translateY(-2px); /* Slight elevation on hover */
+  background: linear-gradient(135deg, #2193b0, #6dd5ed);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Navbar Logo Container */
@@ -29,9 +28,9 @@
   align-items: center;
   border-radius: 50%;
   overflow: hidden;
-  width: 100px; /* Updated logo container size */
-  height: 100px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Refined shadow */
+  width: 80px;
+  height: 80px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
@@ -43,21 +42,17 @@
 }
 
 .navbar-logo-container:hover {
-  transform: scale(1.1); /* Slight zoom effect */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 /* Navbar Links */
 .nav-links {
   display: flex;
-  gap: 30px; /* Balanced gap between links */
+  gap: 30px;
   font-size: 16px;
-  font-weight: 600; /* Slightly bolder font weight */
+  font-weight: 600;
   list-style: none;
-}
-
-.nav-links li {
-  position: relative;
 }
 
 .nav-links li a {
@@ -67,17 +62,13 @@
 }
 
 .nav-links li a:hover {
-  color: #f0a500; /* Highlight color */
-  transform: translateY(-4px); /* More pronounced lift effect */
+  color: #f0a500;
+  transform: translateY(-4px);
 }
 
 /* Dropdown Menu */
 .nav-links .dropdown {
   position: relative;
-}
-
-.nav-links .dropdown:hover .dropdown-content {
-  display: block;
 }
 
 .nav-links .dropdown-content {
@@ -87,13 +78,19 @@
   left: 0;
   background-color: #fff;
   color: #000;
-  min-width: 220px; /* Slightly wider dropdown */
+  min-width: 220px;
   padding: 10px 0;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
-  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav-links .dropdown:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 .nav-links .dropdown-content a {
@@ -102,17 +99,13 @@
   font-size: 15px;
   text-decoration: none;
   display: block;
-  border-radius: 6px; /* Rounded corners for dropdown items */
-  transition: background 0.3s ease;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 .nav-links .dropdown-content a:hover {
-  background-color: #f0a500; /* Highlight color for dropdown items */
-}
-
-.nav-links .dropdown:hover .dropdown-content {
-  opacity: 1;
-  visibility: visible;
+  background-color: #f0a500;
+  color: #fff;
 }
 
 /* Hamburger Menu for Mobile */
@@ -128,38 +121,66 @@
   height: 4px;
   background-color: #fff;
   border-radius: 5px;
+  transition: background 0.3s ease;
 }
 
-/* Media Queries for Responsiveness */
+/* Mobile-Specific Styling */
 @media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
   /* Navbar Links in Mobile */
   .nav-links {
-    position: absolute;
-    top: 80px;
-    right: 0;
-    background: rgba(0, 0, 0, 0.8); /* Dark background for mobile menu */
+    position: fixed;
+    top: 60px;
+    left: 0;
+    background: rgba(0, 0, 0, 0.9);
     width: 100%;
-    height: 100vh;
+    height: calc(100vh - 60px);
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 25px; /* Adjusted gap */
-    display: none; /* Initially hidden */
+    gap: 30px;
+    display: none;
+    z-index: 999;
+    transition: transform 0.3s ease;
   }
 
-  /* Active class for the navbar menu */
+  .nav-links li a {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
   .nav-links.active {
     display: flex;
   }
 
   /* Hamburger Menu */
   .hamburger {
-    display: flex; /* Show hamburger on mobile */
+    display: flex;
   }
 
   /* Navbar Logo on Mobile */
   .navbar-logo-container {
-    width: 80px; /* Adjusted logo size for mobile */
-    height: 80px;
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Smooth Transition for Hamburger Animation */
+  .hamburger .bar {
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
   }
 }

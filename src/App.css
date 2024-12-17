@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Overall loading overlay with darkened background */
@@ -16,7 +17,7 @@
   display: grid;
   place-items: center;
   z-index: 1000;
-  animation: fadeInOverlay 2s ease-out;
+  animation: fadeInOverlay 1.5s ease-out;
 }
 
 /* Fade-in overlay animation */
@@ -44,7 +45,7 @@
   100% { opacity: 1; }
 }
 
-
+/* Small box styling */
 .small-boxes {
   position: absolute;
   top: 50%;
@@ -58,24 +59,19 @@
   animation: floatEffect 3s infinite ease-in-out;
 }
 
-/* Small box styling */
+/* Positioning small boxes */
 .small-box {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   background-color: #FF00CC; /* Vibrant Color */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
   animation: waterEffect 3s infinite alternate ease-in-out;
 }
 
-/* Positioning small boxes */
-.small-box.top { position: absolute; top: -50px; left: 50%; transform: translateX(-50%); }
-.small-box.bottom { position: absolute; bottom: -50px; left: 50%; transform: translateX(-50%); }
-.small-box.left { position: absolute; left: -50px; top: 50%; transform: translateY(-50%); }
-.small-box.right { position: absolute; right: -50px; top: 50%; transform: translateY(-50%); }
-
 /* Water-like effect for small boxes */
 @keyframes waterEffect {
-  0% { transform: scale(0.8); opacity: 0.6; }
+  0% { transform: scale(0.8); opacity: 0.7; }
   100% { transform: scale(1.2); opacity: 1; }
 }
 
@@ -88,22 +84,15 @@
 
 /* Welcome text */
 .welcome-text h1 {
-  font-size: 60px;
+  font-size: 70px;
   font-weight: 900;
   text-transform: uppercase;
   color: #fff;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   animation: neonGlow 1.5s ease-in-out infinite alternate;
   text-shadow: 0 0 15px #00ff99, 0 0 30px #00ff99, 0 0 60px #00ff99;
-}
-
-.welcome-text p {
-  font-size: 22px;
-  color: #fff;
-  font-style: italic;
-  opacity: 0.8;
-  animation: fadeInText 1.5s ease-in-out;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  letter-spacing: 5px;
+  transition: transform 0.3s ease-in-out;
 }
 
 /* Neon Glow Effect */
@@ -111,6 +100,17 @@
   0% { text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99, 0 0 30px #00ff99; }
   50% { text-shadow: 0 0 30px #ff00cc, 0 0 50px #ff00cc, 0 0 70px #ff00cc; }
   100% { text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99, 0 0 30px #00ff99; }
+}
+
+.welcome-text p {
+  font-size: 24px;
+  color: #fff;
+  font-style: italic;
+  opacity: 0.8;
+  animation: fadeInText 1.5s ease-in-out;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  transform: translateY(10px);
+  transition: transform 0.3s ease;
 }
 
 /* Fade-in animation for text */
@@ -121,13 +121,14 @@
 
 /* 3D Text Effect */
 .three-d-text {
-  font-size: 70px;
+  font-size: 80px;
   font-weight: 900;
   color: #fff;
   position: relative;
   text-transform: uppercase;
   letter-spacing: 5px;
   animation: text3dEffect 1s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .three-d-text::before {
@@ -144,6 +145,42 @@
   0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
+}
+
+/* Modern Navbar Logo Container */
+.navbar-logo-container1 {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+  margin-bottom: 30px;
+  animation: fadeInLogo 2s ease-out forwards;
+}
+
+.navbar-logo {
+  width: 150px;
+  height: auto;
+  border-radius: 12px; /* Smoother rounded corners for modern look */
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Add more prominent shadow */
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Fade-in effect for the logo */
+@keyframes fadeInLogo {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect - logo */
+.navbar-logo:hover {
+  transform: scale(1.1); /* Slight zoom-in effect on hover */
+  filter: brightness(1.2); /* Increase brightness */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
 }
 
 /* Add Parallax effect for page background */
@@ -165,7 +202,7 @@
   }
 
   .welcome-text h1 {
-    font-size: 32px;
+    font-size: 40px;
   }
 
   .welcome-text p {
@@ -191,38 +228,4 @@
   .welcome-text p {
     font-size: 16px;
   }
-}
-/* Modern Navbar Logo Container */
-.navbar-logo-container1 {
-  position: relative;
-  display: inline-block;
-  z-index: 10;
-  margin-bottom: 30px;
-  animation: fadeInLogo 2s ease-out forwards;
-}
-
-.navbar-logo {
-  width: 150px; /* Adjust the logo size */
-  height: auto;
-  border-radius: 10px; /* Rounded corners for a more modern look */
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
-  transition: transform 0.3s ease, filter 0.3s ease; /* Smooth scale and filter effect */
-}
-
-/* Fade-in effect for the logo */
-@keyframes fadeInLogo {
-  0% {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Hover effect - logo */
-.navbar-logo:hover {
-  transform: scale(1.1); /* Slight zoom-in effect on hover */
-  filter: brightness(1.2); /* Increase brightness */
 }

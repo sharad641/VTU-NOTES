@@ -36,15 +36,6 @@ function Footer() {
         </a>
         
       </div>
-       {/* Follow Us Section */}
-    <h4>Follow Us</h4>
-    <ul className="follow-us-list">
-    <li><a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Whatsapp </a></li>
-    <li><a href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Whatsapp </a></li>
-    
-    
-</ul>
-
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} VTU-NOTES | All Rights Reserved</p>
       </div>
