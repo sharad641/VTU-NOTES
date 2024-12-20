@@ -1,14 +1,14 @@
 /* Global Variables (CSS Custom Properties) */
 :root {
-    --primary-color: #6dd6c3; /* Mint Green */
+    --primary-color: #6c9e9b; /* Soft Teal */
     --secondary-color: #ffffff; /* White for cards */
-    --accent-color: #f1a7a3; /* Soft Coral */
-    --focus-color: #b39ddb; /* Soft Lavender */
-    --text-color: #4a4a4a; /* Charcoal Gray */
-    --bg-color: #f7fafc; /* Light Grayish Blue */
-    --input-border: #e0e0e0; /* Light gray border */
-    --shadow-light: rgba(0, 0, 0, 0.08); /* Light shadow for subtle depth */
-    --shadow-dark: rgba(0, 0, 0, 0.15); /* Darker shadow for floating effect */
+    --accent-color: #f8b5b1; /* Warm Peach */
+    --focus-color: #a7c9c7; /* Light Seafoam Green */
+    --text-color: #3d3d3d; /* Charcoal Gray */
+    --bg-color: #f0f4f8; /* Very Light Blue */
+    --input-border: #d1d1d1; /* Soft Gray for borders */
+    --shadow-light: rgba(0, 0, 0, 0.1); /* Light shadow */
+    --shadow-dark: rgba(0, 0, 0, 0.2); /* Darker shadow */
     --font-family: 'Roboto', sans-serif; /* Clean and modern font */
 }
 
@@ -43,7 +43,7 @@
 .calculator-section {
     margin-top: 20px;
     padding: 25px;
-    background: rgba(18, 12, 12, 0.85); /* Slightly transparent white */
+    background: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
     border-radius: 20px;
     box-shadow: 0 8px 25px var(--shadow-light);
     backdrop-filter: blur(10px); /* Subtle glassmorphism effect */
@@ -90,7 +90,7 @@
 
 .input-field:focus {
     border-color: var(--focus-color);
-    box-shadow: 0 0 12px rgba(179, 157, 219, 0.5);
+    box-shadow: 0 0 12px rgba(167, 201, 199, 0.5);
 }
 
 /* Buttons */
@@ -102,8 +102,8 @@
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    color: #ede9e9;
-    background-color: var(--button-color);
+    color: #fff;
+    background-color: var(--primary-color);
     transition: background-color 0.3s, transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     box-shadow: 0 6px 15px rgba(130, 192, 165, 0.2);
 }
@@ -111,7 +111,7 @@
 .button:hover {
     background-color: var(--focus-color);
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(179, 157, 219, 0.3);
+    box-shadow: 0 10px 30px rgba(167, 201, 199, 0.3);
 }
 
 .button:active {

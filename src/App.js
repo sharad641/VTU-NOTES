@@ -35,7 +35,7 @@ function App() {
     // Set a timer to keep the spinner on screen for 5 seconds
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4000); // 4 seconds for loading screen
+    }, 2000); // 4 seconds for loading screen
 
     return () => {
       unsubscribe();

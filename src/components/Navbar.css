@@ -30,20 +30,69 @@
   overflow: hidden;
   width: 80px;
   height: 80px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for emphasis */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
   cursor: pointer;
+  background-color: #fff; /* Adding a white background to make the logo stand out */
 }
 
 .navbar-logo {
   width: 100%;
   height: auto;
   object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
+/* Hover Effect on Logo */
 .navbar-logo-container:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transform: scale(1.2); /* Increased scale effect for a stronger zoom */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+  filter: brightness(1.2); /* Brightens the logo on hover */
+}
+
+/* Adding a glow effect */
+.navbar-logo-container:hover .navbar-logo {
+  filter: drop-shadow(0 0 12px #f0a500); /* Glow effect for better focus */
+}
+
+
+/* Title in the Center of Navbar */
+.navbar-title {
+  font-size: 28px; /* Slightly larger font for better visibility */
+  font-weight: 700; /* Bolder font for emphasis */
+  color: #fff;
+  text-align: center;
+  flex: 1;
+  letter-spacing: 1px; /* Adds some spacing between letters for a cleaner look */
+  text-transform: uppercase; /* Makes the title uppercase for a modern look */
+  position: relative; /* To apply a text shadow more effectively */
+  z-index: 1;
+  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+}
+
+/* Adding a subtle text shadow for a modern touch */
+.navbar-title::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #ff6f61, #ffbb33);
+  background-clip: text;
+  color: transparent;
+  z-index: -1;
+  filter: blur(5px); /* Adds a soft blur to the shadow */
+}
+
+/* Hover effect for modern interaction */
+.navbar-title:hover {
+  transform: translateY(-4px); /* Slight upward movement */
+  color: #f0a500; /* Highlight color on hover */
+}
+
+.navbar-title:hover::after {
+  filter: blur(8px); /* Increase blur on hover for a more dynamic feel */
 }
 
 /* Navbar Links */
