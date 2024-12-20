@@ -17,10 +17,11 @@ import PlacementGuide from './components/PlacementGuide';
 import FAQs from './components/FAQs';
 import ChatBot from './components/ChatBot';
 import TestPage from './components/TestPage';
+import CommentSection from './components/CommentSection'; // Import the CommentSection component
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import './App.css';
-import vtuLogo from './logo.jpg';  // Import the CSS file
+import vtuLogo from './logo.jpg';  // Import the logo file
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -35,7 +36,7 @@ function App() {
     // Set a timer to keep the spinner on screen for 5 seconds
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 4000); // 5 seconds
+    }, 4000); // 4 seconds for loading screen
 
     return () => {
       unsubscribe();
@@ -61,21 +62,15 @@ function App() {
       <div className="loading-overlay">
         <div className="loading-container">
           <div className="loader-wrapper">
-            {/* 4 Large Cubes */}
-            
-             {/* Logo in a similar style to your Navbar */}
-             <div className="navbar-logo-container1 show">
-          <img src={vtuLogo} alt="VTU Logo" className="navbar-logo" />
-        </div>
-  
-            {/* 4 Smaller Boxes at each direction */}
+            <div className="navbar-logo-container1 show">
+              <img src={vtuLogo} alt="VTU Logo" className="navbar-logo" />
+            </div>
             <div className="small-boxes">
               <div className="small-box top"></div>
               <div className="small-box bottom"></div>
               <div className="small-box left"></div>
               <div className="small-box right"></div>
             </div>
-  
             <div className="welcome-text">
               <h1>Welcome to VTU-NOTES</h1>
               <p>Please wait while we load the content...</p>
@@ -85,7 +80,6 @@ function App() {
       </div>
     );
   }
-  
 
   return (
     <Router>
@@ -118,6 +112,9 @@ function App() {
           {/* Authentication Routes */}
           <Route path="/login" element={<RedirectAuthenticatedUser element={<Login setIsAuthenticated={setIsAuthenticated} />} />} />
           <Route path="/signup" element={<RedirectAuthenticatedUser element={<Signup />} />} />
+
+          {/* Comment Section Route */}
+          <Route path="/comments" element={<GuestRoute element={<CommentSection />} />} />
 
           {/* Catch-All Route */}
           <Route path="*" element={<Navigate to="/" />} />

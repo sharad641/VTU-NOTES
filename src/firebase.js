@@ -1,15 +1,15 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
 import { getFirestore } from 'firebase/firestore';
 import { getDatabase } from 'firebase/database'; // Import Realtime Database
-import { getAnalytics } from 'firebase/analytics'; // Import Analytics
+import { getAnalytics } from 'firebase/analytics';
 
 // Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCsVGY76nf-BpVOaU8USwAbyt6_nXgenB4",
   authDomain: "vtu-notes-e1d8d.firebaseapp.com",
+  databaseURL: "https://vtu-notes-e1d8d-default-rtdb.firebaseio.com", // Add the database URL
   projectId: "vtu-notes-e1d8d",
   storageBucket: "vtu-notes-e1d8d.appspot.com",
   messagingSenderId: "572338268953",
@@ -25,7 +25,7 @@ const auth = getAuth(app);
 const storage = getStorage(app);
 const firestore = getFirestore(app);
 const database = getDatabase(app); // Initialize Realtime Database
-const analytics = getAnalytics(app); // Initialize Analytics
+const analytics = getAnalytics(app);  // Initialize Analytics
 
 // Export the initialized services
-export { auth, storage, firestore, database, analytics };
+export { auth, storage, firestore, database, analytics }; // Include database in the export

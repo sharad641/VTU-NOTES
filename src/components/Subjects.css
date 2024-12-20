@@ -5,49 +5,40 @@
     align-items: center;
     padding: 40px 20px;
     min-height: 100vh;
-    background: #f4f4f9; /* Soft light gray background */
-    color: #333; /* Dark text for readability */
-    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f3e7e9, #e3eeff); /* Gradient background */
+    color: #333;
+    font-family: 'Poppins', sans-serif; /* Modern font */
     max-width: 1200px;
     margin: 0 auto;
     gap: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Subject Title */
 .subjects h2 {
-    font-size: 3rem;
-    margin: 40px 0;
+    font-size: 3.5rem;
+    margin: 20px 0;
     text-transform: uppercase;
     font-weight: 700;
-    color: #c2185b; /* Vibrant pinkish-red color */
-    letter-spacing: 2px;
+    color: #ff4e50;
+    letter-spacing: 3px;
     padding-bottom: 15px;
     position: relative;
     text-align: center;
-    animation: slideIn 1.2s ease-out; /* Slide-in effect */
+    animation: fadeIn 1.2s ease-out;
 }
 
 .subjects h2::after {
     content: '';
     position: absolute;
-    width: 70%;
-    height: 4px;
-    background: #c2185b; /* Matching vibrant color for the underline */
+    width: 100px;
+    height: 6px;
+    background: linear-gradient(to right, #ff4e50, #fc913a);
     bottom: 0;
-    left: 15%;
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 50px;
-}
-
-/* Keyframes for Slide-In Effect */
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 /* Grid Layout for Subject Boxes */
@@ -55,171 +46,159 @@
     list-style-type: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    justify-items: center;
     width: 100%;
 }
 
-/* Subject Box Styling */
+/* Subject Box Styling with Glassmorphism */
 .subject-box {
-    background: #ffffff; /* Clean white background */
-    padding: 25px;
-    border-radius: 15px;
-    transition: transform 0.4s ease, box-shadow 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
     text-align: left;
-    width: 100%;
-    max-width: 320px;
-    height: 320px; /* Fixed height for uniform boxes */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     color: #333;
-    animation: pulse 4s ease-in-out infinite; /* Slower pulse effect */
+    height: 360px;
 }
 
-/* Slower Pulse Animation */
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.03);
-    }
-    100% {
-        transform: scale(1);
-    }
+/* Gradient Border on Hover */
+.subject-box::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(135deg, #ff4e50, #fc913a);
+    z-index: -1;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 /* Hover Effect for Subject Box */
 .subject-box:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-    background: #ffebee; /* Soft blush color on hover */
-    animation: none; /* Remove pulse effect on hover */
+    transform: translateY(-12px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.subject-box:hover::before {
+    opacity: 1;
 }
 
 /* Subject Box Heading */
 .subject-box h3 {
-    font-size: 1.9rem;
+    font-size: 2.2rem;
     margin: 0;
-    font-weight: 600;
-    color: #c2185b; /* Vibrant pinkish-red for headings */
+    font-weight: 700;
+    color: #ff4e50;
     letter-spacing: 1px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.subject-box:hover h3 {
+    color: #fc913a;
 }
 
 /* Paragraph Styling */
 .subject-box p {
     font-size: 1.1rem;
     line-height: 1.6;
+    color: #555;
     margin-top: 10px;
-    color: #555; /* Darker gray for body text */
 }
 
 /* Subject Info Section */
 .subject-box .subject-info {
-    margin-bottom: 10px;
-    cursor: pointer;
     font-size: 1.1rem;
     font-weight: 500;
-    color: #0288d1; /* Soft blue color */
+    color: #1e88e5;
+    margin-bottom: 15px;
+    cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .subject-box .subject-info:hover {
-    color: #01579b; /* Darker blue on hover */
+    color: #1565c0;
 }
 
 /* Subject Code and Credits Box */
 .subject-box .subject-code,
 .subject-box .credits-box {
     font-size: 0.9rem;
-    color: #ffffff;
-    background: #00796b; /* Modern teal for subject code and credits */
-    padding: 5px 12px;
-    border-radius: 5px;
-    margin-top: 5px;
+    color: #fff;
+    background: #00796b;
+    padding: 8px 16px;
+    border-radius: 20px;
+    margin-top: 10px;
+    display: inline-block;
+    transition: background 0.3s ease;
 }
 
-/* Subject Details Box */
-.subject-box .subject-details {
-    font-size: 1rem;
-    color: #080303;
-    margin-top: 8px;
-    background: rgba(0, 0, 0, 0.05);
-    padding: 12px;
-    border-radius: 5px;
+.subject-box .subject-code:hover,
+.subject-box .credits-box:hover {
+    background: #004d40;
 }
 
-/* Button Styling */
+/* Button Styling with 3D Effect */
 .subject-box button {
-    color: #ffffff;
+    background: linear-gradient(to right, #ff4e50, #fc913a);
+    color: #fff;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
-    background: #c2185b; /* Vibrant pinkish-red button */
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease, text-shadow 0.3s ease;
+    transition: all 0.3s ease;
     font-size: 1.2rem;
-    margin-top: auto; /* Pushes the button to the bottom of the box */
-    padding: 12px 20px;
-    border-radius: 5px;
+    padding: 12px 25px;
+    border-radius: 50px;
+    margin-top: auto;
+    box-shadow: 0 4px 10px rgba(255, 78, 80, 0.4);
 }
 
 .subject-box button:hover {
-    background-color: #ad1457; /* Darker pinkish-red on hover */
-    text-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+    background: linear-gradient(to right, #e94057, #f27121);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(255, 78, 80, 0.6);
 }
 
-/* Responsive Styles */
+/* Marquee Styling */
+.headline-messagee {
+    background: linear-gradient(to right, #fff3e0, #ffe0b2);
+    color: #ff4e50;
+    padding: 16px;
+    border-radius: 20px;
+    margin: 20px auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: marquee 10s linear infinite;
+}
 
-/* Large Screens (Desktops) */
-@media (min-width: 1024px) {
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
     .subjects h2 {
-        font-size: 3.5rem;
+        font-size: 2.8rem;
     }
 
     .subject-box {
         height: 320px;
     }
-}
-
-/* Tablets (up to 1024px) */
-@media (max-width: 1024px) {
-    .subjects h2 {
-        font-size: 2.6rem;
-    }
-
-    .subject-box {
-        height: 280px;
-    }
-
-    .subject-box button {
-        font-size: 1.1rem;
-    }
-}
-
-/* Mobile Portrait (up to 768px) */
-@media (max-width: 768px) {
-    .subjects h2 {
-        font-size: 2.2rem;
-    }
-
-    .subjects ul {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .subject-box {
-        height: 260px;
-    }
 
     .subject-box h3 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .subject-box button {
@@ -227,10 +206,9 @@
     }
 }
 
-/* Mobile Landscape (up to 480px) */
 @media (max-width: 480px) {
     .subjects h2 {
-        font-size: 1.8rem;
+        font-size: 2.4rem;
     }
 
     .subjects ul {
@@ -238,56 +216,20 @@
     }
 
     .subject-box {
-        height: 220px;
+        height: 300px;
     }
 
     .subject-box h3 {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 }
 
-/* Marquee Styling */
-.headline-messagee {
-    background: #ffccbc; /* Soft peach background */
-    color: #c2185b; /* Vibrant pinkish-red text */
-    padding: 14px;
-    border-radius: 10px;
-    margin: 20px auto;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-}
-
-.marquee-container {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.marquee-text {
-    display: inline-block;
-    animation: marquee 20s linear infinite;
-    padding-left: 100%;
-}
-
+/* Keyframes for Marquee Animation */
 @keyframes marquee {
-    from {
+    0% {
         transform: translateX(100%);
     }
-    to {
+    100% {
         transform: translateX(-100%);
-    }
-}
-
-@media (max-width: 768px) {
-    .headline-messagee {
-        padding: 12px;
-        font-size: 1rem;
-    }
-
-    .marquee-text {
-        animation-duration: 25s;
     }
 }

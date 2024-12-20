@@ -1,3 +1,4 @@
+// src/components/Home.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { analytics } from '../firebase';
@@ -51,20 +52,6 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Google AdSense Ad */}
-            <section className="ad-container">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9499544849301534" crossorigin="anonymous"></script>
-                <ins className="adsbygoogle"
-                    style={{ display: 'block' }}
-                    data-ad-client="ca-pub-9499544849301534"
-                    data-ad-slot="5533994362"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
-                <script>
-                    {`(adsbygoogle = window.adsbygoogle || []).push({});`}
-                </script>
-            </section>
-
             {/* Scheme Selection */}
             <section className="scheme-selection-box">
                 <h2>Select Scheme For Notes</h2>
@@ -105,18 +92,31 @@ const Home = () => {
             {/* Conditionally render the ChatBot component */}
             {showChatbot && <ChatBot />}
 
+            {/* Comment Section Link */}
+            
+
+
             {/* Contact Box */}
             <section className="contact-box">
                 <h2>Contact</h2>
                 <p>If you have questions or need assistance with notes, please reach out to us. We’re here to help!</p>
                 <p>Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a></p>
                 <p>Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a></p>
-               
-    <ul className="follow-us-list1">
-    <li><a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Whatsapp group 1</a></li>
-    <li><a href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i>Whatsapp group 2</a></li>
-    </ul>
+                <ul className="follow-us-list1">
+                    <li><a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" target="_blank" rel="noopener noreferrer"><i className="fab fa-whatsapp"></i> Whatsapp group 1</a></li>
+                    <li><a href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t" target="_blank" rel="noopener noreferrer"><i className="fab fa-whatsapp"></i> Whatsapp group 2</a></li>
+                </ul>
             </section>
+            <section className="discussion-section">
+  <h2>Share Your Thoughts</h2>
+  <p>
+    Be a part of the conversation! Share your insights, ask questions, or provide feedback to engage with the community.
+  </p>
+  <Link to="/comments" className="discussion-button">
+    Explore Discussions
+  </Link>
+</section>
+
         </div>
     );
 };

@@ -1,0 +1,310 @@
+/* Comment Section Container */
+.comment-section-container {
+  max-width: 95%;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-family: 'Poppins', sans-serif;
+  transition: transform 0.3s ease;
+}
+
+.comment-section-container:hover {
+  transform: scale(1.01);
+}
+
+/* Comment Form */
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, transform 0.2s ease;
+}
+
+.comment-form textarea {
+  resize: none;
+  height: 120px;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  box-shadow: 0 0 12px rgba(0, 149, 246, 0.4);
+  outline: none;
+  transform: scale(1.02);
+}
+
+.comment-form button {
+  width: 100%;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  color: #ffffff;
+  padding: 12px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+}
+
+.comment-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(106, 17, 203, 0.3);
+}
+
+/* Comment Card */
+.comment-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 16px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.comment-header strong {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333333;
+}
+
+.timestamp {
+  font-size: 0.875rem;
+  color: #9e9e9e;
+}
+
+.comment-text {
+  font-size: 1rem;
+  color: #555555;
+  line-height: 1.8;
+  margin-bottom: 12px;
+  word-wrap: break-word;
+}
+
+/* Like and Reply Section */
+.comment-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.comment-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #999999;
+  transition: color 0.3s, transform 0.2s ease;
+}
+
+.comment-actions button:hover {
+  color: #555555;
+  transform: scale(1.05);
+}
+
+/* Like Section */
+.like-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .like-section button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #999999;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .like-section button:hover {
+    color: #ff3b5a;
+    transform: scale(1.1);
+  }
+  
+  /* Heart icon animation */
+  .like-section button .icon {
+    font-size: 1.2rem;
+    margin-right: 8px;
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  
+  .like-section button:hover .icon {
+    transform: scale(1.4) rotate(20deg);
+    color: #ff3b5a;
+  }
+  
+  /* Ripple effect */
+  .like-section button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 59, 90, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease-out;
+    z-index: -1;
+  }
+  
+  .like-section button:hover::before {
+    width: 200%;
+    height: 200%;
+    opacity: 0;
+  }
+  
+  /* Like count */
+  .like-section .like-count {
+    font-size: 0.875rem;
+    color: #aaaaaa;
+    margin-left: 8px;
+    transition: color 0.3s ease;
+  }
+  
+  .like-section button:hover ~ .like-count {
+    color: #ff3b5a;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .like-section button {
+      font-size: 0.875rem;
+      padding: 6px 10px;
+    }
+  
+    .like-section button .icon {
+      font-size: 1rem;
+    }
+  
+    .like-section .like-count {
+      font-size: 0.75rem;
+    }
+  }
+  
+
+/* Reply Form */
+.reply-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 14px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.2s;
+  margin-top: 12px;
+}
+
+.reply-form textarea:focus {
+  box-shadow: 0 0 12px rgba(0, 149, 246, 0.4);
+  outline: none;
+  transform: scale(1.02);
+}
+
+.reply-form button {
+  background: linear-gradient(90deg, #34d058, #28a745);
+  color: #ffffff;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 12px;
+}
+
+.reply-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(52, 208, 88, 0.4);
+}
+
+/* Reply Card */
+.reply-card {
+  margin-top: 12px;
+  padding: 14px;
+  border-left: 3px solid #0095f6;
+  background: rgba(240, 248, 255, 0.95);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .comment-section-container {
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .comment-form textarea {
+    height: 100px;
+  }
+
+  .comment-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .comment-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .reply-form button {
+    width: auto;
+    padding: 8px 12px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: linear-gradient(90deg, #6a11cb, #2575fc);
+    transition: transform 0.2s, box-shadow 0.3s;
+  }
+
+  .reply-form button::before {
+    content: "↩️";
+    font-size: 1.2rem;
+    margin-right: 6px;
+  }
+
+  .reply-form button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+  }
+}

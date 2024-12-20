@@ -1,6 +1,6 @@
 /* Base Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f0f4f8; /* Light background for contrast */
@@ -10,72 +10,85 @@ body {
 /* Module Detail Container */
 .module-detail {
     padding: 40px;
-    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    background: linear-gradient(135deg, #e3f2fd, #90caf9);
     color: #0d47a1;
     border-radius: 16px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-    max-width: 850px;
-    margin: 25px auto;
-    transition: background 0.4s ease, box-shadow 0.3s ease; /* Smooth background and shadow transition */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    margin: 30px auto;
+    transition: background 0.4s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.6s ease-out;
 }
 
 .module-detail:hover {
-    background: linear-gradient(135deg, #bbdefb, #e3f2fd); /* Hover effect */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+    background: linear-gradient(135deg, #64b5f6, #e3f2fd);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
 /* Header Styles */
 h2 {
-    font-size: 2.4rem; /* Slightly larger for better emphasis */
-    margin-bottom: 20px;
+    font-size: 2.6rem;
+    margin-bottom: 25px;
     text-align: center;
-    color: #1565c0; /* Blue for header */
-    font-weight: 600;
-    text-transform: capitalize; /* Make header more prominent */
+    color: #0d47a1;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 /* Modules Container */
 .modules-container {
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Increased space between modules for better clarity */
+    gap: 30px;
 }
 
 /* Module Card Styles */
 .module-card {
     padding: 30px;
-    background: #90caf9;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow for card */
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
-    overflow: hidden; /* Ensures contents don’t overflow */
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
 }
 
 .module-card:hover {
-    transform: translateY(-8px); /* Slightly stronger lift on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
-.module-card:active {
-    transform: translateY(0); /* Prevents "jumpy" effect when clicked */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+.module-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 100px;
+    height: 100px;
+    background: rgba(33, 150, 243, 0.1);
+    border-radius: 50%;
+    z-index: 0;
 }
 
-/* Module Title and Content */
-h3 {
-    font-size: 1.8rem;
+.module-card h3 {
+    font-size: 2rem;
     margin-bottom: 15px;
-    color: #0d47a1;
-    font-weight: 500;
-    line-height: 1.3; /* Improved line height for clarity */
+    color: #1565c0;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
 }
 
-p {
-    font-size: 1.1rem;
+.module-card p {
+    font-size: 1.2rem;
     margin-bottom: 20px;
     color: #455a64;
-    line-height: 1.7; /* More spacing for readability */
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
 }
 
 /* Button Styles */
@@ -83,31 +96,32 @@ p {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    gap: 25px; /* Increased space between buttons */
+    gap: 20px;
 }
 
 .download-buttons button {
-    padding: 16px 32px;
+    padding: 14px 28px;
     border: none;
-    border-radius: 8px;
-    background-color: #42a5f5;
-    color: white;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #42a5f5, #1e88e5);
+    color: #fff;
     font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    font-weight: bold;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
 }
 
 .download-buttons button:hover {
-    background-color: #1e88e5;
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(90deg, #1e88e5, #0d47a1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .download-buttons button:active {
     transform: translateY(0);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive Styles */
@@ -118,24 +132,19 @@ p {
     }
 
     h2 {
-        font-size: 1.9rem; /* Slightly smaller on smaller screens */
-    }
-
-    h3 {
-        font-size: 1.6rem; /* Adjust title size for mobile */
-    }
-
-    p {
-        font-size: 1rem;
+        font-size: 2rem;
     }
 
     .module-card {
-        padding: 25px; /* Slightly reduced padding for mobile */
+        padding: 25px;
+    }
+
+    .download-buttons {
+        flex-direction: column;
     }
 
     .download-buttons button {
-        padding: 14px 28px;
-        font-size: 1rem;
+        width: 100%;
     }
 }
 
@@ -146,36 +155,21 @@ p {
     }
 
     h2 {
-        font-size: 1.6rem; /* Make header even smaller for very small screens */
-    }
-
-    h3 {
-        font-size: 1.4rem; /* Adjust title for small screens */
-    }
-
-    p {
-        font-size: 0.9rem; /* Decrease paragraph size for readability */
+        font-size: 1.8rem;
     }
 
     .module-card {
         padding: 20px;
-        margin: 8px; /* Less margin for tighter spaces */
-    }
-
-    .download-buttons {
-        flex-direction: column;
-        gap: 15px; /* Increased space between buttons on mobile */
     }
 
     .download-buttons button {
-        width: 100%;
-        padding: 14px 0;
+        padding: 12px 24px;
         font-size: 1rem;
     }
 }
 
 /* Animations */
-@keyframes slideIn {
+@keyframes fadeIn {
     from {
         opacity: 0;
         transform: translateY(20px);
@@ -186,20 +180,16 @@ p {
     }
 }
 
-.module-detail {
-    animation: slideIn 0.5s ease-out;
-}
-
 /* Accessibility Improvements */
 a {
-    color: #1565c0;
+    color: #0d47a1;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 a:hover,
 a:focus {
-    color: #0d47a1;
+    color: #1e88e5;
     text-decoration: underline;
 }
 
@@ -209,14 +199,14 @@ input:focus {
     border: 2px solid #42a5f5;
 }
 
-/* Card Footer (Optional for any additional information) */
+/* Card Footer (Optional for additional information) */
 .module-card-footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 15px;
-    color: #455a64;
-    font-size: 0.9rem;
+    margin-top: 20px;
+    color: #607d8b;
+    font-size: 1rem;
 }
 
 .module-card-footer a {
@@ -225,5 +215,5 @@ input:focus {
 }
 
 .module-card-footer a:hover {
-    color: #1565c0;
+    color: #1e88e5;
 }

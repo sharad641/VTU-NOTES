@@ -4,8 +4,8 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(135deg, #36d1dc, #5b86e5);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #00c6ff, #0072ff); /* Light blue to purple gradient */
+  color: #f5f5f5;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
   animation: backgroundShift 10s ease-in-out infinite; /* Apply background animation */
@@ -20,33 +20,21 @@
 
 /* Headline message with fadeIn effect */
 .headline-message {
-  background: linear-gradient(135deg, #36d1dc, #5b86e5);
-  padding: 20px; /* Equal padding on all sides */
-  border-radius: 8px;
+  background: linear-gradient(135deg, #00c6ff, #0072ff); /* Match container gradient */
+  padding: 20px;
+  border-radius: 10px;
   margin-top: 15px;
   font-size: 1.1rem;
   font-weight: bold;
   color: #fff;
   text-align: center;
-  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   animation: fadeIn 1s ease-in-out, slideIn 0.5s ease forwards; /* Fade and slide-in animation */
   overflow: hidden;
   width: 100%;
-  max-width: 1200px; /* Align with main container on desktop */
-  margin: 0 auto; /* Center alignment */
-}
-
-/* Fade-in effect */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-/* Slide-in effect */
-@keyframes slideIn {
-  0% { transform: translateX(100%); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Marquee text container */
@@ -54,12 +42,14 @@
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
+  margin-top: 20px; /* Adjust for space between sections */
 }
 
 .marquee-text {
   display: inline-block;
   animation: marquee 9s linear infinite;
   padding-left: 100%;
+  color: #f5f5f5; /* Subtle light color for readability */
 }
 
 /* Marquee animation */
@@ -100,8 +90,9 @@
   font-weight: 800;
   margin-bottom: 30px;
   text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for contrast */
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6); /* More subtle shadow */
   animation: fadeIn 1s ease-in-out; /* Fade-in effect */
+  color: #333; /* Darker color for heading */
 }
 
 /* Enhanced Section Styles */
@@ -117,12 +108,6 @@
   animation: fadeInUp 1s ease-in-out;
 }
 
-/* Slide-up effect */
-@keyframes slideUp {
-  0% { transform: translateY(30px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
 /* Card Styles */
 .branch-card {
   display: flex;
@@ -132,10 +117,10 @@
   min-height: 160px;
   font-size: 1.1rem;
   font-weight: 700;
-  color: #FFFFFF;
-  background: rgba(255, 255, 255, 0.1);
+  color: #333; /* Dark text for readability */
+  background: #ffffff; /* Soft white background */
   border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.4);
   cursor: pointer;
@@ -145,35 +130,20 @@
   text-align: center;
   width: 100%;
   max-width: 300px;
-  animation: slideUp 1s ease-in-out; /* Apply slide-up effect */
+  animation: slideUp 1s ease-in-out;
 }
 
-.branch-card:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
-  z-index: 1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.branch-card:hover:before {
-  opacity: 1;
-}
-
+/* Hover effect with soft green and orange */
 .branch-card:hover {
   transform: translateY(-6px) scale(1.03);
-  background: rgba(255, 255, 255, 0.25);
+  background: linear-gradient(45deg, #00bfae, #f8b400); /* Soft teal and orange */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
 }
 
 .branch-card .branch-card-text {
   z-index: 2;
   font-size: 1.3rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive Layouts */
@@ -250,43 +220,4 @@
 @keyframes fadeInUp {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Slow down the pulse animation for background shift */
-@keyframes backgroundShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Marquee Container */
-.marquee-container {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-/* Marquee Text */
-.marquee-text {
-  display: inline-block;
-  animation: marquee 9s linear infinite;
-  padding-left: 100%;
-}
-
-@keyframes marquee {
-  from { transform: translateX(100%); }
-  to { transform: translateX(-100%); }
-}
-
-/* Adjustments for smaller screens */
-@media (max-width: 768px) {
-  .headline-message {
-    padding: 10px 15px;
-    font-size: 1rem;
-    margin-bottom: 10px;
-  }
-
-  .marquee-text {
-    animation-duration: 15s; /* Slower for readability */
-  }
 }

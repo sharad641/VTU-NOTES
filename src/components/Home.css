@@ -639,3 +639,72 @@ h4 {
       font-size: 1.3rem;
   }
 }
+/* Discussion Section Styling */
+.discussion-section {
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f0f9ff, #cce7ff);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 800px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Heading */
+.discussion-section h2 {
+  font-size: 2rem;
+  color: #333333;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Paragraph */
+.discussion-section p {
+  font-size: 1rem;
+  color: #555555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Button */
+.discussion-section .discussion-button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(90deg, #6a11cb, #2575fc);
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+  cursor: pointer;
+}
+
+.discussion-section .discussion-button:hover {
+  background: linear-gradient(90deg, #2575fc, #6a11cb);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(106, 17, 203, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .discussion-section {
+    padding: 20px 15px;
+  }
+
+  .discussion-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .discussion-section p {
+    font-size: 0.9rem;
+  }
+
+  .discussion-section .discussion-button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}

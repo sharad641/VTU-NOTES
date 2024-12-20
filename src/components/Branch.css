@@ -1,46 +1,44 @@
-/* src/components/Branch.css */
-
+/* Modernized Branch Component Styling */
 .branch {
-    
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px;
+    padding: 30px;
     min-height: 100vh;
-    background: linear-gradient(135deg, #6C63FF, #3E64FF);
-    color: #FFFFFF;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    color: #fff;
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
     max-width: 1200px;
-    margin: 0 auto; 
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .branch h2 {
-    
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 800;
     margin-bottom: 30px;
-    color: #FFFFFF;
     text-align: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
     animation: fadeIn 1s ease-in-out;
+    letter-spacing: 1px;
 }
 
 .branch p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 1.3rem;
+    margin-bottom: 25px;
     text-align: center;
-    color: #FFFFFF;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-    
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    line-height: 1.6;
 }
 
+/* Updated List Styling */
 .branch ul {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-    width: 90%;
-    max-width: 1200px;
+    gap: 25px;
+    width: 100%;
     padding: 0;
     list-style: none;
     animation: fadeInUp 1s ease-in-out;
@@ -50,31 +48,32 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    min-height: 60px;
-    font-size: 1.2rem;
+    padding: 25px;
+    min-height: 70px;
+    font-size: 1.3rem;
     font-weight: 700;
-    color: #FFFFFF;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #fff;
+    background: linear-gradient(145deg, #56ccf2, #2f80ed);
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.4);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     overflow: hidden;
-    background: linear-gradient(135deg, #36d1dc, #5b86e5);
-   
 }
 
 .branch ul li:hover {
-    transform: translateY(-6px) scale(1.03);
-    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-8px) scale(1.05);
+    background: linear-gradient(145deg, #2f80ed, #56ccf2);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
 }
 
 .branch ul li a {
-    color: #FFFFFF;
+    color: #fff;
     text-decoration: none;
     z-index: 2;
 }
@@ -84,8 +83,14 @@
     .branch h2 {
         font-size: 2.2rem;
     }
+
+    .branch p {
+        font-size: 1.1rem;
+    }
+
     .branch ul li {
-        padding: 15px;
+        padding: 18px;
+        font-size: 1.1rem;
     }
 }
 
@@ -93,8 +98,9 @@
     .branch ul {
         grid-template-columns: 1fr 1fr;
     }
+
     .branch h2 {
-        font-size: 2.6rem;
+        font-size: 3rem;
     }
 }
 
@@ -102,66 +108,100 @@
     .branch ul {
         grid-template-columns: 1fr 1fr 1fr;
     }
+
     .branch h2 {
-        font-size: 2.8rem;
+        font-size: 3.2rem;
+    }
+}
+
+/* Marquee Section */
+.headline-messages {
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease-in-out, slideIn 0.5s ease forwards;
+}
+
+/* Marquee Container */
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+/* Marquee Text */
+.marquee-text {
+    display: inline-block;
+    animation: marquee 12s linear infinite;
+    padding-left: 100%;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(-100%);
     }
 }
 
 /* Animations */
 @keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-.headline-messages {
-    background: linear-gradient(135deg, #6C63FF, #3E64FF);
-    padding: 15px 20px; /* Adjusted padding for mobile */
-    border-radius: 8px;
-    margin-top: 15px;
-    
-    font-size: 1rem; /* Slightly smaller font for mobile */
-    font-weight: bold;
-    color: #0a0808;
-    text-align: center;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
-    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease-in-out, slideIn 0.4s ease forwards;
-    overflow: hidden; /* Prevents overflow on mobile */
-  }
-  
-  /* Marquee Container */
-  .marquee-container {
-    width: 100%; /* Full width for better fit */
-    overflow: hidden;
-    white-space: nowrap;
-  }
-  
-  /* Marquee Text */
-  .marquee-text {
-    display: inline-block;
-    animation: marquee 15s linear infinite;
-    padding-left: 100%; /* Start the animation from outside the screen */
-  }
-  
-  @keyframes marquee {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
-  }
-  
-  /* Adjustments for smaller screens */
-  @media (max-width: 768px) {
-    .headline-message {
-      padding: 10px 15px;
-      font-size: 1rem;
-      margin-top: 20px;
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
     }
-  
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+    .headline-messages {
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+
     .marquee-text {
-      animation-duration: 20s; /* Slower for readability */
+        animation-duration: 15s;
     }
-  }
-  
+}
