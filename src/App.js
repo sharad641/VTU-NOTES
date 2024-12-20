@@ -21,7 +21,6 @@ import CommentSection from './components/CommentSection'; // Import the CommentS
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import './App.css';
-import vtuLogo from './logo.jpg';  // Import the logo file
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -62,15 +61,6 @@ function App() {
       <div className="loading-overlay">
         <div className="loading-container">
           <div className="loader-wrapper">
-            <div className="navbar-logo-container1 show">
-              <img src={vtuLogo} alt="VTU Logo" className="navbar-logo" />
-            </div>
-            <div className="small-boxes">
-              <div className="small-box top"></div>
-              <div className="small-box bottom"></div>
-              <div className="small-box left"></div>
-              <div className="small-box right"></div>
-            </div>
             <div className="welcome-text">
               <h1>Welcome to VTU-NOTES</h1>
               <p>Please wait while we load the content...</p>

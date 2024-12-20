@@ -1,231 +1,63 @@
-/* Apply global reset and box-sizing for consistency */
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* Overall loading overlay with darkened background */
+/* Body */
+body {
+  background-color: #f4f6f9;
+  color: #333;
+}
+
+/* Loading Screen */
 .loading-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
-  display: grid;
-  place-items: center;
-  z-index: 1000;
-  animation: fadeInOverlay 1.5s ease-out;
-}
-
-/* Fade-in overlay animation */
-@keyframes fadeInOverlay {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-/* Container for loader and text */
-.loading-container {
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
+}
+
+.loading-container {
   text-align: center;
-  animation: fadeIn 2s ease-out;
-  animation-delay: 0.5s;
-  perspective: 1500px; /* Adding perspective for 3D effect */
-  transform: rotateY(10deg); /* Slight rotation for 3D depth */
+  color: white;
 }
 
-/* Fade-in effect for container */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-/* Small box styling */
-.small-boxes {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.loader-wrapper {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  transform: translate(-50%, -50%);
-  width: 240px;
-  height: 240px;
-  animation: floatEffect 3s infinite ease-in-out;
+  animation: fadeIn 2s ease-in-out;
 }
 
-/* Positioning small boxes */
-.small-box {
-  width: 50px;
-  height: 50px;
-  background-color: #FF00CC; /* Vibrant Color */
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-  animation: waterEffect 3s infinite alternate ease-in-out;
-}
-
-/* Water-like effect for small boxes */
-@keyframes waterEffect {
-  0% { transform: scale(0.8); opacity: 0.7; }
-  100% { transform: scale(1.2); opacity: 1; }
-}
-
-/* Floating effect for small boxes container */
-@keyframes floatEffect {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
-}
-
-/* Welcome text */
-.welcome-text h1 {
-  font-size: 70px;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: #fff;
-  margin-bottom: 20px;
-  animation: neonGlow 1.5s ease-in-out infinite alternate;
-  text-shadow: 0 0 15px #00ff99, 0 0 30px #00ff99, 0 0 60px #00ff99;
-  letter-spacing: 5px;
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Neon Glow Effect */
-@keyframes neonGlow {
-  0% { text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99, 0 0 30px #00ff99; }
-  50% { text-shadow: 0 0 30px #ff00cc, 0 0 50px #ff00cc, 0 0 70px #ff00cc; }
-  100% { text-shadow: 0 0 10px #00ff99, 0 0 20px #00ff99, 0 0 30px #00ff99; }
-}
-
-.welcome-text p {
-  font-size: 24px;
-  color: #fff;
-  font-style: italic;
-  opacity: 0.8;
-  animation: fadeInText 1.5s ease-in-out;
-  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-  transform: translateY(10px);
-  transition: transform 0.3s ease;
-}
-
-/* Fade-in animation for text */
-@keyframes fadeInText {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-/* 3D Text Effect */
-.three-d-text {
-  font-size: 80px;
-  font-weight: 900;
-  color: #fff;
-  position: relative;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  animation: text3dEffect 1s ease-in-out;
-  transition: transform 0.3s ease-in-out;
-}
-
-.three-d-text::before {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: rgba(255, 255, 255, 0.2);
-  z-index: -1;
-  transform: translate(6px, 6px);
-}
-
-@keyframes text3dEffect {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-/* Modern Navbar Logo Container */
-.navbar-logo-container1 {
-  position: relative;
-  display: inline-block;
-  z-index: 10;
-  margin-bottom: 30px;
-  animation: fadeInLogo 2s ease-out forwards;
-}
-
-.navbar-logo {
-  width: 150px;
-  height: auto;
-  border-radius: 12px; /* Smoother rounded corners for modern look */
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Add more prominent shadow */
-  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Fade-in effect for the logo */
-@keyframes fadeInLogo {
+@keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(-50px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-/* Hover effect - logo */
-.navbar-logo:hover {
-  transform: scale(1.1); /* Slight zoom-in effect on hover */
-  filter: brightness(1.2); /* Increase brightness */
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+.welcome-text h1 {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-/* Add Parallax effect for page background */
-@keyframes moveBackground {
-  0% { transform: translateZ(0); }
-  100% { transform: translateZ(-60px); }
+.welcome-text p {
+  font-size: 1.2rem;
+  color: #b0c4de;
 }
 
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-  .cubes-container {
-    grid-template-columns: repeat(2, 100px); /* Adjust grid for smaller screens */
-    gap: 30px;
-  }
 
-  .cube {
-    width: 100px;
-    height: 100px;
-  }
 
-  .welcome-text h1 {
-    font-size: 40px;
-  }
 
-  .welcome-text p {
-    font-size: 18px;
-  }
-}
 
-@media (max-width: 480px) {
-  .cubes-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .cube {
-    width: 80px;
-    height: 80px;
-  }
-
-  .welcome-text h1 {
-    font-size: 28px;
-  }
-
-  .welcome-text p {
-    font-size: 16px;
-  }
-}
