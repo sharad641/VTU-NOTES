@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { auth, database } from '../firebase'; // Ensure correct path to firebase.js
-import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { ref, get, update } from 'firebase/database'; // Ensure ref, get, and update are correctly imported
-import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL } from 'firebase/storage'; // Firebase storage imports
+import { auth, database } from '../firebase';
+import { 
+    onAuthStateChanged, 
+    signOut, 
+    updatePassword, 
+    deleteUser, 
+    reauthenticateWithCredential, 
+    EmailAuthProvider 
+} from 'firebase/auth';
+import { ref, get, update, remove } from 'firebase/database';
+import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { useNavigate } from 'react-router-dom';
-import './Profile.css'; // Ensure correct path to Profile.css
+import { QRCodeCanvas } from 'qrcode.react';
+import './Profile.css';
 
 const Profile = () => {
     const [user, setUser] = useState(null);
@@ -14,14 +22,13 @@ const Profile = () => {
         email: '',
         phoneNumber: '',
         collegeName: '',
-        photoURL: '',  // Will hold the user's profile picture URL
+        photoURL: '',
     });
     const [file, setFile] = useState(null);
-    const [loading, setLoading] = useState(false); // To track loading state for photo upload
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const storage = getStorage(); // Firebase storage instance
+    const storage = getStorage();
 
-    // Monitor authentication state
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
@@ -31,10 +38,9 @@ const Profile = () => {
                     email: currentUser.email || '',
                     phoneNumber: '',
                     collegeName: '',
-                    photoURL: currentUser.photoURL || '', // Initialize with current user photoURL
+                    photoURL: currentUser.photoURL || '',
                 });
 
-                // Fetch user data from Firebase Realtime Database
                 if (currentUser.uid) {
                     const userRef = ref(database, 'users/' + currentUser.uid);
                     get(userRef).then((snapshot) => {
@@ -44,11 +50,11 @@ const Profile = () => {
                                 ...prev,
                                 phoneNumber: data.phoneNumber || '',
                                 collegeName: data.collegeName || '',
-                                photoURL: data.photoURL || currentUser.photoURL, // Ensure fallback to auth photo
+                                photoURL: data.photoURL || currentUser.photoURL,
                             }));
                         }
                     }).catch((error) => {
-                        console.error('Error fetching user data from Realtime Database:', error);
+                        console.error('Error fetching user data:', error);
                     });
                 }
             } else {
@@ -59,7 +65,6 @@ const Profile = () => {
         return () => unsubscribe();
     }, []);
 
-    // Logout handler
     const handleLogout = async () => {
         try {
             await signOut(auth);
@@ -69,21 +74,17 @@ const Profile = () => {
         }
     };
 
-    // Handle form input changes
     const handleChange = (e) => {
         const { name, value } = e.target;
         setProfileInfo((prev) => ({ ...prev, [name]: value }));
     };
 
-    // Handle profile photo change
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
     };
 
-    // Validate phone number (only digits allowed)
     const isPhoneNumberValid = (number) => /^[0-9]*$/.test(number);
 
-    // Save profile changes
     const handleSave = async () => {
         if (!isPhoneNumberValid(profileInfo.phoneNumber)) {
             alert('Invalid phone number. Please enter only digits.');
@@ -94,55 +95,110 @@ const Profile = () => {
             return;
         }
 
-        setLoading(true); // Show loading indicator
+        setLoading(true);
         try {
             if (user) {
                 const userRef = ref(database, 'users/' + user.uid);
                 let updatedProfileInfo = { ...profileInfo };
 
-                // If a new photo is selected, upload it
                 if (file) {
                     const photoRef = storageRef(storage, `profile_photos/${user.uid}/${file.name}`);
                     const uploadTask = uploadBytesResumable(photoRef, file);
 
                     uploadTask.on(
                         'state_changed',
-                        (snapshot) => {
-                            // Optional: You can handle progress here
-                        },
+                        null,
                         (error) => {
                             console.error('Error uploading photo:', error);
                         },
                         async () => {
-                            // Get the photo URL after upload
                             const photoURL = await getDownloadURL(uploadTask.snapshot.ref);
                             updatedProfileInfo = {
                                 ...updatedProfileInfo,
                                 photoURL,
                             };
 
-                            // Save updated profile information to Realtime Database
                             await update(userRef, updatedProfileInfo);
-
-                            // Update local state
                             setProfileInfo(updatedProfileInfo);
                             setEditMode(false);
-                            setLoading(false); // Hide loading indicator
+                            setLoading(false);
                             console.log('Profile updated successfully!');
                         }
                     );
                 } else {
-                    // No file selected, update profile data without changing photo
                     await update(userRef, updatedProfileInfo);
                     setProfileInfo(updatedProfileInfo);
                     setEditMode(false);
-                    setLoading(false); // Hide loading indicator
+                    setLoading(false);
                     console.log('Profile updated successfully!');
                 }
             }
         } catch (error) {
             console.error('Error updating profile:', error);
-            setLoading(false); // Hide loading indicator
+            setLoading(false);
+        }
+    };
+
+    const handleChangePassword = async () => {
+        const newPassword = prompt("Enter your new password:");
+        if (!newPassword) return;
+
+        try {
+            const user = auth.currentUser;
+
+            if (user) {
+                const email = user.email;
+                const currentPassword = prompt("Please enter your current password:");
+                if (!currentPassword) return;
+
+                const credential = EmailAuthProvider.credential(email, currentPassword);
+                await reauthenticateWithCredential(user, credential);
+            }
+
+            await updatePassword(user, newPassword);
+            alert("Password updated successfully.");
+        } catch (error) {
+            console.error("Error updating password:", error);
+            if (error.code === 'auth/requires-recent-login') {
+                alert("Please log in again to change your password.");
+            } else {
+                alert("Failed to update password. Please try again.");
+            }
+        }
+    };
+
+    const handleDeleteAccount = async () => {
+        const confirmDeletion = window.confirm("Are you sure you want to delete your account? This action cannot be undone.");
+        if (!confirmDeletion) return;
+
+        try {
+            const userRef = ref(database, `users/${user?.uid}`);
+            await remove(userRef);
+            await deleteUser(auth.currentUser);
+            alert("Account deleted successfully.");
+            navigate('/signup');
+        } catch (error) {
+            console.error("Error deleting account:", error);
+            alert("Failed to delete account. Please try again.");
+        }
+    };
+
+    const profileLink = `https://yourwebsite.com/profile/${user?.uid}`;
+
+    const handleShare = async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: 'My Profile',
+                    text: 'Check out my profile!',
+                    url: profileLink,
+                });
+                console.log('Profile shared successfully!');
+            } catch (error) {
+                console.error('Error sharing profile:', error);
+            }
+        } else {
+            alert('Web Share API is not supported in your browser.');
         }
     };
 
@@ -152,7 +208,7 @@ const Profile = () => {
                 <div>
                     <h1>Welcome, {profileInfo.displayName || 'User'}!</h1>
                     <img
-                        src={profileInfo.photoURL || '/default-profile.jpg'}  // Fallback logic for default image
+                        src={profileInfo.photoURL || '/default-profile.jpg'}
                         alt="Profile"
                         className="profile-photo"
                     />
@@ -205,14 +261,27 @@ const Profile = () => {
                             <button onClick={() => setEditMode(true)} className="primary">
                                 Edit Profile
                             </button>
+                            <button onClick={handleChangePassword} className="neutral">
+                                Change Password
+                            </button>
+                            <button onClick={handleLogout} className="neutral">
+                                Logout
+                            </button>
                         </div>
                     )}
 
-                    <div>
-                        <button onClick={handleLogout} className="neutral">
-                            Logout
+                    <div className="qr-code-section">
+                        <h3>Share Your Profile</h3>
+                        {profileLink && (
+                            <QRCodeCanvas value={profileLink} size={150} />
+                        )}
+                        <p>Scan to view your profile photo or page.</p>
+                        <button onClick={handleShare} className="primary">
+                            Share Profile
                         </button>
                     </div>
+
+                    <button onClick={handleDeleteAccount} className="danger">Delete Account</button>
                 </div>
             ) : (
                 <div>
