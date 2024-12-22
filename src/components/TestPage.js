@@ -413,8 +413,7 @@ const TestPage = () => {
 
     };
 
-    
-    
+   
     const [user, setUser] = useState(null);
     const [selectedTest, setSelectedTest] = useState(null);
     const [selectedDifficulty, setSelectedDifficulty] = useState(null);
@@ -439,14 +438,14 @@ const TestPage = () => {
     const handleTestSelection = (test) => {
         setSelectedTest(test);
         setSelectedDifficulty(null);
-        setQuestionsList([]);
-        setScore(null);
-        setTimer(600);
+        setQuestionsList([]); // Reset the questions list
+        setScore(null); // Reset score
+        setTimer(600); // Reset timer
     };
 
     const handleDifficultySelection = (difficulty) => {
         setSelectedDifficulty(difficulty);
-        setQuestionsList(questions[selectedTest][difficulty]);
+        setQuestionsList(questions[selectedTest][difficulty]); // Populate questions based on selected test and difficulty
     };
 
     const handleOptionChange = (questionIndex, selectedOption) => {
@@ -458,12 +457,26 @@ const TestPage = () => {
 
     const calculateScore = () => {
         let totalScore = 0;
+        let attendedQuestions = 0; // To track attended questions
+
         questionsList.forEach((q, index) => {
-            if (answers[index] === q.correctAnswer) {
-                totalScore++;
+            if (answers[index] !== undefined) {
+                attendedQuestions++; // Increment attended questions
+                if (answers[index] === q.correctAnswer) {
+                    totalScore++;
+                }
             }
         });
-        setScore(totalScore);
+
+        const totalQuestions = questionsList.length;
+        const percentage = (totalScore / attendedQuestions) * 100;
+
+        setScore({
+            totalScore,
+            totalQuestions,
+            attendedQuestions,
+            percentage: attendedQuestions === 0 ? 0 : percentage, // Avoid division by zero
+        });
         setIsSubmitting(true);
 
         // Save test results to Firebase
@@ -473,7 +486,9 @@ const TestPage = () => {
                 test: selectedTest,
                 difficulty: selectedDifficulty,
                 score: totalScore,
-                totalQuestions: questionsList.length,
+                totalQuestions,
+                attendedQuestions,
+                percentage: percentage.toFixed(2),
                 timestamp: new Date().toISOString(),
             };
 
@@ -496,9 +511,7 @@ const TestPage = () => {
         }
     }, [timer, isSubmitting]);
 
-    const progressPercentage = (questionsList.length > 0)
-        ? (Object.keys(answers).length / questionsList.length) * 100
-        : 0;
+    const progressPercentage = questionsList.length > 0 ? (Object.keys(answers).length / questionsList.length) * 100 : 0;
 
     return (
         <div className="test-page-container">
@@ -585,7 +598,9 @@ const TestPage = () => {
 
             {isSubmitting && score !== null && (
                 <section className="score-display">
-                    <h2>Your Score: {score} / {questionsList.length}</h2>
+                    <h2>Your Score: {score.totalScore} / {score.totalQuestions}</h2>
+                    <p>Attended Questions: {score.attendedQuestions} / {score.totalQuestions}</p>
+                    <p>Percentage: {score.percentage}%</p>
                 </section>
             )}
         </div>
