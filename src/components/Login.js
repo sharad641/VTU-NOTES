@@ -11,7 +11,6 @@ const Login = ({ setIsAuthenticated }) => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
-    
     const from = location.state?.from?.pathname || '/';
 
     useEffect(() => {
@@ -33,8 +32,7 @@ const Login = ({ setIsAuthenticated }) => {
             setIsAuthenticated(true);
             navigate(from || '/');
         } catch (err) {
-            console.error('Login failed:', err);  // Log error for debugging
-            setError(`Invalid email or password. Error: ${err.message}`);
+            setError('Invalid email or password.');
         } finally {
             setLoading(false);
         }
@@ -49,8 +47,7 @@ const Login = ({ setIsAuthenticated }) => {
             setIsAuthenticated(true);
             navigate(from || '/');
         } catch (err) {
-            console.error('Google login failed:', err);  // Log error for debugging
-            setError(`Google login failed. Error: ${err.message || 'Unknown error'}`);
+            setError('Google login failed.');
         } finally {
             setLoading(false);
         }
