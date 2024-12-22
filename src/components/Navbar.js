@@ -9,7 +9,7 @@ import { ref, get } from 'firebase/database';
 const Navbar = () => {
     const [isMobile, setIsMobile] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [profileInfo, setProfileInfo] = useState({ photoURL: 'default-profile.jpg' });
+    const [profileInfo, setProfileInfo] = useState({ photoURL: '', initials: '' });
 
     // Toggle the mobile menu
     const toggleMenu = () => setIsMobile(!isMobile);
@@ -28,20 +28,26 @@ const Navbar = () => {
                 get(userRef).then((snapshot) => {
                     if (snapshot.exists()) {
                         const data = snapshot.val();
-                        // Set profile photo or fallback to default
+                        // Set profile photo or fallback to initials
+                        const userPhotoURL = data.photoURL || currentUser.photoURL;
+                        const userInitials = data.name ? data.name.split(' ').map((n) => n[0]).join('') : 'U'; // Default to 'U' if no name
+
                         setProfileInfo({
-                            photoURL: data.photoURL || 'default-profile.jpg', // Use default if no photoURL
+                            photoURL: userPhotoURL || '',
+                            initials: userInitials || 'U',
                         });
                     } else {
-                        // Fallback to auth photo or default
+                        // Fallback to auth photo or initials if no data
+                        const userInitials = currentUser.displayName ? currentUser.displayName.split(' ').map((n) => n[0]).join('') : 'U';
                         setProfileInfo({
-                            photoURL: currentUser.photoURL || 'default-profile.jpg',
+                            photoURL: currentUser.photoURL || '',
+                            initials: userInitials,
                         });
                     }
                 });
             } else {
                 setIsAuthenticated(false); // User is logged out
-                setProfileInfo({ photoURL: 'default-profile.jpg' }); // Default if not logged in
+                setProfileInfo({ photoURL: '', initials: '' }); // Default if not logged in
             }
         });
 
@@ -68,11 +74,17 @@ const Navbar = () => {
             {/* Profile or Login Button */}
             <Link to={isAuthenticated ? '/profile' : '/login'} className="profile-button" onClick={closeMenu}>
                 {isAuthenticated ? (
-                    <img
-                        src={profileInfo.photoURL}  // Use the default or user's photo URL
-                        alt="Profile"
-                        className="profile-photo"
-                    />
+                    profileInfo.photoURL ? (
+                        <img
+                            src={profileInfo.photoURL}  // Use the photo URL if available
+                            alt="Profile"
+                            className="profile-photo"
+                        />
+                    ) : (
+                        <div className="profile-initials">
+                            {profileInfo.initials} {/* Display initials as a fallback */}
+                        </div>
+                    )
                 ) : 'Login'}
             </Link>
 

@@ -34,7 +34,26 @@ const firestore = getFirestore(app);
 const database = getDatabase(app); // Realtime Database
 const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null; // Analytics (only in browser environment)
 
-// Export the initialized services and authentication methods
+// Handle potential initialization issues with try-catch for each service
+const initializeFirebaseServices = () => {
+  try {
+    // Check if services are properly initialized (logging as an example)
+    console.log('Firebase Authentication Service initialized:', auth);
+    console.log('Firebase Storage Service initialized:', storage);
+    console.log('Firebase Firestore Service initialized:', firestore);
+    console.log('Firebase Database Service initialized:', database);
+    if (analytics) {
+      console.log('Firebase Analytics Service initialized:', analytics);
+    }
+  } catch (error) {
+    console.error('Error initializing Firebase services:', error);
+  }
+};
+
+// Initialize services
+initializeFirebaseServices();
+
+// Export Firebase services and auth methods for use in other parts of the app
 export { 
   auth, 
   storage, 

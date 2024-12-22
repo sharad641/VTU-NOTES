@@ -19,7 +19,8 @@ import ChatBot from './components/ChatBot';
 import TestPage from './components/TestPage';
 import CommentSection from './components/CommentSection';
 import StudyPlanner from './components/StudyPlanner';
-import Profile from './components/Profile'; // Importing the new Profile component
+import Profile from './components/Profile'; 
+
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import './App.css';
@@ -43,14 +44,6 @@ function App() {
       clearTimeout(timer);
     };
   }, []);
-
-  // Wrapper for protected routes
-  const ProtectedRoute = ({ element }) => (
-    isAuthenticated ? element : <Navigate to="/login" />
-  );
-
-  // Wrapper for public routes
-  const GuestRoute = ({ element }) => element;
 
   // Redirect authenticated users away from login/signup
   const RedirectAuthenticatedUser = ({ element }) => (
@@ -78,26 +71,26 @@ function App() {
         <Navbar />
         <Routes>
           {/* Public Routes */}
-          <Route path="/" element={<GuestRoute element={<Home />} />} />
-          <Route path="/bee-scene" element={<GuestRoute element={<BeeScene />} />} />
-          <Route path="/branch-selection/:scheme" element={<GuestRoute element={<BranchSelection />} />} />
-          <Route path="/branch/:branch" element={<GuestRoute element={<Branch />} />} />
-          <Route path="/branch/:branch/:semester" element={<GuestRoute element={<Subjects />} />} />
-          <Route path="/branch/:branch/:semester/modules/:subjectName" element={<GuestRoute element={<ModuleDetail />} />} />
-          <Route path="/faqs" element={<GuestRoute element={<FAQs />} />} />
-          <Route path="/pdf/:pdfUrl" element={<GuestRoute element={<PdfViewer />} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/bee-scene" element={<BeeScene />} />
+          <Route path="/branch-selection/:scheme" element={<BranchSelection />} />
+          <Route path="/branch/:branch" element={<Branch />} />
+          <Route path="/branch/:branch/:semester" element={<Subjects />} />
+          <Route path="/branch/:branch/:semester/modules/:subjectName" element={<ModuleDetail />} />
+          <Route path="/faqs" element={<FAQs />} />
+          <Route path="/pdf/:pdfUrl" element={<PdfViewer />} />
 
           {/* Authenticated Routes */}
-          <Route path="/placement-guide" element={<ProtectedRoute element={<PlacementGuide />} />} />
-          <Route path="/test" element={<ProtectedRoute element={<TestPage />} />} />
-          <Route path="/study-planner" element={<ProtectedRoute element={<StudyPlanner />} />} />
-          <Route path="/profile" element={<ProtectedRoute element={<Profile />} />} /> {/* Protected Profile Route */}
+          <Route path="/placement-guide" element={isAuthenticated ? <PlacementGuide /> : <Navigate to="/login" />} />
+          <Route path="/test" element={isAuthenticated ? <TestPage /> : <Navigate to="/login" />} />
+          <Route path="/study-planner" element={isAuthenticated ? <StudyPlanner /> : <Navigate to="/login" />} />
+          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} /> {/* Protected Profile Route */}
 
           {/* Public Utility Routes */}
-          <Route path="/upload" element={<GuestRoute element={<UploadForm />} />} />
-          <Route path="/calculator" element={<GuestRoute element={<Calculator />} />} />
-          <Route path="/chatbot" element={<GuestRoute element={<ChatBot />} />} />
-          <Route path="/comments" element={<GuestRoute element={<CommentSection />} />} />
+          <Route path="/upload" element={<UploadForm />} />
+          <Route path="/calculator" element={<Calculator />} />
+          <Route path="/chatbot" element={<ChatBot />} />
+          <Route path="/comments" element={<CommentSection />} />
 
           {/* Authentication Routes */}
           <Route path="/login" element={<RedirectAuthenticatedUser element={<Login setIsAuthenticated={setIsAuthenticated} />} />} />

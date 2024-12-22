@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { auth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from '../firebase';
 import './Login.css';
-import googleLogo from '../assets/goo.png';  // Assuming the Google logo is at this path
+import googleLogo from '../assets/goo.png'; // Assuming the Google logo is at this path
 
 const Login = ({ setIsAuthenticated }) => {
     const [email, setEmail] = useState('');
@@ -13,18 +13,23 @@ const Login = ({ setIsAuthenticated }) => {
     const location = useLocation();
     const provider = new GoogleAuthProvider();
 
+    // Default redirect location
     const from = location.state?.from?.pathname || '/';
 
     useEffect(() => {
+        // Subscribe to the auth state change
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setIsAuthenticated(true);
-                navigate(from);
+                setIsAuthenticated(true);  // Set authenticated state
+                navigate(from);  // Redirect to the previous page or home
             }
         });
+
+        // Clean up subscription on component unmount
         return () => unsubscribe();
     }, [setIsAuthenticated, navigate, from]);
 
+    // Handle email/password login
     const handleLogin = async (e) => {
         e.preventDefault();
         setError('');
@@ -32,15 +37,16 @@ const Login = ({ setIsAuthenticated }) => {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             setIsAuthenticated(true);
-            navigate(from || '/');
+            navigate(from || '/');  // Redirect user after successful login
         } catch (err) {
             console.error('Login failed:', err);  // Log error for debugging
-            setError('Invalid email or password.');
+            setError('Invalid email or password. Please try again.');  // Update error message for the user
         } finally {
             setLoading(false);
         }
     };
 
+    // Handle Google login
     const handleGoogleLogin = async () => {
         setError('');
         setLoading(true);
@@ -48,10 +54,10 @@ const Login = ({ setIsAuthenticated }) => {
             provider.setCustomParameters({ prompt: 'select_account' });
             await signInWithPopup(auth, provider);
             setIsAuthenticated(true);
-            navigate(from || '/');
+            navigate(from || '/');  // Redirect after successful Google login
         } catch (err) {
             console.error('Google login failed:', err);  // Log error for debugging
-            setError('Google login failed.');
+            setError('Google login failed. Please try again.');  // Update error message
         } finally {
             setLoading(false);
         }
@@ -61,7 +67,7 @@ const Login = ({ setIsAuthenticated }) => {
         <div className="login-container">
             <div className="login-card">
                 <h2 className="login-heading">Welcome Back!</h2>
-                {error && <p className="error-message">{error}</p>}
+                {error && <p className="error-message">{error}</p>}  {/* Display error if any */}
                 <form onSubmit={handleLogin} className="login-form">
                     <input
                         type="email"

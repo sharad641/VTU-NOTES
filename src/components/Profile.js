@@ -14,7 +14,7 @@ const Profile = () => {
         email: '',
         phoneNumber: '',
         collegeName: '',
-        photoURL: '',
+        photoURL: '',  // Will hold the user's profile picture URL
     });
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false); // To track loading state for photo upload
@@ -80,8 +80,20 @@ const Profile = () => {
         setFile(e.target.files[0]);
     };
 
+    // Validate phone number (only digits allowed)
+    const isPhoneNumberValid = (number) => /^[0-9]*$/.test(number);
+
     // Save profile changes
     const handleSave = async () => {
+        if (!isPhoneNumberValid(profileInfo.phoneNumber)) {
+            alert('Invalid phone number. Please enter only digits.');
+            return;
+        }
+        if (profileInfo.displayName.trim() === '') {
+            alert('Display name cannot be empty.');
+            return;
+        }
+
         setLoading(true); // Show loading indicator
         try {
             if (user) {
@@ -140,7 +152,7 @@ const Profile = () => {
                 <div>
                     <h1>Welcome, {profileInfo.displayName || 'User'}!</h1>
                     <img
-                        src={profileInfo.photoURL || 'default-profile.jpg'}
+                        src={profileInfo.photoURL || '/default-profile.jpg'}  // Fallback logic for default image
                         alt="Profile"
                         className="profile-photo"
                     />
