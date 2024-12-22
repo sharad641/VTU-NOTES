@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import BeeScene from './components/BeeScene'; // Import the BeeScene component
+import BeeScene from './components/BeeScene';
 import BranchSelection from './components/BranchSelection';
 import Branch from './components/Branch';
 import Subjects from './components/Subjects';
@@ -17,7 +17,9 @@ import PlacementGuide from './components/PlacementGuide';
 import FAQs from './components/FAQs';
 import ChatBot from './components/ChatBot';
 import TestPage from './components/TestPage';
-import CommentSection from './components/CommentSection'; // Import the CommentSection component
+import CommentSection from './components/CommentSection';
+import StudyPlanner from './components/StudyPlanner';
+import Profile from './components/Profile'; // Importing the new Profile component
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import './App.css';
@@ -28,27 +30,26 @@ function App() {
 
   // Check user authentication state on mount
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, user => {
-      setIsAuthenticated(!!user); // Set authentication state based on user
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsAuthenticated(!!user); // Set authentication state based on user presence
     });
 
-    // Set a timer to keep the spinner on screen for 5 seconds
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // 4 seconds for loading screen
+    }, 2000); // Simulate loading for 2 seconds
 
     return () => {
       unsubscribe();
-      clearTimeout(timer); // Clean up timeout on unmount
+      clearTimeout(timer);
     };
   }, []);
 
-  // Protected route wrapper to reduce repetition
+  // Wrapper for protected routes
   const ProtectedRoute = ({ element }) => (
     isAuthenticated ? element : <Navigate to="/login" />
   );
 
-  // Guest route wrapper to allow access without authentication
+  // Wrapper for public routes
   const GuestRoute = ({ element }) => element;
 
   // Redirect authenticated users away from login/signup
@@ -84,32 +85,27 @@ function App() {
           <Route path="/branch/:branch/:semester" element={<GuestRoute element={<Subjects />} />} />
           <Route path="/branch/:branch/:semester/modules/:subjectName" element={<GuestRoute element={<ModuleDetail />} />} />
           <Route path="/faqs" element={<GuestRoute element={<FAQs />} />} />
-
-          {/* PDF Viewing Route */}
           <Route path="/pdf/:pdfUrl" element={<GuestRoute element={<PdfViewer />} />} />
 
           {/* Authenticated Routes */}
           <Route path="/placement-guide" element={<ProtectedRoute element={<PlacementGuide />} />} />
           <Route path="/test" element={<ProtectedRoute element={<TestPage />} />} />
+          <Route path="/study-planner" element={<ProtectedRoute element={<StudyPlanner />} />} />
+          <Route path="/profile" element={<ProtectedRoute element={<Profile />} />} /> {/* Protected Profile Route */}
 
-          {/* Other Public Routes */}
+          {/* Public Utility Routes */}
           <Route path="/upload" element={<GuestRoute element={<UploadForm />} />} />
           <Route path="/calculator" element={<GuestRoute element={<Calculator />} />} />
-
-          {/* Chatbot Route */}
           <Route path="/chatbot" element={<GuestRoute element={<ChatBot />} />} />
+          <Route path="/comments" element={<GuestRoute element={<CommentSection />} />} />
 
           {/* Authentication Routes */}
           <Route path="/login" element={<RedirectAuthenticatedUser element={<Login setIsAuthenticated={setIsAuthenticated} />} />} />
           <Route path="/signup" element={<RedirectAuthenticatedUser element={<Signup />} />} />
 
-          {/* Comment Section Route */}
-          <Route path="/comments" element={<GuestRoute element={<CommentSection />} />} />
-
-          {/* Catch-All Route */}
+          {/* Fallback Route */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-
         <Footer />
       </div>
     </Router>

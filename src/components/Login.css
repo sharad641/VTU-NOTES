@@ -45,10 +45,6 @@
     }
 }
 
- 
-  
-
-
 .login-container {
     max-width: 400px; /* Set max width for the container */
     margin: 50px auto; /* Reduced top and bottom margin */
@@ -59,7 +55,6 @@
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add shadow */
     transition: box-shadow 0.3s; /* Smooth shadow transition */
 }
-
 
 .login-container:hover {
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
@@ -145,6 +140,8 @@ label {
     text-align: center; /* Center error message */
     margin-bottom: 15px; /* Space below error message */
 }
+
+/* Google login button styles */
 .google-login-button {
     width: 100%; /* Full width for button */
     padding: 12px; /* Increase padding for better touch targets */
@@ -171,7 +168,6 @@ label {
     height: 20px; /* Set height for the logo */
     margin-right: 8px; /* Space between logo and text */
 }
-
 /* Additional styles for centering the button container */
 .google-login-container {
     display: flex; /* Use flexbox for the container */
@@ -179,10 +175,6 @@ label {
     margin-top: 20px; /* Space above the container */
 }
 
-
-
-
-   
 .google-login-notice {
     text-align: center; /* Center the text */
     margin: 15px 0; /* Space around the notice */
@@ -196,7 +188,6 @@ label {
 }
 
 /* Optional: Add a background or border to make it stand out */
-
 
 .divider {
     text-align: center; /* Center the divider */
@@ -252,22 +243,19 @@ input[type="text"], input[type="password"] {
     box-sizing: border-box; /* Include padding in width */
 }
 
-
-/* Signup Notice Styles */
-.signup-notice {
-    margin: 15px 0; /* Space around the notice */
-    font-size: 1rem; /* Base font size */
-    color: #004d40; /* Consistent color with the theme */
-    text-align: center; /* Center the text */
+/* Sign-up link */
+.signup-text {
+    margin-top: 15px;
+    font-size: 1rem;
+    color: #7f8c8d;
 }
 
-.signup-notice a {
-    color: #00796b; /* Link color */
-    font-weight: bold; /* Bold text for emphasis */
-    text-decoration: underline; /* Underline for links */
-    transition: color 0.3s; /* Smooth transition for hover effects */
+.signup-link {
+    color: #3498db;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
-.signup-notice a:hover {
-    color: #004d40; /* Darker shade on hover */
+.signup-link:hover {
+    color: #2980b9;
 }

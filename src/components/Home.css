@@ -708,3 +708,74 @@ h4 {
     font-size: 0.9rem;
   }
 }
+/* Study Planner Box Styling */
+.study-planner-box {
+  background-color: #f5f5f5; /* Light gray background */
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 30px;
+  text-align: center;
+  max-width: 600px; /* Increased size */
+  margin: 30px auto;
+  color: #333; /* Dark gray text */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.study-planner-box:hover {
+  transform: scale(1.02); /* Slight hover scaling effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Slightly deeper shadow on hover */
+}
+
+/* Heading Styling */
+.study-planner-box h2 {
+  font-size: 2.5rem; /* Larger heading size */
+  color: #007bff; /* Blue color for heading */
+  margin-bottom: 15px;
+  font-family: Arial, sans-serif;
+}
+
+/* Description Styling */
+.study-planner-box p {
+  font-size: 1.2rem;
+  color: #555; /* Medium gray for paragraph text */
+  margin-bottom: 20px;
+  line-height: 1.5;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Link/Button Styling */
+.study-planner-link {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 1rem;
+  color: #ffffff; /* White text */
+  background-color: #007bff; /* Blue background */
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.study-planner-link:hover {
+  background-color: #0c1014; /* Darker blue on hover */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .study-planner-box {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  .study-planner-box h2 {
+    font-size: 2rem;
+  }
+
+  .study-planner-box p {
+    font-size: 1rem;
+  }
+
+  .study-planner-link {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
+}

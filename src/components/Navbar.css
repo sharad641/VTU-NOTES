@@ -1,4 +1,4 @@
-/* Navbar Styling */
+/* Modern Navbar Styling */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -10,109 +10,51 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  width: 100%;
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .navbar:hover {
   background: linear-gradient(135deg, #2193b0, #6dd5ed);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* Navbar Logo Container */
-.navbar-logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  overflow: hidden;
-  width: 80px;
-  height: 80px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Stronger shadow for emphasis */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
-  background-color: #fff; /* Adding a white background to make the logo stand out */
-}
-
-.navbar-logo {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-/* Hover Effect on Logo */
-.navbar-logo-container:hover {
-  transform: scale(1.2); /* Increased scale effect for a stronger zoom */
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
-  filter: brightness(1.2); /* Brightens the logo on hover */
-}
-
-/* Adding a glow effect */
-.navbar-logo-container:hover .navbar-logo {
-  filter: drop-shadow(0 0 12px #f0a500); /* Glow effect for better focus */
-}
-
-
-/* Title in the Center of Navbar */
+/* Navbar Title */
 .navbar-title {
-  font-size: 28px; /* Slightly larger font for better visibility */
-  font-weight: 700; /* Bolder font for emphasis */
+  font-size: 26px;
+  font-weight: 700;
   color: #fff;
   text-align: center;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.3s ease;
   flex: 1;
-  letter-spacing: 1px; /* Adds some spacing between letters for a cleaner look */
-  text-transform: uppercase; /* Makes the title uppercase for a modern look */
-  position: relative; /* To apply a text shadow more effectively */
-  z-index: 1;
-  transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
 }
 
-/* Adding a subtle text shadow for a modern touch */
-.navbar-title::after {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, #ff6f61, #ffbb33);
-  background-clip: text;
-  color: transparent;
-  z-index: -1;
-  filter: blur(5px); /* Adds a soft blur to the shadow */
-}
-
-/* Hover effect for modern interaction */
 .navbar-title:hover {
-  transform: translateY(-4px); /* Slight upward movement */
-  color: #f0a500; /* Highlight color on hover */
-}
-
-.navbar-title:hover::after {
-  filter: blur(8px); /* Increase blur on hover for a more dynamic feel */
+  transform: translateY(-3px);
+  color: #f0a500;
 }
 
 /* Navbar Links */
 .nav-links {
   display: flex;
-  gap: 30px;
-  font-size: 16px;
-  font-weight: 600;
+  gap: 25px;
   list-style: none;
+  font-size: 16px;
 }
 
 .nav-links li a {
   color: #fff;
   text-decoration: none;
+  font-weight: 600;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .nav-links li a:hover {
   color: #f0a500;
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 /* Dropdown Menu */
@@ -127,9 +69,9 @@
   left: 0;
   background-color: #fff;
   color: #000;
-  min-width: 220px;
+  min-width: 200px;
   padding: 10px 0;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   opacity: 0;
   visibility: hidden;
@@ -145,7 +87,6 @@
 .nav-links .dropdown-content a {
   color: #000;
   padding: 12px 20px;
-  font-size: 15px;
   text-decoration: none;
   display: block;
   border-radius: 6px;
@@ -157,7 +98,40 @@
   color: #fff;
 }
 
-/* Hamburger Menu for Mobile */
+/* Login Button */
+.login-button1 {
+  background-color: #2196f3;
+  color: white;
+  padding: 8px 18px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-button1:hover {
+  background-color: #0d8bf2;
+  transform: translateY(-2px);
+}
+
+.login-button1:active {
+  background-color: #1e88e5;
+  transform: translateY(1px);
+}
+
+.login-button1 .login-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Hamburger Menu */
 .hamburger {
   display: none;
   cursor: pointer;
@@ -170,55 +144,47 @@
   height: 4px;
   background-color: #fff;
   border-radius: 5px;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
-/* Mobile-Specific Styling */
+/* Mobile View */
 @media (max-width: 768px) {
   .navbar {
     padding: 10px 20px;
   }
 
-  /* Navbar Links in Mobile */
+  .hamburger {
+    display: flex;
+    position: absolute;
+    left: 20px;
+    z-index: 1001;
+  }
+
   .nav-links {
     position: fixed;
-    top: 60px;
-    left: 0;
-    background: rgba(0, 0, 0, 0.9);
-    width: 100%;
-    height: calc(100vh - 60px);
+    top: 0;
+    left: -100%;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    gap: 30px;
-    display: none;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    gap: 20px;
+    list-style: none;
+    transition: left 0.3s ease;
     z-index: 999;
-    transition: transform 0.3s ease;
+  }
+
+  .nav-links.active {
+    left: 0;
   }
 
   .nav-links li a {
     font-size: 18px;
     padding: 10px 20px;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  /* Hamburger Menu */
-  .hamburger {
-    display: flex;
-  }
-
-  /* Navbar Logo on Mobile */
-  .navbar-logo-container {
-    width: 60px;
-    height: 60px;
-  }
-
-  /* Smooth Transition for Hamburger Animation */
-  .hamburger .bar {
-    transition: all 0.3s ease;
+    color: #fff;
+    text-align: center;
   }
 
   .hamburger.open .bar:nth-child(1) {
@@ -232,4 +198,45 @@
   .hamburger.open .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
+
+  .login-button1 {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+}
+
+/* Larger Screens */
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 20px 50px;
+  }
+
+  .nav-links {
+    gap: 30px;
+  }
+
+  .nav-links li a {
+    font-size: 18px;
+  }
+
+  .login-button1 {
+    padding: 10px 25px;
+    font-size: 16px;
+  }
+}
+
+/* Profile Image Styling */
+.profile-photo {
+  width: 70px; /* Increased size for larger screens */
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #fff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+  transform: scale(1.1);
 }

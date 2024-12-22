@@ -68,6 +68,8 @@ const Home = () => {
                 <Link to="/calculator" className="calculator-link">Go to SGPA Calculator</Link>
             </section>
 
+           
+
             {/* Upload Notes */}
             <section className="upload-notes-box">
                 <h2>Upload Your Notes</h2>
@@ -81,6 +83,12 @@ const Home = () => {
                 <p>If you have questions about your courses, exams, or related topics, check out our FAQs for answers!</p>
                 <Link to="/faqs" className="faq-link">Go to FAQs</Link>
             </section>
+             {/* Study Planner Link */}
+             <section className="study-planner-box">
+                <h2>Study Planner</h2>
+                <p>Organize your studies efficiently with our Study Planner. Track your tasks and stay ahead!</p>
+                <Link to="/study-planner" className="study-planner-link">Go to Study Planner</Link>
+            </section>
 
             {/* Chatbot Toggle */}
             <div className="chatbot-button-container">
@@ -91,10 +99,6 @@ const Home = () => {
 
             {/* Conditionally render the ChatBot component */}
             {showChatbot && <ChatBot />}
-
-            {/* Comment Section Link */}
-            
-
 
             {/* Contact Box */}
             <section className="contact-box">
@@ -107,16 +111,17 @@ const Home = () => {
                     <li><a href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t" target="_blank" rel="noopener noreferrer"><i className="fab fa-whatsapp"></i> Whatsapp group 2</a></li>
                 </ul>
             </section>
-            <section className="discussion-section">
-  <h2>Share Your Thoughts</h2>
-  <p>
-    Be a part of the conversation! Share your insights, ask questions, or provide feedback to engage with the community.
-  </p>
-  <Link to="/comments" className="discussion-button">
-    Explore Discussions
-  </Link>
-</section>
 
+            {/* Discussion Section */}
+            <section className="discussion-section">
+                <h2>Share Your Thoughts</h2>
+                <p>
+                    Be a part of the conversation! Share your insights, ask questions, or provide feedback to engage with the community.
+                </p>
+                <Link to="/comments" className="discussion-button">
+                    Explore Discussions
+                </Link>
+            </section>
         </div>
     );
 };

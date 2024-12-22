@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import vtuLogo from '../assets/logo.jpg'; // Adjust the path if needed
+import { auth, database } from '../firebase'; // Ensure correct path to firebase.js
+import { onAuthStateChanged } from 'firebase/auth';
+import { ref, get } from 'firebase/database';
 
 const Navbar = () => {
     const [isMobile, setIsMobile] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [profileInfo, setProfileInfo] = useState({ photoURL: '' });
 
     // Toggle the mobile menu
     const toggleMenu = () => setIsMobile(!isMobile);
@@ -13,18 +17,39 @@ const Navbar = () => {
     // Close the mobile menu
     const closeMenu = () => setIsMobile(false);
 
+    // Check user authentication state and fetch profile info
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                setIsAuthenticated(true); // User is logged in
+
+                // Fetch user data from Firebase Realtime Database
+                const userRef = ref(database, 'users/' + currentUser.uid);
+                get(userRef).then((snapshot) => {
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        setProfileInfo({
+                            photoURL: data.photoURL || currentUser.photoURL || 'default-profile.jpg',
+                        });
+                    } else {
+                        // Fallback to auth photo if no extra data is found
+                        setProfileInfo({ photoURL: currentUser.photoURL || 'default-profile.jpg' });
+                    }
+                });
+            } else {
+                setIsAuthenticated(false); // User is logged out
+                setProfileInfo({ photoURL: 'default-profile.jpg' });
+            }
+        });
+
+        return () => unsubscribe(); // Cleanup listener on unmount
+    }, []);
+
     return (
         <nav className="navbar">
-            {/* Logo Section */}
-            <div className="navbar-logo-container">
-                <Link to="/" onClick={closeMenu}>
-                    <img src={vtuLogo} alt="VTU Logo" className="navbar-logo" />
-                </Link>
-            </div>
-
             {/* Centered Title Section */}
             <div className="navbar-title">
-                VTU Notes For All
+                <h1>VTU Notes</h1>
             </div>
 
             {/* Navigation Links */}
@@ -35,16 +60,18 @@ const Navbar = () => {
                 <li><Link to="/faqs" className="nav-link" onClick={closeMenu}>FAQs</Link></li>
                 <li><Link to="/chatbot" className="nav-link" onClick={closeMenu}>Chatbot</Link></li>
                 <li><Link to="/upload" className="nav-link" onClick={closeMenu}>Upload Notes</Link></li>
-                <li className="dropdown">
-                    <span className="dropdown-toggle">Branches</span>
-                    <div className="dropdown-content">
-                        <Link to="/branch-selection/2021" className="dropdown-item" onClick={closeMenu}>Scheme 2021</Link>
-                        <Link to="/branch/cse" className="dropdown-item" onClick={closeMenu}>CSE</Link>
-                        <Link to="/branch/ece" className="dropdown-item" onClick={closeMenu}>ECE</Link>
-                        <li><Link to="/bee-scene" className="nav-link" onClick={closeMenu}>Bee Scene(just for fun)</Link></li>
-                    </div>
-                </li>
             </ul>
+
+            {/* Profile or Login Button */}
+            <Link to={isAuthenticated ? '/profile' : '/login'} className="profile-button" onClick={closeMenu}>
+                {isAuthenticated ? (
+                    <img
+                        src={profileInfo.photoURL}
+                        alt="Profile"
+                        className="profile-photo"
+                    />
+                ) : 'Login'}
+            </Link>
 
             {/* Mobile Menu Hamburger Icon */}
             <div className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation">

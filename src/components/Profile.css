@@ -1,0 +1,173 @@
+/* General Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f3f4f7, #eaeef3);
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Profile Container */
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 40px;
+    text-align: center;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.profile-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Headings */
+.profile-container h1 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: capitalize;
+}
+
+/* Subtext */
+.profile-container p {
+    font-size: 18px;
+    color: #6c757d;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+/* Input Fields */
+.profile-container input[type="text"] {
+    width: 100%;
+    padding: 14px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #f9f9fb;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.profile-container input[type="text"]:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 6px rgba(52, 152, 219, 0.5);
+}
+
+/* Buttons */
+.profile-container button {
+    padding: 14px 30px;
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #3498db;
+    color: #fff;
+}
+
+.profile-container button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background-color: #2980b9;
+}
+
+/* Primary Button */
+.profile-container button.primary {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+}
+
+.profile-container button.primary:hover {
+    background: linear-gradient(135deg, #2980b9, #21618c);
+}
+
+/* Success Button */
+.profile-container button.success {
+    background: linear-gradient(135deg, #28a745, #218838);
+}
+
+.profile-container button.success:hover {
+    background: linear-gradient(135deg, #218838, #1c7430);
+}
+
+/* Danger Button */
+.profile-container button.danger {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.profile-container button.danger:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+}
+
+/* Neutral Button */
+.profile-container button.neutral {
+    background: linear-gradient(135deg, #7f8c8d, #636e72);
+}
+
+.profile-container button.neutral:hover {
+    background: linear-gradient(135deg, #636e72, #4b5358);
+}
+
+/* Edit Form Styling */
+.edit-form input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: #f9f9fb;
+}
+
+/* Add Margin Between Elements */
+.profile-container div {
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-container {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    .profile-container h1 {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .profile-container input[type="text"] {
+        font-size: 14px;
+    }
+
+    .profile-container button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Custom Loading Spinner */
+.spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.5s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
