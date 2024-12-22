@@ -26,9 +26,11 @@ const Profile = () => {
     });
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [testResults, setTestResults] = useState([]);
     const navigate = useNavigate();
     const storage = getStorage();
 
+    // Fetch user data and test results
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
@@ -55,6 +57,22 @@ const Profile = () => {
                         }
                     }).catch((error) => {
                         console.error('Error fetching user data:', error);
+                    });
+
+                    // Fetch the test results for the user
+                    const testResultsRef = ref(database, 'users/' + currentUser.uid + '/testResults');
+                    get(testResultsRef).then((snapshot) => {
+                        if (snapshot.exists()) {
+                            const results = snapshot.val();
+                            const formattedResults = Object.entries(results).map(([testID, testData], index) => ({
+                                testID: `Test ${index + 1}`,
+                                score: testData.score,
+                                date: testData.date,
+                            }));
+                            setTestResults(formattedResults);
+                        }
+                    }).catch((error) => {
+                        console.error('Error fetching test results:', error);
                     });
                 }
             } else {
@@ -204,94 +222,114 @@ const Profile = () => {
 
     return (
         <div className="profile-container">
-            {user ? (
-                <div>
-                    <h1>Welcome, {profileInfo.displayName || 'User'}!</h1>
-                    <img
-                        src={profileInfo.photoURL || '/default-profile.jpg'}
-                        alt="Profile"
-                        className="profile-photo"
-                    />
-                    <p>Email: {profileInfo.email}</p>
-                    <p>Phone Number: {profileInfo.phoneNumber || 'Not provided'}</p>
-                    <p>College Name: {profileInfo.collegeName || 'Not provided'}</p>
-
-                    {editMode ? (
-                        <div className="edit-form">
-                            <input
-                                type="text"
-                                name="displayName"
-                                value={profileInfo.displayName}
-                                onChange={handleChange}
-                                placeholder="Enter display name"
-                            />
-                            <input
-                                type="text"
-                                name="phoneNumber"
-                                value={profileInfo.phoneNumber}
-                                onChange={handleChange}
-                                placeholder="Enter phone number"
-                            />
-                            <input
-                                type="text"
-                                name="collegeName"
-                                value={profileInfo.collegeName}
-                                onChange={handleChange}
-                                placeholder="Enter college name"
-                            />
-                            <input
-                                type="file"
-                                onChange={handleFileChange}
-                                accept="image/*"
-                                id="profilePictureInput"
-                            />
-                            <label htmlFor="profilePictureInput" className="choose-file-label">
-                                Choose profile picture
-                            </label>
-                            <br />
-                            <button onClick={handleSave} className="success" disabled={loading}>
-                                {loading ? 'Saving...' : 'Save'}
-                            </button>
-                            <button onClick={() => setEditMode(false)} className="danger">
-                                Cancel
-                            </button>
-                        </div>
-                    ) : (
-                        <div>
-                            <button onClick={() => setEditMode(true)} className="primary">
-                                Edit Profile
-                            </button>
-                            <button onClick={handleChangePassword} className="neutral">
-                                Change Password
-                            </button>
-                            <button onClick={handleLogout} className="neutral">
-                                Logout
-                            </button>
-                        </div>
-                    )}
-
-                    <div className="qr-code-section">
-                        <h3>Share Your Profile</h3>
-                        {profileLink && (
-                            <QRCodeCanvas value={profileLink} size={150} />
-                        )}
-                        <p>Scan to view your profile photo or page.</p>
-                        <button onClick={handleShare} className="primary">
-                            Share Profile
+        {user ? (
+            <div>
+                <h1>Welcome, {profileInfo.displayName || 'User'}!</h1>
+                <img
+                    src={profileInfo.photoURL || '/default-profile.jpg'}
+                    alt="Profile"
+                    className="profile-photo"
+                />
+                <p>Email: {profileInfo.email}</p>
+                <p>Phone Number: {profileInfo.phoneNumber || 'Not provided'}</p>
+                <p>College Name: {profileInfo.collegeName || 'Not provided'}</p>
+    
+                {editMode ? (
+                    <div className="edit-form">
+                        <input
+                            type="text"
+                            name="displayName"
+                            value={profileInfo.displayName}
+                            onChange={handleChange}
+                            placeholder="Enter display name"
+                            className="edit-input"
+                        />
+                        <input
+                            type="text"
+                            name="phoneNumber"
+                            value={profileInfo.phoneNumber}
+                            onChange={handleChange}
+                            placeholder="Enter phone number"
+                            className="edit-input"
+                        />
+                        <input
+                            type="text"
+                            name="collegeName"
+                            value={profileInfo.collegeName}
+                            onChange={handleChange}
+                            placeholder="Enter college name"
+                            className="edit-input"
+                        />
+                        <input
+                            type="file"
+                            onChange={handleFileChange}
+                            accept="image/*"
+                            id="profilePictureInput"
+                            className="file-input"
+                        />
+                        <label htmlFor="profilePictureInput" className="choose-file-label">
+                            Choose profile picture
+                        </label>
+                        <br />
+                        <button onClick={handleSave} className="save-btn" disabled={loading}>
+                            {loading ? "Saving..." : "Save"}
+                        </button>
+                        <button onClick={() => setEditMode(false)} className="cancel-btn">
+                            Cancel
                         </button>
                     </div>
-
-                    <button onClick={handleDeleteAccount} className="danger">Delete Account</button>
-                </div>
-            ) : (
-                <div>
-                    <h1>You are not logged in.</h1>
-                    <button onClick={() => navigate('/login')} className="primary">
-                        Login
+                ) : (
+                    <div className="action-buttons">
+                        <button onClick={() => setEditMode(true)} className="edit-profile-btn">
+                            Edit Profile
+                        </button>
+                        <button onClick={handleChangePassword} className="change-password-btn">
+                            Change Password
+                        </button>
+                    </div>
+                )}
+    
+                {/* QR Code for sharing profile */}
+                <div className="qr-code-container">
+                    <h3>Share Profile</h3>
+                    <QRCodeCanvas value={profileLink} />
+                    <button onClick={handleShare} className="share-btn">
+                        Share
                     </button>
                 </div>
-            )}
-        </div>
+    
+                {/* Test Results Section */}
+                <div className="test-results">
+                    <h3>Your Test Results</h3>
+                    {testResults.length > 0 ? (
+                        <ul>
+                            {testResults.map((test, index) => (
+                                <li key={index}>
+                                    {test.testID} - {test.score}% on {test.date}
+                                </li>
+                            ))}
+                        </ul>
+                    ) : (
+                        <p>No test results available.</p>
+                    )}
+                </div>
+                <button onClick={handleLogout} className="logout-btn">
+                    Logout
+                </button>
+                <button onClick={handleDeleteAccount} className="delete-account-btn">
+                    Delete Account
+                </button>
+            </div>
+        ) : (
+            <div>
+                <h1>You need to log in to access this page.</h1>
+                <button onClick={() => navigate('/login')} className="login-btn">
+                    Login
+                </button>
+            </div>
+        )}
+    </div>
+   
     );
 };
 

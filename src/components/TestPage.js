@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './TestPage.css';
+import { auth, database } from '../firebase';
+import { ref, push } from 'firebase/database';
 
+import './TestPage.css';
 const TestPage = () => {
     // Define test options and questions
     const testOptions = ['Coding Test', 'Aptitude Test'];
@@ -413,30 +415,40 @@ const TestPage = () => {
 
     
     
+    const [user, setUser] = useState(null);
     const [selectedTest, setSelectedTest] = useState(null);
     const [selectedDifficulty, setSelectedDifficulty] = useState(null);
     const [questionsList, setQuestionsList] = useState([]);
     const [answers, setAnswers] = useState({});
     const [score, setScore] = useState(null);
-    const [timer, setTimer] = useState(600); // 10 minutes timer (in seconds)
+    const [timer, setTimer] = useState(600); // 10 minutes timer
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    // Handle test selection
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+            if (currentUser) {
+                setUser(currentUser);
+            } else {
+                setUser(null);
+            }
+        });
+
+        return () => unsubscribe();
+    }, []);
+
     const handleTestSelection = (test) => {
         setSelectedTest(test);
-        setSelectedDifficulty(null); // Reset difficulty when a new test is selected
+        setSelectedDifficulty(null);
         setQuestionsList([]);
         setScore(null);
-        setTimer(600); // Reset timer on test selection
+        setTimer(600);
     };
 
-    // Handle difficulty selection
     const handleDifficultySelection = (difficulty) => {
         setSelectedDifficulty(difficulty);
         setQuestionsList(questions[selectedTest][difficulty]);
     };
 
-    // Handle answer selection
     const handleOptionChange = (questionIndex, selectedOption) => {
         setAnswers((prevAnswers) => ({
             ...prevAnswers,
@@ -444,7 +456,6 @@ const TestPage = () => {
         }));
     };
 
-    // Calculate score after submission
     const calculateScore = () => {
         let totalScore = 0;
         questionsList.forEach((q, index) => {
@@ -453,10 +464,29 @@ const TestPage = () => {
             }
         });
         setScore(totalScore);
-        setIsSubmitting(true); // Trigger submission state
+        setIsSubmitting(true);
+
+        // Save test results to Firebase
+        if (user) {
+            const userResultsRef = ref(database, `users/${user.uid}/testResults`);
+            const newResult = {
+                test: selectedTest,
+                difficulty: selectedDifficulty,
+                score: totalScore,
+                totalQuestions: questionsList.length,
+                timestamp: new Date().toISOString(),
+            };
+
+            push(userResultsRef, newResult)
+                .then(() => {
+                    console.log('Test result saved successfully!');
+                })
+                .catch((error) => {
+                    console.error('Error saving test result:', error);
+                });
+        }
     };
 
-    // Timer countdown effect
     useEffect(() => {
         if (timer > 0 && !isSubmitting) {
             const interval = setInterval(() => {
@@ -466,7 +496,6 @@ const TestPage = () => {
         }
     }, [timer, isSubmitting]);
 
-    // Progress Bar Calculation
     const progressPercentage = (questionsList.length > 0)
         ? (Object.keys(answers).length / questionsList.length) * 100
         : 0;
@@ -478,31 +507,32 @@ const TestPage = () => {
                 <p>Test your knowledge and track your progress!</p>
             </header>
 
-            {/* Test Selection */}
             {!selectedTest && (
                 <section className="test-selection">
                     <h2>Select a Test</h2>
                     <div className="test-options">
                         {testOptions.map((test, index) => (
-                            <button key={index} onClick={() => handleTestSelection(test)}>{test}</button>
+                            <button key={index} onClick={() => handleTestSelection(test)}>
+                                {test}
+                            </button>
                         ))}
                     </div>
                 </section>
             )}
 
-            {/* Difficulty Level Selection */}
             {selectedTest && !selectedDifficulty && (
                 <section className="difficulty-selection">
                     <h2>Select Difficulty Level</h2>
                     <div className="difficulty-options">
                         {difficultyLevels.map((level, index) => (
-                            <button key={index} onClick={() => handleDifficultySelection(level)}>{level}</button>
+                            <button key={index} onClick={() => handleDifficultySelection(level)}>
+                                {level}
+                            </button>
                         ))}
                     </div>
                 </section>
             )}
 
-            {/* Progress Bar */}
             {selectedTest && selectedDifficulty && (
                 <div className="progress-bar-container">
                     <progress value={progressPercentage} max={100}></progress>
@@ -510,67 +540,52 @@ const TestPage = () => {
                 </div>
             )}
 
-            {/* Timer */}
             {selectedTest && selectedDifficulty && !isSubmitting && (
                 <div className="timer">
                     <p>Time Remaining: {Math.floor(timer / 60)}:{timer % 60 < 10 ? `0${timer % 60}` : timer % 60}</p>
                 </div>
             )}
 
-            {/* Questions and Options */}
             {selectedTest && selectedDifficulty && (
                 <section className="test-questions">
                     <h2>{selectedTest} - {selectedDifficulty} Level</h2>
                     {questionsList.map((q, index) => (
-                        <div key={index} className={`question-box ${isSubmitting ? (answers[index] === q.correctAnswer ? 'correct' : 'incorrect') : ''}`}>
+                        <div
+                            key={index}
+                            className={`question-box ${isSubmitting && answers[index] === q.correctAnswer ? 'correct' : 'incorrect'}`}
+                        >
                             <p>{q.question}</p>
                             <div className="options-container">
-                                {q.options.map((option, idx) => {
-                                    // Check if this option is the correct answer
-                                    const isCorrect = option === q.correctAnswer;
-                                    const isSelected = answers[index] === option;
-                                    const optionClass = isSubmitting ? (isSelected ? (isCorrect ? 'correct' : 'incorrect') : (isCorrect ? 'correct' : '')) : '';
-
-                                    return (
-                                        <div key={idx} className={`option ${optionClass}`}>
-                                            <input
-                                                type="radio"
-                                                id={`option-${index}-${idx}`}
-                                                name={`question-${index}`}
-                                                value={option}
-                                                onChange={() => handleOptionChange(index, option)}
-                                                checked={isSelected}
-                                            />
-                                            <label htmlFor={`option-${index}-${idx}`}>{option}</label>
-                                        </div>
-                                    );
-                                })}
+                                {q.options.map((option, idx) => (
+                                    <div key={idx} className="option">
+                                        <input
+                                            type="radio"
+                                            id={`option-${index}-${idx}`}
+                                            name={`question-${index}`}
+                                            value={option}
+                                            onChange={() => handleOptionChange(index, option)}
+                                            disabled={isSubmitting}
+                                        />
+                                        <label htmlFor={`option-${index}-${idx}`}>{option}</label>
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     ))}
                 </section>
             )}
 
-            {/* Submit Button */}
             {selectedTest && selectedDifficulty && !isSubmitting && (
                 <section className="test-result">
-                    <button onClick={calculateScore} className="submit-button">Submit Test</button>
+                    <button onClick={calculateScore} className="submit-button">
+                        Submit Test
+                    </button>
                 </section>
             )}
 
-            {/* Score Display */}
             {isSubmitting && score !== null && (
                 <section className="score-display">
                     <h2>Your Score: {score} / {questionsList.length}</h2>
-                    <div className="answer-review">
-                        {questionsList.map((q, index) => (
-                            <div key={index} className={`question-review ${answers[index] === q.correctAnswer ? 'correct' : 'incorrect'}`}>
-                                <p>{q.question}</p>
-                                <p>Your Answer: <span className={answers[index] === q.correctAnswer ? 'correct' : 'incorrect'}>{answers[index]}</span></p>
-                                <p>Correct Answer: <span className="correct">{q.correctAnswer}</span></p>
-                            </div>
-                        ))}
-                    </div>
                 </section>
             )}
         </div>
