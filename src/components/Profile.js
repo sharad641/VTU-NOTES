@@ -65,10 +65,11 @@ const Profile = () => {
                         if (snapshot.exists()) {
                             const results = snapshot.val();
                             const formattedResults = Object.entries(results).map(([testID, testData], index) => {
-                                // Correct score and total questions calculation logic
-                                const attendedQuestions = testData.attendedQuestions || 0;
+                                const correctAnswers = testData.correctAnswers || 0;
                                 const totalQuestions = testData.totalQuestions || 0;
-                                const score = totalQuestions > 0 ? (attendedQuestions / totalQuestions) * 100 : 0;
+                                const attendedQuestions = testData.attendedQuestions || 0;
+
+                                const score = totalQuestions > 0 ? (correctAnswers / totalQuestions) * 100 : 0;
 
                                 return {
                                     testID: `Test ${index + 1}`,
@@ -77,6 +78,7 @@ const Profile = () => {
                                     score: `${score.toFixed(2)}%`,  // Formatting score to 2 decimal places
                                     totalQuestions,
                                     attendedQuestions,
+                                    correctAnswers,  // Adding correctAnswers to each test result
                                     timestamp: testData.timestamp || null,
                                 };
                             });
@@ -276,73 +278,53 @@ const Profile = () => {
                             <input
                                 type="file"
                                 onChange={handleFileChange}
-                                accept="image/*"
-                                id="profilePictureInput"
                                 className="file-input"
                             />
-                            <label htmlFor="profilePictureInput" className="choose-file-label">
-                                Choose profile picture
-                            </label>
-                            <br />
-                            <button onClick={handleSave} className="save-btn" disabled={loading}>
-                                {loading ? "Saving..." : "Save"}
-                            </button>
-                            <button onClick={() => setEditMode(false)} className="cancel-btn">
-                                Cancel
+                            <button onClick={handleSave} disabled={loading}>
+                                Save
                             </button>
                         </div>
                     ) : (
-                        <div className="action-buttons">
-                            <button onClick={() => setEditMode(true)} className="edit-profile-btn">
-                                Edit Profile
-                            </button>
-                            <button onClick={handleChangePassword} className="change-password-btn">
-                                Change Password
-                            </button>
-                        </div>
+                        <button onClick={() => setEditMode(true)}>Edit Profile</button>
                     )}
 
-                    {/* Test Results Section */}
                     <div className="test-results">
                         <h3>Your Test Results</h3>
-                        {testResults && testResults.length > 0 ? (
-                            <ul>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Difficulty</th>
+                                    <th>Score</th>
+                                    <th>Total Questions</th>
+                                    <th>Attended</th>
+                                    <th>Correct Answers</th>
+                                </tr>
+                            </thead>
+                            <tbody>
                                 {testResults.map((test, index) => (
-                                    <li key={index}>
-                                        <strong>Test ID:</strong> {test.testID} <br />
-                                        <strong>Test Name:</strong> {test.test} <br />
-                                        <strong>Difficulty:</strong> {test.difficulty} <br />
-                                        <strong>Score:</strong> {test.score} <br />
-                                        <strong>Total Questions:</strong> {test.totalQuestions} <br />
-                                        <strong>Attended Questions:</strong> {test.attendedQuestions} <br />
-                                        <strong>Date:</strong> {test.timestamp ? new Date(test.timestamp).toLocaleDateString() : 'N/A'} <br />
-                                        <strong>Time:</strong> {test.timestamp ? new Date(test.timestamp).toLocaleTimeString() : 'N/A'} <br />
-                                    </li>
+                                    <tr key={index}>
+                                        <td>{test.test}</td>
+                                        <td>{test.difficulty}</td>
+                                        <td>{test.score}</td>
+                                        <td>{test.totalQuestions}</td>
+                                        <td>{test.attendedQuestions}</td>
+                                        <td>{test.correctAnswers}</td>
+                                    </tr>
                                 ))}
-                            </ul>
-                        ) : (
-                            <p>No test results available.</p>
-                        )}
+                            </tbody>
+                        </table>
                     </div>
 
-                    {/* QR Code for sharing profile */}
-                    <div className="qr-code-container">
-                        <h3>Share Profile</h3>
-                        <QRCodeCanvas value={profileLink} />
-                        <button onClick={handleShare} className="share-btn">
-                            Share
-                        </button>
-                        <button onClick={handleDeleteAccount} className="delete-account-btn">
-                            Delete Account
-                        </button>
-                    </div>
+                    <button onClick={handleChangePassword}>Change Password</button>
+                    <button onClick={handleDeleteAccount}>Delete Account</button>
+                    <button onClick={handleLogout}>Logout</button>
 
-                    <button onClick={handleLogout} className="logout-btn">
-                        Logout
-                    </button>
+                    <QRCodeCanvas value={profileLink} size={128} level="H" />
+                    <button onClick={handleShare}>Share Profile</button>
                 </div>
             ) : (
-                <p>Please log in to access your profile.</p>
+                <p>Please log in to view your profile.</p>
             )}
         </div>
     );
