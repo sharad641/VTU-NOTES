@@ -1,22 +1,15 @@
-import { initializeApp, getApps, getApp } from 'firebase/app';
-import { 
-  getAuth, 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  signInWithPopup, 
-  GoogleAuthProvider, 
-  onAuthStateChanged 
-} from 'firebase/auth';
-import { getStorage } from 'firebase/storage';
-import { getFirestore } from 'firebase/firestore';
-import { getDatabase } from 'firebase/database';
-import { getAnalytics } from 'firebase/analytics';
+import { initializeApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getFirestore } from "firebase/firestore"; // if using Firestore
+import { getStorage } from "firebase/storage"; // if using Firebase Storage
+import { getDatabase } from "firebase/database"; // if using Firebase Realtime Database
+import { getAnalytics } from "firebase/analytics"; // if you want to use Analytics
 
-// Firebase configuration
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCsVGY76nf-BpVOaU8USwAbyt6_nXgenB4",
   authDomain: "vtu-notes-e1d8d.firebaseapp.com",
-  databaseURL: "https://vtu-notes-e1d8d-default-rtdb.firebaseio.com", // Realtime Database URL
+  databaseURL: "https://vtu-notes-e1d8d-default-rtdb.firebaseio.com",
   projectId: "vtu-notes-e1d8d",
   storageBucket: "vtu-notes-e1d8d.appspot.com",
   messagingSenderId: "572338268953",
@@ -24,45 +17,27 @@ const firebaseConfig = {
   measurementId: "G-79CH5X9VL3"
 };
 
-// Initialize Firebase app (singleton pattern)
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-
-// Initialize Firebase services
-const auth = getAuth(app);
-const storage = getStorage(app);
-const firestore = getFirestore(app);
-const database = getDatabase(app); // Realtime Database
-const analytics = typeof window !== 'undefined' ? getAnalytics(app) : null; // Analytics (only in browser environment)
-
-// Handle potential initialization issues with try-catch for each service
-const initializeFirebaseServices = () => {
-  try {
-    // Check if services are properly initialized (logging as an example)
-    console.log('Firebase Authentication Service initialized:', auth);
-    console.log('Firebase Storage Service initialized:', storage);
-    console.log('Firebase Firestore Service initialized:', firestore);
-    console.log('Firebase Database Service initialized:', database);
-    if (analytics) {
-      console.log('Firebase Analytics Service initialized:', analytics);
-    }
-  } catch (error) {
-    console.error('Error initializing Firebase services:', error);
-  }
-};
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 // Initialize services
-initializeFirebaseServices();
+const auth = getAuth(app);
+const firestore = getFirestore(app);
+const storage = getStorage(app);
+const database = getDatabase(app);
+const googleAuthProvider = new GoogleAuthProvider();
+const analytics = getAnalytics(app); // If using analytics
 
-// Export Firebase services and auth methods for use in other parts of the app
-export { 
-  auth, 
-  storage, 
-  firestore, 
-  database, 
-  analytics, 
-  createUserWithEmailAndPassword, 
+// Export services
+export {
+  auth,
+  firestore,
+  storage,
+  database,
+  googleAuthProvider, // Export googleAuthProvider
+  createUserWithEmailAndPassword, // Export createUserWithEmailAndPassword
   signInWithEmailAndPassword, 
-  signInWithPopup, 
-  GoogleAuthProvider,
-  onAuthStateChanged 
+  signInWithPopup,
+  onAuthStateChanged,
+  analytics // Export analytics if you use it
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { auth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from '../firebase';
+import { auth, signInWithEmailAndPassword, signInWithPopup, googleAuthProvider, onAuthStateChanged } from '../firebase';
 import './Login.css';
 import googleLogo from '../assets/goo.png';  // Assuming the Google logo is at this path
 
@@ -11,8 +11,7 @@ const Login = ({ setIsAuthenticated }) => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
-    const provider = new GoogleAuthProvider();
-
+    
     const from = location.state?.from?.pathname || '/';
 
     useEffect(() => {
@@ -45,8 +44,8 @@ const Login = ({ setIsAuthenticated }) => {
         setError('');
         setLoading(true);
         try {
-            provider.setCustomParameters({ prompt: 'select_account' });
-            await signInWithPopup(auth, provider);
+            googleAuthProvider.setCustomParameters({ prompt: 'select_account' });
+            await signInWithPopup(auth, googleAuthProvider);
             setIsAuthenticated(true);
             navigate(from || '/');
         } catch (err) {

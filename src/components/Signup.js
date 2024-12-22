@@ -1,33 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth, createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from '../firebase';
+import { auth, googleAuthProvider, createUserWithEmailAndPassword, signInWithPopup } from '../firebase';
 import './Signup.css';
+import googleLogo from '../assets/goo.png';  // Assuming the Google logo is at this path
 
 const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
-    const provider = new GoogleAuthProvider();
 
     const handleSignup = async (e) => {
         e.preventDefault();
         setError('');
         setLoading(true);
-
-        if (password !== confirmPassword) {
-            setError('Passwords do not match.');
-            setLoading(false);
-            return;
-        }
-
         try {
             await createUserWithEmailAndPassword(auth, email, password);
-            navigate('/login'); // Redirect to login page after successful signup
+            navigate('/');
         } catch (err) {
-            setError('Failed to create an account. Try again.');
+            console.error('Signup failed:', err);
+            setError(`Signup failed. Error: ${err.message}`);
         } finally {
             setLoading(false);
         }
@@ -36,13 +29,13 @@ const Signup = () => {
     const handleGoogleSignup = async () => {
         setError('');
         setLoading(true);
-
         try {
-            provider.setCustomParameters({ prompt: 'select_account' });
-            await signInWithPopup(auth, provider);
-            navigate('/'); // Redirect to the homepage or dashboard after signup
+            googleAuthProvider.setCustomParameters({ prompt: 'select_account' });
+            await signInWithPopup(auth, googleAuthProvider);
+            navigate('/');
         } catch (err) {
-            setError('Google signup failed.');
+            console.error('Google signup failed:', err);
+            setError(`Google signup failed. Error: ${err.message || 'Unknown error'}`);
         } finally {
             setLoading(false);
         }
@@ -50,35 +43,40 @@ const Signup = () => {
 
     return (
         <div className="signup-container">
-            <h2>Signup</h2>
-            {error && <p className="error">{error}</p>}
-            <form onSubmit={handleSignup}>
-                <input
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    required
-                />
-                <button type="submit" disabled={loading}>Sign Up</button>
-            </form>
-            <button onClick={handleGoogleSignup} disabled={loading}>
-               Sign Up with Google
-            </button>
+            <div className="signup-card">
+                <h2 className="signup-heading">Create Account</h2>
+                {error && <p className="error-message">{error}</p>}
+                <form onSubmit={handleSignup} className="signup-form">
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        className="input-field"
+                        placeholder="Enter your email"
+                    />
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                        className="input-field"
+                        placeholder="Enter your password"
+                    />
+                    <button type="submit" className="submit-button" disabled={loading}>
+                        {loading ? 'Signing up...' : 'Sign Up'}
+                    </button>
+                </form>
+                <div className="social-signup">
+                    <button className="google-signup-button" onClick={handleGoogleSignup} disabled={loading}>
+                        <img src={googleLogo} alt="Google Logo" className="google-logo" />
+                        {loading ? 'Signing up...' : 'Sign Up with Google'}
+                    </button>
+                </div>
+                <p className="login-text">
+                    Already have an account? <span onClick={() => navigate('/login')} className="login-link">Login</span>
+                </p>
+            </div>
         </div>
     );
 };
