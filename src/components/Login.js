@@ -34,6 +34,7 @@ const Login = ({ setIsAuthenticated }) => {
             setIsAuthenticated(true);
             navigate(from || '/');
         } catch (err) {
+            console.error('Login failed:', err);  // Log error for debugging
             setError('Invalid email or password.');
         } finally {
             setLoading(false);
@@ -49,6 +50,7 @@ const Login = ({ setIsAuthenticated }) => {
             setIsAuthenticated(true);
             navigate(from || '/');
         } catch (err) {
+            console.error('Google login failed:', err);  // Log error for debugging
             setError('Google login failed.');
         } finally {
             setLoading(false);
@@ -87,7 +89,9 @@ const Login = ({ setIsAuthenticated }) => {
                         {loading ? 'Logging in...' : 'Login with Google'}
                     </button>
                 </div>
-                <p className="signup-text">Don't have an account? <span onClick={() => navigate('/signup')} className="signup-link">Sign up</span></p>
+                <p className="signup-text">
+                    Don't have an account? <span onClick={() => navigate('/signup')} className="signup-link">Sign up</span>
+                </p>
             </div>
         </div>
     );

@@ -9,7 +9,7 @@ import { ref, get } from 'firebase/database';
 const Navbar = () => {
     const [isMobile, setIsMobile] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-    const [profileInfo, setProfileInfo] = useState({ photoURL: '' });
+    const [profileInfo, setProfileInfo] = useState({ photoURL: 'default-profile.jpg' });
 
     // Toggle the mobile menu
     const toggleMenu = () => setIsMobile(!isMobile);
@@ -28,17 +28,20 @@ const Navbar = () => {
                 get(userRef).then((snapshot) => {
                     if (snapshot.exists()) {
                         const data = snapshot.val();
+                        // Set profile photo or fallback to default
                         setProfileInfo({
-                            photoURL: data.photoURL || currentUser.photoURL || 'default-profile.jpg',
+                            photoURL: data.photoURL || 'default-profile.jpg', // Use default if no photoURL
                         });
                     } else {
-                        // Fallback to auth photo if no extra data is found
-                        setProfileInfo({ photoURL: currentUser.photoURL || 'default-profile.jpg' });
+                        // Fallback to auth photo or default
+                        setProfileInfo({
+                            photoURL: currentUser.photoURL || 'default-profile.jpg',
+                        });
                     }
                 });
             } else {
                 setIsAuthenticated(false); // User is logged out
-                setProfileInfo({ photoURL: 'default-profile.jpg' });
+                setProfileInfo({ photoURL: 'default-profile.jpg' }); // Default if not logged in
             }
         });
 
@@ -66,7 +69,7 @@ const Navbar = () => {
             <Link to={isAuthenticated ? '/profile' : '/login'} className="profile-button" onClick={closeMenu}>
                 {isAuthenticated ? (
                     <img
-                        src={profileInfo.photoURL}
+                        src={profileInfo.photoURL}  // Use the default or user's photo URL
                         alt="Profile"
                         className="profile-photo"
                     />
