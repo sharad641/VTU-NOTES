@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { auth, database } from '../firebase';
-import { 
-    onAuthStateChanged, 
-    signOut, 
-    updatePassword, 
-    deleteUser, 
-    reauthenticateWithCredential, 
-    EmailAuthProvider 
+import {
+    onAuthStateChanged,
+    signOut,
+    updatePassword,
+    deleteUser,
+    reauthenticateWithCredential,
+    EmailAuthProvider,
 } from 'firebase/auth';
 import { ref, get, update, remove, onValue } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
@@ -30,66 +30,48 @@ const Profile = () => {
     const navigate = useNavigate();
     const storage = getStorage();
 
-    // Fetch user data and test results
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
                 setUser(currentUser);
-                setProfileInfo({
-                    displayName: currentUser.displayName || '',
-                    email: currentUser.email || '',
-                    phoneNumber: '',
-                    collegeName: '',
-                    photoURL: currentUser.photoURL || '',
-                });
+                const userRef = ref(database, `users/${currentUser.uid}`);
 
-                if (currentUser.uid) {
-                    const userRef = ref(database, 'users/' + currentUser.uid);
-                    get(userRef).then((snapshot) => {
-                        if (snapshot.exists()) {
-                            const data = snapshot.val();
-                            setProfileInfo((prev) => ({
-                                ...prev,
-                                phoneNumber: data.phoneNumber || '',
-                                collegeName: data.collegeName || '',
-                                photoURL: data.photoURL || currentUser.photoURL,
-                            }));
-                        }
-                    }).catch((error) => {
-                        console.error('Error fetching user data:', error);
-                    });
-
-                    // Fetch the test results for the user
-                    const testResultsRef = ref(database, 'users/' + currentUser.uid + '/testResults');
-                    onValue(testResultsRef, (snapshot) => {
-                        if (snapshot.exists()) {
-                            const results = snapshot.val();
-                            const formattedResults = Object.entries(results).map(([testID, testData], index) => {
-                                const correctAnswers = testData.correctAnswers || 0;
-                                const totalQuestions = testData.totalQuestions || 0;
-                                const attendedQuestions = testData.attendedQuestions || 0;
-
-                                const score = totalQuestions > 0 ? (correctAnswers / totalQuestions) * 100 : 0;
-
-                                return {
-                                    testID: `Test ${index + 1}`,
-                                    test: testData.test || 'N/A',
-                                    difficulty: testData.difficulty || 'N/A',
-                                    score: `${score.toFixed(2)}%`,  // Formatting score to 2 decimal places
-                                    totalQuestions,
-                                    attendedQuestions,
-                                    correctAnswers,  // Adding correctAnswers to each test result
-                                    timestamp: testData.timestamp || null,
-                                };
-                            });
-                            setTestResults(formattedResults);
-                        } else {
-                            setTestResults([]);
-                        }
-                    }).catch((error) => {
-                        console.error('Error fetching test results:', error);
-                    });
+                try {
+                    const snapshot = await get(userRef);
+                    if (snapshot.exists()) {
+                        const data = snapshot.val();
+                        setProfileInfo({
+                            displayName: currentUser.displayName || '',
+                            email: currentUser.email || '',
+                            phoneNumber: data.phoneNumber || '',
+                            collegeName: data.collegeName || '',
+                            photoURL: data.photoURL || currentUser.photoURL || '/default-profile.jpg',
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error fetching user data:', error);
                 }
+
+                const testResultsRef = ref(database, `users/${currentUser.uid}/testResults`);
+                onValue(testResultsRef, (snapshot) => {
+                    if (snapshot.exists()) {
+                        const results = snapshot.val();
+                        const formattedResults = Object.entries(results).map(([testID, testData]) => ({
+                            testID,
+                            test: testData.test || 'N/A',
+                            difficulty: testData.difficulty || 'N/A',
+                            percentage: testData.percentage || 'N/A',
+                            score: testData.score || 0,
+                            totalQuestions: testData.totalQuestions || 0,
+                            attendedQuestions: testData.attendedQuestions || 0,
+                            correctAnswers: testData.correctAnswers || 0,
+                            timestamp: testData.timestamp || null,
+                        }));
+                        setTestResults(formattedResults);
+                    } else {
+                        setTestResults([]);
+                    }
+                });
             } else {
                 setUser(null);
             }
@@ -116,14 +98,14 @@ const Profile = () => {
         setFile(e.target.files[0]);
     };
 
-    const isPhoneNumberValid = (number) => /^[0-9]*$/.test(number);
+    const isPhoneNumberValid = (number) => /^[0-9]{10}$/.test(number);
 
     const handleSave = async () => {
         if (!isPhoneNumberValid(profileInfo.phoneNumber)) {
-            alert('Invalid phone number. Please enter only digits.');
+            alert('Invalid phone number. Please enter a valid 10-digit number.');
             return;
         }
-        if (profileInfo.displayName.trim() === '') {
+        if (!profileInfo.displayName.trim()) {
             alert('Display name cannot be empty.');
             return;
         }
@@ -131,7 +113,7 @@ const Profile = () => {
         setLoading(true);
         try {
             if (user) {
-                const userRef = ref(database, 'users/' + user.uid);
+                const userRef = ref(database, `users/${user.uid}`);
                 let updatedProfileInfo = { ...profileInfo };
 
                 if (file) {
@@ -143,19 +125,16 @@ const Profile = () => {
                         null,
                         (error) => {
                             console.error('Error uploading photo:', error);
+                            setLoading(false);
                         },
                         async () => {
                             const photoURL = await getDownloadURL(uploadTask.snapshot.ref);
-                            updatedProfileInfo = {
-                                ...updatedProfileInfo,
-                                photoURL,
-                            };
-
+                            updatedProfileInfo.photoURL = photoURL;
                             await update(userRef, updatedProfileInfo);
                             setProfileInfo(updatedProfileInfo);
                             setEditMode(false);
                             setLoading(false);
-                            console.log('Profile updated successfully!');
+                            alert('Profile updated successfully!');
                         }
                     );
                 } else {
@@ -163,7 +142,7 @@ const Profile = () => {
                     setProfileInfo(updatedProfileInfo);
                     setEditMode(false);
                     setLoading(false);
-                    console.log('Profile updated successfully!');
+                    alert('Profile updated successfully!');
                 }
             }
         } catch (error) {
@@ -173,46 +152,37 @@ const Profile = () => {
     };
 
     const handleChangePassword = async () => {
-        const newPassword = prompt("Enter your new password:");
+        const newPassword = prompt('Enter your new password:');
         if (!newPassword) return;
 
         try {
-            const user = auth.currentUser;
+            const currentPassword = prompt('Enter your current password:');
+            if (!currentPassword) return;
 
-            if (user) {
-                const email = user.email;
-                const currentPassword = prompt("Please enter your current password:");
-                if (!currentPassword) return;
-
-                const credential = EmailAuthProvider.credential(email, currentPassword);
-                await reauthenticateWithCredential(user, credential);
-            }
-
+            const credential = EmailAuthProvider.credential(user.email, currentPassword);
+            await reauthenticateWithCredential(user, credential);
             await updatePassword(user, newPassword);
-            alert("Password updated successfully.");
+
+            alert('Password updated successfully.');
         } catch (error) {
-            console.error("Error updating password:", error);
-            if (error.code === 'auth/requires-recent-login') {
-                alert("Please log in again to change your password.");
-            } else {
-                alert("Failed to update password. Please try again.");
-            }
+            console.error('Error updating password:', error);
+            alert(error.message);
         }
     };
 
     const handleDeleteAccount = async () => {
-        const confirmDeletion = window.confirm("Are you sure you want to delete your account? This action cannot be undone.");
+        const confirmDeletion = window.confirm('Are you sure you want to delete your account? This action cannot be undone.');
         if (!confirmDeletion) return;
 
         try {
-            const userRef = ref(database, `users/${user?.uid}`);
+            const userRef = ref(database, `users/${user.uid}`);
             await remove(userRef);
-            await deleteUser(auth.currentUser);
-            alert("Account deleted successfully.");
+            await deleteUser(user);
+            alert('Account deleted successfully.');
             navigate('/signup');
         } catch (error) {
-            console.error("Error deleting account:", error);
-            alert("Failed to delete account. Please try again.");
+            console.error('Error deleting account:', error);
+            alert(error.message);
         }
     };
 
@@ -226,7 +196,6 @@ const Profile = () => {
                     text: 'Check out my profile!',
                     url: profileLink,
                 });
-                console.log('Profile shared successfully!');
             } catch (error) {
                 console.error('Error sharing profile:', error);
             }
@@ -280,8 +249,9 @@ const Profile = () => {
                                 onChange={handleFileChange}
                                 className="file-input"
                             />
+                            
                             <button onClick={handleSave} disabled={loading}>
-                                Save
+                                {loading ? 'Saving...' : 'Save'}
                             </button>
                         </div>
                     ) : (
@@ -293,23 +263,35 @@ const Profile = () => {
                         <table>
                             <thead>
                                 <tr>
+                                    
                                     <th>Test</th>
                                     <th>Difficulty</th>
-                                    <th>Score</th>
                                     <th>Total Questions</th>
-                                    <th>Attended</th>
-                                    <th>Correct Answers</th>
+                                    <th>Attended Questions</th>
+                                    <th>Score</th>
+                                    <th>Percentage</th>
+                                    
+                                    
+                                    
+                                    
+                                    <th>Timestamp</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {testResults.map((test, index) => (
                                     <tr key={index}>
+                                        
                                         <td>{test.test}</td>
                                         <td>{test.difficulty}</td>
-                                        <td>{test.score}</td>
                                         <td>{test.totalQuestions}</td>
                                         <td>{test.attendedQuestions}</td>
-                                        <td>{test.correctAnswers}</td>
+                                        <td>{test.score}</td>
+                                        <td>{test.percentage}%</td>
+                                        
+                                        
+                                       
+                                        
+                                        <td>{test.timestamp ? new Date(test.timestamp).toLocaleString() : 'N/A'}</td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -320,8 +302,11 @@ const Profile = () => {
                     <button onClick={handleDeleteAccount}>Delete Account</button>
                     <button onClick={handleLogout}>Logout</button>
 
-                    <QRCodeCanvas value={profileLink} size={128} level="H" />
-                    <button onClick={handleShare}>Share Profile</button>
+                    
+            
+            {/* Share Button */}
+            <button onClick={handleShare}>Share Profile</button>
+            <QRCodeCanvas value={profileLink} size={128} level="H" />
                 </div>
             ) : (
                 <p>Please log in to view your profile.</p>
