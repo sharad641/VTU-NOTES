@@ -57,7 +57,7 @@ const Home = () => {
                 <h2>Select Scheme For Notes</h2>
                 <Link to="/branch-selection/2022" className="scheme-link">2022 Scheme</Link>
                 <span className="scheme-link clickable" onClick={() => handleSchemeClick('2021')}>2021 Scheme</span>
-                <span className="scheme-link clickable" onClick={() => handleSchemeClick('2018')}>2018 Scheme</span>
+               
                 {showMessage && <p className="info-message">{message}</p>}
             </section>
 

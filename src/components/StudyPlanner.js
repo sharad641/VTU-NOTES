@@ -11,10 +11,15 @@ const StudyPlanner = () => {
   const [newPriority, setNewPriority] = useState('Medium');
   const [progress, setProgress] = useState(0);
   const [userId, setUserId] = useState(null);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [filter, setFilter] = useState('All');
+  const [editingTaskId, setEditingTaskId] = useState(null);
+  const [points, setPoints] = useState(0);
+  const [streak, setStreak] = useState(0);
+  const [motivationalQuote, setMotivationalQuote] = useState('Stay positive and keep pushing forward!');
 
+  // Fetch tasks from Firebase
   const fetchTasks = useCallback(async (userId) => {
     const userRef = ref(database, `users/${userId}/studyPlanner`);
     try {
@@ -29,19 +34,25 @@ const StudyPlanner = () => {
     }
   }, []);
 
+  // Update progress bar
   const updateProgress = (tasks) => {
     const totalTasks = Object.keys(tasks || {}).length;
     const completedTasks = Object.values(tasks || {}).filter((task) => task.completed).length;
     setProgress(totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0);
+    if (completedTasks > 0) {
+      setPoints((prev) => prev + completedTasks * 10); // 10 points per completed task
+      setStreak((prev) => prev + 1);
+    }
   };
 
-  const addTask = async () => {
+  // Add or update task
+  const addOrUpdateTask = async () => {
     if (!newTask || !newDate) {
       alert('Please enter both task and date');
       return;
     }
 
-    const taskId = `${newDate}-${Date.now()}`;
+    const taskId = editingTaskId || `${newDate}-${Date.now()}`;
     const newTaskData = {
       taskText: newTask,
       taskDate: newDate,
@@ -53,23 +64,21 @@ const StudyPlanner = () => {
     try {
       await set(ref(database, `users/${userId}/studyPlanner/${taskId}`), newTaskData);
       setTasks((prev) => ({ ...prev, [taskId]: newTaskData }));
-      setNewTask('');
-      setNewDate('');
-      setNewCategory('General');
-      setNewPriority('Medium');
+      resetForm();
       updateProgress({ ...tasks, [taskId]: newTaskData });
     } catch (error) {
-      console.error('Error adding task:', error);
+      console.error('Error adding/updating task:', error);
     }
   };
 
+  // Mark task as completed
   const markTaskCompleted = async (taskId) => {
     const taskRef = ref(database, `users/${userId}/studyPlanner/${taskId}`);
     try {
-      await update(taskRef, { completed: true });
+      await update(taskRef, { completed: true, completedAt: new Date().toISOString() });
       setTasks((prev) => ({
         ...prev,
-        [taskId]: { ...prev[taskId], completed: true },
+        [taskId]: { ...prev[taskId], completed: true, completedAt: new Date().toISOString() },
       }));
       updateProgress({ ...tasks, [taskId]: { ...tasks[taskId], completed: true } });
     } catch (error) {
@@ -77,6 +86,7 @@ const StudyPlanner = () => {
     }
   };
 
+  // Delete task
   const deleteTask = async (taskId) => {
     const taskRef = ref(database, `users/${userId}/studyPlanner/${taskId}`);
     try {
@@ -90,11 +100,46 @@ const StudyPlanner = () => {
     }
   };
 
+  // Clear completed tasks
+  const clearCompletedTasks = async () => {
+    try {
+      const completedTaskIds = Object.keys(tasks).filter((id) => tasks[id].completed);
+      for (const taskId of completedTaskIds) {
+        await deleteTask(taskId);
+      }
+    } catch (error) {
+      console.error('Error clearing completed tasks:', error);
+    }
+  };
+
+  // Reset form
+  const resetForm = () => {
+    setNewTask('');
+    setNewDate('');
+    setNewCategory('General');
+    setNewPriority('Medium');
+    setEditingTaskId(null);
+  };
+
+  // Set task for editing
+  const setTaskToEdit = (taskId) => {
+    const task = tasks[taskId];
+    if (task) {
+      setNewTask(task.taskText);
+      setNewDate(task.taskDate);
+      setNewCategory(task.category);
+      setNewPriority(task.priority);
+      setEditingTaskId(taskId);
+    }
+  };
+
+  // Filtered tasks based on search and category
   const filteredTasks = Object.entries(tasks).filter(([_, task]) =>
     (filter === 'All' || task.category === filter) &&
     task.taskText.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  // Get Firebase user ID
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -108,13 +153,23 @@ const StudyPlanner = () => {
     return () => unsubscribe();
   }, [fetchTasks]);
 
+  // Fetch motivational quotes
+  useEffect(() => {
+    const quotes = [
+      'Believe in yourself and all that you are.',
+      'The future depends on what you do today.',
+      'Success is the sum of small efforts repeated day in and day out.',
+      'Hard work beats talent when talent doesn’t work hard.',
+    ];
+    setMotivationalQuote(quotes[Math.floor(Math.random() * quotes.length)]);
+  }, []);
+
   return (
     <div className={`study-planner ${darkMode ? 'dark-mode' : ''}`}>
       <header className="header">
         <h1>Study Planner</h1>
-        <button onClick={() => setDarkMode(!darkMode)}>
-          {darkMode ? 'Light Mode' : 'Dark Mode'}
-        </button>
+       
+       
       </header>
 
       <div className="progress-bar">
@@ -123,6 +178,16 @@ const StudyPlanner = () => {
         </div>
       </div>
 
+      <div className="motivational-quote">
+        <em>{motivationalQuote}</em>
+      </div>
+
+      <div className="gamification">
+        <p>Points: {points}</p>
+        <p>Streak: {streak} days</p>
+      </div>
+
+      {/* Task Form */}
       <div className="task-form">
         <input
           type="text"
@@ -146,9 +211,13 @@ const StudyPlanner = () => {
           <option value="Medium">Medium</option>
           <option value="Low">Low</option>
         </select>
-        <button onClick={addTask}>Add Task</button>
+        <button onClick={addOrUpdateTask}>
+          {editingTaskId ? 'Update Task' : 'Add Task'}
+        </button>
+        {editingTaskId && <button onClick={resetForm}>Cancel Edit</button>}
       </div>
 
+      {/* Filters */}
       <div className="filters">
         <input
           type="text"
@@ -163,23 +232,50 @@ const StudyPlanner = () => {
           <option value="Exam Prep">Exam Prep</option>
           <option value="Project">Project</option>
         </select>
+        <button onClick={clearCompletedTasks}>Clear Completed</button>
       </div>
 
+      {/* Task List */}
       <div className="task-list">
         {filteredTasks.map(([taskId, task]) => (
-          <div key={taskId} className={`task-box ${task.completed ? 'completed' : ''}`}>
-            <span>
-              {task.taskText} - {task.taskDate} ({task.category}, {task.priority})
-            </span>
-            {!task.completed && (
-              <button onClick={() => markTaskCompleted(taskId)}>Mark as Completed</button>
-            )}
-            <button onClick={() => deleteTask(taskId)}>Delete</button>
+          <div
+            key={taskId}
+            className={`task-box ${task.completed ? 'completed' : ''}`}
+            style={{ borderLeft: `5px solid ${getPriorityColor(task.priority)}` }}
+          >
+            <div className="task-details">
+              <strong>{task.taskText}</strong> - {task.taskDate}
+              <br />
+              <span className="task-meta">
+                {task.category}, {task.priority}
+                {task.completed && <em> (Completed on {new Date(task.completedAt).toLocaleDateString()})</em>}
+              </span>
+            </div>
+            <div className="task-actions">
+              {!task.completed && (
+                <button onClick={() => markTaskCompleted(taskId)}>Complete</button>
+              )}
+              <button onClick={() => setTaskToEdit(taskId)}>Edit</button>
+              <button onClick={() => deleteTask(taskId)}>Delete</button>
+            </div>
           </div>
         ))}
       </div>
     </div>
   );
+};
+
+const getPriorityColor = (priority) => {
+  switch (priority) {
+    case 'High':
+      return 'red';
+    case 'Medium':
+      return 'orange';
+    case 'Low':
+      return 'green';
+    default:
+      return 'gray';
+  }
 };
 
 export default StudyPlanner;

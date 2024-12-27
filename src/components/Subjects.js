@@ -66,6 +66,7 @@ const Subjects = () => {
         { name: 'ARTIFICIAL INTELLIGENCE', code: 'BCS525B', credits: 3, info: 'Fourth SemesterARTIFICIAL INTELLIGENCE For CSE Module 1 to 5 Notes, Solved Model Question papers.. ' },
         { name: 'FULL STACK DEVELOPMENT', code: 'BIC515C', credits: 3, info: ' Fourth Semester FULL STACK DEVELOPMENT  For CSE Module 1 to 5 Notes, Solved Model Question papers.. ' },
         { name: 'RESEARCH AND METHO AND IPR', code: 'BRMK557', credits: 3, info: 'Fourth SemesterARTIFICIAL INTELLIGENCE For CSE Module 1 to 5 Notes, Solved Model Question papers.. ' },
+        
       ],
     },
     ece: {

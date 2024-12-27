@@ -39,12 +39,7 @@ function BranchSelection() {
                     <div className="branch-card" onClick={() => handleBranchClick('cse')}>
                         CSE STREAM
                     </div>
-                    <div className="branch-card" onClick={() => handleBranchClick('ece')}>
-                        ECE STREAM
-                    </div>
-                    <div className="branch-card" onClick={() => handleBranchClick('civil')}>
-                        Civil Engineering
-                    </div>
+                    
                     {/* Add more branches as needed */}
                 </div>
             </div>

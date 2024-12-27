@@ -1,168 +1,308 @@
+/* Root variables for colors, shadows, and transitions */
 :root {
-    --primary-color: #4caf50;
-    --secondary-color: #ffffff;
-    --background-light: #f0f0f0;
-    --background-dark: #2c2c2c;
-    --text-light: #ffffff;
-    --text-dark: #2c2c2c;
-    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: var(--background-light);
-  }
-  
-  .study-planner {
-    background-color: var(--background-light);
-    color: var(--text-dark);
-    min-height: 100vh;
-    padding: 20px;
-    display: flex;
+  --primary-color: #5aa25c;
+  --secondary-color: #ffffff;
+  --background-light: #232d36;
+  --background-dark: #343a40;
+  --text-light: #ffffff;
+  --text-dark: #212529;
+  --accent-color: #00bcd4;
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease-in-out;
+}
+
+/* General styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+.study-planner {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--transition);
+}
+
+
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--secondary-color);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+
+.header button {
+  padding: 10px 15px;
+  border: none;
+  background-color: var(--accent-color);
+  color: var(--text-light);
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.header button:hover {
+  background-color: var(--primary-color);
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 80%;
+  height: 25px;
+  background: #e9ecef;
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.progress-bar .progress {
+  height: 100%;
+  background: var(--primary-color);
+  color: var(--text-light);
+  text-align: center;
+  line-height: 25px;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+/* Task form */
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--secondary-color);
+}
+
+.task-form input,
+.task-form select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 200px;
+  transition: var(--transition);
+}
+
+.task-form input:focus,
+.task-form select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.task-form button {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.task-form button:hover {
+  background-color: var(--accent-color);
+}
+
+/* Filters */
+.filters {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--secondary-color);
+}
+
+.filters input,
+.filters select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 200px;
+  transition: var(--transition);
+}
+
+.filters input:focus,
+.filters select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Task list */
+.task-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.task-box {
+  background: var(--secondary-color);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  padding: 15px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: var(--transition);
+  border-left: 5px solid var(--primary-color);
+}
+
+.task-box span {
+  font-size: 1.2rem;
+  word-wrap: break-word;
+}
+
+.task-box-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.task-box button {
+  flex: 1 1 calc(50% - 5px);
+  padding: 10px;
+  border: none;
+  background: var(--primary-color);
+  color: var(--text-light);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.task-box button:hover {
+  background: var(--accent-color);
+}
+
+.task-box.completed {
+  background: rgba(76, 175, 80, 0.1);
+  border-left: 5px solid var(--accent-color);
+  color: var(--text-dark);
+}
+
+/* Task actions */
+.task-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.task-actions button {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.3s;
+}
+
+.task-actions button:hover {
+  transform: scale(1.1);
+}
+
+.task-actions button:active {
+  transform: scale(0.95);
+}
+
+.task-actions button:nth-child(1) {
+  background-color: #28a745;
+}
+
+.task-actions button:nth-child(2) {
+  background-color: #ffc107;
+}
+
+.task-actions button:nth-child(3) {
+  background-color: #dc3545;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .task-box-buttons {
     flex-direction: column;
-    align-items: center;
+    gap: 10px;
   }
-  
-  .dark-mode {
-    background-color: var(--background-dark);
-    color: var(--text-light);
+
+  .task-box button {
+    flex: 1 1 100%;
   }
-  
-  .header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
+
   .header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
   }
-  
-  .header button {
-    padding: 10px 15px;
-    border: none;
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .progress-bar {
-    width: 80%;
-    height: 25px;
-    background: #d3d3d3;
-    border-radius: 50px;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 20px;
-  }
-  
-  .progress {
-    height: 100%;
-    background: var(--primary-color);
-    color: var(--text-light);
-    text-align: center;
-    line-height: 25px;
-    white-space: nowrap;
-  }
-  
-  .task-form {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
+
   .task-form input,
-  .task-form select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    width: 200px;
-  }
-  
-  .task-form button {
-    padding: 10px 20px;
-    background-color: var(--primary-color);
-    color: var(--text-light);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .filters {
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-  }
-  
+  .task-form select,
   .filters input,
   .filters select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    width: 200px;
-  }
-  
-  .task-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
     width: 100%;
   }
-  
+
   .task-box {
-    background: var(--secondary-color);
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
-    padding: 15px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    width: 100%;
   }
-  
-  .task-box span {
-    font-size: 1.2rem;
-    word-wrap: break-word;
+}
+
+@media (max-width: 480px) {
+  .task-actions button {
+    font-size: 12px;
+    padding: 6px 12px;
   }
-  
-  .task-box button {
-    padding: 10px;
-    border: none;
-    background: var(--primary-color);
-    color: var(--text-light);
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9rem;
-  }
-  
-  .task-box.completed {
-    background: rgba(76, 175, 80, 0.3);
-  }
-  
-  @media (max-width: 768px) {
-    .header h1 {
-      font-size: 1.8rem;
-    }
-  
-    .task-form input,
-    .task-form select,
-    .filters input,
-    .filters select {
-      width: 100%;
-    }
-  
-    .task-box {
-      width: 100%;
-    }
-  }
-  
+}
+
+
+.study-planner {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+button {
+  background-color: var(--button-bg);
+  color: var(--text-color);
+}
+
+.progress-bar .progress {
+  background-color: var(--progress-color);
+}
