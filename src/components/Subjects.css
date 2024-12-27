@@ -77,11 +77,11 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(135deg, #ff4e50, #fc913a);
+    
     z-index: -1;
     border-radius: 20px;
     opacity: 0;
-    transition: opacity 0.3s ease;
+   
 }
 
 /* Hover Effect for Subject Box */
@@ -105,9 +105,6 @@
     transition: color 0.3s ease;
 }
 
-.subject-box:hover h3 {
-    color: #fc913a;
-}
 
 /* Paragraph Styling */
 .subject-box p {
@@ -166,15 +163,11 @@
     box-shadow: 0 4px 10px rgba(255, 78, 80, 0.4);
 }
 
-.subject-box button:hover {
-    background: linear-gradient(to right, #e94057, #f27121);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(255, 78, 80, 0.6);
-}
+
 
 /* Marquee Styling */
 .headline-messagee {
-    background: linear-gradient(to right, #fff3e0, #ffe0b2);
+    background: linear-gradient(to right, #120f0b, #ffe0b2);
     color: #ff4e50;
     padding: 16px;
     border-radius: 20px;
@@ -184,7 +177,7 @@
     text-align: center;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    animation: marquee 10s linear infinite;
+   
 }
 
 /* Responsive Design for Mobile */

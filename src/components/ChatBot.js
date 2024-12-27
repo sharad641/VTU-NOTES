@@ -2,43 +2,68 @@ import React, { useState } from 'react';
 import './ChatBot.css';
 
 const ChatBot = () => {
-  const [input, setInput] = useState('');   // Define state variables
-  const [messages, setMessages] = useState([]);  // Define state for messages
+  const [input, setInput] = useState(''); // State for user input
+  const [messages, setMessages] = useState([]); // State for chat messages
 
   const handleSend = async () => {
-    if (input.trim() === '') return;
+    if (input.trim() === '') return; // Prevent empty messages
 
+    // Add user message to chat
     const userMessage = { text: input, sender: 'user' };
     setMessages(prevMessages => [...prevMessages, userMessage]);
 
-    setInput('');  // Clear input field after sending message
+    setInput(''); // Clear input field after sending the message
 
     try {
-      const response = await fetch('https://api.gemini.com/v1/chat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer YOUR_API_KEY', // Replace with actual API key
-        },
-        body: JSON.stringify({ prompt: input })
-      });
+      // Fetch API key from environment variables
+      const apiKey = process.env.REACT_APP_GEMINI_API_KEY;
+      if (!apiKey) {
+        throw new Error('API key is missing. Please set REACT_APP_GEMINI_API_KEY in the .env file.');
+      }
 
+      // Make API request to Gemini
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [{ text: input }],
+              },
+            ],
+          }),
+        }
+      );
+
+      // Handle non-200 responses
       if (!response.ok) {
-        throw new Error(`API Error: ${response.statusText}`);
+        throw new Error(`API Error: ${response.status} ${response.statusText}`);
       }
 
       const data = await response.json();
-      if (!data.response) {
-        throw new Error('No response from Gemini API');
+
+      // Validate response structure
+      const botResponse = data.contents?.[0]?.parts?.[0]?.text;
+      if (!botResponse) {
+        throw new Error('Invalid response from Gemini API');
       }
 
-      const botMessage = { text: data.response, sender: 'bot' };
+      // Add bot response to chat
+      const botMessage = { text: botResponse, sender: 'bot' };
       setMessages(prevMessages => [...prevMessages, botMessage]);
 
     } catch (error) {
-      console.error("Error fetching the response: ", error);
+      console.error('Error fetching the response:', error);
 
-      const botMessage = { text: "Sorry, there was an error processing your request. Please try again later.", sender: 'bot' };
+      // Display error message in chat
+      const botMessage = {
+        text: "Sorry, there was an error processing your request. Please try again later.",
+        sender: 'bot',
+      };
       setMessages(prevMessages => [...prevMessages, botMessage]);
     }
   };
@@ -48,7 +73,7 @@ const ChatBot = () => {
       <h2>Chat with Us</h2>
       <div className="messages">
         {messages.map((message, index) => (
-          <div key={index} className={message.sender}>
+          <div key={index} className={`message ${message.sender}`}>
             {message.text}
           </div>
         ))}
@@ -66,4 +91,4 @@ const ChatBot = () => {
   );
 };
 
-export default ChatBot;  // Ensure it's being exported
+export default ChatBot;
