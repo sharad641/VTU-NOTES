@@ -15,7 +15,7 @@ const ChatBot = () => {
 
     try {
       // Make sure the API key is present
-      const apiKey = process.env.REACT_APP_GEMINI_API_KEY || '<your-api-key>';
+      const apiKey = process.env.REACT_APP_GEMINI_API_KEY || 'AIzaSyCg_8qBmih5Z_kT9DwRS8QYBrz9yrXXP9M';
       if (!apiKey) {
         throw new Error('API key is missing.');
       }
