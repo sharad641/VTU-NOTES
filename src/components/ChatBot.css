@@ -145,7 +145,7 @@ button:hover {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .chatbot-container {
-        width: 65%; /* Full width on mobile */
+        width: 85%; /* Full width on mobile */
         height: 80%; /* Maximize height on mobile */
         max-width: none; /* Remove max-width to allow full screen */
         bottom: 40px; /* Slight adjustment for better visibility */
