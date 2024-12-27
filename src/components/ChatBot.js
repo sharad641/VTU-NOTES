@@ -6,22 +6,19 @@ const ChatBot = () => {
   const [messages, setMessages] = useState([]); // State for chat messages
 
   const handleSend = async () => {
-    if (input.trim() === '') return; // Prevent empty messages
-
-    // Add user message to chat
+    if (input.trim() === '') return;
+  
     const userMessage = { text: input, sender: 'user' };
-    setMessages(prevMessages => [...prevMessages, userMessage]);
-
-    setInput(''); // Clear input field after sending the message
-
+    setMessages((prevMessages) => [...prevMessages, userMessage]);
+  
+    setInput(''); // Clear input field
+  
     try {
-      // Fetch API key from environment variables
-      const apiKey = process.env.REACT_APP_GEMINI_API_KEY;
+      const apiKey = process.env.REACT_APP_GEMINI_API_KEY || '<your-api-key>';
       if (!apiKey) {
-        throw new Error('API key is missing. Please set REACT_APP_GEMINI_API_KEY in the .env file.');
+        throw new Error('API key is missing.');
       }
-
-      // Make API request to Gemini
+  
       const response = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
         {
@@ -38,35 +35,35 @@ const ChatBot = () => {
           }),
         }
       );
-
-      // Handle non-200 responses
+  
+      // Log the raw response to inspect it
+      const data = await response.json();
+      console.log(data);
+  
       if (!response.ok) {
         throw new Error(`API Error: ${response.status} ${response.statusText}`);
       }
-
-      const data = await response.json();
-
-      // Validate response structure
-      const botResponse = data.contents?.[0]?.parts?.[0]?.text;
+  
+      // Extract the bot response from the nested structure
+      const botResponse = data.candidates?.[0]?.content?.parts?.[0]?.text;
       if (!botResponse) {
         throw new Error('Invalid response from Gemini API');
       }
-
-      // Add bot response to chat
+  
       const botMessage = { text: botResponse, sender: 'bot' };
-      setMessages(prevMessages => [...prevMessages, botMessage]);
-
+      setMessages((prevMessages) => [...prevMessages, botMessage]);
+  
     } catch (error) {
       console.error('Error fetching the response:', error);
-
-      // Display error message in chat
+  
       const botMessage = {
-        text: "Sorry, there was an error processing your request. Please try again later.",
+        text: 'Sorry, there was an error processing your request. Please try again later.',
         sender: 'bot',
       };
-      setMessages(prevMessages => [...prevMessages, botMessage]);
+      setMessages((prevMessages) => [...prevMessages, botMessage]);
     }
   };
+  
 
   return (
     <div className="chatbot-container">

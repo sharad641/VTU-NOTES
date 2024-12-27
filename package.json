@@ -13,7 +13,6 @@
     "crypto-browserify": "^3.12.1",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
-    "express": "^4.21.1",
     "firebase": "^10.14.1",
     "font-awesome": "^4.7.0",
     "howler": "^2.2.4",
@@ -49,7 +48,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node ../backend/server.js",
+    "server": "node ../backend/server.js",  
     "dev": "concurrently \"npm run server\" \"npm start\""
   },
   "eslintConfig": {
@@ -73,5 +72,6 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "concurrently": "^9.0.1"
-  }
+  },
+  "proxy": "https://generativelanguage.googleapis.com"
 }
