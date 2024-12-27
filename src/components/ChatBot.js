@@ -4,6 +4,7 @@ import './ChatBot.css';
 const ChatBot = () => {
   const [input, setInput] = useState(''); // State for user input
   const [messages, setMessages] = useState([]); // State for chat messages
+  const [isVisible, setIsVisible] = useState(true); // State to toggle chatbot visibility
 
   const handleSend = async () => {
     if (input.trim() === '') return;
@@ -38,7 +39,6 @@ const ChatBot = () => {
         }
       );
 
-      // Log the raw response to inspect it
       const data = await response.json();
       console.log(data);
 
@@ -46,7 +46,6 @@ const ChatBot = () => {
         throw new Error(`API Error: ${response.status} ${response.statusText}`);
       }
 
-      // Extract the bot response from the nested structure
       const botResponse = data.candidates?.[0]?.content?.parts?.[0]?.text;
       if (!botResponse) {
         throw new Error('Invalid response from Gemini API');
@@ -54,7 +53,6 @@ const ChatBot = () => {
 
       const botMessage = { text: botResponse, sender: 'bot' };
       setMessages((prevMessages) => [...prevMessages, botMessage]);
-
     } catch (error) {
       console.error('Error fetching the response:', error);
 
@@ -66,8 +64,13 @@ const ChatBot = () => {
     }
   };
 
+  if (!isVisible) return null; // Don't render the chatbot if it's not visible
+
   return (
     <div className="chatbot-container">
+      <div className="chatbot-close" onClick={() => setIsVisible(false)}>
+        ×
+      </div>
       <h2>Chat with Us</h2>
       <div className="messages">
         {messages.map((message, index) => (

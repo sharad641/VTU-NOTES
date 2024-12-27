@@ -20,6 +20,24 @@
     border: 1px solid #e0e0e0;
 }
 
+/* Close Button Styling */
+.chatbot-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #555;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    transition: color 0.3s ease;
+}
+
+.chatbot-close:hover {
+    color: #d9534f; /* Hover color for close button */
+}
+
 /* Header */
 .chatbot-container h2 {
     font-size: 1.5rem;
