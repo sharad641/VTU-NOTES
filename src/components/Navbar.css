@@ -20,23 +20,6 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* Navbar Title */
-.navbar-title {
-  font-size: 26px;
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: color 0.3s ease, transform 0.3s ease;
-  flex: 1;
-}
-
-.navbar-title:hover {
-  transform: translateY(-3px);
-  color: #f0a500;
-}
-
 /* Navbar Links */
 .nav-links {
   display: flex;
@@ -210,17 +193,19 @@
 @media (min-width: 1024px) {
   .navbar {
     padding: 20px 50px;
+    justify-content: space-between;
   }
 
   .nav-links {
     gap: 30px;
   }
 
-  .nav-links li a {
-    font-size: 18px;
+  .nav-links li {
+    margin-left: auto;
   }
 
   .login-button1 {
+    margin-left: auto;
     padding: 10px 25px;
     font-size: 16px;
   }
