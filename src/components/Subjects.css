@@ -5,14 +5,14 @@
     align-items: center;
     padding: 40px 20px;
     min-height: 100vh;
-    background: linear-gradient(135deg, #f3e7e9, #e3eeff); /* Gradient background */
-    color: #333;
+    background: linear-gradient(135deg, #00c6ff, #0072ff); /* Updated gradient */
+    color: #ffffff; /* Ensures contrast with the background */
     font-family: 'Poppins', sans-serif; /* Modern font */
     max-width: 1200px;
     margin: 0 auto;
     gap: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 /* Subject Title */
@@ -21,7 +21,7 @@
     margin: 20px 0;
     text-transform: uppercase;
     font-weight: 700;
-    color: #ff4e50;
+    color: #ffffff; /* High contrast title */
     letter-spacing: 3px;
     padding-bottom: 15px;
     position: relative;
@@ -34,7 +34,7 @@
     position: absolute;
     width: 100px;
     height: 6px;
-    background: linear-gradient(to right, #ff4e50, #fc913a);
+    background: linear-gradient(to right, #00c6ff, #0072ff); /* Matches section */
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -53,19 +53,19 @@
 
 /* Subject Box Styling with Glassmorphism */
 .subject-box {
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1); /* Subtle transparency */
+    backdrop-filter: blur(12px);
     padding: 30px;
     border-radius: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     position: relative;
     overflow: hidden;
     text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    color: #333;
+    color: #ffffff; /* Ensures text visibility */
     height: 360px;
 }
 
@@ -77,11 +77,10 @@
     left: -2px;
     right: -2px;
     bottom: -2px;
-    
     z-index: -1;
     border-radius: 20px;
     opacity: 0;
-   
+    background: linear-gradient(to right, #00c6ff, #0072ff);
 }
 
 /* Hover Effect for Subject Box */
@@ -99,18 +98,17 @@
     font-size: 2.2rem;
     margin: 0;
     font-weight: 700;
-    color: #ff4e50;
+    color: #ffeb3b; /* Bright yellow for contrast */
     letter-spacing: 1px;
     margin-bottom: 15px;
     transition: color 0.3s ease;
 }
 
-
 /* Paragraph Styling */
 .subject-box p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #555;
+    color: #e0f7fa; /* Subtle light blue */
     margin-top: 10px;
 }
 
@@ -118,22 +116,22 @@
 .subject-box .subject-info {
     font-size: 1.1rem;
     font-weight: 500;
-    color: #1e88e5;
+    color: #ffffff; /* Matches overall text theme */
     margin-bottom: 15px;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .subject-box .subject-info:hover {
-    color: #1565c0;
+    color: #e1f5fe;
 }
 
 /* Subject Code and Credits Box */
 .subject-box .subject-code,
 .subject-box .credits-box {
     font-size: 0.9rem;
-    color: #fff;
-    background: #00796b;
+    color: #ffffff;
+    background: #0288d1; /* Deep blue for buttons */
     padding: 8px 16px;
     border-radius: 20px;
     margin-top: 10px;
@@ -143,13 +141,13 @@
 
 .subject-box .subject-code:hover,
 .subject-box .credits-box:hover {
-    background: #004d40;
+    background: #01579b; /* Slightly darker hover */
 }
 
 /* Button Styling with 3D Effect */
 .subject-box button {
-    background: linear-gradient(to right, #ff4e50, #fc913a);
-    color: #fff;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    color: #ffffff;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -160,15 +158,13 @@
     padding: 12px 25px;
     border-radius: 50px;
     margin-top: auto;
-    box-shadow: 0 4px 10px rgba(255, 78, 80, 0.4);
+    box-shadow: 0 4px 10px rgba(0, 198, 255, 0.4);
 }
-
-
 
 /* Marquee Styling */
 .headline-messagee {
-    background: linear-gradient(to right, #120f0b, #ffe0b2);
-    color: #ff4e50;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    color: #ffffff; /* Text contrast */
     padding: 16px;
     border-radius: 20px;
     margin: 20px auto;
@@ -177,7 +173,6 @@
     text-align: center;
     box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-   
 }
 
 /* Responsive Design for Mobile */
@@ -214,15 +209,5 @@
 
     .subject-box h3 {
         font-size: 1.6rem;
-    }
-}
-
-/* Keyframes for Marquee Animation */
-@keyframes marquee {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
     }
 }

@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExpand, faCompress, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './ChatBot.css';
 
 const ChatBot = () => {
   const [input, setInput] = useState(''); // State for user input
   const [messages, setMessages] = useState([]); // State for chat messages
   const [isVisible, setIsVisible] = useState(true); // State to toggle chatbot visibility
+  const [isFullscreen, setIsFullscreen] = useState(false); // State for fullscreen mode
 
   const handleSend = async () => {
     if (input.trim() === '') return;
@@ -15,13 +18,11 @@ const ChatBot = () => {
     setInput(''); // Clear input field
 
     try {
-      // Make sure the API key is present
       const apiKey = process.env.REACT_APP_GEMINI_API_KEY || 'AIzaSyCg_8qBmih5Z_kT9DwRS8QYBrz9yrXXP9M';
       if (!apiKey) {
         throw new Error('API key is missing.');
       }
 
-      // Send the request to the Gemini API
       const response = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
         {
@@ -40,7 +41,6 @@ const ChatBot = () => {
       );
 
       const data = await response.json();
-      console.log(data);
 
       if (!response.ok) {
         throw new Error(`API Error: ${response.status} ${response.statusText}`);
@@ -67,11 +67,21 @@ const ChatBot = () => {
   if (!isVisible) return null; // Don't render the chatbot if it's not visible
 
   return (
-    <div className="chatbot-container">
-      <div className="chatbot-close" onClick={() => setIsVisible(false)}>
-        ×
+    <div className={`chatbot-container ${isFullscreen ? 'fullscreen' : ''}`}>
+      <div className="chatbot-header">
+        <h2>Chat with Us</h2>
+        <div className="chatbot-controls">
+          <button
+            className="fullscreen-btn"
+            onClick={() => setIsFullscreen(!isFullscreen)}
+          >
+            <FontAwesomeIcon icon={isFullscreen ? faCompress : faExpand} />
+          </button>
+          <button className="close-btn" onClick={() => setIsVisible(false)}>
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+        </div>
       </div>
-      <h2>Chat with Us</h2>
       <div className="messages">
         {messages.map((message, index) => (
           <div key={index} className={`message ${message.sender}`}>
@@ -86,7 +96,7 @@ const ChatBot = () => {
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type your question here..."
         />
-        <button onClick={handleSend}>Send</button>
+        <button className="input-container-button" onClick={handleSend}>Send</button>
       </div>
     </div>
   );

@@ -21,24 +21,26 @@ const Navbar = () => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (currentUser) {
-                setIsAuthenticated(true); // User is logged in
+                setIsAuthenticated(true);
 
                 // Fetch user data from Firebase Realtime Database
-                const userRef = ref(database, 'users/' + currentUser.uid);
+                const userRef = ref(database, `users/${currentUser.uid}`);
                 get(userRef).then((snapshot) => {
                     if (snapshot.exists()) {
                         const data = snapshot.val();
-                        // Set profile photo or fallback to initials
                         const userPhotoURL = data.photoURL || currentUser.photoURL;
-                        const userInitials = data.name ? data.name.split(' ').map((n) => n[0]).join('') : 'U'; // Default to 'U' if no name
+                        const userInitials = data.name
+                            ? data.name.split(' ').map((n) => n[0]).join('')
+                            : 'U'; // Default to 'U' if no name
 
                         setProfileInfo({
                             photoURL: userPhotoURL || '',
                             initials: userInitials || 'U',
                         });
                     } else {
-                        // Fallback to auth photo or initials if no data
-                        const userInitials = currentUser.displayName ? currentUser.displayName.split(' ').map((n) => n[0]).join('') : 'U';
+                        const userInitials = currentUser.displayName
+                            ? currentUser.displayName.split(' ').map((n) => n[0]).join('')
+                            : 'U';
                         setProfileInfo({
                             photoURL: currentUser.photoURL || '',
                             initials: userInitials,
@@ -46,8 +48,8 @@ const Navbar = () => {
                     }
                 });
             } else {
-                setIsAuthenticated(false); // User is logged out
-                setProfileInfo({ photoURL: '', initials: '' }); // Default if not logged in
+                setIsAuthenticated(false);
+                setProfileInfo({ photoURL: '', initials: '' });
             }
         });
 
@@ -58,7 +60,7 @@ const Navbar = () => {
         <nav className="navbar">
             {/* Centered Title Section */}
             <div className="navbar-title">
-                <h1>VTU Notes</h1>
+                
             </div>
 
             {/* Navigation Links */}
@@ -76,13 +78,13 @@ const Navbar = () => {
                 {isAuthenticated ? (
                     profileInfo.photoURL ? (
                         <img
-                            src={profileInfo.photoURL}  // Use the photo URL if available
+                            src={profileInfo.photoURL}
                             alt="Profile"
                             className="profile-photo"
                         />
                     ) : (
                         <div className="profile-initials">
-                            {profileInfo.initials} {/* Display initials as a fallback */}
+                            {profileInfo.initials}
                         </div>
                     )
                 ) : 'Login'}

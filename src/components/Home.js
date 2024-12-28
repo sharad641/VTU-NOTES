@@ -90,12 +90,12 @@ const Home = () => {
                 <Link to="/study-planner" className="study-planner-link">Go to Study Planner</Link>
             </section>
 
-            {/* Chatbot Toggle */}
-            <div className="chatbot-button-container">
+          <div className="chatbot-button-container">
                 <button className="chatbot-toggle-btn" onClick={toggleChatbot}>
                     {showChatbot ? 'Hide Chatbot' : 'Chat with Us!'}
                 </button>
-            </div>
+            </div> 
+
 
             {/* Conditionally render the ChatBot component */}
             {showChatbot && <ChatBot />}
