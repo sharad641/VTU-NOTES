@@ -49,7 +49,7 @@
     font-weight: 600;
 }
 
-/* Close and Fullscreen Buttons */
+/* Control Buttons */
 .chatbot-controls {
     display: flex;
     gap: 10px;
@@ -85,7 +85,7 @@
 }
 
 .close-btn:hover {
-    color: #d9534f; /* Red color for close button */
+    color: #d9534f;
     transform: scale(1.2);
 }
 
@@ -100,6 +100,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    scroll-behavior: smooth;
 }
 
 .messages .user {
@@ -129,6 +130,7 @@
     display: flex;
     gap: 10px;
     padding-top: 10px;
+    align-items: center;
 }
 
 input {
@@ -146,12 +148,13 @@ input:focus {
     box-shadow: 0 0 6px rgba(0, 86, 179, 0.2);
 }
 
-button {
+/* Send Button Styling */
+.input-container-button {
     background-color: #0569d4;
-    color: #6977dc;
+    color: #ffffff;
     border: none;
     border-radius: 25px;
-    padding: 12px;
+    padding: 12px 20px;
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -160,9 +163,25 @@ button {
     align-items: center;
 }
 
-button:hover {
-    background-color: #e6e9ec;
+.input-container-button:hover {
+    background-color: #045bb5;
     transform: scale(1.05);
+}
+
+.input-container-button:active {
+    background-color: #034a8b;
+}
+
+.input-container-button:focus {
+    outline: none;
+    box-shadow: 0 0 4px rgba(5, 105, 212, 0.5);
+}
+
+/* Disabled Send Button */
+button:disabled {
+    background-color: #ddd;
+    color: #aaa;
+    cursor: not-allowed;
 }
 
 /* Scrollbar Customization */
@@ -209,40 +228,4 @@ button:hover {
     input {
         width: 80%;
     }
-}
-/* Input Section */
-.input-container {
-    display: flex;
-    gap: 10px;
-    padding-top: 10px;
-    align-items: center; /* Ensures input and button align properly */
-}
-
-/* Send Button Styling */
-.input-container-button {
-    background-color: #0569d4; /* Primary blue color */
-    color: #ffffff; /* White text */
-    border: none;
-    border-radius: 25px;
-    padding: 12px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.input-container-button:hover {
-    background-color: #045bb5; /* Darker blue on hover */
-    transform: scale(1.05);
-}
-
-.input-container-button:active {
-    background-color: #034a8b; /* Even darker blue when clicked */
-}
-
-.input-container-button:focus {
-    outline: none;
-    box-shadow: 0 0 4px rgba(5, 105, 212, 0.5);
 }

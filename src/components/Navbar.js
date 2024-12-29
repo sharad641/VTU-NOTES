@@ -74,21 +74,28 @@ const Navbar = () => {
             </ul>
 
             {/* Profile or Login Button */}
-            <Link to={isAuthenticated ? '/profile' : '/login'} className="profile-button" onClick={closeMenu}>
-                {isAuthenticated ? (
-                    profileInfo.photoURL ? (
-                        <img
-                            src={profileInfo.photoURL}
-                            alt="Profile"
-                            className="profile-photo"
-                        />
-                    ) : (
-                        <div className="profile-initials">
-                            {profileInfo.initials}
-                        </div>
-                    )
-                ) : 'Login'}
-            </Link>
+           <Link
+  to={isAuthenticated ? '/profile' : '/login'}
+  className="profile-button"
+  onClick={closeMenu}
+>
+  {isAuthenticated ? (
+    profileInfo.photoURL ? (
+      <img
+        src={profileInfo.photoURL}
+        alt="Profile"
+        className="profile-photo"
+      />
+    ) : (
+      <div className="profile-initials">
+        {profileInfo.initials}
+      </div>
+    )
+  ) : (
+    'Login'
+  )}
+</Link>
+
 
             {/* Mobile Menu Hamburger Icon */}
             <div className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation">
