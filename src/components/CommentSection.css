@@ -1,310 +1,262 @@
-/* Comment Section Container */
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f3f4f6;
+}
+
 .comment-section-container {
-  max-width: 95%;
+  max-width: 900px;
   margin: 20px auto;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  font-family: 'Poppins', sans-serif;
-  transition: transform 0.3s ease;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-.comment-section-container:hover {
-  transform: scale(1.01);
-}
-
-/* Comment Form */
-.comment-form input,
-.comment-form textarea {
-  width: 100%;
-  padding: 14px 16px;
-  margin-bottom: 14px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 14px;
-  font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s, transform 0.2s ease;
-}
-
-.comment-form textarea {
-  resize: none;
-  height: 120px;
-}
-
-.comment-form input:focus,
-.comment-form textarea:focus {
-  box-shadow: 0 0 12px rgba(0, 149, 246, 0.4);
-  outline: none;
-  transform: scale(1.02);
-}
-
-.comment-form button {
-  width: 100%;
-  background: linear-gradient(90deg, #6a11cb, #2575fc);
-  color: #ffffff;
-  padding: 12px;
-  border: none;
-  border-radius: 14px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-transform: uppercase;
-}
-
-.comment-form button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(106, 17, 203, 0.3);
-}
-
-/* Comment Card */
-.comment-card {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 16px;
-  border-radius: 18px;
+/* Header Styles */
+.header {
+  text-align: center;
   margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  position: relative;
+}
+
+.header .section-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.header .intro-paragraph {
+  font-size: 1rem;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+/* Form Styles */
+.comment-form {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.comment-author,
+.comment-textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9fafb;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.comment-author:focus,
+.comment-textarea:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.3);
+  outline: none;
+}
+
+.comment-author {
+  max-width: 350px;
+}
+
+.comment-textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+.submit-btn {
+  align-self: flex-end;
+  padding: 12px 24px;
+  background-color: #4caf50;
+  color: #fff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Comment Card Styles */
+.comment-card {
+  border: 1px solid #e5e7eb;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .comment-header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .comment-header strong {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #333333;
+  font-size: 1.1rem;
+  color: #2c3e50;
 }
 
 .timestamp {
-  font-size: 0.875rem;
-  color: #9e9e9e;
+  font-size: 0.9rem;
+  color: #adb5bd;
 }
 
 .comment-text {
   font-size: 1rem;
-  color: #555555;
-  line-height: 1.8;
-  margin-bottom: 12px;
-  word-wrap: break-word;
+  color: #495057;
+  margin-bottom: 15px;
 }
 
 /* Like and Reply Section */
-.comment-actions {
+.like-section {
   display: flex;
-  gap: 16px;
   align-items: center;
+  gap: 12px;
+  margin-top: 10px;
 }
 
-.comment-actions button {
+.like-btn,
+.reply-btn {
   background: none;
   border: none;
+  font-size: 0.95rem;
   cursor: pointer;
-  font-size: 0.875rem;
   display: flex;
   align-items: center;
-  gap: 8px;
-  color: #999999;
-  transition: color 0.3s, transform 0.2s ease;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background 0.3s, transform 0.2s;
 }
 
-.comment-actions button:hover {
-  color: #555555;
-  transform: scale(1.05);
+.like-btn {
+  color: #e74c3c;
 }
 
-/* Like Section */
-.like-section {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .like-section button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 8px 12px;
-    border-radius: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: #999999;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .like-section button:hover {
-    color: #ff3b5a;
-    transform: scale(1.1);
-  }
-  
-  /* Heart icon animation */
-  .like-section button .icon {
-    font-size: 1.2rem;
-    margin-right: 8px;
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-  
-  .like-section button:hover .icon {
-    transform: scale(1.4) rotate(20deg);
-    color: #ff3b5a;
-  }
-  
-  /* Ripple effect */
-  .like-section button::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 59, 90, 0.3);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.6s ease-out;
-    z-index: -1;
-  }
-  
-  .like-section button:hover::before {
-    width: 200%;
-    height: 200%;
-    opacity: 0;
-  }
-  
-  /* Like count */
-  .like-section .like-count {
-    font-size: 0.875rem;
-    color: #aaaaaa;
-    margin-left: 8px;
-    transition: color 0.3s ease;
-  }
-  
-  .like-section button:hover ~ .like-count {
-    color: #ff3b5a;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    .like-section button {
-      font-size: 0.875rem;
-      padding: 6px 10px;
-    }
-  
-    .like-section button .icon {
-      font-size: 1rem;
-    }
-  
-    .like-section .like-count {
-      font-size: 0.75rem;
-    }
-  }
-  
-
-/* Reply Form */
-.reply-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 14px;
-  font-size: 1rem;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, transform 0.2s;
-  margin-top: 12px;
+.reply-btn {
+  color: #4caf50;
 }
 
-.reply-form textarea:focus {
-  box-shadow: 0 0 12px rgba(0, 149, 246, 0.4);
-  outline: none;
-  transform: scale(1.02);
+.like-btn:hover,
+.reply-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
 }
 
-.reply-form button {
-  background: linear-gradient(90deg, #34d058, #28a745);
-  color: #ffffff;
-  padding: 12px 16px;
-  border: none;
-  border-radius: 14px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  margin-top: 12px;
-}
-
-.reply-form button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(52, 208, 88, 0.4);
+.like-count {
+  font-size: 0.9rem;
+  color: #6c757d;
 }
 
 /* Reply Card */
 .reply-card {
-  margin-top: 12px;
-  padding: 14px;
-  border-left: 3px solid #0095f6;
-  background: rgba(240, 248, 255, 0.95);
-  border-radius: 14px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 25px;
+  margin-top: 15px;
+  border-left: 3px solid #e5e7eb;
+  padding-left: 15px;
+}
+
+.reply-text {
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.reply-form {
+  margin-top: 15px;
+}
+
+.reply-textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: none;
+  background-color: #f9fafb;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.reply-textarea:focus {
+  border-color: #2196f3;
+  box-shadow: 0 0 6px rgba(33, 150, 243, 0.3);
+  outline: none;
+}
+
+.submit-reply-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.submit-reply-btn:hover {
+  background-color: #1e88e5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Show More/Hide Button */
+.toggle-comments-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  border: none;
+  background-color: #f1f1f1;
+  color: #666;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-top: 15px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.toggle-comments-btn:hover {
+  background-color: #e0e0e0;
+  transform: translateY(-1px);
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .comment-section-container {
-    padding: 15px;
     margin: 10px;
+    padding: 15px;
   }
 
-  .comment-form textarea {
-    height: 100px;
+  .header .section-title {
+    font-size: 1.6rem;
   }
 
-  .comment-actions {
-    flex-direction: column;
-    align-items: flex-start;
+  .comment-form {
+    gap: 10px;
   }
 
-  .comment-header {
-    flex-direction: column;
-    align-items: flex-start;
+  .submit-btn,
+  .submit-reply-btn {
+    padding: 10px 18px;
+    font-size: 0.9rem;
   }
 
-  .reply-form button {
-    width: auto;
-    padding: 8px 12px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    border-radius: 12px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    background: linear-gradient(90deg, #6a11cb, #2575fc);
-    transition: transform 0.2s, box-shadow 0.3s;
-  }
-
-  .reply-form button::before {
-    content: "↩️";
-    font-size: 1.2rem;
-    margin-right: 6px;
-  }
-
-  .reply-form button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+  .like-btn,
+  .reply-btn {
+    font-size: 0.85rem;
   }
 }

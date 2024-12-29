@@ -1554,13 +1554,19 @@ const ModuleDetail = () => {
             title: "Question Paper",
             content: "Past question paper for Applied Physics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
+              "https://drive.google.com/file/d/1MQ0_LjfVOgeB0UFW6LTSnVjy_4Uw-Z0N/preview",
           },
            {
             title: "Question Bank",
             content: "Question bank for Applied Physics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
+              "https://drive.google.com/file/d/1yKthkEnLBTowr23KHqtNKtl857Z2t9QM/preview",
+          },
+          {
+            title: "TeXt Book",
+            content: "Question bank for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1uyAPk03up5k7ZD2IMix7jTq7I-Q6XssR/preview",
           },
         ],
         },

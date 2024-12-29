@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { database } from '../firebase'; // Adjust the path
+import { useNavigate } from 'react-router-dom';
+import { database, auth } from '../firebase'; // Adjust the path
 import { ref, push, onValue, update } from 'firebase/database';
+import { onAuthStateChanged } from 'firebase/auth';
 import './CommentSection.css';
 
 const CommentSection = () => {
@@ -10,24 +12,44 @@ const CommentSection = () => {
   const [userName, setUserName] = useState('');
   const [isReplyingTo, setIsReplyingTo] = useState({ commentId: null, replyKey: null });
   const [showAllComments, setShowAllComments] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const navigate = useNavigate();
+
+  // Check user authentication
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+        setUserName(user.displayName || 'Anonymous');
+      } else {
+        setIsAuthenticated(false);
+        navigate('/login', { state: { from: '/comment-section' } });
+      }
+    });
+
+    return () => unsubscribe();
+  }, [navigate]);
 
   // Fetch comments from Firebase and sort by likes
   useEffect(() => {
-    const commentsRef = ref(database, 'comments');
-    onValue(commentsRef, (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        const fetchedComments = Object.keys(data).map((key) => ({
-          id: key,
-          ...data[key],
-        }));
-        const sortedComments = fetchedComments.sort((a, b) => (b.likes || 0) - (a.likes || 0));
-        setComments(sortedComments);
-      } else {
-        setComments([]);
-      }
-    });
-  }, []);
+    if (isAuthenticated) {
+      const commentsRef = ref(database, 'comments');
+      onValue(commentsRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          const fetchedComments = Object.keys(data).map((key) => ({
+            id: key,
+            ...data[key],
+          }));
+          const sortedComments = fetchedComments.sort((a, b) => (b.likes || 0) - (a.likes || 0));
+          setComments(sortedComments);
+        } else {
+          setComments([]);
+        }
+      });
+    }
+  }, [isAuthenticated]);
 
   // Add a new comment
   const handleCommentSubmit = async (e) => {
@@ -143,7 +165,7 @@ const CommentSection = () => {
     });
   };
 
-  return (
+  return isAuthenticated ? (
     <div className="comment-section-container">
       <header className="header">
         <h2 className="section-title">Ask Your Doubts</h2>
@@ -225,7 +247,7 @@ const CommentSection = () => {
         </button>
       )}
     </div>
-  );
+  ) : null;
 };
 
 export default CommentSection;

@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
  // Import the local JSON file
 import './Subjects.css';
 
+
 const Subjects = () => {
   const { branch, semester } = useParams();
   const navigate = useNavigate(); // Initialize the navigate function
@@ -148,6 +149,8 @@ const Subjects = () => {
         )}
       </ul>
       </div>
+       {/* Adding the Comment section */}
+    
     </div>
     
   );
