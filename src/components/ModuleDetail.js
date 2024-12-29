@@ -1509,6 +1509,12 @@ const ModuleDetail = () => {
             previewUrl:
               "https://drive.google.com/file/d/1Pl8eVmmpfH1ytwraru6A3VMC6vFvelA8/preview",
           },
+          {
+            title: "Text Book",
+            content: "Question bank for for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/184MXwac2OaFvdkX0UIsL8QMcVlCeasce/preview",
+          },
         ],
         },
         {
@@ -1620,6 +1626,12 @@ const ModuleDetail = () => {
               content: "Comprehensive notes for Module.",
               previewUrl:
                 "https://drive.google.com/file/d/18vEUZZ4U-KGd1CABi9DSAp1QznVMycBv/preview",
+            },
+            {
+              title: "Text Book",
+              content: "Comprehensive notes for Module.",
+              previewUrl:
+                "https://drive.google.com/file/d/1EspkLcP6HUvDXcNgMJxLn1RFpK2uELQJ/preview",
             },
           ],
           questionPaper: {
@@ -1767,6 +1779,49 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1EMI_Zq4P5lEVJ3PRtTGfYjL36mDwvYse/preview",
             },
+          ],
+          questionPaper: {
+            title: "Question Paper",
+            content: "Past question paper for Applied Physics for CSE.",
+            downloadUrl:
+              "https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing",
+          },
+          questionBank: {
+            title: "Question Bank",
+            content: "Question bank for Applied Physics for CSE.",
+            downloadUrl:
+              "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing",
+          },
+        },
+        {
+          title: "Unix System Programming",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/11HU4yDA5PHElqHshiD-J2P14TMnne_gw/preview",
+            },
+            
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1ogZ4DWUGVo-XFW4NAuE7j_XF-XKdZP2d/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1bIP47YM8xyXOW7odP_IzeKgspt9pq8iD/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1FKnAr1Rw7Xa8trJQt1AiOXb7TZRuqma7/preview",
+            },
+            
           ],
           questionPaper: {
             title: "Question Paper",
