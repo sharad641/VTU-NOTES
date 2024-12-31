@@ -21,6 +21,13 @@ import CommentSection from './components/CommentSection';
 import StudyPlanner from './components/StudyPlanner';
 import Profile from './components/Profile'; 
 
+// New Page Imports
+import About from './components/About';
+import Contact from './components/Contact';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import TermsAndConditions from './components/TermsAndConditions';
+
+
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import './App.css';
@@ -33,16 +40,10 @@ function App() {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsAuthenticated(!!user); // Set authentication state based on user presence
+      setLoading(false); // Remove loading state once auth check is complete
     });
 
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000); // Simulate loading for 2 seconds
-
-    return () => {
-      unsubscribe();
-      clearTimeout(timer);
-    };
+    return () => unsubscribe();
   }, []);
 
   // Redirect authenticated users away from login/signup
@@ -50,6 +51,7 @@ function App() {
     isAuthenticated ? <Navigate to="/" /> : element
   );
 
+  // Show loading screen while authentication state is being determined
   if (loading) {
     return (
       <div className="loading-overlay">
@@ -80,11 +82,17 @@ function App() {
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/pdf/:pdfUrl" element={<PdfViewer />} />
 
-          {/* Authenticated Routes */}
+          {/* About, Contact, Privacy Policy, Terms and Conditions Routes */}
+          <Route path="/about" element={<About />} />
+<Route path="/contact" element={<Contact />} />
+<Route path="/privacy-policy" element={<PrivacyPolicy />} />
+<Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+
+          {/* Protected Routes - Authenticated Users */}
           <Route path="/placement-guide" element={isAuthenticated ? <PlacementGuide /> : <Navigate to="/login" />} />
           <Route path="/test" element={isAuthenticated ? <TestPage /> : <Navigate to="/login" />} />
           <Route path="/study-planner" element={isAuthenticated ? <StudyPlanner /> : <Navigate to="/login" />} />
-          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} /> {/* Protected Profile Route */}
+          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
 
           {/* Public Utility Routes */}
           <Route path="/upload" element={<UploadForm />} />
@@ -105,4 +113,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;

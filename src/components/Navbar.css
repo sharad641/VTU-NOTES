@@ -3,41 +3,43 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px;
+  padding: 20px 40px;
   background: linear-gradient(135deg, #6dd5ed, #2193b0);
   backdrop-filter: blur(10px);
   color: #fff;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
 }
 
+/* Navbar hover effect */
 .navbar:hover {
   background: linear-gradient(135deg, #2193b0, #6dd5ed);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  padding: 20px 40px; /* Added smooth padding transition */
 }
 
 /* Navbar Links */
 .nav-links {
   display: flex;
-  gap: 25px;
+  gap: 30px;
   list-style: none;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .nav-links li a {
   color: #fff;
   text-decoration: none;
-  font-weight: 600;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .nav-links li a:hover {
   color: #f0a500;
-  transform: translateY(-3px);
+  transform: translateY(-4px); /* Slightly stronger hover effect */
 }
 
 /* Dropdown Menu */
@@ -54,7 +56,7 @@
   color: #000;
   min-width: 200px;
   padding: 10px 0;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
   opacity: 0;
   visibility: hidden;
@@ -85,10 +87,10 @@
 .login-button1 {
   background-color: #2196f3;
   color: white;
-  padding: 8px 18px;
+  padding: 10px 20px;
   border-radius: 50px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -133,7 +135,7 @@
 /* Mobile View */
 @media (max-width: 768px) {
   .navbar {
-    padding: 10px 20px;
+    padding: 15px 30px;
   }
 
   .hamburger {
@@ -164,7 +166,7 @@
   }
 
   .nav-links li a {
-    font-size: 18px;
+    font-size: 20px;
     padding: 10px 20px;
     color: #fff;
     text-align: center;
@@ -206,8 +208,8 @@
 
   .login-button1 {
     margin-left: auto;
-    padding: 10px 25px;
-    font-size: 16px;
+    padding: 12px 25px;
+    font-size: 18px;
   }
 }
 
