@@ -1392,7 +1392,7 @@ const ModuleDetail = () => {
           ],
           questionPaper: {
             title: "Question Paper",
-            content: "Past question paper for Applied Physics for CSE.",
+            content: ".",
             previewUrl:
               "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
           },
@@ -1438,13 +1438,13 @@ const ModuleDetail = () => {
             },
           {
             title: "Question Paper",
-            content: "Past question paper for Applied Physics for CSE.",
+            content: "Past question paper for Biology for CSE.",
             previewUrl:
               "https://drive.google.com/file/d/1h_udrhNRqd0UiwdM8bVeH_PTXyWsVcKB/preview",
           },
           {
             title: "Question Paper 2",
-            content: "Question bank for Applied Physics for CSE.",
+            content: ".",
             previewUrl:
               "https://drive.google.com/file/d/1aD7ZjnBroS5GvDCcULUJ-F9mrkRgU826/preview",
           },
@@ -1511,7 +1511,7 @@ const ModuleDetail = () => {
           },
           {
             title: "Text Book",
-            content: "Question bank for for CSE.",
+            content: "Text Book for for CSE.",
             previewUrl:
               "https://drive.google.com/file/d/184MXwac2OaFvdkX0UIsL8QMcVlCeasce/preview",
           },
@@ -1558,19 +1558,19 @@ const ModuleDetail = () => {
             },
           {
             title: "Question Paper",
-            content: "Past question paper for Applied Physics for CSE.",
+            content: "",
             previewUrl:
               "https://drive.google.com/file/d/1MQ0_LjfVOgeB0UFW6LTSnVjy_4Uw-Z0N/preview",
           },
            {
             title: "Question Bank",
-            content: "Question bank for Applied Physics for CSE.",
+            content: ".",
             previewUrl:
               "https://drive.google.com/file/d/1yKthkEnLBTowr23KHqtNKtl857Z2t9QM/preview",
           },
           {
             title: "TeXt Book",
-            content: "Question bank for Applied Physics for CSE.",
+            content: "",
             previewUrl:
               "https://drive.google.com/file/d/1uyAPk03up5k7ZD2IMix7jTq7I-Q6XssR/preview",
           },
@@ -1825,13 +1825,13 @@ const ModuleDetail = () => {
           ],
           questionPaper: {
             title: "Question Paper",
-            content: "Past question paper for Applied Physics for CSE.",
+            content: "",
             downloadUrl:
               "https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing",
           },
           questionBank: {
             title: "Question Bank",
-            content: "Question bank for Applied Physics for CSE.",
+            content: "",
             downloadUrl:
               "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing",
           },

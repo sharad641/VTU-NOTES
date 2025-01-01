@@ -32,7 +32,7 @@ function Branch() {
     return (
         <div>
             {/* Headline Message Section */}
-            <div className="headline-messages">
+            <div className="headline-message">
                 <div className="marquee-text">
                     
                     <span style={{ display: 'block', marginTop: '10px' }}></span>

@@ -5,24 +5,24 @@
     align-items: center;
     padding: 40px 20px;
     min-height: 100vh;
-    background: linear-gradient(135deg, #00c6ff, #0072ff); /* Updated gradient */
-    color: #ffffff; /* Ensures contrast with the background */
-    font-family: 'Poppins', sans-serif; /* Modern font */
+    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Soft blue gradient */
+    color: #f7f7f7; /* Off-white for text */
+    font-family: 'Poppins', sans-serif;
     max-width: 1200px;
     margin: 0 auto;
     gap: 40px;
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
 }
 
 /* Subject Title */
 .subjects h2 {
-    font-size: 3.5rem;
+    font-size: 3.6rem;
     margin: 20px 0;
     text-transform: uppercase;
     font-weight: 700;
-    color: #ffffff; /* High contrast title */
-    letter-spacing: 3px;
+    color: #f7f7f7;
+    letter-spacing: 2px;
     padding-bottom: 15px;
     position: relative;
     text-align: center;
@@ -33,8 +33,8 @@
     content: '';
     position: absolute;
     width: 100px;
-    height: 6px;
-    background: linear-gradient(to right, #00c6ff, #0072ff); /* Matches section */
+    height: 5px;
+    background: linear-gradient(to right, #9c4fff, #6a52db); /* Vibrant purple gradient */
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
@@ -51,22 +51,29 @@
     width: 100%;
 }
 
-/* Subject Box Styling with Glassmorphism */
+/* Subject Box Styling */
 .subject-box {
-    background: rgba(255, 255, 255, 0.1); /* Subtle transparency */
-    backdrop-filter: blur(12px);
-    padding: 30px;
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Subtle white transparency */
+    backdrop-filter: blur(10px);
+    padding: 35px;
+    border-radius: 18px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
     position: relative;
     overflow: hidden;
     text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    color: #ffffff; /* Ensures text visibility */
+    color: #f7f7f7;
     height: 360px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Hover Effect for Subject Box */
+.subject-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 /* Gradient Border on Hover */
@@ -80,25 +87,20 @@
     z-index: -1;
     border-radius: 20px;
     opacity: 0;
-    background: linear-gradient(to right, #00c6ff, #0072ff);
-}
-
-/* Hover Effect for Subject Box */
-.subject-box:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.3s ease;
 }
 
 .subject-box:hover::before {
     opacity: 1;
+    border: 2px solid #9c4fff; /* Vibrant purple border */
 }
 
 /* Subject Box Heading */
 .subject-box h3 {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     margin: 0;
-    font-weight: 700;
-    color: #f3f2ec; /* Bright yellow for contrast */
+    font-weight: 600;
+    color: #9c4fff; /* Soft purple for headings */
     letter-spacing: 1px;
     margin-bottom: 15px;
     transition: color 0.3s ease;
@@ -106,32 +108,32 @@
 
 /* Paragraph Styling */
 .subject-box p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     line-height: 1.6;
-    color: #e0f7fa; /* Subtle light blue */
+    color: #e0e0e0; /* Lighter gray text for readability */
     margin-top: 10px;
 }
 
 /* Subject Info Section */
 .subject-box .subject-info {
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 500;
-    color: #ffffff; /* Matches overall text theme */
+    color: #f7f7f7;
     margin-bottom: 15px;
     cursor: pointer;
     transition: color 0.3s ease;
 }
 
 .subject-box .subject-info:hover {
-    color: #e1f5fe;
+    color: #d8b5ff; /* Lighter purple on hover */
 }
 
 /* Subject Code and Credits Box */
 .subject-box .subject-code,
 .subject-box .credits-box {
     font-size: 0.9rem;
-    color: #ffffff;
-    background: #0288d1; /* Deep blue for buttons */
+    color: #f7f7f7;
+    background: #6a52db; /* Deep blue-purple */
     padding: 8px 16px;
     border-radius: 20px;
     margin-top: 10px;
@@ -141,13 +143,13 @@
 
 .subject-box .subject-code:hover,
 .subject-box .credits-box:hover {
-    background: #01579b; /* Slightly darker hover */
+    background: #9c4fff; /* Lighter purple on hover */
 }
 
-/* Button Styling with 3D Effect */
+/* Button Styling */
 .subject-box button {
-    background: linear-gradient(to right, #00c6ff, #0072ff);
-    color: #ffffff;
+    background: linear-gradient(to right, #9c4fff, #6a52db); /* Gradient background */
+    color: #f7f7f7;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -155,30 +157,20 @@
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1.2rem;
-    padding: 12px 25px;
+    padding: 14px 30px;
     border-radius: 50px;
     margin-top: auto;
-    box-shadow: 0 4px 10px rgba(0, 198, 255, 0.4);
+    box-shadow: 0 6px 18px rgba(156, 79, 255, 0.4);
 }
 
-/* Marquee Styling */
-.headline-messagee {
-    background: linear-gradient(135deg, #00c6ff, #0072ff);
-    color: #ffffff; /* Text contrast */
-    padding: 16px;
-    border-radius: 20px;
-    margin: 20px auto;
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+button:hover {
+    box-shadow: 0 8px 20px rgba(156, 79, 255, 0.6);
 }
 
-/* Responsive Design for Mobile */
+/* Responsive Design */
 @media (max-width: 768px) {
     .subjects h2 {
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
 
     .subject-box {
@@ -186,17 +178,17 @@
     }
 
     .subject-box h3 {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
     }
 
     .subject-box button {
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
 }
 
 @media (max-width: 480px) {
     .subjects h2 {
-        font-size: 2.4rem;
+        font-size: 2.6rem;
     }
 
     .subjects ul {
@@ -208,6 +200,12 @@
     }
 
     .subject-box h3 {
-        font-size: 1.6rem;
+        font-size: 1.7rem;
     }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }

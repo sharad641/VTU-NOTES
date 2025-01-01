@@ -57,10 +57,7 @@ function App() {
       <div className="loading-overlay">
         <div className="loading-container">
           <div className="loader-wrapper">
-            <div className="welcome-text">
-              <h1>Welcome to VTU-NOTES</h1>
-              <p>Please wait while we load the content...</p>
-            </div>
+            
           </div>
         </div>
       </div>

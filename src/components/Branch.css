@@ -1,43 +1,49 @@
-/* Modernized Branch Component Styling */
+/* General styling for the branch container */
 .branch {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
+    padding: 40px 20px;
     min-height: 100vh;
-    background: linear-gradient(135deg, #4e54c8, #8f94fb);
+    background: linear-gradient(135deg, #4e54c8, #8f94fb); /* Updated gradient for smooth modern feel */
     color: #fff;
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
     max-width: 1200px;
     margin: 0 auto;
     box-sizing: border-box;
+    transition: all 0.3s ease; /* Smooth transition for background and other properties */
 }
 
+/* Main heading */
 .branch h2 {
-    font-size: 2.8rem;
+    font-size: 3rem; /* Large, bold heading */
     font-weight: 800;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: center;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+    color: #fff;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
     animation: fadeIn 1s ease-in-out;
     letter-spacing: 1px;
+    line-height: 1.3;
 }
 
+/* Paragraph text */
 .branch p {
-    font-size: 1.3rem;
-    margin-bottom: 25px;
+    font-size: 1.4rem;
+    margin-bottom: 35px;
     text-align: center;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-    max-width: 800px;
-    line-height: 1.6;
+    color: #d1d1d1; /* Light gray for better contrast */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+    max-width: 900px;
+    line-height: 1.8;
 }
 
-/* Updated List Styling */
+/* Updated List styling */
 .branch ul {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 25px;
+    gap: 30px;
     width: 100%;
     padding: 0;
     list-style: none;
@@ -48,65 +54,67 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 25px;
-    min-height: 70px;
-    font-size: 1.3rem;
+    padding: 30px;
+    min-height: 80px;
+    font-size: 1.4rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     color: #fff;
-    background: linear-gradient(145deg, #56ccf2, #2f80ed);
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(145deg, #56ccf2, #2f80ed); /* Fresh, vibrant gradient */
+    border-radius: 25px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.4);
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     text-align: center;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
+/* Hover effect for list items */
 .branch ul li:hover {
-    transform: translateY(-8px) scale(1.05);
+    transform: translateY(-10px) scale(1.05);
     background: linear-gradient(145deg, #2f80ed, #56ccf2);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
+/* Link styling inside list items */
 .branch ul li a {
     color: #fff;
     text-decoration: none;
     z-index: 2;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    transition: color 0.3s ease;
+}
+
+/* Focused/active link state */
+.branch ul li a:hover {
+    color: #f8b400; /* Soft yellow-orange hover effect */
 }
 
 /* Responsive Layouts */
 @media (max-width: 600px) {
     .branch h2 {
-        font-size: 2.2rem;
+        font-size: 2.2rem; /* Adjust font size for smaller screens */
+        margin-bottom: 20px;
     }
 
     .branch p {
-        font-size: 1.1rem;
+        font-size: 1.2rem; /* Slightly smaller font for better fit on small screens */
     }
 
     .branch ul li {
-        padding: 18px;
-        font-size: 1.1rem;
+        padding: 20px;
+        font-size: 1.2rem;
     }
 }
 
 @media (min-width: 768px) {
     .branch ul {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .branch h2 {
-        font-size: 3rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    .branch ul {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr; /* Two-column grid for medium screens */
     }
 
     .branch h2 {
@@ -114,94 +122,41 @@
     }
 }
 
-/* Marquee Section */
-.headline-messages {
-    background: linear-gradient(135deg, #4e54c8, #8f94fb);
-    padding: 20px;
-    border-radius: 12px;
-    margin-top: 20px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
-    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 1s ease-in-out, slideIn 0.5s ease forwards;
-}
-
-/* Marquee Container */
-.marquee-container {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-/* Marquee Text */
-.marquee-text {
-    display: inline-block;
-    animation: marquee 12s linear infinite;
-    padding-left: 100%;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-@keyframes marquee {
-    from {
-        transform: translateX(100%);
+@media (min-width: 1024px) {
+    .branch ul {
+        grid-template-columns: 1fr 1fr 1fr; /* Three-column grid for larger screens */
     }
 
-    to {
-        transform: translateX(-100%);
+    .branch h2 {
+        font-size: 3.5rem; /* Larger heading on big screens */
     }
 }
 
 /* Animations */
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeInUp {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slideIn {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Subtle animations for interactive elements */
+.branch ul li {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, padding 0.3s ease;
 }
 
-/* Adjustments for Smaller Screens */
-@media (max-width: 768px) {
-    .headline-messages {
-        padding: 12px 15px;
-        font-size: 1rem;
-    }
-
-    .marquee-text {
-        animation-duration: 15s;
-    }
+.branch ul li:active {
+    transform: scale(1.02); /* Subtle press effect */
 }
+
+/* Ensuring good visibility and contrast for readability */
+body {
+    color: #fff;
+    background: #121212; /* Darker background for better contrast */
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+

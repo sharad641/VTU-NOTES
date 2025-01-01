@@ -4,11 +4,11 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(135deg, #00c6ff, #0072ff); /* Light blue to purple gradient */
+  background: linear-gradient(135deg, #00c6ff, #00bcd4); /* Smooth gradient from light blue to teal */
   color: #f5f5f5;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
-  animation: backgroundShift 10s ease-in-out infinite; /* Apply background animation */
+  animation: backgroundShift 12s ease-in-out infinite; /* Apply background animation */
 }
 
 /* Background animation */
@@ -20,16 +20,16 @@
 
 /* Headline message with fadeIn effect */
 .headline-message {
-  background: linear-gradient(135deg, #00c6ff, #0072ff); /* Match container gradient */
+  background: linear-gradient(135deg, #00c6ff, #00bcd4); /* Matching the container gradient */
   padding: 20px;
-  border-radius: 10px;
-  margin-top: 15px;
-  font-size: 1.1rem;
+  border-radius: 12px;
+  margin-top: 20px;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #fff;
+  color: #ffffff;
   text-align: center;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* Slight text shadow */
   animation: fadeIn 1s ease-in-out, slideIn 0.5s ease forwards; /* Fade and slide-in animation */
   overflow: hidden;
   width: 100%;
@@ -47,9 +47,10 @@
 
 .marquee-text {
   display: inline-block;
-  animation: marquee 9s linear infinite;
+  animation: marquee 15s linear infinite;
   padding-left: 100%;
-  color: #f5f5f5; /* Subtle light color for readability */
+  color: #f5f5f5; /* Light color for readability */
+  font-size: 1.2rem;
 }
 
 /* Marquee animation */
@@ -61,15 +62,15 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .headline-message {
-    padding: 15px; /* Reduced but equal padding for smaller screens */
+    padding: 15px;
     font-size: 1rem;
     margin-bottom: 10px;
-    max-width: 100%; /* Full-width for smaller screens */
-    border-radius: 5px;
+    max-width: 100%;
+    border-radius: 8px;
   }
 
   .branch-header {
-    font-size: 2.1rem; /* Adjusted for smaller screens */
+    font-size: 2.1rem;
   }
 
   .branch-card {
@@ -80,19 +81,19 @@
   }
 
   .marquee-text {
-    animation-duration: 15s; /* Slower for readability */
+    animation-duration: 18s; /* Slower for better readability */
   }
 }
 
 /* Branch Header */
 .branch-header {
-  font-size: 2.5rem; /* Default size */
+  font-size: 2.6rem;
   font-weight: 800;
   margin-bottom: 30px;
   text-align: center;
-  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6); /* More subtle shadow */
-  animation: fadeIn 1s ease-in-out; /* Fade-in effect */
-  color: #333; /* Darker color for heading */
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced subtle shadow */
+  animation: fadeIn 1s ease-in-out;
+  color: #333;
 }
 
 /* Enhanced Section Styles */
@@ -101,7 +102,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 25px;
   width: 90%;
   max-width: 1200px;
   padding: 0 20px;
@@ -113,37 +114,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  min-height: 160px;
-  font-size: 1.1rem;
+  padding: 25px;
+  min-height: 170px;
+  font-size: 1.2rem;
   font-weight: 700;
   color: #333; /* Dark text for readability */
   background: #ffffff; /* Soft white background */
   border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
+  backdrop-filter: blur(12px); /* Increased blur for depth */
+  border: 1px solid rgba(255, 255, 255, 0.5);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
   position: relative;
   overflow: hidden;
   text-align: center;
   width: 100%;
-  max-width: 300px;
+  max-width: 320px;
   animation: slideUp 1s ease-in-out;
 }
 
-/* Hover effect with soft green and orange */
+/* Hover effect with soft teal and vibrant yellow */
 .branch-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  background: linear-gradient(45deg, #00bfae, #f8b400); /* Soft teal and orange */
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Stronger shadow on hover */
+  transform: translateY(-8px) scale(1.05); /* Slight increase in scale for hover */
+  background: linear-gradient(45deg, #00bfae, #ffab00); /* Soft teal and bright yellow */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
 }
 
 .branch-card .branch-card-text {
   z-index: 2;
-  font-size: 1.3rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  font-size: 1.4rem;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive Layouts */
@@ -154,15 +155,15 @@
   }
 
   .branch-card {
-    padding: 15px;
-    min-height: 140px;
+    padding: 18px;
+    min-height: 150px;
     font-size: 1rem;
-    max-width: 250px;
+    max-width: 260px;
   }
 
   .headline-message {
     font-size: 1rem;
-    padding: 10px 15px;
+    padding: 12px 16px;
     margin-top: 10px;
   }
 }
@@ -173,8 +174,8 @@
   }
 
   .branch-card {
-    padding: 20px;
-    min-height: 150px;
+    padding: 22px;
+    min-height: 160px;
     font-size: 1.1rem;
     max-width: 280px;
   }
@@ -182,24 +183,24 @@
 
 @media (min-width: 768px) {
   .branch-header {
-    font-size: 2.6rem;
+    font-size: 2.7rem;
   }
 
   .branch-card {
     font-size: 1.2rem;
-    min-height: 160px;
+    min-height: 170px;
     max-width: 300px;
   }
 }
 
 @media (min-width: 1024px) {
   .branch-header {
-    font-size: 2.8rem;
+    font-size: 3rem;
   }
 
   .branch-card {
-    padding: 25px;
-    min-height: 170px;
+    padding: 30px;
+    min-height: 180px;
     font-size: 1.3rem;
     max-width: 320px;
   }

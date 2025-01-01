@@ -87,7 +87,7 @@ const Navbar = () => {
         className="profile-photo"
       />
     ) : (
-      <div className="profile-initials">
+      <div className="profile-initials1">
         {profileInfo.initials}
       </div>
     )

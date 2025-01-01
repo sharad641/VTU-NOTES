@@ -32,9 +32,9 @@ function Contact() {
       <h2>Location</h2>
       <p>Our main office is located at:</p>
       <address>
-        VTU-NOTES<br />
+        VTU NOTES FOR ALL<br />
         The BVSS Maratha Students Home<br />
-        Bangalore, Karnataka, India 56004
+        Bangalore, Karnataka, India 560004
       </address>
     </div>
   );
