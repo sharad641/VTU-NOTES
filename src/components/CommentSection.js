@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { database } from '../firebase'; // Adjust the path to your Firebase configuration
-import { ref, push, onValue } from 'firebase/database';
+import { ref, push, update, onValue } from 'firebase/database';
 import './CommentSection.css';
 
 const CommentSection = () => {
@@ -33,7 +33,7 @@ const CommentSection = () => {
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     if (commentText.trim() === '') {
-      alert('Your question cannot be empty.');
+      alert('Your comment cannot be empty.');
       return;
     }
 
@@ -41,7 +41,7 @@ const CommentSection = () => {
       const commentsRef = ref(database, 'comments');
       await push(commentsRef, {
         text: commentText.trim(),
-        author: userName || 'Anonymous',
+        author: userName.trim() || 'Anonymous',
         timestamp: Date.now(),
         replies: {},
         likes: 0,
@@ -52,7 +52,7 @@ const CommentSection = () => {
     }
   };
 
-  // Add a reply (to a comment or another reply)
+  // Add a reply
   const handleReplySubmit = async (commentId, replyKey = null) => {
     if (replyText.trim() === '') {
       alert('Your reply cannot be empty.');
@@ -67,7 +67,7 @@ const CommentSection = () => {
 
       await push(replyRef, {
         text: replyText.trim(),
-        author: userName || 'Anonymous',
+        author: userName.trim() || 'Anonymous',
         timestamp: Date.now(),
         replies: {},
         likes: 0,
@@ -80,13 +80,17 @@ const CommentSection = () => {
     }
   };
 
-  // Increment likes for a comment or reply
+  // Increment likes
   const handleLike = async (path, currentLikes) => {
-    const refPath = ref(database, path);
-    await push(refPath, { likes: currentLikes + 1 });
+    try {
+      const refPath = ref(database, `${path}/likes`);
+      await update(refPath, { likes: currentLikes + 1 });
+    } catch (error) {
+      console.error('Error updating likes:', error);
+    }
   };
 
-  // Render nested replies recursively
+  // Render replies recursively
   const renderReplies = (replies, parentPath, parentCommentId) => {
     if (!replies || typeof replies !== 'object') return null;
 
@@ -111,14 +115,11 @@ const CommentSection = () => {
 
           <button
             className="reply-btn"
-            onClick={() =>
-              setIsReplyingTo({ commentId: parentCommentId, replyKey: key })
-            }
+            onClick={() => setIsReplyingTo({ commentId: parentCommentId, replyKey: key })}
           >
             Reply
           </button>
 
-          {/* Render reply form if this is the reply being replied to */}
           {isReplyingTo.commentId === parentCommentId && isReplyingTo.replyKey === key && (
             <div className="reply-form">
               <textarea
@@ -136,7 +137,6 @@ const CommentSection = () => {
             </div>
           )}
 
-          {/* Recursively render nested replies */}
           {renderReplies(reply.replies, replyPath, parentCommentId)}
         </div>
       );
@@ -148,19 +148,17 @@ const CommentSection = () => {
       <header className="header1">
         <h2 className="section-title">Share Your Thoughts</h2>
         <p className="intro-paragraph">
-        Have thoughts about our website? We’d love to hear from you!
-Share your comments, suggestions, or experiences to help us improve and serve you better.
-
-Your input matters – let us know what you think!
-  </p>
+          Have thoughts about our website? We’d love to hear from you!
+          Share your comments, suggestions, or experiences to help us improve and serve you better.
+        </p>
       </header>
 
-      {/* Question Input */}
+      {/* Comment Form */}
       <form onSubmit={handleCommentSubmit} className="comment-form">
         <input
           type="text"
           className="comment-author"
-          placeholder="Your Name "
+          placeholder="Your Name"
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
         />
@@ -170,12 +168,10 @@ Your input matters – let us know what you think!
           value={commentText}
           onChange={(e) => setCommentText(e.target.value)}
         />
-        <button type="submit" className="submit-btn">
-        Leave a Comment
-        </button>
+        <button type="submit" className="submit-btn">Leave a Comment</button>
       </form>
 
-      {/* Comments Section */}
+      {/* Comments */}
       {comments
         .slice(0, showAllComments ? comments.length : 1)
         .map((comment) => (
@@ -192,8 +188,6 @@ Your input matters – let us know what you think!
             </div>
             <p className="comment-text">{comment.text}</p>
 
-            
-
             {renderReplies(comment.replies, `comments/${comment.id}`, comment.id)}
 
             {isReplyingTo.commentId === comment.id && isReplyingTo.replyKey === null && (
@@ -204,7 +198,10 @@ Your input matters – let us know what you think!
                   value={replyText}
                   onChange={(e) => setReplyText(e.target.value)}
                 />
-                <button className="submit-reply-btn" onClick={() => handleReplySubmit(comment.id)}>
+                <button
+                  className="submit-reply-btn"
+                  onClick={() => handleReplySubmit(comment.id)}
+                >
                   Submit Reply
                 </button>
               </div>
@@ -212,9 +209,12 @@ Your input matters – let us know what you think!
           </div>
         ))}
 
-      {/* Show More/Hide Comments */}
+      {/* Toggle Comments */}
       {comments.length > 1 && (
-        <button className="toggle-comments-btn" onClick={() => setShowAllComments(!showAllComments)}>
+        <button
+          className="toggle-comments-btn"
+          onClick={() => setShowAllComments(!showAllComments)}
+        >
           {showAllComments ? 'Hide Comments' : `View All Comments (${comments.length - 1})`}
         </button>
       )}

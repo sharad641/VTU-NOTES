@@ -4,11 +4,11 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(135deg, #00c6ff, #00bcd4); /* Smooth gradient from light blue to teal */
-  color: #f5f5f5;
+  background: linear-gradient(135deg, #0077b6, #00b4d8); /* Deeper blue-teal gradient for sophistication */
+  color: #ffffff;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
-  animation: backgroundShift 12s ease-in-out infinite; /* Apply background animation */
+  animation: backgroundShift 12s ease-in-out infinite; /* Background animation */
 }
 
 /* Background animation */
@@ -20,7 +20,7 @@
 
 /* Headline message with fadeIn effect */
 .headline-message {
-  background: linear-gradient(135deg, #00c6ff, #00bcd4); /* Matching the container gradient */
+  background: linear-gradient(135deg, #0096c7, #00b4d8); /* Harmonized gradient with the container */
   padding: 20px;
   border-radius: 12px;
   margin-top: 20px;
@@ -29,8 +29,8 @@
   color: #ffffff;
   text-align: center;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Soft shadow */
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* Slight text shadow */
-  animation: fadeIn 1s ease-in-out, slideIn 0.5s ease forwards; /* Fade and slide-in animation */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+  animation: fadeIn 1s ease-in-out, slideIn 0.5s ease forwards;
   overflow: hidden;
   width: 100%;
   max-width: 1200px;
@@ -42,14 +42,14 @@
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  margin-top: 20px; /* Adjust for space between sections */
+  margin-top: 20px;
 }
 
 .marquee-text {
   display: inline-block;
   animation: marquee 15s linear infinite;
   padding-left: 100%;
-  color: #f5f5f5; /* Light color for readability */
+  color: #e0f7fa; /* Soft blue for readability */
   font-size: 1.2rem;
 }
 
@@ -57,32 +57,6 @@
 @keyframes marquee {
   from { transform: translateX(100%); }
   to { transform: translateX(-100%); }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .headline-message {
-    padding: 15px;
-    font-size: 1rem;
-    margin-bottom: 10px;
-    max-width: 100%;
-    border-radius: 8px;
-  }
-
-  .branch-header {
-    font-size: 2.1rem;
-  }
-
-  .branch-card {
-    padding: 15px;
-    min-height: 140px;
-    font-size: 1rem;
-    max-width: 250px;
-  }
-
-  .marquee-text {
-    animation-duration: 18s; /* Slower for better readability */
-  }
 }
 
 /* Branch Header */
@@ -93,7 +67,7 @@
   text-align: center;
   text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced subtle shadow */
   animation: fadeIn 1s ease-in-out;
-  color: #333;
+  color: #ffffff; /* Contrasting color for visibility */
 }
 
 /* Enhanced Section Styles */
@@ -118,11 +92,11 @@
   min-height: 170px;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #333; /* Dark text for readability */
-  background: #ffffff; /* Soft white background */
+  color: #212529; /* Darker text for readability */
+  background: #ffffff; /* Clean white background */
   border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Slightly stronger shadow */
-  backdrop-filter: blur(12px); /* Increased blur for depth */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Strong shadow for depth */
+  backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -134,10 +108,10 @@
   animation: slideUp 1s ease-in-out;
 }
 
-/* Hover effect with soft teal and vibrant yellow */
+/* Hover effect with matching gradient */
 .branch-card:hover {
   transform: translateY(-8px) scale(1.05); /* Slight increase in scale for hover */
-  background: linear-gradient(45deg, #00bfae, #ffab00); /* Soft teal and bright yellow */
+  background: linear-gradient(45deg, #0077b6, #80ed99); /* Deep blue and vibrant green */
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
 }
 
@@ -147,7 +121,7 @@
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Layouts */
+/* Responsive Adjustments */
 @media (max-width: 600px) {
   .branch-header {
     font-size: 2rem;
@@ -168,27 +142,14 @@
   }
 }
 
-@media (min-width: 600px) {
-  .branch-header {
-    font-size: 2.4rem;
-  }
-
-  .branch-card {
-    padding: 22px;
-    min-height: 160px;
-    font-size: 1.1rem;
-    max-width: 280px;
-  }
-}
-
 @media (min-width: 768px) {
   .branch-header {
-    font-size: 2.7rem;
+    font-size: 2.8rem;
   }
 
   .branch-card {
-    font-size: 1.2rem;
-    min-height: 170px;
+    font-size: 1.3rem;
+    min-height: 180px;
     max-width: 300px;
   }
 }
@@ -200,25 +161,8 @@
 
   .branch-card {
     padding: 30px;
-    min-height: 180px;
+    min-height: 190px;
     font-size: 1.3rem;
     max-width: 320px;
   }
-
-  /* Grid layout for larger screens */
-  .branch-section {
-    flex-direction: row;
-    justify-content: center;
-  }
-}
-
-/* Animations */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
 }

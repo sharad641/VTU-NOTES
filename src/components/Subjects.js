@@ -1,7 +1,7 @@
 // src/components/Subjects.js
 import React, {  } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import CommentSection from './CommentSection'; 
+
  // Import the local JSON file
 import './Subjects.css';
 
@@ -152,8 +152,7 @@ const Subjects = () => {
         )}
       </ul>
       </div>
-        {/* Add the comment section here */}
-      <CommentSection />
+       
     
     </div>
     

@@ -1,54 +1,66 @@
 /* General Footer Styling */
 .footer {
-  background: #0f172a; /* Dark blue background for depth */
-  color: #d1d5db; /* Light grayish text for readability */
-  padding: 60px 20px;
+  background: linear-gradient(135deg, #0f172a, #1e293b); /* Dynamic gradient for modern look */
+  color: #e2e8f0; /* Slightly lighter text for better readability */
+  padding: 80px 20px;
   text-align: center;
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 
 .footer::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(15, 23, 42, 0.7); /* Slight overlay for depth */
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
   z-index: -1;
-  filter: blur(6px); /* Subtle blur to create a sense of depth */
+  transform: rotate(45deg);
+  opacity: 0.8;
 }
 
 /* Footer Logo and Description */
 .footer-content {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .footer-logo {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #3b82f6; /* Vibrant cyan blue for logo to create contrast */
-  letter-spacing: 1px;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #60a5fa; /* Brighter blue for emphasis */
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   position: relative;
   z-index: 1;
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    text-shadow: 0 0 10px #60a5fa, 0 0 20px #3b82f6, 0 0 30px rgba(59, 130, 246, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px #60a5fa, 0 0 40px #3b82f6, 0 0 60px rgba(59, 130, 246, 0.7);
+  }
 }
 
 .footer-description {
-  font-size: 1.1rem;
-  color: #e5e7eb; /* Soft light gray description for balance */
-  margin-top: 12px;
-  font-weight: 300;
-  line-height: 1.6;
-  max-width: 700px;
+  font-size: 1.2rem;
+  color: #cbd5e1; /* Softer light gray */
+  margin-top: 15px;
+  font-weight: 400;
+  line-height: 1.8;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
 /* Footer Links */
 .footer-links {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .footer-links ul {
@@ -58,64 +70,76 @@
 
 .footer-links li {
   display: inline-block;
-  margin: 0 18px;
+  margin: 0 15px;
 }
 
 .footer-links a {
   text-decoration: none;
-  color: #94a3b8; /* Soft muted blue-gray for normal state */
+  color: #94a3b8; /* Muted blue-gray */
   font-weight: 600;
   font-size: 1.1rem;
   transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #38bdf8; /* Cyan underline on hover */
+  transition: width 0.3s ease;
+  position: absolute;
+  bottom: -4px;
+  left: 0;
 }
 
 .footer-links a:hover {
-  color: #38bdf8; /* Light cyan/blue on hover */
-  transform: translateY(-4px); /* Subtle upward movement */
+  color: #38bdf8; /* Cyan text on hover */
+  transform: translateY(-3px);
+}
+
+.footer-links a:hover::after {
+  width: 100%;
 }
 
 /* Social Media Icons */
 .footer-social {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .social-icon {
-  color: #94a3b8; /* Soft muted blue-gray for icons */
-  font-size: 2rem;
-  margin: 0 18px;
+  color: #94a3b8;
+  font-size: 2.2rem;
+  margin: 0 20px;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icon:hover {
-  color: #38bdf8; /* Cyan on hover */
-  transform: scale(1.1); /* Subtle zoom effect */
+  color: #38bdf8;
+  transform: scale(1.2);
 }
 
 /* Footer Bottom */
 .footer-bottom {
   font-size: 1rem;
-  color: #e5e7eb; /* Soft text color for footer bottom */
-  margin-top: 40px;
+  color: #cbd5e1;
+  margin-top: 50px;
 }
 
 .footer-bottom p {
   margin: 0;
-  font-weight: 300;
-}
-
-/* Hover Animation for Logo */
-.footer-logo:hover {
-  text-shadow: 0 0 15px rgba(59, 130, 246, 0.8); /* Glowing effect on hover */
+  font-weight: 400;
 }
 
 /* Responsive Styling */
 @media (max-width: 768px) {
   .footer {
-    padding: 50px 20px;
+    padding: 60px 20px;
   }
 
   .footer-logo {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .footer-description {
@@ -125,17 +149,17 @@
 
   .footer-links li {
     display: block;
-    margin-bottom: 12px;
+    margin: 12px 0;
   }
 
-  .footer-social {
-    margin-bottom: 25px;
+  .social-icon {
+    margin: 0 12px;
   }
 }
 
 @media (max-width: 480px) {
   .footer-logo {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .footer-description {
@@ -143,10 +167,10 @@
   }
 
   .footer-links li {
-    margin: 10px 0;
+    margin: 8px 0;
   }
 
   .footer-bottom p {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 }
