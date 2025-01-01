@@ -1,7 +1,7 @@
 // src/components/BranchSelection.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import CommentSection from './CommentSection'; 
+
 import './BranchSelection.css';
 
 function BranchSelection() {
@@ -44,8 +44,7 @@ function BranchSelection() {
                     {/* Add more branches as needed */}
                 </div>
             </div>
-            {/* Add the comment section here */}
-      <CommentSection />
+            
         </div>
     );
 }

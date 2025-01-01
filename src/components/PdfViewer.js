@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import { analytics } from '../firebase'; // Import analytics
 import { logEvent } from 'firebase/analytics'; // Import logEvent
 import './PdfViewer.css';
+import CommentSection from './CommentSection'; 
+
 
 const PdfViewer = () => {
     const { pdfUrl } = useParams();
@@ -50,8 +52,12 @@ const PdfViewer = () => {
                             Download PDF
                         </button>
                     </a>
+                    
                 )}
             </div>
+            <CommentSection />
+    
+            
         </div>
     );
 };

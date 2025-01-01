@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { analytics } from '../firebase';
 import { logEvent } from 'firebase/analytics';
-
+import CommentSection from './CommentSection'; 
 import './Home.css';
 import ChatBot from './ChatBot'; // Importing the ChatBot component
 
@@ -118,14 +118,13 @@ const Home = () => {
 </section>
 
 
-            {/* Discussion Section */}
-            <section className="info-box">
-                <h2>Share Your Thoughts</h2>
-                <p>We value your feedback and ideas! Participate in discussions and share your thoughts with us.</p>
-                <p>Let your voice be heard and contribute to improving the VTU Notes platform.</p>
-                <Link to="/comments" className="button">Explore Discussions</Link>
-            </section>
+           
+             
+        <div>
         </div>
+         {/* Add the comment section here */}
+       <CommentSection />
+       </div>
     );
 };
 
