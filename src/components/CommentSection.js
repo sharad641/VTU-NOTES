@@ -144,12 +144,14 @@ const CommentSection = () => {
   };
 
   return (
-    <div className="comment-section-container">
-      <header className="header">
+    <div className="comment-section-container11">
+      <header className="header1">
         <h2 className="section-title">Share Your Thoughts</h2>
         <p className="intro-paragraph">
-        Join the conversation! Ask questions, share your insights, or help others with their doubts.
-    Your comments can make a difference in someone's learning journey!
+        Have thoughts about our website? We’d love to hear from you!
+Share your comments, suggestions, or experiences to help us improve and serve you better.
+
+Your input matters – let us know what you think!
   </p>
       </header>
 
@@ -158,13 +160,13 @@ const CommentSection = () => {
         <input
           type="text"
           className="comment-author"
-          placeholder="Your Name (optional)"
+          placeholder="Your Name "
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
         />
         <textarea
           className="comment-textarea"
-          placeholder="Ask your question here..."
+          placeholder="Share Your Thoughts..."
           value={commentText}
           onChange={(e) => setCommentText(e.target.value)}
         />

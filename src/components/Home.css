@@ -97,7 +97,8 @@ a:hover {
   display: inline-block;
   text-align: center;
   min-width: 160px;
-  padding: 16px 30px;
+ 
+  padding: 12px 20px;
   font-size: 1rem;
   font-weight: 700;
   color: #fff;
@@ -115,6 +116,7 @@ a:hover {
   background: linear-gradient(135deg, #2563eb, #1d4ed8);
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(37, 99, 235, 0.6);
+  color: #fff;
 }
 
 .button:active {
@@ -241,5 +243,89 @@ a:hover {
   .chatbot-toggle-btn {
     padding: 12px 20px;
     font-size: 0.85rem;
+  }
+}
+.vtu-links-section {
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #1e293b, #0f172a); /* Sleek dark gradient */
+  color: #f8fafc; /* Light text */
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  margin: 30px auto;
+  max-width: 1200px;
+}
+
+.vtu-links-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 20px;
+}
+
+.vtu-links-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.vtu-link-card {
+  background: #f8fafc; /* Light background for cards */
+  color: #475569; /* Muted text color */
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vtu-link-card h3 {
+  font-size: 1.5rem;
+  color: #0f172a; /* Dark text for headers */
+  margin-bottom: 10px;
+}
+
+.vtu-link-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.vtu-link-card a.button {
+  display: inline-block;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
+  transition: all 0.3s ease;
+}
+
+.vtu-link-card a.button:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.6);
+}
+
+.vtu-link-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vtu-links-section h2 {
+    font-size: 2rem;
+  }
+
+  .vtu-link-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .vtu-link-card p {
+    font-size: 0.95rem;
   }
 }

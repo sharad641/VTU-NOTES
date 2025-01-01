@@ -115,7 +115,56 @@ const Home = () => {
             WhatsApp Group 2
         </a>
     </div>
+    
 </section>
+<div class="vtu-links-section">
+  <h2>VTU Links</h2>
+  <div class="vtu-links-container">
+   
+    <div class="vtu-link-card">
+      <h3>VTU Results</h3>
+      <p>Check your semester results online.</p>
+      <a href="https://results.vtu.ac.in" target="_blank" rel="noopener noreferrer" class="button">
+        View Results
+      </a>
+    </div>
+    
+    <div class="vtu-link-card">
+      <h3>VTU Syllabus</h3>
+      <p>Download the latest syllabus for all courses.</p>
+      <a href="https://vtu.ac.in/b-e-scheme-syllabus/" target="_blank" rel="noopener noreferrer" class="button">
+        View Syllabus
+      </a>
+    </div>
+    
+    <div class="vtu-link-card">
+      <h3>Model Question Papers</h3>
+      <p>Access model question papers for your exams.</p>
+      <a href="https://vtu.ac.in/model-question-paper-b-e-b-tech-b-arch/" target="_blank" rel="noopener noreferrer" class="button">
+        View Papers
+      </a>
+    </div>
+   
+    <div class="vtu-link-card">
+      <h3>Academic Calendar</h3>
+      <p>Stay updated with the latest academic schedule.</p>
+      <a href="https://vtu.ac.in/academic-calendar/" target="_blank" rel="noopener noreferrer" class="button">
+        View Calendar
+      </a>
+    </div>
+    
+    <div class="vtu-link-card">
+      <h3>Notifications & Circulars</h3>
+      <p>Check the latest updates and circulars from VTU.</p>
+      <a href="https://vtu.ac.in/en/administration/circular/" target="_blank" rel="noopener noreferrer" class="button">
+        View Notifications
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
 
 
            
