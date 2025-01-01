@@ -1,55 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { database, auth } from '../firebase'; // Adjust the path
-import { ref, push, onValue, update } from 'firebase/database';
-import { onAuthStateChanged } from 'firebase/auth';
+import { database } from '../firebase'; // Adjust the path to your Firebase configuration
+import { ref, push, onValue } from 'firebase/database';
 import './CommentSection.css';
 
 const CommentSection = () => {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState('');
-  const [replyText, setReplyText] = useState('');
   const [userName, setUserName] = useState('');
+  const [replyText, setReplyText] = useState('');
   const [isReplyingTo, setIsReplyingTo] = useState({ commentId: null, replyKey: null });
   const [showAllComments, setShowAllComments] = useState(false);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const navigate = useNavigate();
-
-  // Check user authentication
+  // Fetch comments from Firebase
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsAuthenticated(true);
-        setUserName(user.displayName || 'Anonymous');
+    const commentsRef = ref(database, 'comments');
+    onValue(commentsRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const fetchedComments = Object.keys(data).map((key) => ({
+          id: key,
+          ...data[key],
+        }));
+        const sortedComments = fetchedComments.sort((a, b) => (b.likes || 0) - (a.likes || 0));
+        setComments(sortedComments);
       } else {
-        setIsAuthenticated(false);
-        navigate('/login', { state: { from: '/comment-section' } });
+        setComments([]);
       }
     });
-
-    return () => unsubscribe();
-  }, [navigate]);
-
-  // Fetch comments from Firebase and sort by likes
-  useEffect(() => {
-    if (isAuthenticated) {
-      const commentsRef = ref(database, 'comments');
-      onValue(commentsRef, (snapshot) => {
-        const data = snapshot.val();
-        if (data) {
-          const fetchedComments = Object.keys(data).map((key) => ({
-            id: key,
-            ...data[key],
-          }));
-          const sortedComments = fetchedComments.sort((a, b) => (b.likes || 0) - (a.likes || 0));
-          setComments(sortedComments);
-        } else {
-          setComments([]);
-        }
-      });
-    }
-  }, [isAuthenticated]);
+  }, []);
 
   // Add a new comment
   const handleCommentSubmit = async (e) => {
@@ -105,7 +83,7 @@ const CommentSection = () => {
   // Increment likes for a comment or reply
   const handleLike = async (path, currentLikes) => {
     const refPath = ref(database, path);
-    await update(refPath, { likes: currentLikes + 1 });
+    await push(refPath, { likes: currentLikes + 1 });
   };
 
   // Render nested replies recursively
@@ -165,14 +143,14 @@ const CommentSection = () => {
     });
   };
 
-  return isAuthenticated ? (
+  return (
     <div className="comment-section-container">
       <header className="header">
-        <h2 className="section-title">Ask Your Doubts</h2>
+        <h2 className="section-title">Share Your Thoughts</h2>
         <p className="intro-paragraph">
-          This platform allows you to ask questions related to exams, notes, placements, and more.
-          Get your doubts cleared and explore valuable insights to enhance your preparation!
-        </p>
+        Join the conversation! Ask questions, share your insights, or help others with their doubts.
+    Your comments can make a difference in someone's learning journey!
+  </p>
       </header>
 
       {/* Question Input */}
@@ -191,7 +169,7 @@ const CommentSection = () => {
           onChange={(e) => setCommentText(e.target.value)}
         />
         <button type="submit" className="submit-btn">
-          Submit Question
+        Leave a Comment
         </button>
       </form>
 
@@ -212,15 +190,7 @@ const CommentSection = () => {
             </div>
             <p className="comment-text">{comment.text}</p>
 
-            <div className="like-section">
-              <button
-                className="like-btn"
-                onClick={() => handleLike(`comments/${comment.id}`, comment.likes || 0)}
-              >
-                ❤️ Like
-              </button>
-              <span className="like-count">{comment.likes || 0} Likes</span>
-            </div>
+            
 
             {renderReplies(comment.replies, `comments/${comment.id}`, comment.id)}
 
@@ -247,7 +217,7 @@ const CommentSection = () => {
         </button>
       )}
     </div>
-  ) : null;
+  );
 };
 
 export default CommentSection;
