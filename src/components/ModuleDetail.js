@@ -2,7 +2,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./ModuleDetail.css";
-import CommentSection from './CommentSection'; 
 
 const ModuleDetail = () => {
   const { branch, semester, subjectName } = useParams();
@@ -1885,9 +1884,7 @@ const ModuleDetail = () => {
           <p>No modules available for this subject.</p>
         )}
       </div>
-       {/* Add the comment section here */}
-       <CommentSection />
-      
+       
     </div>
     
   );
