@@ -1,175 +1,188 @@
-/* Container for the upload form */
+/* General container styling */
+.upload-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    padding: 2rem;
+}
+
+/* Form styling */
 .upload-form {
     max-width: 500px;
-    margin: 2rem auto;
+    width: 100%;
+    background-color: #ffffff;
     padding: 2rem;
     border-radius: 12px;
-    background: #f9f9f9;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .upload-form:hover {
-    transform: scale(1.03);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.upload-form h2 {
+/* Title and subtitle */
+.form-title {
     text-align: center;
-    color: #222;
-    margin-bottom: 1.5rem;
-    font-size: clamp(1.8rem, 3.5vw, 2rem); /* Enhanced fluid typography */
+    margin-bottom: 1rem;
+    font-size: 2rem;
     font-weight: bold;
+    color: #2563eb;
+    letter-spacing: 1px;
 }
 
-/* Form Group for inputs and labels */
+.form-subtitle {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* Form group and input */
 .form-group {
     margin-bottom: 1.5rem;
 }
 
-/* Labels */
-.upload-form label {
+.form-label {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #333;
-    font-size: 1rem;
-}
-
-/* Inputs styling */
-.upload-form input[type="text"],
-.upload-form textarea {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 1rem;
-    background: #ffffff;
-    transition: border-color 0.3s, box-shadow 0.3s;
-    box-sizing: border-box;
-}
-
-/* Focus state for inputs */
-.upload-form input[type="text"]:focus,
-.upload-form textarea:focus {
-    border-color: #0069d9;
-    box-shadow: 0 0 8px rgba(0, 105, 217, 0.3);
-    outline: none;
-}
-
-/* Textarea specific styling */
-.upload-form textarea {
-    resize: vertical;
-    min-height: 140px;
-}
-
-/* Button styling */
-.upload-form button,
-.file-upload-label {
-    width: 100%;
-    padding: 0.9rem;
-    background: linear-gradient(135deg, #007bff, #0056b3);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-/* Button hover effects */
-.upload-form button:hover,
-.file-upload-label:hover {
-    background: linear-gradient(135deg, #0056b3, #003f7f);
-    transform: translateY(-3px);
-}
-
-/* Active state for buttons */
-.upload-form button:active,
-.file-upload-label:active {
-    transform: translateY(1px);
-}
-
-/* File Input Hidden, Custom Label Styling */
-.upload-form input[type="file"] {
-    display: none;
-}
-
-.file-upload-label {
-    display: inline-block;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-/* File upload label text */
-.file-upload-text {
-    margin-top: 0.5rem;
-    color: #555;
+    color: #374151;
     font-size: 0.95rem;
 }
 
-/* Progress text styling */
-.upload-progress {
-    text-align: center;
-    margin-top: 1rem;
-    font-weight: 600;
-    color: #333;
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.85rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    transition: all 0.3s ease-in-out;
+    background-color: #f9fafb;
 }
 
-/* Message styling */
-.upload-message {
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.25);
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Button styling */
+.form-button {
+    width: 100%;
+    padding: 0.85rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.form-button:hover {
+    background-color: #1e40af;
+    transform: scale(1.02);
+}
+
+.form-button:active {
+    transform: scale(0.98);
+}
+
+/* Progress and message */
+.progress-text {
     text-align: center;
     margin-top: 1rem;
-    font-weight: 600;
-    padding: 0.9rem;
-    border-radius: 10px;
-    box-sizing: border-box;
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+.form-message {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
     font-size: 1rem;
 }
 
-/* Success message styling */
-.upload-success {
-    color: #28a745;
-    background: rgba(40, 167, 69, 0.15);
-    border: 1px solid #28a745;
+.success {
+    color: #16a34a;
+    background-color: #d1fae5;
+    border: 1px solid #16a34a;
 }
 
-/* Error message styling */
-.upload-error {
-    color: #dc3545;
-    background: rgba(220, 53, 69, 0.15);
-    border: 1px solid #dc3545;
+.error {
+    color: #dc2626;
+    background-color: #fee2e2;
+    border: 1px solid #dc2626;
 }
 
-/* Responsive Design */
+/* Media queries for responsiveness */
 @media (max-width: 768px) {
     .upload-form {
         padding: 1.5rem;
     }
 
-    .upload-form h2 {
-        font-size: 1.6rem; /* Slightly smaller on mobile */
+    .form-title {
+        font-size: 1.8rem;
     }
 
-    .upload-form button,
-    .file-upload-label {
-        padding: 1rem; /* Increase button size on mobile */
+    .form-button {
         font-size: 1rem;
     }
 
-    .upload-form textarea {
-        min-height: 120px;
-    }
-
-    .file-upload-label {
-        font-size: 1.1rem;
-    }
-
-    .file-upload-text {
-        font-size: 0.9rem;
+    .progress-text {
+        font-size: 0.85rem;
     }
 }
+
+@media (max-width: 480px) {
+    .form-title {
+        font-size: 1.6rem;
+    }
+
+    .form-button {
+        padding: 0.75rem;
+    }
+}
+/* Title styling */
+.form-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 2rem; /* Slightly larger for emphasis */
+    font-weight: 700; /* Bold */
+    color: #1e3a8a; /* Darker blue for a more professional look */
+    letter-spacing: 0.5px; /* Subtle letter spacing */
+}
+
+/* Subtitle styling */
+.form-subtitle {
+    font-size: 1rem; /* Medium-sized text for readability */
+  color: #4a5568; /* Neutral dark gray for contrast */
+  line-height: 1.6; /* Comfortable line spacing */
+  margin-top: 15px; /* Spacing from the heading */
+  margin-bottom: 20px; /* Spacing to the next element */
+  text-align: center; /* Centered alignment for aesthetic balance */
+  max-width: 800px; /* Limit width for better readability */
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+  background: rgb(243, 236, 236); /* Subtle gradient background */
+  padding: 15px 20px; /* Add padding for a polished look */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+

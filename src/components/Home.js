@@ -96,28 +96,7 @@ const Home = () => {
             </div>
             {showChatbot && <ChatBot />}
 
-            {/* Contact Section */}
-            <section className="info-box">
-    <h2>Contact</h2>
-    <p>Have questions or suggestions? Reach out to us for support and guidance.</p>
-    <p>Email: <a href="mailto:vtunotesforall@gmail.com" className="link">vtunotesforall@gmail.com</a></p>
-    <p>Phone: <a href="tel:+916364060716" className="link">+91 6364060716</a></p>
-    <div className="button-group">
-        <a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           className="button">
-            WhatsApp Group 1
-        </a>
-        <a href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t" 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           className="button">
-            WhatsApp Group 2
-        </a>
-    </div>
-    
-</section>
+            
 <div class="vtu-links-section">
   <h2>VTU Links</h2>
   <div class="vtu-links-container">
@@ -175,7 +154,30 @@ const Home = () => {
         </div>
          {/* Add the comment section here */}
        <CommentSection />
+       {/* Contact Section */}
+       <section className="info-box">
+    <h2>Contact</h2>
+    <p>Have questions or suggestions? Reach out to us for support and guidance.</p>
+    <p>Email: <a href="mailto:vtunotesforall@gmail.com" className="link">vtunotesforall@gmail.com</a></p>
+    <p>Phone: <a href="tel:+916364060716" className="link">+91 6364060716</a></p>
+    <div className="button-group">
+        <a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           className="button">
+            WhatsApp Group 1
+        </a>
+        <a href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           className="button">
+            WhatsApp Group 2
+        </a>
+    </div>
+    
+</section>
        </div>
+       
     );
 };
 

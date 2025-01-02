@@ -1,12 +1,12 @@
 /* Root variables for colors, shadows, and transitions */
 :root {
-  --primary-color: #5aa25c;
-  --secondary-color: #ffffff;
-  --background-light: #232d36;
-  --background-dark: #343a40;
-  --text-light: #ffffff;
-  --text-dark: #212529;
-  --accent-color: #00bcd4;
+  --primary-color: #4caf50; /* Green for key highlights */
+  --secondary-color: #f9f9f9; /* Light gray for backgrounds */
+  --background-light: #1e293b; /* Deep blue-gray for dark mode */
+  --background-dark: #d3d7e0; /* Darker blue-gray for contrast */
+  --text-light: #ffffff; /* White for text on dark backgrounds */
+  --text-dark: #2d3748; /* Dark gray for text on light backgrounds */
+  --accent-color: #3b82f6; /* Blue accent color */
   --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   --transition: all 0.3s ease-in-out;
 }
@@ -17,12 +17,13 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--background-light);
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
+/* Study Planner */
 .study-planner {
   background-color: var(--background-light);
-  color: var(--text-dark);
+  color: var(--text-light);
   min-height: 100vh;
   padding: 20px;
   display: flex;
@@ -31,8 +32,6 @@ body {
   transition: var(--transition);
 }
 
-
-
 /* Header */
 .header {
   text-align: center;
@@ -40,20 +39,20 @@ body {
   padding: 15px;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
-  background-color: var(--secondary-color);
+  background-color: var(--background-dark);
 }
 
 .header h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
-  color: var(--primary-color);
+  color: var(--accent-color);
   transition: var(--transition);
 }
 
 .header button {
   padding: 10px 15px;
   border: none;
-  background-color: var(--accent-color);
+  background-color: var(--primary-color);
   color: var(--text-light);
   cursor: pointer;
   border-radius: 5px;
@@ -62,14 +61,14 @@ body {
 }
 
 .header button:hover {
-  background-color: var(--primary-color);
+  background-color: var(--accent-color);
 }
 
-/* Progress bar */
+/* Progress Bar */
 .progress-bar {
   width: 80%;
   height: 25px;
-  background: #e9ecef;
+  background: var(--secondary-color);
   border-radius: 50px;
   overflow: hidden;
   position: relative;
@@ -87,7 +86,7 @@ body {
   transition: var(--transition);
 }
 
-/* Task form */
+/* Task Form */
 .task-form {
   display: flex;
   flex-wrap: wrap;
@@ -97,17 +96,19 @@ body {
   padding: 15px;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
-  background-color: var(--secondary-color);
+  background-color: var(--background-dark);
 }
 
 .task-form input,
 .task-form select {
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--secondary-color);
   border-radius: 5px;
   font-size: 1rem;
   width: 200px;
   transition: var(--transition);
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
 }
 
 .task-form input:focus,
@@ -141,17 +142,19 @@ body {
   padding: 10px;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
-  background-color: var(--secondary-color);
+  background-color: var(--background-dark);
 }
 
 .filters input,
 .filters select {
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--secondary-color);
   border-radius: 5px;
   font-size: 1rem;
   width: 200px;
   transition: var(--transition);
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
 }
 
 .filters input:focus,
@@ -160,7 +163,7 @@ body {
   outline: none;
 }
 
-/* Task list */
+/* Task List */
 .task-list {
   display: flex;
   flex-wrap: wrap;
@@ -170,7 +173,7 @@ body {
 }
 
 .task-box {
-  background: var(--secondary-color);
+  background: var(--background-dark);
   border-radius: 10px;
   box-shadow: var(--box-shadow);
   padding: 15px;
@@ -180,6 +183,7 @@ body {
   gap: 10px;
   transition: var(--transition);
   border-left: 5px solid var(--primary-color);
+  color: var(--text-light);
 }
 
 .task-box span {
@@ -199,7 +203,7 @@ body {
   flex: 1 1 calc(50% - 5px);
   padding: 10px;
   border: none;
-  background: var(--primary-color);
+  background: var(--accent-color);
   color: var(--text-light);
   border-radius: 5px;
   cursor: pointer;
@@ -209,56 +213,16 @@ body {
 }
 
 .task-box button:hover {
-  background: var(--accent-color);
+  background: var(--primary-color);
 }
 
 .task-box.completed {
-  background: rgba(76, 175, 80, 0.1);
+  background: rgba(59, 130, 246, 0.1);
   border-left: 5px solid var(--accent-color);
-  color: var(--text-dark);
+  color: var(--text-light);
 }
 
-/* Task actions */
-.task-actions {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.task-actions button {
-  padding: 8px 16px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.2s, background-color 0.3s;
-}
-
-.task-actions button:hover {
-  transform: scale(1.1);
-}
-
-.task-actions button:active {
-  transform: scale(0.95);
-}
-
-.task-actions button:nth-child(1) {
-  background-color: #28a745;
-}
-
-.task-actions button:nth-child(2) {
-  background-color: #ffc107;
-}
-
-.task-actions button:nth-child(3) {
-  background-color: #dc3545;
-}
-
-/* Responsive styles */
+/* Responsive Styles */
 @media (max-width: 768px) {
   .task-box-buttons {
     flex-direction: column;
@@ -290,19 +254,4 @@ body {
     font-size: 12px;
     padding: 6px 12px;
   }
-}
-
-
-.study-planner {
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-button {
-  background-color: var(--button-bg);
-  color: var(--text-color);
-}
-
-.progress-bar .progress {
-  background-color: var(--progress-color);
 }
