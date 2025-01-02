@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { analytics } from '../firebase';
 import { logEvent } from 'firebase/analytics';
 import CommentSection from './CommentSection'; 
+import Calculator from './Calculator';
 import UploadForm from './UploadForm';
 import './Home.css';
 import ChatBot from './ChatBot'; // Importing the ChatBot component
@@ -56,24 +57,31 @@ const Home = () => {
             </section>
 
            
-            {/* SGPA Calculator */}
-            <section className="info-box">
-                <h2>VTU Calculators</h2>
-                <p>Make use of our accurate SGPA and CGPA calculators to track your academic progress effortlessly.</p>
-                <p>Plan ahead by knowing where you stand and aim for excellence with confidence.</p>
-                <Link to="/calculator" className="button">Go to SGPA Calculator</Link>
-            </section>
+           
 
-            {/* Upload Notes */}
-            <section className="info-box">
-                <h2>Upload Your Notes</h2>
-                <p>Join our mission to help students excel by sharing your valuable notes and study materials.</p>
-                <p>Your contributions will make a significant difference in the learning journey of your peers.</p>
-                <Link to="/upload" className="button">Upload Notes</Link>
-            </section>
 
-            {/* FAQs Section */}
-            <section className="info-box">
+            {/* ChatBot Section */}
+            <div className="chatbot-button-container">
+                <button className="button" onClick={toggleChatbot}>
+                    {showChatbot ? 'Hide Chatbot' : 'Chat with Us!'}
+                </button>
+            </div>
+            {showChatbot && <ChatBot />}
+
+
+
+
+           {/* Add the Calculator section */}
+           <div className="calculator-section my-6">
+                <Calculator />
+            </div>
+          
+            <div className="calculator-section my-6">
+        <UploadForm /> {/* Add the upload form here */}
+        </div>
+         {/* FAQs Section */}
+         <div className="calculator-section my-6">
+         <section className="info-box">
                 <h2>Frequently Asked Questions (FAQs)</h2>
                 <p>Need help? Our comprehensive FAQ section addresses all your common queries and concerns.</p>
                 <p>Stay informed with clear and concise answers to help you make the most of VTU Notes.</p>
@@ -87,17 +95,9 @@ const Home = () => {
                 <p>Set goals, create schedules, and track your progress for a stress-free study experience.</p>
                 <Link to="/study-planner" className="button">Go to Study Planner</Link>
             </section>
-
-            {/* ChatBot Section */}
-            <div className="chatbot-button-container">
-                <button className="button" onClick={toggleChatbot}>
-                    {showChatbot ? 'Hide Chatbot' : 'Chat with Us!'}
-                </button>
             </div>
-            {showChatbot && <ChatBot />}
-
-            
-<div class="vtu-links-section">
+            <div className="calculator-section my-6">
+        <div class="vtu-links-section1">
   <h2>VTU Links</h2>
   <div class="vtu-links-container">
    
@@ -142,19 +142,10 @@ const Home = () => {
     </div>
   </div>
 </div>
+</div>
 
-
-
-
-
-           
-             
-        <div>
-        <UploadForm /> {/* Add the upload form here */}
-        </div>
-         {/* Add the comment section here */}
-       <CommentSection />
-       {/* Contact Section */}
+     
+<div className="calculator-section my-6">
        <section className="info-box">
     <h2>Contact</h2>
     <p>Have questions or suggestions? Reach out to us for support and guidance.</p>
@@ -175,7 +166,12 @@ const Home = () => {
         </a>
     </div>
     
+    
 </section>
+</div>
+ {/* Add the comment section here */}
+ <CommentSection />
+       {/* Contact Section */}
        </div>
        
     );

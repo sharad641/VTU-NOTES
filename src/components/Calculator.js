@@ -251,19 +251,45 @@ const Calculator = () => {
 
     return (
         <div className="calculator-container py-6 px-4 bg-gray-100 min-h-screen">
-            <h1 className="text-4xl font-bold text-center mb-6">VTU CGPA Calculators</h1>
-            <div className="calculator-select mb-6 text-center">
-                <button className="button mb-2 mr-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={() => handleCalculatorSelect('sgpa')}>SGPA Calculator</button>
-                <button className="button mb-2 mr-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={() => handleCalculatorSelect('cgpa')}>CGPA Calculator</button>
-                <button className="button mb-2 mr-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={() => handleCalculatorSelect('percentage')}>Percentage Calculator</button>
-                <button className="button mb-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={() => handleCalculatorSelect('gpaPercentage')}>GPA to Percentage</button>
-            </div>
+    <h1 className="text-4xl font-bold text-center mb-6">VTU CGPA Calculators</h1>
+    <div className="calculator-select mb-6 text-center">
+        <button className="button mb-2 mr-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={() => handleCalculatorSelect('sgpa')}>SGPA Calculator</button>
+        <button className="button mb-2 mr-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={() => handleCalculatorSelect('cgpa')}>CGPA Calculator</button>
+        <button className="button mb-2 mr-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={() => handleCalculatorSelect('percentage')}>Percentage Calculator</button>
+        <button className="button mb-2 p-2 bg-blue-500 text-white rounded hover:bg-blue-600" onClick={() => handleCalculatorSelect('gpaPercentage')}>GPA to Percentage</button>
+    </div>
+    {selectedCalculator === 'sgpa' && <SGPACalculator />}
+    {selectedCalculator === 'cgpa' && <CGPACalculator />}
+    {selectedCalculator === 'percentage' && <PercentageCalculator />}
+    {selectedCalculator === 'gpaPercentage' && <GpaToPercentageCalculator />}
 
-            {selectedCalculator === 'sgpa' && <SGPACalculator />}
-            {selectedCalculator === 'cgpa' && <CGPACalculator />}
-            {selectedCalculator === 'percentage' && <PercentageCalculator />}
-            {selectedCalculator === 'gpaPercentage' && <GpaToPercentageCalculator />}
-        </div>
+    <div className="about-calculators bg-white shadow-lg p-6 rounded-lg">
+        <h2 className="text-2xl font-bold mb-4 text-center">About These Calculators</h2>
+        <p className="text-gray-700 text-sm mb-4">
+            The VTU CGPA Calculators provide an easy and efficient way for students to calculate their academic performance in different formats. Each calculator is tailored to specific needs:
+        </p>
+        <ul className="list-disc list-inside text-gray-700 mb-4">
+            <li>
+                <strong>SGPA Calculator:</strong> Calculates the Semester Grade Point Average (SGPA) by considering the marks and credits for individual subjects in a semester. It provides an overview of your academic performance for a specific semester.
+            </li>
+            <li>
+                <strong>CGPA Calculator:</strong> Computes the Cumulative Grade Point Average (CGPA) by averaging the SGPA scores across all semesters with corresponding credit weights. It represents your overall academic performance.
+            </li>
+            <li>
+                <strong>Percentage Calculator:</strong> Converts obtained marks into a percentage based on the total marks available. This helps in evaluating performance in percentage terms.
+            </li>
+            <li>
+                <strong>GPA to Percentage Converter:</strong> Converts the Grade Point Average (GPA) to an equivalent percentage as per VTU conversion standards. This is useful when percentages are required for applications or reporting.
+            </li>
+        </ul>
+        <p className="text-gray-700 text-sm">
+            These calculators are designed to simplify complex academic calculations, saving time and ensuring accuracy. Use them to understand your academic standing and plan your goals effectively.
+        </p>
+    </div>
+
+   
+</div>
+
     );
 };
 
