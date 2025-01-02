@@ -19,60 +19,55 @@ const UploadForm = () => {
             justifyContent: 'center',
             alignItems: 'center',
             minHeight: '100vh',
-            backgroundColor: '#f8fafc',
+            backgroundColor: '#f3f4f6', // Light gray background
             padding: '2rem',
         },
         form: {
-            maxWidth: '500px',
             width: '100%',
+            maxWidth: '500px',
             backgroundColor: '#ffffff',
             padding: '2rem',
-            borderRadius: '12px',
-            boxShadow: '0 6px 20px rgba(0, 0, 0, 0.1)',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-        },
-        formHover: {
-            transform: 'translateY(-5px)',
+            borderRadius: '16px',
             boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
+            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
         },
         title: {
             textAlign: 'center',
-            marginBottom: '1rem',
+            marginBottom: '1.5rem',
             fontSize: '2rem',
             fontWeight: '700',
-            color: '#1e3a8a',
+            color: '#1e40af', // Deep blue
             letterSpacing: '0.5px',
         },
         subtitle: {
             fontSize: '1rem',
-            color: '#4a5568',
-            lineHeight: '1.6',
-            margin: '15px 0 20px',
+            color: '#4b5563', // Dark gray
+            lineHeight: '1.8',
+            margin: '15px 0 25px',
             textAlign: 'center',
-            maxWidth: '800px',
-            background: '#f3ecec',
-            padding: '15px 20px',
-            borderRadius: '10px',
-            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+            background: '#f1f5f9', // Light gray background
+            padding: '20px 25px',
+            borderRadius: '12px',
+            boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)',
         },
         formGroup: {
             marginBottom: '1.5rem',
         },
         label: {
             display: 'block',
-            marginBottom: '0.5rem',
+            marginBottom: '0.6rem',
             fontWeight: '600',
             color: '#374151',
-            fontSize: '0.95rem',
+            fontSize: '1rem',
         },
         input: {
             width: '100%',
-            padding: '0.85rem',
+            padding: '0.9rem',
             fontSize: '1rem',
-            borderRadius: '8px',
+            borderRadius: '10px',
             border: '1px solid #d1d5db',
             backgroundColor: '#f9fafb',
-            transition: 'all 0.3s ease-in-out',
+            transition: 'all 0.3s ease',
         },
         inputFocus: {
             outline: 'none',
@@ -81,29 +76,29 @@ const UploadForm = () => {
             boxShadow: '0 0 8px rgba(37, 99, 235, 0.25)',
         },
         textArea: {
-            minHeight: '120px',
+            minHeight: '140px',
             resize: 'vertical',
         },
         button: {
             width: '100%',
-            padding: '0.85rem',
+            padding: '1rem',
             fontSize: '1.1rem',
             fontWeight: 'bold',
             backgroundColor: '#2563eb',
             color: '#ffffff',
             border: 'none',
-            borderRadius: '8px',
+            borderRadius: '10px',
             cursor: 'pointer',
-            transition: 'background-color 0.3s ease-in-out, transform 0.2s ease',
+            transition: 'background-color 0.3s ease, transform 0.2s ease',
             marginTop: '1rem',
         },
         buttonHover: {
-            backgroundColor: '#1e40af',
+            backgroundColor: '#1e3a8a',
         },
         progress: {
             textAlign: 'center',
             marginTop: '1rem',
-            fontSize: '0.95rem',
+            fontSize: '1rem',
             color: '#6b7280',
         },
         message: {
@@ -111,20 +106,61 @@ const UploadForm = () => {
             fontWeight: 'bold',
             marginTop: '1rem',
             padding: '1rem',
-            borderRadius: '8px',
+            borderRadius: '10px',
             fontSize: '1rem',
         },
         success: {
             color: '#16a34a',
-            backgroundColor: '#d1fae5',
+            backgroundColor: '#dcfce7',
             border: '1px solid #16a34a',
         },
         error: {
-            color: '#dc2626',
+            color: '#b91c1c',
             backgroundColor: '#fee2e2',
             border: '1px solid #dc2626',
         },
+    
+        /* Media queries for responsiveness */
+        '@media (max-width: 768px)': {
+            container: {
+                padding: '1.5rem', // Smaller padding on mobile
+            },
+            form: {
+                padding: '1.5rem', // Adjusted padding for smaller screens
+            },
+            title: {
+                fontSize: '1.8rem', // Slightly smaller font for titles
+            },
+            subtitle: {
+                fontSize: '0.9rem',
+                padding: '15px',
+            },
+            button: {
+                padding: '0.85rem',
+                fontSize: '1rem',
+            },
+        },
+        '@media (min-width: 1024px)': {
+            container: {
+                padding: '3rem', // Extra padding for large screens
+            },
+            form: {
+                maxWidth: '600px', // Wider form on desktops
+            },
+            title: {
+                fontSize: '2.2rem', // Larger font for titles
+            },
+            subtitle: {
+                fontSize: '1rem',
+                padding: '20px 30px',
+            },
+            button: {
+                fontSize: '1.15rem',
+            },
+        },
     };
+    
+    
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
