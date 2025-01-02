@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { database } from '../firebase'; // Adjust the path to your Firebase configuration
-import { ref, push, update, onValue } from 'firebase/database';
+import { ref, push, onValue } from 'firebase/database';
 import './CommentSection.css';
 
 const CommentSection = () => {
@@ -21,8 +21,7 @@ const CommentSection = () => {
           id: key,
           ...data[key],
         }));
-        const sortedComments = fetchedComments.sort((a, b) => (b.likes || 0) - (a.likes || 0));
-        setComments(sortedComments);
+        setComments(fetchedComments);
       } else {
         setComments([]);
       }
@@ -44,7 +43,6 @@ const CommentSection = () => {
         author: userName.trim() || 'Anonymous',
         timestamp: Date.now(),
         replies: {},
-        likes: 0,
       });
       setCommentText('');
     } catch (error) {
@@ -70,23 +68,12 @@ const CommentSection = () => {
         author: userName.trim() || 'Anonymous',
         timestamp: Date.now(),
         replies: {},
-        likes: 0,
       });
 
       setReplyText('');
       setIsReplyingTo({ commentId: null, replyKey: null });
     } catch (error) {
       console.error('Error adding reply:', error);
-    }
-  };
-
-  // Increment likes
-  const handleLike = async (path, currentLikes) => {
-    try {
-      const refPath = ref(database, `${path}/likes`);
-      await update(refPath, { likes: currentLikes + 1 });
-    } catch (error) {
-      console.error('Error updating likes:', error);
     }
   };
 
@@ -102,16 +89,6 @@ const CommentSection = () => {
           <strong>{reply.author}</strong>
           <span className="timestamp">{new Date(reply.timestamp).toLocaleString()}</span>
           <p className="reply-text">{reply.text}</p>
-
-          <div className="like-section">
-            <button
-              className="like-btn"
-              onClick={() => handleLike(replyPath, reply.likes || 0)}
-            >
-              ❤️ Like
-            </button>
-            <span className="like-count">{reply.likes || 0} Likes</span>
-          </div>
 
           <button
             className="reply-btn"
