@@ -46,6 +46,7 @@ const Home = () => {
         With VTU Notes, you no longer have to struggle to find the right study materials. Whether you’re preparing for exams or catching up on missed lectures, 
         we’ve got you covered.
     </p>
+    <Link to="/branch-selection/2022" className="button">📘 Access 2022 Scheme</Link>
 </section>
 
 {/* Scheme Selection */}
@@ -226,13 +227,13 @@ const Home = () => {
        target="_blank" 
        rel="noopener noreferrer" 
        className="button modern-button">
-      📱 WhatsApp Group 1
+      WhatsApp Group 1
     </a>
     <a href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t" 
        target="_blank" 
        rel="noopener noreferrer" 
        className="button modern-button">
-      📱 WhatsApp Group 2
+      WhatsApp Group 2
     </a>
   </div>
 </section>

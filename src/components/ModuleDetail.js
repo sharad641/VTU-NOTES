@@ -736,6 +736,12 @@ const ModuleDetail = () => {
               "https://drive.google.com/file/d/12PODz_6mcpuDaWrSxLMJwc3dLxwKqMxz/preview",
           },
           {
+            title: "Preeviou year Question Paper",
+            content: "Previou Year Question Paper for Mathematics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1l2xmqza7K91IFOHeC1tAeOV0OC9Su8OG/preview",
+          },
+          {
             title: " Question Bank",
             content: " Question Bank for Mathematics for CSE.",
             previewUrl:
@@ -823,6 +829,12 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1L2SDrVqm0MkCk1XZBRIZKXVRKwBorVNY/preview",
             },
+            {
+              title: "Preeviou year Question Paper",
+              content: "Model Question Paper Solutions for OS for CSE.",
+              previewUrl:
+                "https://drive.google.com/file/d/149fqnua5_z08ALLCsDx__ktUvbtlCUwQ/preview",
+            },
           {
             title: "Passing Question And Answer",
             content: "Past question paper for Applied Physics for CSE.",
@@ -870,6 +882,12 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1yeKcW_SNoiOUALp4XuJHVbaZqcVirkHb/preview",
             },
+            {
+              title: "Preeviou year Question Paper",
+              content: "Model Question Paper Solutions for DSA for CSE.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Tn3bBl_kn75GRm9woVV3rSQtpBDTUMAb/preview",
+            },
            {
             title: "Question Paper",
             content: "Past question paper for Applied Physics for CSE.",
@@ -916,6 +934,12 @@ const ModuleDetail = () => {
               content: "Comprehensive notes for Module 5.",
               previewUrl:
                 "https://drive.google.com/file/d/1p2xz8qzsrJtjU63OjKx0mSloXMvck5BR/preview",
+            },
+            {
+              title: "Preeviou year Question Paper",
+              content: "Model Question Paper Solutions for DSA for CSE.",
+              previewUrl:
+                "https://drive.google.com/file/d/15AxKh0_v5kcOybfxEQniFcHBRz7ywQUH/preview",
             },
           ],
           questionPaper: {
