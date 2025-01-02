@@ -1,313 +1,148 @@
-/* Global Variables (CSS Custom Properties) */
-:root {
-    --primary-color: #6c5ce7;
-    --secondary-color: #589595;
-    --accent-color: #040606;
-    --highlight-color: #0984e3;
-    --bg-color: #f4f4fc;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --font-family: 'Poppins', sans-serif;
-    --font-family-secondary: Arial, sans-serif;
-    --dark-blue-grey: #2c3e50;
-    --slate-blue: #34495e;
-    --dark-gray: #2d3436;
-    --rich-dark-blue: #2c3e50;
-    --light-blue: #e3f2fd;
-    --bright-red: #d63031;
-    --light-warm-red: #e17055;
-    --vivid-pink: #e84393;
-    --purple-blue-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+/* PlacementGuide.css */
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafb;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* Background animation for placement-guide-container */
-@keyframes backgroundShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Fade-in effect */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-/* Slide-in effect */
-@keyframes slideIn {
-    0% { transform: translateX(100%); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
-}
-
-/* Slide-up effect */
-@keyframes slideUp {
-    0% { transform: translateY(30px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
-
-/* General Container */
 .placement-guide-container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    margin: auto;
-    max-width: 1100px;
-    background-color: var(--bg-color);
-    border-radius: 15px;
-    box-shadow: 0 8px 20px var(--shadow-color);
-    font-family: var(--font-family);
-    transition: all 0.3s ease-in-out;
-    animation: fadeIn 1s ease-in-out, slideIn 0.5s ease-out;
 }
 
-.placement-guide-container:hover {
-    transform: translateY(-5px);
-}
-
-/* Header Styles */
+/* Header Section */
 .header {
     text-align: center;
-    margin-bottom: 20px;
-    background: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    margin-bottom: 40px;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(108, 92, 231, 0.2);
-    transition: transform 0.3s ease-in-out;
-    animation: fadeIn 1s ease-in-out, slideIn 0.5s ease-out;
+    background: white;
+    color: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .header h1 {
-    font-size: clamp(2rem, 6vw, 3.6rem); /* Fluid typography */
-    color: var(--dark-blue-grey);
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
 .header p {
-    color: #ffffff;
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
 }
 
-/* Section Box Styling with Slow Pulse and Slide-up Effects */
+.test-link-container {
+    margin-top: 20px;
+}
+
+.test-link-button {
+    background: #ffffff;
+    color: #3b82f6;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.test-link-button:hover {
+    background: #eff6ff;
+    transform: scale(1.05);
+}
+
+/* Sections */
+.section-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
 .section-box {
-    background-color: var(--light-blue);
+    background: #ffffff;
+    padding: 24px;
     border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 10px;
-    box-shadow: 0 3px 8px var(--shadow-color);
-    transition: transform 0.2s, box-shadow 0.2s ease-in-out;
-    animation: pulse-slow 4s infinite, slideUp 0.6s ease-out; /* Slower pulse effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .section-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .section-box h2 {
-    color: var(--slate-blue);
-    font-size: 26px;
-    margin-bottom: 12px;
+    font-size: 1.8rem;
+    color: #3b82f6;
+    margin-bottom: 16px;
 }
 
 .section-box p {
-    color: var(--dark-gray);
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 1rem;
+    margin-bottom: 16px;
+    color: #555;
 }
 
-/* Link Styling */
-a {
-    color: var(--accent-color);
-    font-weight: bold;
+.resources-list {
+    list-style: none;
+    padding: 0;
+}
+
+.resources-list li {
+    margin-bottom: 10px;
+}
+
+.resources-list a {
+    color: #9333ea;
     text-decoration: none;
-    position: relative;
-    transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: 500;
 }
 
-a:hover {
-    color: var(--highlight-color);
-    transform: scale(1.05);
+.resources-list a:hover {
     text-decoration: underline;
 }
 
-/* Section List Styling */
-.section-list .section-box {
-    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    animation: pulse-slow 4s infinite, slideUp 0.6s ease-out; /* Slower pulse */
-}
-
-.section-list .section-box:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.section-list .section-box h2 {
-    color: var(--dark-gray);
-    font-size: 26px;
-    margin-bottom: 12px;
-}
-
-.section-list .section-box p {
-    color: var(--rich-dark-blue);
-    margin-bottom: 15px;
-    line-height: 1.5;
-}
-/* Container Styling */
-.download-button-container {
-    display: flex;
-    justify-content: center;  /* Centers the button horizontally */
-    align-items: center;      /* Centers the button vertically */
-    margin-top: 30px;         /* Space above the button */
-    margin-bottom: 30px;      /* Space below the button */
-  }
-  
-  /* Button Styling */
-  .download-button {
+.download-button {
     display: inline-block;
-    padding: 15px 30px;
-    background: linear-gradient(135deg, #6c63ff, #e52e71);  /* Gradient background */
+    background: linear-gradient(to right, #3b82f6, #9333ea);
     color: #fff;
-    font-size: 1.2rem;
-    font-weight: 600;
-    text-decoration: none;  /* Removes underline */
-    border-radius: 25px;
-    text-align: center;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease, transform 0.2s ease;  /* Smooth transitions for hover and click effects */
-  }
-  
-  /* Hover Effect */
-  .download-button:hover {
-    background: linear-gradient(135deg, #5a54e5, #d5265c);  /* Darker gradient for hover */
-    transform: translateY(-5px) scale(1.05);  /* Slightly lift and scale the button */
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Active Effect (on click) */
-  .download-button:active {
-    transform: translateY(2px);  /* Slightly sink the button */
-  }
-  
-  /* Focus Effect (for accessibility) */
-  .download-button:focus {
-    outline: none;  /* Removes default focus outline */
-    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.6);  /* Adds custom outline on focus */
-  }
-  
-  /* Responsive Design for Small Screens */
-  @media (max-width: 768px) {
-    .download-button {
-      font-size: 1rem;   /* Smaller font size on smaller screens */
-      padding: 12px 25px; /* Adjusted padding for smaller screens */
-    }
-  }
-  
-/* Active Effect (on click) */
-.download-button:active {
-    transform: translateY(2px);  /* Slightly sink the button when clicked */
-}
-
-
-/* Career Footer */
-.career-footer {
-    background: var(--purple-blue-gradient);
-    color: #ffffff;
-    border-radius: 15px;
-    padding: 30px 20px;
-    margin-top: 40px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in-out;
-}
-
-.career-footer-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-}
-
-.career-footer-info {
-    padding-right: 20px;
-}
-
-.career-footer-title {
-    font-size: 28px;
-    margin-bottom: 15px;
-    color: #030608;
-}
-
-.career-footer-description {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    color: #141618;
-}
-
-.career-footer-button {
-    background-color: var(--vivid-pink);
-    color: #ffffff;
-    border: none;
     padding: 10px 20px;
     border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 16px;
 }
 
-.career-footer-button:hover {
-    background-color: var(--bright-red);
+.download-button:hover {
+    background: linear-gradient(to right, #2563eb, #7e22ce);
     transform: scale(1.05);
-}
-
-/* Career Guidance Container */
-.career-guidance-container {
-    padding: 20px;
-    max-width: 800px;
-    background-color: #ffffff;
-    border-radius: 15px;
-    margin-top: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    animation: fadeIn 1s ease-in-out, slideIn 0.5s ease-out;
-}
-
-.career-guidance-container:hover {
-    transform: translateY(-5px);
-}
-
-/* Contact Info Styling */
-.contact-info {
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    padding: 20px;
-    font-size: 16px;
-    margin-top: 20px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in-out;
-}
-
-.contact-info p {
-    font-size: 16px;
-    color: var(--dark-gray);
-    line-height: 1.6;
 }
 
 /* Additional Links Section */
 .additional-links {
-    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
-    border-radius: 12px;
+    margin-bottom: 40px;
     padding: 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 3px 8px var(--shadow-color);
-    animation: pulse-slow 4s infinite, slideIn 0.5s ease-out; /* Slower pulse */
+    background: #f3f4f6;
+    border-radius: 16px;
 }
 
 .additional-links h2 {
-    font-size: 24px;
-    color: var(--dark-blue-grey);
-    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: #1e3a8a;
+    margin-bottom: 16px;
 }
 
 .additional-resources {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
@@ -316,137 +151,152 @@ a:hover {
 }
 
 .additional-resources a {
-    color: var(--accent-color);
-    font-weight: 600;
+    color: #3b82f6;
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
+    font-weight: 500;
 }
 
 .additional-resources a:hover {
-    color: var(--highlight-color);
-    transform: scale(1.05);
     text-decoration: underline;
 }
 
-/* Placement Checklist Section */
+/* Checklist Section */
 .placement-checklist {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-    border-radius: 12px;
     padding: 20px;
-    margin-bottom: 30px;
-    animation: pulse-slow 4s infinite, slideIn 0.5s ease-out; /* Slower pulse */
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
 }
 
 .placement-checklist h2 {
-    font-size: 24px;
-    color: var(--dark-blue-grey);
-    margin-bottom: 15px;
-}
-
-.placement-checklist p {
-    color: var(--dark-gray);
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: #3b82f6;
+    margin-bottom: 16px;
 }
 
 .placement-checklist ul {
-    margin: 0;
+    list-style: disc;
     padding-left: 20px;
-    list-style-type: disc;
-    color: var(--rich-dark-blue);
 }
 
 .placement-checklist li {
     margin-bottom: 10px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .placement-guide-container {
-        padding: 15px;
-    }
-
-    .header h1 {
-        font-size: clamp(1.5rem, 6vw, 2.8rem);
-    }
-
-    .header p,
-    .contact-info p {
-        font-size: 15px;
-    }
-
-    .career-footer-content {
-        grid-template-columns: 1fr;
-    }
-
-    .section-box, .additional-links, .placement-checklist {
-        padding: 15px;
-    }
-
-    .section-box h2,
-    .additional-links h2,
-    .placement-checklist h2 {
-        font-size: 20px;
-    }
-
-    .section-box p,
-    .additional-links p,
-    .placement-checklist p {
-        font-size: 14px;
-    }
-
-    .download-button {
-        padding: 10px 20px;
-    }
+/* Footer Section */
+.career-footer {
+    background:  white;
+    color: white;
+    padding: 40px 20px;
+    border-radius: 16px;
+    margin-top: 40px;
 }
-/* Container Styling */
-.test-link-container {
+
+.career-footer-content {
     display: flex;
-    justify-content: center;  /* Centers the button horizontally */
-    align-items: center;      /* Centers the button vertically */
-    margin-top: 30px;         /* Space above the button */
-    margin-bottom: 30px;      /* Space below the button */
-  }
-  
-  /* Button Styling */
-  .test-link-button {
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.career-footer-info {
+    max-width: 600px;
+}
+
+.career-footer-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.career-footer-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.career-footer-button {
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
     display: inline-block;
-    padding: 15px 30px;
-    background: linear-gradient(135deg, #ff8a00, #e52e71);  /* Gradient background */
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.career-footer-button:hover {
+    background: linear-gradient(to right, #2563eb, #7e22ce);
+    transform: scale(1.05);
+}
+
+.career-footer-links {
+    max-width: 400px;
+}
+
+.career-footer-links-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+}
+
+.career-footer-links-list {
+    list-style: none;
+    padding: 0;
+}
+
+.career-footer-link-item {
+    margin-bottom: 16px;
+}
+
+.career-footer-link-item a {
+    color: #93c5fd;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.career-footer-link-item a:hover {
+    text-decoration: underline;
+}
+/* General Button Styles */
+.placement-guide-container a.button, 
+.placement-guide-container .download-button,
+.career-footer-button a {
+    display: inline-block;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb); /* Blue gradient background */
     color: #fff;
-    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px; /* Rounded edges */
+    text-decoration: none;
+    font-size: 1rem;
     font-weight: 600;
-    text-decoration: none;  /* Removes underline */
-    border-radius: 25px;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5); /* Subtle shadow for a floating effect */
+    transition: all 0.3s ease;
     text-align: center;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease, transform 0.2s ease;  /* Smooth transitions for hover and click effects */
-  }
-  
-  /* Hover Effect */
-  .test-link-button:hover {
-    background: linear-gradient(135deg, #ff6a00, #d5265c);  /* Darker gradient for hover */
-    transform: translateY(-5px) scale(1.05);  /* Slightly lift and scale the button */
-    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Active Effect (on click) */
-  .test-link-button:active {
-    transform: translateY(2px);  /* Slightly sink the button */
-  }
-  
-  /* Focus Effect (for accessibility) */
-  .test-link-button:focus {
-    outline: none;  /* Removes default focus outline */
-    box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.6);  /* Adds custom outline on focus */
-  }
-  
-  /* Responsive Design for Small Screens */
-  @media (max-width: 768px) {
-    .test-link-button {
-      font-size: 1rem;   /* Smaller font size on smaller screens */
-      padding: 12px 25px; /* Adjusted padding for smaller screens */
-    }
-  }
-  
+    cursor: pointer;
+}
+
+/* Hover Effect for Buttons */
+.placement-guide-container a.button:hover, 
+.placement-guide-container .download-button:hover,
+.career-footer-button a:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8); /* Darker gradient on hover */
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.6); /* Stronger shadow on hover */
+}
+
+/* Specific Button Customization */
+.test-link-button {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.career-footer-button {
+    margin-top: 20px;
+}
+
+.career-footer-button a {
+    padding: 15px 30px; /* Larger padding for emphasis */
+    font-size: 1.1rem;
+}

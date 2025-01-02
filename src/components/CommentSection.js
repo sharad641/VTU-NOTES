@@ -14,7 +14,7 @@ const CommentSection = () => {
   // Fetch comments from Firebase
   useEffect(() => {
     const commentsRef = ref(database, 'comments');
-    onValue(commentsRef, (snapshot) => {
+    const unsubscribe = onValue(commentsRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
         const fetchedComments = Object.keys(data).map((key) => ({
@@ -26,6 +26,8 @@ const CommentSection = () => {
         setComments([]);
       }
     });
+
+    return () => unsubscribe(); // Cleanup listener on unmount
   }, []);
 
   // Add a new comment
@@ -45,8 +47,10 @@ const CommentSection = () => {
         replies: {},
       });
       setCommentText('');
+      setUserName('');
     } catch (error) {
       console.error('Error adding comment:', error);
+      alert('An error occurred while adding your comment.');
     }
   };
 
@@ -74,6 +78,7 @@ const CommentSection = () => {
       setIsReplyingTo({ commentId: null, replyKey: null });
     } catch (error) {
       console.error('Error adding reply:', error);
+      alert('An error occurred while adding your reply.');
     }
   };
 
@@ -121,8 +126,8 @@ const CommentSection = () => {
   };
 
   return (
-    <div className="comment-section-container11">
-      <header className="header1">
+    <div className="comment-section-container">
+      <header className="header">
         <h2 className="section-title">Share Your Thoughts</h2>
         <p className="intro-paragraph">
           Have thoughts about our website? We’d love to hear from you!
@@ -138,12 +143,14 @@ const CommentSection = () => {
           placeholder="Your Name"
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
+          required
         />
         <textarea
           className="comment-textarea"
           placeholder="Share Your Thoughts..."
           value={commentText}
           onChange={(e) => setCommentText(e.target.value)}
+          required
         />
         <button type="submit" className="submit-btn">Leave a Comment</button>
       </form>

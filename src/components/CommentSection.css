@@ -4,12 +4,12 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f9fbfd;
-  color: #333;
+  color: #0e0909;
   line-height: 1.6;
 }
 
 /* Container Styles */
-.comment-section-container11 {
+.comment-section-container {
   max-width: 800px;
   margin: 20px auto;
   padding: 25px;
@@ -17,23 +17,44 @@ body {
   border-radius: 20px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
+.intro-paragraph {
+  font-size: 1rem; /* Medium-sized text for readability */
+  color: #4a5568; /* Neutral dark gray for contrast */
+  line-height: 1.6; /* Comfortable line spacing */
+  margin-top: 15px; /* Spacing from the heading */
+  margin-bottom: 20px; /* Spacing to the next element */
+  text-align: center; /* Centered alignment for aesthetic balance */
+  max-width: 800px; /* Limit width for better readability */
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+  background: rgb(49, 44, 44); /* Subtle gradient background */
+  padding: 15px 20px; /* Add padding for a polished look */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
 
 /* Header Styles */
 .header {
+  padding: 40px 20px;
+  background: linear-gradient(145deg, #4299e1, #3182ce);
+  color: #fff;
   text-align: center;
-  margin-bottom: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
 }
 
 .header .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #2d3748;
+  margin-bottom: 10px;
 }
 
 .header .intro-paragraph {
   font-size: 1rem;
-  color: #718096;
   margin-top: 10px;
+  color: #e2e8f0;
 }
 
 /* Form Styles */
@@ -73,7 +94,7 @@ body {
 .submit-btn {
   align-self: flex-end;
   padding: 12px 25px;
-  
+  background: linear-gradient(145deg, #4299e1, #3182ce);
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
@@ -121,43 +142,23 @@ body {
   margin: 10px 0;
 }
 
-/* Compact Reply Button with Icon */
+/* Reply Button */
 .reply-btn {
-  display: inline-flex;
-  align-items: center;  /* Align text and icon */
-  padding: 6px 4px; /* Increased horizontal padding for length */
-  font-size: 1rem; /* Slightly larger text for readability */
+  padding: 8px 16px;
+  font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
   background: linear-gradient(145deg, #3182ce, #2b6cb0);
   border: none;
-  border-radius: 30px; /* Slightly more rounded corners for modern look */
+  border-radius: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-left: auto;
-  float: right; /* Ensures it stays to the right */
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  justify-content: center;
-}
-
-.reply-btn::before {
-  content: '\21b6'; /* Unicode for the "Reply" arrow symbol */
-  font-size: 1.3rem; /* Adjust the icon size */
-  margin-right: 8px; /* Space between the icon and text */
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .reply-btn:hover {
-  background: linear-gradient(145deg, #2b6cb0, #2659a4); /* Darker hover gradient */
-  transform: scale(1.05); /* Slight growth on hover */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
-.reply-btn:active {
-  transform: scale(0.98); /* Slight shrink effect on click */
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); /* Less shadow on click */
-}
-
 
 /* Reply Styles */
 .reply-card {
@@ -240,17 +241,3 @@ body {
     font-size: 0.9rem;
   }
 }
-.header1 {
-  
-  padding: 40px 20px;
-  background: linear-gradient(145deg, #4299e1, #3182ce);
-  color: #fff;
-  text-align: center;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  margin: 30px auto;
-  max-width: 1200px;
-  
-}
-
-

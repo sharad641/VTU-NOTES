@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { analytics } from '../firebase';
 import { logEvent } from 'firebase/analytics';
 import CommentSection from './CommentSection'; 
+import UploadForm from './UploadForm';
 import './Home.css';
 import ChatBot from './ChatBot'; // Importing the ChatBot component
 
@@ -170,6 +171,7 @@ const Home = () => {
            
              
         <div>
+        <UploadForm /> {/* Add the upload form here */}
         </div>
          {/* Add the comment section here */}
        <CommentSection />
