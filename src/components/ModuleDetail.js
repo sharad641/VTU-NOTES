@@ -730,10 +730,10 @@ const ModuleDetail = () => {
               "https://drive.google.com/file/d/1CfrHqCUNxH8g9OrAch_ICUXjId-IIe8D/preview",
           },
           {
-            title: "Model Question Paper Solutions 1",
+            title: "Model Question Paper Solutions 2",
             content: "Model Question Paper Solutions for Mathematics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/12PODz_6mcpuDaWrSxLMJwc3dLxwKqMxz/preview",
+              "https://drive.google.com/file/d/1nPXbLEwRwi_Kqe6ZErRvWNcUEHWyeK2c/preview",
           },
           {
             title: "Preeviou year Question Paper",
@@ -745,7 +745,7 @@ const ModuleDetail = () => {
             title: " Question Bank",
             content: " Question Bank for Mathematics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1Oe1V8gtrkxYcQJF4y3E4VPL9ePDrwlMc/preview",
+              "https://drive.google.com/file/d/1ZlfCQX1dAHU6UERsaOlEiA4PeSKWWNk5/preview",
           },
         ],
         },
@@ -889,14 +889,14 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1Tn3bBl_kn75GRm9woVV3rSQtpBDTUMAb/preview",
             },
            {
-            title: "Question Paper",
-            content: "Past question paper for Applied Physics for CSE.",
+            title: "Question Paper With Solutions",
+            content: "Past question paper  for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1DjptMUL3R8LGIi-E7oNxthrEffHf-uYU/preview",
+              "https://drive.google.com/file/d/1NT_kKeN4Z0UiW-OhHwgq-8vxWoW2RRAS/preview",
           },
          {
             title: "Question Bank",
-            content: "Question bank for Applied Physics for CSE.",
+            content: "Question bank  for CSE.",
             previewUrl:
               "https://drive.google.com/file/d/1yeKcW_SNoiOUALp4XuJHVbaZqcVirkHb/preview",
           },
