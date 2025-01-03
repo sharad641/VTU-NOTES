@@ -259,3 +259,29 @@ input[type="text"], input[type="password"] {
 .signup-link:hover {
     color: #2980b9;
 }
+.guest-login-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #10b981, #059669); /* Green gradient for guest login */
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(16, 185, 129, 0.5);
+    transition: all 0.3s ease;
+}
+
+.guest-login-button:hover {
+    background: linear-gradient(135deg, #059669, #047857);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(5, 150, 105, 0.6);
+}
+
+.guest-login-button:disabled {
+    background: #d1d5db; /* Disabled state */
+    cursor: not-allowed;
+    box-shadow: none;
+}

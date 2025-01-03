@@ -23,31 +23,41 @@ const Navbar = () => {
             if (currentUser) {
                 setIsAuthenticated(true);
 
-                // Fetch user data from Firebase Realtime Database
-                const userRef = ref(database, `users/${currentUser.uid}`);
-                get(userRef).then((snapshot) => {
-                    if (snapshot.exists()) {
-                        const data = snapshot.val();
-                        const userPhotoURL = data.photoURL || currentUser.photoURL;
-                        const userInitials = data.name
-                            ? data.name.split(' ').map((n) => n[0]).join('')
-                            : 'U'; // Default to 'U' if no name
+                if (currentUser.isAnonymous) {
+                    // Set guest defaults
+                    setProfileInfo({
+                        photoURL: 'https://www.pngmart.com/files/22/User-Avatar-Profile-Background-Isolated-PNG.png',
+                        initials: 'G', // 'G' for Guest
+                    });
+                } else {
+                    // Fetch user data from Firebase Realtime Database
+                    const userRef = ref(database, `users/${currentUser.uid}`);
+                    get(userRef).then((snapshot) => {
+                        if (snapshot.exists()) {
+                            const data = snapshot.val();
+                            const userPhotoURL = data.photoURL || currentUser.photoURL;
+                            const userInitials = data.name
+                                ? data.name.split(' ').map((n) => n[0]).join('')
+                                : 'U'; // Default to 'U' if no name
 
-                        setProfileInfo({
-                            photoURL: userPhotoURL || '',
-                            initials: userInitials || 'U',
-                        });
-                    } else {
-                        const userInitials = currentUser.displayName
-                            ? currentUser.displayName.split(' ').map((n) => n[0]).join('')
-                            : 'U';
-                        setProfileInfo({
-                            photoURL: currentUser.photoURL || '',
-                            initials: userInitials,
-                        });
-                    }
-                });
+                            setProfileInfo({
+                                photoURL: userPhotoURL || '',
+                                initials: userInitials || 'U',
+                            });
+                        } else {
+                            // Fallback for users without data in the database
+                            const userInitials = currentUser.displayName
+                                ? currentUser.displayName.split(' ').map((n) => n[0]).join('')
+                                : 'U';
+                            setProfileInfo({
+                                photoURL: currentUser.photoURL || '',
+                                initials: userInitials,
+                            });
+                        }
+                    });
+                }
             } else {
+                // Reset for non-authenticated users
                 setIsAuthenticated(false);
                 setProfileInfo({ photoURL: '', initials: '' });
             }
@@ -74,28 +84,27 @@ const Navbar = () => {
             </ul>
 
             {/* Profile or Login Button */}
-           <Link
-  to={isAuthenticated ? '/profile' : '/login'}
-  className="profile-button"
-  onClick={closeMenu}
->
-  {isAuthenticated ? (
-    profileInfo.photoURL ? (
-      <img
-        src={profileInfo.photoURL}
-        alt="Profile"
-        className="profile-photo"
-      />
-    ) : (
-      <div className="profile-initials1">
-        {profileInfo.initials}
-      </div>
-    )
-  ) : (
-    'Login'
-  )}
-</Link>
-
+            <Link
+                to={isAuthenticated ? '/profile' : '/login'}
+                className="profile-button"
+                onClick={closeMenu}
+            >
+                {isAuthenticated ? (
+                    profileInfo.photoURL ? (
+                        <img
+                            src={profileInfo.photoURL}
+                            alt="Profile"
+                            className="profile-photo"
+                        />
+                    ) : (
+                        <div className="profile-initials">
+                            {profileInfo.initials}
+                        </div>
+                    )
+                ) : (
+                    'Login'
+                )}
+            </Link>
 
             {/* Mobile Menu Hamburger Icon */}
             <div className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation">

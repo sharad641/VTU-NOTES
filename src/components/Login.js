@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { auth, signInWithEmailAndPassword, signInWithPopup, googleAuthProvider, onAuthStateChanged } from '../firebase';
+import { 
+    auth, 
+    signInWithEmailAndPassword, 
+    signInWithPopup, 
+    googleAuthProvider, 
+    onAuthStateChanged, 
+    signInAnonymously 
+} from '../firebase';
 import './Login.css';
-import googleLogo from '../assets/goo.png';  // Assuming the Google logo is at this path
+import googleLogo from '../assets/goo.png'; // Assuming the Google logo is at this path
 
 const Login = ({ setIsAuthenticated }) => {
     const [email, setEmail] = useState('');
@@ -11,7 +18,7 @@ const Login = ({ setIsAuthenticated }) => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
     const location = useLocation();
-    
+
     const from = location.state?.from?.pathname || '/';
 
     useEffect(() => {
@@ -33,7 +40,6 @@ const Login = ({ setIsAuthenticated }) => {
             setIsAuthenticated(true);
             navigate(from || '/');
         } catch (err) {
-            console.error('Login failed:', err);  // Log error for debugging
             setError(`Invalid email or password. Error: ${err.message}`);
         } finally {
             setLoading(false);
@@ -49,8 +55,21 @@ const Login = ({ setIsAuthenticated }) => {
             setIsAuthenticated(true);
             navigate(from || '/');
         } catch (err) {
-            console.error('Google login failed:', err);  // Log error for debugging
-            setError(`Google login failed. Error: ${err.message || 'Unknown error'}`);
+            setError(`Google login failed. Error: ${err.message}`);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleGuestLogin = async () => {
+        setError('');
+        setLoading(true);
+        try {
+            await signInAnonymously(auth);
+            setIsAuthenticated(true);
+            navigate(from || '/');
+        } catch (err) {
+            setError(`Guest login failed. Error: ${err.message}`);
         } finally {
             setLoading(false);
         }
@@ -86,6 +105,9 @@ const Login = ({ setIsAuthenticated }) => {
                     <button className="google-login-button" onClick={handleGoogleLogin} disabled={loading}>
                         <img src={googleLogo} alt="Google Logo" className="google-logo" />
                         {loading ? 'Logging in...' : 'Login with Google'}
+                    </button>
+                    <button className="guest-login-button" onClick={handleGuestLogin} disabled={loading}>
+                        {loading ? 'Logging in...' : 'Login as Guest'}
                     </button>
                 </div>
                 <p className="signup-text">
