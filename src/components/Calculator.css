@@ -171,3 +171,99 @@ body {
     color: var(--text-color);
     margin-bottom: 15px;
 }
+/* General Text Styling */
+.text-gray-700 {
+    color: #4a4a4a; /* Neutral dark gray for better readability */
+  }
+  
+  .text-sm {
+    font-size: 1rem;
+    line-height: 1.8; /* Improved readability */
+  }
+  
+  .mb-4 {
+    margin-bottom: 1.5rem; /* Slightly larger spacing for better content flow */
+  }
+  
+  /* List Styling */
+  .list-disc {
+    list-style-type: none; /* Removes default bullets */
+    padding-left: 0;
+  }
+  
+  .list-inside {
+    margin-left: 1.5rem; /* Aligns nicely with other elements */
+  }
+  
+  .list-inside li {
+    margin-bottom: 0.8rem; /* Better spacing between list items */
+    position: relative;
+    padding-left: 30px; /* Space for custom bullet */
+  }
+  
+  .list-inside li::before {
+    content: "🌟"; /* Modern and visually appealing custom bullet */
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #0078d7; /* Matches the theme */
+    font-size: 1.2rem;
+  }
+  
+  /* Strong Text */
+  .list-inside li strong {
+    color: #0078d7; /* Consistent with the custom bullet color */
+    font-weight: bold;
+  }
+  
+  /* Paragraph Styling */
+  .text-gray-700 p {
+    margin-bottom: 1.5rem; /* Larger space for better readability */
+    line-height: 1.8; /* Enhanced line spacing */
+  }
+  
+  /* Links (Optional Styling for Better Look) */
+  .text-gray-700 a {
+    color: #0078d7;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+  }
+  
+  .text-gray-700 a:hover {
+    color: #005bb5;
+    border-bottom: 1px solid #005bb5;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .text-sm {
+      font-size: 0.9rem; /* Slightly smaller for smaller devices */
+      line-height: 1.6;
+    }
+  
+    .list-inside li {
+      padding-left: 25px; /* Adjust for smaller screens */
+    }
+  
+    .list-inside li::before {
+      font-size: 1rem; /* Scaled down bullet size */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .text-sm {
+      font-size: 0.85rem; /* Smaller font for very small screens */
+      line-height: 1.4;
+    }
+  
+    .list-inside li {
+      padding-left: 20px; /* Align with smaller screens */
+    }
+  
+    .list-inside li::before {
+      font-size: 0.9rem; /* Smaller bullet for better fit */
+    }
+  }
+  

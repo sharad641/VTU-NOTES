@@ -74,14 +74,14 @@ const Navbar = () => {
             </div>
 
             {/* Navigation Links */}
-            <ul className={`nav-links ${isMobile ? 'active' : ''}`}>
-                <li><Link to="/" className="nav-link" onClick={closeMenu}>Home</Link></li>
-                <li><Link to="/calculator" className="nav-link" onClick={closeMenu}>CGPA Calculator</Link></li>
-                <li><Link to="/placement-guide" className="nav-link" onClick={closeMenu}>Placement Guide</Link></li>
-                <li><Link to="/faqs" className="nav-link" onClick={closeMenu}>FAQs</Link></li>
-                <li><Link to="/chatbot" className="nav-link" onClick={closeMenu}>Chatbot</Link></li>
-                <li><Link to="/upload" className="nav-link" onClick={closeMenu}>Upload Notes</Link></li>
-            </ul>
+<ul className={`nav-links ${isMobile ? 'active' : ''}`}>
+    <li><Link to="/" className="nav-link" onClick={closeMenu}>Home</Link></li>
+    <li><Link to="/about" className="nav-link" onClick={closeMenu}>About</Link></li>
+    <li><Link to="/contact" className="nav-link" onClick={closeMenu}>Contact</Link></li>
+    <li><Link to="/privacy-policy" className="nav-link" onClick={closeMenu}>Privacy Policy</Link></li>
+    <li><Link to="/terms-and-conditions" className="nav-link" onClick={closeMenu}>Terms and Conditions</Link></li>
+</ul>
+
 
             {/* Profile or Login Button */}
             <Link

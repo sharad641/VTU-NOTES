@@ -1,0 +1,127 @@
+/* General Styles for Contact Page */
+.contact-page {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.8;
+  }
+  
+  .contact-page h1, .contact-page h2, .contact-page h3 {
+    color: #0078d7;
+    margin-bottom: 15px;
+  }
+  
+  .contact-page h1 {
+    font-size: 2.5rem;
+    border-left: 6px solid #0078d7;
+    padding-left: 15px;
+  }
+  
+  .contact-page h2 {
+    font-size: 2rem;
+    border-left: 4px solid #0078d7;
+    padding-left: 12px;
+  }
+  
+  .contact-page h3 {
+    font-size: 1.5rem;
+    border-left: 3px solid #0078d7;
+    padding-left: 10px;
+  }
+  
+  /* Section Styling */
+  .contact-page section {
+    margin-bottom: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .contact-page section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Links Styling */
+  .contact-page a.contact-link {
+    color: #0078d7;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .contact-page a.contact-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Social Links Styling */
+  .social-links {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .social-links li {
+    margin: 10px 0;
+  }
+  
+  .social-links a {
+    color: #0078d7;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .social-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .social-links i {
+    margin-right: 10px;
+  }
+  
+  /* Address Styling */
+  .contact-page address {
+    font-style: normal;
+    color: #555;
+    font-size: 1rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .contact-page h1 {
+      font-size: 2rem;
+    }
+  
+    .contact-page h2 {
+      font-size: 1.8rem;
+    }
+  
+    .contact-page p {
+      font-size: 0.9rem;
+    }
+  
+    .social-links a {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .contact-page h1 {
+      font-size: 1.8rem;
+    }
+  
+    .contact-page h2 {
+      font-size: 1.5rem;
+    }
+  
+    .contact-page p {
+      font-size: 0.85rem;
+    }
+  
+    .social-links a {
+      font-size: 0.9rem;
+    }
+  }
+  
