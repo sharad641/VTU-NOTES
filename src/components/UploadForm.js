@@ -300,15 +300,7 @@ const UploadForm = () => {
                         required
                     />
                 </div>
-                <div style={styles.formGroup}>
-                    <label style={styles.label} htmlFor="message">Message:</label>
-                    <textarea
-                        id="message"
-                        value={message}
-                        onChange={handleInputChange}
-                        style={{ ...styles.input, ...styles.textArea }}
-                    />
-                </div>
+                
                 <button
                     type="submit"
                     style={styles.button}

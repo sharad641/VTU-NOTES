@@ -7,6 +7,7 @@ const CommentSection = () => {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState('');
   const [userName, setUserName] = useState('');
+  const [email, setEmail] = useState(''); // New email state
   const [replyText, setReplyText] = useState('');
   const [isReplyingTo, setIsReplyingTo] = useState({ commentId: null, replyKey: null });
   const [showAllComments, setShowAllComments] = useState(false);
@@ -37,17 +38,23 @@ const CommentSection = () => {
       alert('Your comment cannot be empty.');
       return;
     }
+    if (email.trim() === '') {
+      alert('Your email is required.');
+      return;
+    }
 
     try {
       const commentsRef = ref(database, 'comments');
       await push(commentsRef, {
         text: commentText.trim(),
         author: userName.trim() || 'Anonymous',
+        email: email.trim(),
         timestamp: Date.now(),
         replies: {},
       });
       setCommentText('');
       setUserName('');
+      setEmail(''); // Reset email field
     } catch (error) {
       console.error('Error adding comment:', error);
       alert('An error occurred while adding your comment.');
@@ -143,6 +150,14 @@ const CommentSection = () => {
           placeholder="Your Name"
           value={userName}
           onChange={(e) => setUserName(e.target.value)}
+          required
+        />
+        <input
+          type="email"
+          className="comment-email"
+          placeholder="Your Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
           required
         />
         <textarea
