@@ -44,39 +44,7 @@ body {
     font-weight: 700;
 }
 
-/* About section styling */
-.about-calculators {
-    margin-top: 30px;
-    padding: 30px;
-    background-color: var(--secondary-color);
-    border-radius: 12px;
-    box-shadow: 0 8px 15px var(--shadow-dark);
-    font-family: var(--font-family);
-    line-height: 1.6;
-}
 
-.about-calculators h2 {
-    font-size: 2rem;
-    color: var(--text-color);
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.about-calculators p {
-    font-size: 1rem;
-    color: var(--text-color);
-    margin-bottom: 20px;
-}
-
-.about-calculators ul {
-    list-style: disc;
-    padding-left: 20px;
-    color: var(--text-color);
-}
-
-.about-calculators ul li {
-    margin-bottom: 10px;
-}
 
 /* Buttons */
 .button {
