@@ -117,37 +117,7 @@ const PlacementGuide = () => {
                 </ul>
             </section>
 
-            <footer className="career-footer">
-                <div className="career-footer-content">
-                    <div className="career-footer-info">
-                        <h2 className="career-footer-title">Kickstart Your Career!</h2>
-                        <p className="career-footer-description">
-                            Stay updated with the latest internship and job opportunities in tech, along with resources to help you prepare.
-                        </p>
-                        <button className="career-footer-button">
-                            <a href="https://www.missionstartupkarnataka.org/elevate-karnataka?en" target="_blank" rel="noopener noreferrer">
-                                Latest Internship & Job Opportunities
-                            </a>
-                        </button>
-                    </div>
-                    <div className="career-footer-links">
-                        <h3 className="career-footer-links-title">Current Openings</h3>
-                        <ul className="career-footer-links-list">
-                            <li className="career-footer-link-item">
-                                <a href="https://www.missionstartupkarnataka.org/elevate-karnataka?en" target="_blank" rel="noopener noreferrer">
-                                    👉👉👉Idea2PoC / ELEVATE Program
-                                </a>
-                                <p className="career-footer-link-description">The Idea2PoC/ELEVATE program is a Government of Karnataka initiative designed to support and fund innovative startups in Karnataka, helping them validate proof of concept and scale their solutions to the next level.</p>
-                            </li>
-                            <li className="career-footer-link-item">
-                                <a href="mailto:info@missionstartupkarnataka.org?subject=Internship Inquiry&body=Hi, I am interested in internship opportunities. Please provide more information." target="_blank" rel="noopener noreferrer">
-                                    Interested in Internships? Contact Us
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </footer>
+           
         </div>
     );
 };

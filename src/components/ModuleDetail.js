@@ -1522,6 +1522,12 @@ const ModuleDetail = () => {
               "https://drive.google.com/file/d/1ucDCMJBz3s2vR7CPgS4FJgbK7-MueO5I/preview",
           },
           {
+            title: "Question Paper",
+            content: "question paper answer for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/10v2_2Z7BviRPPxZrjOKUW-1snHuIk-Ne/preview",
+          },
+          {
             title: "Question Bank",
             content: "Question bank for for CSE.",
             previewUrl:
@@ -1634,10 +1640,40 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1dlYcBDm5iIYJg7PFKlK-sX4l3vGjo3kX/preview",
             },
             {
-              title: "Handwritten notes 1 to 5: Notes",
+              title: "Handwritten notes 1 to 5: Module",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
                 "https://drive.google.com/file/d/1ssBpZXxVelf0sV0gGm3wzujSFYvvf7sq/preview",
+            },
+            {
+              title: "Handwritten notes 1: Module",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1G85ydZwjQIMWA9hRoEpUsxkM-2XxJo2S/preview",
+            },
+            {
+              title: "Handwritten notes 2: Module",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/17Cr8IrutEVGkYRkrFQQ5Se_GOeKEVVvZ/preview",
+            },
+            {
+              title: "Handwritten notes 3: Module",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1cOIvOdI_tUPnrosDre1bIvzs59SR_y0R/preview",
+            },
+            {
+              title: "Handwritten notes 4:Module",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Tm2YYtKwxOmV-u7y-06zQjnU5RV_Ucdz/preview",
+            },
+            {
+              title: "Handwritten notes 1 to 5:Module",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1lUbrSa_Uh1TyDMykO6Fd6KHz5cH8VCSe/preview",
             },
             {
               title: "question bank 1",

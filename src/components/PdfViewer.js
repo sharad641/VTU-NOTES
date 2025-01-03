@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { analytics } from '../firebase'; // Import analytics
 import { logEvent } from 'firebase/analytics'; // Import logEvent
 import './PdfViewer.css';
 import CommentSection from './CommentSection'; 
-
 
 const PdfViewer = () => {
     const { pdfUrl } = useParams();
@@ -18,16 +17,21 @@ const PdfViewer = () => {
 
     const downloadLink = getGoogleDriveDownloadLink(directPdfUrl); // Construct download link for Google Drive
 
-    // Function to handle the download event (logging the download in Firebase Analytics)
+    // Log the PDF view event when the component is rendered
+    useEffect(() => {
+        logEvent(analytics, 'pdf_view', { pdf_url: directPdfUrl }); // Log the view event
+    }, [directPdfUrl]);
+
+    // Function to handle the download event
     const handleDownload = () => {
         if (downloadLink) {
-            logEvent(analytics, 'pdf_download', { file_name: directPdfUrl }); // Log the event in Firebase Analytics
+            logEvent(analytics, 'pdf_download', { file_name: directPdfUrl }); // Log the download event
         }
     };
 
     return (
         <div className="pdf-viewer">
-            <h2>PDF Viewer</h2>
+            <h2>📄 PDF Viewer</h2>
 
             {/* Embed the PDF in an iframe for viewing */}
             <iframe
@@ -49,15 +53,14 @@ const PdfViewer = () => {
                         onClick={handleDownload} // Track the download event
                     >
                         <button className="download-button">
-                            Download PDF
+                            📥 Download PDF
                         </button>
                     </a>
-                    
                 )}
             </div>
+
+            {/* Add the comment section below the PDF viewer */}
             <CommentSection />
-    
-            
         </div>
     );
 };
