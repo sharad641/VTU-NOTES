@@ -1,15 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { analytics } from '../firebase'; // Firebase Analytics
 import { logEvent } from 'firebase/analytics'; // Firebase event logging
 import { QRCodeCanvas } from 'qrcode.react'; // QR code generator
 import './PdfViewer.css';
 import CommentSection from './CommentSection';
+import { CircularProgress } from '@mui/material'; // Modern loading spinner
 
 const PdfViewer = () => {
     const { pdfUrl } = useParams(); // Get PDF URL from route params
     const directPdfUrl = decodeURIComponent(pdfUrl || ''); // Decode the URL
     const currentPageLink = `${window.location.origin}/pdf-viewer/${encodeURIComponent(pdfUrl || '')}`; // Construct QR code link
+
+    const [loading, setLoading] = useState(true); // State for loading spinner
+    const [error, setError] = useState(false); // State for error handling
+    const [fileName, setFileName] = useState(''); // Extracted file name
+
+    // Extract file name from URL
+    useEffect(() => {
+        if (directPdfUrl) {
+            const parsedFileName = decodeURIComponent(
+                directPdfUrl.split('/').pop().split('?')[0]
+            );
+            setFileName(parsedFileName);
+        }
+    }, [directPdfUrl]);
 
     // Function to construct Google Drive download link from URL
     const getGoogleDriveDownloadLink = (url) => {
@@ -25,6 +40,7 @@ const PdfViewer = () => {
             logEvent(analytics, 'pdf_view', { pdf_url: directPdfUrl });
         } else {
             console.error('Invalid or missing PDF URL.');
+            setError(true);
         }
     }, [directPdfUrl]);
 
@@ -40,7 +56,7 @@ const PdfViewer = () => {
         if (navigator.share) {
             try {
                 await navigator.share({
-                    title: 'Check out this PDF!',
+                    title: `Check out this PDF: ${fileName}`,
                     text: 'Scan this QR code or use the link to view the PDF.',
                     url: currentPageLink,
                 });
@@ -60,13 +76,32 @@ const PdfViewer = () => {
         }
     };
 
-    if (!directPdfUrl) {
-        return <p>Error: No PDF URL provided.</p>;
+    // Handle QR Code Image Download
+    const handleQrCodeDownload = () => {
+        const canvas = document.querySelector('.qr-code canvas');
+        if (canvas) {
+            const link = document.createElement('a');
+            link.download = `${fileName}-QRCode.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+    };
+
+    if (error) {
+        return <p>Error: Unable to load the PDF. Please check the URL and try again.</p>;
     }
 
     return (
         <div className="pdf-viewer">
             <h2>📄 PDF Viewer</h2>
+
+            {/* Show a loading spinner while the PDF loads */}
+            {loading && (
+                <div className="loading-spinner">
+                    <CircularProgress />
+                    <p>Loading PDF...</p>
+                </div>
+            )}
 
             {/* Embed the PDF in an iframe */}
             <iframe
@@ -75,7 +110,11 @@ const PdfViewer = () => {
                 title="PDF Viewer"
                 width="100%"
                 height="600px"
-                allow="autoplay"
+                onLoad={() => setLoading(false)}
+                onError={() => {
+                    setError(true);
+                    setLoading(false);
+                }}
             ></iframe>
 
             {/* Download Button */}
@@ -110,7 +149,17 @@ const PdfViewer = () => {
                 <button className="share-button" onClick={handleShare}>
                     📤 Share Link
                 </button>
+                <button className="qr-code-download" onClick={handleQrCodeDownload}>
+                    📥 Download QR Code
+                </button>
             </div>
+
+            {/* Display File Metadata */}
+            {fileName && (
+                <div className="file-info">
+                    <p><strong>File Name:</strong> {fileName}</p>
+                </div>
+            )}
 
             {/* Comment Section */}
             <CommentSection />

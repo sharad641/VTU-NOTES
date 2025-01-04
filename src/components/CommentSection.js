@@ -3,12 +3,16 @@ import { database } from '../firebase'; // Adjust the path to your Firebase conf
 import { ref, push, onValue } from 'firebase/database';
 import './CommentSection.css';
 
+const ADMIN_NAME = 'Admin'; // Define the reserved admin name
+const ADMIN_EMAIL = 'vtunotesforall@gmail.com'; // Define the admin's email (can be fetched dynamically)
+
 const CommentSection = () => {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState('');
   const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState(''); // New email state
+  const [email, setEmail] = useState('');
   const [replyText, setReplyText] = useState('');
+  const [replyUserName, setReplyUserName] = useState(''); // Name for reply
   const [isReplyingTo, setIsReplyingTo] = useState({ commentId: null, replyKey: null });
   const [showAllComments, setShowAllComments] = useState(false);
 
@@ -28,18 +32,14 @@ const CommentSection = () => {
       }
     });
 
-    return () => unsubscribe(); // Cleanup listener on unmount
+    return () => unsubscribe();
   }, []);
 
   // Add a new comment
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
-    if (commentText.trim() === '') {
-      alert('Your comment cannot be empty.');
-      return;
-    }
-    if (email.trim() === '') {
-      alert('Your email is required.');
+    if (!commentText.trim() || !email.trim()) {
+      alert('Both email and comment text are required.');
       return;
     }
 
@@ -54,7 +54,7 @@ const CommentSection = () => {
       });
       setCommentText('');
       setUserName('');
-      setEmail(''); // Reset email field
+      setEmail('');
     } catch (error) {
       console.error('Error adding comment:', error);
       alert('An error occurred while adding your comment.');
@@ -63,8 +63,13 @@ const CommentSection = () => {
 
   // Add a reply
   const handleReplySubmit = async (commentId, replyKey = null) => {
-    if (replyText.trim() === '') {
-      alert('Your reply cannot be empty.');
+    if (!replyText.trim() || !replyUserName.trim()) {
+      alert('Both reply text and name are required.');
+      return;
+    }
+
+    if (replyUserName.trim() === ADMIN_NAME && email.trim() !== ADMIN_EMAIL) {
+      alert('You cannot use the name "Admin" unless you are the admin.');
       return;
     }
 
@@ -76,12 +81,14 @@ const CommentSection = () => {
 
       await push(replyRef, {
         text: replyText.trim(),
-        author: userName.trim() || 'Anonymous',
+        author: replyUserName.trim(),
+        email: email.trim(),
         timestamp: Date.now(),
         replies: {},
       });
 
       setReplyText('');
+      setReplyUserName('');
       setIsReplyingTo({ commentId: null, replyKey: null });
     } catch (error) {
       console.error('Error adding reply:', error);
@@ -111,11 +118,20 @@ const CommentSection = () => {
 
           {isReplyingTo.commentId === parentCommentId && isReplyingTo.replyKey === key && (
             <div className="reply-form">
+              <input
+                type="text"
+                className="reply-name"
+                placeholder="Your Name"
+                value={replyUserName}
+                onChange={(e) => setReplyUserName(e.target.value)}
+                required
+              />
               <textarea
                 className="reply-textarea"
                 placeholder="Write your reply..."
                 value={replyText}
                 onChange={(e) => setReplyText(e.target.value)}
+                required
               />
               <button
                 className="submit-reply-btn"
@@ -137,8 +153,7 @@ const CommentSection = () => {
       <header className="header">
         <h2 className="section-title">Share Your Thoughts</h2>
         <p className="intro-paragraph">
-          Have thoughts about our website? We’d love to hear from you!
-          Share your comments, suggestions, or experiences to help us improve and serve you better.
+          Have thoughts about our website? We’d love to hear from you! Share your comments, suggestions, or experiences to help us improve and serve you better.
         </p>
       </header>
 
@@ -191,11 +206,20 @@ const CommentSection = () => {
 
             {isReplyingTo.commentId === comment.id && isReplyingTo.replyKey === null && (
               <div className="reply-form">
+                <input
+                  type="text"
+                  className="reply-name"
+                  placeholder="Your Name"
+                  value={replyUserName}
+                  onChange={(e) => setReplyUserName(e.target.value)}
+                  required
+                />
                 <textarea
                   className="reply-textarea"
                   placeholder="Write your reply..."
                   value={replyText}
                   onChange={(e) => setReplyText(e.target.value)}
+                  required
                 />
                 <button
                   className="submit-reply-btn"
