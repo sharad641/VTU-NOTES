@@ -1528,6 +1528,12 @@ const ModuleDetail = () => {
               "https://drive.google.com/file/d/10v2_2Z7BviRPPxZrjOKUW-1snHuIk-Ne/preview",
           },
           {
+            title: "Handwritten Question Bank With Answers",
+            content: "Question bank for for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1TUx_F_ldZje158xHr-7juovCHZanzDQU/preview",
+          },
+          {
             title: "Question Bank",
             content: "Question bank for for CSE.",
             previewUrl:
@@ -1599,6 +1605,12 @@ const ModuleDetail = () => {
               "https://drive.google.com/file/d/1yKthkEnLBTowr23KHqtNKtl857Z2t9QM/preview",
           },
           {
+            title: "Question Bank With Answer",
+            content: ".",
+            previewUrl:
+              "https://drive.google.com/file/d/1pTItbUK2lkz2jh6fBY_H7xyV0YDdUsIN/preview",
+          },
+          {
             title: "TeXt Book",
             content: "",
             previewUrl:
@@ -1644,6 +1656,18 @@ const ModuleDetail = () => {
               content: "Comprehensive notes for Module 5.",
               previewUrl:
                 "https://drive.google.com/file/d/1ssBpZXxVelf0sV0gGm3wzujSFYvvf7sq/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1dlYcBDm5iIYJg7PFKlK-sX4l3vGjo3kX/preview",
+            },
+            {
+              title: "Handwritten Question Bank Solutions",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1OfbbBXT1eYl-mAruZYJZzNiRotujQe5E/preview",
             },
             {
               title: "Handwritten notes 1: Module",
