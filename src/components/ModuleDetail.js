@@ -65,14 +65,14 @@ const ModuleDetail = () => {
               title: "Question Paper Solutions 3",
               content: "Past question paper solutions for Mathematics for CSE.",
               previewUrl:
-                "https://drive.google.com/file/d/1hGritueU19e2Z9OgeoNdMOibkASLwdFf/preview",
+                "https://drive.google.com/file/d/1NTy9LapYCGOeUA8y5TruF72X_H7VQ9Eo/preview",
             },
 
             {
               title: "Mathematics Question Bank",
               content: "Question bank for Mathematics for CSE.",
               previewUrl:
-                "https://drive.google.com/file/d/1fusrSR_HOrnXbXLMBdYBu4O3stPfyy6k/preview",
+                "https://drive.google.com/file/d/1dytNuksweWVZ4o0uedFM8wrI0fnxYmBc/preview",
             },
           ],
         },
@@ -126,7 +126,7 @@ const ModuleDetail = () => {
               title: "Applied Physics Question Paper Solutions",
               content: "Question bank for Applied Physics for CSE.",
               previewUrl:
-                "https://drive.google.com/file/d/10w9Suwfl3oW4kxFDIgue8P1ZZdlI3iGp/preview",
+                "https://drive.google.com/file/d/1Eq3hyKXbgBeVgPw_rgG5xFsU3pIl9VCA/preview",
             },
           ],
         },
