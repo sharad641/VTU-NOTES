@@ -1483,31 +1483,31 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1HCGmhDqXmfSLrT72NR32VYhdgLNgIIdn/preview",
+                "https://drive.google.com/file/d/14htN4dswag4Pm9tuqWnQOCPvUB8-BQMo/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1cjQ46bwsglqs7-XlilmdDww6fQ1uGNmA/preview",
+                "https://drive.google.com/file/d/1-RibizuedU-k5TgYSk9panOpyoSogNvC/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1Rier0xlbrHVs4VDSxc4y8G5scjiQimgj/preview",
+                "https://drive.google.com/file/d/1bAm05nOtffFzZ6rEhRp1VCjQTqrb86Fz/preview",
             },
             {
               title: "module 4:Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1NbM3Y_LuP1_By1mVuJKP2suJwTv9u9Hs/preview",
+                "https://drive.google.com/file/d/1cpPl4-NTAs09C9gplu6s53m-FblYikpk/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1K9kxwd6L9X_gxV4yx6URWa4zVvGSGGcc/preview",
+                "https://drive.google.com/file/d/1uFRlNWRLIu07OrMl_IhYRTmyFaJNxx0E/preview",
             },
             {
               title: " All Module : Notes",
