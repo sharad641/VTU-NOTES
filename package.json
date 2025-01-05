@@ -78,5 +78,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "concurrently": "^9.0.1"
   },
-  "proxy": "https://generativelanguage.googleapis.com"
+  "proxy": "https://vtunotesforall.in"
+
+  
 }

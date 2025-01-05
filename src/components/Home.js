@@ -6,6 +6,8 @@ import { logEvent } from 'firebase/analytics';
 import CommentSection from './CommentSection';
 import Calculator from './Calculator';
 import UploadForm from './UploadForm';
+import Contact from './Contact'; 
+
 import './Home.css';
 
 const Home = () => {
@@ -202,34 +204,14 @@ const Home = () => {
 </div>
 </div>
 
-{/* Contact Section */}
-<section className="info-box modern-box contact-section">
-<h2>📞 Contact Us</h2>
-<p>Have questions or suggestions? Reach out for support or guidance!</p>
-<p>Email: <a href="mailto:vtunotesforall@gmail.com" className="link">vtunotesforall@gmail.com</a></p>
-<p>Phone: <a href="tel:+916364060716" className="link">+91 6364060716</a></p>
-<div className="button-group">
-  <a href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG" 
-     target="_blank" 
-     rel="noopener noreferrer" 
-     className="button modern-button">
-    WhatsApp Group 1
-  </a>
-  <a href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t" 
-     target="_blank" 
-     rel="noopener noreferrer" 
-     className="button modern-button">
-    WhatsApp Group 2
-  </a>
-</div>
-</section>
+
 
       <UploadForm /> {/* Add the upload form here */}
      
 
 {/* Add the comment section here */}
 <CommentSection />
-     {/* Contact Section */}
+<Contact /> 
      </div>
      
   );

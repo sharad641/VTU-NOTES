@@ -241,3 +241,26 @@ body {
     font-size: 0.9rem;
   }
 }
+.comment-email {
+  width: 100%; /* Full-width input */
+  padding: 12px 16px; /* Padding inside the input */
+  font-size: 16px; /* Font size */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  outline: none; /* Remove default outline */
+  transition: all 0.3s ease; /* Smooth transitions */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.comment-email:focus {
+  border-color: #007BFF; /* Blue border on focus */
+  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.25); /* Enhanced shadow on focus */
+}
+
+.comment-email::placeholder {
+  color: #aaa; /* Light gray placeholder text */
+  font-style: italic; /* Italic style for placeholder */
+}
+
+
+
