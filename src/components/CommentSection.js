@@ -22,10 +22,12 @@ const CommentSection = () => {
     const unsubscribe = onValue(commentsRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
-        const fetchedComments = Object.keys(data).map((key) => ({
-          id: key,
-          ...data[key],
-        }));
+        const fetchedComments = Object.keys(data)
+          .map((key) => ({
+            id: key,
+            ...data[key],
+          }))
+          .sort((a, b) => b.timestamp - a.timestamp); // Sort by timestamp in descending order
         setComments(fetchedComments);
       } else {
         setComments([]);
@@ -100,52 +102,54 @@ const CommentSection = () => {
   const renderReplies = (replies, parentPath, parentCommentId) => {
     if (!replies || typeof replies !== 'object') return null;
 
-    return Object.entries(replies).map(([key, reply]) => {
-      const replyPath = `${parentPath}/replies/${key}`;
+    return Object.entries(replies)
+      .sort(([, a], [, b]) => b.timestamp - a.timestamp) // Sort replies by timestamp
+      .map(([key, reply]) => {
+        const replyPath = `${parentPath}/replies/${key}`;
 
-      return (
-        <div key={key} className="reply-card">
-          <strong>{reply.author}</strong>
-          <span className="timestamp">{new Date(reply.timestamp).toLocaleString()}</span>
-          <p className="reply-text">{reply.text}</p>
+        return (
+          <div key={key} className="reply-card">
+            <strong>{reply.author}</strong>
+            <span className="timestamp">{new Date(reply.timestamp).toLocaleString()}</span>
+            <p className="reply-text">{reply.text}</p>
 
-          <button
-            className="reply-btn"
-            onClick={() => setIsReplyingTo({ commentId: parentCommentId, replyKey: key })}
-          >
-            Reply
-          </button>
+            <button
+              className="reply-btn"
+              onClick={() => setIsReplyingTo({ commentId: parentCommentId, replyKey: key })}
+            >
+              Reply
+            </button>
 
-          {isReplyingTo.commentId === parentCommentId && isReplyingTo.replyKey === key && (
-            <div className="reply-form">
-              <input
-                type="text"
-                className="reply-name"
-                placeholder="Your Name"
-                value={replyUserName}
-                onChange={(e) => setReplyUserName(e.target.value)}
-                required
-              />
-              <textarea
-                className="reply-textarea"
-                placeholder="Write your reply..."
-                value={replyText}
-                onChange={(e) => setReplyText(e.target.value)}
-                required
-              />
-              <button
-                className="submit-reply-btn"
-                onClick={() => handleReplySubmit(parentCommentId, key)}
-              >
-                Submit Reply
-              </button>
-            </div>
-          )}
+            {isReplyingTo.commentId === parentCommentId && isReplyingTo.replyKey === key && (
+              <div className="reply-form">
+                <input
+                  type="text"
+                  className="reply-name"
+                  placeholder="Your Name"
+                  value={replyUserName}
+                  onChange={(e) => setReplyUserName(e.target.value)}
+                  required
+                />
+                <textarea
+                  className="reply-textarea"
+                  placeholder="Write your reply..."
+                  value={replyText}
+                  onChange={(e) => setReplyText(e.target.value)}
+                  required
+                />
+                <button
+                  className="submit-reply-btn"
+                  onClick={() => handleReplySubmit(parentCommentId, key)}
+                >
+                  Submit Reply
+                </button>
+              </div>
+            )}
 
-          {renderReplies(reply.replies, replyPath, parentCommentId)}
-        </div>
-      );
-    });
+            {renderReplies(reply.replies, replyPath, parentCommentId)}
+          </div>
+        );
+      });
   };
 
   return (
@@ -187,7 +191,7 @@ const CommentSection = () => {
 
       {/* Comments */}
       {comments
-        .slice(0, showAllComments ? comments.length : 1)
+        .slice(0, showAllComments ? comments.length : 10)
         .map((comment) => (
           <div key={comment.id} className="comment-card">
             <div className="comment-header">
@@ -238,7 +242,7 @@ const CommentSection = () => {
           className="toggle-comments-btn"
           onClick={() => setShowAllComments(!showAllComments)}
         >
-          {showAllComments ? 'Hide Comments' : `View All Comments (${comments.length - 1})`}
+          {showAllComments ? 'Hide Comments' : `View All Comments (${comments.length - 10})`}
         </button>
       )}
     </div>

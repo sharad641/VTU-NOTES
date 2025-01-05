@@ -208,10 +208,10 @@ const Home = () => {
 
       <UploadForm /> {/* Add the upload form here */}
      
-
+      <Contact /> 
 {/* Add the comment section here */}
 <CommentSection />
-<Contact /> 
+
      </div>
      
   );
