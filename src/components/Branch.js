@@ -22,9 +22,7 @@ function Branch() {
                 <li><Link to={`/branch/${branch}/3`}>Semester 3</Link></li>
                 <li><Link to={`/branch/${branch}/4`}>Semester 4</Link></li>
                 <li><Link to={`/branch/${branch}/5`}>Semester 5</Link></li>
-                <li><Link to={`/branch/${branch}/6`}>Semester 6</Link></li>
-                <li><Link to={`/branch/${branch}/7`}>Semester 7</Link></li>
-                <li><Link to={`/branch/${branch}/8`}>Semester 8</Link></li>
+               
             </>
         );
     }
