@@ -18,11 +18,11 @@ const Profile = () => {
     const [user, setUser] = useState(null);
     const [editMode, setEditMode] = useState(false);
     const [profileInfo, setProfileInfo] = useState({
-        displayName: '',
-        email: '',
+        displayName: 'Guest User',
+        email: 'guest@example.com',
         phoneNumber: '',
         collegeName: '',
-        photoURL: '',
+        photoURL: 'https://www.pngmart.com/files/22/User-Avatar-Profile-Background-Isolated-PNG.png',
     });
     const [file, setFile] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -34,10 +34,18 @@ const Profile = () => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
                 setUser(currentUser);
-                const userRef = ref(database, `users/${currentUser.uid}`);
 
-                try {
+                if (currentUser.isAnonymous) {
+                    setProfileInfo({
+                        displayName: 'Guest User',
+                        email: 'guest@example.com',
+                        photoURL: 'https://www.pngmart.com/files/22/User-Avatar-Profile-Background-Isolated-PNG.png',
+                    });
+                    setTestResults([]);
+                } else {
+                    const userRef = ref(database, `users/${currentUser.uid}`);
                     const snapshot = await get(userRef);
+
                     if (snapshot.exists()) {
                         const data = snapshot.val();
                         setProfileInfo({
@@ -45,33 +53,31 @@ const Profile = () => {
                             email: currentUser.email || '',
                             phoneNumber: data.phoneNumber || '',
                             collegeName: data.collegeName || '',
-                            photoURL: data.photoURL || currentUser.photoURL || '/default-profile.jpg',
+                            photoURL: data.photoURL || currentUser.photoURL || 'https://www.pngmart.com/files/22/User-Avatar-Profile-Background-Isolated-PNG.png',
                         });
                     }
-                } catch (error) {
-                    console.error('Error fetching user data:', error);
-                }
 
-                const testResultsRef = ref(database, `users/${currentUser.uid}/testResults`);
-                onValue(testResultsRef, (snapshot) => {
-                    if (snapshot.exists()) {
-                        const results = snapshot.val();
-                        const formattedResults = Object.entries(results).map(([testID, testData]) => ({
-                            testID,
-                            test: testData.test || 'N/A',
-                            difficulty: testData.difficulty || 'N/A',
-                            percentage: testData.percentage || 'N/A',
-                            score: testData.score || 0,
-                            totalQuestions: testData.totalQuestions || 0,
-                            attendedQuestions: testData.attendedQuestions || 0,
-                            correctAnswers: testData.correctAnswers || 0,
-                            timestamp: testData.timestamp || null,
-                        }));
-                        setTestResults(formattedResults);
-                    } else {
-                        setTestResults([]);
-                    }
-                });
+                    const testResultsRef = ref(database, `users/${currentUser.uid}/testResults`);
+                    onValue(testResultsRef, (snapshot) => {
+                        if (snapshot.exists()) {
+                            const results = snapshot.val();
+                            const formattedResults = Object.entries(results).map(([testID, testData]) => ({
+                                testID,
+                                test: testData.test || 'N/A',
+                                difficulty: testData.difficulty || 'N/A',
+                                percentage: testData.percentage || 'N/A',
+                                score: testData.score || 0,
+                                totalQuestions: testData.totalQuestions || 0,
+                                attendedQuestions: testData.attendedQuestions || 0,
+                                correctAnswers: testData.correctAnswers || 0,
+                                timestamp: testData.timestamp || null,
+                            }));
+                            setTestResults(formattedResults);
+                        } else {
+                            setTestResults([]);
+                        }
+                    });
+                }
             } else {
                 setUser(null);
             }
@@ -98,13 +104,12 @@ const Profile = () => {
         setFile(e.target.files[0]);
     };
 
-    const isPhoneNumberValid = (number) => /^[0-9]{10}$/.test(number);
-
     const handleSave = async () => {
-        if (!isPhoneNumberValid(profileInfo.phoneNumber)) {
-            alert('Invalid phone number. Please enter a valid 10-digit number.');
+        if (user.isAnonymous) {
+            alert('Guest users cannot edit their profile.');
             return;
         }
+
         if (!profileInfo.displayName.trim()) {
             alert('Display name cannot be empty.');
             return;
@@ -112,38 +117,36 @@ const Profile = () => {
 
         setLoading(true);
         try {
-            if (user) {
-                const userRef = ref(database, `users/${user.uid}`);
-                let updatedProfileInfo = { ...profileInfo };
+            const userRef = ref(database, `users/${user.uid}`);
+            let updatedProfileInfo = { ...profileInfo };
 
-                if (file) {
-                    const photoRef = storageRef(storage, `profile_photos/${user.uid}/${file.name}`);
-                    const uploadTask = uploadBytesResumable(photoRef, file);
+            if (file) {
+                const photoRef = storageRef(storage, `profile_photos/${user.uid}/${file.name}`);
+                const uploadTask = uploadBytesResumable(photoRef, file);
 
-                    uploadTask.on(
-                        'state_changed',
-                        null,
-                        (error) => {
-                            console.error('Error uploading photo:', error);
-                            setLoading(false);
-                        },
-                        async () => {
-                            const photoURL = await getDownloadURL(uploadTask.snapshot.ref);
-                            updatedProfileInfo.photoURL = photoURL;
-                            await update(userRef, updatedProfileInfo);
-                            setProfileInfo(updatedProfileInfo);
-                            setEditMode(false);
-                            setLoading(false);
-                            alert('Profile updated successfully!');
-                        }
-                    );
-                } else {
-                    await update(userRef, updatedProfileInfo);
-                    setProfileInfo(updatedProfileInfo);
-                    setEditMode(false);
-                    setLoading(false);
-                    alert('Profile updated successfully!');
-                }
+                uploadTask.on(
+                    'state_changed',
+                    null,
+                    (error) => {
+                        console.error('Error uploading photo:', error);
+                        setLoading(false);
+                    },
+                    async () => {
+                        const photoURL = await getDownloadURL(uploadTask.snapshot.ref);
+                        updatedProfileInfo.photoURL = photoURL;
+                        await update(userRef, updatedProfileInfo);
+                        setProfileInfo(updatedProfileInfo);
+                        setEditMode(false);
+                        setLoading(false);
+                        alert('Profile updated successfully!');
+                    }
+                );
+            } else {
+                await update(userRef, updatedProfileInfo);
+                setProfileInfo(updatedProfileInfo);
+                setEditMode(false);
+                setLoading(false);
+                alert('Profile updated successfully!');
             }
         } catch (error) {
             console.error('Error updating profile:', error);
@@ -152,6 +155,11 @@ const Profile = () => {
     };
 
     const handleChangePassword = async () => {
+        if (user.isAnonymous) {
+            alert('Guest users cannot change their password.');
+            return;
+        }
+
         const newPassword = prompt('Enter your new password:');
         if (!newPassword) return;
 
@@ -171,6 +179,11 @@ const Profile = () => {
     };
 
     const handleDeleteAccount = async () => {
+        if (user.isAnonymous) {
+            alert('Guest users cannot delete their account.');
+            return;
+        }
+
         const confirmDeletion = window.confirm('Are you sure you want to delete your account? This action cannot be undone.');
         if (!confirmDeletion) return;
 
@@ -188,29 +201,13 @@ const Profile = () => {
 
     const profileLink = `https://yourwebsite.com/profile/${user?.uid}`;
 
-    const handleShare = async () => {
-        if (navigator.share) {
-            try {
-                await navigator.share({
-                    title: 'My Profile',
-                    text: 'Check out my profile!',
-                    url: profileLink,
-                });
-            } catch (error) {
-                console.error('Error sharing profile:', error);
-            }
-        } else {
-            alert('Web Share API is not supported in your browser.');
-        }
-    };
-
     return (
         <div className="profile-container">
             {user ? (
                 <div>
-                    <h1>Welcome, {profileInfo.displayName || 'User'}!</h1>
+                    <h1>Welcome, {profileInfo.displayName}!</h1>
                     <img
-                        src={profileInfo.photoURL || '/default-profile.jpg'}
+                        src={profileInfo.photoURL || 'https://www.pngmart.com/files/22/User-Avatar-Profile-Background-Isolated-PNG.png'}
                         alt="Profile"
                         className="profile-photo"
                     />
@@ -218,7 +215,7 @@ const Profile = () => {
                     <p>Phone Number: {profileInfo.phoneNumber || 'Not provided'}</p>
                     <p>College Name: {profileInfo.collegeName || 'Not provided'}</p>
 
-                    {editMode ? (
+                    {editMode && !user.isAnonymous ? (
                         <div className="edit-form">
                             <input
                                 type="text"
@@ -249,64 +246,53 @@ const Profile = () => {
                                 onChange={handleFileChange}
                                 className="file-input"
                             />
-                            
                             <button onClick={handleSave} disabled={loading}>
                                 {loading ? 'Saving...' : 'Save'}
                             </button>
                         </div>
-                    ) : (
+                    ) : !user.isAnonymous ? (
                         <button onClick={() => setEditMode(true)}>Edit Profile</button>
-                    )}
+                    ) : null}
 
                     <div className="test-results">
                         <h3>Your Test Results</h3>
-                        <table>
-                            <thead>
-                                <tr>
-                                    
-                                    <th>Test</th>
-                                    <th>Difficulty</th>
-                                    <th>Total Questions</th>
-                                    <th>Attended Questions</th>
-                                    <th>Score</th>
-                                    <th>Percentage</th>
-                                    
-                                    
-                                    
-                                    
-                                    <th>Timestamp</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {testResults.map((test, index) => (
-                                    <tr key={index}>
-                                        
-                                        <td>{test.test}</td>
-                                        <td>{test.difficulty}</td>
-                                        <td>{test.totalQuestions}</td>
-                                        <td>{test.attendedQuestions}</td>
-                                        <td>{test.score}</td>
-                                        <td>{test.percentage}%</td>
-                                        
-                                        
-                                       
-                                        
-                                        <td>{test.timestamp ? new Date(test.timestamp).toLocaleString() : 'N/A'}</td>
+                        {testResults.length > 0 ? (
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Test</th>
+                                        <th>Difficulty</th>
+                                        <th>Total Questions</th>
+                                        <th>Attended Questions</th>
+                                        <th>Score</th>
+                                        <th>Percentage</th>
+                                        <th>Timestamp</th>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    {testResults.map((test, index) => (
+                                        <tr key={index}>
+                                            <td>{test.test}</td>
+                                            <td>{test.difficulty}</td>
+                                            <td>{test.totalQuestions}</td>
+                                            <td>{test.attendedQuestions}</td>
+                                            <td>{test.score}</td>
+                                            <td>{test.percentage}%</td>
+                                            <td>{test.timestamp ? new Date(test.timestamp).toLocaleString() : 'N/A'}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        ) : (
+                            <p>No test results available.</p>
+                        )}
                     </div>
 
-                    <button onClick={handleChangePassword}>Change Password</button>
-                    <button onClick={handleDeleteAccount}>Delete Account</button>
+                    {!user.isAnonymous && <button onClick={handleChangePassword}>Change Password</button>}
+                    {!user.isAnonymous && <button onClick={handleDeleteAccount}>Delete Account</button>}
                     <button onClick={handleLogout}>Logout</button>
 
-                    
-            
-            {/* Share Button */}
-            <button onClick={handleShare}>Share Profile</button>
-            <QRCodeCanvas value={profileLink} size={128} level="H" />
+                    <QRCodeCanvas value={profileLink} size={128} level="H" />
                 </div>
             ) : (
                 <p>Please log in to view your profile.</p>
