@@ -21,16 +21,11 @@ function Footer() {
       </div>
 
       <div className="footer-social">
-        <a href="https://facebook.com" target="_blank" rel="noreferrer" className="social-icon">
-          <i className="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noreferrer" className="social-icon">
-          <i className="fab fa-twitter"></i>
-        </a>
+       
         <a href="https://www.instagram.com/vtuno_tes/" target="_blank" rel="noreferrer" className="social-icon">
           <i className="fab fa-instagram"></i>
         </a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="social-icon">
+        <a href="https://www.linkedin.com/in/sharad-patil-691902259" target="_blank" rel="noreferrer" className="social-icon">
           <i className="fab fa-linkedin-in"></i>
         </a>
       </div>
