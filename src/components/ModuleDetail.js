@@ -756,31 +756,43 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Introduction to Digital Design",
               previewUrl:
-                "https://drive.google.com/file/d/14MVOZXeMOI0NO_COf9zX42UiyvDvVfns/preview",
+                "https://drive.google.com/file/d/17Xcfk02ShPbiC68v30mR64JyLN8Zlxo6/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Combinational Logic.",
               previewUrl:
-                "https://drive.google.com/file/d/10VZSus-9cbN35EZ9j_2HphL2YLtUmsbA/preview",
+                "https://drive.google.com/file/d/1ImRmWzwac1ZO39qNLDdSD8DvjPKBwpcp/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1sEP39OYa9BM1XbCiN4VUAT10HsKiN_e0/preview",
+                "https://drive.google.com/file/d/1IBDOIlh_HHs7KF5GS6BzCuEyYH50gS0U/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1sEP39OYa9BM1XbCiN4VUAT10HsKiN_e0/preview",
+                "https://drive.google.com/file/d/1Tg3_F919P-Ll4l_QP85dnoSfuTxDtsKk/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1wc77RS_veOrMprO98a45SqdzjM_ngDoe/preview",
+                "https://drive.google.com/file/d/1ekZbe8Uef5enZtEffWbkgM6Qe7OAlFoo/preview",
+            },
+            {
+              title: "Module 1:  HandWritten Notes",
+              content: "Introduction to Digital Design",
+              previewUrl:
+                "https://drive.google.com/file/d/1KidcgQJCGdzha15kHA-YSvwxqjDu1v8a/preview",
+            },
+            {
+              title: "Module 2:  HandWritten Notes",
+              content: "Introduction to Digital Design",
+              previewUrl:
+                "https://drive.google.com/file/d/1wYZXAgA_1lWUmI7VWoEGi2bKeLB3c1Ga/preview",
             },
           {
             title: "Question Paper",
@@ -789,10 +801,28 @@ const ModuleDetail = () => {
               "https://drive.google.com/file/d/1vJFpqCUTNg8VuxLFN11lcyLPBuCSXipi/preview",
           },
           {
-            title: "Question Bank",
-            content: "Question bank forDigital Design  and Computer Organization for CSE  Still have to upload.",
+            title: "Question Bank With Answers",
+            content: "Question bank for Digital Design  and Computer Organization  uploaded.",
             previewUrl:
-              "https://drive.google.com/file/d/1vJFpqCUTNg8VuxLFN11lcyLPBuCSXipi/preview",
+              "https://drive.google.com/file/d/1xROR5IqItpPVinhNgAJ0RBexaho7LEcE/preview",
+          },
+          {
+            title: "Sample Question Paper Solved 1",
+            content: "Past question paper for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/116jSyk-tRM75t2gEd4oW5dsqtPUp1Q22/preview",
+          },
+          {
+            title: "Sample Question Paper Solved 2",
+            content: "Past question paper for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1xROR5IqItpPVinhNgAJ0RBexaho7LEcE/preview",
+          },
+          {
+            title: "Module wise Question Bank",
+            content: "Past question paper for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1Iv1twGqOay_6AgutRMQ0ith-5rbcniR_/preview",
           },
         ],
         },
