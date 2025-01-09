@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { analytics } from '../firebase';
-import { logEvent } from 'firebase/analytics';
-import { QRCodeCanvas } from 'qrcode.react';
+import { analytics } from '../firebase'; // Firebase Analytics
+import { logEvent } from 'firebase/analytics'; // Firebase event logging
+import { QRCodeCanvas } from 'qrcode.react'; // QR code generator
 import './PdfViewer.css';
 import CommentSection from './CommentSection';
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, Dialog, DialogContent, Button } from '@mui/material'; // Modern loading spinner and dialog
 
 const PdfViewer = () => {
-    const { pdfUrl } = useParams();
-    const directPdfUrl = decodeURIComponent(pdfUrl || '');
-    const currentPageLink = `${window.location.origin}/pdf-viewer/${encodeURIComponent(pdfUrl || '')}`;
+    const { pdfUrl } = useParams(); // Get PDF URL from route params
+    const directPdfUrl = decodeURIComponent(pdfUrl || ''); // Decode the URL
+    const currentPageLink = `${window.location.origin}/pdf-viewer/${encodeURIComponent(pdfUrl || '')}`; // Construct QR code link
 
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
-    const [fileName, setFileName] = useState('');
-    const [showAd, setShowAd] = useState(false); // State to show ad
-    const [adCompleted, setAdCompleted] = useState(false); // State to track ad completion
-    const [copySuccess, setCopySuccess] = useState(false); // State for copy success message
+    const [loading, setLoading] = useState(true); // State for loading spinner
+    const [error, setError] = useState(false); // State for error handling
+    const [fileName, setFileName] = useState(''); // Extracted file name
+    const [isAdVisible, setIsAdVisible] = useState(false); // State to control ad modal visibility
 
+    // Extract file name from URL
     useEffect(() => {
         if (directPdfUrl) {
             const parsedFileName = decodeURIComponent(
@@ -28,35 +27,72 @@ const PdfViewer = () => {
         }
     }, [directPdfUrl]);
 
+    // Function to construct Google Drive download link from URL
     const getGoogleDriveDownloadLink = (url) => {
-        const fileIdMatch = url.match(/[-\w]{25,}/);
+        const fileIdMatch = url.match(/[-\w]{25,}/); // Regex to extract file ID
         return fileIdMatch ? `https://drive.google.com/uc?export=download&id=${fileIdMatch[0]}` : null;
     };
 
-    const downloadLink = getGoogleDriveDownloadLink(directPdfUrl);
+    const downloadLink = getGoogleDriveDownloadLink(directPdfUrl); // Construct download link
 
+    // Log PDF view event
     useEffect(() => {
         if (directPdfUrl) {
             logEvent(analytics, 'pdf_view', { pdf_url: directPdfUrl });
         } else {
+            console.error('Invalid or missing PDF URL.');
             setError(true);
         }
     }, [directPdfUrl]);
 
-    const handleDownload = () => {
-        setShowAd(true); // Show ad before downloading
-        setTimeout(() => {
-            setShowAd(false);
-            setAdCompleted(true);
-            logEvent(analytics, 'pdf_download', { file_name: directPdfUrl });
-        }, 5000); // Display ad for 5 seconds
+    // Show ad modal when "Download" is clicked
+    const handleDownloadClick = () => {
+        setIsAdVisible(true); // Show the ad modal
     };
 
-    const handleCopyLink = () => {
-        navigator.clipboard.writeText(currentPageLink).then(() => {
-            setCopySuccess(true);
-            setTimeout(() => setCopySuccess(false), 3000); // Clear success message after 3 seconds
-        });
+    // Proceed with download after ad is closed
+    const proceedToDownload = () => {
+        setIsAdVisible(false); // Hide the ad modal
+        if (downloadLink) {
+            logEvent(analytics, 'pdf_download', { file_name: directPdfUrl });
+            window.open(downloadLink, '_blank'); // Trigger the download
+        }
+    };
+
+    // Handle share event
+    const handleShare = async () => {
+        if (navigator.share) {
+            try {
+                await navigator.share({
+                    title: `Check out this PDF: ${fileName}`,
+                    text: 'Scan this QR code or use the link to view the PDF.',
+                    url: currentPageLink,
+                });
+                logEvent(analytics, 'qr_code_shared', { pdf_url: directPdfUrl });
+            } catch (error) {
+                console.error('Error sharing QR code:', error);
+            }
+        } else {
+            try {
+                await navigator.clipboard.writeText(currentPageLink);
+                alert('Link copied to clipboard!');
+                logEvent(analytics, 'qr_code_copied', { pdf_url: directPdfUrl });
+            } catch (error) {
+                console.error('Error copying link to clipboard:', error);
+                alert('Failed to copy link.');
+            }
+        }
+    };
+
+    // Handle QR Code Image Download
+    const handleQrCodeDownload = () => {
+        const canvas = document.querySelector('.qr-code canvas');
+        if (canvas) {
+            const link = document.createElement('a');
+            link.download = `${fileName}-QRCode.png`;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
     };
 
     if (error) {
@@ -67,67 +103,47 @@ const PdfViewer = () => {
         <div className="pdf-viewer">
             <h2>📄 PDF Viewer</h2>
 
-            {showAd && (
-                <div className="ad-container">
-                    {/* Google AdSense script */}
-                    <script
-                        async
-                        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9499544849301534"
-                        crossorigin="anonymous"
-                    ></script>
-                    <ins
-                        className="adsbygoogle"
-                        style={{ display: 'block' }}
-                        data-ad-client="ca-pub-9499544849301534"
-                        data-ad-slot="9737940592"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"
-                    ></ins>
-                    <script>{`(adsbygoogle = window.adsbygoogle || []).push({});`}</script>
-                    <p>Ad is loading... Please wait.</p>
+            {/* Show a loading spinner while the PDF loads */}
+            {loading && (
+                <div className="loading-spinner">
+                    <CircularProgress />
+                    <p>Loading PDF...</p>
                 </div>
             )}
 
-            {!showAd && (
-                <>
-                    {loading && (
-                        <div className="loading-spinner">
-                            <CircularProgress />
-                            <p>Loading PDF...</p>
-                        </div>
-                    )}
+            {/* Embed the PDF in an iframe */}
+            <iframe
+                className="pdf-frame"
+                src={directPdfUrl}
+                title="PDF Viewer"
+                width="100%"
+                height="600px"
+                onLoad={() => setLoading(false)}
+                onError={() => {
+                    setError(true);
+                    setLoading(false);
+                }}
+            ></iframe>
 
-                    <iframe
-                        className="pdf-frame"
-                        src={directPdfUrl}
-                        title="PDF Viewer"
-                        width="100%"
-                        height="600px"
-                        onLoad={() => setLoading(false)}
-                        onError={() => {
-                            setError(true);
-                            setLoading(false);
-                        }}
-                    ></iframe>
+            {/* Download Button */}
+            <div className="download-button-container">
+                <button className="download-button" onClick={handleDownloadClick}>
+                    📥 Download PDF
+                </button>
+            </div>
 
-                    <div className="download-button-container">
-                        {adCompleted && downloadLink ? (
-                            <a
-                                href={downloadLink}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <button className="download-button">📥 Download PDF</button>
-                            </a>
-                        ) : (
-                            <button className="download-button" onClick={handleDownload}>
-                                📥  Download
-                            </button>
-                        )}
-                    </div>
-                </>
-            )}
+            {/* Advertisement Modal */}
+            <Dialog open={isAdVisible} onClose={() => setIsAdVisible(false)}>
+                <DialogContent>
+                    <h3>📢 Advertisement</h3>
+                    <p>Your download will start after closing this ad.</p>
+                    <Button variant="contained" color="primary" onClick={proceedToDownload}>
+                        Close Ad & Proceed to Download
+                    </Button>
+                </DialogContent>
+            </Dialog>
 
+            {/* QR Code Sharing */}
             <div className="qr-code-container">
                 <h3>📱 Share this PDF</h3>
                 <div className="qr-code">
@@ -140,20 +156,22 @@ const PdfViewer = () => {
                     />
                 </div>
                 <p>Scan to open this PDF link on another device.</p>
-                <div className="share-link-container">
-                    <button className="copy-link-button" onClick={handleCopyLink}>
-                        📋 Copy Share Link
-                    </button>
-                    {copySuccess && <p className="copy-success">Link Copied!</p>}
-                </div>
+                <button className="share-button" onClick={handleShare}>
+                    📤 Share Link
+                </button>
+                <button className="qr-code-download" onClick={handleQrCodeDownload}>
+                    📥 Download QR Code
+                </button>
             </div>
 
+            {/* Display File Metadata */}
             {fileName && (
                 <div className="file-info">
                     <p><strong>File Name:</strong> {fileName}</p>
                 </div>
             )}
 
+            {/* Comment Section */}
             <CommentSection />
         </div>
     );

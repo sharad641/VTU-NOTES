@@ -107,6 +107,7 @@
 }
 
 /* Share Button Styles */
+.qr-code-download,
 .share-button {
     padding: 12px 24px;
     background-color: #007bff;
@@ -145,7 +146,7 @@
         height: 550px;
     }
 
-    .download-button,
+    .qr-code-download,
     .share-button {
         font-size: 1rem;
         padding: 10px 20px;
@@ -167,7 +168,7 @@
         height: 500px;
     }
 
-    .download-button,
+    .qr-code-download,
     .share-button {
         font-size: 0.95rem;
     }
