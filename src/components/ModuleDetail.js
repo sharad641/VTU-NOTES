@@ -1587,34 +1587,52 @@ const ModuleDetail = () => {
           title: "COMPUTER NETWORKS",
           modules: [
             {
+              title: "COMPUTER NETWORKS :SYLLABUS",
+              content: "",
+              previewUrl:
+                "https://drive.google.com/file/d/1M2MG5Of1KaXjPRADzErO8nMNVG2ZpWxB/preview",
+            },
+            {
               title: "Module 1: Notes",
               content: "Introduction to Digital Design",
               previewUrl:
-                "https://drive.google.com/file/d/18FnWKJ0NS14EUwRCMYl8K1_AFsKhwstr/preview",
+                "https://drive.google.com/file/d/1kPbN-KeYwX2CS1m_CdbMP13T6z3EppTJ/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Combinational Logic.",
               previewUrl:
-                "https://drive.google.com/file/d/14JlQH4k7AiCDwH7axhhXxFYuBbW5R-4g/preview",
+                "https://drive.google.com/file/d/1zxmlNshpanuaVQr5ouDYaFaSM-fBhkrV/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/19fOs37ejVV3yeSEKXf9KjiK_6VGGtUwO/preview",
+                "https://drive.google.com/file/d/10bxnMK1Wy4M2cIOh4-o9zjOGTtBMCaXx/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1LNHcKcHh0ZA6bxUq_ITry2qWXkDJOGtT/preview",
+                "https://drive.google.com/file/d/1_DNrrK51JVbFq0cEzBBQY91k_P4hVe80/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1Hcrgm_TAcEPkjaS1YRI912LqtfVzbCLx/preview",
+                "https://drive.google.com/file/d/1CTXPFi-biY3Kk60jlac2ep4LQo41hpsZ/preview",
+            },
+            {
+              title: "BCS502 MQP SOLUTION 1",
+              content: "model question paper solutions 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/10ENVRIXIu0mJDN-9HfkDIyciEWItiXb6/preview",
+            },
+            {
+              title: "BCS502 MQP SOLUTION 2",
+              content: "model question paper solutions 2",
+              previewUrl:
+                "https://drive.google.com/file/d/1iCTpYPH9_tWGcbeadabuaTno9ZDJnM5D/preview",
             },
             {
               title: "All Module : Notes",
@@ -1638,7 +1656,7 @@ const ModuleDetail = () => {
             title: "Question Bank With Answer",
             content: ".",
             previewUrl:
-              "https://drive.google.com/file/d/1pTItbUK2lkz2jh6fBY_H7xyV0YDdUsIN/preview",
+              "https://drive.google.com/file/d/13oBzGeclCmHM6ckKBtWdbsw0OfO-NauQ/preview",
           },
           {
             title: "TeXt Book",
