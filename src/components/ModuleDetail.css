@@ -218,3 +218,29 @@ input:focus {
 .module-card-footer a:hover {
     color: #1e88e5;
 }
+.ad-container {
+    margin-top: 15px;
+    text-align: center;
+  }
+  
+  .module-card {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .download-buttons {
+    margin-top: 10px;
+  }
+  @media (max-width: 768px) {
+    .ad-container {
+      margin-top: 10px;
+    }
+  
+    .module-card {
+      padding: 15px;
+    }
+  }
+  
