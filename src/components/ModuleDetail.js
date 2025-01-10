@@ -1640,17 +1640,23 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1ABvQ3t0q7JHXMM2zPZaD-uQdFPot0LC6/preview",
             },
+            {
+              title: "CN previous year question paper",
+              content: "CN previous year question paper for 2021 scheme for just reference ",
+              previewUrl:
+                "https://drive.google.com/file/d/1hN5bPv6Ida2mef6CXeJoE4YXCoZ4UfHr/preview",
+            },
+            {
+              title: "CN previous year question paper with solutions",
+              content: "CN previous year question paper for 2021 scheme for just reference ",
+              previewUrl:
+                "https://drive.google.com/file/d/1yy8X_H3x5hV20nCDUqbMaZ8TLrPOmlZo/preview",
+            },
           {
             title: "Question Paper",
             content: "",
             previewUrl:
               "https://drive.google.com/file/d/1MQ0_LjfVOgeB0UFW6LTSnVjy_4Uw-Z0N/preview",
-          },
-           {
-            title: "Question Bank",
-            content: ".",
-            previewUrl:
-              "https://drive.google.com/file/d/1yKthkEnLBTowr23KHqtNKtl857Z2t9QM/preview",
           },
           {
             title: "Question Bank With Answer",
