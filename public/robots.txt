@@ -4,14 +4,14 @@ Disallow: /private/   # Block access to private files or folders
 Disallow: /temp/      # Block access to temporary folders
 
 # Allow search engines to crawl public areas
-Allow: /assets/
+
 Allow: /branch/
 Allow: /placement-guide/
 Allow: /profile/
 Allow: /about/
 Allow: /contact/
-Allow: /styles.css
-Allow: /manifest.json
+
+
 
 # Sitemap
 Sitemap: https://vtunotesforall.in/sitemap.xml

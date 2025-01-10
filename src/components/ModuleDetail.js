@@ -833,19 +833,19 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1lAhjHchgQJE0sLARKTNPxdVxnOMhD9JO/preview",
+                "https://drive.google.com/file/d/1rIRXuo8dlDKCeMF3M5dfHOBk4pH1u7-a/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1r-_9m7X-Hn-45qhP_dlIqtzcl2Yzz0jn/preview",
+                "https://drive.google.com/file/d/1JV1vRbkjEqoHAAzTWwpxJY1Kn2TNlNPd/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1bNiuYu3Z-laL6t7WkEYl_s8ZdizYTRUz/preview",
+                "https://drive.google.com/file/d/1lyXnXMBt6kv3kKNMiE3Dmzizsu-KAw20/preview",
             },
             {
               title: "Module 4: Notes",
@@ -857,7 +857,7 @@ const ModuleDetail = () => {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1L2SDrVqm0MkCk1XZBRIZKXVRKwBorVNY/preview",
+                "https://drive.google.com/file/d/1Kg26VTSML1ycedhsZe4h3Quq4sgI2cD9/preview",
             },
             {
               title: "Preeviou year Question Paper",
@@ -869,7 +869,7 @@ const ModuleDetail = () => {
             title: "Passing Question And Answer",
             content: "Past question paper for Applied Physics for CSE.",
             previewUrl:
-              "hhttps://drive.google.com/file/d/18Dt3JUC-Djj5SG9arATgGaGcT1JXr_oa/preview",
+              "https://drive.google.com/file/d/1LZTpPvlsoJKFuyVyIseHuRxbVqdIqw9Y/preview",
           },
           {
             title: "Question Bank",
