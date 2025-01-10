@@ -5,7 +5,6 @@ import { logEvent } from 'firebase/analytics'; // Firebase event logging
 import { QRCodeCanvas } from 'qrcode.react'; // QR code generator
 import './PdfViewer.css';
 import CommentSection from './CommentSection';
-import { Dialog, DialogContent, Button } from '@mui/material';
 
 const PdfViewer = () => {
     const { pdfUrl } = useParams(); // Get PDF URL from route params
@@ -14,7 +13,6 @@ const PdfViewer = () => {
 
     const [error, setError] = useState(false); // State for error handling
     const [fileName, setFileName] = useState(''); // Extracted file name
-    const [isAdVisible, setIsAdVisible] = useState(false); // State to control ad modal visibility
 
     // Extract file name from URL
     useEffect(() => {
@@ -43,31 +41,6 @@ const PdfViewer = () => {
             setError(true);
         }
     }, [directPdfUrl]);
-
-    // Show ad modal when "Download" is clicked
-    const handleDownloadClick = () => {
-        setIsAdVisible(true); // Show the ad modal
-    };
-
-    // Proceed with download after ad is closed
-    const proceedToDownload = () => {
-        setIsAdVisible(false); // Hide the ad modal
-        if (downloadLink) {
-            logEvent(analytics, 'pdf_download', { file_name: directPdfUrl });
-            window.open(downloadLink, '_blank'); // Trigger the download
-        }
-    };
-
-    // Trigger Google Ads rendering
-    useEffect(() => {
-        if (isAdVisible) {
-            setTimeout(() => {
-                if (window.adsbygoogle) {
-                    window.adsbygoogle.push({});
-                }
-            }, 500); // Delay to ensure ads load correctly
-        }
-    }, [isAdVisible]);
 
     // Handle share event
     const handleShare = async () => {
@@ -124,31 +97,13 @@ const PdfViewer = () => {
             ></iframe>
 
             {/* Download Button */}
-            <div className="download-button-container">
-                <button className="download-button" onClick={handleDownloadClick}>
-                    📥 Download PDF
-                </button>
-            </div>
-
-            {/* Advertisement Modal */}
-            <Dialog open={isAdVisible} onClose={() => setIsAdVisible(false)}>
-                <DialogContent>
-                    <h3>📢 Advertisement</h3>
-                    <p>Your download will start after closing this ad.</p>
-                    <div style={{ textAlign: 'center', marginBottom: '20px' }}>
-                        {/* Google AdSense Ad */}
-                        <ins className="adsbygoogle"
-                             style={{ display: 'block' }}
-                             data-ad-client="ca-pub-9499544849301534"
-                             data-ad-slot="5908175093"
-                             data-ad-format="auto"
-                             data-full-width-responsive="true"></ins>
-                    </div>
-                    <Button variant="contained" color="primary" onClick={proceedToDownload}>
-                        Close Ad & Proceed to Download
-                    </Button>
-                </DialogContent>
-            </Dialog>
+            {downloadLink && (
+                <div className="download-button-container">
+                    <a className="download-button" href={downloadLink} target="_blank" rel="noopener noreferrer">
+                        📥 Download PDF
+                    </a>
+                </div>
+            )}
 
             {/* QR Code Sharing */}
             <div className="qr-code-container">
