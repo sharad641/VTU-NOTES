@@ -19,13 +19,14 @@ const Login = ({ setIsAuthenticated }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
+    // Capture the intended route before login, defaulting to homepage
     const from = location.state?.from?.pathname || '/';
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setIsAuthenticated(true);
-                navigate(from);
+                navigate(from, { replace: true }); // Navigate to the intended page
             }
         });
         return () => unsubscribe();
@@ -38,7 +39,7 @@ const Login = ({ setIsAuthenticated }) => {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             setIsAuthenticated(true);
-            navigate(from || '/');
+            navigate(from, { replace: true }); // Navigate to the intended page
         } catch (err) {
             setError(`Invalid email or password. Error: ${err.message}`);
         } finally {
@@ -53,7 +54,7 @@ const Login = ({ setIsAuthenticated }) => {
             googleAuthProvider.setCustomParameters({ prompt: 'select_account' });
             await signInWithPopup(auth, googleAuthProvider);
             setIsAuthenticated(true);
-            navigate(from || '/');
+            navigate(from, { replace: true }); // Navigate to the intended page
         } catch (err) {
             setError(`Google login failed. Error: ${err.message}`);
         } finally {
@@ -67,7 +68,7 @@ const Login = ({ setIsAuthenticated }) => {
         try {
             await signInAnonymously(auth);
             setIsAuthenticated(true);
-            navigate(from || '/');
+            navigate(from, { replace: true }); // Navigate to the intended page
         } catch (err) {
             setError(`Guest login failed. Error: ${err.message}`);
         } finally {

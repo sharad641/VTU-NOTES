@@ -5,14 +5,13 @@ import { logEvent } from 'firebase/analytics'; // Firebase event logging
 import { QRCodeCanvas } from 'qrcode.react'; // QR code generator
 import './PdfViewer.css';
 import CommentSection from './CommentSection';
-import { CircularProgress, Dialog, DialogContent, Button } from '@mui/material'; // Modern loading spinner and dialog
+import { Dialog, DialogContent, Button } from '@mui/material';
 
 const PdfViewer = () => {
     const { pdfUrl } = useParams(); // Get PDF URL from route params
     const directPdfUrl = decodeURIComponent(pdfUrl || ''); // Decode the URL
     const currentPageLink = `${window.location.origin}/pdf-viewer/${encodeURIComponent(pdfUrl || '')}`; // Construct QR code link
 
-    const [loading, setLoading] = useState(true); // State for loading spinner
     const [error, setError] = useState(false); // State for error handling
     const [fileName, setFileName] = useState(''); // Extracted file name
     const [isAdVisible, setIsAdVisible] = useState(false); // State to control ad modal visibility
@@ -59,6 +58,17 @@ const PdfViewer = () => {
         }
     };
 
+    // Trigger Google Ads rendering
+    useEffect(() => {
+        if (isAdVisible) {
+            setTimeout(() => {
+                if (window.adsbygoogle) {
+                    window.adsbygoogle.push({});
+                }
+            }, 500); // Delay to ensure ads load correctly
+        }
+    }, [isAdVisible]);
+
     // Handle share event
     const handleShare = async () => {
         if (navigator.share) {
@@ -103,14 +113,6 @@ const PdfViewer = () => {
         <div className="pdf-viewer">
             <h2>📄 PDF Viewer</h2>
 
-            {/* Show a loading spinner while the PDF loads */}
-            {loading && (
-                <div className="loading-spinner">
-                    <CircularProgress />
-                    <p>Loading PDF...</p>
-                </div>
-            )}
-
             {/* Embed the PDF in an iframe */}
             <iframe
                 className="pdf-frame"
@@ -118,11 +120,7 @@ const PdfViewer = () => {
                 title="PDF Viewer"
                 width="100%"
                 height="600px"
-                onLoad={() => setLoading(false)}
-                onError={() => {
-                    setError(true);
-                    setLoading(false);
-                }}
+                onError={() => setError(true)}
             ></iframe>
 
             {/* Download Button */}
@@ -137,6 +135,15 @@ const PdfViewer = () => {
                 <DialogContent>
                     <h3>📢 Advertisement</h3>
                     <p>Your download will start after closing this ad.</p>
+                    <div style={{ textAlign: 'center', marginBottom: '20px' }}>
+                        {/* Google AdSense Ad */}
+                        <ins className="adsbygoogle"
+                             style={{ display: 'block' }}
+                             data-ad-client="ca-pub-9499544849301534"
+                             data-ad-slot="5908175093"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                    </div>
                     <Button variant="contained" color="primary" onClick={proceedToDownload}>
                         Close Ad & Proceed to Download
                     </Button>

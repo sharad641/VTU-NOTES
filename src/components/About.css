@@ -165,3 +165,8 @@
     padding: 20px;
   }
 }
+.qr-code {
+  max-width: 200px; /* Adjust the size */
+  margin: 20px auto;
+  display: block;
+}
