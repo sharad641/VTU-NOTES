@@ -96,6 +96,24 @@ const PdfViewer = () => {
                 onError={() => setError(true)}
             ></iframe>
 
+            {/* AdSense Ad - Below the PDF Viewer */}
+            <div className="ads-container">
+                <script
+                    async
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9499544849301534"
+                    crossOrigin="anonymous"
+                ></script>
+                <ins
+                    className="adsbygoogle"
+                    style={{ display: 'block' }}
+                    data-ad-client="ca-pub-9499544849301534"
+                    data-ad-slot="3936951010"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"
+                ></ins>
+                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+            </div>
+
             {/* Download Button */}
             {downloadLink && (
                 <div className="download-button-container">
