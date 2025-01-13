@@ -1675,50 +1675,16 @@ const ModuleDetail = () => {
         {
           title: "THEORY OF COMPUTATION",
           modules: [
-            {
-              title: "Module 1: Notes",
-              content: "Comprehensive notes for Module 1.",
-              previewUrl:
-                "https://drive.google.com/file/d/1T3BxITCQdvoaPUJsHpGtcZbV8fyu5lIR/preview",
-            },
-            {
-              title: "Module 2: Notes",
-              content: "Comprehensive notes for Module 2.",
-              previewUrl:
-                "https://drive.google.com/file/d/1fnWh9P58qr3amvebi2wNZSxtT_KoXxZL/preview",
-            },
-            {
-              title: " modules 3: Notes",
-              content: "Comprehensive notes for Module 3.",
-              previewUrl:
-                "https://drive.google.com/file/d/1pTN2LsJYPZ4jsaQ_qfJ8iO5UMGye-e5F/preview",
-            },
-            {
-              title: "Modules 4 : Notes",
-              content: "Comprehensive notes for Module 4.",
-              previewUrl:
-                "https://drive.google.com/file/d/1iu33vbGwmyslj3hdJHF8pC_PGvdtyTFG/preview",
-            },
-            {
-              title: "Module 5: Notes",
-              content: "Comprehensive notes for Module 5.",
-              previewUrl:
-                "https://drive.google.com/file/d/1dlYcBDm5iIYJg7PFKlK-sX4l3vGjo3kX/preview",
-            },
+           
             {
               title: "Handwritten notes 1 to 5: Module",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
                 "https://drive.google.com/file/d/1ssBpZXxVelf0sV0gGm3wzujSFYvvf7sq/preview",
             },
+           
             {
-              title: "Module 5: Notes",
-              content: "Comprehensive notes for Module 5.",
-              previewUrl:
-                "https://drive.google.com/file/d/1dlYcBDm5iIYJg7PFKlK-sX4l3vGjo3kX/preview",
-            },
-            {
-              title: "Handwritten Question Bank Solutions",
+              title: "BCS503 MQP SOLUTION ",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
                 "https://drive.google.com/file/d/1OfbbBXT1eYl-mAruZYJZzNiRotujQe5E/preview",
@@ -1753,18 +1719,7 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1lUbrSa_Uh1TyDMykO6Fd6KHz5cH8VCSe/preview",
             },
-            {
-              title: "question bank 1",
-              content: "Comprehensive notes for Module.",
-              previewUrl:
-                "https://drive.google.com/file/d/1JE1NoEGeUE_ZSKirhzSNr3cAAbZEcwfS/preview",
-            },
-            {
-              title: "question bank 2",
-              content: "Comprehensive notes for Module.",
-              previewUrl:
-                "https://drive.google.com/file/d/18vEUZZ4U-KGd1CABi9DSAp1QznVMycBv/preview",
-            },
+           
             {
               title: "Text Book",
               content: "Comprehensive notes for Module.",
