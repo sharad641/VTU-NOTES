@@ -124,7 +124,7 @@ function About() {
       <section className="about-developer">
         <h2>👨‍💻 About the Developer</h2>
         <p>
-          VTU Notes was built by <strong>Sharad</strong>, a passionate Computer Science student aiming to make education 
+          VTU Notes was built by <strong>vtu students</strong>, a passionate Computer Science student aiming to make education 
           accessible through technology.
         </p>
         <ul>
