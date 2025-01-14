@@ -139,12 +139,7 @@ const Subjects = () => {
                 </div>
                 <div className="credits-box">Credits: {subject.credits}</div>
                 <div className="subject-details">{subject.info}</div>
-                <AdSenseAd
-  adClient="ca-pub-9499544849301534"
-  adSlot="1234567890" // Replace with your first ad slot
-  adFormat="auto"
-/>
-
+                
                 
               </div>
               {/* AdSense Ad - Below the PDF Viewer */}
