@@ -106,8 +106,7 @@ const PdfViewer = () => {
                     <a className="download-button" href={downloadLink} target="_blank" rel="noopener noreferrer">
                         📥 Download PDF
                     </a>
-                     {/* AdSense Ad - Above the PDF Viewer */}
-                                     <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
+                     
                 </div>
                 
             )}
