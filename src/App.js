@@ -71,8 +71,7 @@ function App() {
       <div className="app-container">
         <Navbar />
         
-        {/* AdSense Ad (Above Main Content) */}
-        <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
+       
 
         <Routes>
           {/* Public Routes */}
