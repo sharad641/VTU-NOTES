@@ -1971,9 +1971,10 @@ const ModuleDetail = () => {
                   >
                     View PDF
                   </button>
-                  {/* AdSense Ad - Above the PDF Viewer */}
-                  <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
+                 
                 </div>
+                 {/* AdSense Ad - Above the PDF Viewer */}
+                 <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
               </div>
             ))}
             {/* Question Paper and other details */}

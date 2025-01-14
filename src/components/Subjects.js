@@ -145,9 +145,10 @@ const Subjects = () => {
                 </div>
                 <div className="credits-box">Credits: {subject.credits}</div>
                 <div className="subject-details">{subject.info}</div>
-                {/* AdSense Ad - Below the PDF Viewer */}
-                <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
+                
               </div>
+              {/* AdSense Ad - Below the PDF Viewer */}
+              <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
             </li>
           ))
         ) : (
