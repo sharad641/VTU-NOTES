@@ -14,6 +14,7 @@ body {
     justify-content: space-between;
     gap: 20px;
     margin: 20px;
+    padding: 0 10px; /* Prevents content overflow */
 }
 
 /* Module Card Styles */
@@ -32,6 +33,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    box-sizing: border-box; /* Includes padding and border in width calculation */
 }
 
 .module-card:hover {
@@ -79,18 +81,21 @@ body {
 /* Responsive Styles */
 @media (max-width: 1024px) {
     .module-card {
-        flex: 1 1 calc(50% - 40px); /* 2 cards per row */
+        flex: 1 1 calc(50% - 20px); /* 2 cards per row */
     }
 }
 
 @media (max-width: 768px) {
     .modules-container {
         gap: 15px;
+        margin: 15px;
+        padding: 0 5px; /* Added padding for smaller screens */
     }
 
     .module-card {
-        flex: 1 1 calc(100% - 30px); /* Full width */
+        flex: 1 1 calc(100% - 10px); /* Full width */
         padding: 20px;
+        margin: 0 auto;
     }
 
     .download-buttons {
@@ -104,6 +109,11 @@ body {
 }
 
 @media (max-width: 480px) {
+    .modules-container {
+        margin: 10px;
+        padding: 0;
+    }
+
     .module-card {
         padding: 15px;
     }
