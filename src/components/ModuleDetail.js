@@ -1685,10 +1685,22 @@ const ModuleDetail = () => {
             },
            
             {
-              title: "BCS503 MQP SOLUTION ",
+              title: "BCS503 MQP SOLUTION SAMPLE 1 ",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
                 "https://drive.google.com/file/d/1OfbbBXT1eYl-mAruZYJZzNiRotujQe5E/preview",
+            },
+            {
+              title: "BCS503 MQP 1 SOLUTION  SAMPLE 1 ",
+              content: "",
+              previewUrl:
+                "https://drive.google.com/file/d/1FrvIgJ-jQjWZ0ECR0zSP0e1JizJaAWXE/preview",
+            },
+            {
+              title: "BCS503 MQP 2 SOLUTION  SAMPLE 1 ",
+              content: "",
+              previewUrl:
+                "https://drive.google.com/file/d/1uo_V8O6catQ2rKKqEmHYPL4TMcvr8Yf9/preview",
             },
             {
               title: "Handwritten notes 1: Module",
