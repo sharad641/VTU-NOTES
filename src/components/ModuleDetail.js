@@ -1,6 +1,7 @@
 // src/components/ModuleDetail.js
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import AdSenseAd from './AdSenseAd'; 
 import "./ModuleDetail.css";
 
 const ModuleDetail = () => {
@@ -1707,6 +1708,7 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1cOIvOdI_tUPnrosDre1bIvzs59SR_y0R/preview",
             },
+            
             {
               title: "Handwritten notes 4:Module",
               content: "Comprehensive notes for Module 4.",
@@ -1961,6 +1963,7 @@ const ModuleDetail = () => {
               <div key={index} className="module-card">
                 <h3>{module.title}</h3>
                 <p>{module.content}</p>
+                 
                 <div className="download-buttons">
                   <button
                     className="view-button"
@@ -1968,6 +1971,8 @@ const ModuleDetail = () => {
                   >
                     View PDF
                   </button>
+                  {/* AdSense Ad - Above the PDF Viewer */}
+                  <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
                 </div>
               </div>
             ))}

@@ -1,6 +1,7 @@
 // src/components/Subjects.js
 import React, {  } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import AdSenseAd from './AdSenseAd'; 
 
  // Import the local JSON file
 import './Subjects.css';
@@ -144,6 +145,8 @@ const Subjects = () => {
                 </div>
                 <div className="credits-box">Credits: {subject.credits}</div>
                 <div className="subject-details">{subject.info}</div>
+                {/* AdSense Ad - Below the PDF Viewer */}
+                <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
               </div>
             </li>
           ))

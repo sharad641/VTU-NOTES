@@ -86,6 +86,8 @@ const PdfViewer = () => {
         <div className="pdf-viewer">
             <h2>📄 PDF Viewer</h2>
 
+            
+
             {/* Embed the PDF in an iframe */}
             <iframe
                 className="pdf-frame"
@@ -96,8 +98,7 @@ const PdfViewer = () => {
                 onError={() => setError(true)}
             ></iframe>
 
-            {/* AdSense Ad - Below the PDF Viewer */}
-            <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
+            
 
             {/* Download Button */}
             {downloadLink && (
@@ -105,7 +106,10 @@ const PdfViewer = () => {
                     <a className="download-button" href={downloadLink} target="_blank" rel="noopener noreferrer">
                         📥 Download PDF
                     </a>
+                    {/* AdSense Ad - Below the PDF Viewer */}
+            <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
                 </div>
+                
             )}
 
             {/* QR Code Sharing */}
