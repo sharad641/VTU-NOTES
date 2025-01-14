@@ -19,7 +19,7 @@ import ChatBot from './components/ChatBot';
 import TestPage from './components/TestPage';
 import CommentSection from './components/CommentSection';
 import StudyPlanner from './components/StudyPlanner';
-import Profile from './components/Profile'; 
+import Profile from './components/Profile';
 
 // New Page Imports
 import About from './components/About';
@@ -27,6 +27,8 @@ import Contact from './components/Contact';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions';
 
+// AdSense Component
+import AdSenseAd from './components/AdSenseAd';
 
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -57,7 +59,7 @@ function App() {
       <div className="loading-overlay">
         <div className="loading-container">
           <div className="loader-wrapper">
-            
+            {/* Loading Spinner or Animation */}
           </div>
         </div>
       </div>
@@ -68,6 +70,10 @@ function App() {
     <Router>
       <div className="app-container">
         <Navbar />
+        
+        {/* AdSense Ad (Above Main Content) */}
+        <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
+
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<Home />} />
@@ -81,9 +87,9 @@ function App() {
 
           {/* About, Contact, Privacy Policy, Terms and Conditions Routes */}
           <Route path="/about" element={<About />} />
-<Route path="/contact" element={<Contact />} />
-<Route path="/privacy-policy" element={<PrivacyPolicy />} />
-<Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
 
           {/* Protected Routes - Authenticated Users */}
           <Route path="/placement-guide" element={isAuthenticated ? <PlacementGuide /> : <Navigate to="/login" />} />
@@ -104,6 +110,10 @@ function App() {
           {/* Fallback Route */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+        
+        {/* AdSense Ad (Below Main Content) */}
+        <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
+        
         <Footer />
       </div>
     </Router>

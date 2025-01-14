@@ -1,11 +1,16 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 
 const AdSenseAd = ({ adClient, adSlot }) => {
   useEffect(() => {
-    try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error("AdSense error: ", e);
+    if (process.env.NODE_ENV === "production") {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (e) {
+        console.error("AdSense error: ", e);
+      }
+    } else {
+      console.warn("AdSense ads are not served in development mode.");
     }
   }, []);
 
@@ -21,6 +26,12 @@ const AdSenseAd = ({ adClient, adSlot }) => {
       ></ins>
     </div>
   );
+};
+
+// Prop validation
+AdSenseAd.propTypes = {
+  adClient: PropTypes.string.isRequired,
+  adSlot: PropTypes.string.isRequired,
 };
 
 export default AdSenseAd;

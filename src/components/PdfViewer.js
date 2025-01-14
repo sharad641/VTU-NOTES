@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { analytics } from '../firebase'; // Firebase Analytics
 import { logEvent } from 'firebase/analytics'; // Firebase event logging
 import { QRCodeCanvas } from 'qrcode.react'; // QR code generator
+import AdSenseAd from './AdSenseAd'; // Import AdSenseAd Component
 import './PdfViewer.css';
 import CommentSection from './CommentSection';
 
@@ -21,10 +22,12 @@ const PdfViewer = () => {
                 directPdfUrl.split('/').pop().split('?')[0]
             );
             setFileName(parsedFileName);
+        } else {
+            setError(true); // Handle missing or invalid URL
         }
     }, [directPdfUrl]);
 
-    // Function to construct Google Drive download link from URL
+    // Construct Google Drive download link from URL
     const getGoogleDriveDownloadLink = (url) => {
         const fileIdMatch = url.match(/[-\w]{25,}/); // Regex to extract file ID
         return fileIdMatch ? `https://drive.google.com/uc?export=download&id=${fileIdMatch[0]}` : null;
@@ -36,9 +39,6 @@ const PdfViewer = () => {
     useEffect(() => {
         if (directPdfUrl) {
             logEvent(analytics, 'pdf_view', { pdf_url: directPdfUrl });
-        } else {
-            console.error('Invalid or missing PDF URL.');
-            setError(true);
         }
     }, [directPdfUrl]);
 
@@ -86,6 +86,9 @@ const PdfViewer = () => {
         <div className="pdf-viewer">
             <h2>📄 PDF Viewer</h2>
 
+            {/* AdSense Ad - Above the PDF Viewer */}
+            <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
+
             {/* Embed the PDF in an iframe */}
             <iframe
                 className="pdf-frame"
@@ -97,22 +100,7 @@ const PdfViewer = () => {
             ></iframe>
 
             {/* AdSense Ad - Below the PDF Viewer */}
-            <div className="ads-container">
-                <script
-                    async
-                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9499544849301534"
-                    crossOrigin="anonymous"
-                ></script>
-                <ins
-                    className="adsbygoogle"
-                    style={{ display: 'block' }}
-                    data-ad-client="ca-pub-9499544849301534"
-                    data-ad-slot="3936951010"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"
-                ></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-            </div>
+            <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
 
             {/* Download Button */}
             {downloadLink && (
@@ -133,13 +121,14 @@ const PdfViewer = () => {
                         level="H"
                         bgColor="#ffffff"
                         fgColor="#000000"
+                        aria-label={`QR Code for sharing ${fileName}`}
                     />
                 </div>
                 <p>Scan to open this PDF link on another device.</p>
                 <button className="share-button" onClick={handleShare}>
                     📤 Share Link
                 </button>
-                <button className="qr-code-download" onClick={handleQrCodeDownload}>
+                <button className="qr-code-download" onClick={handleQrCodeDownload} aria-label="Download QR Code">
                     📥 Download QR Code
                 </button>
             </div>
