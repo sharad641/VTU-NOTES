@@ -125,6 +125,12 @@ const PdfViewer = () => {
                         aria-label={`QR Code for sharing ${fileName}`}
                     />
                 </div>
+                <AdSenseAd
+        adClient="ca-pub-9499544849301534"
+        adSlot="7579321744"
+        adFormat="auto"
+        fullWidthResponsive={true}
+      />
                 <p>Scan to open this PDF link on another device.</p>
                 <button className="share-button" onClick={handleShare}>
                     📤 Share Link

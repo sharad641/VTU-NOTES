@@ -16,15 +16,7 @@ const AdSenseAd = ({ adClient, adSlot, adFormat = "auto", fullWidthResponsive = 
 
   return (
     <div style={{ textAlign: "center", margin: "20px 0" }}>
-      {/* First Ad */}
-      <ins
-        className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client={adClient}
-        data-ad-slot={adSlot}
-        data-ad-format={adFormat}
-        data-full-width-responsive={fullWidthResponsive ? "true" : "false"}
-      ></ins>
+      
 
       {/* Second Ad */}
       <ins
@@ -33,6 +25,16 @@ const AdSenseAd = ({ adClient, adSlot, adFormat = "auto", fullWidthResponsive = 
         data-ad-client="ca-pub-9499544849301534"
         data-ad-slot="9394966294"
         data-ad-format="autorelaxed"
+        data-full-width-responsive="true"
+      ></ins>
+
+      {/* Third Ad */}
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-9499544849301534"
+        data-ad-slot="7579321744"
+        data-ad-format="auto"
         data-full-width-responsive="true"
       ></ins>
     </div>

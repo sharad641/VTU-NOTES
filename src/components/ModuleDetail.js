@@ -1973,8 +1973,12 @@ const ModuleDetail = () => {
                   </button>
                  
                 </div>
-                {/* AdSense Ad - Above the PDF Viewer */}
-         <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
+                <AdSenseAd
+        adClient="ca-pub-9499544849301534"
+        adSlot="7579321744"
+        adFormat="auto"
+        fullWidthResponsive={true}
+      />
                 
               </div>
               
