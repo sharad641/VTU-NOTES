@@ -86,9 +86,6 @@ const PdfViewer = () => {
         <div className="pdf-viewer">
             <h2>📄 PDF Viewer</h2>
 
-            {/* AdSense Ad - Above the PDF Viewer */}
-            <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
-
             {/* Embed the PDF in an iframe */}
             <iframe
                 className="pdf-frame"
