@@ -150,6 +150,11 @@ const Subjects = () => {
           <li>No subjects available for this branch and semester.</li>
         )}
       </ul>
+      <AdSenseAd
+  adClient="ca-pub-9499544849301534"
+  adSlot="1234567890" // Replace with your first ad slot
+  adFormat="auto"
+/>
       </div>
         {/* AdSense Ad - Below the PDF Viewer */}
         <AdSenseAd
