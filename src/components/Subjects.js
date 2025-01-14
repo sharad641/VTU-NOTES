@@ -1,7 +1,7 @@
 // src/components/Subjects.js
 import React, {  } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import AdSenseAd from './AdSenseAd'; 
+ 
 
  // Import the local JSON file
 import './Subjects.css';

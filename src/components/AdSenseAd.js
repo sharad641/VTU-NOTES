@@ -28,15 +28,7 @@ const AdSenseAd = ({ adClient, adSlot, adFormat = "auto", fullWidthResponsive = 
 
       
 
-      {/* Third Ad */}
-      <ins
-        className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client="ca-pub-9499544849301534"
-        data-ad-slot="7579321744"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
+      
     </div>
   );
 };
