@@ -5,6 +5,11 @@ body {
     padding: 0;
     background-color: #f9fafc; /* Softer light background for contrast */
     color: #333; /* Neutral base text color */
+    box-sizing: border-box; /* Ensure padding and border are included in width/height calculations */
+}
+
+*, *::before, *::after {
+    box-sizing: inherit; /* Ensures all elements follow the same box-sizing */
 }
 
 /* Modules Container */
@@ -13,8 +18,10 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
-    margin: 20px;
+    margin: 0 auto; /* Center container */
     padding: 0 10px; /* Prevents content overflow */
+    max-width: 1200px; /* Limits container width for better readability */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 /* Module Card Styles */
@@ -88,12 +95,13 @@ body {
 @media (max-width: 768px) {
     .modules-container {
         gap: 15px;
-        margin: 15px;
+        margin: 15px auto;
         padding: 0 5px; /* Added padding for smaller screens */
+        max-width: 95%; /* Prevents overflow on smaller screens */
     }
 
     .module-card {
-        flex: 1 1 calc(100% - 10px); /* Full width */
+        flex: 1 1 calc(100% - 20px); /* Full width */
         padding: 20px;
         margin: 0 auto;
     }
@@ -110,8 +118,9 @@ body {
 
 @media (max-width: 480px) {
     .modules-container {
-        margin: 10px;
-        padding: 0;
+        margin: 10px auto;
+        padding: 0 10px;
+        max-width: 100%; /* Ensures full-width container on smallest screens */
     }
 
     .module-card {
