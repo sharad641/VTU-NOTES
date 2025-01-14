@@ -1681,7 +1681,7 @@ const ModuleDetail = () => {
               title: "Handwritten notes 1 to 5: Module",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1ssBpZXxVelf0sV0gGm3wzujSFYvvf7sq/preview",
+                "https://drive.google.com/file/d/1y5THYjPLyslh5Iee8aM32Ia2alIu2UxE/preview",
             },
            
             {
