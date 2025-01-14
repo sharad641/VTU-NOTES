@@ -5,14 +5,14 @@
     align-items: center;
     padding: 40px 20px;
     min-height: 100vh;
-    background: linear-gradient(135deg, #1e3c72, #2a5298); /* Soft blue gradient */
-    color: #f7f7f7; /* Off-white for text */
+    background-color: #ffffff; /* White background */
+    color: #333333; /* Dark text color for better readability */
     font-family: 'Poppins', sans-serif;
     max-width: 1200px;
     margin: 0 auto;
     gap: 40px;
     border-radius: 20px;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15); /* Reduced shadow */
 }
 
 /* Subject Title */
@@ -21,7 +21,7 @@
     margin: 20px 0;
     text-transform: uppercase;
     font-weight: 700;
-    color: #f7f7f7;
+    color: #333333; /* Dark text for contrast */
     letter-spacing: 2px;
     padding-bottom: 15px;
     position: relative;
@@ -53,27 +53,27 @@
 
 /* Subject Box Styling */
 .subject-box {
-    background: rgba(255, 255, 255, 0.1); /* Subtle white transparency */
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9); /* Slight transparency */
+    backdrop-filter: blur(8px); /* Softer blur effect */
     padding: 35px;
     border-radius: 18px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1); /* Lighter shadow */
     position: relative;
     overflow: hidden;
     text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    color: #f7f7f7;
+    color: #333333; /* Dark text for readability */
     height: 360px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Light border */
 }
 
 /* Hover Effect for Subject Box */
 .subject-box:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); /* Enhanced hover effect */
 }
 
 /* Gradient Border on Hover */
@@ -110,7 +110,7 @@
 .subject-box p {
     font-size: 1.2rem;
     line-height: 1.6;
-    color: #e0e0e0; /* Lighter gray text for readability */
+    color: #666666; /* Darker text for paragraphs */
     margin-top: 10px;
 }
 
@@ -118,7 +118,7 @@
 .subject-box .subject-info {
     font-size: 1rem;
     font-weight: 500;
-    color: #f7f7f7;
+    color: #333333;
     margin-bottom: 15px;
     cursor: pointer;
     transition: color 0.3s ease;

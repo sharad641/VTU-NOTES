@@ -116,13 +116,7 @@ const Subjects = () => {
   return (
     <div>
         {/* Headline Message Section */}
-        <div className="headline-message">
-            <div className="marquee-text">
-                
-                <span style={{ display: 'block', marginTop: '10px' }}></span>
-                Explore the notes for both the First Year and CSE (Computer Science Engineering) streams, along with the question banks, question papers, and many more.
-            </div>
-        </div>
+        
 
     
     <div className="subjects" style={{ marginTop: '80px' }}>

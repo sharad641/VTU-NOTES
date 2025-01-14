@@ -1,167 +1,202 @@
-/* General styling for the branch container */
-.branch {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px 20px;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #4e54c8, #8f94fb); /* Smooth gradient */
-    color: #ffffff;
-    font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
-    max-width: 1200px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    border-radius: 8px;
-}
-
-/* Main heading */
-.branch h2 {
-    font-size: 3.2rem;
-    font-weight: 800;
-    margin-bottom: 30px;
-    text-align: center;
-    color: #ffffff;
-    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 1s ease-in-out;
-    letter-spacing: 1.2px;
-    line-height: 1.4;
-    border-bottom: 4px solid rgba(255, 255, 255, 0.2);
-    padding-bottom: 10px;
-}
-
-/* Paragraph text */
-.branch p {
-    font-size: 1.5rem;
-    margin-bottom: 35px;
-    text-align: center;
-    color: #e1e1e1;
-    text-shadow: 1px 1px 8px rgba(0, 0, 0, 0.4);
-    max-width: 800px;
-    line-height: 1.9;
-}
-
-/* Updated List styling */
-.branch ul {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 25px;
-    width: 100%;
-    padding: 0;
-    list-style: none;
-    animation: fadeInUp 1s ease-in-out;
-}
-
-/* List item styles */
-.branch ul li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    min-height: 90px;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.1px;
-    color: #ffffff;
-    background: linear-gradient(145deg, #56ccf2, #2f80ed);
-    border-radius: 20px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    overflow: hidden;
-}
-
-/* Hover effect for list items */
-.branch ul li:hover {
-    transform: translateY(-8px) scale(1.05);
-    background: linear-gradient(145deg, #2f80ed, #56ccf2);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-}
-
-/* Link styling inside list items */
-.branch ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-
-/* Hover effect for links */
-.branch ul li a:hover {
-    color: #ffd700; /* Gold hover effect */
-}
-
-/* Responsive Layouts */
-@media (max-width: 600px) {
-    .branch h2 {
-        font-size: 2.4rem;
-        margin-bottom: 20px;
-    }
-
-    .branch p {
-        font-size: 1.2rem;
-        margin-bottom: 25px;
-    }
-
-    .branch ul li {
-        padding: 20px;
-        font-size: 1.2rem;
-        min-height: 70px;
-    }
-}
-
-@media (min-width: 768px) {
-    .branch ul {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .branch h2 {
-        font-size: 3.5rem;
-    }
-}
-
-@media (min-width: 1024px) {
-    .branch ul {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .branch h2 {
-        font-size: 4rem;
-    }
-}
-
-/* Animations */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Interactive animations for list items */
-.branch ul li:active {
-    transform: scale(1.03); /* Subtle press effect */
-}
-
-/* Darker background for body */
+/* General Styling */
 body {
-    background: #121212;
-    color: #ffffff;
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
+    font-family: 'Poppins', sans-serif; /* Updated font */
     margin: 0;
+    padding: 0;
+    background-color: #f9fafc; /* Modern white background */
+    color: #333;
 }
 
-/* Consistent box-sizing */
-* {
-    box-sizing: border-box;
+
+.marquee-text {
+    letter-spacing: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: scrollText 10s linear infinite;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Branch Section Styling */
+.branch {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #fff;
+    border-radius: 15px; /* Soft rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    transition: transform 0.3s ease;
+    
+}
+
+.branch:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* More depth on hover */
+}
+
+.branch-title {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #1a202c;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.branch-description {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* Semester List Styling */
+.semester-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.semester-list li {
+    background-color: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 15px; /* Soft rounded corners */
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    max-width: 400px;
+}
+
+.semester-list li:hover {
+    transform: scale(1.05); /* Scale on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.semester-list a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.semester-list a:hover {
+    color: #2563eb;
+    text-decoration: underline; /* Underline effect */
+}
+
+.semester-list p {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+/* Button Styling */
+.view-resources-button {
+    display: inline-block;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    margin-top: 15px;
+}
+
+.view-resources-button:hover {
+    background: linear-gradient(135deg, #2563eb, #1e3a8a);
+    transform: scale(1.1); /* Slightly bigger on hover */
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.6);
+}
+
+/* Call to Action Section */
+.cta-section {
+    margin: 40px 20px;
+    padding: 20px;
+    background-color: #f0f4f8;
+    text-align: center;
+    border-radius: 15px; /* Soft rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.cta-section a {
+    color: #3b82f6;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cta-section a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .branch-title {
+        font-size: 2.2rem; /* Slightly smaller on tablets */
+    }
+
+    .branch-description {
+        font-size: 1.1rem;
+    }
+
+    .semester-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .branch-title {
+        font-size: 1.8rem;
+    }
+
+    .branch-description {
+        font-size: 0.9rem;
+    }
+
+    .semester-list li {
+        padding: 15px;
+    }
+
+    .view-resources-button {
+        font-size: 0.9rem;
+    }
 }

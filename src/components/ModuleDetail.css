@@ -3,7 +3,7 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f8fc; /* Softer light background for contrast */
+    background-color: #f9fafc; /* Softer light background for contrast */
     color: #333; /* Neutral base text color */
 }
 
@@ -218,29 +218,31 @@ input:focus {
 .module-card-footer a:hover {
     color: #1e88e5;
 }
+
+/* Ad Container */
 .ad-container {
     margin-top: 15px;
     text-align: center;
-  }
-  
-  .module-card {
+}
+
+.module-card {
     margin-bottom: 30px;
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .download-buttons {
+}
+
+.download-buttons {
     margin-top: 10px;
-  }
-  @media (max-width: 768px) {
+}
+
+@media (max-width: 768px) {
     .ad-container {
-      margin-top: 10px;
+        margin-top: 10px;
     }
-  
+
     .module-card {
-      padding: 15px;
+        padding: 15px;
     }
-  }
-  
+}
