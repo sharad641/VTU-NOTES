@@ -1973,17 +1973,19 @@ const ModuleDetail = () => {
                   </button>
                  
                 </div>
+                {/* AdSense Ad - Above the PDF Viewer */}
+         <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
                 
               </div>
               
             ))}
-            {/* Question Paper and other details */}
+           
           </>
+          
         ) : (
           <p>No modules available for this subject.</p>
         )}
-         {/* AdSense Ad - Above the PDF Viewer */}
-         <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
+         
       </div>
        
     </div>
