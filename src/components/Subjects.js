@@ -143,13 +143,7 @@ const Subjects = () => {
                 
               </div>
               {/* AdSense Ad - Below the PDF Viewer */}
-              <AdSenseAd
-        adClient="ca-pub-9499544849301534"
-        adSlot="7579321744"
-        adFormat="auto"
-        fullWidthResponsive={true}
-      />
-
+             
             </li>
           ))
         ) : (

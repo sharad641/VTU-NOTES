@@ -26,15 +26,7 @@ const AdSenseAd = ({ adClient, adSlot, adFormat = "auto", fullWidthResponsive = 
         data-full-width-responsive={fullWidthResponsive ? "true" : "false"}
       ></ins>
 
-      {/* Second Ad */}
-      <ins
-        className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client="ca-pub-9499544849301534"
-        data-ad-slot="9394966294"
-        data-ad-format="autorelaxed"
-        data-full-width-responsive="true"
-      ></ins>
+      
 
       {/* Third Ad */}
       <ins
