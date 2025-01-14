@@ -5,42 +5,39 @@ body {
     padding: 0;
     background-color: #f9fafc; /* Softer light background for contrast */
     color: #333; /* Neutral base text color */
-    box-sizing: border-box; /* Ensure padding and border are included in width/height calculations */
+    box-sizing: border-box;
 }
 
 *, *::before, *::after {
-    box-sizing: inherit; /* Ensures all elements follow the same box-sizing */
+    box-sizing: inherit;
 }
 
 /* Modules Container */
 .modules-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Dynamic grid with minimum box width */
     gap: 20px;
-    margin: 0 auto; /* Center container */
-    padding: 0 10px; /* Prevents content overflow */
-    max-width: 1200px; /* Limits container width for better readability */
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    margin: 20px auto; /* Center the container */
+    padding: 0 10px; /* Prevent content overflow */
+    max-width: 1200px; /* Maximum width for the container */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Module Card Styles */
 .module-card {
-    flex: 1 1 calc(33.33% - 40px); /* Ensures 3 cards per row with spacing */
     padding: 20px;
     background: #ffffff;
     border-radius: 16px;
-    border: 1px solid #ddd; /* Added subtle border for structure */
+    border: 1px solid #ddd; /* Subtle border for structure */
     text-align: center;
-    position: relative;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
-    min-height: 250px; /* Ensures all boxes are the same height */
+    min-height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    box-sizing: border-box; /* Includes padding and border in width calculation */
+    box-sizing: border-box;
 }
 
 .module-card:hover {
@@ -48,14 +45,14 @@ body {
 }
 
 .module-card h3 {
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* Slightly smaller for better responsiveness */
     margin-bottom: 15px;
     color: #1565c0;
     font-weight: 600;
 }
 
 .module-card p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 20px;
     color: #455a64;
     line-height: 1.6;
@@ -86,24 +83,15 @@ body {
 }
 
 /* Responsive Styles */
-@media (max-width: 1024px) {
-    .module-card {
-        flex: 1 1 calc(50% - 20px); /* 2 cards per row */
-    }
-}
-
 @media (max-width: 768px) {
     .modules-container {
         gap: 15px;
-        margin: 15px auto;
-        padding: 0 5px; /* Added padding for smaller screens */
-        max-width: 95%; /* Prevents overflow on smaller screens */
+        padding: 0 10px;
     }
 
     .module-card {
-        flex: 1 1 calc(100% - 20px); /* Full width */
-        padding: 20px;
-        margin: 0 auto;
+        padding: 15px;
+        min-height: 220px; /* Slightly reduce minimum height for smaller screens */
     }
 
     .download-buttons {
@@ -112,36 +100,24 @@ body {
     }
 
     .download-buttons button {
-        width: 100%;
+        width: 100%; /* Full-width buttons for smaller screens */
     }
 }
 
 @media (max-width: 480px) {
     .modules-container {
-        margin: 10px auto;
+        gap: 10px;
         padding: 0 10px;
-        max-width: 100%; /* Ensures full-width container on smallest screens */
     }
 
     .module-card {
-        padding: 15px;
+        padding: 10px;
+        min-height: 200px; /* Adjust height for very small screens */
     }
 
     .download-buttons button {
         padding: 10px 20px;
         font-size: 0.9rem;
-    }
-}
-
-/* Animations */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
 
