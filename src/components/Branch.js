@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import './Branch.css'; 
-import AdSenseAd from './AdSenseAd'; // Import AdSenseAd Component
+
 
 function Branch() {
     const { branch } = useParams();
@@ -46,8 +46,7 @@ function Branch() {
                 <h2>{branch.toUpperCase()} NOTES</h2>
                 
                 <p>Select a semester:</p>
-                 {/* AdSense Ad - Below the PDF Viewer */}
-                 <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
+                 
                 
                 <ul>
                     {semesterLinks}
