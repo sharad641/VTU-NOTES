@@ -27,7 +27,8 @@ import Contact from './components/Contact';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions';
 
-
+// AdSense Component
+import AdSenseAd from './components/AdSenseAd';
 
 import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -70,7 +71,8 @@ function App() {
       <div className="app-container">
         <Navbar />
         
-       
+        {/* AdSense Ad (Above Main Content) */}
+        <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
 
         <Routes>
           {/* Public Routes */}
@@ -109,7 +111,8 @@ function App() {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         
-        
+        {/* AdSense Ad (Below Main Content) */}
+        <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
         
         <Footer />
       </div>

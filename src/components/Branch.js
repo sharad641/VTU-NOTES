@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import './Branch.css';
+import AdSenseAd from './AdSenseAd'; 
 
 function Branch() {
     const { branch } = useParams();
@@ -53,6 +54,15 @@ function Branch() {
                         View Resources
                     </button>
                 </li>
+                <div className="ad-container">
+                                                <AdSenseAd
+                                                    adClient="ca-pub-9499544849301534"
+                                                    adSlot="7579321744"
+                                                    adFormat="auto"
+                                                    fullWidthResponsive={true}
+                                                />
+                                            </div>
+                             
                 <li>
                     <Link to={`/branch/${branch}/4`} className="semester-link">Semester 4</Link>
                     <p>
@@ -65,6 +75,15 @@ function Branch() {
                         View Resources
                     </button>
                 </li>
+                <div className="ad-container">
+                                                <AdSenseAd
+                                                    adClient="ca-pub-9499544849301534"
+                                                    adSlot="7579321744"
+                                                    adFormat="auto"
+                                                    fullWidthResponsive={true}
+                                                />
+                                            </div>
+                             
                 <li>
                     <Link to={`/branch/${branch}/5`} className="semester-link">Semester 5</Link>
                     <p>
