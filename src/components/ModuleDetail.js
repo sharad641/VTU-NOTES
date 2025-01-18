@@ -883,35 +883,30 @@ const ModuleDetail = () => {
         {
           title: "DATA STRUCTURES AND APPLICATIONS",
           modules: [
-            {
-              title: "Module 1: Notes",
-              content: "Comprehensive notes for Module 1.",
-              previewUrl:
-                "https://drive.google.com/file/d/1cuM9F_XwLVV3o1c0dXYKnZu-7zCsEHGB/preview",
-            },
+           
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1yeKcW_SNoiOUALp4XuJHVbaZqcVirkHb/preview",
+                "https://drive.google.com/file/d/1sdCVxgc0VTlSZmdhTnz9vOMA9lvZHslu/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1yeKcW_SNoiOUALp4XuJHVbaZqcVirkHb/preview",
+                "https://drive.google.com/file/d/1HQxcfYqsHJyII7rd_2vuYZBI0srTO95s/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1yeKcW_SNoiOUALp4XuJHVbaZqcVirkHb/preview",
+                "https://drive.google.com/file/d/1yOHt9GHZR2vzglQ3JxhRCY_j9mh6M7rK/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1yeKcW_SNoiOUALp4XuJHVbaZqcVirkHb/preview",
+                "https://drive.google.com/file/d/1E53vCWzN6WWbUZ37VHRESlznDMPvSfC5/preview",
             },
             {
               title: "Preeviou year Question Paper",
@@ -929,7 +924,7 @@ const ModuleDetail = () => {
             title: "Question Bank",
             content: "Question bank  for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1yeKcW_SNoiOUALp4XuJHVbaZqcVirkHb/preview",
+              "https://drive.google.com/file/d/1X63ohxZNGaCN2PvjuMiJYPC8Vvh-Bggz/preview",
           },
         ],
         },

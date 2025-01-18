@@ -111,8 +111,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         
-        {/* AdSense Ad (Below Main Content) */}
-        <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
+        
         
         <Footer />
       </div>
