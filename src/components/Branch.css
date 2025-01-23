@@ -1,202 +1,172 @@
-/* General Styling */
-body {
-    font-family: 'Poppins', sans-serif; /* Updated font */
-    margin: 0;
-    padding: 0;
-    background-color: #f9fafc; /* Modern white background */
-    color: #333;
-}
-
-
-.marquee-text {
-    letter-spacing: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    display: inline-block;
-    animation: scrollText 10s linear infinite;
-}
-
-@keyframes scrollText {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Branch Section Styling */
+/* General styling for the branch container */
 .branch {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 40px 20px;
-    background-color: #fff;
-    border-radius: 15px; /* Soft rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-    transition: transform 0.3s ease;
-    
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f0f0, #e8e8e8); /* Subtle gradient */
+    color: #1a1a1a;
+    font-family: 'Poppins', sans-serif; /* Elegant font */
+    overflow-x: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-.branch:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* More depth on hover */
-}
-
-.branch-title {
-    font-size: 3rem;
+/* Main heading */
+.branch h2 {
+    font-size: 3.5rem;
+    font-weight: 900;
     margin-bottom: 30px;
-    color: #1a202c;
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
-    background: linear-gradient(90deg, #007bff, #0056b3);
+    text-align: center;
+    color: #333333; /* Neutral dark text */
+    letter-spacing: 1.4px;
+    line-height: 1.4;
+    background: linear-gradient(to right, #4e54c8, #8f94fb); /* Gradient text */
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    animation: fadeIn 1s ease-in-out;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
 }
 
-.branch-description {
-    font-size: 1.2rem;
-    color: #444;
-    margin-bottom: 30px;
+/* Paragraph text */
+.branch p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #555555; /* Modern neutral gray */
+    max-width: 800px;
     line-height: 1.8;
 }
 
-/* Semester List Styling */
-.semester-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+/* Modern grid layout */
+.branch ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    width: 100%;
+    padding: 0;
+    list-style: none;
+    animation: fadeInUp 1s ease-in-out;
 }
 
-.semester-list li {
-    background-color: #fefefe;
-    border: 1px solid #ddd;
-    border-radius: 15px; /* Soft rounded corners */
+/* List item styles with glassmorphism */
+.branch ul li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    max-width: 400px;
-}
-
-.semester-list li:hover {
-    transform: scale(1.05); /* Scale on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.semester-list a {
-    color: #3b82f6;
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-    display: block;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-
-.semester-list a:hover {
-    color: #2563eb;
-    text-decoration: underline; /* Underline effect */
-}
-
-.semester-list p {
-    font-size: 1rem;
-    color: #555;
-    margin-top: 10px;
-}
-
-/* Button Styling */
-.view-resources-button {
-    display: inline-block;
-    text-align: center;
-    padding: 12px 20px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #fff;
-    background: linear-gradient(135deg, #3b82f6, #2563eb);
-    border: none;
-    border-radius: 50px;
+    height: 250px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+    color: #333333; /* Modern dark text */
+    background: rgba(255, 255, 255, 0.2); /* Glass effect */
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.view-resources-button:hover {
-    background: linear-gradient(135deg, #2563eb, #1e3a8a);
-    transform: scale(1.1); /* Slightly bigger on hover */
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.6);
+/* Hover effects for list items */
+.branch ul li:hover {
+    transform: translateY(-10px) scale(1.05); /* Elevate on hover */
+    background: linear-gradient(145deg, #89cff0, #4e54c8); /* Dynamic gradient */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 15px rgba(70, 130, 180, 0.5); /* Glow effect */
 }
 
-/* Call to Action Section */
-.cta-section {
-    margin: 40px 20px;
-    padding: 20px;
-    background-color: #f0f4f8;
-    text-align: center;
-    border-radius: 15px; /* Soft rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+/* Animated border on hover */
+.branch ul li::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(90deg, #56ccf2, #2f80ed, #4e54c8);
+    z-index: -1;
+    transition: opacity 0.4s ease;
+    opacity: 0;
 }
 
-.cta-section p {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: #333;
+.branch ul li:hover::before {
+    opacity: 1;
+    animation: rotateGradient 3s linear infinite; /* Rotate gradient */
 }
 
-.cta-section a {
-    color: #3b82f6;
-    font-weight: bold;
-    text-decoration: none;
+/* Animated gradient rotation */
+@keyframes rotateGradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
 }
 
-.cta-section a:hover {
-    text-decoration: underline;
+/* Text inside list items */
+.branch ul li span {
+    position: relative;
+    z-index: 1;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff; /* White text on hover */
+    text-transform: capitalize;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle glow */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .branch-title {
-        font-size: 2.2rem; /* Slightly smaller on tablets */
+/* Responsive Layouts */
+@media (max-width: 600px) {
+    .branch h2 {
+        font-size: 2.4rem;
+        margin-bottom: 20px;
     }
 
-    .branch-description {
-        font-size: 1.1rem;
+    .branch p {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
     }
 
-    .semester-list {
-        grid-template-columns: 1fr;
+    .branch ul li {
+        height: 200px;
+        font-size: 1.2rem;
     }
 }
 
-@media (max-width: 480px) {
-    .branch-title {
-        font-size: 1.8rem;
+@media (min-width: 1024px) {
+    .branch ul {
+        grid-template-columns: repeat(3, 1fr);
     }
 
-    .branch-description {
-        font-size: 0.9rem;
+    .branch h2 {
+        font-size: 4rem;
     }
+}
 
-    .semester-list li {
-        padding: 15px;
-    }
+/* Animations */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
 
-    .view-resources-button {
-        font-size: 0.9rem;
-    }
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Consistent box-sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Lighter background for body */
+body {
+    background: linear-gradient(135deg, #f7f7f7, #ffffff); /* Soft gradient */
+    color: #1a1a1a;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    margin: 0;
 }

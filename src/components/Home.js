@@ -154,13 +154,7 @@ const Home = () => {
 <Link to="/faqs" className="button modern-button">🔗 Go to FAQs</Link>
 </section>
 
-{/* Study Planner */}
-<section className="info-box modern-box">
-<h2>📅 Study Planner</h2>
-<p>Achieve your academic goals with our intuitive Study Planner tool.</p>
-<p>Organize tasks, set goals, and track your progress for a stress-free and productive study experience.</p>
-<Link to="/study-planner" className="button modern-button">📌 Go to Study Planner</Link>
-</section>
+
 
 {/* VTU Links Section */}
 <div className="info-box modern-box">

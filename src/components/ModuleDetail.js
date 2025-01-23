@@ -1869,37 +1869,43 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1PPcmOa2DYzHt5-Cm2t6S56qzOIZ7OaXG/preview",
+                "https://drive.google.com/file/d/1uDkrg0L6mvJRCMKPkbYF1jJSvW83cXVv/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1-FQBdQQeNXRqRcnK15jy8ZzQl3kRKZpk/preview",
+                "https://drive.google.com/file/d/1rjrWMSe0ucOPX1t63LaX34zwduijeJNp/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1LFyM_pExML39pm0dJCDLsyIQQf--CEGc/preview",
+                "https://drive.google.com/file/d/12m4OeJVinpx1SZLzIsNJsrOl66iu0krQ/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1pcLXAeZ8HF7Abx2MrExiuFSAHfy0eJe-/preview",
+                "https://drive.google.com/file/d/178WfEwDsqxJWZHjgh6Hlu3yaJOPoXZN8/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1gtfeQ1H54bjm8vBGzO0E0Y-cAew_Co4f/preview",
+                "https://drive.google.com/file/d/1a5RBMQxT3nsDqUna90vHTBTJSfYzAm2J/preview",
             },
             {
               title: "Model Question Papers",
               content: "Comprehensive question paper for all Module.",
               previewUrl:
-                "https://drive.google.com/file/d/1EMI_Zq4P5lEVJ3PRtTGfYjL36mDwvYse/preview",
+                "https://drive.google.com/file/d/1OmwKGOZ1V_uK3o_8XUiZJyR48erF_Mg6/preview",
+            },
+            {
+              title: "Syllabus Copy",
+              content: "Comprehensive for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Yz5HhA-uMsA_C2CQOgD06Xyh5_C2tsHX/preview",
             },
           ],
           questionPaper: {
