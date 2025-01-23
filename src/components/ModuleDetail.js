@@ -981,6 +981,12 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/15AxKh0_v5kcOybfxEQniFcHBRz7ywQUH/preview",
             },
             {
+              title: "Model  Question Paper Solutions ",
+              content: "Model Question Paper for CSE.",
+              previewUrl:
+                "https://drive.google.com/file/d/1YU-gvPgPlxke6W6FRDmepicjnBJVExAW/preview",
+            },
+            {
               title: "All modules notes ",
               content: "All modules notes ",
               previewUrl:
