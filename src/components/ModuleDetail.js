@@ -973,12 +973,7 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/18ybC3I6mC6EuuioRCmV5Vj2yz77bmPL9/preview",
             },
-            {
-              title: "model question paper solution",
-              content: "Comprehensive for Module 1 to  5.",
-              previewUrl:
-                "https://drive.google.com/file/d/1fCkQagej0t-fLtHPqGcVMgfL9oZ_-vDd/preview",
-            },
+            
             {
               title: "Preeviou year Question Paper",
               content: "Model Question Paper for CSE.",
