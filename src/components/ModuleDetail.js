@@ -1896,10 +1896,16 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1a5RBMQxT3nsDqUna90vHTBTJSfYzAm2J/preview",
             },
             {
-              title: "Model Question Papers",
+              title: "Model Question Papers 1,2,3",
               content: "Comprehensive question paper for all Module.",
               previewUrl:
                 "https://drive.google.com/file/d/1OmwKGOZ1V_uK3o_8XUiZJyR48erF_Mg6/preview",
+            },
+            {
+              title: "Model Question Papers Answer",
+              content: "Comprehensive question paper for all Module.",
+              previewUrl:
+                "https://drive.google.com/file/d/1WUMy8vTu9HrlV6vd1mUAop4HvdPHop6A/preview",
             },
             {
               title: "Syllabus Copy",
