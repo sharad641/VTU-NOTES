@@ -935,38 +935,63 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1FbYithuTIV8H-L6cgQ9nwjUHbG3vHadA/preview",
+                "https://drive.google.com/file/d/1_FYFYH-jMk0iTJdbD3KzvyCzPaZARhgY/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1v84WgpJlEUOWAuPUpJiNzgOUxthDguUS/preview",
+                "https://drive.google.com/file/d/1XZY3CWnQ1Nw-5JOVlX4yzXFwEonN8i7V/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1v84WgpJlEUOWAuPUpJiNzgOUxthDguUS/preview",
+                "https://drive.google.com/file/d/1jItwo8T0w5FjGZsnk7k427TE4eZ_Idur/preview",
             },
             {
-              title: "Module 4: Notes",
-              content: "Comprehensive notes for Module 4.",
+              title: "Module 4 and 5: Notes",
+              content: "Comprehensive notes for Module 4 and 5 .",
               previewUrl:
-                "https://drive.google.com/file/d/1gtrNRCUgFvwAqBvNbIfIRKCQ6qq-1_1E/preview",
+                "https://drive.google.com/file/d/162G10sOkk5L8dd2o4REW0jBcWsi2XY1M/preview",
             },
             {
-              title: "Module 5: Notes",
-              content: "Comprehensive notes for Module 5.",
+              title: "Module 1 and 2: Notes Question Bank",
+              content: "Comprehensive QB for Module 1 and 2 .",
               previewUrl:
-                "https://drive.google.com/file/d/1p2xz8qzsrJtjU63OjKx0mSloXMvck5BR/preview",
+                "https://drive.google.com/file/d/1q05hkIDeTilr4zqIaEwGFD_daN7hpIw5/preview",
+            },
+            {
+              title: "Module 3: Notes Question Bank",
+              content: "Comprehensive QB for Module 3 .",
+              previewUrl:
+                "https://drive.google.com/file/d/1wj3e8ibE2BGqbmyS-CgKRk6_0SDAegF1/preview",
+            },
+            {
+              title: "Module 4,5: Notes Question Bank",
+              content: "Comprehensive QB for Module 4 and 5 .",
+              previewUrl:
+                "https://drive.google.com/file/d/18ybC3I6mC6EuuioRCmV5Vj2yz77bmPL9/preview",
+            },
+            {
+              title: "model question paper solution",
+              content: "Comprehensive for Module 1 to  5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1fCkQagej0t-fLtHPqGcVMgfL9oZ_-vDd/preview",
             },
             {
               title: "Preeviou year Question Paper",
-              content: "Model Question Paper Solutions for DSA for CSE.",
+              content: "Model Question Paper for CSE.",
               previewUrl:
                 "https://drive.google.com/file/d/15AxKh0_v5kcOybfxEQniFcHBRz7ywQUH/preview",
             },
+            {
+              title: "All modules notes ",
+              content: "All modules notes ",
+              previewUrl:
+                "https://drive.google.com/file/d/1Sv7zn3oq8E1cqv_l4JNH-F_FrxQvpgD6/preview",
+            },
+            
           ],
           questionPaper: {
             title: "Question Paper",
