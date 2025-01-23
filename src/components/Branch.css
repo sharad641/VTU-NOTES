@@ -1,148 +1,200 @@
-/* General styling for the branch container */
+/* Global Reset and Box-Sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background: #f9fafb; /* Modern soft white background */
+    color: #1f2937; /* Dark modern black text */
+    margin: 0;
+    padding: 0;
+}
+
+/* Headline Message */
+.headline-message {
+    background: #ffffff; /* Pure modern white */
+    color: #1e40af; /* Dark blue modern text */
+    padding: 20px 30px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    letter-spacing: 0.8px;
+    animation: fadeInDown 1s ease-in-out;
+    border: 1px solid #e5e7eb; /* Subtle border for structure */
+}
+
+/* Branch Section */
 .branch {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 40px 20px;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f0f0f0, #e8e8e8); /* Subtle gradient */
-    color: #1a1a1a;
-    font-family: 'Poppins', sans-serif; /* Elegant font */
-    overflow-x: hidden;
+    padding: 50px 20px;
+    background: #ffffff; /* Clean white background */
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     max-width: 1200px;
     margin: 0 auto;
-    box-sizing: border-box;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow: hidden;
+    color: #1f2937; /* Dark text for readability */
 }
 
-/* Main heading */
 .branch h2 {
-    font-size: 3.5rem;
-    font-weight: 900;
+    font-size: 3.6rem;
+    font-weight: 800;
     margin-bottom: 30px;
     text-align: center;
-    color: #333333; /* Neutral dark text */
-    letter-spacing: 1.4px;
-    line-height: 1.4;
-    background: linear-gradient(to right, #4e54c8, #8f94fb); /* Gradient text */
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #1e3a8a; /* Modern blue */
     animation: fadeIn 1s ease-in-out;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #e5e7eb; /* Subtle underline */
     padding-bottom: 10px;
 }
 
-/* Paragraph text */
 .branch p {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 40px;
     text-align: center;
-    color: #555555; /* Modern neutral gray */
+    color: #6b7280; /* Neutral modern gray */
     max-width: 800px;
     line-height: 1.8;
+    font-weight: 500;
 }
 
-/* Modern grid layout */
-.branch ul {
+/* Semester List Grid */
+.semester-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible layout */
+    gap: 40px; /* Spacing between boxes */
     width: 100%;
     padding: 0;
     list-style: none;
     animation: fadeInUp 1s ease-in-out;
+    justify-content: center;
 }
 
-/* List item styles with glassmorphism */
-.branch ul li {
+/* Semester Card */
+.semester-list li {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    height: 250px;
-    font-size: 1.5rem;
+    text-align: center;
+}
+
+.semester-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+    width: 300px; /* Square shape */
+    background: #ffffff; /* White background for modern simplicity */
+    border-radius: 16px;
+    border: 1px solid #e5e7eb; /* Subtle border */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* Clean shadow */
+    font-size: 1.6rem; /* Comfortable font size */
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1.1px;
-    color: #333333; /* Modern dark text */
-    background: rgba(255, 255, 255, 0.2); /* Glass effect */
-    backdrop-filter: blur(12px);
-    border-radius: 16px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    color: #1f2937; /* Dark text for readability */
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
 }
 
-/* Hover effects for list items */
-.branch ul li:hover {
-    transform: translateY(-10px) scale(1.05); /* Elevate on hover */
-    background: linear-gradient(145deg, #89cff0, #4e54c8); /* Dynamic gradient */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 15px rgba(70, 130, 180, 0.5); /* Glow effect */
+/* Semester Card Hover */
+.semester-card:hover {
+    transform: translateY(-8px);
+    background: linear-gradient(135deg, #e0e7ff, #dbeafe); /* Subtle modern blue gradient */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Elevated shadow */
+    color: #1e3a8a; /* Modern blue text */
 }
 
-/* Animated border on hover */
-.branch ul li::before {
-    content: "";
+.semester-card span {
+    z-index: 1;
+    position: relative;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Light glow */
+}
+
+.semester-card::before {
+    content: '';
     position: absolute;
     inset: 0;
-    border-radius: 16px;
-    background: linear-gradient(90deg, #56ccf2, #2f80ed, #4e54c8);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
     z-index: -1;
+    border-radius: 16px;
     transition: opacity 0.4s ease;
     opacity: 0;
 }
 
-.branch ul li:hover::before {
+.semester-card:hover::before {
     opacity: 1;
-    animation: rotateGradient 3s linear infinite; /* Rotate gradient */
+    animation: rotateGradient 4s linear infinite;
 }
 
-/* Animated gradient rotation */
+/* Rotate Gradient Animation */
 @keyframes rotateGradient {
     0% { background-position: 0% 50%; }
     100% { background-position: 100% 50%; }
 }
 
-/* Text inside list items */
-.branch ul li span {
-    position: relative;
-    z-index: 1;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #ffffff; /* White text on hover */
-    text-transform: capitalize;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Subtle glow */
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .branch h2 {
+        font-size: 3rem;
+    }
+
+    .branch p {
+        font-size: 1.4rem;
+    }
+
+    .semester-card {
+        height: 280px;
+        width: 280px;
+        font-size: 1.5rem;
+    }
 }
 
-/* Responsive Layouts */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .branch h2 {
-        font-size: 2.4rem;
-        margin-bottom: 20px;
+        font-size: 2.8rem;
     }
 
     .branch p {
         font-size: 1.2rem;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
-    .branch ul li {
-        height: 200px;
-        font-size: 1.2rem;
+    .semester-card {
+        height: 260px;
+        width: 260px;
+        font-size: 1.4rem;
     }
 }
 
-@media (min-width: 1024px) {
-    .branch ul {
-        grid-template-columns: repeat(3, 1fr);
+@media (max-width: 480px) {
+    .branch h2 {
+        font-size: 2.4rem;
     }
 
-    .branch h2 {
-        font-size: 4rem;
+    .branch p {
+        font-size: 1.1rem;
+    }
+
+    .semester-card {
+        height: 220px;
+        width: 220px;
+        font-size: 1.3rem;
     }
 }
 
@@ -157,16 +209,7 @@
     100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Consistent box-sizing */
-* {
-    box-sizing: border-box;
-}
-
-/* Lighter background for body */
-body {
-    background: linear-gradient(135deg, #f7f7f7, #ffffff); /* Soft gradient */
-    color: #1a1a1a;
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    margin: 0;
+@keyframes fadeInDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
