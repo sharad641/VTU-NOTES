@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { database } from '../firebase'; // Adjust the path to your Firebase configuration
 import { ref, push, onValue } from 'firebase/database';
 import './CommentSection.css';
@@ -12,9 +12,11 @@ const CommentSection = () => {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [replyText, setReplyText] = useState('');
-  const [replyUserName, setReplyUserName] = useState(''); // Name for reply
+  const [replyUserName, setReplyUserName] = useState('');
   const [isReplyingTo, setIsReplyingTo] = useState({ commentId: null, replyKey: null });
   const [showAllComments, setShowAllComments] = useState(false);
+
+  const commentFormRef = useRef(null); // Ref for the comment form
 
   // Fetch comments from Firebase
   useEffect(() => {
@@ -36,6 +38,11 @@ const CommentSection = () => {
 
     return () => unsubscribe();
   }, []);
+
+  // Scroll to the comment form
+  const handleScrollToComments = () => {
+    commentFormRef.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   // Add a new comment
   const handleCommentSubmit = async (e) => {
@@ -162,7 +169,7 @@ const CommentSection = () => {
       </header>
 
       {/* Comment Form */}
-      <form onSubmit={handleCommentSubmit} className="comment-form">
+      <form onSubmit={handleCommentSubmit} className="comment-form" ref={commentFormRef}>
         <input
           type="text"
           className="comment-author"
@@ -237,7 +244,7 @@ const CommentSection = () => {
         ))}
 
       {/* Toggle Comments */}
-      {comments.length > 1 && (
+      {comments.length > 10 && (
         <button
           className="toggle-comments-btn"
           onClick={() => setShowAllComments(!showAllComments)}
@@ -245,6 +252,11 @@ const CommentSection = () => {
           {showAllComments ? 'Hide Comments' : `View All Comments (${comments.length - 10})`}
         </button>
       )}
+
+      {/* Floating Button */}
+      <button className="floating-btn" onClick={handleScrollToComments}>
+        Add a Comment
+      </button>
     </div>
   );
 };

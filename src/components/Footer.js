@@ -1,40 +1,115 @@
-import React from 'react';
-import './Footer.css';
+import React from "react";
+import PropTypes from "prop-types";
+import "./Footer.css";
 
-function Footer() {
+const Footer = ({ handleBranchClick }) => {
+  // Dynamic Social Links
+  const socialLinks = [
+    { href: "https://facebook.com", icon: "fab fa-facebook-f", label: "Facebook" },
+    { href: "https://twitter.com", icon: "fab fa-twitter", label: "Twitter" },
+    { href: "https://linkedin.com", icon: "fab fa-linkedin-in", label: "LinkedIn" },
+  ];
+
+  // Reusable Footer Link Component
+  const FooterLink = ({ href, label }) => (
+    <li>
+      <a href={href}>{label}</a>
+    </li>
+  );
+
   return (
     <footer className="footer">
-      <div className="footer-content">
-        <h3 className="footer-logo">VTU-NOTES</h3>
-        <p className="footer-description">
-          Helping Engineering Students Succeed with High-Quality Notes & Resources
-        </p>
+      <div className="footer-container">
+        {/* Footer Logo and Description */}
+        <div className="footer-section footer-logo-section">
+          <h2 className="footer-logo">VTU Notes</h2>
+          <p className="footer-description">
+  Discover a comprehensive collection of VTU engineering notes, study materials, and resources. Simplify your learning journey with easy access to high-quality content tailored for every branch and semester.
+</p>
+
+        </div>
+
+        {/* Quick Links Section */}
+        <div className="footer-section footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <FooterLink href="/about" label="About Us" />
+            <FooterLink href="/contact" label="Contact" />
+            <FooterLink href="/privacy-policy" label="Privacy Policy" />
+            <FooterLink href="/terms-and-conditions" label="Terms and Conditions" />
+          </ul>
+        </div>
+
+        {/* Study Resources Section */}
+        <div className="footer-section footer-study-resources">
+          <h4>Study Resources</h4>
+          <ul>
+            <li>
+              <button
+                className="branch-card8"
+                onClick={() => handleBranchClick("first-year")}
+                aria-label="1st Year Engineering"
+              >
+                1st Year Engineering
+              </button>
+            </li>
+            <li>
+              <button
+                className="branch-card8"
+                onClick={() => handleBranchClick("cse")}
+                aria-label="CSE Stream"
+              >
+                CSE Stream
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        {/* Social Media Section */}
+        <div className="footer-section footer-social">
+          <h4>Follow Us</h4>
+          <div className="social-icons">
+            {socialLinks.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                className="social-icon"
+                aria-label={link.label}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className={link.icon}></i>
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
 
-      <div className="footer-links">
-        <ul>
-          <li><a href="/about">About Us</a></li>
-          <li><a href="/contact">Contact</a></li>
-          <li><a href="/privacy-policy">Privacy Policy</a></li>
-          <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
-        </ul>
-      </div>
+      {/* Back to Top Button */}
+      <button
+        className="back-to-top"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Back to Top"
+      >
+        ↑ Back to Top
+      </button>
 
-      <div className="footer-social">
-       
-        <a href="https://www.instagram.com/vtuno_tes/" target="_blank" rel="noreferrer" className="social-icon">
-          <i className="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="social-icon">
-          <i className="fab fa-linkedin-in"></i>
-        </a>
-      </div>
-
+      {/* Footer Bottom Section */}
       <div className="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} VTU-NOTES | All Rights Reserved</p>
+        <p>
+          © {new Date().getFullYear()} VTU Notes. All rights reserved. |{" "}
+          <a href="/terms-and-conditions">Terms</a> |{" "}
+          <a href="/privacy-policy">Privacy</a>
+        </p>
       </div>
     </footer>
   );
-}
+};
 
+// PropType Validation
+Footer.propTypes = {
+  handleBranchClick: PropTypes.func.isRequired,
+};
+
+// Exporting Component
 export default Footer;
