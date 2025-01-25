@@ -1908,7 +1908,19 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1OmwKGOZ1V_uK3o_8XUiZJyR48erF_Mg6/preview",
             },
             {
-              title: "Model Question Papers Answer",
+              title: "Model Question Papers 1,2,3 Answers",
+              content: "Comprehensive question paper for all Module.",
+              previewUrl:
+                "https://drive.google.com/file/d/1BBkuv6CHqrWqP7szFL1uzA3gsXzdntCu/preview",
+            },
+            {
+              title: "Vtu reffered textbook",
+              content: "Comprehensive question paper for all Module.",
+              previewUrl:
+                "https://drive.google.com/file/d/12O0-tvBgZSwbtYPTUpvAfscoUDC4Xeqy/preview",
+            },
+            {
+              title: "Model Question Paper 1 Answer",
               content: "Comprehensive question paper for all Module.",
               previewUrl:
                 "https://drive.google.com/file/d/1WUMy8vTu9HrlV6vd1mUAop4HvdPHop6A/preview",
