@@ -1946,6 +1946,84 @@ const ModuleDetail = () => {
           },
         },
         {
+          title: "Environmental Studies",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1 With important MCQ and Answers",
+              previewUrl:
+                "https://drive.google.com/file/d/1yfCrkfXgeO8yUx9wRmX6wz1509qW_GlY/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2 With important MCQ and Answers",
+              previewUrl:
+                "https://drive.google.com/file/d/1w9AwlVfM3PsVxngPSS7NETWU6whW1NWd/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3 With important MCQ and Answers",
+              previewUrl:
+                "https://drive.google.com/file/d/1RoIoRI6EnsV-zYuH8CypsDgQ3fYpRiZb/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4 With important MCQ and Answers",
+              previewUrl:
+                "https://drive.google.com/file/d/1RtXR6_GctxPPbdFib0xW2hODsU5-m69k/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5 With important MCQ and Answers",
+              previewUrl:
+                "https://drive.google.com/file/d/1UFLg7HbwbTEUUycO1Lf5XYTNisMF8Mjk/preview",
+            },
+            {
+              title: " All Module: Notes Simplified",
+              content: "Comprehensive notes for All Modules",
+              previewUrl:
+                "https://drive.google.com/file/d/1TZndebMHZrzJ3ZNFxo5sGDnjO1_hy0-i/preview",
+            },
+            {
+              title: " All Module: Notes",
+              content: "Comprehensive notes for All Modules",
+              previewUrl:
+                "https://drive.google.com/file/d/1oknJRqu_blQ28SQD-vhJAgw_yo1Mp2aF/preview",
+            },
+            {
+              title: "Question Bank",
+              content: "Comprehensive  for All Modules",
+              previewUrl:
+                "https://drive.google.com/file/d/1tW1jd9r3Kof_8Y4SbI592C_BTkrcwL3W/preview",
+            },
+            {
+              title: "Question Bank 2",
+              content: "Comprehensive  for All Modules",
+              previewUrl:
+                "https://drive.google.com/file/d/14fYP5dgZp4EURk-Mr1WeFlWVCeZTeiRt/preview",
+            },
+            {
+              title: "Question Paper With Answers",
+              content: "Comprehensive  for All Modules",
+              previewUrl:
+                "https://drive.google.com/file/d/1R-hi6-za7sokZhVqQsyKv9m56ge6wDCL/preview",
+            },
+
+          ],
+          questionPaper: {
+            title: "Question Paper",
+            content: "Past question paper for Applied Physics for CSE.",
+            downloadUrl:
+              "https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/view?usp=sharing",
+          },
+          questionBank: {
+            title: "Question Bank",
+            content: "Question bank for Applied Physics for CSE.",
+            downloadUrl:
+              "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/view?usp=sharing",
+          },
+        },
+        {
           title: "Unix System Programming",
           modules: [
             {
