@@ -1,6 +1,7 @@
 // src/components/Branch.js
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
+import AdSenseAd from './AdSenseAd'; 
 import './Branch.css'; 
 
 function Branch() {
@@ -32,6 +33,14 @@ function Branch() {
                                 <div className="semester-card">
                                     <span>Semester {sem}</span>
                                 </div>
+                                <div className="ad-container">
+                                                <AdSenseAd
+                                                    adClient="ca-pub-9499544849301534"
+                                                    adSlot="7579321744"
+                                                    adFormat="auto"
+                                                    fullWidthResponsive={true}
+                                                />
+                                            </div>
                             </Link>
                         </li>
                     ))}

@@ -1,7 +1,7 @@
 // src/components/ModuleDetail.js
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
+import AdSenseAd from './AdSenseAd'; 
 import "./ModuleDetail.css";
 
 const ModuleDetail = () => {
@@ -2108,7 +2108,14 @@ const ModuleDetail = () => {
                   </button>
                  
                 </div>
-                
+                <div className="ad-container">
+                                <AdSenseAd
+                                    adClient="ca-pub-9499544849301534"
+                                    adSlot="7579321744"
+                                    adFormat="auto"
+                                    fullWidthResponsive={true}
+                                />
+                            </div>
                 
               </div>
               

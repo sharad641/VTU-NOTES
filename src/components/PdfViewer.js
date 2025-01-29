@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { analytics } from '../firebase'; // Firebase Analytics
 import { logEvent } from 'firebase/analytics'; // Firebase event logging
 import { QRCodeCanvas } from 'qrcode.react'; // QR code generator
-
+import AdSenseAd from './AdSenseAd'; 
 import './PdfViewer.css';
 import CommentSection from './CommentSection';
 
@@ -106,7 +106,14 @@ const PdfViewer = () => {
                     <a className="download-button" href={downloadLink} target="_blank" rel="noopener noreferrer">
                         📥 Download PDF
                     </a>
-                     
+                    <div className="ad-container">
+                                <AdSenseAd
+                                    adClient="ca-pub-9499544849301534"
+                                    adSlot="7579321744"
+                                    adFormat="auto"
+                                    fullWidthResponsive={true}
+                                />
+                            </div>
                 </div>
                 
             )}

@@ -10,26 +10,34 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    background: #f9fafb; /* Modern soft white background */
-    color: #1f2937; /* Dark modern black text */
+    background: #f9fafb; /* Soft off-white background */
+    color: #111827; /* Deep gray for text */
     margin: 0;
     padding: 0;
+    min-height: 100vh;
 }
 
 /* Headline Message */
 .headline-message {
-    background: #ffffff; /* Pure modern white */
-    color: #1e40af; /* Dark blue modern text */
-    padding: 20px 30px;
+    background: linear-gradient(135deg, #1e3a8a, #2563eb); /* Gradient blue background */
+    color: #ffffff; /* White text */
+    padding: 30px 40px;
     text-align: center;
-    border-radius: 12px;
-    margin-bottom: 40px;
-    font-size: 1.8rem;
-    font-weight: 600;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    letter-spacing: 0.8px;
+    border-radius: 20px;
+    margin: 40px auto;
+    font-size: 2.2rem;
+    font-weight: 700;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+    letter-spacing: 1.5px;
     animation: fadeInDown 1s ease-in-out;
-    border: 1px solid #e5e7eb; /* Subtle border for structure */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+    max-width: 90%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.headline-message:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
 }
 
 /* Branch Section */
@@ -37,34 +45,37 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px 20px;
-    background: #ffffff; /* Clean white background */
-    border-radius: 16px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    padding: 80px 20px;
+    background: #ffffff; /* Pure white background */
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto 60px;
     overflow: hidden;
-    color: #1f2937; /* Dark text for readability */
+    color: #111827; /* Deep gray text */
 }
 
 .branch h2 {
-    font-size: 3.6rem;
-    font-weight: 800;
-    margin-bottom: 30px;
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 40px;
     text-align: center;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: #1e3a8a; /* Modern blue */
+    color: transparent;
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6); /* Gradient text */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     animation: fadeIn 1s ease-in-out;
-    border-bottom: 3px solid #e5e7eb; /* Subtle underline */
-    padding-bottom: 10px;
+    padding-bottom: 15px;
+    border-bottom: 4px solid #3b82f6; /* Light blue underline */
 }
 
 .branch p {
-    font-size: 1.6rem;
-    margin-bottom: 40px;
+    font-size: 1.8rem;
+    margin-bottom: 60px;
     text-align: center;
-    color: #6b7280; /* Neutral modern gray */
+    color: #4b5563; /* Medium gray text */
     max-width: 800px;
     line-height: 1.8;
     font-weight: 500;
@@ -74,7 +85,7 @@ body {
 .semester-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible layout */
-    gap: 40px; /* Spacing between boxes */
+    gap: 60px; /* Spacing between boxes */
     width: 100%;
     padding: 0;
     list-style: none;
@@ -95,16 +106,16 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 300px;
-    width: 300px; /* Square shape */
-    background: #ffffff; /* White background for modern simplicity */
-    border-radius: 16px;
-    border: 1px solid #e5e7eb; /* Subtle border */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* Clean shadow */
-    font-size: 1.6rem; /* Comfortable font size */
+    height: 340px;
+    width: 340px; /* Square shape */
+    background: #ffffff; /* White card background */
+    border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Light shadow */
+    font-size: 2rem; /* Comfortable font size */
     font-weight: 700;
     text-transform: uppercase;
-    color: #1f2937; /* Dark text for readability */
+    color: #1e3a8a; /* Deep blue text */
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     position: relative;
@@ -113,33 +124,33 @@ body {
 
 /* Semester Card Hover */
 .semester-card:hover {
-    transform: translateY(-8px);
-    background: linear-gradient(135deg, #e0e7ff, #dbeafe); /* Subtle modern blue gradient */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Elevated shadow */
-    color: #1e3a8a; /* Modern blue text */
+    transform: translateY(-10px);
+    background: linear-gradient(135deg, #1e3a8a, #3b82f6); /* Blue gradient */
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2); /* Elevated shadow */
+    color: #ffffff; /* White text */
 }
 
 .semester-card span {
     z-index: 1;
     position: relative;
-    font-size: 1.8rem;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Light glow */
+    font-size: 2.2rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Light glow */
 }
 
 .semester-card::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.05));
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
     z-index: -1;
-    border-radius: 16px;
+    border-radius: 24px;
     transition: opacity 0.4s ease;
     opacity: 0;
 }
 
 .semester-card:hover::before {
     opacity: 1;
-    animation: rotateGradient 4s linear infinite;
+    animation: rotateGradient 6s linear infinite;
 }
 
 /* Rotate Gradient Animation */
@@ -151,50 +162,50 @@ body {
 /* Responsive Design */
 @media (max-width: 1024px) {
     .branch h2 {
-        font-size: 3rem;
+        font-size: 3.5rem;
     }
 
     .branch p {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
     .semester-card {
-        height: 280px;
-        width: 280px;
-        font-size: 1.5rem;
+        height: 300px;
+        width: 300px;
+        font-size: 1.8rem;
     }
 }
 
 @media (max-width: 768px) {
     .branch h2 {
-        font-size: 2.8rem;
+        font-size: 3rem;
     }
 
     .branch p {
-        font-size: 1.2rem;
-        margin-bottom: 20px;
+        font-size: 1.4rem;
+        margin-bottom: 40px;
     }
 
     .semester-card {
-        height: 260px;
-        width: 260px;
-        font-size: 1.4rem;
+        height: 280px;
+        width: 280px;
+        font-size: 1.7rem;
     }
 }
 
 @media (max-width: 480px) {
     .branch h2 {
-        font-size: 2.4rem;
+        font-size: 2.5rem;
     }
 
     .branch p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
     .semester-card {
-        height: 220px;
-        width: 220px;
-        font-size: 1.3rem;
+        height: 240px;
+        width: 240px;
+        font-size: 1.6rem;
     }
 }
 
