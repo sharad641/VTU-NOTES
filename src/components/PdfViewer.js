@@ -106,7 +106,11 @@ const PdfViewer = () => {
                     <a className="download-button" href={downloadLink} target="_blank" rel="noopener noreferrer">
                         📥 Download PDF
                     </a>
-                    <div className="ad-container">
+                    
+                </div>
+                
+            )}
+            <div className="ad-container">
                                 <AdSenseAd
                                     adClient="ca-pub-9499544849301534"
                                     adSlot="7579321744"
@@ -114,10 +118,6 @@ const PdfViewer = () => {
                                     fullWidthResponsive={true}
                                 />
                             </div>
-                </div>
-                
-            )}
-
             {/* QR Code Sharing */}
             <div className="qr-code-container">
                 <h3>📱 Share this PDF</h3>

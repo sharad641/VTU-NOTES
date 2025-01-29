@@ -93,7 +93,6 @@ function App() {
 
           {/* Protected Routes - Authenticated Users */}
           <Route path="/placement-guide" element={isAuthenticated ? <PlacementGuide /> : <Navigate to="/login" />} />
-          <Route path="/test" element={isAuthenticated ? <TestPage /> : <Navigate to="/login" />} />
           <Route path="/study-planner" element={isAuthenticated ? <StudyPlanner /> : <Navigate to="/login" />} />
           <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
 
@@ -102,6 +101,7 @@ function App() {
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/chatbot" element={<ChatBot />} />
           <Route path="/comments" element={<CommentSection />} />
+          <Route path="/test" element={<TestPage />} /> {/* Moved here to make it public */}
 
           {/* Authentication Routes */}
           <Route path="/login" element={<RedirectAuthenticatedUser element={<Login setIsAuthenticated={setIsAuthenticated} />} />} />
@@ -110,8 +110,6 @@ function App() {
           {/* Fallback Route */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-        
-        
         
         <Footer />
       </div>

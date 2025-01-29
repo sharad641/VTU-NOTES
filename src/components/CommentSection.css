@@ -262,34 +262,3 @@ body {
   font-style: italic; /* Italic style for placeholder */
 }
 
-.floating-btn {
-  position: fixed;
-  right: 20px;
-  top: 75%; /* Positions the button at 75% of the page height */
-  transform: translateY(-50%); /* Ensures proper vertical centering */
-  background-color: #007bff; /* Blue color */
-  color: white;
-  border: none;
-  border-radius: 20px; /* Rounded edges for pill shape */
-  padding: 8px 16px; /* Smaller padding for a compact size */
-  font-size: 14px; /* Smaller text size */
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000; /* Ensures the button is above most elements */
-}
-
-.floating-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  transform: scale(1.05); /* Slight zoom effect */
-}
-
-.floating-btn::before {
-  content: '↓';
-  margin-right: 6px; /* Space between arrow and text */
-  font-size: 16px; /* Adjust arrow size */
-}

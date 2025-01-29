@@ -8,6 +8,7 @@ import Calculator from './Calculator';
 import UploadForm from './UploadForm';
 import Contact from './Contact'; 
 
+
 import './Home.css';
 
 const Home = () => {
@@ -60,6 +61,24 @@ const Home = () => {
   </p>
   <Link to="/branch-selection/2022" className="button">📘 Access 2022 Scheme</Link>
 </section>
+
+<section className="info-box test-box">
+    <h2>📝 Take a Practice Test</h2>
+    <p>Boost your exam readiness with our interactive MCQ-based tests. Choose your subject, set the difficulty level, and get instant results!</p>
+    
+    <p>📚 **EVS Practice Tests (Module-wise):** Strengthen your Environmental Science concepts with module-based practice tests. Prepare systematically and track your progress.</p>
+    
+    <p>📖 **Model Question Paper Tests:** Solve past VTU Model Question Papers in an exam-like environment and improve your time management skills.</p>
+    
+    
+    
+    <div className="test-buttons11">
+        <Link to="/test" className="button modern-button11">🎯 Start Test</Link>
+        <Link to="/test?evsModule=EVS MCQ" className="button modern-button11">🌿 EVS Test</Link>
+        
+    </div>
+</section>
+
 
 {/* Placement Preparation Section */}
 <section className="info-box">
@@ -145,7 +164,7 @@ const Home = () => {
               <Calculator />
         
         
-         
+        
       {/* FAQs Section */}
 <section className="info-box modern-box">
 <h2>📖 Frequently Asked Questions (FAQs)</h2>

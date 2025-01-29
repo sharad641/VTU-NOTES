@@ -308,3 +308,385 @@ progress::-webkit-progress-value {
     line-height: 1.6;
     color: #333;
 }
+.test-selection11 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+.test-selection11 h2 {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.test-selection11 button {
+    background: #ffffff;
+    color: #6a11cb;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    max-width: 300px;
+}
+
+.test-selection11 button:hover {
+    background: #6a11cb;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .test-selection11 {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .test-selection11 h2 {
+        font-size: 1.5rem;
+    }
+
+    .test-selection11 button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+.difficulty-selection11 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+.difficulty-selection11 h2 {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.difficulty-selection11 button {
+    background: #ffffff;
+    color: #ff7e5f;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    max-width: 300px;
+}
+
+.difficulty-selection11 button:hover {
+    background: #ff7e5f;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .difficulty-selection11 {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .difficulty-selection11 h2 {
+        font-size: 1.5rem;
+    }
+
+    .difficulty-selection11 button {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+.test-questions11 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+}
+
+.test-questions11 h2 {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.question-box11 {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: left;
+}
+
+.question-box11 p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.question-box11 label {
+    display: flex;
+    align-items: center;
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 6px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.question-box11 label:hover {
+    background: #dce9ff;
+}
+
+.question-box11 input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #0072ff;
+    transform: scale(1.2);
+}
+
+@media (max-width: 600px) {
+    .test-questions11 {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .test-questions11 h2 {
+        font-size: 1.5rem;
+    }
+
+    .question-box11 {
+        padding: 15px;
+    }
+
+    .question-box11 p {
+        font-size: 1rem;
+    }
+
+    .question-box11 label {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+/* Submit Button */
+.submit-button11 {
+    background: linear-gradient(135deg, #ff512f, #dd2476);
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.submit-button11:hover {
+    background: linear-gradient(135deg, #dd2476, #ff512f);
+    transform: scale(1.05);
+}
+
+/* Score Display Section */
+.score-display11 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.score-display11 h2 {
+    font-size: 1.8rem;
+    color: #fff;
+    font-weight: bold;
+}
+
+.score-display11 p {
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .submit-button11 {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    .score-display11 {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .score-display11 h2 {
+        font-size: 1.5rem;
+    }
+
+    .score-display11 p {
+        font-size: 1rem;
+    }
+}
+
+
+/* Header styling */
+.test-page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.test-page-header h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.test-page-header p {
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Styling for the question box */
+.question-box {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Question text */
+.question-box p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Styling for the answer options */
+.question-box label {
+    display: block;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Style for the radio buttons */
+.question-box input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Correct answer styling */
+.correct {
+    background-color: #4CAF50; /* Green for correct answers */
+    color: white;
+}
+
+/* Incorrect answer styling */
+.incorrect {
+    background-color: #F44336; /* Red for incorrect answers */
+    color: white;
+}
+
+/* Unselected correct answer styling */
+.unselected {
+    background-color: #D3D3D3; /* Light gray for unselected correct answers */
+    color: #333;
+}
+
+/* Submit button styling */
+.submit-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}
+
+/* Score display styling */
+.score-display {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.score-display h2 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.score-display p {
+    font-size: 1rem;
+    color: #777;
+}
+
+/* Test selection and difficulty selection buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}

@@ -40,9 +40,7 @@ const CommentSection = () => {
   }, []);
 
   // Scroll to the comment form
-  const handleScrollToComments = () => {
-    commentFormRef.current.scrollIntoView({ behavior: 'smooth' });
-  };
+ 
 
   // Add a new comment
   const handleCommentSubmit = async (e) => {
@@ -198,7 +196,7 @@ const CommentSection = () => {
 
       {/* Comments */}
       {comments
-        .slice(0, showAllComments ? comments.length : 10)
+        .slice(0, showAllComments ? comments.length : 30)
         .map((comment) => (
           <div key={comment.id} className="comment-card">
             <div className="comment-header">
@@ -244,19 +242,17 @@ const CommentSection = () => {
         ))}
 
       {/* Toggle Comments */}
-      {comments.length > 10 && (
+      {comments.length > 30 && (
         <button
           className="toggle-comments-btn"
           onClick={() => setShowAllComments(!showAllComments)}
         >
-          {showAllComments ? 'Hide Comments' : `View All Comments (${comments.length - 10})`}
+          {showAllComments ? 'Hide Comments' : `View All Comments (${comments.length - 20})`}
         </button>
       )}
 
       {/* Floating Button */}
-      <button className="floating-btn" onClick={handleScrollToComments}>
-        Add a Comment
-      </button>
+    
     </div>
   );
 };
