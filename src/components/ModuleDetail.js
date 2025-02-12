@@ -1157,19 +1157,19 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/11s_lcZZ5LEdY8lJlSw3O2DFWo_TN-m_K/preview",
+                "https://drive.google.com/file/d/135I6KMJ1MIq-vSNONF3c8kR2mLElEJ_5/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/18NotldcsIf-QG5IwQJtuD9TmiQ4bKMBg/preview",
+                "https://drive.google.com/file/d/1J_yd0l-cfRByzqRTW60gcDs8Ku1ik15l/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1mFnxufZiTrQosTJpc41xwPzdaUZ3CAiH/preview",
+                "https://drive.google.com/file/d/16or942srHaywuhLBQeegJuHPHyQA6wJ9/preview",
             },
             {
               title: "Module 4: Notes",
@@ -1184,17 +1184,12 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1Vj0yQcZxBF5-bnXxiDzeexWDCHZDSJrY/preview",
             },
            {
-            title: "Question Paper",
+            title: "Question Papers with solutions",
             content: "Past question paper for Mathematics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1Mr42aq5n4_5y9pkJEgcXflABzDjk3z2w/preview",
+              "https://drive.google.com/file/d/1U-laCBUAydCFwnqFW5nmPgGHVWv3lPt1/preview",
           },
-           {
-            title: "Question Bank",
-            content: "Question bank for Mathematics for CSE.",
-            previewUrl:
-              "https://drive.google.com/file/d/1Mr42aq5n4_5y9pkJEgcXflABzDjk3z2w/preview",
-          },
+          
         ],
         },
         {
@@ -1204,31 +1199,31 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Introduction to Digital Design",
               previewUrl:
-                "https://drive.google.com/file/d/16xT6WDk4u4NAv-HVfypbOycDJJd7R2Hy/preview",
+                "https://drive.google.com/file/d/1EMoMc0Y-JfSwheP5Z7RD5N97dFtds4m4/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Combinational Logic.",
               previewUrl:
-                "https://drive.google.com/file/d/16XMOp-q39dF6ElI_NLAUtO4FTltNg7ZO/preview",
+                "https://drive.google.com/file/d/1Xl1kyr0BRimocDCGDYS3e2N6qghVunw6/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/157KX10Na3uewiHr_Ba4wWksvtbkqVigw/preview",
+                "https://drive.google.com/file/d/163Jtzh-qZBT4Y_ybP0Oru6v96VDL7mgu/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1ojIeIgMtWsW2_s426lmJGTihtBGzmqQ8/preview",
+                "https://drive.google.com/file/d/1UVpPakkPiRr5aGFOdZK4g6C9Pv1Tux6I/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1wAmIrGVLQoLZS7kCt4-QGbeCaiiy4zv3/preview",
+                "https://drive.google.com/file/d/1gBPIaF-2ArT1_t0sbkvzWXh8RNbhz6WL/preview",
             },
           {
             title: "Question Paper",
@@ -1236,12 +1231,7 @@ const ModuleDetail = () => {
             previewUrl:
               "https://drive.google.com/file/d/1BmqvVe8WhNCRsXdVT3K-4x8sJbKWDq0l/preview",
           },
-         {
-            title: "Question Bank",
-            content: "Question bank for Applied Physics for CSE.",
-            previewUrl:
-              "https://drive.google.com/file/d/1BmqvVe8WhNCRsXdVT3K-4x8sJbKWDq0l/preview",
-          },
+        
         ],
         },
         {
@@ -1251,44 +1241,39 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1LHvd_EvBBHIDBeJHUuk2zOADiGJWG7KG/preview",
+                "https://drive.google.com/file/d/1n1__pgOLZE_r1eMy3Cq_ds4L6mVs874j/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1_LHyge4IrhE8_cJpmfp4uSfXufX3KhRN/preview",
+                "https://drive.google.com/file/d/1qNasFNTZzzJVu0KmGyopb-6Dhuh4Xj6m/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1pS6Oz36N_YNnT-nhx7nOxSJR16Uq4dGE/preview",
+                "https://drive.google.com/file/d/1H3O_uleWOhfIF8D4lzxNJCyDrIBn0TYf/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1G7aFYf6XYeW6OVuiXT-F0zHonBlLDIPd/preview",
+                "https://drive.google.com/file/d/1nXR1qjmQpMgkR-CuM2pPEU_OPdLYVn8-/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/15DiaJRMZicsfNgU3xnSFd_jy3RxtYcKY/preview",
+                "https://drive.google.com/file/d/1vfHVSP0s9yIwy3981iRsCoThaQUZXij7/preview",
             },
            {
             title: "Question Paper",
             content: "Past question paper for Applied Physics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1TVjLSNB43q8CvOiCFpuibpkzr-Rarm3q/preview",
+              "https://drive.google.com/file/d/1ZIuMbL4yJbnBgp8NrU-PqwO35udCZlA1/preview",
           },
-          {
-            title: "Question Bank",
-            content: "Question bank for Applied Physics for CSE.",
-            previewUrl:
-              "https://drive.google.com/file/d/1TVjLSNB43q8CvOiCFpuibpkzr-Rarm3q/preview",
-          },
+         
         ],
         },
         {
