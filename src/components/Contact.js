@@ -164,7 +164,7 @@ const Contact = () => {
         <address>
           <strong>VTU Notes For All</strong>
           <br />
-          The BVSS Maratha Students Home
+          The BVSS Maratha Student's Home
           <br />
           Bangalore, Karnataka, India 560004
         </address>

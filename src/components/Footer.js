@@ -46,7 +46,7 @@ const Footer = ({ handleBranchClick }) => {
           <ul>
             <li>
               <button
-                className="branch-card8"
+                className="button"
                 onClick={() => handleBranchClick("first-year")}
                 aria-label="1st Year Engineering"
               >
@@ -55,7 +55,7 @@ const Footer = ({ handleBranchClick }) => {
             </li>
             <li>
               <button
-                className="branch-card8"
+                className="button"
                 onClick={() => handleBranchClick("cse")}
                 aria-label="CSE Stream"
               >

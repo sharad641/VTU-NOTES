@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { analytics } from '../firebase';
+
 import { logEvent } from 'firebase/analytics';
 import CommentSection from './CommentSection';
 import Calculator from './Calculator';
@@ -20,7 +21,7 @@ const Home = () => {
     return (
       <div className="home-container">
           {/* Headline with marquee effect */}
-          <div className="headline-message">
+          <div className="headline-message88">
   <div className="marquee-text">
       🚀 A new feature has been added for placement test login. Review it now and take your preparation to the next level!
   </div>
@@ -47,20 +48,26 @@ const Home = () => {
 </section>
 
 {/* Scheme Selection */}
-<section className="info-box">
-  <h2>Select Scheme for Notes</h2>
-  <p>
-      Your academic success starts here! Choose your specific scheme to access targeted resources tailored to your syllabus:
-  </p>
-  <ul>
-      <li><strong>2022 Scheme:</strong> Fully updated notes and question banks aligned with the latest curriculum.</li>
-      <li><strong></strong> A robust collection of resources for students in the previous academic structure.</li>
-  </ul>
-  <p>
-      Stay ahead of your syllabus with our regularly updated library, ensuring you’re always equipped with the most relevant materials.
-  </p>
-  <Link to="/branch-selection/2022" className="button">📘 Access 2022 Scheme</Link>
-</section>
+<section className="scheme-container">
+      <h2 className="scheme-title">Select Your Scheme</h2>
+      <p className="scheme-subtitle">
+        Access high-quality study materials, notes, and question banks tailored to your syllabus.
+      </p>
+
+      <div className="scheme-box">
+        {/* 2022 Scheme Card */}
+        <div className="scheme-card">
+          <h3 className="scheme-heading">2022 Scheme</h3>
+          <span className="scheme-label">Latest Syllabus</span>
+          <p className="scheme-description">
+            Fully updated notes and question banks aligned with the most recent academic curriculum.
+          </p>
+          <Link to="/branch-selection/2022" className="button">📘 Access 2022 Scheme</Link>
+        </div>
+
+       
+      </div>
+    </section>
 
 <section className="info-box test-box">
     <h2>📝 Take a Practice Test</h2>

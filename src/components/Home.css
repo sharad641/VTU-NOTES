@@ -23,8 +23,114 @@ body {
   position: relative;
 }
 
+/* Container Styling */
+.scheme-container {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(180deg, #f8f9fa, #e3e6ec);
+}
+
+
+/* Title and Subtitle */
+.scheme-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.scheme-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Flexbox Layout */
+.scheme-box {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Individual Scheme Cards */
+.scheme-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  width: 340px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-top: 5px solid #007bff;
+}
+
+.scheme-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.3);
+}
+
+/* Headings */
+.scheme-heading {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+/* Scheme Labels */
+.scheme-label {
+  display: inline-block;
+  background: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Description Text */
+.scheme-description {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Call-to-Action Button */
+.scheme-button {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+.scheme-button:hover {
+  background: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .scheme-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .scheme-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
 /* Headline Marquee */
-.headline-message {
+.headline-message88 {
   background: linear-gradient(90deg, #3b82f6, #2563eb); /* Vivid blue gradient */
   color: #fff;
   padding: 18px 22px;
@@ -504,7 +610,7 @@ body {
 }
 
 .button.modern-button11 {
-  background: linear-gradient(135deg, #007bff, #00d4ff);
+  background: #0078d7;
   color: white;
   width: 180px; /* Square Size */
   height: 180px; /* Square Size */

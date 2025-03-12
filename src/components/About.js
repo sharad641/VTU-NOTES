@@ -68,12 +68,12 @@ function About() {
         <h2>🏆 Our Achievements</h2>
         <div className="achievement-cards">
           <div className="card">
-            <h3>6.5k+ Users</h3>
+            <h3>8k+ Users</h3>
             <p>Thousands of VTU students trust VTU Notes for their academic success.</p>
           </div>
           <div className="card">
-            <h3>25k+ Views</h3>
-            <p>Our platform has received over 25,000 visits from students across VTU branches.</p>
+           
+            <p>Our platform has received over 32,000 visits from students across VTU branches.</p>
           </div>
         </div>
       </section>
@@ -124,7 +124,7 @@ function About() {
       <section className="about-developer">
         <h2>👨‍💻 About the Developer</h2>
         <p>
-          VTU Notes was built by <strong>sharad patil</strong>, a passionate Computer Science student aiming to make education 
+          VTU Notes was built by <strong>vtunotesforall team</strong>, a passionate Computer Science students aiming to make education 
           accessible through technology.
         </p>
         <ul>

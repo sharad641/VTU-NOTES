@@ -2055,6 +2055,370 @@ const ModuleDetail = () => {
         
         
       ],
+      6: [
+        {
+          title: "MACHINE LEARNING",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1vIOfJoUkztNLjem_LKYMHTjcIMBQfp5R/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Pv2FopOV8qSK4ezduuHf9uu75_--ZZMp/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1-DxemhvmqNYt88f4o8DkflhS9aGcVV2A/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/18YvPZyMk_jcQfjG3qLdcXztpNHr0NNOb/preview",
+            },
+            {
+              title: "LAB MANNUL 1-2",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1ZQ8AEyGwraBDbbCNtvY62xM74ViLrFPA/preview",
+            },
+           {
+            title: "LAB MANNUL 3-20",
+            content: "Past question paper for Mathematics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1ndp2mLOwunQSmH40V9C1vHm2BMS4unPy/preview",
+          },
+          
+        ],
+        },
+        {
+          title: "Microcontrollers & Embedded Systems",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Introduction to Digital Design",
+              previewUrl:
+                "https://drive.google.com/file/d/1EMoMc0Y-JfSwheP5Z7RD5N97dFtds4m4/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Combinational Logic.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Xl1kyr0BRimocDCGDYS3e2N6qghVunw6/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/163Jtzh-qZBT4Y_ybP0Oru6v96VDL7mgu/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1UVpPakkPiRr5aGFOdZK4g6C9Pv1Tux6I/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1gBPIaF-2ArT1_t0sbkvzWXh8RNbhz6WL/preview",
+            },
+          {
+            title: "Question Paper",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1BmqvVe8WhNCRsXdVT3K-4x8sJbKWDq0l/preview",
+          },
+        
+        ],
+        },
+        {
+          title: "CLOUD COMPUTING",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1y_jLSxfYRtL1g2Y1df_1pGjqSiGbK_rd/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1RxY_D1r1lICjV2y6MFLDElDSxsx2Bm4y/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1k0bVSdFEKLphYMohaXLra9X1XxfJjy8S/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1BEVYHUiguD3EZDIf8ClZISqx8Odka7LJ/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1DrOsrfWVVohewyIC6T7-hIx7AJdzHDjt/preview",
+            },
+           {
+            title: "mod-1",
+            content: "",
+            previewUrl:
+              "https://drive.google.com/file/d/1L7Gr2245GJAX8N8ea1PHRDhThtYlxciu/preview",
+          },
+         
+        ],
+        },
+        {
+          title: "DISCRETE MATHEMATICAL STRUCTURES  ",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+            },
+           {
+            title: "Question Paper",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+          },
+          {
+            title: "Question Bank",
+            content: "Question bank for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+          },
+        ],
+        },
+        {
+          title: "GRAPH THEORY",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+            },
+          ],
+          questionPaper: {
+            title: "Question Paper",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+          },
+          questionBank: {
+            title: "Question Bank",
+            content: "Question bank for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+          },
+        },
+        {
+          title: "Analysis & Design of Algorithms Lab",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/preview",
+            },
+          ],
+          questionPaper: {
+            title: "Question Paper",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/preview",
+          },
+          questionBank: {
+            title: "Question Bank",
+            content: "Question bank for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/preview",
+          },
+        },
+        {
+          title: "ARTIFICIAL INTELLIGENCE",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
+            },
+          ],
+          questionPaper: {
+            title: "Question Paper",
+            content: ".",
+            previewUrl:
+              "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
+          },
+          questionBank: {
+            title: "Question Bank",
+            content: "Question bank for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
+          },
+        },
+        {
+          title: "BIOLOLY FOR ENGINEERS",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1T8wYGZdPx8V0QeGDMb3cAOifdLFZXoZk/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Tkra5ZzuWkKlfd99gBlp97EhjYzIAUXj/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/19VqgzZgvaE5Wt_aDcuR7pQH2StnzAqRF/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1mR8sVnrpFZlFhQd61EsdBQ5u6N5IKWPd/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/12NRJCozzG3BmFdob8kcHd8Oe2yYx0xQ8/preview",
+            },
+          {
+            title: "Question Paper",
+            content: "Past question paper for Biology for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1h_udrhNRqd0UiwdM8bVeH_PTXyWsVcKB/preview",
+          },
+          {
+            title: "Question Paper 2",
+            content: ".",
+            previewUrl:
+              "https://drive.google.com/file/d/1aD7ZjnBroS5GvDCcULUJ-F9mrkRgU826/preview",
+          },
+        ],
+        },
+      ],
+      
     },
 
     // Define other branches and semesters...

@@ -122,13 +122,6 @@ body {
     overflow: hidden;
 }
 
-/* Semester Card Hover */
-.semester-card:hover {
-    transform: translateY(-10px);
-    background: linear-gradient(135deg, #1e3a8a, #3b82f6); /* Blue gradient */
-    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2); /* Elevated shadow */
-    color: #ffffff; /* White text */
-}
 
 .semester-card span {
     z-index: 1;
@@ -148,16 +141,7 @@ body {
     opacity: 0;
 }
 
-.semester-card:hover::before {
-    opacity: 1;
-    animation: rotateGradient 6s linear infinite;
-}
 
-/* Rotate Gradient Animation */
-@keyframes rotateGradient {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
-}
 
 /* Responsive Design */
 @media (max-width: 1024px) {
@@ -209,18 +193,4 @@ body {
     }
 }
 
-/* Animations */
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
 
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(30px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInDown {
-    0% { opacity: 0; transform: translateY(-20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}

@@ -75,6 +75,18 @@ const Subjects = () => {
         
         
       ],
+      6: [
+        { name:'MACHINE LEARNING', code: 'BCS602', credits: 4, info: '' },
+        { name: 'CLOUD COMPUTING', code: 'BCS601', credits: 4, info: '' },
+  
+        { name: 'Natural Language Processing', code: 'BAI601', credits: 4, info: ' .' },
+        { name: 'Machine Learning -I', code: 'BAI602 ', credits: 4, info: ' ' },
+        { name: 'Microcontrollers & Embedded Systems', code: 'BCO601', credits: 4, info: '  ' },
+        { name: 'Cryptography & Network Security', code: 'BCO601', credits: 4, info: ' ' },
+        
+        
+        
+      ],
     },
     ece: {
       3: [
@@ -95,6 +107,16 @@ const Subjects = () => {
 
       ],
       5:[
+        { name: 'Technological Innovation and Management Entrepreneurship', code: 'BEC501 ', credits: 3, info: 'Understand the need for Entrepreneurs and their skills.' },
+        { name: 'Digital Signal Processing ', code: 'BEC502', credits: 4, info: ' Preparation: To prepare students with fundamental knowledge/ overview in the field of Digital Signal Processing ' },
+        { name: 'Digital Communication ', code: 'BEC503', credits: 4, info: ' Preparation: To prepare students with fundamental knowledge/ overview in the field of Digital Signal Processing ' },
+        { name: 'Digital Communication Lab', code: 'BECL504 ', credits: 1, info: ' Understand the concept of signal processing of digital data and signal conversion to symbols at the transmitter and receiver.' },
+        { name: 'Intelligent Systems and Machine Learning Algorithms ', code: 'BEC515A', credits: 3, info: 'Become familiar with basic principles of AI toward Problem-Solving' },
+        { name: 'Research Methodology and IPR', code: 'BRMK557 ', credits: 3, info: 'Learn about the petent filing and all rules' },
+
+      ],
+
+      6:[
         { name: 'Technological Innovation and Management Entrepreneurship', code: 'BEC501 ', credits: 3, info: 'Understand the need for Entrepreneurs and their skills.' },
         { name: 'Digital Signal Processing ', code: 'BEC502', credits: 4, info: ' Preparation: To prepare students with fundamental knowledge/ overview in the field of Digital Signal Processing ' },
         { name: 'Digital Communication ', code: 'BEC503', credits: 4, info: ' Preparation: To prepare students with fundamental knowledge/ overview in the field of Digital Signal Processing ' },
