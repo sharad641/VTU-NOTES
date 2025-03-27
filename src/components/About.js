@@ -105,14 +105,8 @@ function About() {
               </li>
             </ul>
           </div>
-          <p>📲 <strong>Quick & Easy:</strong> Scan the QR code below to make an instant contribution:</p>
-          <div className="qr-code-container">
-            <img 
-              src="/phonepay.jpg" 
-              alt="QR Code for Payment" 
-              className="qr-code"
-            />
-          </div>
+    
+          
           <p className="thank-you">
             🌟 Every contribution, big or small, brings us closer to transforming education for all. 
             Thank you for being a part of this journey! Your kindness and support mean the world to us. 💙
