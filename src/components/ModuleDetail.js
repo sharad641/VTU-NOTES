@@ -2060,16 +2060,28 @@ const ModuleDetail = () => {
           title: "MACHINE LEARNING",
           modules: [
             {
-              title: "Module 1: Notes",
+              title: "Module 1:Printed Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
                 "https://drive.google.com/file/d/1vIOfJoUkztNLjem_LKYMHTjcIMBQfp5R/preview",
             },
             {
-              title: "Module 2: Notes",
+              title: "Module 1:Handwritten Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1EZ0pbwkQ7LC8tVTMyGtC5CtHW2LF5JEI/preview",
+            },
+            {
+              title: "Module 2:Printed Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
                 "https://drive.google.com/file/d/1Pv2FopOV8qSK4ezduuHf9uu75_--ZZMp/preview",
+            },
+            {
+              title: "Module 2:Handwritten Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/13DtCmXQrWCu4VFmGMpVXq5UUwHhmKdNu/preview",
             },
             {
               title: "Module 3: Notes",
@@ -2150,6 +2162,12 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1y_jLSxfYRtL1g2Y1df_1pGjqSiGbK_rd/preview",
             },
             {
+              title: "Module 1:Second Notes ",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1XA4_4Rg24XaHH5pFYPW_4yf5W2-BB-ts/preview",
+            },
+            {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
@@ -2179,6 +2197,26 @@ const ModuleDetail = () => {
             previewUrl:
               "https://drive.google.com/file/d/1L7Gr2245GJAX8N8ea1PHRDhThtYlxciu/preview",
           },
+         
+        ],
+        },
+        {
+          title: "Integrated Waste Management for Smart City",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1U_gAHjmpES47gkBy28DQPw4ZyYly78_L/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/14yxRmQQiEzn4CXeO9CP_ylxQhmMLak1R/preview",
+            },
+            
+          
          
         ],
         },

@@ -83,7 +83,7 @@ const Subjects = () => {
         { name: 'Machine Learning -I', code: 'BAI602 ', credits: 4, info: ' ' },
         { name: 'Microcontrollers & Embedded Systems', code: 'BCO601', credits: 4, info: '  ' },
         { name: 'Cryptography & Network Security', code: 'BCO601', credits: 4, info: ' ' },
-        
+        { name: 'Integrated Waste Management for Smart City', code: 'BCV654C', credits: 3, info: ' .' },
         
         
       ],
