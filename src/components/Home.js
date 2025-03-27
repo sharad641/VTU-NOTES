@@ -23,9 +23,12 @@ const Home = () => {
           {/* Headline with marquee effect */}
           <div className="headline-message88">
   <div className="marquee-text">
-      🚀 A new feature has been added for placement test login. Review it now and take your preparation to the next level!
+      🚀 A new feature has been added for placement test login. Review it now and take your preparation to the next level!  
+      <br />  
+      📚 All notes are now updated, including the 6th Semester (2022) syllabus! Access them freely and share with your friends.
   </div>
 </div>
+
 
 {/* About VTU Notes */}
 <section className="info-box">

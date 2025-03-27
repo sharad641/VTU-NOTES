@@ -2165,6 +2165,12 @@ const ModuleDetail = () => {
               title: "Module 1:Second Notes ",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
+                "https://drive.google.com/file/d/1Od3pRlipgNvhafQS19ITmVBXb9IxtU7t/preview",
+            },
+            {
+              title: "Module 1:Third Notes ",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
                 "https://drive.google.com/file/d/1XA4_4Rg24XaHH5pFYPW_4yf5W2-BB-ts/preview",
             },
             {
