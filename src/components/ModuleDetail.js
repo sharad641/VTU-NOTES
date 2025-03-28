@@ -2227,85 +2227,46 @@ const ModuleDetail = () => {
         ],
         },
         {
-          title: "DISCRETE MATHEMATICAL STRUCTURES  ",
+          title: "Cryptography & Network Security",
           modules: [
             {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+                "https://drive.google.com/file/d/1RmrMh00z0WNpkbwZlUDKWIBN1y88_mHv/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+                "https://drive.google.com/file/d/1OmN17Z7hhKrgAS8FTzSNcDcK8Xm2xkIg/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+                "https://drive.google.com/file/d/15ZbDolvXRC1BLQ6amOkoxEgEXub-XWAu/preview",
             },
-            {
-              title: "Module 4: Notes",
-              content: "Comprehensive notes for Module 4.",
-              previewUrl:
-                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
-            },
-            {
-              title: "Module 5: Notes",
-              content: "Comprehensive notes for Module 5.",
-              previewUrl:
-                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
-            },
-           {
-            title: "Question Paper",
-            content: "Past question paper for Applied Physics for CSE.",
-            previewUrl:
-              "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
-          },
-          {
-            title: "Question Bank",
-            content: "Question bank for Applied Physics for CSE.",
-            previewUrl:
-              "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
-          },
+            
         ],
         },
         {
-          title: "GRAPH THEORY",
+          title: "Blockchain Technology",
           modules: [
             {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+                "https://drive.google.com/file/d/1n8aHhTbYBXxa7GeHlSzXmHyS2GxnblHO/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+                "https://drive.google.com/file/d/1x2F2hB0y3nLkGXt1jircZsSqsoa4Y4n9/preview",
             },
-            {
-              title: "Module 3: Notes",
-              content: "Comprehensive notes for Module 3.",
-              previewUrl:
-                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
-            },
-            {
-              title: "Module 4: Notes",
-              content: "Comprehensive notes for Module 4.",
-              previewUrl:
-                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
-            },
-            {
-              title: "Module 5: Notes",
-              content: "Comprehensive notes for Module 5.",
-              previewUrl:
-                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
-            },
+            
+            
           ],
           questionPaper: {
             title: "Question Paper",
