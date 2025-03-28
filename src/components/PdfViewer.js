@@ -147,8 +147,7 @@ const PdfViewer = () => {
                 </div>
             )}
 
-            {/* Comment Section */}
-            <CommentSection />
+          
         </div>
     );
 };
