@@ -85,14 +85,7 @@ const Footer = ({ handleBranchClick }) => {
         </div>
       </div>
 
-      {/* Back to Top Button */}
-      <button
-        className="back-to-top"
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        aria-label="Back to Top"
-      >
-        ↑ Back to Top
-      </button>
+    
 
       {/* Footer Bottom Section */}
       <div className="footer-bottom">

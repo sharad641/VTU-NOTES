@@ -4,7 +4,7 @@ import { analytics } from "../firebase"; // Firebase Analytics
 import { logEvent } from "firebase/analytics"; // Firebase event logging
 import { QRCodeCanvas } from "qrcode.react"; // QR code generator
 import AdSenseAd from "./AdSenseAd"; 
-import CommentSection from "./CommentSection";
+
 import "./PdfViewer.css";
 
 const PdfViewer = () => {

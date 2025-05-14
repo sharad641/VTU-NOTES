@@ -79,7 +79,6 @@ const Subjects = () => {
         { name:'MACHINE LEARNING', code: 'BCS602', credits: 4, info: '' },
         { name: 'CLOUD COMPUTING', code: 'BCS601', credits: 4, info: '' },
         { name: 'Blockchain Technology', code: 'BCS613A', credits: 3, info: '' },
-  
         { name: 'Natural Language Processing', code: 'BAI601', credits: 4, info: ' .' },
         { name: 'Machine Learning -I', code: 'BAI602 ', credits: 4, info: ' ' },
         { name: 'Microcontrollers & Embedded Systems', code: 'BCO601', credits: 4, info: '  ' },

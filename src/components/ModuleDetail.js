@@ -1277,49 +1277,44 @@ const ModuleDetail = () => {
         ],
         },
         {
-          title: "DISCRETE MATHEMATICAL STRUCTURES  ",
+          title: "DISCRETE MATHEMATICAL STRUCTURES",
           modules: [
             {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+                "https://drive.google.com/file/d/1qMa9r_JFzeczxadAG0jMmIPVBnFZcJ4M/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+                "https://drive.google.com/file/d/1V8WLIHttGjc3_IMgLx6p-6S39SSFpTaO/preview",
             },
             {
-              title: "Module 3: Notes",
+              title: "Module 3-1: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+                "https://drive.google.com/file/d/15GXogCcBWNjCFPAGDzx63TfNn1DHbLmR/preview",
             },
             {
-              title: "Module 4: Notes",
+              title: "Module 3-2: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+                "https://drive.google.com/file/d/15rZluF7iK1_50nR_8yx1wqO73J_KCYUG/preview",
             },
-            {
-              title: "Module 5: Notes",
-              content: "Comprehensive notes for Module 5.",
-              previewUrl:
-                "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
-            },
+            
            {
             title: "Question Paper",
             content: "Past question paper for Applied Physics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+              "https://drive.google.com/file/d/1iuXEzjqn6yqNc3AnkBMEyQN1M3qb0JYs/preview",
           },
           {
             title: "Question Bank",
             content: "Question bank for Applied Physics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1eVtsAn0I0BYdiFqQvl5x_xVZRLvg220x/preview",
+              "https://drive.google.com/file/d/1wiliZvzo0-Zc2E_UMZDhXuNa2mKgKjw5/preview",
           },
         ],
         },
@@ -2149,6 +2144,12 @@ const ModuleDetail = () => {
             previewUrl:
               "https://drive.google.com/file/d/1BmqvVe8WhNCRsXdVT3K-4x8sJbKWDq0l/preview",
           },
+          {
+            title: " Model Question Paper",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1BUbRTKVfkXgLlLsmZ5AqD7ANrvRQzC3D/preview",
+          },
         
         ],
         },
@@ -2159,7 +2160,7 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1y_jLSxfYRtL1g2Y1df_1pGjqSiGbK_rd/preview",
+                "https://drive.google.com/file/d/1oFwQi-ygkdjAZbAQp9Occ8jXB5nXQf73/preview",
             },
             {
               title: "Module 1:Second Notes ",
@@ -2177,25 +2178,31 @@ const ModuleDetail = () => {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1RxY_D1r1lICjV2y6MFLDElDSxsx2Bm4y/preview",
+                "https://drive.google.com/file/d/1Ze9yvAmExqaJ9IdeAaaD5CUh2anhIQXR/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1k0bVSdFEKLphYMohaXLra9X1XxfJjy8S/preview",
+                "https://drive.google.com/file/d/1_mtAbz2etlMhr5DBHjdnNOX941YITDya/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1BEVYHUiguD3EZDIf8ClZISqx8Odka7LJ/preview",
+                "https://drive.google.com/file/d/1SWabWSGfc70DnAAfFpae0oNxM3IHmFq6/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
                 "https://drive.google.com/file/d/1DrOsrfWVVohewyIC6T7-hIx7AJdzHDjt/preview",
+            },
+            {
+              title: "Model Question paper",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1lNZUZNCCaJM33y_kzv3sbJSird2AmCRM/preview",
             },
            {
             title: "mod-1",
@@ -2268,52 +2275,27 @@ const ModuleDetail = () => {
             
             
           ],
-          questionPaper: {
-            title: "Question Paper",
-            content: "Past question paper for Applied Physics for CSE.",
-            previewUrl:
-              "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
-          },
-          questionBank: {
-            title: "Question Bank",
-            content: "Question bank for Applied Physics for CSE.",
-            previewUrl:
-              "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
-          },
+          
+          
         },
         {
-          title: "Analysis & Design of Algorithms Lab",
+          title: "Natural Language Processing",
           modules: [
             {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+                "https://drive.google.com/file/d/13jOlNUysp9ENDhTwPf0Fj8VxXeobudjS/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/preview",
+                "https://drive.google.com/file/d/1IOzlC-IKH7EP1JVRl8UWfi84v4V9aj_D/preview",
             },
-            {
-              title: "Module 3: Notes",
-              content: "Comprehensive notes for Module 3.",
-              previewUrl:
-                "https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/preview",
-            },
-            {
-              title: "Module 4: Notes",
-              content: "Comprehensive notes for Module 4.",
-              previewUrl:
-                "https://drive.google.com/file/d/1muk8PYpH-w2OHQrpSF7cPDTwnL_4e7qs/preview",
-            },
-            {
-              title: "Module 5: Notes",
-              content: "Comprehensive notes for Module 5.",
-              previewUrl:
-                "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/preview",
-            },
+           
+           
+             
           ],
           questionPaper: {
             title: "Question Paper",
