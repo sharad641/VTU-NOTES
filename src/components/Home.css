@@ -258,7 +258,7 @@ a:hover {
 
 .chatbot-toggle-btn {
   padding: 14px 32px;
-  background: linear-gradient(135deg, #f97316, #ea580c);
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   color: #fff;
   border: none;
   border-radius: 50px;
@@ -270,7 +270,7 @@ a:hover {
 }
 
 .chatbot-toggle-btn:hover {
-  background: linear-gradient(135deg, #ea580c, #c2410c);
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(234, 88, 12, 0.6);
 }
