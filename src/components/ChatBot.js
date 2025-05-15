@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExpand, faCompress, faTimes, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faExpand, faCompress, faTimes, faMicrophone } from '@fortawesome/free-solid-svg-icons';
 import './ChatBot.css';
 
 const ChatBot = () => {
@@ -9,15 +9,17 @@ const ChatBot = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [typing, setTyping] = useState(false);
   const messageEndRef = useRef(null);
-
-  const scrollToBottom = () => {
-    messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const recognitionRef = useRef(null);
 
   useEffect(() => {
     scrollToBottom();
   }, [messages]);
+
+  const scrollToBottom = () => {
+    messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const handleSend = async () => {
     if (input.trim() === '') return;
@@ -26,14 +28,11 @@ const ChatBot = () => {
     setMessages((prevMessages) => [...prevMessages, userMessage]);
     setInput('');
     setLoading(true);
+    setTyping(true);
 
     try {
       const apiKey = process.env.REACT_APP_GEMINI_API_KEY || 'AIzaSyCMcXpDE3N46rgExwWq4tYNbMm4kWcBmHY';
-      if (!apiKey) {
-        throw new Error('API key is missing.');
-      }
-
-      const model = 'gemini-2.0-flash'; // ✅ Target Gemini 2.0 Flash
+      const model = 'gemini-2.0-flash';
 
       const response = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
@@ -44,23 +43,16 @@ const ChatBot = () => {
             contents: [{
               parts: [{ text: input }]
             }]
-          }),
+          })
         }
       );
 
       if (!response.ok) {
-        if (response.status === 429) {
-          throw new Error('⚠️ Too many requests. Please slow down.');
-        } else if (response.status === 400) {
-          throw new Error('⚠️ Bad request. Check the request body.');
-        } else {
-          throw new Error(`⚠️ Server error: ${response.status}`);
-        }
+        throw new Error(`⚠️ ${response.status === 429 ? 'Too many requests' : response.status === 400 ? 'Bad request' : 'Server error: ' + response.status}`);
       }
 
       const data = await response.json();
       const botResponse = data?.candidates?.[0]?.content?.parts?.[0]?.text || '🤖 Unable to generate response.';
-
       const botMessage = { text: botResponse, sender: 'bot', timestamp: new Date().toLocaleTimeString() };
       setMessages((prevMessages) => [...prevMessages, botMessage]);
     } catch (error) {
@@ -72,6 +64,7 @@ const ChatBot = () => {
       setMessages((prevMessages) => [...prevMessages, errorMessage]);
     } finally {
       setLoading(false);
+      setTyping(false);
     }
   };
 
@@ -81,10 +74,31 @@ const ChatBot = () => {
     }
   };
 
+  const handleVoiceInput = () => {
+    if (!('webkitSpeechRecognition' in window)) {
+      alert('Your browser does not support speech recognition.');
+      return;
+    }
+
+    if (!recognitionRef.current) {
+      const recognition = new window.webkitSpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        setInput(transcript);
+      };
+      recognitionRef.current = recognition;
+    }
+
+    recognitionRef.current.start();
+  };
+
   if (!isVisible) return null;
 
   return (
-    <div className={`chatbot-container ${isFullscreen ? 'fullscreen' : ''}`}>
+    <div className={`chatbot-container ${isFullscreen ? 'fullscreen' : ''}`} data-theme="light">
       <div className="chatbot-header">
         <h2>💬 SmartSaver ChatBot</h2>
         <div className="chatbot-controls">
@@ -104,10 +118,12 @@ const ChatBot = () => {
             <div className="timestamp">{msg.timestamp}</div>
           </div>
         ))}
-        {loading && (
+        {typing && (
           <div className="message bot">
             <div className="message-text">
-              <FontAwesomeIcon icon={faSpinner} spin /> Thinking...
+              <span className="typing-indicator">
+                <span></span><span></span><span></span>
+              </span> Typing...
             </div>
           </div>
         )}
@@ -123,6 +139,9 @@ const ChatBot = () => {
           placeholder="Ask me anything..."
           disabled={loading}
         />
+        <button className="mic-btn" onClick={handleVoiceInput} title="Voice Input">
+          <FontAwesomeIcon icon={faMicrophone} />
+        </button>
         <button className="send-btn" onClick={handleSend} disabled={loading}>
           {loading ? 'Sending...' : 'Send'}
         </button>

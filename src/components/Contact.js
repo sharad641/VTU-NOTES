@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import "./Contact.css"; // Ensure your CSS file contains the styles for this component
+import "./Contact.css";
+import { database } from "../firebase";
+import { ref, push } from "firebase/database";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,21 +11,20 @@ const Contact = () => {
   });
   const [submitStatus, setSubmitStatus] = useState("");
 
-  // Handle form input changes
+  // Handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Validate email format
+  // Email validation
   const isValidEmail = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
     const { name, email, message } = formData;
 
     if (!name.trim() || !email.trim() || !message.trim()) {
@@ -36,40 +37,53 @@ const Contact = () => {
       return;
     }
 
-    // Mock submission (replace with actual backend logic if needed)
-    setTimeout(() => {
-      setSubmitStatus("Message sent successfully!");
+    try {
+      const contactRef = ref(database, "contacts"); // Firebase path
+      await push(contactRef, {
+        name,
+        email,
+        message,
+        timestamp: new Date().toISOString(),
+      });
+
+      setSubmitStatus("✅ Message sent successfully!");
       setFormData({ name: "", email: "", message: "" });
-    }, 1000);
+    } catch (error) {
+      console.error("Error submitting message:", error);
+      setSubmitStatus("❌ Failed to send message. Please try again later.");
+    }
   };
 
   return (
     <div className="contact-page">
-      {/* Introduction Section */}
+      {/* Introduction */}
       <section className="contact-intro">
         <h1>📞 Contact Us</h1>
         <p>
           Have questions or feedback? We're here to help! Reach out to us and
-          let us know how we can assist you with your academic needs. Our team
-          is dedicated to providing prompt and efficient support.
+          let us know how we can assist you with your academic needs.
         </p>
       </section>
 
-      {/* Contact Details Section */}
+      {/* Contact Details */}
       <section className="contact-details">
         <h2>📧 Get in Touch</h2>
-        <p>
-          Whether you have questions about VTU Notes, need technical assistance,
-          or want to share suggestions, here’s how you can reach us:
-        </p>
+        <p>Reach us through the form or contact details below:</p>
+
         <div className="contact-box">
           <div className="contact-info">
             <h3>Contact Information</h3>
             <p>
-              Email: <a href="mailto:vtunotesforall@gmail.com" className="contact-link">vtunotesforall@gmail.com</a>
+              Email:{" "}
+              <a href="mailto:vtunotesforall@gmail.com" className="contact-link">
+                vtunotesforall@gmail.com
+              </a>
             </p>
             <p>
-              Phone: <a href="tel:+916364060716" className="contact-link">+91 6364060716</a>
+              Phone:{" "}
+              <a href="tel:+916364060716" className="contact-link">
+                +91 6364060716
+              </a>
             </p>
           </div>
 
@@ -119,13 +133,9 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Follow Us Section */}
+      {/* Social Links */}
       <section className="follow-us">
         <h2>📲 Follow Us</h2>
-        <p>
-          Stay connected for the latest updates, features, and announcements
-          from VTU Notes:
-        </p>
         <ul className="social-links">
           <li>
             <a
@@ -157,7 +167,7 @@ const Contact = () => {
         </ul>
       </section>
 
-      {/* Location Section */}
+      {/* Location */}
       <section className="location">
         <h2>📍 Location</h2>
         <p>Visit :</p>
@@ -169,17 +179,16 @@ const Contact = () => {
           Bangalore, Karnataka, India 560004
         </address>
         <div className="map-container">
-  <iframe
-    title="VTU Notes Location"
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.4737339797737!2d77.56726457559377!3d12.972442920601234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670a1ba5f13%3A0xa34840a276f8e04e!2sBVSS%20Maratha%20Students%20Home!5e0!3m2!1sen!2sin!4v1619156345797!5m2!1sen!2sin"
-    width="100%"
-    height="300"
-    style={{ border: 0 }}
-    allowFullScreen=""
-    loading="lazy"
-  ></iframe>
-</div>
-
+          <iframe
+            title="VTU Notes Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.4737339797737!2d77.56726457559377!3d12.972442920601234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670a1ba5f13%3A0xa34840a276f8e04e!2sBVSS%20Maratha%20Students%20Home!5e0!3m2!1sen!2sin!4v1619156345797!5m2!1sen!2sin"
+            width="100%"
+            height="300"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
         <p>We look forward to connecting with you!</p>
       </section>
     </div>
