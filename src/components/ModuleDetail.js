@@ -2112,31 +2112,31 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Introduction to Digital Design",
               previewUrl:
-                "https://drive.google.com/file/d/1EMoMc0Y-JfSwheP5Z7RD5N97dFtds4m4/preview",
+                "https://drive.google.com/file/d/12zswzZT0O9GPnRwyv57JIRgUFqXy3DWz/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Combinational Logic.",
               previewUrl:
-                "https://drive.google.com/file/d/1Xl1kyr0BRimocDCGDYS3e2N6qghVunw6/preview",
+                "https://drive.google.com/file/d/1rYAlndSz3uDaCMYrGj7gI4vF3QDMGdhT/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/163Jtzh-qZBT4Y_ybP0Oru6v96VDL7mgu/preview",
+                "https://drive.google.com/file/d/1T7kIj3ZNSX3wu8KaLL9oOENtBIdkv7Sy/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1UVpPakkPiRr5aGFOdZK4g6C9Pv1Tux6I/preview",
+                "https://drive.google.com/file/d/1qqoG9YtqwPYxNgojLWIqcX2CA_dJHcuz/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1gBPIaF-2ArT1_t0sbkvzWXh8RNbhz6WL/preview",
+                "https://drive.google.com/file/d/1I3OZbeKUcTssEvuUgJ3gBHc5vwSSlDeU/preview",
             },
           {
             title: "Question Paper",
