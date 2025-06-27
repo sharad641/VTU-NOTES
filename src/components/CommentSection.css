@@ -1,22 +1,8 @@
 /* General Styles */
-body {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f9fbfd;
-  color: #0e0909;
-  line-height: 1.6;
-}
+
 
 /* Container Styles */
-.comment-section-container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 25px;
-  background: linear-gradient(145deg, #ffffff, #f0f4f8);
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-}
+
 .intro-paragraph {
   font-size: 1rem; /* Medium-sized text for readability */
   color: #4a5568; /* Neutral dark gray for contrast */

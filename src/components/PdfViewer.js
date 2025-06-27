@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { analytics } from "../firebase"; // Firebase Analytics
 import { logEvent } from "firebase/analytics"; // Firebase event logging
-import { QRCodeCanvas } from "qrcode.react"; // QR code generator
+
 import AdSenseAd from "./AdSenseAd"; 
 
 import "./PdfViewer.css";
@@ -67,16 +67,7 @@ const PdfViewer = () => {
         }
     };
 
-    // Handle QR Code Download
-    const handleQrCodeDownload = () => {
-        const canvas = document.querySelector(".qr-code canvas");
-        if (canvas) {
-            const link = document.createElement("a");
-            link.download = `${fileName}-QRCode.png`;
-            link.href = canvas.toDataURL();
-            link.click();
-        }
-    };
+
 
     if (error) {
         return <p className="error-message">🚫 Error: Unable to load the PDF. Please check the URL and try again.</p>;
@@ -118,34 +109,10 @@ const PdfViewer = () => {
                 />
             </div>
 
-            {/* QR Code Sharing */}
-            <div className="qr-code-container">
-                <h3>📱 Share this PDF</h3>
-                <div className="qr-code">
-                    <QRCodeCanvas
-                        value={currentPageLink}
-                        size={150}
-                        level="H"
-                        bgColor="#ffffff"
-                        fgColor="#000000"
-                        aria-label={`QR Code for sharing ${fileName}`}
-                    />
-                </div>
-                <p>Scan to open this PDF link on another device.</p>
-                <button className="share-button" onClick={handleShare}>
-                    📤 Share Link
-                </button>
-                <button className="qr-code-download" onClick={handleQrCodeDownload} aria-label="Download QR Code">
-                    📥 Download QR Code
-                </button>
-            </div>
+           
 
-            {/* File Metadata */}
-            {fileName && (
-                <div className="file-info">
-                    <p><strong>File Name:</strong> {fileName}</p>
-                </div>
-            )}
+           
+        
 
           
         </div>

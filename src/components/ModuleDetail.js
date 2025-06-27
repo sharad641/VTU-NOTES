@@ -2064,7 +2064,7 @@ const ModuleDetail = () => {
               title: "Module 1:Handwritten Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1EZ0pbwkQ7LC8tVTMyGtC5CtHW2LF5JEI/preview",
+                "https://drive.google.com/file/d/1as_KO1nBNv8e2pfSFtZpV6PACpiFg6Sr/preview",
             },
             {
               title: "Module 2:Printed Notes",
@@ -2076,7 +2076,7 @@ const ModuleDetail = () => {
               title: "Module 2:Handwritten Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/13DtCmXQrWCu4VFmGMpVXq5UUwHhmKdNu/preview",
+                "https://drive.google.com/file/d/1stxqnFNrIXWTHDWRCVu5aUUGrUEgaLvj/preview",
             },
             {
               title: "Module 3: Notes",
@@ -2084,11 +2084,35 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1-DxemhvmqNYt88f4o8DkflhS9aGcVV2A/preview",
             },
+             {
+              title: "Module 3:Handwritten Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1_CpczQqssz0J5Vq_MIjKnXIj50t-8_T5/preview",
+            },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
                 "https://drive.google.com/file/d/18YvPZyMk_jcQfjG3qLdcXztpNHr0NNOb/preview",
+            },
+            {
+              title: "Module 4:Handwritten  Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1lpYM4IR4uFmOXZJBVBm4IijUULF98b8J/preview",
+            },
+             {
+              title: "All Module :Handwritten  Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1s1vnHxEibTMwJzV1HP-ZhomeTYhe_5zS/preview",
+            },
+            {
+              title: " Problems:",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1bT_kUBDQpE5odP3uUmCMvszwsH4Cq7WN/preview",
             },
             {
               title: "LAB MANNUL 1-2",
@@ -2407,6 +2431,53 @@ const ModuleDetail = () => {
       ],
       
     },
+    "ece": {
+      6: [
+        {
+          title: "VLSI",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1hbreSJuVRO62XEO-HZvuLdDWXL7C8i4Q/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1CDQDtx3xzfvfeGBq75IDAjqMitbFvWQz/preview",
+            },
+            {
+              title: "Module 3(part1): Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1zQ-tUhqFmrwlydKIN72mpq5z1-jxQ1-z/preview",
+            },
+             {
+              title: "Module 3(part2): Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1cNiK0Uu56pAYvx62srYsn-vWB64K1AIe/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1YsY3cLZorccvmywxPEnw6IshG8NpWyM5/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1KEJNiIdzOjELyPXsGdzngpZ_ut2I2286/preview",
+            },
+        ],
+        },
+      ],
+      
+    },
+    
 
     // Define other branches and semesters...
   };

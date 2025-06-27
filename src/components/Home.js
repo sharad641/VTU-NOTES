@@ -5,6 +5,7 @@ import { analytics } from '../firebase';
 import { logEvent } from 'firebase/analytics';
 
 import CommentSection from './CommentSection';
+import BranchSelection from "./BranchSelection";
 
 import Calculator from './Calculator';
 import UploadForm from './UploadForm';
@@ -52,66 +53,11 @@ const Home = () => {
         <Link to="/branch-selection/2022" className="button">📘 Access 2022 Scheme</Link>
       </section>
 
-      {/* 🎓 Scheme Selection */}
-      <section className="scheme-container">
-        <h2 className="scheme-title">Select Your Scheme</h2>
-        <p className="scheme-subtitle">Get high-quality resources tailored to your current syllabus.</p>
-        <div className="scheme-box">
-          <div className="scheme-card">
-            <h3 className="scheme-heading">2022 Scheme</h3>
-            <span className="scheme-label">Latest Syllabus</span>
-            <p className="scheme-description">
-              Fully updated notes and question banks aligned with the most recent curriculum.
-            </p>
-            <Link to="/branch-selection/2022" className="button">📘 Access 2022 Scheme</Link>
-          </div>
-        </div>
-      </section>
+     <BranchSelection /> 
 
-      {/* 📝 Practice Tests */}
-      <section className="info-box test-box">
-        <h2>📝 Take a Practice Test</h2>
-        <p>Boost your readiness with MCQ-based tests, model papers, and EVS module practice.</p>
-        <div className="test-buttons11">
-          <Link to="/test" className="button modern-button11">🎯 Start Test</Link>
-          <Link to="/test?evsModule=EVS MCQ" className="button modern-button11">🌿 EVS Test</Link>
-        </div>
-      </section>
+     
 
-      {/* 💼 Placement Guide */}
-      <section className="info-box">
-        <h2>Placement Preparation Guide & Internship Opportunities</h2>
-        <p>Preparing for placements or internships? Here's how we help:</p>
-        <ul>
-          <li><strong>Mock Interviews</strong> with expert feedback.</li>
-          <li><strong>Aptitude Tests</strong> for all core skills.</li>
-          <li><strong>Technical Prep</strong> including coding and system design.</li>
-          <li><strong>Partner Companies</strong> offering real-world internships.</li>
-          <li><strong>Skill Workshops</strong> on live projects.</li>
-          <li><strong>Certifications</strong> to enhance your profile.</li>
-        </ul>
-        <Link to="/placement-guide" className="button">👉 Explore Placement & Internship Guide</Link>
-        <div className="test-link-container">
-          <p>🎯 Simulate real placement tests and get performance analytics. Prepare for Google, Infosys, TCS and more.</p>
-          <Link to="/test" className="button">📊 Take the Practice Test</Link>
-        </div>
-      </section>
 
-      {/* ⭐ Why VTU Notes */}
-      <section className="info-box">
-        <h2>Why Choose VTU Notes?</h2>
-        <ul>
-          <li><strong>VTU-aligned:</strong> 100% mapped to the syllabus.</li>
-          <li><strong>Interactive:</strong> Like, comment, and save notes.</li>
-          <li><strong>All-in-One:</strong> Notes, tests, guides – all here.</li>
-          <li><strong>Community:</strong> Collaborate with peers.</li>
-          <li><strong>Updates:</strong> Stay ahead with new materials.</li>
-          <li><strong>Expert Content:</strong> Reviewed by toppers.</li>
-          <li><strong>Mobile Friendly:</strong> Study on the go.</li>
-          <li><strong>Career Focused:</strong> Placements + learning = success.</li>
-        </ul>
-        <Link to="/login" className="button">🚀 Get Started Now</Link>
-      </section>
 
       {/* 🤖 ChatBot Toggle */}
       <div className="chatbot-button-container">
@@ -152,10 +98,25 @@ const Home = () => {
           ))}
         </div>
       </section>
-
-      {/* 📤 Upload Notes */}
-      <UploadForm />
-
+{/* 💼 Placement Guide */}
+      <section className="info-box">
+        <h2>Placement Preparation Guide & Internship Opportunities</h2>
+        <p>Preparing for placements or internships? Here's how we help:</p>
+        <ul>
+          <li><strong>Mock Interviews</strong> with expert feedback.</li>
+          <li><strong>Aptitude Tests</strong> for all core skills.</li>
+          <li><strong>Technical Prep</strong> including coding and system design.</li>
+          <li><strong>Partner Companies</strong> offering real-world internships.</li>
+          <li><strong>Skill Workshops</strong> on live projects.</li>
+          <li><strong>Certifications</strong> to enhance your profile.</li>
+        </ul>
+        <Link to="/placement-guide" className="button">👉 Explore Placement & Internship Guide</Link>
+        <div className="test-link-container">
+          <p>🎯 Simulate real placement tests and get performance analytics. Prepare for Google, Infosys, TCS and more.</p>
+          <Link to="/test" className="button">📊 Take the Practice Test</Link>
+        </div>
+      </section>
+      
       {/* 📞 Contact Us */}
       <Contact />
  

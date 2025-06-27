@@ -12,155 +12,95 @@ const UploadForm = () => {
     const [uploadProgress, setUploadProgress] = useState(0);
     const [uploadMessage, setUploadMessage] = useState('');
     const [uploadSuccess, setUploadSuccess] = useState(false);
+    const [hover, setHover] = useState(false);
 
-    const styles = {
-        container: {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            minHeight: '100vh',
-            backgroundColor: '#f3f4f6', // Light gray background
-            padding: '2rem',
-        },
-        form: {
-            width: '100%',
-            maxWidth: '500px',
-            backgroundColor: '#ffffff',
-            padding: '2rem',
-            borderRadius: '16px',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
-            transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-        },
-        title: {
-            textAlign: 'center',
-            marginBottom: '1.5rem',
-            fontSize: '2rem',
-            fontWeight: '700',
-            color: '#1e40af', // Deep blue
-            letterSpacing: '0.5px',
-        },
-        subtitle: {
-            fontSize: '1rem',
-            color: '#4b5563', // Dark gray
-            lineHeight: '1.8',
-            margin: '15px 0 25px',
-            textAlign: 'center',
-            background: '#f1f5f9', // Light gray background
-            padding: '20px 25px',
-            borderRadius: '12px',
-            boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)',
-        },
-        formGroup: {
-            marginBottom: '1.5rem',
-        },
-        label: {
-            display: 'block',
-            marginBottom: '0.6rem',
-            fontWeight: '600',
-            color: '#374151',
-            fontSize: '1rem',
-        },
-        input: {
-            width: '100%',
-            padding: '0.9rem',
-            fontSize: '1rem',
-            borderRadius: '10px',
-            border: '1px solid #d1d5db',
-            backgroundColor: '#f9fafb',
-            transition: 'all 0.3s ease',
-        },
-        inputFocus: {
-            outline: 'none',
-            borderColor: '#2563eb',
-            backgroundColor: '#ffffff',
-            boxShadow: '0 0 8px rgba(37, 99, 235, 0.25)',
-        },
-        textArea: {
-            minHeight: '140px',
-            resize: 'vertical',
-        },
-        button: {
-            width: '100%',
-            padding: '1rem',
-            fontSize: '1.1rem',
-            fontWeight: 'bold',
-            backgroundColor: '#2563eb',
-            color: '#ffffff',
-            border: 'none',
-            borderRadius: '10px',
-            cursor: 'pointer',
-            transition: 'background-color 0.3s ease, transform 0.2s ease',
-            marginTop: '1rem',
-        },
-        buttonHover: {
-            backgroundColor: '#1e3a8a',
-        },
-        progress: {
-            textAlign: 'center',
-            marginTop: '1rem',
-            fontSize: '1rem',
-            color: '#6b7280',
-        },
-        message: {
-            textAlign: 'center',
-            fontWeight: 'bold',
-            marginTop: '1rem',
-            padding: '1rem',
-            borderRadius: '10px',
-            fontSize: '1rem',
-        },
-        success: {
-            color: '#16a34a',
-            backgroundColor: '#dcfce7',
-            border: '1px solid #16a34a',
-        },
-        error: {
-            color: '#b91c1c',
-            backgroundColor: '#fee2e2',
-            border: '1px solid #dc2626',
-        },
-    
-        /* Media queries for responsiveness */
-        '@media (max-width: 768px)': {
-            container: {
-                padding: '1.5rem', // Smaller padding on mobile
-            },
-            form: {
-                padding: '1.5rem', // Adjusted padding for smaller screens
-            },
-            title: {
-                fontSize: '1.8rem', // Slightly smaller font for titles
-            },
-            subtitle: {
-                fontSize: '0.9rem',
-                padding: '15px',
-            },
-            button: {
-                padding: '0.85rem',
-                fontSize: '1rem',
-            },
-        },
-        '@media (min-width: 1024px)': {
-            container: {
-                padding: '3rem', // Extra padding for large screens
-            },
-            form: {
-                maxWidth: '600px', // Wider form on desktops
-            },
-            title: {
-                fontSize: '2.2rem', // Larger font for titles
-            },
-            subtitle: {
-                fontSize: '1rem',
-                padding: '20px 30px',
-            },
-            button: {
-                fontSize: '1.15rem',
-            },
-        },
+    const containerStyle = {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        minHeight: '100vh',
+        width: '100%',
+        padding: '2rem',
+        boxSizing: 'border-box',
+        backgroundColor: '#f3f4f6',
     };
-    
-    
+
+    const formStyle = {
+        width: '100%',
+        maxWidth: '500px',
+        backgroundColor: '#ffffff',
+        padding: '2rem',
+        borderRadius: '16px',
+        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
+        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    };
+
+    const titleStyle = {
+        textAlign: 'center',
+        marginBottom: '1.5rem',
+        fontSize: '2rem',
+        fontWeight: '700',
+        color: '#1e40af',
+        letterSpacing: '0.5px',
+    };
+
+    const subtitleStyle = {
+        fontSize: '1rem',
+        color: '#4b5563',
+        lineHeight: '1.8',
+        margin: '15px 0 25px',
+        textAlign: 'center',
+        background: '#f1f5f9',
+        padding: '20px 25px',
+        borderRadius: '12px',
+        boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)',
+    };
+
+    const labelStyle = {
+        display: 'block',
+        marginBottom: '0.6rem',
+        fontWeight: '600',
+        color: '#374151',
+        fontSize: '1rem',
+    };
+
+    const inputStyle = {
+        width: '100%',
+        padding: '0.9rem',
+        fontSize: '1rem',
+        borderRadius: '10px',
+        border: '1px solid #d1d5db',
+        backgroundColor: '#f9fafb',
+        transition: 'all 0.3s ease',
+        marginBottom: '1.5rem',
+    };
+
+    const buttonStyle = {
+        width: '100%',
+        padding: '1rem',
+        fontSize: '1.1rem',
+        fontWeight: 'bold',
+        backgroundColor: hover ? '#1e3a8a' : '#2563eb',
+        color: '#ffffff',
+        border: 'none',
+        borderRadius: '10px',
+        cursor: 'pointer',
+        transition: 'background-color 0.3s ease, transform 0.2s ease',
+        marginTop: '1rem',
+    };
+
+    const messageStyle = {
+        textAlign: 'center',
+        fontWeight: 'bold',
+        marginTop: '1rem',
+        padding: '1rem',
+        borderRadius: '10px',
+        fontSize: '1rem',
+        color: uploadSuccess ? '#16a34a' : '#b91c1c',
+        backgroundColor: uploadSuccess ? '#dcfce7' : '#fee2e2',
+        border: `1px solid ${uploadSuccess ? '#16a34a' : '#dc2626'}`,
+    };
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
@@ -246,71 +186,69 @@ const UploadForm = () => {
     };
 
     return (
-        <div style={styles.container}>
-            <form style={styles.form} onSubmit={handleUpload}>
-                <h2 style={styles.title}>Upload Your Notes</h2>
-                <p style={styles.subtitle}>
+        <div style={containerStyle}>
+            <form style={formStyle} onSubmit={handleUpload}>
+                <h2 style={titleStyle}>Upload Your Notes</h2>
+                <p style={subtitleStyle}>
                     Join our mission to help students excel by sharing your valuable notes and study materials.
                 </p>
                 {uploadMessage && (
-                    <p style={{ ...styles.message, ...(uploadSuccess ? styles.success : styles.error) }}>
+                    <div style={messageStyle}>
                         {uploadMessage}
-                    </p>
+                    </div>
                 )}
-                <div style={styles.formGroup}>
-                    <label style={styles.label} htmlFor="semester">Semester:</label>
-                    <input
-                        id="semester"
-                        type="text"
-                        value={semester}
-                        onChange={handleInputChange}
-                        style={styles.input}
-                        required
-                    />
-                </div>
-                <div style={styles.formGroup}>
-                    <label style={styles.label} htmlFor="subjectName">Subject Name:</label>
-                    <input
-                        id="subjectName"
-                        type="text"
-                        value={subjectName}
-                        onChange={handleInputChange}
-                        style={styles.input}
-                        required
-                    />
-                </div>
-                <div style={styles.formGroup}>
-                    <label style={styles.label} htmlFor="subjectCode">Subject Code (optional):</label>
-                    <input
-                        id="subjectCode"
-                        type="text"
-                        value={subjectCode}
-                        onChange={handleInputChange}
-                        style={styles.input}
-                    />
-                </div>
-                <div style={styles.formGroup}>
-                    <label style={styles.label} htmlFor="file">File:</label>
-                    <input
-                        id="file"
-                        type="file"
-                        accept="application/pdf"
-                        onChange={handleFileChange}
-                        style={styles.input}
-                        required
-                    />
-                </div>
-                
+                <label style={labelStyle} htmlFor="semester">Semester:</label>
+                <input
+                    id="semester"
+                    type="text"
+                    value={semester}
+                    onChange={handleInputChange}
+                    style={inputStyle}
+                    required
+                />
+
+                <label style={labelStyle} htmlFor="subjectName">Subject Name:</label>
+                <input
+                    id="subjectName"
+                    type="text"
+                    value={subjectName}
+                    onChange={handleInputChange}
+                    style={inputStyle}
+                    required
+                />
+
+                <label style={labelStyle} htmlFor="subjectCode">Subject Code (optional):</label>
+                <input
+                    id="subjectCode"
+                    type="text"
+                    value={subjectCode}
+                    onChange={handleInputChange}
+                    style={inputStyle}
+                />
+
+                <label style={labelStyle} htmlFor="file">Upload PDF:</label>
+                <input
+                    id="file"
+                    type="file"
+                    accept="application/pdf"
+                    onChange={handleFileChange}
+                    style={inputStyle}
+                    required
+                />
+
                 <button
                     type="submit"
-                    style={styles.button}
-                    onMouseOver={(e) => (e.target.style.backgroundColor = styles.buttonHover.backgroundColor)}
-                    onMouseOut={(e) => (e.target.style.backgroundColor = styles.button.backgroundColor)}
+                    style={buttonStyle}
+                    onMouseEnter={() => setHover(true)}
+                    onMouseLeave={() => setHover(false)}
                 >
                     Upload
                 </button>
+
                 {uploadProgress > 0 && (
-                    <p style={styles.progress}>Upload progress: {uploadProgress.toFixed(2)}%</p>
+                    <p style={{ textAlign: 'center', marginTop: '1rem', color: '#6b7280' }}>
+                        Upload progress: {uploadProgress.toFixed(2)}%
+                    </p>
                 )}
             </form>
         </div>

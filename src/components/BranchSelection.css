@@ -1,128 +1,234 @@
-/* Container Styling */
+/* ========== GLOBAL CONTAINER ========== */
 .branch-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 60px 20px;
   text-align: center;
-  background: #ffffff; /* Modern white background */
+  background: #f9fafb; /* Soft modern background */
 }
 
 .branch-header {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  color: #1a1a1a; /* Modern black for headings */
-  font-weight: bold;
-  letter-spacing: -0.05rem;
+  font-size: 2.7rem;
+  margin-bottom: 3rem;
+  color: #1e3a8a; /* Deep blue */
+  font-weight: 800;
+  letter-spacing: -0.03rem;
+  font-family: 'Inter', sans-serif;
 }
 
-/* Card Section */
+/* ========== CARD WRAPPER ========== */
 .branch-section {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
 }
 
+/* ========== CARD STYLE ========== */
 .branch-card {
-  width: 320px;
-  background: #ffffff; /* Modern white background */
-  border-radius: 15px;
+  width: 100%;
+  max-width: 350px;
+  background: #ffffff;
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 2px solid #e0e0e0; /* Light gray border for subtle contrast */
-  position: relative;
+  border: 1px solid #e5e7eb;
+  transition: all 0.35s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .premium-card {
-  border: 2px solid #1e90ff; /* Modern blue for premium cards */
-  box-shadow: 0 8px 20px rgba(30, 144, 255, 0.1); /* Matching shadow */
+  border: 2px solid #2563eb;
+  box-shadow: 0 6px 24px rgba(37, 99, 235, 0.1);
 }
 
 .premium-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(30, 144, 255, 0.2); /* Enhanced shadow on hover */
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
 }
 
-/* Image Section */
+/* ========== IMAGE SECTION ========== */
 .branch-image {
-  background: linear-gradient(135deg, #1e90ff, #0077b6); /* Modern blue gradient */
-  color: #ffffff; /* White text for contrast */
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  color: #ffffff;
   text-align: center;
   padding: 50px 20px;
-  font-size: 1.8rem;
-  font-weight: bold;
+  font-size: 1.9rem;
+  font-weight: 700;
+  transition: background 0.4s ease;
 }
 
+.branch-card:hover .branch-image {
+  background: linear-gradient(135deg, #1e40af, #2563eb);
+}
+
+/* ========== CONTENT SECTION ========== */
 .branch-content {
-  padding: 20px;
+  padding: 24px;
   text-align: left;
 }
 
-/* Tags */
 .branch-tag {
   display: inline-block;
-  font-size: 0.9rem;
-  padding: 8px 15px;
-  border-radius: 25px;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-weight: 600;
   margin-bottom: 15px;
-  font-weight: bold;
-  background: #f0f0f0; /* Light gray background for tags */
-  color: #1a1a1a; /* Modern black text */
+  background: #e0e7ff;
+  color: #1e3a8a;
 }
 
 .premium-tag {
-  background: #1e90ff; /* Modern blue for premium tags */
-  color: #ffffff; /* White text */
+  background: #2563eb;
+  color: #ffffff;
 }
 
-/* Headings & Description */
 .branch-content h3 {
-  font-size: 1.4rem;
-  color: #1a1a1a; /* Modern black for headings */
-  margin-bottom: 10px;
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.branch-card:hover h3 {
+  color: #2563eb;
 }
 
 .branch-content p {
   font-size: 0.95rem;
-  color: #666666; /* Medium gray for description */
+  color: #4b5563;
   line-height: 1.6;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
-/* Meta Info */
+/* ========== META INFO & BRAND ========== */
 .branch-meta {
   display: flex;
   justify-content: space-between;
   font-size: 0.85rem;
-  color: #999999; /* Light gray for meta info */
+  color: #9ca3af;
 }
 
-/* Brand Tag */
 .brand-tag {
   font-size: 0.85rem;
-  margin-top: 10px;
+  margin-top: 12px;
+  color: #1f2937;
+  font-weight: 600;
   text-align: center;
-  color: #1a1a1a; /* Modern black for brand tag */
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .branch-header {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .branch-card {
+    max-width: 90%;
+  }
+
+  .branch-image {
+    font-size: 1.6rem;
+    padding: 40px 15px;
+  }
+
+  .branch-content {
+    padding: 20px;
+  }
+
+  .branch-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .branch-content p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .branch-header {
+    font-size: 1.7rem;
+  }
+
+  .branch-card {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .branch-content p,
+  .branch-meta,
+  .brand-tag {
+    font-size: 0.85rem;
+  }
+}
+/* 🔍 Search Bar Styling */
+.search-bar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  padding: 12px 16px;
+  width: 300px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #1e90ff;
+  box-shadow: 0 0 8px rgba(30, 144, 255, 0.3);
+}
+
+.search-button {
+  padding: 12px 20px;
+  font-size: 1rem;
   font-weight: bold;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* Hover Animation */
-.branch-card:hover h3 {
-  color: #1e90ff; /* Modern blue on hover */
+.search-button:hover {
+  background-color: #005bb5;
 }
 
-/* Additional Enhancements */
-.branch-card:hover {
-  transform: scale(1.05); /* Slight scale-up effect on hover */
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+/* Search Results Styling */
+.search-results {
+  margin-top: 20px;
+  background: #f1f5f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.branch-image {
-  transition: background 0.3s ease; /* Smooth background transition */
+.search-results h3 {
+  color: #1a1a1a;
+  margin-bottom: 10px;
 }
 
-.branch-card:hover .branch-image {
-  background: linear-gradient(135deg, #0077b6, #1e90ff); /* Reverse gradient on hover */
+.search-results ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.search-results li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
 }

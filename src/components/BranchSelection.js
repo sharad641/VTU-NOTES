@@ -13,6 +13,7 @@ function BranchSelection() {
     <div className="branch-container">
       <h1 className="branch-header">VTU Notes Categories (2022 Scheme)</h1>
       <div className="branch-section">
+        
         {/* First Year Card */}
         <div className="branch-card premium-card" onClick={() => handleBranchClick("first-year")}>
           <div className="branch-image">
@@ -27,7 +28,7 @@ function BranchSelection() {
             </p>
             <div className="branch-meta">
               <span>📅 21-12-2024</span>
-              <span>👤vtunotesforall</span>
+              <span>👤 vtunotesforall</span>
             </div>
             <p className="brand-tag">Powered by <strong>vtunotesforall.in</strong></p>
           </div>
@@ -52,6 +53,27 @@ function BranchSelection() {
             <p className="brand-tag">Powered by <strong>vtunotesforall.in</strong></p>
           </div>
         </div>
+
+        {/* ECE Card */}
+        <div className="branch-card premium-card" onClick={() => handleBranchClick("ece")}>
+          <div className="branch-image">
+            <h2>ECE</h2>
+          </div>
+          <div className="branch-content">
+            <span className="branch-tag premium-tag">ECE</span>
+            <h3>Explore ECE Notes</h3>
+            <p>
+              Find curated VTU notes, previous year papers, model questions, and essential study material 
+              for Electronics and Communication Engineering.
+            </p>
+            <div className="branch-meta">
+              <span>📅 21-12-2024</span>
+              <span>👤 vtunotesforall</span>
+            </div>
+            <p className="brand-tag">Powered by <strong>vtunotesforall.in</strong></p>
+          </div>
+        </div>
+
       </div>
     </div>
   );
