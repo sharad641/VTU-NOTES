@@ -8,7 +8,7 @@ import CommentSection from './CommentSection';
 import BranchSelection from "./BranchSelection";
 
 import Calculator from './Calculator';
-import UploadForm from './UploadForm';
+
 import Contact from './Contact';
 import ChatBot from './ChatBot';
 

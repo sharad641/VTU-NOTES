@@ -16,7 +16,7 @@ import ModuleDetail from './components/ModuleDetail';
 import PdfViewer from './components/PdfViewer';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import UploadForm from './components/UploadForm';
+
 import Calculator from './components/Calculator';
 import PlacementGuide from './components/PlacementGuide';
 import FAQs from './components/FAQs';
@@ -101,7 +101,7 @@ function App() {
           <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
 
           {/* Public Utility Tools */}
-          <Route path="/upload" element={<UploadForm />} />
+          
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/chatbot" element={<ChatBot />} />
           <Route path="/comments" element={<CommentSection />} />
