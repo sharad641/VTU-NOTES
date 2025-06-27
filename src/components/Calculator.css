@@ -1,76 +1,81 @@
-/* Root Variables */
+/* Global Variables (CSS Custom Properties) */
 :root {
-  --primary-color: #1e3a8a;         /* Deep Modern Blue */
-  --secondary-color: #ffffff;       /* Clean White */
-  --background-color: #f9fafb;      /* Light background */
-  --text-color: #1f2937;            /* Dark Gray for better contrast */
-  --input-border: #d1d5db;
-  --focus-color: #2563eb;           /* Brighter Blue */
-  --shadow-light: rgba(0, 0, 0, 0.05);
-  --shadow-dark: rgba(0, 0, 0, 0.15);
-  --font-family: 'Inter', sans-serif;
+    --primary-color: #007bff; /* Bright Blue for buttons */
+    --secondary-color: #ffffff; /* White for card backgrounds */
+    --background-color: #121212; /* Modern Black for main background */
+    --text-color: #000000; /* Black for text */
+    --input-border: #ced4da; /* Light Gray for borders */
+    --focus-color: #0056b3; /* Darker Blue for focus */
+    --shadow-light: rgba(255, 255, 255, 0.1); /* Subtle shadow for light theme */
+    --shadow-dark: rgba(0, 0, 0, 0.5); /* Darker shadow for cards */
+    --font-family: 'Inter', sans-serif; /* Clean and modern font */
 }
 
-/* Base Container */
+/* General layout for the container */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+}
+
 .calculator-container {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 60px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--secondary-color);
-  border-radius: 16px;
-  box-shadow: 0 10px 25px var(--shadow-dark);
-  transition: transform 0.3s ease;
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 12px;
+    background-color: var(--secondary-color);
+    box-shadow: 0 10px 20px var(--shadow-dark);
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
 .calculator-container:hover {
-  transform: translateY(-4px);
+    transform: translateY(-5px);
 }
 
-/* Heading */
+/* Title styling */
 .calculator-container h1 {
-  font-family: var(--font-family);
-  text-align: center;
-  font-size: clamp(2.4rem, 5vw, 3rem);
-  color: var(--text-color);
-  margin-bottom: 32px;
-  font-weight: 700;
+    text-align: center;
+    font-size: clamp(2.5rem, 5vw, 3rem);
+    color: var(--text-color);
+    margin-bottom: 35px;
+    font-weight: 700;
 }
+
+
 
 /* Buttons */
 .button {
-  font-family: var(--font-family);
-  padding: 14px 24px;
-  margin: 10px;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: #fff;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  box-shadow: 0 6px 14px var(--shadow-dark);
+    padding: 14px 24px;
+    margin: 10px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .button:hover {
-  background-color: var(--focus-color);
-  transform: translateY(-3px);
+    background-color: var(--focus-color);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .button:active {
-  transform: translateY(1px);
+    transform: translateY(2px);
 }
 
-/* Inputs */
+/* Input Fields */
 .input-group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
 }
 
 .input-field {
@@ -90,134 +95,143 @@
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Responsive design */
+@media (max-width: 768px) {
+    .calculator-container {
+        padding: 25px;
+    }
 
+    .button {
+        width: 100%;
+        margin: 8px 0;
+    }
 
-/* Calculator Section */
+    .calculator-container h1 {
+        font-size: 2.2rem;
+    }
+
+    .about-calculators h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-calculators p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Calculator Section Styling */
 .calculator-section {
-  margin-top: 24px;
-  padding: 24px;
-  width: 100%;
-  max-width: 800px;
-  background-color: var(--secondary-color);
-  border-radius: 14px;
-  box-shadow: 0 8px 20px var(--shadow-dark);
-  transition: 0.3s ease-in-out;
+    margin-top: 20px;
+    padding: 20px;
+    background-color: var(--secondary-color);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px var(--shadow-dark);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .calculator-section:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 25px var(--shadow-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px var(--shadow-dark);
 }
 
 .calculator-section h2 {
-  font-size: 1.8rem;
-  color: var(--text-color);
-  margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
 }
-
-/* Typography */
+/* General Text Styling */
 .text-gray-700 {
-  color: var(--text-color);
-}
-
-.text-sm {
-  font-size: 1rem;
-  line-height: 1.8;
-}
-
-.mb-4 {
-  margin-bottom: 1.5rem;
-}
-
-/* List Styling */
-.list-disc {
-  list-style: none;
-  padding-left: 0;
-}
-
-.list-inside {
-  margin-left: 1.5rem;
-}
-
-.list-inside li {
-  margin-bottom: 1rem;
-  position: relative;
-  padding-left: 32px;
-}
-
-.list-inside li::before {
-  content: "💡";
-  position: absolute;
-  left: 0;
-  top: 2px;
-  font-size: 1.2rem;
-  color: var(--primary-color);
-}
-
-.list-inside li strong {
-  color: var(--primary-color);
-}
-
-/* Paragraphs */
-.text-gray-700 p {
-  margin-bottom: 1.5rem;
-  line-height: 1.8;
-}
-
-/* Links */
-.text-gray-700 a {
-  color: var(--primary-color);
-  font-weight: 600;
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: all 0.3s;
-}
-
-.text-gray-700 a:hover {
-  color: var(--focus-color);
-  border-bottom: 1px solid var(--focus-color);
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-  .calculator-container {
-    padding: 30px 20px;
+    color: #4a4a4a; /* Neutral dark gray for better readability */
   }
-
-  .calculator-container h1 {
-    font-size: 2.2rem;
-  }
-
-  .button {
-    width: 100%;
-    margin: 8px 0;
-  }
-
+  
   .text-sm {
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  .list-inside li {
-    padding-left: 25px;
-  }
-
-  .list-inside li::before {
     font-size: 1rem;
+    line-height: 1.8; /* Improved readability */
   }
-}
-
-@media (max-width: 480px) {
-  .text-sm {
-    font-size: 0.9rem;
-    line-height: 1.5;
+  
+  .mb-4 {
+    margin-bottom: 1.5rem; /* Slightly larger spacing for better content flow */
   }
-
+  
+  /* List Styling */
+  .list-disc {
+    list-style-type: none; /* Removes default bullets */
+    padding-left: 0;
+  }
+  
+  .list-inside {
+    margin-left: 1.5rem; /* Aligns nicely with other elements */
+  }
+  
   .list-inside li {
-    padding-left: 20px;
+    margin-bottom: 0.8rem; /* Better spacing between list items */
+    position: relative;
+    padding-left: 30px; /* Space for custom bullet */
   }
-
+  
   .list-inside li::before {
-    font-size: 0.9rem;
+    content: "🌟"; /* Modern and visually appealing custom bullet */
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #0078d7; /* Matches the theme */
+    font-size: 1.2rem;
   }
-}
+  
+  /* Strong Text */
+  .list-inside li strong {
+    color: #0078d7; /* Consistent with the custom bullet color */
+    font-weight: bold;
+  }
+  
+  /* Paragraph Styling */
+  .text-gray-700 p {
+    margin-bottom: 1.5rem; /* Larger space for better readability */
+    line-height: 1.8; /* Enhanced line spacing */
+  }
+  
+  /* Links (Optional Styling for Better Look) */
+  .text-gray-700 a {
+    color: #0078d7;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+  }
+  
+  .text-gray-700 a:hover {
+    color: #005bb5;
+    border-bottom: 1px solid #005bb5;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .text-sm {
+      font-size: 0.9rem; /* Slightly smaller for smaller devices */
+      line-height: 1.6;
+    }
+  
+    .list-inside li {
+      padding-left: 25px; /* Adjust for smaller screens */
+    }
+  
+    .list-inside li::before {
+      font-size: 1rem; /* Scaled down bullet size */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .text-sm {
+      font-size: 0.85rem; /* Smaller font for very small screens */
+      line-height: 1.4;
+    }
+  
+    .list-inside li {
+      padding-left: 20px; /* Align with smaller screens */
+    }
+  
+    .list-inside li::before {
+      font-size: 0.9rem; /* Smaller bullet for better fit */
+    }
+  }
+  

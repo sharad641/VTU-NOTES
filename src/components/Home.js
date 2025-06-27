@@ -5,10 +5,10 @@ import { analytics } from '../firebase';
 import { logEvent } from 'firebase/analytics';
 
 import CommentSection from './CommentSection';
-import BranchSelection from "./BranchSelection";
+import BranchSelection from './BranchSelection';
 
 import Calculator from './Calculator';
-
+import UploadForm from './UploadForm';
 import Contact from './Contact';
 import ChatBot from './ChatBot';
 
@@ -53,12 +53,30 @@ const Home = () => {
         <Link to="/branch-selection/2022" className="button">📘 Access 2022 Scheme</Link>
       </section>
 
-     <BranchSelection /> 
+      <BranchSelection /> 
+
+      
+
+      {/* 💼 Placement Guide */}
+      <section className="info-box">
+        <h2>Placement Preparation Guide & Internship Opportunities</h2>
+        <p>Preparing for placements or internships? Here's how we help:</p>
+        <ul>
+          <li><strong>Mock Interviews</strong> with expert feedback.</li>
+          <li><strong>Aptitude Tests</strong> for all core skills.</li>
+          <li><strong>Technical Prep</strong> including coding and system design.</li>
+          <li><strong>Partner Companies</strong> offering real-world internships.</li>
+          <li><strong>Skill Workshops</strong> on live projects.</li>
+          <li><strong>Certifications</strong> to enhance your profile.</li>
+        </ul>
+        <Link to="/placement-guide" className="button">👉 Explore Placement & Internship Guide</Link>
+        <div className="test-link-container">
+          <p>🎯 Simulate real placement tests and get performance analytics. Prepare for Google, Infosys, TCS and more.</p>
+          <Link to="/test" className="button">📊 Take the Practice Test</Link>
+        </div>
+      </section>
 
      
-
-
-
       {/* 🤖 ChatBot Toggle */}
       <div className="chatbot-button-container">
         <button className="chatbot-toggle-btn" onClick={toggleChatbot}>
@@ -98,25 +116,10 @@ const Home = () => {
           ))}
         </div>
       </section>
-{/* 💼 Placement Guide */}
-      <section className="info-box">
-        <h2>Placement Preparation Guide & Internship Opportunities</h2>
-        <p>Preparing for placements or internships? Here's how we help:</p>
-        <ul>
-          <li><strong>Mock Interviews</strong> with expert feedback.</li>
-          <li><strong>Aptitude Tests</strong> for all core skills.</li>
-          <li><strong>Technical Prep</strong> including coding and system design.</li>
-          <li><strong>Partner Companies</strong> offering real-world internships.</li>
-          <li><strong>Skill Workshops</strong> on live projects.</li>
-          <li><strong>Certifications</strong> to enhance your profile.</li>
-        </ul>
-        <Link to="/placement-guide" className="button">👉 Explore Placement & Internship Guide</Link>
-        <div className="test-link-container">
-          <p>🎯 Simulate real placement tests and get performance analytics. Prepare for Google, Infosys, TCS and more.</p>
-          <Link to="/test" className="button">📊 Take the Practice Test</Link>
-        </div>
-      </section>
-      
+
+      {/* 📤 Upload Notes */}
+      <UploadForm />
+
       {/* 📞 Contact Us */}
       <Contact />
  
