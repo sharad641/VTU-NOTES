@@ -2472,6 +2472,18 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1KEJNiIdzOjELyPXsGdzngpZ_ut2I2286/preview",
             },
+             {
+              title: "Module Question Paper : Solutions-1",
+              content: "",
+              previewUrl:
+                "https://drive.google.com/file/d/15hyLf78USIbuJ2xn_m94US4A18rOLhUt/preview",
+            },
+            {
+              title: "Module Question Paper : Solutions-2",
+              content: ".",
+              previewUrl:
+                "https://drive.google.com/file/d/1zNOLz8e_mJ2h9S6axNANyMdgX222TMxc/preview",
+            },
         ],
         },
       ],

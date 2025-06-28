@@ -6,6 +6,7 @@ import { logEvent } from 'firebase/analytics';
 
 import CommentSection from './CommentSection';
 import BranchSelection from './BranchSelection';
+import ModelPapers from './ModelPapers';
 
 import Calculator from './Calculator';
 import UploadForm from './UploadForm';
@@ -55,7 +56,7 @@ const Home = () => {
 
       <BranchSelection /> 
 
-      
+      <ModelPapers/>
 
       {/* 💼 Placement Guide */}
       <section className="info-box">
@@ -85,8 +86,6 @@ const Home = () => {
       </div>
       {showChatbot && <ChatBot />}
 
-      {/* 🧮 Calculator */}
-      <Calculator />
 
       {/* 📖 FAQs */}
       <section className="info-box modern-box">
@@ -116,7 +115,9 @@ const Home = () => {
           ))}
         </div>
       </section>
-
+      
+      {/* 🧮 Calculator */}
+      <Calculator />
       {/* 📤 Upload Notes */}
       <UploadForm />
 

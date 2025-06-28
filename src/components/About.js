@@ -68,52 +68,20 @@ function About() {
         <h2>🏆 Our Achievements</h2>
         <div className="achievement-cards">
           <div className="card">
-            <h3>8k+ Users</h3>
+            <h3>28k+ Users</h3>
             <p>Thousands of VTU students trust VTU Notes for their academic success.</p>
           </div>
           <div className="card">
            
-            <p>Our platform has received over 32,000 visits from students across VTU branches.</p>
+            <p>Our platform has received over 68,000 visits from students across VTU branches.</p>
           </div>
         </div>
       </section>
 
-      {/* Support Section */}
-      <section className="about-support">
-        <div className="support-container">
-          <h2>💖 Join Us in Making Education Accessible for All</h2>
-          <p>
-            At <strong>VTU Notes</strong>, our mission is simple yet powerful: to provide free, high-quality academic resources to every student in need. 
-            We believe that education is a right, not a privilege, and with your support, we can continue breaking barriers to knowledge.
-          </p>
-          <p>
-            Your contribution isn’t just a donation—it’s an investment in the future of countless students who rely on these resources to excel in their studies. 
-            Together, we can build a platform that inspires, educates, and empowers learners everywhere.
-          </p>
-          <p>
-            Every small step makes a big impact. Whether it’s helping us add new features, enhance the user experience, or reach underserved students, 
-            your generosity enables us to take VTU Notes to the next level. Let’s make a difference together!
-          </p>
-          <div className="donation-options">
-            <h3>✨ How You Can Support Us</h3>
-            <ul>
-              <li>
-                <strong>Paytm UPI:</strong> <code>6364060716@ptyes</code>
-              </li>
-              <li>
-                <strong>PhonePe UPI:</strong> <code>6364060716@axl</code>
-              </li>
-            </ul>
-          </div>
+      
     
           
-          <p className="thank-you">
-            🌟 Every contribution, big or small, brings us closer to transforming education for all. 
-            Thank you for being a part of this journey! Your kindness and support mean the world to us. 💙
-          </p>
-        </div>
-      </section>
-
+          
       {/* Developer Section */}
       <section className="about-developer">
         <h2>👨‍💻 About the Developer</h2>

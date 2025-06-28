@@ -20,14 +20,12 @@ import TestPage from './components/TestPage';
 import CommentSection from './components/CommentSection';
 import StudyPlanner from './components/StudyPlanner';
 import Profile from './components/Profile';
+import ModelPapers from './components/ModelPapers';
 
-// New Page Imports
 import About from './components/About';
 import Contact from './components/Contact';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions';
-
-// AdSense Component
 import AdSenseAd from './components/AdSenseAd';
 
 import { auth } from './firebase';
@@ -38,29 +36,23 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Check user authentication state on mount
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setIsAuthenticated(!!user); // Set authentication state based on user presence
-      setLoading(false); // Remove loading state once auth check is complete
+      setIsAuthenticated(!!user);
+      setLoading(false);
     });
-
     return () => unsubscribe();
   }, []);
 
-  // Redirect authenticated users away from login/signup
   const RedirectAuthenticatedUser = ({ element }) => (
     isAuthenticated ? <Navigate to="/" /> : element
   );
 
-  // Show loading screen while authentication state is being determined
   if (loading) {
     return (
       <div className="loading-overlay">
         <div className="loading-container">
-          <div className="loader-wrapper">
-            {/* Loading Spinner or Animation */}
-          </div>
+          <div className="loader-wrapper">Loading...</div>
         </div>
       </div>
     );
@@ -71,7 +63,7 @@ function App() {
       <div className="app-container">
         <Navbar />
         
-        {/* AdSense Ad (Above Main Content) */}
+        {/* Optional: Place your AdSense component here if you want it to show on every page */}
         <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
 
         <Routes>
@@ -85,32 +77,35 @@ function App() {
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/pdf/:pdfUrl" element={<PdfViewer />} />
 
-          {/* About, Contact, Privacy Policy, Terms and Conditions Routes */}
+          {/* Model Papers Routes */}
+          
+          <Route path="/model-papers" element={<ModelPapers />} />
+
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
 
-          {/* Protected Routes - Authenticated Users */}
+          {/* Protected Routes */}
           <Route path="/placement-guide" element={isAuthenticated ? <PlacementGuide /> : <Navigate to="/login" />} />
           <Route path="/study-planner" element={isAuthenticated ? <StudyPlanner /> : <Navigate to="/login" />} />
           <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
 
-          {/* Public Utility Routes */}
+          {/* Utility Routes */}
           <Route path="/upload" element={<UploadForm />} />
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/chatbot" element={<ChatBot />} />
           <Route path="/comments" element={<CommentSection />} />
-          <Route path="/test" element={<TestPage />} /> {/* Moved here to make it public */}
+          <Route path="/test" element={<TestPage />} />
 
-          {/* Authentication Routes */}
+          {/* Authentication */}
           <Route path="/login" element={<RedirectAuthenticatedUser element={<Login setIsAuthenticated={setIsAuthenticated} />} />} />
           <Route path="/signup" element={<RedirectAuthenticatedUser element={<Signup />} />} />
 
-          {/* Fallback Route */}
+          {/* Fallback */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
-        
+
         <Footer />
       </div>
     </Router>
