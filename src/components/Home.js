@@ -9,7 +9,7 @@ import BranchSelection from './BranchSelection';
 import ModelPapers from './ModelPapers';
 
 import Calculator from './Calculator';
-import UploadForm from './UploadForm';
+
 import Contact from './Contact';
 import ChatBot from './ChatBot';
 
@@ -118,8 +118,7 @@ const Home = () => {
       
       {/* 🧮 Calculator */}
       <Calculator />
-      {/* 📤 Upload Notes */}
-      <UploadForm />
+    
 
       {/* 📞 Contact Us */}
       <Contact />
