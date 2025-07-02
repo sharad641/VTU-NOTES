@@ -21,14 +21,87 @@ const papers = [
    
   },
   {
-    title: 'MC',
+    title: 'Microcontroller',
     code: 'BCS402',
     modelPaperLink: 'https://drive.google.com/file/d/1bFd7GbQA6GycngDouhlvhnjNAoPW6t6q/view?usp=drive_link',
    
-  }, {
-    title: 'MC',
+  },
+   {
+    title: 'Microcontroller',
     code: 'BCS402',
-    modelPaperLink: 'https://drive.google.com/file/d/1aVBwZ8K9iHTS_uTiROIZjYcNovQUbv3b/view?usp=drive_link',
+    modelPaperLink: 'https://drive.google.com/file/d/1aVBwZ8K9iHTS_uTiROIZjYcNovQUbv3b/preview',
+   
+  },
+  {
+    title: 'Applied Physics for CSE stream ',
+    code: 'BPHYS102',
+    modelPaperLink: 'https://drive.google.com/file/d/1Qsw-USW8fq6meVzpU74mYOIP7WwECOXb/preview',
+   
+  },
+  {
+    title: 'Principles of Programming Using C',
+    code: 'BPOPS103',
+    modelPaperLink: 'https://drive.google.com/file/d/1XbWC-4lhCglAe2uNps_S0yJtRjx8JKY8/preview',
+   
+  },
+  {
+    title: 'Introduction to Python  Programming ',
+    code: 'BPLCK205B',
+    modelPaperLink: 'https://drive.google.com/file/d/1XIvt4xN6tEo34CYD1kpn2OWrgRy0zdEo/preview',
+    solutionLink: 'https://drive.google.com/file/d/12PN6-yofvVSVi3xgnbsTc2mhzuWRt4gS/preview',
+
+   
+  },
+  {
+    title: 'Introduction to Electrical Engineering ',
+    code: 'BESCK104B',
+    modelPaperLink: 'https://drive.google.com/file/d/1xm1BU-8LUzSmpWSc30vJNtRvTeqQcYS2/preview',
+   
+  },
+  {
+    title: 'Mathematics-II forCSE Stream ',
+    code: 'BMATS201 ',
+    modelPaperLink: 'https://drive.google.com/file/d/1vHxAXnHlBBglr-K3ZUAGqzwP5SC0qNki/preview',
+   
+  },
+  {
+    title: 'MATHEMATICS FOR CS ENGINEERING STREAM (BCS301)',
+    code: 'BCS301',
+    modelPaperLink: 'https://drive.google.com/file/d/1yWlFPiwEkizdCX-nfOJhg4j571naHRh9/preview',
+    solutionLink: 'https://drive.google.com/file/d/1__LR4Vo4wqsQYd8IbIixnxFOM85AmAY-/preview',
+   
+  },
+  {
+    title: 'Operating System ',
+    code: 'BCS303',
+    modelPaperLink: 'https://drive.google.com/file/d/1YXVbpdqeVKm4Hozh7lLH7mFS8NkLWz_k/preview',
+   
+  },
+    {
+    title: 'Data Structures and Applications ',
+    code: 'BCS304',
+    modelPaperLink: 'https://drive.google.com/file/d/1inTZ9YeyPBbXGvKJDtbxGvEMPTgVYSml/preview',
+    solutionLink: 'https://drive.google.com/file/d/1oqqZKNvDkFMtU5210eS_Q-LFEepR_bfr/preview',
+   
+  },
+   {
+    title: 'Object Oriented Programming with JAVA',
+    code: 'BCS306A',
+    modelPaperLink: 'https://drive.google.com/file/d/1LLY2jEI-KnI6M5wacApA_KW-SViB0pIs/preview',
+     solutionLink: 'https://drive.google.com/file/d/1g4x5sDmgyLnsC0kkWPhGuy1BNcJnF5Sd/preview',
+   
+  }, {
+    title: 'DISCRETE MATHEMATICAL STRUCTURES (BCS405A)',
+    code: 'BCS405A',
+    modelPaperLink: 'https://drive.google.com/file/d/1cOOJv05d1Dl_7pL7ANCMxXTuvUziD9ai/preview',
+     solutionLink: 'https://drive.google.com/file/d/1iuXEzjqn6yqNc3AnkBMEyQN1M3qb0JYs/preview',
+   
+  },
+   {
+    title: 'Biology for Engineering',
+    code: 'BBOC407',
+    modelPaperLink: 'https://drive.google.com/file/d/1qRg6fD6doTfw9h51suNe5fbjuWgeECQO/preview',
+     solutionLink: 'https://drive.google.com/file/d/1h_udrhNRqd0UiwdM8bVeH_PTXyWsVcKB/preview',
    
   },
   
@@ -73,7 +146,7 @@ const ModelPapers = () => {
                   rel="noopener noreferrer"
                   className="paper-button"
                 >
-                  📄 Model Paper
+                  📄 Question Papers
                 </a>
               )}
               {paper.solutionLink && (
