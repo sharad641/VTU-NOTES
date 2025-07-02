@@ -7,7 +7,7 @@ const Footer = ({ handleBranchClick }) => {
   const socialLinks = [
     { href: "https://facebook.com", icon: "fab fa-facebook-f", label: "Facebook" },
     { href: "https://twitter.com", icon: "fab fa-twitter", label: "Twitter" },
-    { href: "https://linkedin.com", icon: "fab fa-linkedin-in", label: "LinkedIn" },
+    { href: "https://www.linkedin.com/in/sharad-patil-691902259", icon: "fab fa-linkedin-in", label: "LinkedIn" },
   ];
 
   // Reusable Footer Link Component

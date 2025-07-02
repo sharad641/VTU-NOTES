@@ -14,6 +14,23 @@ const papers = [
     modelPaperLink: 'https://drive.google.com/file/d/1cjG_nakCffLmtjD9n7Esa5f8ROqXhOR8/view?usp=drive_link',
    
   },
+  {
+    title: 'CLOUD COMPUTING AND SECURITY FOR BOTH BCS601 AND BIS613D',
+    code: 'BIS613D and BCS601',
+    modelPaperLink: 'https://drive.google.com/file/d/1fhIl9-oR8sCf_9zf0QD1m3mzoFrOPP7w/view?usp=drive_link',
+   
+  },
+  {
+    title: 'MC',
+    code: 'BCS402',
+    modelPaperLink: 'https://drive.google.com/file/d/1bFd7GbQA6GycngDouhlvhnjNAoPW6t6q/view?usp=drive_link',
+   
+  }, {
+    title: 'MC',
+    code: 'BCS402',
+    modelPaperLink: 'https://drive.google.com/file/d/1aVBwZ8K9iHTS_uTiROIZjYcNovQUbv3b/view?usp=drive_link',
+   
+  },
   
 ];
 
