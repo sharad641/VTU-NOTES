@@ -3,6 +3,9 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import AdSenseAd from './AdSenseAd'; 
 import "./ModuleDetail.css";
+import { AiOutlineEye } from "react-icons/ai";
+import { FaDownload } from "react-icons/fa";
+
 
 const ModuleDetail = () => {
   const { branch, semester, subjectName } = useParams();
@@ -2518,7 +2521,7 @@ const ModuleDetail = () => {
   };
 
   return (
-    <div
+   <div
       className="module-detail"
       style={{ marginTop: "80px", padding: "20px", textAlign: "center" }}
     >
@@ -2532,39 +2535,39 @@ const ModuleDetail = () => {
               <div key={index} className="module-card">
                 <h3>{module.title}</h3>
                 <p>{module.content}</p>
-                 
+
                 <div className="download-buttons">
                   <button
-                    className="view-button"
+                    className="preview-button"
                     onClick={() => handleModuleClick(module.previewUrl)}
                   >
-                    View PDF
+                    <AiOutlineEye style={{ marginRight: "8px" }} /> Preview
                   </button>
-                 
+
+                  <a
+                    href={module.previewUrl}
+                    download
+                    className="download-button"
+                  >
+                    <FaDownload style={{ marginRight: "8px" }} /> Download
+                  </a>
                 </div>
-                
-                
               </div>
-              
             ))}
-           <div className="ad-container">
-                                <AdSenseAd
-                                    adClient="ca-pub-9499544849301534"
-                                    adSlot="7579321744"
-                                    adFormat="auto"
-                                    fullWidthResponsive={true}
-                                />
-                            </div>
+            <div className="ad-container">
+              <AdSenseAd
+                adClient="ca-pub-9499544849301534"
+                adSlot="7579321744"
+                adFormat="auto"
+                fullWidthResponsive={true}
+              />
+            </div>
           </>
-          
         ) : (
           <p>No modules available for this subject.</p>
         )}
-         
       </div>
-       
     </div>
-    
   );
 };
 

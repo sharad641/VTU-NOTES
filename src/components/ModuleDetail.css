@@ -11,6 +11,95 @@ body {
 *, *::before, *::after {
     box-sizing: inherit;
 }
+.download-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.preview-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #555; /* Dark gray for preview */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.preview-button:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #007cf0, #00dfd8); /* Nice blue gradient */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.download-button:hover {
+  background: linear-gradient(90deg, #005ce6, #00c2b3);
+  transform: translateY(-2px);
+}
+.download-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.preview-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #555;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.preview-button:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+.download-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #007cf0, #00dfd8);
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.download-button:hover {
+  background: linear-gradient(90deg, #005ce6, #00c2b3);
+  transform: translateY(-2px);
+}
 
 /* Modules Container */
 .modules-container {
