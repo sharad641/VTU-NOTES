@@ -1,20 +1,24 @@
 /* ========== GLOBAL CONTAINER ========== */
-.branch-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 60px 20px;
-  text-align: center;
-  background: #f9fafb; /* Soft modern background */
-}
+
 
 .branch-header {
-  font-size: 2.7rem;
+  font-size: 3rem; /* slightly larger for more impact */
   margin-bottom: 3rem;
-  color: #1e3a8a; /* Deep blue */
-  font-weight: 800;
+  color: #1e3a8a; /* deep blue base */
+  font-weight: 900;
   letter-spacing: -0.03rem;
   font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
+
+
+
 
 /* ========== CARD WRAPPER ========== */
 .branch-section {

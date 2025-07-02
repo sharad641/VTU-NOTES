@@ -37,10 +37,10 @@ const Home = () => {
           📚 All notes are now updated, including the 6th Semester (2022) syllabus! Access them freely and share with your friends.
         </div>
       </div>
-
+ <BranchSelection /> 
       
  <ModelPapers/>
-      <BranchSelection /> 
+     
 
    
 
