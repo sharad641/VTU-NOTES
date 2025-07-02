@@ -1226,11 +1226,18 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1gBPIaF-2ArT1_t0sbkvzWXh8RNbhz6WL/preview",
             },
           {
-            title: "Question Paper",
+            title: "PYQ",
             content: "Past question paper for Applied Physics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1BmqvVe8WhNCRsXdVT3K-4x8sJbKWDq0l/preview",
+              "https://drive.google.com/file/d/1bFd7GbQA6GycngDouhlvhnjNAoPW6t6q/preview",
           },
+          {
+            title: "PYQ",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1aVBwZ8K9iHTS_uTiROIZjYcNovQUbv3b/preview",
+          },
+
         
         ],
         },
@@ -1808,31 +1815,31 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1Re5z65uF2iznqvHHoKSwyq-Etja9KGUW/preview",
+                "",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
+                "",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
+                "",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
+                "",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
+                "",
             },
           ],
           questionPaper: {
@@ -2109,6 +2116,12 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1s1vnHxEibTMwJzV1HP-ZhomeTYhe_5zS/preview",
             },
             {
+              title: "All Module :Handwritten  Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1E9jMlLo3bnFDb22KdFo2bPvHbK56BZz0/preview",
+            },
+            {
               title: " Problems:",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
@@ -2291,6 +2304,12 @@ const ModuleDetail = () => {
               content: "Comprehensive notes for Module 2.",
               previewUrl:
                 "https://drive.google.com/file/d/1x2F2hB0y3nLkGXt1jircZsSqsoa4Y4n9/preview",
+            },
+             {
+              title: "Module 1 to 3: Handwritten Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1aVBwZ8K9iHTS_uTiROIZjYcNovQUbv3b/preview",
             },
             
             
