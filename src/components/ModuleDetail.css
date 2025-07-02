@@ -41,7 +41,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, #007cf0, #00dfd8); /* Nice blue gradient */
+ background: linear-gradient(90deg, #3b82f6, #2563eb);
   color: white;
   padding: 12px 20px;
   border: none;
@@ -52,7 +52,7 @@ body {
 }
 
 .download-button:hover {
-  background: linear-gradient(90deg, #005ce6, #00c2b3);
+ background: linear-gradient(90deg, #3b82f6, #2563eb);
   transform: translateY(-2px);
 }
 .download-buttons {
@@ -86,7 +86,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, #007cf0, #00dfd8);
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
   color: white;
   padding: 12px 20px;
   border: none;
@@ -97,7 +97,7 @@ body {
 }
 
 .download-button:hover {
-  background: linear-gradient(90deg, #005ce6, #00c2b3);
+ background: linear-gradient(90deg, #3b82f6, #2563eb);
   transform: translateY(-2px);
 }
 
@@ -158,7 +158,7 @@ body {
     padding: 12px 25px;
     border: none;
     border-radius: 50px;
-    background: linear-gradient(90deg, #42a5f5, #1e88e5);
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
     color: #fff;
     font-size: 1rem;
     font-weight: 600;
@@ -168,7 +168,7 @@ body {
 }
 
 .download-buttons button:hover {
-    background: linear-gradient(90deg, #1e88e5, #0d47a1);
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
 }
 
 /* Responsive Styles */

@@ -38,25 +38,11 @@ const Home = () => {
         </div>
       </div>
 
-      {/* 📘 About Section */}
-      <section className="info-box">
-        <h2>About VTU Notes</h2>
-        <p>
-          Welcome to VTU Notes – your ultimate academic partner! Our platform is tailored to VTU students, 
-          offering a seamless learning experience through curated resources:
-        </p>
-        <ul>
-          <li><strong>Curated Notes:</strong> Simplified notes aligned with the VTU syllabus.</li>
-          <li><strong>Question Banks:</strong> Previous years & model question collections.</li>
-          <li><strong>Essential Questions:</strong> Frequently asked and important topics covered.</li>
-          <li><strong>Subject-Wise Organization:</strong> Materials are easily navigable by subject and scheme.</li>
-        </ul>
-        <Link to="/branch-selection/2022" className="button">📘 Access 2022 Scheme</Link>
-      </section>
-
+      
+ <ModelPapers/>
       <BranchSelection /> 
 
-      <ModelPapers/>
+   
 
       {/* 💼 Placement Guide */}
       <section className="info-box">
