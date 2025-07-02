@@ -20,7 +20,7 @@ function Branch() {
             {/* Branch Section */}
             <div className="branch">
                 <h2>{branch.toUpperCase()} NOTES</h2>
-                <p>Select a semester:</p>
+                
                 <ul className="semester-list">
                     {semesters.map((sem) => (
                         <li key={sem}>

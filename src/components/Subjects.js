@@ -126,7 +126,7 @@ const Subjects = () => {
     
     <div className="subjects" style={{ marginTop: '80px' }}>
       <h2>{branch.toUpperCase()} - Semester {semester}</h2>
-      <h3>Subjects:</h3>
+     
       <ul>
         {subjects.length > 0 ? (
           subjects.map((subject) => (
