@@ -2197,42 +2197,74 @@ const ModuleDetail = () => {
           title:"CLOUD COMPUTING",
           modules: [
             {
-              title: "Module 1: Notes",
+              title: "Module 1: TextBook",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
                 "https://drive.google.com/file/d/1ZApTMHVXsrJA6aF7O9b1rtCU0bgCh-F6/preview",
             },
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1NPmQwk24g1U-yrdO2lOw9E4mya6lpoPE/preview",
+            },
             
             
             {
-              title: "Module 2: Notes",
+              title: "Module 2: TextBook",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
                 "https://drive.google.com/file/d/1EXuR0payVH-8ccg2mruLupBy5ZwruLkT/preview",
             },
             {
-              title: "Module 3: Notes",
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1-ZYHoSxwv6GLvurc_6blVPb-xZ0o25_f/preview",
+            },
+            
+            {
+              title: "Module 3: TextBook",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
                 "https://drive.google.com/file/d/1XaV8jqXNY1gLhNGz5Ooeb9fH1RiwsyFF/preview",
             },
             {
-              title: "Module 4: Notes",
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1jVks2-brbrctcM1KhPH33nMuicleRn_n/preview",
+            },
+            
+            {
+              title: "Module 4: TextBook",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
                 "https://drive.google.com/file/d/1_0ekslPWpChk5Mm6xpONsT9rQnuURaBE/preview",
             },
             {
-              title: "Module 5: Notes",
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1FPIHsv04ljMbw7isfuoEsJnVTK56ZKty/preview",
+            },
+            {
+              title: "Module 5:TextBook",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
                 "https://drive.google.com/file/d/1HEz_iq2KqhKVqI5v3NuEQn_W8vUhvzsV/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1FPIHsv04ljMbw7isfuoEsJnVTK56ZKty/preview",
             },
              {
               title: "Question papers",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1fhIl9-oR8sCf_9zf0QD1m3mzoFrOPP7w/preview",
+                "https://drive.google.com/file/d/11aOchNzYu0p5nvYKYtoa3iZKG2x-SK6B/preview",
             },
             {
               title: "Model Question paper",
