@@ -2228,7 +2228,12 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1-ZYHoSxwv6GLvurc_6blVPb-xZ0o25_f/preview",
             },
-            
+            {
+              title: "Module 2: Important Question And Answer",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1VtTmTwtnJgrTo5SO6ktKCVjsKtFiSzTs/preview",
+            },
             {
               title: "Module 3: TextBook",
               content: "Comprehensive notes for Module 3.",
