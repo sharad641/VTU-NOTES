@@ -2325,6 +2325,24 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/14yxRmQQiEzn4CXeO9CP_ylxQhmMLak1R/preview",
             },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1iv8ii49L4Y5gu4KYnC3iNOzq5Yr9cQV_/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1P3uNan2NQgPmgzJHn2RynnAG6cdXL7Ze/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1vsFXG-Fy-YiEbiftYygWhxE_pCzKOSWs/preview",
+            },
             
           
          

@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import './ModelPapers.css';
 
 const papers = [
-  
+  {
+    title: 'DATABASE MANAGEMENT SYSTEM',
+    code: 'BCS403',
+    modelPaperLink: 'https://drive.google.com/file/d/16Vzo3cbtNfTGpLS3Z8LNTDe2E7dx0Bgh/preview',
+    oldPaperLink: 'https://drive.google.com/file/d/1cqwCLrwgW7Lj3e1P1ofUsz1IkMa7-WxK/preview', solutionLink: 'https://drive.google.com/file/d/1cqwCLrwgW7Lj3e1P1ofUsz1IkMa7-WxK/preview',
+  },
    {
     title: 'CLOUD COMPUTING AND SECURITY FOR BOTH BCS601 AND BIS613D',
     code: 'BIS613D and BCS601',
