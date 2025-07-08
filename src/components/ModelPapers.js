@@ -13,6 +13,11 @@ const papers = [
     code: 'BCV654C',
     modelPaperLink: 'https://drive.google.com/file/d/1S6IqRQY87HsRhsqKC3CWsljih5zQoWt-/preview',
   },
+   {
+    title: 'RENEWABLE ENERGY POWER PLANTS',
+    code: 'BME654B',
+    modelPaperLink: 'https://drive.google.com/file/d/1Ny11P33Gx1VgtTPeBR2C-Pixd2OWuO7U/preview',
+  },
 
    {
     title: 'CLOUD COMPUTING AND SECURITY FOR BOTH BCS601 AND BIS613D',
