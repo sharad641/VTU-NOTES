@@ -8,6 +8,12 @@ const papers = [
     modelPaperLink: 'https://drive.google.com/file/d/16Vzo3cbtNfTGpLS3Z8LNTDe2E7dx0Bgh/preview',
     oldPaperLink: 'https://drive.google.com/file/d/1cqwCLrwgW7Lj3e1P1ofUsz1IkMa7-WxK/preview', solutionLink: 'https://drive.google.com/file/d/1cqwCLrwgW7Lj3e1P1ofUsz1IkMa7-WxK/preview',
   },
+  {
+    title: 'INTEGRATED WASTE MANAGEMENT FOR A SMART CITY',
+    code: 'BCV654C',
+    modelPaperLink: 'https://drive.google.com/file/d/1S6IqRQY87HsRhsqKC3CWsljih5zQoWt-/preview',
+  },
+
    {
     title: 'CLOUD COMPUTING AND SECURITY FOR BOTH BCS601 AND BIS613D',
     code: 'BIS613D and BCS601',

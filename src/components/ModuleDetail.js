@@ -2343,6 +2343,12 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1vsFXG-Fy-YiEbiftYygWhxE_pCzKOSWs/preview",
             },
+            {
+              title: "MQP-BCV654C",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1S6IqRQY87HsRhsqKC3CWsljih5zQoWt-/preview",
+            },
             
           
          
