@@ -84,6 +84,7 @@ const Subjects = () => {
         { name: 'Microcontrollers & Embedded Systems', code: 'BCO601', credits: 4, info: '  ' },
         { name: 'Cryptography & Network Security', code: 'BCO601', credits: 4, info: ' ' },
         { name: 'Integrated Waste Management for Smart City', code: 'BCV654C', credits: 3, info: ' .' },
+         { name: 'WATER CONSERVATION AND RAIN WATER HARVESTING', code: 'BCV654A', credits: 3, info: ' .' },
         
         
       ],

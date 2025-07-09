@@ -1296,6 +1296,12 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1qMa9r_JFzeczxadAG0jMmIPVBnFZcJ4M/preview",
             },
             {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1onVWqZzob1p3pJ--A2t4TwHeoRQZ_Qjy/preview",
+            },
+            {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
@@ -1316,12 +1322,12 @@ const ModuleDetail = () => {
             
            {
             title: "Question Paper",
-            content: "Past question paper for Applied Physics for CSE.",
+            content: "Past question paper for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1iuXEzjqn6yqNc3AnkBMEyQN1M3qb0JYs/preview",
+              "https://drive.google.com/file/d/1rFJKUntE4UNWRL1IMg2QjWzkVoeEFeuG/preview",
           },
           {
-            title: "Question Bank",
+            title: "Model Question Paper Solution",
             content: "Question bank for Applied Physics for CSE.",
             previewUrl:
               "https://drive.google.com/file/d/1wiliZvzo0-Zc2E_UMZDhXuNa2mKgKjw5/preview",
@@ -1335,32 +1341,27 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+                "https://drive.google.com/file/d/1qxvOHrVApg0wi2AwLTpp_0dAaVSojYHk/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+                "https://drive.google.com/file/d/1L5NmNHOPyutMGby6IqqqbTl8h34kpGsS/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+                "https://drive.google.com/file/d/121Fs3LqOK7hPbIFTB75BBzmvdpoP0Vhi/preview",
             },
             {
-              title: "Module 4: Notes",
+              title: "Module 4 Anad 5: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
+                "https://drive.google.com/file/d/1aU5nIgPWUYdA1ou4c9_pYbBoGUQFD-Wd/preview",
             },
-            {
-              title: "Module 5: Notes",
-              content: "Comprehensive notes for Module 5.",
-              previewUrl:
-                "https://drive.google.com/file/d/1Sssc99LmtoGGYh6KyMx2jHcV-pHt02WS/preview",
-            },
+           
           ],
           questionPaper: {
             title: "Question Paper",
@@ -2348,6 +2349,44 @@ const ModuleDetail = () => {
               content: "Comprehensive notes for Module 2.",
               previewUrl:
                 "https://drive.google.com/file/d/1S6IqRQY87HsRhsqKC3CWsljih5zQoWt-/preview",
+            },
+            
+          
+         
+        ],
+        },
+        {
+          title: "WATER CONSERVATION AND RAIN WATER HARVESTING",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1OFNgSgI4Px2intbbHgOQ69MqyYormpC5/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1o75o8ehfrU3_CdRDtJaGWexPTzRm9kyx/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1S4q9i8syf1XDzkrEw5eLMxAcMoFNKXT7/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1lBGkgrmOzt9R44h2TEL6k35PjSysKRqI/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/12SKXDIzZGq7YlLIXKMf4SewXVrabG5oL/preview",
             },
             
           

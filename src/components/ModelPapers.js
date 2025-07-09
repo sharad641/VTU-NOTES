@@ -18,6 +18,12 @@ const papers = [
     code: 'BME654B',
     modelPaperLink: 'https://drive.google.com/file/d/1Ny11P33Gx1VgtTPeBR2C-Pixd2OWuO7U/preview',
   },
+  {
+    title: 'DISCRETE MATHEMATICAL STRUCTURES (BCS405A)',
+    code: 'BCS405A',
+    modelPaperLink: 'https://drive.google.com/file/d/1rFJKUntE4UNWRL1IMg2QjWzkVoeEFeuG/preview',
+     oldPaperLink: 'https://drive.google.com/file/d/1rFJKUntE4UNWRL1IMg2QjWzkVoeEFeuG/preview', solutionLink: 'https://drive.google.com/file/d/1wiliZvzo0-Zc2E_UMZDhXuNa2mKgKjw5/preview',
+  },
 
    {
     title: 'CLOUD COMPUTING AND SECURITY FOR BOTH BCS601 AND BIS613D',
