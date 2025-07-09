@@ -83,6 +83,11 @@ const papers = [
     code: 'BESCK104B',
     modelPaperLink: 'https://drive.google.com/file/d/1xm1BU-8LUzSmpWSc30vJNtRvTeqQcYS2/preview',
   },
+   {
+    title: 'GRAPH THEORY',
+    code: 'BCS5405B',
+    modelPaperLink: 'https://drive.google.com/file/d/1Jdgxk2UiVeXb-TJJywapMucYhW_HLqj3/preview',
+  },
   {
     title: 'Mathematics-II for CSE Stream',
     code: 'BMATS201',

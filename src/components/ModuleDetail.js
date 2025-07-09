@@ -1361,6 +1361,12 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1aU5nIgPWUYdA1ou4c9_pYbBoGUQFD-Wd/preview",
             },
+            {
+              title: "Question Papers",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Jdgxk2UiVeXb-TJJywapMucYhW_HLqj3/preview",
+            },
            
           ],
           questionPaper: {
