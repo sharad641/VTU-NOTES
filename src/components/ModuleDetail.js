@@ -2318,13 +2318,13 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/1U_gAHjmpES47gkBy28DQPw4ZyYly78_L/preview",
+                "https://drive.google.com/file/d/152YwgokdAv6Dvc59kHz-vtMp2IL9L9A6/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/14yxRmQQiEzn4CXeO9CP_ylxQhmMLak1R/preview",
+                "https://drive.google.com/file/d/152YwgokdAv6Dvc59kHz-vtMp2IL9L9A6/preview",
             },
             {
               title: "Module 3: Notes",
