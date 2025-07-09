@@ -2682,6 +2682,7 @@ const ModuleDetail = () => {
                     <FaDownload style={{ marginRight: "8px" }} /> Download
                   </a>
                 </div>
+                
               </div>
             ))}
             <div className="ad-container">
@@ -2697,6 +2698,7 @@ const ModuleDetail = () => {
           <p>No modules available for this subject.</p>
         )}
       </div>
+      
     </div>
   );
 };

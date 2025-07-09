@@ -3,193 +3,191 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 24px; /* Comfortable padding for desktop and mobile */
-    margin-top: 40px;
-    background-color: #f4f8fc;
-    border-radius: 20px; /* Larger radius for a smoother look */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-    max-width: 900px; /* Slightly larger max-width for better desktop experience */
-    margin: 40px auto;
+    padding: 32px;
+    margin-top: 50px;
+    background: linear-gradient(135deg, #f0f4ff, #eaf0fb);
+    border-radius: 24px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     transition: all 0.3s ease-in-out;
 }
 
 .pdf-viewer h2 {
-    font-size: 2.2rem; /* Modern and slightly larger header font size */
-    color: #2c3e50;
-    margin-bottom: 16px; /* Reduced margin for space efficiency */
-    font-weight: 800;
+    font-size: 2.5rem;
+    color: #1a2b48;
+    margin-bottom: 24px;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.5px;
     text-align: center;
 }
 
 /* PDF Frame Styles */
 .pdf-frame {
     width: 100%;
-    max-width: 800px;
-    height: 600px; /* Comfortable height for both desktop and tablet views */
-    border: 3px solid #d1d9e6;
-    border-radius: 16px; /* Larger radius for a modern touch */
-    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease-in-out;
+    max-width: 900px;
+    height: 700px;
+    border: none;
+    border-radius: 20px;
     overflow-y: auto;
+    background-color: #ffffff;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pdf-frame:hover {
-    transform: scale(1.05);
-    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
 }
 
 /* Download Button Styles */
 .download-button-container {
-    margin-top: 24px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
 }
 
 .download-button {
-    padding: 14px 28px; /* Comfortable padding for desktop and mobile */
+    padding: 16px 36px;
     background-color: #4caf50;
     color: #fff;
     border: none;
-    border-radius: 40px;
+    border-radius: 50px;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 .download-button:hover {
-    background-color: #45a049;
-    transform: translateY(-4px); /* Smooth lift effect */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    background-color: #3fa144;
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
 }
 
 .download-button:active {
     transform: translateY(0);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 
 /* QR Code Container Styles */
 .qr-code-container {
-    margin-top: 30px;
-    padding: 16px;
-    border: 3px dashed #3498db; /* Stylish dashed border */
-    border-radius: 12px;
-    background-color: #eaf2f8; /* Subtle blue background */
+    margin-top: 40px;
+    padding: 24px;
+    border: 3px dashed #3498db;
+    border-radius: 16px;
+    background-color: #eef6fd;
     text-align: center;
     width: 100%;
-    max-width: 800px;
+    max-width: 900px;
 }
 
 .qr-code-container h3 {
-    font-size: 1.8rem;
-    color: #2c3e50;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    color: #1a2b48;
+    margin-bottom: 12px;
 }
 
 .qr-code-container p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #555;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
-/* QR Code Styles */
 .qr-code {
-    margin: 10px auto;
-    padding: 10px;
-    background-color: #fff; /* White background for QR visibility */
+    margin: 20px auto;
+    padding: 12px;
+    background-color: #fff;
     border: 3px solid #d1d9e6;
-    border-radius: 12px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    max-width: 180px;
 }
 
-/* Share Button Styles */
+/* Share and Copy Link Button Styles */
 .qr-code-download,
-.share-button {
-    padding: 12px 24px;
+.share-button,
+.copy-link-button {
+    padding: 14px 28px;
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 30px;
+    border-radius: 40px;
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: bold;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 16px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    margin-top: 18px;
 }
 
-.share-button:hover {
+.qr-code-download:hover,
+.share-button:hover,
+.copy-link-button:hover {
     background-color: #0056b3;
-    transform: translateY(-3px);
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
 }
 
-.share-button:active {
+.qr-code-download:active,
+.share-button:active,
+.copy-link-button:active {
     transform: translateY(0);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+.copy-success {
+    color: green;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+/* File Info */
+.file-info {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #444;
 }
 
 /* Enhanced Responsive Styling */
-
-/* Large Tablets and Laptops (1024px and below) */
 @media (max-width: 1024px) {
+    .pdf-viewer {
+        padding: 24px;
+    }
+
+    .pdf-frame {
+        height: 600px;
+    }
+}
+
+@media (max-width: 768px) {
     .pdf-viewer {
         padding: 20px;
     }
 
-    .pdf-frame {
-        height: 550px;
-    }
-
-    .qr-code-download,
-    .share-button {
-        font-size: 1rem;
-        padding: 10px 20px;
-    }
-}
-
-/* Medium Tablets and Small Laptops (768px and below) */
-@media (max-width: 768px) {
-    .pdf-viewer {
-        padding: 16px;
-    }
-
     .pdf-viewer h2 {
-        font-size: 2rem; /* Adjusted for tablets */
+        font-size: 2rem;
     }
 
     .pdf-frame {
-        width: 90%;
+        width: 95%;
         height: 500px;
     }
 
-    .qr-code-download,
-    .share-button {
-        font-size: 0.95rem;
-    }
-
-    .qr-code-container {
-        padding: 12px;
-    }
-
     .qr-code-container h3 {
-        font-size: 1.6rem;
-    }
-
-    .qr-code {
-        padding: 8px;
+        font-size: 1.7rem;
     }
 }
 
-/* Mobile Portrait (480px and below) */
 @media (max-width: 480px) {
     .pdf-viewer {
-        padding: 12px;
+        padding: 16px;
     }
 
     .pdf-viewer h2 {
@@ -202,13 +200,11 @@
     }
 
     .download-button,
-    .share-button {
-        padding: 8px 16px;
-        font-size: 0.85rem;
-    }
-
-    .qr-code-container {
-        padding: 8px;
+    .qr-code-download,
+    .share-button,
+    .copy-link-button {
+        padding: 10px 20px;
+        font-size: 0.95rem;
     }
 
     .qr-code-container h3 {
@@ -219,40 +215,4 @@
         width: 100%;
         max-width: 140px;
     }
-}
-.qr-code-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.copy-link-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.copy-link-button:hover {
-    background-color: #0056b3;
-}
-
-.copy-success {
-    color: green;
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.download-button-container {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.file-info {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 16px;
-    color: #555;
 }
