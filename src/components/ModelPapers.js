@@ -87,8 +87,10 @@ const papers = [
     title: 'Mathematics-II for CSE Stream',
     code: 'BMATS201',
     modelPaperLink: 'https://drive.google.com/file/d/1vHxAXnHlBBglr-K3ZUAGqzwP5SC0qNki/preview',
-    modelPaperLink: 'https://drive.google.com/file/d/1BXyhq4ZiTLbhpIwJHGkRYe60rbJQqQne/preview',
+    solutionLink: 'https://drive.google.com/file/d/1BXyhq4ZiTLbhpIwJHGkRYe60rbJQqQne/preview',
+  
   },
+  
   {
     title: 'MATHEMATICS FOR CS ENGINEERING STREAM',
     code: 'BCS301',
