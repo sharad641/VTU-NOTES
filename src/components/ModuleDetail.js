@@ -355,6 +355,12 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1vHxAXnHlBBglr-K3ZUAGqzwP5SC0qNki/preview",
             },
+            {
+              title: "Old QP'S",
+              content: "Question bank for Mathematics for CSE.",
+              previewUrl:
+                "https://drive.google.com/file/d/1cWG4jvZRZ2iBJA09t0WRW78dqw2vdm9x/preview",
+            },
           ],
         },
         {

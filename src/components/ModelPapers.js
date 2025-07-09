@@ -93,6 +93,7 @@ const papers = [
     code: 'BMATS201',
     modelPaperLink: 'https://drive.google.com/file/d/1vHxAXnHlBBglr-K3ZUAGqzwP5SC0qNki/preview',
     solutionLink: 'https://drive.google.com/file/d/1BXyhq4ZiTLbhpIwJHGkRYe60rbJQqQne/preview',
+    oldPaperLink: 'https://drive.google.com/file/d/1cWG4jvZRZ2iBJA09t0WRW78dqw2vdm9x/preview',
   
   },
   
