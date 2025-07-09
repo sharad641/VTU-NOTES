@@ -317,43 +317,43 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/13sN51ZvU2PBI9RYLY_vfn5fUstDWcQ-m/preview",
+                "https://drive.google.com/file/d/1V1oKb8kALhD5mNAYZkb7Z5zkicbSxRYP/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/15XkQJ83RMFG6MD3pw6ZRvfTdVDOOEzob/preview",
+                "https://drive.google.com/file/d/1w-BYdgRW7EGkqXnogAj-sm5XTCRNG5Yr/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1LxDQ8HKOPvetWp2CmKf_R4frx1SyQGlx/preview",
+                "https://drive.google.com/file/d/1uxmv3kbTRT33Z7Klm6cg-B4XwrNFZmUQ/preview",
             },
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1gnWawuVabmlHYc0DdEMX93_2Lssb1NhS/preview",
+                "https://drive.google.com/file/d/1_31eml29PMNaq9E8y-2tv4xK0YikP6Qg/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1DL4XD5RWl7NsBWJ7thMj0vwuDhu-yJkU/preview",
+                "https://drive.google.com/file/d/1S3G0chd80RccZ3b9bvrfx5j_s8l_IVzx/preview",
             },
             {
-              title: "Question Bank",
+              title: "Question Solutions ",
               content: "Past question paper for Mathematics for CSE.",
               previewUrl:
-                "https://drive.google.com/file/d/14IeCzUkiaUgI-DvWZUGr5oBtAWAFlt9k/preview",
+                "https://drive.google.com/file/d/1BXyhq4ZiTLbhpIwJHGkRYe60rbJQqQne/preview",
             },
             {
-              title: "Question paper",
+              title: "Question paper Solution",
               content: "Question bank for Mathematics for CSE.",
               previewUrl:
-                "https://drive.google.com/file/d/14IeCzUkiaUgI-DvWZUGr5oBtAWAFlt9k/preview",
+                "https://drive.google.com/file/d/1vHxAXnHlBBglr-K3ZUAGqzwP5SC0qNki/preview",
             },
           ],
         },
@@ -2393,6 +2393,12 @@ const ModuleDetail = () => {
               content: "Comprehensive notes for Module 2.",
               previewUrl:
                 "https://drive.google.com/file/d/12SKXDIzZGq7YlLIXKMf4SewXVrabG5oL/preview",
+            },
+            {
+              title: "MQPS:",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1bOrd1-U9omf_IH3ZS5gWPceSfP01O4a8/preview",
             },
             
           

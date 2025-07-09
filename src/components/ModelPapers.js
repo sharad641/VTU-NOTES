@@ -43,6 +43,11 @@ const papers = [
     oldPaperLink: 'https://drive.google.com/file/d/1RM-0q01QYQFubdFR9fmGNlicFyRbeHl-/view?usp=drive_link',
   },
   {
+    title: 'WATER CONSERVATION AND RAIN WATER HARVESTING',
+    code: 'BCV654A',
+    modelPaperLink: 'https://drive.google.com/file/d/1bOrd1-U9omf_IH3ZS5gWPceSfP01O4a8/preview',
+  },
+  {
     title: 'Machine Learning',
     code: 'BCS602',
     modelPaperLink: 'https://drive.google.com/file/d/1cjG_nakCffLmtjD9n7Esa5f8ROqXhOR8/view?usp=drive_link',
@@ -82,6 +87,7 @@ const papers = [
     title: 'Mathematics-II for CSE Stream',
     code: 'BMATS201',
     modelPaperLink: 'https://drive.google.com/file/d/1vHxAXnHlBBglr-K3ZUAGqzwP5SC0qNki/preview',
+    modelPaperLink: 'https://drive.google.com/file/d/1BXyhq4ZiTLbhpIwJHGkRYe60rbJQqQne/preview',
   },
   {
     title: 'MATHEMATICS FOR CS ENGINEERING STREAM',
