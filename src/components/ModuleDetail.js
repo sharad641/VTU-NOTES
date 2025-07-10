@@ -2336,31 +2336,49 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/152YwgokdAv6Dvc59kHz-vtMp2IL9L9A6/preview",
+                "https://drive.google.com/file/d/1dBQCqNBkdiD4OCUQ6DBc1nBI-Y-KxlcN/preview",
             },
             {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/152YwgokdAv6Dvc59kHz-vtMp2IL9L9A6/preview",
+                "https://drive.google.com/file/d/11QzUQBK3S2efVbnewtgO7WQFAk2O_COy/preview",
             },
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
+                "https://drive.google.com/file/d/1YK0ldDnPKk-BeoGc2-FLTiQvp4VPV_Jh/preview",
+            },
+            {
+              title: "Module 3: Handwritten Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
                 "https://drive.google.com/file/d/1iv8ii49L4Y5gu4KYnC3iNOzq5Yr9cQV_/preview",
             },
             {
-              title: "Module 4: Notes",
+              title: "Module 4: Handwritten Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
                 "https://drive.google.com/file/d/1P3uNan2NQgPmgzJHn2RynnAG6cdXL7Ze/preview",
+            },
+             {
+              title: "Module 4:  Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1ggsq9j83sq2fNWG5mkC63_WNLsyAb7E_/preview",
+            },
+            {
+              title: "Module 5: Handwrittten Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1vsFXG-Fy-YiEbiftYygWhxE_pCzKOSWs/preview",
             },
             {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
-                "https://drive.google.com/file/d/1vsFXG-Fy-YiEbiftYygWhxE_pCzKOSWs/preview",
+                "https://drive.google.com/file/d/1iEVf2H-03N6XmXLr_8Arzw7veRWJxYzA/preview",
             },
              {
               title: "All Modules: Notes",
@@ -2373,6 +2391,12 @@ const ModuleDetail = () => {
               content: "Comprehensive notes for Module 2.",
               previewUrl:
                 "https://drive.google.com/file/d/1S6IqRQY87HsRhsqKC3CWsljih5zQoWt-/preview",
+            },
+            {
+              title: "MQPS-BCV654C",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1RXzRXZKEf3q60oNmuWiCC4bqr8KYhFPa/preview",
             },
             
           
