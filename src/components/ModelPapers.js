@@ -87,6 +87,7 @@ const papers = [
     title: 'GRAPH THEORY',
     code: 'BCS5405B',
     modelPaperLink: 'https://drive.google.com/file/d/1Jdgxk2UiVeXb-TJJywapMucYhW_HLqj3/preview',
+    solutionLink: 'https://drive.google.com/file/d/15m3xXKv-Os6JlQI6QvlTnBet7lI2ynCx/preview',
   },
   {
     title: 'Mathematics-II for CSE Stream',

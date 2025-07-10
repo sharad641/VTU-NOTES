@@ -1373,6 +1373,12 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1Jdgxk2UiVeXb-TJJywapMucYhW_HLqj3/preview",
             },
+             {
+              title: "Question Papers Solutions",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/15m3xXKv-Os6JlQI6QvlTnBet7lI2ynCx/preview",
+            },
            
           ],
           questionPaper: {
