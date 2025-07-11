@@ -3,6 +3,20 @@ import './ModelPapers.css';
 
 const papers = [
   {
+    title: 'DISCRETE MATHEMATICAL STRUCTURES (BCS405A)',
+    code: 'BCS405A',
+    modelPaperLink: 'https://drive.google.com/file/d/1rFJKUntE4UNWRL1IMg2QjWzkVoeEFeuG/preview',
+     oldPaperLink: 'https://drive.google.com/file/d/1rFJKUntE4UNWRL1IMg2QjWzkVoeEFeuG/preview', solutionLink: 'https://drive.google.com/file/d/1wiliZvzo0-Zc2E_UMZDhXuNa2mKgKjw5/preview',
+     solutionLink: 'https://drive.google.com/file/d/10bsSqzZMxz-Ve1DldYWZ1Sv7wAhKNUYT/preview',
+  },
+  {
+    title: 'GRAPH THEORY',
+    code: 'BCS5405B',
+    modelPaperLink: 'https://drive.google.com/file/d/1Jdgxk2UiVeXb-TJJywapMucYhW_HLqj3/preview',
+    solutionLink: 'https://drive.google.com/file/d/15m3xXKv-Os6JlQI6QvlTnBet7lI2ynCx/preview',
+    
+  },
+  {
     title: 'DATABASE MANAGEMENT SYSTEM',
     code: 'BCS403',
     modelPaperLink: 'https://drive.google.com/file/d/16Vzo3cbtNfTGpLS3Z8LNTDe2E7dx0Bgh/preview',
@@ -18,13 +32,7 @@ const papers = [
     code: 'BME654B',
     modelPaperLink: 'https://drive.google.com/file/d/1Ny11P33Gx1VgtTPeBR2C-Pixd2OWuO7U/preview',
   },
-  {
-    title: 'DISCRETE MATHEMATICAL STRUCTURES (BCS405A)',
-    code: 'BCS405A',
-    modelPaperLink: 'https://drive.google.com/file/d/1rFJKUntE4UNWRL1IMg2QjWzkVoeEFeuG/preview',
-     oldPaperLink: 'https://drive.google.com/file/d/1rFJKUntE4UNWRL1IMg2QjWzkVoeEFeuG/preview', solutionLink: 'https://drive.google.com/file/d/1wiliZvzo0-Zc2E_UMZDhXuNa2mKgKjw5/preview',
-     solutionLink: 'https://drive.google.com/file/d/10bsSqzZMxz-Ve1DldYWZ1Sv7wAhKNUYT/preview',
-  },
+  
 
    {
     title: 'CLOUD COMPUTING AND SECURITY FOR BOTH BCS601 AND BIS613D',
@@ -84,13 +92,7 @@ const papers = [
     code: 'BESCK104B',
     modelPaperLink: 'https://drive.google.com/file/d/1xm1BU-8LUzSmpWSc30vJNtRvTeqQcYS2/preview',
   },
-   {
-    title: 'GRAPH THEORY',
-    code: 'BCS5405B',
-    modelPaperLink: 'https://drive.google.com/file/d/1Jdgxk2UiVeXb-TJJywapMucYhW_HLqj3/preview',
-    solutionLink: 'https://drive.google.com/file/d/15m3xXKv-Os6JlQI6QvlTnBet7lI2ynCx/preview',
-    
-  },
+   
   {
     title: 'Mathematics-II for CSE Stream',
     code: 'BMATS201',
