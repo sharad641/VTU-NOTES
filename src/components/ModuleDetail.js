@@ -1338,6 +1338,12 @@ const ModuleDetail = () => {
             previewUrl:
               "https://drive.google.com/file/d/1wiliZvzo0-Zc2E_UMZDhXuNa2mKgKjw5/preview",
           },
+          {
+            title: "Question Paper June/July 2024 Solution",
+            content: "Question bank for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/10bsSqzZMxz-Ve1DldYWZ1Sv7wAhKNUYT/preview",
+          },
         ],
         },
         {
@@ -1350,10 +1356,22 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1qxvOHrVApg0wi2AwLTpp_0dAaVSojYHk/preview",
             },
             {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1dN7Oilwe875Kk3hRdpd3TQqs6_hznS-5/preview",
+            },
+            {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
                 "https://drive.google.com/file/d/1L5NmNHOPyutMGby6IqqqbTl8h34kpGsS/preview",
+            },
+             {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/18EF-lYMgoR-AqTZ9SQXFy7-p3JQLkZgK/preview",
             },
             {
               title: "Module 3: Notes",
@@ -1361,11 +1379,18 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/121Fs3LqOK7hPbIFTB75BBzmvdpoP0Vhi/preview",
             },
+             
             {
               title: "Module 4 Anad 5: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
                 "https://drive.google.com/file/d/1aU5nIgPWUYdA1ou4c9_pYbBoGUQFD-Wd/preview",
+            },
+             {
+              title: "Module 4 & 5: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1GpBgOazBXvVWIppxvOf29zPVtm9wTOpM/preview",
             },
             {
               title: "Question Papers",
