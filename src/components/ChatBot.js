@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpand, faCompress, faTimes, faMicrophone } from '@fortawesome/free-solid-svg-icons';
+import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
+import 'highlight.js/styles/github.css'; // You can change this style
+
 import './ChatBot.css';
 
 const ChatBot = () => {
@@ -31,7 +35,7 @@ const ChatBot = () => {
     setTyping(true);
 
     try {
-      const apiKey = process.env.REACT_APP_GEMINI_API_KEY || 'AIzaSyCMcXpDE3N46rgExwWq4tYNbMm4kWcBmHY';
+      const apiKey = process.env.REACT_APP_GEMINI_API_KEY || 'YOUR_API_KEY';
       const model = 'gemini-2.0-flash';
 
       const response = await fetch(
@@ -114,7 +118,9 @@ const ChatBot = () => {
       <div className="messages">
         {messages.map((msg, index) => (
           <div key={index} className={`message ${msg.sender}`}>
-            <div className="message-text">{msg.text}</div>
+            <div className="message-text">
+              <ReactMarkdown rehypePlugins={[rehypeHighlight]}>{msg.text}</ReactMarkdown>
+            </div>
             <div className="timestamp">{msg.timestamp}</div>
           </div>
         ))}

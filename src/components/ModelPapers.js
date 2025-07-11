@@ -7,7 +7,7 @@ const papers = [
     code: 'BCS405A',
     modelPaperLink: 'https://drive.google.com/file/d/1rFJKUntE4UNWRL1IMg2QjWzkVoeEFeuG/preview',
      oldPaperLink: 'https://drive.google.com/file/d/1rFJKUntE4UNWRL1IMg2QjWzkVoeEFeuG/preview', solutionLink: 'https://drive.google.com/file/d/1wiliZvzo0-Zc2E_UMZDhXuNa2mKgKjw5/preview',
-     solutionLink: 'https://drive.google.com/file/d/10bsSqzZMxz-Ve1DldYWZ1Sv7wAhKNUYT/preview',
+    
   },
   {
     title: 'GRAPH THEORY',
