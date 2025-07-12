@@ -1398,11 +1398,23 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1Jdgxk2UiVeXb-TJJywapMucYhW_HLqj3/preview",
             },
+            {
+              title: "All In One Question Papers",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Sb3hCekSG3Z9fdEq0H_qRqxTzz7w8XIE/preview",
+            },
              {
-              title: "Question Papers Solutions",
+              title: "MQP-01 SOL",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
                 "https://drive.google.com/file/d/15m3xXKv-Os6JlQI6QvlTnBet7lI2ynCx/preview",
+            },
+            {
+              title: "MQP-2 SOL",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1JYXanZ2aJXagTh-aAv3G0G2GuhV5KuqN/preview",
             },
            
           ],
