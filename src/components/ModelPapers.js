@@ -10,6 +10,18 @@ const papers = [
     
   },
   {
+    title: 'Applied Physics for CSE stream',
+    code: 'BPHYS102',
+    modelPaperLink: 'https://drive.google.com/file/d/1rZNOK4PUfRHIAQmKrBnVare0rsNDjQHk/preview',
+    solutionLink: 'https://drive.google.com/file/d/1JYhf1gRdDphyZEijSf_tEIpCN0uyN1i7/preview',
+  },
+  {
+    title: 'Applied Chemistry for CSE stream',
+    code: ' BCHES202',
+    modelPaperLink: 'https://drive.google.com/file/d/1HkhlDCYaNe8yPC5td-aCksjyMtz7hiLH/preview',
+    solutionLink: 'https://drive.google.com/file/d/1Qsw-USW8fq6meVzpU74mYOIP7WwECOXb/preview',
+  },
+  {
     title: 'GRAPH THEORY',
     code: 'BCS5405B',
     modelPaperLink: 'https://drive.google.com/file/d/1Jdgxk2UiVeXb-TJJywapMucYhW_HLqj3/preview',
