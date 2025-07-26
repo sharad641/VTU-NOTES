@@ -10,9 +10,7 @@ const Navbar = () => {
     const [isMobile, setIsMobile] = useState(false);
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [profileInfo, setProfileInfo] = useState({ photoURL: '', initials: '' });
-   
 
-    // Toggle mobile menu
     const toggleMenu = () => setIsMobile(!isMobile);
     const closeMenu = () => setIsMobile(false);
 
@@ -69,8 +67,14 @@ const Navbar = () => {
                 <li><Link to="/model-papers" className="nav-link" onClick={closeMenu}>Model QP & PYQPS</Link></li>
                 <li><Link to="/branch/first-year" className="nav-link" onClick={closeMenu}>1st Year Engineering</Link></li>
                 <li><Link to="/branch/cse" className="nav-link" onClick={closeMenu}>CSE Stream</Link></li>
+                <li><Link to="/placement-guide" className="nav-link" onClick={closeMenu}>
+                    👉 Explore Placement Guide
+                </Link></li>
             </ul>
 
+           
+
+            {/* Profile/Login Button */}
             <Link
                 to={isAuthenticated ? '/profile' : '/login'}
                 className="profile-button"

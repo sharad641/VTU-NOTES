@@ -197,5 +197,26 @@
 .profile-photo:hover {
   transform: scale(1.1);
 }
+.test-link-container {
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.test-link-container .button {
+  display: inline-block;
+  background: linear-gradient(to right, #2563eb, #4f46e5);
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+.test-link-container .button:hover {
+  background: linear-gradient(to right, #1e40af, #3730a3);
+}
 
 

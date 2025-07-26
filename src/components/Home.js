@@ -10,7 +10,7 @@ import ModelPapers from './ModelPapers';
 
 import Calculator from './Calculator';
 
-import Contact from './Contact';
+
 import ChatBot from './ChatBot';
 
 import './Home.css';
@@ -44,24 +44,7 @@ const Home = () => {
 
    
 
-      {/* 💼 Placement Guide */}
-      <section className="info-box">
-        <h2>Placement Preparation Guide & Internship Opportunities</h2>
-        <p>Preparing for placements or internships? Here's how we help:</p>
-        <ul>
-          <li><strong>Mock Interviews</strong> with expert feedback.</li>
-          <li><strong>Aptitude Tests</strong> for all core skills.</li>
-          <li><strong>Technical Prep</strong> including coding and system design.</li>
-          <li><strong>Partner Companies</strong> offering real-world internships.</li>
-          <li><strong>Skill Workshops</strong> on live projects.</li>
-          <li><strong>Certifications</strong> to enhance your profile.</li>
-        </ul>
-        <Link to="/placement-guide" className="button">👉 Explore Placement & Internship Guide</Link>
-        <div className="test-link-container">
-          <p>🎯 Simulate real placement tests and get performance analytics. Prepare for Google, Infosys, TCS and more.</p>
-          <Link to="/test" className="button">📊 Take the Practice Test</Link>
-        </div>
-      </section>
+     
 
      
       {/* 🤖 ChatBot Toggle */}
@@ -72,13 +55,9 @@ const Home = () => {
       </div>
       {showChatbot && <ChatBot />}
 
-
-      {/* 📖 FAQs */}
-      <section className="info-box modern-box">
-        <h2>📖 Frequently Asked Questions (FAQs)</h2>
-        <p>Quick answers to your most common concerns.</p>
-        <Link to="/faqs" className="button modern-button">🔗 Go to FAQs</Link>
-      </section>
+{/* 🧮 Calculator */}
+      <Calculator />
+      
 
       {/* 🔗 VTU Resources */}
       <section className="info-box modern-box">
@@ -97,18 +76,23 @@ const Home = () => {
               <a href={item.link} target="_blank" rel="noopener noreferrer" className="button modern-button">
                 🔗 Visit
               </a>
+              
             </div>
+            
           ))}
         </div>
       </section>
+      {/* 📖 FAQs */}
+      <section className="info-box modern-box">
+        <h2>📖 Frequently Asked Questions (FAQs)</h2>
+        <p>Quick answers to your most common concerns.</p>
+        <Link to="/faqs" className="button modern-button">🔗 Go to FAQs</Link>
+      </section>
       
-      {/* 🧮 Calculator */}
-      <Calculator />
+      
     
 
-      {/* 📞 Contact Us */}
-      <Contact />
- 
+      
 
       {/* 💬 Comments */}
       <CommentSection />

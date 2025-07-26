@@ -113,12 +113,18 @@ const PdfViewer = () => {
            
 
            
-          <CommentSection />
+        
 
           
         </div>
         
+        
+        
     );
-};
+    
+};  
+             <CommentSection />
+        
+       
 
 export default PdfViewer;

@@ -11,7 +11,6 @@ import PdfViewer from './components/PdfViewer';
 import Footer from './components/Footer';
 import Login from './components/Login';
 import Signup from './components/Signup';
-
 import Calculator from './components/Calculator';
 import PlacementGuide from './components/PlacementGuide';
 import FAQs from './components/FAQs';
@@ -21,7 +20,6 @@ import CommentSection from './components/CommentSection';
 import StudyPlanner from './components/StudyPlanner';
 import Profile from './components/Profile';
 import ModelPapers from './components/ModelPapers';
-
 import About from './components/About';
 import Contact from './components/Contact';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -35,6 +33,7 @@ import './App.css';
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -43,6 +42,10 @@ function App() {
     });
     return () => unsubscribe();
   }, []);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => !prev);
+  };
 
   const RedirectAuthenticatedUser = ({ element }) => (
     isAuthenticated ? <Navigate to="/" /> : element
@@ -60,14 +63,15 @@ function App() {
 
   return (
     <Router>
-      <div className="app-container">
+      <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+        <button className="theme-toggle-button" onClick={toggleDarkMode}>
+          {darkMode ? '🌞 Light Mode' : '🌙 Dark Mode'}
+        </button>
+
         <Navbar />
-        
-        {/* Optional: Place your AdSense component here if you want it to show on every page */}
         <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
 
         <Routes>
-          {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/bee-scene" element={<BeeScene />} />
           <Route path="/branch-selection/:scheme" element={<BranchSelection />} />
@@ -76,33 +80,20 @@ function App() {
           <Route path="/branch/:branch/:semester/modules/:subjectName" element={<ModuleDetail />} />
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/pdf/:pdfUrl" element={<PdfViewer />} />
-
-          {/* Model Papers Routes */}
-          
           <Route path="/model-papers" element={<ModelPapers />} />
-
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-
-          {/* Protected Routes */}
           <Route path="/placement-guide" element={isAuthenticated ? <PlacementGuide /> : <Navigate to="/login" />} />
           <Route path="/study-planner" element={isAuthenticated ? <StudyPlanner /> : <Navigate to="/login" />} />
           <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
-
-          {/* Utility Routes */}
-         
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/chatbot" element={<ChatBot />} />
           <Route path="/comments" element={<CommentSection />} />
           <Route path="/test" element={<TestPage />} />
-
-          {/* Authentication */}
           <Route path="/login" element={<RedirectAuthenticatedUser element={<Login setIsAuthenticated={setIsAuthenticated} />} />} />
           <Route path="/signup" element={<RedirectAuthenticatedUser element={<Signup />} />} />
-
-          {/* Fallback */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
 

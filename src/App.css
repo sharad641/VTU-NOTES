@@ -54,13 +54,13 @@ body {
 
 .welcome-text p {
   font-size: 1.2rem;
-  color: #b0c4de;
+  color: #f2f5f8;
 }
 
 /* Global Styles */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f7fc;
+  background-color: #f3f4f5;
   margin: 0;
   padding: 0;
 }
@@ -77,4 +77,50 @@ h1, h2 {
   margin: 0;
   padding: 0;
   font-family: 'Inter', sans-serif;
+}
+/* App.css */
+
+/* 🌞 Light Mode */
+.light-mode {
+  background-color: #f9fafb; /* light warm grey */
+  color: #1f2937; /* slate-800 */
+}
+
+/* 🌙 Dark Mode */
+.dark-mode {
+  background-color: #0f172a; /* slate-900 */
+  color: #f8fafc; /* slate-50 */
+}
+
+/* 🌓 Toggle Button Styles */
+.theme-toggle-button {
+  position: fixed;
+  top: 2rem;
+  right: 1rem;
+  background: linear-gradient(135deg, #3b82f6, #5555e3); /* blue to cyan */
+  color: #fff;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive (small screens) */
+@media (max-width: 600px) {
+  .theme-toggle-button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
 }
