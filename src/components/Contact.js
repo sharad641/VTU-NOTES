@@ -167,30 +167,6 @@ const Contact = () => {
         </ul>
       </section>
 
-      {/* Location */}
-      <section className="location">
-        <h2>📍 Location</h2>
-        <p>Visit :</p>
-        <address>
-          <strong>VTU Notes For All</strong>
-          <br />
-          The BVSS Maratha Student's Home
-          <br />
-          Bangalore, Karnataka, India 560004
-        </address>
-        <div className="map-container">
-          <iframe
-            title="VTU Notes Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.4737339797737!2d77.56726457559377!3d12.972442920601234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670a1ba5f13%3A0xa34840a276f8e04e!2sBVSS%20Maratha%20Students%20Home!5e0!3m2!1sen!2sin!4v1619156345797!5m2!1sen!2sin"
-            width="100%"
-            height="300"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-          ></iframe>
-        </div>
-        <p>We look forward to connecting with you!</p>
-      </section>
     </div>
   );
 };

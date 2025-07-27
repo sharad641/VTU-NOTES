@@ -1,6 +1,6 @@
 :root {
-  --primary-color: #1e88e5; /* Modern Blue */
-  --secondary-color: #ffffff; /* Light background */
+  --primary-color: #1e88e5;         /* Modern Blue */
+  --secondary-color: #ffffff;       /* Light Background */
   --text-color-dark: #121212;
   --text-color-light: #ffffff;
   --border-color: #d1d5db;
@@ -8,20 +8,37 @@
   --shadow-light: rgba(0, 0, 0, 0.05);
   --shadow-dark: rgba(0, 0, 0, 0.2);
   --font-family: 'Inter', sans-serif;
+  --radius: 1rem;
 }
 
-/* Universal Reset */
+.dark {
+  --primary-color: #90caf9;
+  --secondary-color: #0f172a;
+  --text-color-dark: #f1f5f9;
+  --text-color-light: #ffffff;
+  --border-color: #334155;
+  --focus-color: #60a5fa;
+  --shadow-light: rgba(255, 255, 255, 0.05);
+  --shadow-dark: rgba(0, 0, 0, 0.5);
+}
+
+/* Reset & Typography */
 body, h1, h2, h3, p, ul, ol {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-.calculator-container {
+body {
   font-family: var(--font-family);
+  background-color: var(--secondary-color);
+  color: var(--text-color-dark);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.calculator-container {
   max-width: 720px;
   margin: auto;
-  width: 100%;
   padding: 1rem;
   transition: all 0.3s ease;
 }
@@ -61,14 +78,14 @@ body, h1, h2, h3, p, ul, ol {
   transform: scale(0.98);
 }
 
-/* Input Groups */
+/* Input Group */
 .input-group {
   margin-bottom: 1.5rem;
   display: flex;
   flex-direction: column;
 }
 
-/* Input Fields */
+/* Inputs */
 .input-field {
   padding: 14px 16px;
   border-radius: 8px;
@@ -86,7 +103,7 @@ body, h1, h2, h3, p, ul, ol {
   box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.2);
 }
 
-/* Section/Card */
+/* Card/Section */
 .calculator-section {
   padding: 24px;
   background-color: var(--secondary-color);
@@ -109,7 +126,7 @@ body, h1, h2, h3, p, ul, ol {
   color: inherit;
 }
 
-/* Text */
+/* Text Utilities */
 .text-sm {
   font-size: 1rem;
   line-height: 1.75;
@@ -165,7 +182,7 @@ body, h1, h2, h3, p, ul, ol {
   border-bottom: 1px solid var(--focus-color);
 }
 
-/* Responsiveness */
+/* Responsive Design */
 @media (max-width: 768px) {
   .calculator-container {
     padding: 1rem;

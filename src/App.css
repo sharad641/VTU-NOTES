@@ -95,7 +95,7 @@ h1, h2 {
 /* 🌓 Toggle Button Styles */
 .theme-toggle-button {
   position: fixed;
-  top: 2rem;
+  top: 5rem;
   right: 1rem;
   background: linear-gradient(135deg, #3b82f6, #5555e3); /* blue to cyan */
   color: #fff;

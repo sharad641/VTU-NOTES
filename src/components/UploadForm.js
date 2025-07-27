@@ -18,12 +18,9 @@ const UploadForm = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        flexDirection: 'column',
+        padding: '2rem 1rem',
         minHeight: '100vh',
-        width: '100%',
-        padding: '2rem',
-        boxSizing: 'border-box',
-        backgroundColor: '#f3f4f6',
+       
     };
 
     const formStyle = {
@@ -31,8 +28,8 @@ const UploadForm = () => {
         maxWidth: '500px',
         backgroundColor: '#ffffff',
         padding: '2rem',
-        borderRadius: '16px',
-        boxShadow: '0 10px 30px rgba(0, 0, 0, 0.15)',
+        borderRadius: '20px',
+        boxShadow: '0 12px 35px rgba(0, 0, 0, 0.15)',
         transition: 'transform 0.3s ease, box-shadow 0.3s ease',
     };
 
@@ -40,7 +37,7 @@ const UploadForm = () => {
         textAlign: 'center',
         marginBottom: '1.5rem',
         fontSize: '2rem',
-        fontWeight: '700',
+        fontWeight: '800',
         color: '#1e40af',
         letterSpacing: '0.5px',
     };
@@ -54,7 +51,7 @@ const UploadForm = () => {
         background: '#f1f5f9',
         padding: '20px 25px',
         borderRadius: '12px',
-        boxShadow: '0 5px 15px rgba(0, 0, 0, 0.1)',
+        boxShadow: '0 5px 15px rgba(0, 0, 0, 0.05)',
     };
 
     const labelStyle = {
@@ -69,11 +66,12 @@ const UploadForm = () => {
         width: '100%',
         padding: '0.9rem',
         fontSize: '1rem',
-        borderRadius: '10px',
+        borderRadius: '12px',
         border: '1px solid #d1d5db',
         backgroundColor: '#f9fafb',
-        transition: 'all 0.3s ease',
         marginBottom: '1.5rem',
+        outline: 'none',
+        boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.05)',
     };
 
     const buttonStyle = {
@@ -84,7 +82,7 @@ const UploadForm = () => {
         backgroundColor: hover ? '#1e3a8a' : '#2563eb',
         color: '#ffffff',
         border: 'none',
-        borderRadius: '10px',
+        borderRadius: '12px',
         cursor: 'pointer',
         transition: 'background-color 0.3s ease, transform 0.2s ease',
         marginTop: '1rem',
@@ -92,12 +90,12 @@ const UploadForm = () => {
 
     const messageStyle = {
         textAlign: 'center',
-        fontWeight: 'bold',
-        marginTop: '1rem',
+        fontWeight: '600',
+        marginTop: '1.2rem',
         padding: '1rem',
         borderRadius: '10px',
         fontSize: '1rem',
-        color: uploadSuccess ? '#16a34a' : '#b91c1c',
+        color: uploadSuccess ? '#15803d' : '#b91c1c',
         backgroundColor: uploadSuccess ? '#dcfce7' : '#fee2e2',
         border: `1px solid ${uploadSuccess ? '#16a34a' : '#dc2626'}`,
     };
@@ -115,20 +113,11 @@ const UploadForm = () => {
     const handleInputChange = (e) => {
         const { id, value } = e.target;
         switch (id) {
-            case 'semester':
-                setSemester(value);
-                break;
-            case 'subjectName':
-                setSubjectName(value);
-                break;
-            case 'subjectCode':
-                setSubjectCode(value);
-                break;
-            case 'message':
-                setMessage(value);
-                break;
-            default:
-                break;
+            case 'semester': setSemester(value); break;
+            case 'subjectName': setSubjectName(value); break;
+            case 'subjectCode': setSubjectCode(value); break;
+            case 'message': setMessage(value); break;
+            default: break;
         }
     };
 
@@ -190,58 +179,24 @@ const UploadForm = () => {
             <form style={formStyle} onSubmit={handleUpload}>
                 <h2 style={titleStyle}>Upload Your Notes</h2>
                 <p style={subtitleStyle}>
-                    Join our mission to help students excel by sharing your valuable notes and study materials.
+                    Help fellow students by sharing your study materials and notes. Your contribution matters.
                 </p>
-                {uploadMessage && (
-                    <div style={messageStyle}>
-                        {uploadMessage}
-                    </div>
-                )}
+
+                {uploadMessage && <div style={messageStyle}>{uploadMessage}</div>}
+
                 <label style={labelStyle} htmlFor="semester">Semester:</label>
-                <input
-                    id="semester"
-                    type="text"
-                    value={semester}
-                    onChange={handleInputChange}
-                    style={inputStyle}
-                    required
-                />
+                <input id="semester" type="text" value={semester} onChange={handleInputChange} style={inputStyle} required />
 
                 <label style={labelStyle} htmlFor="subjectName">Subject Name:</label>
-                <input
-                    id="subjectName"
-                    type="text"
-                    value={subjectName}
-                    onChange={handleInputChange}
-                    style={inputStyle}
-                    required
-                />
+                <input id="subjectName" type="text" value={subjectName} onChange={handleInputChange} style={inputStyle} required />
 
                 <label style={labelStyle} htmlFor="subjectCode">Subject Code (optional):</label>
-                <input
-                    id="subjectCode"
-                    type="text"
-                    value={subjectCode}
-                    onChange={handleInputChange}
-                    style={inputStyle}
-                />
+                <input id="subjectCode" type="text" value={subjectCode} onChange={handleInputChange} style={inputStyle} />
 
                 <label style={labelStyle} htmlFor="file">Upload PDF:</label>
-                <input
-                    id="file"
-                    type="file"
-                    accept="application/pdf"
-                    onChange={handleFileChange}
-                    style={inputStyle}
-                    required
-                />
+                <input id="file" type="file" accept="application/pdf" onChange={handleFileChange} style={inputStyle} required />
 
-                <button
-                    type="submit"
-                    style={buttonStyle}
-                    onMouseEnter={() => setHover(true)}
-                    onMouseLeave={() => setHover(false)}
-                >
+                <button type="submit" style={buttonStyle} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
                     Upload
                 </button>
 

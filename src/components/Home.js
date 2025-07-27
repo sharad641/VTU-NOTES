@@ -7,8 +7,10 @@ import { logEvent } from 'firebase/analytics';
 import CommentSection from './CommentSection';
 import BranchSelection from './BranchSelection';
 import ModelPapers from './ModelPapers';
+import UploadForm from './UploadForm';
 
 import Calculator from './Calculator';
+import Contact from './Contact';
 
 
 import ChatBot from './ChatBot';
@@ -81,18 +83,21 @@ const Home = () => {
             
           ))}
         </div>
+         {/* 📤 Upload Notes */}
+      <UploadForm />
       </section>
       {/* 📖 FAQs */}
-      <section className="info-box modern-box">
+      <section className="info-box modern-box-new">
         <h2>📖 Frequently Asked Questions (FAQs)</h2>
         <p>Quick answers to your most common concerns.</p>
-        <Link to="/faqs" className="button modern-button">🔗 Go to FAQs</Link>
+        <Link to="/faqs" className="button modern-button-nw">🔗 Go to FAQs</Link>
       </section>
       
       
     
-
-      
+       
+       {/* 📞 Contact Us */}
+      <Contact />
 
       {/* 💬 Comments */}
       <CommentSection />
