@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { database } from '../firebase'; // Adjust the path to your Firebase configuration
+import { database } from '../firebase';
 import { ref, push, onValue } from 'firebase/database';
 import './CommentSection.css';
 
-const ADMIN_NAME = 'Admin'; // Define the reserved admin name
-const ADMIN_EMAIL = 'vtunotesforall@gmail.com'; // Define the admin's email (can be fetched dynamically)
+const ADMIN_NAME = 'Admin';
+const ADMIN_EMAIL = 'vtunotesforall@gmail.com';
 
 const CommentSection = () => {
   const [comments, setComments] = useState([]);
@@ -16,20 +16,16 @@ const CommentSection = () => {
   const [isReplyingTo, setIsReplyingTo] = useState({ commentId: null, replyKey: null });
   const [showAllComments, setShowAllComments] = useState(false);
 
-  const commentFormRef = useRef(null); // Ref for the comment form
+  const commentFormRef = useRef(null);
 
-  // Fetch comments from Firebase
   useEffect(() => {
     const commentsRef = ref(database, 'comments');
     const unsubscribe = onValue(commentsRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
         const fetchedComments = Object.keys(data)
-          .map((key) => ({
-            id: key,
-            ...data[key],
-          }))
-          .sort((a, b) => b.timestamp - a.timestamp); // Sort by timestamp in descending order
+          .map((key) => ({ id: key, ...data[key] }))
+          .sort((a, b) => b.timestamp - a.timestamp);
         setComments(fetchedComments);
       } else {
         setComments([]);
@@ -39,10 +35,6 @@ const CommentSection = () => {
     return () => unsubscribe();
   }, []);
 
-  // Scroll to the comment form
- 
-
-  // Add a new comment
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     if (!commentText.trim() || !email.trim()) {
@@ -68,7 +60,6 @@ const CommentSection = () => {
     }
   };
 
-  // Add a reply
   const handleReplySubmit = async (commentId, replyKey = null) => {
     if (!replyText.trim() || !replyUserName.trim()) {
       alert('Both reply text and name are required.');
@@ -103,12 +94,11 @@ const CommentSection = () => {
     }
   };
 
-  // Render replies recursively
   const renderReplies = (replies, parentPath, parentCommentId) => {
     if (!replies || typeof replies !== 'object') return null;
 
     return Object.entries(replies)
-      .sort(([, a], [, b]) => b.timestamp - a.timestamp) // Sort replies by timestamp
+      .sort(([, a], [, b]) => b.timestamp - a.timestamp)
       .map(([key, reply]) => {
         const replyPath = `${parentPath}/replies/${key}`;
 
@@ -160,9 +150,9 @@ const CommentSection = () => {
   return (
     <div className="comment-section-container">
       <header className="header">
-        <h2 className="section-title">Share Your Thoughts</h2>
+        <h2 className="section-title">💬 Need Any VTU Notes or Help?</h2>
         <p className="intro-paragraph">
-          Have thoughts about our website? We’d love to hear from you! Share your comments, suggestions, or experiences to help us improve and serve you better.
+          Looking for a specific subject's notes? Have feedback or suggestions? Drop your comments below – we’ll get back to you!
         </p>
       </header>
 
@@ -186,15 +176,15 @@ const CommentSection = () => {
         />
         <textarea
           className="comment-textarea"
-          placeholder="Share Your Thoughts..."
+          placeholder="Share your message, suggestions, or note request..."
           value={commentText}
           onChange={(e) => setCommentText(e.target.value)}
           required
         />
-        <button type="submit" className="submit-btn">Leave a Comment</button>
+        <button type="submit" className="submit-btn">📝 Post Comment</button>
       </form>
 
-      {/* Comments */}
+      {/* Comment List */}
       {comments
         .slice(0, showAllComments ? comments.length : 30)
         .map((comment) => (
@@ -241,18 +231,15 @@ const CommentSection = () => {
           </div>
         ))}
 
-      {/* Toggle Comments */}
+      {/* Toggle Button */}
       {comments.length > 30 && (
         <button
           className="toggle-comments-btn"
           onClick={() => setShowAllComments(!showAllComments)}
         >
-          {showAllComments ? 'Hide Comments' : `View All Comments (${comments.length - 20})`}
+          {showAllComments ? '🔽 Hide Comments' : `🔼 View All Comments (${comments.length - 30})`}
         </button>
       )}
-
-      {/* Floating Button */}
-    
     </div>
   );
 };
