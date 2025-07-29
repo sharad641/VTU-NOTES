@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+// D:\vtu-notes\client\src\components\Login.js
+import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { 
     auth, 
     signInWithEmailAndPassword, 
     signInWithPopup, 
     googleAuthProvider, 
-    onAuthStateChanged, 
     signInAnonymously 
 } from '../firebase';
 import './Login.css';
-import googleLogo from '../assets/goo.png'; // Assuming the Google logo is at this path
+import googleLogo from '../assets/goo.png';
 
 const Login = ({ setIsAuthenticated }) => {
     const [email, setEmail] = useState('');
@@ -19,18 +19,8 @@ const Login = ({ setIsAuthenticated }) => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Capture the intended route before login, defaulting to homepage
     const from = location.state?.from?.pathname || '/';
-
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setIsAuthenticated(true);
-                navigate(from, { replace: true }); // Navigate to the intended page
-            }
-        });
-        return () => unsubscribe();
-    }, [setIsAuthenticated, navigate, from]);
+    const adminEmail = "sp1771838@gmail.com";
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -39,7 +29,11 @@ const Login = ({ setIsAuthenticated }) => {
         try {
             await signInWithEmailAndPassword(auth, email, password);
             setIsAuthenticated(true);
-            navigate(from, { replace: true }); // Navigate to the intended page
+            if (email === adminEmail) {
+                navigate('/admin-dashboard', { replace: true });
+            } else {
+                navigate(from, { replace: true });
+            }
         } catch (err) {
             setError(`Invalid email or password. Error: ${err.message}`);
         } finally {
@@ -52,11 +46,34 @@ const Login = ({ setIsAuthenticated }) => {
         setLoading(true);
         try {
             googleAuthProvider.setCustomParameters({ prompt: 'select_account' });
-            await signInWithPopup(auth, googleAuthProvider);
+            const result = await signInWithPopup(auth, googleAuthProvider);
             setIsAuthenticated(true);
-            navigate(from, { replace: true }); // Navigate to the intended page
+            if (result.user.email === adminEmail) {
+                navigate('/admin-dashboard', { replace: true });
+            } else {
+                navigate(from, { replace: true });
+            }
         } catch (err) {
             setError(`Google login failed. Error: ${err.message}`);
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleAdminGoogleLogin = async () => {
+        setError('');
+        setLoading(true);
+        try {
+            googleAuthProvider.setCustomParameters({ prompt: 'select_account' });
+            const result = await signInWithPopup(auth, googleAuthProvider);
+            if (result.user.email === adminEmail) {
+                setIsAuthenticated(true);
+                navigate('/admin-dashboard', { replace: true });
+            } else {
+                setError('You are not authorized as Admin.');
+            }
+        } catch (err) {
+            setError(`Admin Google login failed. Error: ${err.message}`);
         } finally {
             setLoading(false);
         }
@@ -68,7 +85,7 @@ const Login = ({ setIsAuthenticated }) => {
         try {
             await signInAnonymously(auth);
             setIsAuthenticated(true);
-            navigate(from, { replace: true }); // Navigate to the intended page
+            navigate(from, { replace: true });
         } catch (err) {
             setError(`Guest login failed. Error: ${err.message}`);
         } finally {
@@ -109,6 +126,9 @@ const Login = ({ setIsAuthenticated }) => {
                     </button>
                     <button className="guest-login-button" onClick={handleGuestLogin} disabled={loading}>
                         {loading ? 'Logging in...' : 'Login as Guest'}
+                    </button>
+                    <button className="admin-login-button" onClick={handleAdminGoogleLogin} disabled={loading}>
+                        {loading ? 'Logging in...' : 'Login as Admin (Google)'}
                     </button>
                 </div>
                 <p className="signup-text">

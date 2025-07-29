@@ -45,6 +45,7 @@
     "react-router-dom": "^6.27.0",
     "react-scripts": "5.0.1",
     "react-syntax-highlighter": "^15.6.1",
+    "recharts": "^3.1.0",
     "rehype-highlight": "^7.0.2",
     "remark-gfm": "^4.0.0",
     "stream-browserify": "^3.0.0",

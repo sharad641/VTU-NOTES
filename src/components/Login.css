@@ -285,3 +285,17 @@ input[type="text"], input[type="password"] {
     cursor: not-allowed;
     box-shadow: none;
 }
+.admin-login-button {
+    background-color: #d9534f; /* Red */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.admin-login-button:hover {
+    background-color: #c9302c;
+}

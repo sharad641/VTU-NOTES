@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { database } from '../firebase';
+import { database, auth } from '../firebase';
 import { ref, push, onValue } from 'firebase/database';
+import { onAuthStateChanged } from 'firebase/auth';
 import './CommentSection.css';
 
-const ADMIN_NAME = 'Admin';
-const ADMIN_EMAIL = 'vtunotesforall@gmail.com';
+const ADMIN_EMAIL = "sp1771838@gmail.com"; // Your admin email
 
 const CommentSection = () => {
   const [comments, setComments] = useState([]);
@@ -12,12 +12,21 @@ const CommentSection = () => {
   const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [replyText, setReplyText] = useState('');
-  const [replyUserName, setReplyUserName] = useState('');
   const [isReplyingTo, setIsReplyingTo] = useState({ commentId: null, replyKey: null });
   const [showAllComments, setShowAllComments] = useState(false);
+  const [currentUserEmail, setCurrentUserEmail] = useState(null);
 
   const commentFormRef = useRef(null);
 
+  // Track logged-in user
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setCurrentUserEmail(user?.email || null);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  // Load comments
   useEffect(() => {
     const commentsRef = ref(database, 'comments');
     const unsubscribe = onValue(commentsRef, (snapshot) => {
@@ -35,6 +44,7 @@ const CommentSection = () => {
     return () => unsubscribe();
   }, []);
 
+  // Handle new comment submission
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     if (!commentText.trim() || !email.trim()) {
@@ -60,14 +70,15 @@ const CommentSection = () => {
     }
   };
 
+  // Handle reply (admin only)
   const handleReplySubmit = async (commentId, replyKey = null) => {
-    if (!replyText.trim() || !replyUserName.trim()) {
-      alert('Both reply text and name are required.');
+    if (currentUserEmail !== ADMIN_EMAIL) {
+      alert('Only the admin can reply to comments.');
       return;
     }
 
-    if (replyUserName.trim() === ADMIN_NAME && email.trim() !== ADMIN_EMAIL) {
-      alert('You cannot use the name "Admin" unless you are the admin.');
+    if (!replyText.trim()) {
+      alert('Reply text is required.');
       return;
     }
 
@@ -79,14 +90,13 @@ const CommentSection = () => {
 
       await push(replyRef, {
         text: replyText.trim(),
-        author: replyUserName.trim(),
-        email: email.trim(),
+        author: "Admin",
+        email: ADMIN_EMAIL,
         timestamp: Date.now(),
         replies: {},
       });
 
       setReplyText('');
-      setReplyUserName('');
       setIsReplyingTo({ commentId: null, replyKey: null });
     } catch (error) {
       console.error('Error adding reply:', error);
@@ -94,6 +104,7 @@ const CommentSection = () => {
     }
   };
 
+  // Recursive replies
   const renderReplies = (replies, parentPath, parentCommentId) => {
     if (!replies || typeof replies !== 'object') return null;
 
@@ -108,23 +119,18 @@ const CommentSection = () => {
             <span className="timestamp">{new Date(reply.timestamp).toLocaleString()}</span>
             <p className="reply-text">{reply.text}</p>
 
-            <button
-              className="reply-btn"
-              onClick={() => setIsReplyingTo({ commentId: parentCommentId, replyKey: key })}
-            >
-              Reply
-            </button>
+            {/* Only admin can reply */}
+            {currentUserEmail === ADMIN_EMAIL && (
+              <button
+                className="reply-btn"
+                onClick={() => setIsReplyingTo({ commentId: parentCommentId, replyKey: key })}
+              >
+                Reply
+              </button>
+            )}
 
-            {isReplyingTo.commentId === parentCommentId && isReplyingTo.replyKey === key && (
+            {isReplyingTo.commentId === parentCommentId && isReplyingTo.replyKey === key && currentUserEmail === ADMIN_EMAIL && (
               <div className="reply-form">
-                <input
-                  type="text"
-                  className="reply-name"
-                  placeholder="Your Name"
-                  value={replyUserName}
-                  onChange={(e) => setReplyUserName(e.target.value)}
-                  required
-                />
                 <textarea
                   className="reply-textarea"
                   placeholder="Write your reply..."
@@ -192,27 +198,23 @@ const CommentSection = () => {
             <div className="comment-header">
               <strong>{comment.author}</strong>
               <span className="timestamp">{new Date(comment.timestamp).toLocaleString()}</span>
-              <button
-                className="reply-btn"
-                onClick={() => setIsReplyingTo({ commentId: comment.id, replyKey: null })}
-              >
-                Reply
-              </button>
+
+              {/* Only admin can reply */}
+              {currentUserEmail === ADMIN_EMAIL && (
+                <button
+                  className="reply-btn"
+                  onClick={() => setIsReplyingTo({ commentId: comment.id, replyKey: null })}
+                >
+                  Reply
+                </button>
+              )}
             </div>
             <p className="comment-text">{comment.text}</p>
 
             {renderReplies(comment.replies, `comments/${comment.id}`, comment.id)}
 
-            {isReplyingTo.commentId === comment.id && isReplyingTo.replyKey === null && (
+            {isReplyingTo.commentId === comment.id && isReplyingTo.replyKey === null && currentUserEmail === ADMIN_EMAIL && (
               <div className="reply-form">
-                <input
-                  type="text"
-                  className="reply-name"
-                  placeholder="Your Name"
-                  value={replyUserName}
-                  onChange={(e) => setReplyUserName(e.target.value)}
-                  required
-                />
                 <textarea
                   className="reply-textarea"
                   placeholder="Write your reply..."

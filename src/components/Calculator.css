@@ -369,3 +369,113 @@ body {
 @media (max-width: 480px) {
   .calc-header h1 { font-size: 1.8rem; }
 }
+.vtu-calculator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.vtu-calculator-container h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+
+.subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+.calculator-selector {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.calculator-selector button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.calculator-selector button:hover {
+    background-color: #2980b9;
+}
+
+.calculator-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.calculator-section h2 {
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+.calculator-section p {
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.subject-input, .semester-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex: 1;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #27ae60;
+}
+
+.result {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #e8f8f5;
+    border-radius: 4px;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.about-section {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+}
+
+.about-section h3 {
+    color: #2c3e50;
+    margin-top: 0;
+}
