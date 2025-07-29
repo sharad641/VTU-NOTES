@@ -3,8 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExpand, faCompress, faTimes, faMicrophone } from '@fortawesome/free-solid-svg-icons';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
-import 'highlight.js/styles/github.css'; // You can change this style
-
+import 'highlight.js/styles/github.css';
 import './ChatBot.css';
 
 const ChatBot = () => {
@@ -17,70 +16,68 @@ const ChatBot = () => {
   const messageEndRef = useRef(null);
   const recognitionRef = useRef(null);
 
+  // Scroll to bottom whenever new message comes
   useEffect(() => {
-    scrollToBottom();
+    messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const scrollToBottom = () => {
-    messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
+  // Send message to API
   const handleSend = async () => {
-    if (input.trim() === '') return;
+    if (input.trim() === '' || loading) return;
 
     const userMessage = { text: input, sender: 'user', timestamp: new Date().toLocaleTimeString() };
-    setMessages((prevMessages) => [...prevMessages, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setInput('');
     setLoading(true);
     setTyping(true);
 
     try {
-      const apiKey = process.env.REACT_APP_GEMINI_API_KEY || 'YOUR_API_KEY';
-      const model = 'gemini-2.0-flash';
+      const apiKey = process.env.REACT_APP_GEMINI_API_KEY; 
+      if (!apiKey) throw new Error('API Key is missing');
 
+      const model = 'gemini-2.0-flash';
       const response = await fetch(
         `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            contents: [{
-              parts: [{ text: input }]
-            }]
+            contents: [{ parts: [{ text: userMessage.text }] }]
           })
         }
       );
 
       if (!response.ok) {
-        throw new Error(`⚠️ ${response.status === 429 ? 'Too many requests' : response.status === 400 ? 'Bad request' : 'Server error: ' + response.status}`);
+        const errorText = response.status === 429
+          ? 'Too many requests. Please try again later.'
+          : response.status === 400
+          ? 'Bad request. Please refine your query.'
+          : `Server error: ${response.status}`;
+        throw new Error(errorText);
       }
 
       const data = await response.json();
-      const botResponse = data?.candidates?.[0]?.content?.parts?.[0]?.text || '🤖 Unable to generate response.';
+      const botResponse = data?.candidates?.[0]?.content?.parts?.[0]?.text || '🤖 I couldn’t process that.';
       const botMessage = { text: botResponse, sender: 'bot', timestamp: new Date().toLocaleTimeString() };
-      setMessages((prevMessages) => [...prevMessages, botMessage]);
+      setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
-      const errorMessage = {
-        text: `⚠️ Error: ${error.message}`,
-        sender: 'bot',
-        timestamp: new Date().toLocaleTimeString(),
-      };
-      setMessages((prevMessages) => [...prevMessages, errorMessage]);
+      const errorMessage = { text: `⚠️ Error: ${error.message}`, sender: 'bot', timestamp: new Date().toLocaleTimeString() };
+      setMessages((prev) => [...prev, errorMessage]);
     } finally {
       setLoading(false);
       setTyping(false);
     }
   };
 
+  // Handle Enter key
   const handleKeyDown = (e) => {
-    if (e.key === 'Enter' && !loading) {
-      handleSend();
-    }
+    if (e.key === 'Enter') handleSend();
   };
 
+  // Voice Input
   const handleVoiceInput = () => {
     if (!('webkitSpeechRecognition' in window)) {
-      alert('Your browser does not support speech recognition.');
+      alert('Your browser does not support voice input.');
       return;
     }
 
@@ -93,9 +90,9 @@ const ChatBot = () => {
         const transcript = event.results[0][0].transcript;
         setInput(transcript);
       };
+      recognition.onerror = () => alert('Voice recognition error.');
       recognitionRef.current = recognition;
     }
-
     recognitionRef.current.start();
   };
 
@@ -127,9 +124,7 @@ const ChatBot = () => {
         {typing && (
           <div className="message bot">
             <div className="message-text">
-              <span className="typing-indicator">
-                <span></span><span></span><span></span>
-              </span> Typing...
+              <span className="typing-indicator"><span></span><span></span><span></span></span> Typing...
             </div>
           </div>
         )}
