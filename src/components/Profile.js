@@ -17,6 +17,7 @@ import './Profile.css';
 const Profile = () => {
     const [user, setUser] = useState(null);
     const [editMode, setEditMode] = useState(false);
+    const [isAdmin, setIsAdmin] = useState(false);
     const [profileInfo, setProfileInfo] = useState({
         displayName: 'Guest User',
         email: 'guest@example.com',
@@ -29,11 +30,13 @@ const Profile = () => {
     const [testResults, setTestResults] = useState([]);
     const navigate = useNavigate();
     const storage = getStorage();
+    const adminEmail = "sp1771838@gmail.com";
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
                 setUser(currentUser);
+                setIsAdmin(currentUser.email === adminEmail);
 
                 if (currentUser.isAnonymous) {
                     setProfileInfo({
@@ -80,6 +83,7 @@ const Profile = () => {
                 }
             } else {
                 setUser(null);
+                setIsAdmin(false);
             }
         });
 
@@ -214,6 +218,15 @@ const Profile = () => {
                     <p>Email: {profileInfo.email}</p>
                     <p>Phone Number: {profileInfo.phoneNumber || 'Not provided'}</p>
                     <p>College Name: {profileInfo.collegeName || 'Not provided'}</p>
+
+                    {/* Show Dashboard Button only for Admin */}
+                    {isAdmin && (
+                        <button 
+                            className="dashboard-btn"
+                            onClick={() => navigate('/admin-dashboard')}>
+                            Go to Admin Dashboard
+                        </button>
+                    )}
 
                     {editMode && !user.isAnonymous ? (
                         <div className="edit-form">

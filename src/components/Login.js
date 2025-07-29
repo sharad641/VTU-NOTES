@@ -11,7 +11,7 @@ import {
 import './Login.css';
 import googleLogo from '../assets/goo.png';
 
-const Login = ({ setIsAuthenticated }) => {
+const Login = ({ setIsAuthenticated, setIsAdmin }) => {  // Add setIsAdmin prop
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -27,13 +27,11 @@ const Login = ({ setIsAuthenticated }) => {
         setError('');
         setLoading(true);
         try {
-            await signInWithEmailAndPassword(auth, email, password);
+            const userCred = await signInWithEmailAndPassword(auth, email, password);
+            const isAdmin = userCred.user.email === adminEmail;
             setIsAuthenticated(true);
-            if (email === adminEmail) {
-                navigate('/admin-dashboard', { replace: true });
-            } else {
-                navigate(from, { replace: true });
-            }
+            setIsAdmin(isAdmin); // set admin state
+            navigate(isAdmin ? '/admin-dashboard' : from, { replace: true });
         } catch (err) {
             setError(`Invalid email or password. Error: ${err.message}`);
         } finally {
@@ -45,14 +43,11 @@ const Login = ({ setIsAuthenticated }) => {
         setError('');
         setLoading(true);
         try {
-            googleAuthProvider.setCustomParameters({ prompt: 'select_account' });
             const result = await signInWithPopup(auth, googleAuthProvider);
+            const isAdmin = result.user.email === adminEmail;
             setIsAuthenticated(true);
-            if (result.user.email === adminEmail) {
-                navigate('/admin-dashboard', { replace: true });
-            } else {
-                navigate(from, { replace: true });
-            }
+            setIsAdmin(isAdmin); // set admin state
+            navigate(isAdmin ? '/admin-dashboard' : from, { replace: true });
         } catch (err) {
             setError(`Google login failed. Error: ${err.message}`);
         } finally {
@@ -64,10 +59,10 @@ const Login = ({ setIsAuthenticated }) => {
         setError('');
         setLoading(true);
         try {
-            googleAuthProvider.setCustomParameters({ prompt: 'select_account' });
             const result = await signInWithPopup(auth, googleAuthProvider);
             if (result.user.email === adminEmail) {
                 setIsAuthenticated(true);
+                setIsAdmin(true);
                 navigate('/admin-dashboard', { replace: true });
             } else {
                 setError('You are not authorized as Admin.');
@@ -85,6 +80,7 @@ const Login = ({ setIsAuthenticated }) => {
         try {
             await signInAnonymously(auth);
             setIsAuthenticated(true);
+            setIsAdmin(false);
             navigate(from, { replace: true });
         } catch (err) {
             setError(`Guest login failed. Error: ${err.message}`);

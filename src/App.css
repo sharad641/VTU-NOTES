@@ -22,7 +22,7 @@ html, body {
 :root {
   /* Light Theme Colors */
   --bg-color-light: #f9fafb;
-  --text-color-light: #1f2937;
+  --text-color-light: #dfe1e3;
   --card-bg-light: #ffffff;
   --border-light: #e5e7eb;
 
@@ -51,39 +51,62 @@ html, body {
 }
 
 /* ========================
-   🌓 Theme Toggle Button
+   🌓 Theme Toggle Button (Left)
+=========================== */
+/* ========================
+   🌓 Theme Toggle Button (Compact Floating Left)
 =========================== */
 .theme-toggle-button {
   position: fixed;
   top: 5rem;
-  right: 0.8rem;
+  left: 0.8rem; /* Moved to left */
   background: var(--accent-gradient);
   color: #fff;
   border: none;
-  border-radius: 9999px;
-  padding: 0.6rem 1.4rem;
-  font-size: 1rem;
-  font-weight: 600;
+  border-radius: 50%; /* Perfect circle */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   z-index: 10000;
   transition: all 0.3s ease-in-out;
+  animation: slideInLeft 0.5s ease-out;
 }
 
 .theme-toggle-button:hover {
   background: var(--accent-hover);
-  transform: scale(1.05);
+  transform: scale(1.1);
 }
 
 /* Mobile Adaptation */
 @media (max-width: 600px) {
   .theme-toggle-button {
-    top: 0.6rem;
-    right: 0.6rem;
-    padding: 0.4rem 1rem;
-    font-size: 0.9rem;
+    top: 45rem;
+    left: 0.6rem; /* Adjust for small screens */
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
   }
 }
+
+/* Slide-in Animation */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
 
 /* ========================
    💫 Universal UI Styles

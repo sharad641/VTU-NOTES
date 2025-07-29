@@ -109,7 +109,7 @@ function App() {
       <AnalyticsTracker />
       <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
         <button className="theme-toggle-button" onClick={toggleDarkMode}>
-          {darkMode ? '🌞 Light Mode' : '🌙 Dark Mode'}
+          {darkMode ? '🌞' : '🌙'}
         </button>
 
         <Navbar />
