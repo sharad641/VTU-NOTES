@@ -260,3 +260,37 @@
     font-size: 0.85rem;
   }
 }
+:root {
+  /* Enable automatic light/dark theming */
+  color-scheme: light dark;
+  --footer-bg: #1e1e2f;
+  --footer-text: #f5f5f5;
+  --footer-link: #4f86ed;       /* Brighter blue for better contrast */
+  --footer-link-hover: #77a1f2; /* Even lighter on hover */
+}
+
+/* Override for light mode when user prefers it */
+@media (prefers-color-scheme: light) {
+  :root {
+    --footer-bg: #f3f4f6;
+    --footer-text: #1f2937;
+    --footer-link: #1d4ed8;
+    --footer-link-hover: #2563eb;
+  }
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text);
+  padding: 60px 16px;
+  /* ...other styles... */
+}
+.footer-links a {
+  color: var(--footer-link);
+  transition: color 0.3s ease;
+}
+.footer-links a:hover {
+  color: var(--footer-link-hover);
+}
+
+/* (Rest of the CSS remains, using these updated variables) */
