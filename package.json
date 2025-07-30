@@ -18,6 +18,7 @@
     "crypto-browserify": "^3.12.1",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
+    "emailjs-com": "^3.2.0",
     "firebase": "^10.14.1",
     "font-awesome": "^4.7.0",
     "howler": "^2.2.4",
