@@ -12,11 +12,21 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
+import {
+  FaBars,
+  FaChartLine,
+  FaEnvelope,
+  FaComments,
+  FaUsers,
+  FaUserShield,
+  FaSignOutAlt,
+} from "react-icons/fa";
 import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("analytics");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [analyticsData, setAnalyticsData] = useState({
     totalUsers: 0,
     totalPageViews: 0,
@@ -40,6 +50,11 @@ const AdminDashboard = () => {
     } catch (err) {
       console.error("Logout error:", err);
     }
+  };
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    if (window.innerWidth <= 768) setSidebarOpen(false);
   };
 
   // Fetch analytics
@@ -84,7 +99,7 @@ const AdminDashboard = () => {
     return () => unsub();
   }, []);
 
-  // Fetch users
+  // Fetch DB users
   useEffect(() => {
     const unsub = onValue(ref(database, "users"), (snap) => {
       const data = snap.val() || {};
@@ -94,7 +109,7 @@ const AdminDashboard = () => {
     return () => unsub();
   }, []);
 
-  // Fetch Auth Users
+  // Fetch Firebase Auth users
   useEffect(() => {
     const fetchAuthUsers = async () => {
       try {
@@ -116,14 +131,14 @@ const AdminDashboard = () => {
     fetchAuthUsers();
   }, []);
 
-  // Delete
+  // Delete handler
   const handleDelete = (path, id) => {
     remove(ref(database, `${path}/${id}`)).catch((err) =>
       console.error("Delete error:", err)
     );
   };
 
-  // Reply to contacts (Email + DB)
+  // Reply to contact (Email + DB)
   const handleReply = async (contact) => {
     if (!replyText.trim()) return alert("Reply cannot be empty!");
     try {
@@ -152,7 +167,7 @@ const AdminDashboard = () => {
     }
   };
 
-  // Reply to comments (DB only)
+  // Reply to comment
   const handleCommentReply = async (comment) => {
     if (!replyText.trim()) return alert("Reply cannot be empty!");
     try {
@@ -170,11 +185,11 @@ const AdminDashboard = () => {
     }
   };
 
-  // Charts
+  // Chart data
   const chartData = Object.entries(analyticsData.visits).map(([date, visits]) => ({ date, visits }));
   const signupChartData = Object.entries(analyticsData.signupsPerDay).map(([date, signups]) => ({ date, signups }));
 
-  // === RENDER SECTIONS ===
+  // Sections
   const renderAnalytics = () => (
     <div className="admin-card">
       <h3>📊 Analytics Overview</h3>
@@ -324,17 +339,36 @@ const AdminDashboard = () => {
 
   return (
     <div className="dashboard-layout">
-      <aside className="sidebar">
+      {/* Hamburger for mobile */}
+      <button className="hamburger" onClick={() => setSidebarOpen(!sidebarOpen)}>
+        <FaBars size={24} />
+      </button>
+
+      {/* Sidebar */}
+      <aside className={`sidebar ${sidebarOpen ? "open" : ""}`}>
         <h2>Admin Panel</h2>
         <nav>
-          <button className={activeTab === "analytics" ? "active" : ""} onClick={() => setActiveTab("analytics")}>Analytics</button>
-          <button className={activeTab === "contacts" ? "active" : ""} onClick={() => setActiveTab("contacts")}>Contacts</button>
-          <button className={activeTab === "comments" ? "active" : ""} onClick={() => setActiveTab("comments")}>Comments</button>
-          <button className={activeTab === "users" ? "active" : ""} onClick={() => setActiveTab("users")}>DB Users</button>
-          <button className={activeTab === "authusers" ? "active" : ""} onClick={() => setActiveTab("authusers")}>Auth Users</button>
+          <button className={activeTab === "analytics" ? "active" : ""} onClick={() => handleTabChange("analytics")}>
+            <FaChartLine /> Analytics
+          </button>
+          <button className={activeTab === "contacts" ? "active" : ""} onClick={() => handleTabChange("contacts")}>
+            <FaEnvelope /> Contacts
+          </button>
+          <button className={activeTab === "comments" ? "active" : ""} onClick={() => handleTabChange("comments")}>
+            <FaComments /> Comments
+          </button>
+          <button className={activeTab === "users" ? "active" : ""} onClick={() => handleTabChange("users")}>
+            <FaUsers /> DB Users
+          </button>
+          <button className={activeTab === "authusers" ? "active" : ""} onClick={() => handleTabChange("authusers")}>
+            <FaUserShield /> Auth Users
+          </button>
         </nav>
-        <button className="logout-btn" onClick={handleLogout}>Logout</button>
+        <button className="logout-btn" onClick={handleLogout}>
+          <FaSignOutAlt /> Logout
+        </button>
       </aside>
+
       <main className="dashboard-content">
         {activeTab === "analytics" && renderAnalytics()}
         {activeTab === "contacts" && renderContacts()}
