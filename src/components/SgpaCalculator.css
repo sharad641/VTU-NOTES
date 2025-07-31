@@ -337,3 +337,11 @@
   background: var(--button-hover);
   transform: scale(1.03);
 }
+.reset-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+.reset-btn:hover {
+  background-color: #d32f2f;
+}
