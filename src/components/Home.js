@@ -3,13 +3,15 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { analytics } from '../firebase';
 import { logEvent } from 'firebase/analytics';
+import SgpaCalculator from './SgpaCalculator';
+
 
 import CommentSection from './CommentSection';
 import BranchSelection from './BranchSelection';
 import ModelPapers from './ModelPapers';
 import UploadForm from './UploadForm';
 
-import Calculator from './Calculator';
+
 import Contact from './Contact';
 
 
@@ -57,9 +59,8 @@ const Home = () => {
       </div>
       {showChatbot && <ChatBot />}
 
-{/* 🧮 Calculator */}
-      <Calculator />
-      
+{/* 🎓 SGPA Calculator */}
+<SgpaCalculator />
 
       {/* 🔗 VTU Resources */}
       <section className="info-box modern-box">
@@ -101,6 +102,8 @@ const Home = () => {
 
       {/* 💬 Comments */}
       <CommentSection />
+      
+
     </div>
   );
 };

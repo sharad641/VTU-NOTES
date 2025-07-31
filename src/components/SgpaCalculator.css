@@ -1,0 +1,339 @@
+.sgpa-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', 'Segoe UI', Tahoma, sans-serif;
+}
+
+/* Heading */
+.sgpa-container h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #1a1a40;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* Section Cards */
+.section-card {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.section-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #1a1a40;
+  font-weight: 600;
+}
+
+/* Alert Box */
+.alert-box {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+/* Inputs & Selects */
+.section-card input,
+.section-card select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.section-card input:focus,
+.section-card select:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 0 8px rgba(106, 90, 205, 0.3);
+  outline: none;
+}
+
+/* Table Container */
+.table-container {
+  overflow-x: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+/* Table */
+.syllabus-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.syllabus-table th,
+.syllabus-table td {
+  padding: 12px;
+  border: 1px solid #eee;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.syllabus-table th {
+  background: linear-gradient(135deg, #1a1a40, #2e2e80);
+  color: #fff;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.syllabus-table tr:nth-child(even) {
+  background: #f9f9fc;
+}
+
+.syllabus-table input {
+  width: 80px;
+  padding: 6px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+/* SGPA Result */
+.sgpa-result {
+  background: linear-gradient(135deg, #1a1a40, #2e2e80);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  margin-top: 20px;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Download Button */
+.download-btn {
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  background: linear-gradient(135deg, #6a5acd, #483d8b);
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(106, 90, 205, 0.3);
+}
+
+.download-btn:hover {
+  background: linear-gradient(135deg, #483d8b, #6a5acd);
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(106, 90, 205, 0.4);
+}
+
+
+@media screen and (max-width: 768px) {
+  .sgpa-container {
+    padding: 10px;
+    margin: 10px;
+    max-width: 100%;
+  }
+
+  .section-card {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .section-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .section-card select,
+  .section-card input {
+    width: 100%;
+    font-size: 1rem;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .alert-box {
+    font-size: 0.9rem;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .syllabus-table {
+    font-size: 0.85rem;
+    width: 100%;
+  }
+
+  .syllabus-table th, .syllabus-table td {
+    padding: 8px;
+    text-align: center;
+  }
+
+  .sgpa-result {
+    font-size: 1rem;
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .download-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+:root {
+  --bg-color: #f5f5fa;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --text-color: #030306;
+  --table-header: linear-gradient(135deg, #1a1a40, #2e2e80);
+  --button-bg: linear-gradient(135deg, #6a5acd, #483d8b);
+  --button-hover: linear-gradient(135deg, #efeef4, #6a5acd);
+}
+
+.dark-mode {
+  --bg-color: #1a1a2e;
+  --card-bg: rgba(234, 234, 242, 0.9);
+  --text-color: #120707;
+  --table-header: linear-gradient(135deg, #222, #444);
+  --button-bg: linear-gradient(135deg, #444, #666);
+  --button-hover: linear-gradient(135deg, #666, #444);
+}
+
+.sgpa-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle {
+  text-align: right;
+  margin-bottom: 15px;
+}
+
+.theme-toggle button {
+  background: var(--button-bg);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle button:hover {
+  background: var(--button-hover);
+  transform: scale(1.03);
+}
+
+.sgpa-container h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* Inputs & Selects */
+.student-inputs input,
+.controls select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.student-inputs input:focus,
+.controls select:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 0 8px rgba(106, 90, 205, 0.3);
+  outline: none;
+}
+
+/* Table */
+.syllabus-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.syllabus-table th,
+.syllabus-table td {
+  padding: 12px;
+  border: 1px solid #eee;
+  text-align: center;
+}
+
+.syllabus-table th {
+  background: var(--table-header);
+  color: #fff;
+  font-weight: 600;
+}
+
+.syllabus-table tr:nth-child(even) {
+  background: rgba(240, 240, 255, 0.2);
+}
+
+/* SGPA Result */
+.sgpa-result {
+  background: var(--table-header);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  margin-top: 20px;
+}
+
+/* Button */
+.download-btn {
+  width: 100%;
+  margin-top: 20px;
+  background: var(--button-bg);
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background: var(--button-hover);
+  transform: scale(1.03);
+}

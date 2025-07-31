@@ -26,6 +26,7 @@ import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions';
 import AdSenseAd from './components/AdSenseAd';
 import AdminDashboard from './components/AdminDashboard';
+import SgpaCalculator from './components/SgpaCalculator';
 
 import { auth, database } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -42,7 +43,7 @@ function AnalyticsTracker() {
         const snapshot = await get(analyticsRef);
         const analyticsData = snapshot.exists() ? snapshot.val() : {};
 
-        const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+        const today = new Date().toISOString().split('T')[0];
         const totalPageViews = (analyticsData.totalPageViews || 0) + 1;
         const visits = {
           ...(analyticsData.visits || {}),
@@ -71,7 +72,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [darkMode, setDarkMode] = useState(false);
 
-  const adminEmail = "sp1771838@gmail.com"; // Admin email
+  const adminEmail = "sp1771838@gmail.com";
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -135,6 +136,7 @@ function App() {
           <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
 
           <Route path="/calculator" element={<Calculator />} />
+          <Route path="/sgpa-calculator" element={<SgpaCalculator />} /> {/* SGPA Calculator route */}
           <Route path="/chatbot" element={<ChatBot />} />
           <Route path="/comments" element={<CommentSection />} />
           <Route path="/test" element={<TestPage />} />

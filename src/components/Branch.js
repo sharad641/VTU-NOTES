@@ -3,6 +3,7 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import AdSenseAd from './AdSenseAd'; 
 import './Branch.css'; 
+import CommentSection from './CommentSection';
 
 function Branch() {
     const { branch } = useParams();
@@ -36,11 +37,16 @@ function Branch() {
                                                     fullWidthResponsive={true}
                                                 />
                                             </div>
+                                            
                             </Link>
+                            
                         </li>
+                        
                     ))}
                 </ul>
             </div>
+             {/* 💬 Comments */}
+                                                  <CommentSection />
         </div>
     );
 }

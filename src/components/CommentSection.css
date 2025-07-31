@@ -733,3 +733,34 @@ textarea {
 .delete-btn:hover {
   background-color: #dc2626;
 }
+/* Avatar */
+.avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+
+/* Comment & Reply Text with link support */
+.comment-text a,
+.reply-text a {
+  color: #007bff;
+  text-decoration: underline;
+  word-break: break-word;
+}
+
+.comment-text a:hover,
+.reply-text a:hover {
+  color: #0056b3;
+}
+
+/* Scroll to form smooth behavior (triggered via ref) */
+html {
+  scroll-behavior: smooth;
+}

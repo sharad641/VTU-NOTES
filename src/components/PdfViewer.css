@@ -1,89 +1,110 @@
-/* Base PDF Viewer Styles */
+/* PDF Viewer Container */
 .pdf-viewer {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 32px;
-    margin-top: 50px;
+    margin: 50px auto 0;
+    max-width: 1000px;
     background: linear-gradient(135deg, #f0f4ff, #eaf0fb);
     border-radius: 24px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
-    max-width: 1000px;
-    margin-left: auto;
-    margin-right: auto;
-    transition: all 0.3s ease-in-out;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Heading */
 .pdf-viewer h2 {
-    font-size: 2.5rem;
+    font-size: 2.6rem;
     color: #1a2b48;
     margin-bottom: 24px;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    font-weight: 800;
     text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
 }
 
-/* PDF Frame Styles */
+/* PDF Iframe Styling */
 .pdf-frame {
     width: 100%;
     max-width: 900px;
     height: 700px;
     border: none;
     border-radius: 20px;
-    overflow-y: auto;
     background-color: #ffffff;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .pdf-frame:hover {
-    transform: scale(1.02);
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18);
+    transform: scale(1.01);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.18);
 }
 
-/* Download Button Styles */
+/* Button Container */
 .download-button-container {
-    margin-top: 30px;
     display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
     justify-content: center;
+    margin-top: 28px;
+}
+
+/* Common Button Styles */
+.download-button,
+.share-button,
+.qr-code-download,
+.copy-link-button {
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #007bff;
+    transition: all 0.25s ease-in-out;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
 
 .download-button {
-    padding: 16px 36px;
     background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1.3rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
-.download-button:hover {
-    background-color: #3fa144;
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+.download-button:hover,
+.share-button:hover,
+.qr-code-download:hover,
+.copy-link-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
 }
 
-.download-button:active {
+.download-button:active,
+.share-button:active,
+.qr-code-download:active,
+.copy-link-button:active {
     transform: translateY(0);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* QR Code Container Styles */
+.download-button:focus,
+.share-button:focus,
+.qr-code-download:focus,
+.copy-link-button:focus {
+    outline: 3px solid rgba(0, 123, 255, 0.5);
+    outline-offset: 2px;
+}
+
+/* QR Code Section */
 .qr-code-container {
     margin-top: 40px;
     padding: 24px;
+    background-color: #eef6fd;
     border: 3px dashed #3498db;
     border-radius: 16px;
-    background-color: #eef6fd;
-    text-align: center;
     width: 100%;
     max-width: 900px;
+    text-align: center;
 }
 
 .qr-code-container h3 {
@@ -101,46 +122,14 @@
 .qr-code {
     margin: 20px auto;
     padding: 12px;
-    background-color: #fff;
+    background: #fff;
     border: 3px solid #d1d9e6;
     border-radius: 14px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     max-width: 180px;
 }
 
-/* Share and Copy Link Button Styles */
-.qr-code-download,
-.share-button,
-.copy-link-button {
-    padding: 14px 28px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
-    margin-top: 18px;
-}
-
-.qr-code-download:hover,
-.share-button:hover,
-.copy-link-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
-}
-
-.qr-code-download:active,
-.share-button:active,
-.copy-link-button:active {
-    transform: translateY(0);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-}
-
+/* Copy Link Feedback */
 .copy-success {
     color: green;
     font-weight: bold;
@@ -149,43 +138,59 @@
 
 /* File Info */
 .file-info {
-    margin-top: 24px;
-    text-align: center;
-    font-size: 1.1rem;
+    margin-top: 20px;
+    font-size: 1rem;
     color: #444;
+    text-align: center;
 }
 
-/* Enhanced Responsive Styling */
-@media (max-width: 1024px) {
-    .pdf-viewer {
-        padding: 24px;
-    }
+/* Error Message */
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 40px;
+}
 
+/* Responsive Design */
+@media (max-width: 1024px) {
     .pdf-frame {
         height: 600px;
+    }
+
+    .pdf-viewer {
+        padding: 24px;
     }
 }
 
 @media (max-width: 768px) {
-    .pdf-viewer {
-        padding: 20px;
-    }
-
-    .pdf-viewer h2 {
-        font-size: 2rem;
-    }
-
     .pdf-frame {
         width: 95%;
         height: 500px;
     }
 
+    .pdf-viewer h2 {
+        font-size: 2.2rem;
+    }
+
     .qr-code-container h3 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
+    }
+
+    .download-button,
+    .share-button,
+    .qr-code-download,
+    .copy-link-button {
+        font-size: 1rem;
+        padding: 12px 24px;
     }
 }
 
 @media (max-width: 480px) {
+    .pdf-frame {
+        height: 400px;
+    }
+
     .pdf-viewer {
         padding: 16px;
     }
@@ -194,25 +199,19 @@
         font-size: 1.6rem;
     }
 
-    .pdf-frame {
-        width: 100%;
-        height: 400px;
+    .download-button,
+    .share-button,
+    .qr-code-download,
+    .copy-link-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
     }
 
-    .download-button,
-    .qr-code-download,
-    .share-button,
-    .copy-link-button {
-        padding: 10px 20px;
-        font-size: 0.95rem;
+    .qr-code {
+        max-width: 130px;
     }
 
     .qr-code-container h3 {
         font-size: 1.4rem;
-    }
-
-    .qr-code {
-        width: 100%;
-        max-width: 140px;
     }
 }

@@ -6,6 +6,13 @@ import './CommentSection.css';
 
 const ADMIN_EMAIL = "sp1771838@gmail.com";
 
+const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+const formatDate = (timestamp) =>
+  new Date(timestamp).toLocaleString('en-IN', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  });
+
 const CommentSection = () => {
   const [comments, setComments] = useState([]);
   const [commentText, setCommentText] = useState('');
@@ -16,6 +23,7 @@ const CommentSection = () => {
   const [showAllComments, setShowAllComments] = useState(false);
   const [currentUserEmail, setCurrentUserEmail] = useState(null);
   const [expandedReplies, setExpandedReplies] = useState({});
+  const [loading, setLoading] = useState(true);
   const commentFormRef = useRef(null);
 
   useEffect(() => {
@@ -27,7 +35,7 @@ const CommentSection = () => {
 
   useEffect(() => {
     const commentsRef = ref(database, 'comments');
-    const unsubscribe = onValue(commentsRef, (snapshot) => {
+    return onValue(commentsRef, (snapshot) => {
       const data = snapshot.val();
       if (data) {
         const fetchedComments = Object.keys(data)
@@ -37,22 +45,26 @@ const CommentSection = () => {
       } else {
         setComments([]);
       }
+      setLoading(false);
     });
-    return () => unsubscribe();
   }, []);
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
-    if (!commentText.trim() || !email.trim()) {
-      alert('Both email and comment text are required.');
+    const trimmedEmail = email.trim();
+    const trimmedText = commentText.trim();
+
+    if (!trimmedText || !validateEmail(trimmedEmail)) {
+      alert('Please enter a valid email and comment.');
       return;
     }
+
     try {
       const commentsRef = ref(database, 'comments');
       await push(commentsRef, {
-        text: commentText.trim(),
+        text: trimmedText,
         author: userName.trim() || 'Anonymous',
-        email: email.trim(),
+        email: trimmedEmail,
         timestamp: Date.now(),
         replies: {},
       });
@@ -107,20 +119,22 @@ const CommentSection = () => {
   };
 
   const toggleReplies = (id) => {
-    setExpandedReplies((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
+    setExpandedReplies((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
   const renderAvatar = (author, isAdmin) => {
     const initials = author ? author.charAt(0).toUpperCase() : "U";
     const bg = isAdmin ? "#2563eb" : "#6b7280";
-    return (
-      <div className="avatar" style={{ backgroundColor: bg }}>
-        {initials}
-      </div>
+    return <div className="avatar" style={{ backgroundColor: bg }}>{initials}</div>;
+  };
+
+  const convertTextToHtml = (text) => {
+    const escaped = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const linked = escaped.replace(
+      /(https?:\/\/[^\s]+)/g,
+      '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
     );
+    return linked.replace(/\n/g, "<br/>");
   };
 
   const renderReplies = (replies, parentPath, parentCommentId) => {
@@ -139,26 +153,19 @@ const CommentSection = () => {
               {renderAvatar(reply.author, reply.email === ADMIN_EMAIL)}
               <div>
                 <strong>{reply.author}</strong>
-                <span className="timestamp">{new Date(reply.timestamp).toLocaleString()}</span>
+                <span className="timestamp">{formatDate(reply.timestamp)}</span>
               </div>
               {currentUserEmail === ADMIN_EMAIL && (
                 <>
-                  <button
-                    className="reply-btn"
-                    onClick={() => setIsReplyingTo({ commentId: parentCommentId, replyKey: key })}
-                  >
-                    Reply
-                  </button>
-                  <button
-                    className="delete-btn"
-                    onClick={() => handleDelete(replyPath)}
-                  >
-                    Delete
-                  </button>
+                  <button className="reply-btn" onClick={() => {
+                    setIsReplyingTo({ commentId: parentCommentId, replyKey: key });
+                    commentFormRef.current?.scrollIntoView({ behavior: 'smooth' });
+                  }}>Reply</button>
+                  <button className="delete-btn" onClick={() => handleDelete(replyPath)}>Delete</button>
                 </>
               )}
             </div>
-            <p className="reply-text">{reply.text}</p>
+            <p className="reply-text" dangerouslySetInnerHTML={{ __html: convertTextToHtml(reply.text) }} />
 
             {reply.replies && Object.keys(reply.replies).length > 0 && (
               <button className="toggle-replies-btn" onClick={() => toggleReplies(replyId)}>
@@ -177,10 +184,7 @@ const CommentSection = () => {
                   onChange={(e) => setReplyText(e.target.value)}
                   required
                 />
-                <button
-                  className="submit-reply-btn"
-                  onClick={() => handleReplySubmit(parentCommentId, key)}
-                >
+                <button className="submit-reply-btn" onClick={() => handleReplySubmit(parentCommentId, key)}>
                   Submit Reply
                 </button>
               </div>
@@ -199,8 +203,7 @@ const CommentSection = () => {
         </p>
       </header>
 
-      {/* Comment Form */}
-      <form onSubmit={handleCommentSubmit} className="comment-form" ref={commentFormRef}>
+      <form onSubmit={handleCommentSubmit} className="comment-form" ref={commentFormRef} aria-label="Comment form">
         <input
           type="text"
           className="comment-author"
@@ -227,61 +230,55 @@ const CommentSection = () => {
         <button type="submit" className="submit-btn">📝 Post Comment</button>
       </form>
 
-      {/* Comment List */}
-      {comments
-        .slice(0, showAllComments ? comments.length : 30)
-        .map((comment) => (
-          <div key={comment.id} className="comment-card">
-            <div className="comment-header">
-              {renderAvatar(comment.author, comment.email === ADMIN_EMAIL)}
-              <div>
-                <strong>{comment.author}</strong>
-                <span className="timestamp">{new Date(comment.timestamp).toLocaleString()}</span>
+      {loading ? (
+        <p>🔄 Loading comments...</p>
+      ) : comments.length === 0 ? (
+        <p>📝 No comments yet. Be the first to post!</p>
+      ) : (
+        comments
+          .slice(0, showAllComments ? comments.length : 10)
+          .map((comment) => (
+            <div key={comment.id} className="comment-card">
+              <div className="comment-header">
+                {renderAvatar(comment.author, comment.email === ADMIN_EMAIL)}
+                <div>
+                  <strong>{comment.author}</strong>
+                  <span className="timestamp">{formatDate(comment.timestamp)}</span>
+                </div>
+                {currentUserEmail === ADMIN_EMAIL && (
+                  <>
+                    <button className="reply-btn" onClick={() => {
+                      setIsReplyingTo({ commentId: comment.id, replyKey: null });
+                      commentFormRef.current?.scrollIntoView({ behavior: 'smooth' });
+                    }}>Reply</button>
+                    <button className="delete-btn" onClick={() => handleDelete(`comments/${comment.id}`)}>Delete</button>
+                  </>
+                )}
               </div>
-              {currentUserEmail === ADMIN_EMAIL && (
-                <>
-                  <button
-                    className="reply-btn"
-                    onClick={() => setIsReplyingTo({ commentId: comment.id, replyKey: null })}
-                  >
-                    Reply
+              <p className="comment-text" dangerouslySetInnerHTML={{ __html: convertTextToHtml(comment.text) }} />
+              {renderReplies(comment.replies, `comments/${comment.id}`, comment.id)}
+
+              {isReplyingTo.commentId === comment.id && isReplyingTo.replyKey === null && currentUserEmail === ADMIN_EMAIL && (
+                <div className="reply-form">
+                  <textarea
+                    className="reply-textarea"
+                    placeholder="Write your reply..."
+                    value={replyText}
+                    onChange={(e) => setReplyText(e.target.value)}
+                    required
+                  />
+                  <button className="submit-reply-btn" onClick={() => handleReplySubmit(comment.id)}>
+                    Submit Reply
                   </button>
-                  <button
-                    className="delete-btn"
-                    onClick={() => handleDelete(`comments/${comment.id}`)}
-                  >
-                    Delete
-                  </button>
-                </>
+                </div>
               )}
             </div>
-            <p className="comment-text">{comment.text}</p>
-            {renderReplies(comment.replies, `comments/${comment.id}`, comment.id)}
-            {isReplyingTo.commentId === comment.id && isReplyingTo.replyKey === null && currentUserEmail === ADMIN_EMAIL && (
-              <div className="reply-form">
-                <textarea
-                  className="reply-textarea"
-                  placeholder="Write your reply..."
-                  value={replyText}
-                  onChange={(e) => setReplyText(e.target.value)}
-                  required
-                />
-                <button
-                  className="submit-reply-btn"
-                  onClick={() => handleReplySubmit(comment.id)}
-                >
-                  Submit Reply
-                </button>
-              </div>
-            )}
-          </div>
-        ))}
-      {comments.length > 30 && (
-        <button
-          className="toggle-comments-btn"
-          onClick={() => setShowAllComments(!showAllComments)}
-        >
-          {showAllComments ? '🔽 Hide Comments' : `🔼 View All Comments (${comments.length - 30})`}
+          ))
+      )}
+
+      {comments.length > 10 && (
+        <button className="toggle-comments-btn" onClick={() => setShowAllComments(!showAllComments)}>
+          {showAllComments ? '🔽 Hide Comments' : `🔼 View All Comments (${comments.length - 10})`}
         </button>
       )}
     </div>

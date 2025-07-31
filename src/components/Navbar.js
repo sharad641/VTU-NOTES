@@ -65,14 +65,12 @@ const Navbar = () => {
                 <li><Link to="/about" className="nav-link" onClick={closeMenu}>About</Link></li>
                 <li><Link to="/contact" className="nav-link" onClick={closeMenu}>Contact</Link></li>
                 <li><Link to="/model-papers" className="nav-link" onClick={closeMenu}>Model QP & PYQPS</Link></li>
-                <li><Link to="/branch/first-year" className="nav-link" onClick={closeMenu}>1st Year Engineering</Link></li>
                 <li><Link to="/branch/cse" className="nav-link" onClick={closeMenu}>CSE Stream</Link></li>
+                <li><Link to="/sgpa-calculator" className="nav-link" onClick={closeMenu}>SGPA Calculator</Link></li>
                 <li><Link to="/placement-guide" className="nav-link" onClick={closeMenu}>
                     👉 Explore Placement Guide
                 </Link></li>
             </ul>
-
-           
 
             {/* Profile/Login Button */}
             <Link

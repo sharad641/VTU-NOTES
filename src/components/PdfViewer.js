@@ -68,63 +68,52 @@ const PdfViewer = () => {
         }
     };
 
-
-
     if (error) {
         return <p className="error-message">🚫 Error: Unable to load the PDF. Please check the URL and try again.</p>;
     }
 
     return (
-        <div className="pdf-viewer">
-            <h2>📄 PDF Viewer</h2>
+        <>
+            <div className="pdf-viewer">
+                <h2>📄 PDF Viewer</h2>
 
-            {/* PDF Embed */}
-            <iframe
-                className="pdf-frame"
-                src={decodedPdfUrl}
-                title="PDF Viewer"
-                width="100%"
-                height="600px"
-                onError={() => setError(true)}
-            ></iframe>
+                {/* PDF Embed */}
+                <iframe
+                    className="pdf-frame"
+                    src={decodedPdfUrl}
+                    title="PDF Viewer"
+                    width="100%"
+                    height="600px"
+                    onError={() => setError(true)}
+                ></iframe>
 
-            {/* Download & Share Buttons */}
-            {downloadLink && (
-                <div className="download-button-container">
-                    <a className="download-button" href={downloadLink} target="_blank" rel="noopener noreferrer">
-                        📥 Download PDF
-                    </a>
-                    <button className="share-button" onClick={handleShare}>
-                        📤 Share Link
-                    </button>
+                {/* Download & Share Buttons */}
+                {downloadLink && (
+                    <div className="download-button-container">
+                        <a className="download-button" href={downloadLink} target="_blank" rel="noopener noreferrer">
+                            📥 Download PDF
+                        </a>
+                        <button className="share-button" onClick={handleShare}>
+                            📤 Share Link
+                        </button>
+                    </div>
+                )}
+
+                {/* AdSense Ad */}
+                <div className="ad-container">
+                    <AdSenseAd
+                        adClient="ca-pub-9499544849301534"
+                        adSlot="7579321744"
+                        adFormat="auto"
+                        fullWidthResponsive={true}
+                    />
                 </div>
-            )}
-
-            {/* AdSense Ad */}
-            <div className="ad-container">
-                <AdSenseAd
-                    adClient="ca-pub-9499544849301534"
-                    adSlot="7579321744"
-                    adFormat="auto"
-                    fullWidthResponsive={true}
-                />
             </div>
 
-           
-
-           
-        
-
-          
-        </div>
-        
-        
-        
+            {/* Comments */}
+            <CommentSection />
+        </>
     );
-    
-};  
-             <CommentSection />
-        
-       
+};
 
 export default PdfViewer;
