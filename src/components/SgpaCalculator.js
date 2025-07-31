@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './SgpaCalculator.css';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import CommentSection from './CommentSection';
 
 export default function SgpaCalculator() {
   const [syllabusData, setSyllabusData] = useState(null);
@@ -11,6 +12,7 @@ export default function SgpaCalculator() {
   const [marks, setMarks] = useState({});
   const [studentName, setStudentName] = useState('');
   const [studentUSN, setStudentUSN] = useState('');
+  
 
   useEffect(() => {
     fetch('/vtu_2022_syllabus.json')
@@ -165,6 +167,7 @@ export default function SgpaCalculator() {
   };
 
   return (
+      <>
     <div className="sgpa-container">
       <h1>📊 VTU SGPA Calculator (2022 Scheme)</h1>
 
@@ -242,6 +245,10 @@ export default function SgpaCalculator() {
       <button className="download-btn" onClick={downloadPDF}>
         ⬇️ Download / Print Result
       </button>
+       
     </div>
+     {/* Comments */}
+            <CommentSection />
+        </>
   );
 }
