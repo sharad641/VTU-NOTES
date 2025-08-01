@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './SgpaCalculator.css';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
-
+import QRCode from 'qrcode';
+import logo from '../assets/logo2.png'; // <-- Add your logo in /assets folder
 
 export default function SgpaCalculator() {
   const [syllabusData, setSyllabusData] = useState(null);
@@ -12,7 +13,6 @@ export default function SgpaCalculator() {
   const [marks, setMarks] = useState({});
   const [studentName, setStudentName] = useState('');
   const [studentUSN, setStudentUSN] = useState('');
-  
 
   useEffect(() => {
     fetch('/vtu_2022_syllabus.json')
@@ -50,6 +50,9 @@ export default function SgpaCalculator() {
     }
   };
 
+  const handleNameChange = (value) => setStudentName(value.toUpperCase());
+  const handleUSNChange = (value) => setStudentUSN(value.toUpperCase().replace(/[^A-Z0-9]/g, ''));
+
   const getGradePoint = (mark) => {
     if (mark >= 90) return 10;
     if (mark >= 80) return 9;
@@ -78,36 +81,41 @@ export default function SgpaCalculator() {
   const totalGrades = subjects.reduce((sum, s) => sum + getGradePoint(marks[s.code]), 0);
   const totalPoints = subjects.reduce((sum, s) => sum + getGradePoint(marks[s.code]) * s.credits, 0);
 
-  const downloadPDF = () => {
+  const downloadPDF = async () => {
     const doc = new jsPDF();
     const pageWidth = doc.internal.pageSize.getWidth();
 
+    // --- Watermark ---
     const addWatermark = () => {
       doc.setFontSize(60);
       doc.setTextColor(240, 240, 240);
       doc.text('vtunotesforall.in', pageWidth / 2, 150, { align: 'center', angle: 45 });
       doc.setTextColor(0, 0, 0);
     };
-
     addWatermark();
 
+    // --- Header ---
+    const headerHeight = 25;
     doc.setFillColor(26, 26, 64);
-    doc.rect(0, 0, pageWidth, 25, 'F');
+    doc.rect(0, 0, pageWidth, headerHeight, 'F');
+    doc.addImage(logo, 'PNG', 10, 2, 20, 20);
     doc.setTextColor(255, 255, 255);
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(18);
-    doc.text('VTU SGPA Report – 2022 Scheme', pageWidth / 2, 16, { align: 'center' });
+    doc.text('VTU SGPA Report – 2022 Scheme', pageWidth / 2 + 10, 16, { align: 'center' });
 
+    // --- Student Info ---
     doc.setTextColor(0, 0, 0);
     doc.setFontSize(12);
-    const generatedDate = new Date().toLocaleString();
-    doc.setFillColor(245, 245, 245);
+    const generatedDate = new Date().toLocaleDateString('en-GB');
+    doc.setFillColor(243, 246, 255);
     doc.roundedRect(14, 35, pageWidth - 28, 30, 3, 3, 'F');
     doc.text(`Name: ${studentName || '---'}`, 20, 45);
     doc.text(`USN: ${studentUSN || '---'}`, pageWidth / 2, 45);
     doc.text(`Semester: ${semester}`, 20, 55);
-    doc.text(`Generated: ${generatedDate}`, pageWidth / 2, 55);
+    doc.text(`Generated on: ${generatedDate}`, pageWidth / 2, 55);
 
+    // --- SGPA Box ---
     doc.setFillColor(26, 26, 64);
     doc.roundedRect(14, 75, pageWidth - 28, 40, 3, 3, 'F');
     doc.setTextColor(255, 255, 255);
@@ -116,6 +124,7 @@ export default function SgpaCalculator() {
     doc.setFontSize(32);
     doc.text(`${sgpa}`, pageWidth / 2, 105, { align: 'center' });
 
+    // --- SGPA Formula ---
     doc.setTextColor(0, 0, 0);
     doc.setFontSize(12);
     doc.text(
@@ -125,6 +134,7 @@ export default function SgpaCalculator() {
       { align: 'center' }
     );
 
+    // --- Table ---
     const tableBody = subjects.map((sub) => {
       const mark = marks[sub.code] || 0;
       const grade = getGradePoint(mark);
@@ -140,34 +150,32 @@ export default function SgpaCalculator() {
       theme: 'grid',
       styles: { halign: 'center', font: 'helvetica', fontSize: 11 },
       headStyles: { fillColor: [26, 26, 64], textColor: [255, 255, 255], fontSize: 12 },
-      alternateRowStyles: { fillColor: [247, 248, 250] },
+      alternateRowStyles: { fillColor: [243, 246, 255] },
       footStyles: { fillColor: [230, 240, 255], textColor: [0, 0, 0], fontStyle: 'bold' },
     });
 
-    doc.addPage();
-    addWatermark();
-    doc.setFontSize(20);
-    doc.setTextColor(26, 26, 64);
-    doc.setFont('helvetica', 'bold');
-    doc.text('A Note from VTU Notes Team', pageWidth / 2, 40, { align: 'center' });
+    // --- QR Code ---
+    const qrURL = 'https://vtunotesforall.in';
+    const qrDataURL = await QRCode.toDataURL(qrURL);
+    const qrSize = 35;
+    const qrX = pageWidth / 2 - qrSize / 2;
+    const qrY = 250;
+    doc.addImage(qrDataURL, 'PNG', qrX, qrY, qrSize, qrSize);
+    doc.setFontSize(10);
+    doc.text('Scan for more VTU resources', pageWidth / 2, qrY + qrSize + 6, { align: 'center' });
+    doc.link(qrX, qrY, qrSize, qrSize, { url: qrURL });
 
-    doc.setFontSize(13);
-    doc.setTextColor(50, 50, 50);
-    doc.setFont('helvetica', 'normal');
-    const message =
-      `Dear Student,\n\n` +
-      `Thank you for using the VTU SGPA Calculator at vtunotesforall.in!\n\n` +
-      `Your academic progress is important, and this tool is designed to make calculating your SGPA simple, accurate, and stress-free.\n\n` +
-      `If you found this helpful, please share it with your friends and classmates — let's help more VTU students stay ahead together.\n\n` +
-      `All the best for your exams and future endeavors!\n\n` +
-      `– Team vtunotesforall.in`;
-    doc.text(message, 20, 70, { maxWidth: pageWidth - 40, align: 'left' });
+    // --- Footer ---
+    doc.setFillColor(26, 26, 64);
+    doc.rect(0, 285, pageWidth, 12, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(10);
+    doc.text('Generated via vtunotesforall.in', pageWidth / 2, 293, { align: 'center' });
 
     doc.save(`VTU_SGPA_Report_${branch}_${semester}.pdf`);
   };
 
   return (
-    
     <div className="sgpa-container">
       <h1>📊 VTU SGPA Calculator (2022 Scheme)</h1>
 
@@ -187,19 +195,19 @@ export default function SgpaCalculator() {
         </select>
       </div>
 
-      <div className="alert-box">
-        Enter 0 if you don't have marks for any subject
-      </div>
+      <div className="alert-box">Enter 0 if you don't have marks for any subject</div>
 
       <div className="section-card">
         <h3>Enter Your Details</h3>
-        <input type="text" placeholder="Enter Name" value={studentName} onChange={(e) => setStudentName(e.target.value)} />
-        <input type="text" placeholder="Enter USN" value={studentUSN} onChange={(e) => setStudentUSN(e.target.value.toUpperCase())} />
+        <input type="text" placeholder="Enter Name" value={studentName} onChange={(e) => handleNameChange(e.target.value)} />
+        <input type="text" placeholder="Enter USN" value={studentUSN} onChange={(e) => handleUSNChange(e.target.value)} />
       </div>
 
       <div className="section-card">
         <h3>Enter Marks</h3>
-        <div className="table-container">
+
+        {/* Desktop Table */}
+        <div className="table-container desktop-view">
           <table className="syllabus-table">
             <thead>
               <tr>
@@ -236,6 +244,33 @@ export default function SgpaCalculator() {
             </tbody>
           </table>
         </div>
+
+        {/* Mobile Card View */}
+        <div className="mobile-card-view">
+          {subjects.map((subject) => {
+            const mark = marks[subject.code] || '';
+            const gradePoint = getGradePoint(mark);
+            return (
+              <div className="subject-card" key={subject.code}>
+                <h4>{subject.title}</h4>
+                <p><strong>Code:</strong> {subject.code}</p>
+                <p><strong>Credits:</strong> {subject.credits}</p>
+                <div className="input-group">
+                  <label>Marks:</label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    value={mark}
+                    placeholder="Enter marks"
+                    onChange={(e) => handleMarkChange(subject.code, e.target.value)}
+                  />
+                </div>
+                <p><strong>Grade:</strong> {mark !== '' ? gradePoint : '--'}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       <div className="sgpa-result">
@@ -243,10 +278,8 @@ export default function SgpaCalculator() {
       </div>
 
       <button className="download-btn" onClick={downloadPDF}>
-        ⬇️ Download / Print Result
+        ⬇ Download / Print Result
       </button>
-       
     </div>
-     
   );
 }

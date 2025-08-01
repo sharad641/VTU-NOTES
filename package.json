@@ -37,6 +37,7 @@
     "path-browserify": "^1.0.1",
     "pdfjs-dist": "^4.10.38",
     "prompt-sync": "^4.2.0",
+    "qrcode": "^1.5.4",
     "qrcode.react": "^4.2.0",
     "querystring-es3": "^0.2.1",
     "react": "^18.3.1",

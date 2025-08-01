@@ -344,4 +344,370 @@
 
 .reset-btn:hover {
   background-color: #d32f2f;
+}/* VTU SGPA Calculator Enhanced Styles */
+
+:root {
+  --bg-color: #f5f5fa;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --text-color: #030306;
+  --table-header: linear-gradient(135deg, #1a1a40, #2e2e80);
+  --button-bg: linear-gradient(135deg, #6a5acd, #483d8b);
+  --button-hover: linear-gradient(135deg, #efeef4, #6a5acd);
+}
+
+.dark-mode {
+  --bg-color: #1a1a2e;
+  --card-bg: rgba(234, 234, 242, 0.9);
+  --text-color: #120707;
+  --table-header: linear-gradient(135deg, #222, #444);
+  --button-bg: linear-gradient(135deg, #444, #666);
+  --button-hover: linear-gradient(135deg, #666, #444);
+}
+
+.sgpa-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--card-bg);
+  backdrop-filter: blur(8px);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/* Header */
+.sgpa-container h1 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  text-align: right;
+  margin-bottom: 15px;
+}
+
+.theme-toggle button {
+  background: var(--button-bg);
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle button:hover {
+  background: var(--button-hover);
+  transform: scale(1.03);
+}
+
+/* Section Cards */
+.section-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.section-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #1a1a40;
+  font-weight: 600;
+}
+
+/* Inputs */
+.section-card input,
+.section-card select {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.section-card input:focus,
+.section-card select:focus {
+  border-color: #6a5acd;
+  box-shadow: 0 0 8px rgba(106, 90, 205, 0.3);
+  outline: none;
+}
+
+/* Error highlighting */
+.input-error {
+  border-color: #ff4d4f;
+  background: #fff0f0;
+}
+
+/* Alert Box */
+.alert-box {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+}
+
+/* Table */
+.table-container {
+  overflow-x: auto;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.syllabus-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+.syllabus-table th,
+.syllabus-table td {
+  padding: 12px;
+  border: 1px solid #eee;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.syllabus-table th {
+  background: var(--table-header);
+  color: #fff;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.syllabus-table tr:nth-child(even) {
+  background: #f9f9fc;
+}
+
+.syllabus-table input {
+  width: 80px;
+  padding: 6px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+/* Result Display */
+.sgpa-result {
+  background: var(--table-header);
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 1.3rem;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Buttons */
+.download-btn {
+  width: 100%;
+  margin-top: 20px;
+  background: var(--button-bg);
+  color: #fff;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  background: var(--button-hover);
+  transform: scale(1.03);
+}
+
+.reset-btn {
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.reset-btn:hover {
+  background-color: #d32f2f;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.tabs button {
+  padding: 10px 18px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #e0e0f5;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tabs button.active {
+  background: #6a5acd;
+  color: white;
+}
+
+/* CGPA inputs */
+.cgpa-entry {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.cgpa-entry input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+@media screen and (max-width: 768px) {
+  .sgpa-container {
+    padding: 10px;
+    margin: 10px;
+    max-width: 100%;
+  }
+
+  .section-card {
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .section-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+
+  .alert-box {
+    font-size: 0.9rem;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .syllabus-table th, .syllabus-table td {
+    padding: 8px;
+    font-size: 0.85rem;
+  }
+
+  .sgpa-result {
+    font-size: 1rem;
+    text-align: center;
+    margin: 15px 0;
+  }
+
+  .download-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+/* Hide card view by default */
+.mobile-card-view {
+  display: none;
+}
+
+/* Subject Card Design */
+.subject-card {
+  background: #ffffff;
+  padding: 16px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.subject-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+.subject-card h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a40;
+}
+.subject-card p {
+  font-size: 14px;
+  color: #555;
+  margin: 4px 0;
+}
+.subject-card .input-group {
+  margin: 10px 0;
+}
+.subject-card label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+.subject-card input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  margin-top: 6px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.subject-card input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.2);
+}
+
+/* SGPA Result Card */
+.sgpa-result {
+  background: #1a1a40;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  margin: 20px 0;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Buttons */
+.download-btn {
+  width: 100%;
+  background: #3b82f6;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.download-btn:hover {
+  background: #2563eb;
+}
+
+/* Switch layout on mobile */
+@media (max-width: 768px) {
+  .desktop-view { display: none; }
+  .mobile-card-view { display: block; }
 }
