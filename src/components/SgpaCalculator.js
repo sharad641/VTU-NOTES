@@ -181,18 +181,22 @@ export default function SgpaCalculator() {
 
       <div className="section-card">
         <h3>Select Your Details</h3>
-        <label>Branch:</label>
-        <select value={branch} onChange={(e) => setBranch(e.target.value)}>
-          {branches.map((b) => (
-            <option key={b} value={b}>{b.replace(/_/g, ' ')}</option>
-          ))}
-        </select>
-        <label>Semester:</label>
-        <select value={semester} onChange={(e) => { setSemester(e.target.value); setMarks({}); }}>
-          {semesters.map((sem) => (
-            <option key={sem} value={sem}>{sem}</option>
-          ))}
-        </select>
+       <label>Branch:</label>
+<select value={branch} onChange={(e) => setBranch(e.target.value)}>
+  <option value="" disabled>Select Branch</option>
+  {branches.map((b) => (
+    <option key={b} value={b}>{b.replace(/_/g, ' ')}</option>
+  ))}
+</select>
+
+<label>Semester:</label>
+<select value={semester} onChange={(e) => { setSemester(e.target.value); setMarks({}); }}>
+  <option value="" disabled>Select Semester</option>
+  {semesters.map((sem) => (
+    <option key={sem} value={sem}>{sem}</option>
+  ))}
+</select>
+
       </div>
 
       <div className="alert-box">Enter 0 if you don't have marks for any subject</div>

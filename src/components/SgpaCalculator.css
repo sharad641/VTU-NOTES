@@ -711,3 +711,78 @@
   .desktop-view { display: none; }
   .mobile-card-view { display: block; }
 }
+/* General container */
+.sgpa-container select,
+.sgpa-container input[type="text"],
+.sgpa-container input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  color: #000;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Focus effect */
+.sgpa-container select:focus,
+.sgpa-container input:focus {
+  border-color: #0a192f;
+  outline: none;
+  box-shadow: 0 0 6px rgba(10, 25, 47, 0.3);
+}
+
+/* Placeholder color */
+.sgpa-container select:invalid {
+  color: #777;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .sgpa-container select,
+  .sgpa-container input {
+    font-size: 18px;
+    padding: 14px;
+  }
+}
+
+/* Labels */
+.sgpa-container label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+  color: #0a192f;
+}
+
+/* Section cards */
+.section-card {
+  padding: 15px;
+  margin-bottom: 20px;
+  background: #f9fafc;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* Buttons */
+.download-btn {
+  width: 100%;
+  background: #0a192f;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.download-btn:hover {
+  background: #102a43;
+}
