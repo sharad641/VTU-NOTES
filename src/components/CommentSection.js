@@ -129,6 +129,7 @@ const CommentSection = () => {
   };
 
   const convertTextToHtml = (text) => {
+    if (typeof text !== 'string') return '';
     const escaped = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
     const linked = escaped.replace(
       /(https?:\/\/[^\s]+)/g,
@@ -165,7 +166,7 @@ const CommentSection = () => {
                 </>
               )}
             </div>
-            <p className="reply-text" dangerouslySetInnerHTML={{ __html: convertTextToHtml(reply.text) }} />
+            <p className="reply-text" dangerouslySetInnerHTML={{ __html: convertTextToHtml(reply.text || '') }} />
 
             {reply.replies && Object.keys(reply.replies).length > 0 && (
               <button className="toggle-replies-btn" onClick={() => toggleReplies(replyId)}>
@@ -255,7 +256,7 @@ const CommentSection = () => {
                   </>
                 )}
               </div>
-              <p className="comment-text" dangerouslySetInnerHTML={{ __html: convertTextToHtml(comment.text) }} />
+              <p className="comment-text" dangerouslySetInnerHTML={{ __html: convertTextToHtml(comment.text || '') }} />
               {renderReplies(comment.replies, `comments/${comment.id}`, comment.id)}
 
               {isReplyingTo.commentId === comment.id && isReplyingTo.replyKey === null && currentUserEmail === ADMIN_EMAIL && (
