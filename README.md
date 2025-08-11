@@ -25,7 +25,6 @@ An all-in-one portal for VTU students offering notes, previous year papers, CGPA
 - 🧮 **VTU CGPA Calculator** (2018 & 2021 schemes)
 - 💬 **Realtime Student Chatroom** using Firebase Realtime Database
 - 📤 **Community Uploads** — Any user can contribute verified content
-- ⚡ **Lazy Loading & Smart Search**
 - 📈 **Google Analytics & AdSense Integration**
 - 🌐 **Deployed on Netlify with GoDaddy Domain**
 - 📱 **Fully Mobile-Responsive UI**
@@ -51,7 +50,7 @@ An all-in-one portal for VTU students offering notes, previous year papers, CGPA
 | **Frontend**| React.js, Tailwind CSS                         |
 | **Backend** | Firebase Auth, Firestore, Realtime Database    |
 | **AI**      | Google Gemini API                              |
-| **Storage** | Google Drive API (Public Folder Access)        |
+| **Storage** | Google Drive (Public Folder Access)        |
 | **Hosting** | Netlify                                        |
 | **Domain**  | GoDaddy                                        |
 | **Tools**   | Git, VS Code, Postman, Google Analytics        |
