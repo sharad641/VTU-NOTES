@@ -11,7 +11,7 @@ function Branch() {
     // Determine semester links based on the branch
     const semesters = branch === 'first-year' 
         ? ['1', '2'] 
-        : ['3', '4', '5', '6'];
+        : ['3', '4', '5', '6','7'];
 
     return (
         <div>

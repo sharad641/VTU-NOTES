@@ -90,6 +90,8 @@ const Subjects = () => {
       ],
        7: [
         { name:'MACHINE LEARNING', code: 'BCS602', credits: 4, info: '' },
+        { name:'BIG DATA ANALYTICS', code: 'BCS714D', credits: 4, info: '' },
+        
         
         
         

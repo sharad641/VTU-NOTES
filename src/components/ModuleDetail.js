@@ -2662,8 +2662,136 @@ const ModuleDetail = () => {
         ],
         },
       ],
+      7: [
+        {
+          title: "MACHINE LEARNING",
+          modules: [
+            {
+              title: "Module 1:Printed Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1vIOfJoUkztNLjem_LKYMHTjcIMBQfp5R/preview",
+            },
+            {
+              title: "Module 1:Handwritten Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1as_KO1nBNv8e2pfSFtZpV6PACpiFg6Sr/preview",
+            },
+            {
+              title: "Module 2:Printed Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Pv2FopOV8qSK4ezduuHf9uu75_--ZZMp/preview",
+            },
+            {
+              title: "Module 2:Handwritten Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1stxqnFNrIXWTHDWRCVu5aUUGrUEgaLvj/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1-DxemhvmqNYt88f4o8DkflhS9aGcVV2A/preview",
+            },
+             {
+              title: "Module 3:Handwritten Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1_CpczQqssz0J5Vq_MIjKnXIj50t-8_T5/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/18YvPZyMk_jcQfjG3qLdcXztpNHr0NNOb/preview",
+            },
+            {
+              title: "Module 4:Handwritten  Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1lpYM4IR4uFmOXZJBVBm4IijUULF98b8J/preview",
+            },
+             {
+              title: "All Module :Handwritten  Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1s1vnHxEibTMwJzV1HP-ZhomeTYhe_5zS/preview",
+            },
+            {
+              title: "All Module :Handwritten  Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1E9jMlLo3bnFDb22KdFo2bPvHbK56BZz0/preview",
+            },
+            {
+              title: " Problems:",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1bT_kUBDQpE5odP3uUmCMvszwsH4Cq7WN/preview",
+            },
+            {
+              title: "LAB MANNUL 1-2",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1ZQ8AEyGwraBDbbCNtvY62xM74ViLrFPA/preview",
+            },
+           {
+            title: "LAB MANNUL 3-20",
+            content: "Past question paper for Mathematics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1ndp2mLOwunQSmH40V9C1vHm2BMS4unPy/preview",
+          },
+          
+        ],
+        },
+        {
+          title: "BIG DATA ANALYTICS",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Introduction to Digital Design",
+              previewUrl:
+                "https://drive.google.com/file/d/1m-shcpTo6-9AYBT1wmeG1ylKMhwCIIUM/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Combinational Logic.",
+              previewUrl:
+                "https://drive.google.com/file/d/1MQ2F7H2HN4eOg_cz1-USa2nk0SkGOcS0/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/19gV561ZmM4ktBLFfKEL0Riqy1rhRwuDa/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1ChwcleUUaFG8jIWI7Z6lQIAFtkpue4yQ/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1graCHdRSVXvChRcXKdkWWPhP6ZH2XxfO/preview",
+            },
+         
+        
+        ],
+        },
+        
+        
+        
+      ],
       
     },
+      
+    
     "ece": {
       6: [
         {
