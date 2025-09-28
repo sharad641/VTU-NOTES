@@ -764,3 +764,278 @@ textarea {
 html {
   scroll-behavior: smooth;
 }
+/* ===================== Emoji Reactions ===================== */
+.emoji-reactions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.emoji-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  border-radius: 24px;
+  padding: 6px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Assign distinct colors per emoji */
+.emoji-btn:nth-child(1) { background-color: #3b82f6; }   /* 👍 Blue */
+.emoji-btn:nth-child(2) { background-color: #ef4444; }   /* ❤️ Red */
+.emoji-btn:nth-child(3) { background-color: #facc15; }   /* 😂 Yellow */
+.emoji-btn:nth-child(4) { background-color: #10b981; }   /* 😮 Green */
+.emoji-btn:nth-child(5) { background-color: #8b5cf6; }   /* 😢 Purple */
+.emoji-btn:nth-child(6) { background-color: #f97316; }   /* 👎 Orange */
+
+.emoji-btn:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Selected reaction highlight (for later enhancement) */
+.emoji-btn.selected {
+  box-shadow: 0 0 0 3px #ffffff, 0 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* ===================== Reply Form Styling ===================== */
+.reply-form {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.reply-textarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  resize: vertical;
+  font-size: 14px;
+}
+
+.submit-reply-btn {
+  align-self: flex-end;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.submit-reply-btn:hover {
+  background-color: #1e40af;
+}
+
+/* ===================== Toggle Replies Button ===================== */
+.toggle-replies-btn {
+  background: none;
+  border: none;
+  color: #2563eb;
+  cursor: pointer;
+  font-size: 13px;
+  margin-top: 4px;
+  padding: 2px 0;
+  transition: color 0.2s ease;
+}
+
+.toggle-replies-btn:hover {
+  text-decoration: underline;
+  color: #1e40af;
+}
+
+/* ===================== Mobile Responsiveness ===================== */
+@media (max-width: 600px) {
+  .emoji-btn {
+    font-size: 14px;
+    padding: 4px 10px;
+  }
+
+  .reply-textarea {
+    font-size: 13px;
+  }
+
+  .submit-reply-btn {
+    font-size: 13px;
+    padding: 5px 12px;
+  }
+}
+/* Pinned admin comments and replies */
+.comment-card.pinned,
+.reply-card.pinned {
+  border: 2px solid #f59e0b; /* Amber border */
+  background: linear-gradient(90deg, #fef3c7 0%, #fef9c3 100%); /* Gradient amber */
+  box-shadow: 0 4px 8px rgba(245, 158, 11, 0.2); /* Soft shadow */
+  animation: pinnedPulse 1.5s infinite alternate; /* subtle pulse animation */
+}
+
+@keyframes pinnedPulse {
+  from { box-shadow: 0 4px 8px rgba(245, 158, 11, 0.2); }
+  to { box-shadow: 0 6px 12px rgba(245, 158, 11, 0.4); }
+}
+
+/* Pin button styling */
+.pin-btn {
+  margin-left: 6px;
+  background: #f59e0b; /* Amber */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.pin-btn:hover {
+  background: #d97706; /* Darker amber */
+  transform: scale(1.05);
+}
+
+/* Emoji reactions container */
+.emoji-reactions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Emoji button styling */
+.emoji-btn {
+  padding: 5px 8px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1; /* Modern gray */
+  background-color: #f1f5f9; /* Light gray */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.emoji-btn:hover {
+  background-color: #e2e8f0; /* Slightly darker gray */
+  transform: scale(1.1);
+}
+
+.emoji-btn.selected {
+  border-color: #2563eb; /* Bright blue border */
+  background-color: #bfdbfe; /* Light blue background */
+  transform: scale(1.15);
+  font-weight: 600;
+}
+
+/* Indent nested replies with emoji reactions */
+.reply-card .emoji-reactions {
+  margin-left: 40px; /* Slightly more indent for replies */
+}
+
+/* Optional: smoother transition for comment text hover */
+.comment-card:hover,
+.reply-card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
+/* Pinned admin comments and replies */
+.comment-card.pinned,
+.reply-card.pinned {
+  border: 2px solid #f59e0b; /* Amber border */
+  background: linear-gradient(90deg, #fef3c7 0%, #fef9c3 100%); /* Gradient amber */
+  box-shadow: 0 4px 8px rgba(245, 158, 11, 0.2); /* Soft shadow */
+  animation: pinnedPulse 1.5s infinite alternate; /* subtle pulse animation */
+}
+
+@keyframes pinnedPulse {
+  from { box-shadow: 0 4px 8px rgba(245, 158, 11, 0.2); }
+  to { box-shadow: 0 6px 12px rgba(245, 158, 11, 0.4); }
+}
+
+/* Pinned badge */
+.pinned-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #f59e0b; /* Amber */
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Pin button styling */
+.pin-btn {
+  margin-left: 6px;
+  background: #f59e0b;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.pin-btn:hover {
+  background: #d97706; /* Darker amber */
+  transform: scale(1.05);
+}
+
+/* Emoji reaction container */
+.emoji-reactions {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Emoji button styling */
+.emoji-btn {
+  padding: 5px 8px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1; /* Modern gray */
+  background-color: #f1f5f9; /* Light gray */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.emoji-btn:hover {
+  background-color: #e2e8f0; /* Slightly darker gray */
+  transform: scale(1.1);
+}
+
+.emoji-btn.selected {
+  border-color: #2563eb; /* Bright blue border */
+  background-color: #bfdbfe; /* Light blue background */
+  transform: scale(1.15);
+  font-weight: 600;
+}
+
+/* Indent nested replies with emoji reactions */
+.reply-card .emoji-reactions {
+  margin-left: 40px; /* Slightly more indent for replies */
+}
+
+/* Smooth hover effect for comments and replies */
+.comment-card:hover,
+.reply-card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+}
