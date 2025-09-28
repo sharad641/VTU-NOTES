@@ -22,17 +22,14 @@ const CommentSection = () => {
   const [currentUserEmail, setCurrentUserEmail] = useState(null);
   const [expandedReplies, setExpandedReplies] = useState({});
   const [loading, setLoading] = useState(true);
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
   const commentFormRef = useRef(null);
 
-  // Listen for auth state
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setCurrentUserEmail(user?.email || null);
-    });
+    const unsubscribe = onAuthStateChanged(auth, (user) => setCurrentUserEmail(user?.email || null));
     return () => unsubscribe();
   }, []);
 
-  // Fetch comments from Firebase
   useEffect(() => {
     const commentsRef = ref(database, 'comments');
     return onValue(commentsRef, (snapshot) => {
@@ -47,7 +44,6 @@ const CommentSection = () => {
     });
   }, []);
 
-  // Add new comment
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     const trimmedEmail = email.trim();
@@ -76,7 +72,6 @@ const CommentSection = () => {
     }
   };
 
-  // Add reply
   const handleReplySubmit = async (commentId, replyKey = null) => {
     if (currentUserEmail !== ADMIN_EMAIL) {
       alert('Only the admin can reply to comments.');
@@ -87,9 +82,7 @@ const CommentSection = () => {
       return;
     }
     try {
-      const basePath = replyKey
-        ? `comments/${commentId}/replies/${replyKey}/replies`
-        : `comments/${commentId}/replies`;
+      const basePath = replyKey ? `comments/${commentId}/replies/${replyKey}/replies` : `comments/${commentId}/replies`;
       const replyRef = ref(database, basePath);
       await push(replyRef, {
         text: replyText.trim(),
@@ -108,7 +101,6 @@ const CommentSection = () => {
     }
   };
 
-  // Delete comment/reply
   const handleDelete = async (path) => {
     if (currentUserEmail !== ADMIN_EMAIL) return;
     if (!window.confirm("Are you sure you want to delete this comment?")) return;
@@ -120,7 +112,6 @@ const CommentSection = () => {
     }
   };
 
-  // Pin/unpin comment/reply
   const handlePin = async (path, currentPinned) => {
     if (currentUserEmail !== ADMIN_EMAIL) return;
     try {
@@ -131,11 +122,18 @@ const CommentSection = () => {
     }
   };
 
-  // Emoji reaction for admin messages
   const handleReaction = async (path, emoji) => {
-    if (!currentUserEmail) return alert('Login to react!');
-    const userKey = currentUserEmail.replace('.', '_');
-    await update(ref(database, path + `/reactions/${userKey}`), { emoji });
+    if (!currentUserEmail) {
+      setShowLoginPopup(true);
+      return;
+    }
+    try {
+      const userKey = currentUserEmail.replace('.', '_');
+      await update(ref(database, path + `/reactions/${userKey}`), { emoji });
+    } catch (error) {
+      console.error('Error adding reaction:', error);
+      alert('An error occurred while reacting.');
+    }
   };
 
   const toggleReplies = (id) => setExpandedReplies(prev => ({ ...prev, [id]: !prev[id] }));
@@ -159,7 +157,6 @@ const CommentSection = () => {
         const replyPath = `${parentPath}/replies/${key}`;
         const replyId = `${parentCommentId}-${key}`;
         const isExpanded = expandedReplies[replyId] || false;
-
         return (
           <div key={key} className={`reply-card ${reply.pinned ? 'pinned' : ''}`} style={{ position: 'relative' }}>
             {reply.pinned && <div className="pinned-badge">📌 Pinned</div>}
@@ -173,9 +170,7 @@ const CommentSection = () => {
                 <>
                   <button className="reply-btn" onClick={() => setIsReplyingTo({ commentId: parentCommentId, replyKey: key })}>Reply</button>
                   <button className="delete-btn" onClick={() => handleDelete(replyPath)}>Delete</button>
-                  <button className="pin-btn" onClick={() => handlePin(replyPath, reply.pinned)}>
-                    {reply.pinned ? "📌 Unpin" : "📌 Pin"}
-                  </button>
+                  <button className="pin-btn" onClick={() => handlePin(replyPath, reply.pinned)}>{reply.pinned ? "📌 Unpin" : "📌 Pin"}</button>
                 </>
               )}
             </div>
@@ -216,10 +211,12 @@ const CommentSection = () => {
     <div className="comment-section-container">
       <header className="header">
         <h2 className="section-title">💬 Need Any VTU Notes or Help?</h2>
-        <p className="intro-paragraph">Looking for a specific subject's notes? Have feedback or suggestions? Drop your comments below – we’ll get back to you!</p>
+        <p className="intro-paragraph">
+          Looking for a specific subject's notes? Have feedback or suggestions? Drop your comments below – we’ll get back to you!
+        </p>
       </header>
 
-      <form onSubmit={handleCommentSubmit} className="comment-form" ref={commentFormRef}>
+      <form onSubmit={handleCommentSubmit} className="comment-form" ref={commentFormRef} aria-label="Comment form">
         <input type="text" className="comment-author" placeholder="Your Name" value={userName} onChange={(e) => setUserName(e.target.value)} required />
         <input type="email" className="comment-email" placeholder="Your Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
         <textarea className="comment-textarea" placeholder="Share your message, suggestions, or note request..." value={commentText} onChange={(e) => setCommentText(e.target.value)} required />
@@ -240,14 +237,11 @@ const CommentSection = () => {
                 <>
                   <button className="reply-btn" onClick={() => setIsReplyingTo({ commentId: comment.id, replyKey: null })}>Reply</button>
                   <button className="delete-btn" onClick={() => handleDelete(`comments/${comment.id}`)}>Delete</button>
-                  <button className="pin-btn" onClick={() => handlePin(`comments/${comment.id}`, comment.pinned)}>
-                    {comment.pinned ? "📌 Unpin" : "📌 Pin"}
-                  </button>
+                  <button className="pin-btn" onClick={() => handlePin(`comments/${comment.id}`, comment.pinned)}>{comment.pinned ? "📌 Unpin" : "📌 Pin"}</button>
                 </>
               )}
             </div>
             <p className="comment-text" dangerouslySetInnerHTML={{ __html: convertTextToHtml(comment.text || '') }} />
-
             {comment.email === ADMIN_EMAIL && (
               <div className="emoji-reactions">
                 {EMOJIS.map((emoji) => {
@@ -261,9 +255,7 @@ const CommentSection = () => {
                 })}
               </div>
             )}
-
             {renderReplies(comment.replies, `comments/${comment.id}`, comment.id)}
-
             {isReplyingTo.commentId === comment.id && isReplyingTo.replyKey === null && currentUserEmail === ADMIN_EMAIL && (
               <div className="reply-form">
                 <textarea className="reply-textarea" placeholder="Write your reply..." value={replyText} onChange={(e) => setReplyText(e.target.value)} required />
@@ -278,6 +270,17 @@ const CommentSection = () => {
         <button className="toggle-comments-btn" onClick={() => setShowAllComments(!showAllComments)}>
           {showAllComments ? '🔽 Hide Comments' : `🔼 View All Comments (${comments.length - 10})`}
         </button>
+      )}
+
+      {/* Login popup */}
+      {showLoginPopup && (
+        <div className="login-popup-overlay" onClick={() => setShowLoginPopup(false)}>
+          <div className="login-popup" onClick={(e) => e.stopPropagation()}>
+            <h3>⚠️ Login Required</h3>
+            <p>You need to login to react to admin messages.</p>
+            <button onClick={() => window.location.href = '/login'}>Go to Login</button>
+          </div>
+        </div>
       )}
     </div>
   );
