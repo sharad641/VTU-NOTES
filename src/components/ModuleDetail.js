@@ -2672,53 +2672,33 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1vIOfJoUkztNLjem_LKYMHTjcIMBQfp5R/preview",
             },
-            {
-              title: "Module 1:Handwritten Notes",
-              content: "Comprehensive notes for Module 1.",
-              previewUrl:
-                "https://drive.google.com/file/d/1as_KO1nBNv8e2pfSFtZpV6PACpiFg6Sr/preview",
-            },
+
             {
               title: "Module 2:Printed Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
                 "https://drive.google.com/file/d/1Pv2FopOV8qSK4ezduuHf9uu75_--ZZMp/preview",
             },
-            {
-              title: "Module 2:Handwritten Notes",
-              content: "Comprehensive notes for Module 2.",
-              previewUrl:
-                "https://drive.google.com/file/d/1stxqnFNrIXWTHDWRCVu5aUUGrUEgaLvj/preview",
-            },
+            
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
                 "https://drive.google.com/file/d/1-DxemhvmqNYt88f4o8DkflhS9aGcVV2A/preview",
             },
-             {
-              title: "Module 3:Handwritten Notes",
-              content: "Comprehensive notes for Module 3.",
-              previewUrl:
-                "https://drive.google.com/file/d/1_CpczQqssz0J5Vq_MIjKnXIj50t-8_T5/preview",
-            },
+             
             {
               title: "Module 4: Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
                 "https://drive.google.com/file/d/18YvPZyMk_jcQfjG3qLdcXztpNHr0NNOb/preview",
             },
-            {
-              title: "Module 4:Handwritten  Notes",
-              content: "Comprehensive notes for Module 4.",
-              previewUrl:
-                "https://drive.google.com/file/d/1lpYM4IR4uFmOXZJBVBm4IijUULF98b8J/preview",
-            },
+            
              {
               title: "All Module :Handwritten  Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
-                "https://drive.google.com/file/d/1s1vnHxEibTMwJzV1HP-ZhomeTYhe_5zS/preview",
+                "https://drive.google.com/file/d/1E9jMlLo3bnFDb22KdFo2bPvHbK56BZz0/preview",
             },
             {
               title: "All Module :Handwritten  Notes",
