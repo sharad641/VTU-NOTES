@@ -122,13 +122,13 @@ function About() {
       {/* 👨‍💻 Developer Section */}
       <section className="about-developer">
         <h2>👨‍💻 About the Developers</h2>
-        <p>
-          <strong>VTU Notes</strong> was proudly developed by the{" "}
-          <strong>vtunotesforall team</strong> — passionate Computer Science
-          students from <strong>The BVSS Maratha Students Home</strong>, driven
-          by the vision of making academic resources accessible to all VTU
-          learners.
-        </p>
+       <p>
+  <strong>VTU Notes</strong> was proudly developed by the{" "}
+  <strong>vtunotesforall team</strong> — a group of dedicated and passionate students from <strong>The BVSS Maratha Student's Home</strong>. 
+  Driven by the vision of making high-quality academic resources accessible to all VTU learners, 
+  our team brings together students from diverse fields, united by a commitment to education, collaboration, and empowering fellow learners.
+</p>
+
         <ul>
           <li>
             📧 Email:{" "}
@@ -136,10 +136,7 @@ function About() {
               vtunotesforall@gmail.com
             </a>
           </li>
-          <li>
-            📞 Phone:{" "}
-           
-          </li>
+         
         </ul>
       </section>
 
