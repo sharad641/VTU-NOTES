@@ -15,6 +15,7 @@ import UploadForm from './UploadForm';
 import Contact from './Contact';
 
 
+
 import ChatBot from './ChatBot';
 
 import './Home.css';
@@ -63,38 +64,58 @@ const Home = () => {
 <SgpaCalculator />
 
       {/* 🔗 VTU Resources */}
-      <section className="info-box modern-box">
-        <h2>🔗 VTU Links</h2>
-        <div className="vtu-links-container">
-          {[
-            { title: "VTU Results", desc: "View semester results.", link: "https://results.vtu.ac.in" },
-            { title: "VTU Syllabus", desc: "Download the latest syllabus.", link: "https://vtu.ac.in/b-e-scheme-syllabus/" },
-            { title: "Model Question Papers", desc: "Practice with real exam papers.", link: "https://vtu.ac.in/model-question-paper-b-e-b-tech-b-arch/" },
-            { title: "Academic Calendar", desc: "Know your semester dates.", link: "https://vtu.ac.in/academic-calendar/" },
-            { title: "Notifications & Circulars", desc: "Latest university updates.", link: "https://vtu.ac.in/en/administration/circular/" },
-          ].map((item, index) => (
-            <div key={index} className="vtu-link-card modern-card">
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-              <a href={item.link} target="_blank" rel="noopener noreferrer" className="button modern-button">
-                🔗 Visit
-              </a>
-              
-            </div>
-            
-          ))}
+      {/* 🔗 VTU Resources & Upload Section */}
+<section className="vtu-section">
+  {/* VTU Links */}
+  <div className="vtu-links-box">
+    <h2 className="vtu-title">🔗 VTU Resources</h2>
+    <p className="vtu-subtitle">Access all essential VTU academic resources in one place.</p>
+
+    <div className="vtu-links-grid">
+      {[
+        { title: "VTU Results", desc: "View semester exam results instantly.", link: "https://results.vtu.ac.in" },
+        { title: "VTU Syllabus", desc: "Download the latest syllabus for all branches.", link: "https://vtu.ac.in/b-e-scheme-syllabus/" },
+        { title: "Model Question Papers", desc: "Prepare better with official model papers.", link: "https://vtu.ac.in/model-question-paper-b-e-b-tech-b-arch/" },
+        { title: "Academic Calendar", desc: "Check important semester dates and events.", link: "https://vtu.ac.in/academic-calendar/" },
+        { title: "Notifications & Circulars", desc: "Stay updated with official VTU announcements.", link: "https://vtu.ac.in/en/administration/circular/" },
+      ].map((item, index) => (
+        <div key={index} className="vtu-card">
+          <div className="vtu-card-content">
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+            <a
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="vtu-btn"
+            >
+              Visit →
+            </a>
+          </div>
         </div>
-         {/* 📤 Upload Notes */}
-      <UploadForm />
-      </section>
-      {/* 📖 FAQs */}
-      <section className="info-box modern-box-new">
-        <h2>📖 Frequently Asked Questions (FAQs)</h2>
-        <p>Quick answers to your most common concerns.</p>
-        <Link to="/faqs" className="button modern-button-nw">🔗 Go to FAQs</Link>
-      </section>
-      
-      
+      ))}
+    </div>
+  </div>
+
+  {/* 📤 Upload Notes */}
+  <div className="upload-section">
+    <h2 className="upload-title">📤 Share VTU Notes</h2>
+    <p className="upload-subtitle">Help others by uploading your organized notes and materials.</p>
+    <UploadForm />
+  </div>
+</section>
+
+{/* 📖 FAQs */}
+<section className="faq-section">
+  <div className="faq-box">
+    <h2>📖 Frequently Asked Questions (FAQs)</h2>
+    <p>Find quick answers to your most common queries about VTU resources.</p>
+    <Link to="/faqs" className="faq-btn">
+      Go to FAQs →
+    </Link>
+  </div>
+</section>
+
     
        
        {/* 📞 Contact Us */}

@@ -18,9 +18,7 @@ const Contact = () => {
   };
 
   // Email validation
-  const isValidEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   // Handle form submission
   const handleSubmit = async (e) => {
@@ -28,17 +26,17 @@ const Contact = () => {
     const { name, email, message } = formData;
 
     if (!name.trim() || !email.trim() || !message.trim()) {
-      setSubmitStatus("All fields are required.");
+      setSubmitStatus("⚠️ All fields are required.");
       return;
     }
 
     if (!isValidEmail(email)) {
-      setSubmitStatus("Please enter a valid email address.");
+      setSubmitStatus("⚠️ Please enter a valid email address.");
       return;
     }
 
     try {
-      const contactRef = ref(database, "contacts"); // Firebase path
+      const contactRef = ref(database, "contacts");
       await push(contactRef, {
         name,
         email,
@@ -60,29 +58,21 @@ const Contact = () => {
       <section className="contact-intro">
         <h1>📞 Contact Us</h1>
         <p>
-          Have questions or feedback? We're here to help! Reach out to us and
-          let us know how we can assist you with your academic needs.
+          Have questions or feedback? We're here to help! Fill out the form
+          below, and we'll get back to you as soon as possible.
         </p>
       </section>
 
-      {/* Contact Details */}
+      {/* Contact Section */}
       <section className="contact-details">
         <h2>📧 Get in Touch</h2>
-        <p>Reach us through the form or contact details below:</p>
-
         <div className="contact-box">
+          {/* Contact Info */}
           <div className="contact-info">
-            <h3>Contact Information</h3>
+            <h3>Email Us</h3>
             <p>
-              Email:{" "}
               <a href="mailto:vtunotesforall@gmail.com" className="contact-link">
                 vtunotesforall@gmail.com
-              </a>
-            </p>
-            <p>
-              Phone:{" "}
-              <a href="tel:+916364060716" className="contact-link">
-                +91 6364060716
               </a>
             </p>
           </div>
@@ -99,7 +89,6 @@ const Contact = () => {
                 value={formData.name}
                 onChange={handleInputChange}
                 placeholder="Enter your name"
-                required
               />
 
               <label htmlFor="email">Your Email</label>
@@ -110,7 +99,6 @@ const Contact = () => {
                 value={formData.email}
                 onChange={handleInputChange}
                 placeholder="Enter your email"
-                required
               />
 
               <label htmlFor="message">Message</label>
@@ -120,14 +108,14 @@ const Contact = () => {
                 value={formData.message}
                 onChange={handleInputChange}
                 placeholder="Write your message"
-                rows="4"
-                required
+                rows="5"
               ></textarea>
 
               <button type="submit" className="button modern-button">
                 Send Message
               </button>
             </form>
+
             {submitStatus && <p className="submit-status">{submitStatus}</p>}
           </div>
         </div>
@@ -156,17 +144,10 @@ const Contact = () => {
             </a>
           </li>
           <li>
-            <a
-              href="https://www.linkedin.com/in/sharad-patil-691902259"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-linkedin"></i> LinkedIn
-            </a>
+           
           </li>
         </ul>
       </section>
-
     </div>
   );
 };

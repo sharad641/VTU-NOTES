@@ -1,0 +1,23 @@
+{
+  "branches": {
+    "CSE": [
+      {
+        "subCode": "CS101",
+        "subName": "Programming in C",
+        "notesLink": "https://vtunotesforall.in/notes/cs101"
+      },
+      {
+        "subCode": "CS102",
+        "subName": "Data Structures",
+        "notesLink": "https://vtunotesforall.in/notes/cs102"
+      }
+    ],
+    "ECE": [
+      {
+        "subCode": "EC101",
+        "subName": "Digital Electronics",
+        "notesLink": "https://vtunotesforall.in/notes/ec101"
+      }
+    ]
+  }
+}

@@ -1,213 +1,171 @@
 import React, { useState } from 'react';
-import { storage, firestore } from '../firebase';
+import { storage, firestore } from '../firebase'; 
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { collection, addDoc } from 'firebase/firestore';
+import styles from './UploadForm.module.css';
 
 const UploadForm = () => {
-    const [file, setFile] = useState(null);
-    const [semester, setSemester] = useState('');
-    const [subjectName, setSubjectName] = useState('');
-    const [subjectCode, setSubjectCode] = useState('');
-    const [message, setMessage] = useState('');
-    const [uploadProgress, setUploadProgress] = useState(0);
-    const [uploadMessage, setUploadMessage] = useState('');
-    const [uploadSuccess, setUploadSuccess] = useState(false);
-    const [hover, setHover] = useState(false);
+  const [file, setFile] = useState(null);
+  const [semester, setSemester] = useState('');
+  const [subjectName, setSubjectName] = useState('');
+  const [subjectCode, setSubjectCode] = useState('');
+  const [message, setMessage] = useState('');
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [feedbackMessage, setFeedbackMessage] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(null);
 
-    const containerStyle = {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '2rem 1rem',
-        minHeight: '100vh',
-       
-    };
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile?.type === 'application/pdf') {
+      setFile(selectedFile);
+      setFeedbackMessage('');
+      setIsSuccess(null);
+    } else if (selectedFile) {
+      setFeedbackMessage('Please select a valid PDF file.');
+      setIsSuccess(false);
+      setFile(null);
+      e.target.value = null;
+    }
+  };
 
-    const formStyle = {
-        width: '100%',
-        maxWidth: '500px',
-        backgroundColor: '#ffffff',
-        padding: '2rem',
-        borderRadius: '20px',
-        boxShadow: '0 12px 35px rgba(0, 0, 0, 0.15)',
-        transition: 'transform 0.3s ease, box-shadow 0.3s ease',
-    };
+  const resetForm = () => {
+    setFile(null);
+    setSemester('');
+    setSubjectName('');
+    setSubjectCode('');
+    setMessage('');
+    setUploadProgress(0);
+    setIsUploading(false);
+    setTimeout(() => {
+      setFeedbackMessage('');
+      setIsSuccess(null);
+    }, 5000);
+  };
 
-    const titleStyle = {
-        textAlign: 'center',
-        marginBottom: '1.5rem',
-        fontSize: '2rem',
-        fontWeight: '800',
-        color: '#1e40af',
-        letterSpacing: '0.5px',
-    };
+  const handleUpload = async (e) => {
+    e.preventDefault();
+    if (!file || !semester || !subjectName) {
+      setFeedbackMessage('Please fill all required fields and select a file.');
+      setIsSuccess(false);
+      return;
+    }
 
-    const subtitleStyle = {
-        fontSize: '1rem',
-        color: '#4b5563',
-        lineHeight: '1.8',
-        margin: '15px 0 25px',
-        textAlign: 'center',
-        background: '#f1f5f9',
-        padding: '20px 25px',
-        borderRadius: '12px',
-        boxShadow: '0 5px 15px rgba(0, 0, 0, 0.05)',
-    };
+    setIsUploading(true);
+    setUploadProgress(0);
+    setFeedbackMessage('');
+    setIsSuccess(null);
 
-    const labelStyle = {
-        display: 'block',
-        marginBottom: '0.6rem',
-        fontWeight: '600',
-        color: '#374151',
-        fontSize: '1rem',
-    };
+    const storageRef = ref(storage, `notes/${Date.now()}_${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
 
-    const inputStyle = {
-        width: '100%',
-        padding: '0.9rem',
-        fontSize: '1rem',
-        borderRadius: '12px',
-        border: '1px solid #d1d5db',
-        backgroundColor: '#f9fafb',
-        marginBottom: '1.5rem',
-        outline: 'none',
-        boxShadow: 'inset 0 1px 3px rgba(0,0,0,0.05)',
-    };
-
-    const buttonStyle = {
-        width: '100%',
-        padding: '1rem',
-        fontSize: '1.1rem',
-        fontWeight: 'bold',
-        backgroundColor: hover ? '#1e3a8a' : '#2563eb',
-        color: '#ffffff',
-        border: 'none',
-        borderRadius: '12px',
-        cursor: 'pointer',
-        transition: 'background-color 0.3s ease, transform 0.2s ease',
-        marginTop: '1rem',
-    };
-
-    const messageStyle = {
-        textAlign: 'center',
-        fontWeight: '600',
-        marginTop: '1.2rem',
-        padding: '1rem',
-        borderRadius: '10px',
-        fontSize: '1rem',
-        color: uploadSuccess ? '#15803d' : '#b91c1c',
-        backgroundColor: uploadSuccess ? '#dcfce7' : '#fee2e2',
-        border: `1px solid ${uploadSuccess ? '#16a34a' : '#dc2626'}`,
-    };
-
-    const handleFileChange = (e) => {
-        const selectedFile = e.target.files[0];
-        if (selectedFile && selectedFile.type === 'application/pdf') {
-            setFile(selectedFile);
-        } else {
-            alert('Please select a valid PDF file.');
-            setFile(null);
+    uploadTask.on(
+      'state_changed',
+      (snapshot) => {
+        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setUploadProgress(progress);
+      },
+      (error) => {
+        setFeedbackMessage(`Upload failed: ${error.message}`);
+        setIsSuccess(false);
+        setIsUploading(false);
+      },
+      async () => {
+        try {
+          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+          await addDoc(collection(firestore, 'notes'), {
+            semester,
+            subjectName,
+            subjectCode,
+            url: downloadURL,
+            fileName: file.name,
+            message,
+            uploadedAt: new Date(),
+          });
+          setFeedbackMessage('🎉 Upload successful! Thank you for your contribution.');
+          setIsSuccess(true);
+          resetForm();
+        } catch (error) {
+          setFeedbackMessage(`Error saving document: ${error.message}`);
+          setIsSuccess(false);
+          setIsUploading(false);
         }
-    };
-
-    const handleInputChange = (e) => {
-        const { id, value } = e.target;
-        switch (id) {
-            case 'semester': setSemester(value); break;
-            case 'subjectName': setSubjectName(value); break;
-            case 'subjectCode': setSubjectCode(value); break;
-            case 'message': setMessage(value); break;
-            default: break;
-        }
-    };
-
-    const handleUpload = async (e) => {
-        e.preventDefault();
-        if (!file || !semester || !subjectName) {
-            alert('Please fill all required fields.');
-            return;
-        }
-
-        const storageRef = ref(storage, `notes/${file.name}`);
-        const uploadTask = uploadBytesResumable(storageRef, file);
-
-        uploadTask.on(
-            'state_changed',
-            (snapshot) => {
-                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                setUploadProgress(progress);
-            },
-            (error) => {
-                setUploadMessage(`Upload failed: ${error.message}`);
-                setUploadSuccess(false);
-            },
-            async () => {
-                try {
-                    const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-                    await addDoc(collection(firestore, 'notes'), {
-                        semester,
-                        subjectName,
-                        subjectCode,
-                        url: downloadURL,
-                        message,
-                        uploadedAt: new Date(),
-                    });
-                    setUploadMessage('Upload successful! Thank you for your contribution.');
-                    setUploadSuccess(true);
-                    resetForm();
-                } catch (error) {
-                    setUploadMessage(`Error saving document: ${error.message}`);
-                    setUploadSuccess(false);
-                }
-            }
-        );
-    };
-
-    const resetForm = () => {
-        setFile(null);
-        setSemester('');
-        setSubjectName('');
-        setSubjectCode('');
-        setMessage('');
-        setUploadProgress(0);
-        setUploadMessage('');
-        setUploadSuccess(false);
-    };
-
-    return (
-        <div style={containerStyle}>
-            <form style={formStyle} onSubmit={handleUpload}>
-                <h2 style={titleStyle}>Upload Your Notes</h2>
-                <p style={subtitleStyle}>
-                    Help fellow students by sharing your study materials and notes. Your contribution matters.
-                </p>
-
-                {uploadMessage && <div style={messageStyle}>{uploadMessage}</div>}
-
-                <label style={labelStyle} htmlFor="semester">Semester:</label>
-                <input id="semester" type="text" value={semester} onChange={handleInputChange} style={inputStyle} required />
-
-                <label style={labelStyle} htmlFor="subjectName">Subject Name:</label>
-                <input id="subjectName" type="text" value={subjectName} onChange={handleInputChange} style={inputStyle} required />
-
-                <label style={labelStyle} htmlFor="subjectCode">Subject Code (optional):</label>
-                <input id="subjectCode" type="text" value={subjectCode} onChange={handleInputChange} style={inputStyle} />
-
-                <label style={labelStyle} htmlFor="file">Upload PDF:</label>
-                <input id="file" type="file" accept="application/pdf" onChange={handleFileChange} style={inputStyle} required />
-
-                <button type="submit" style={buttonStyle} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
-                    Upload
-                </button>
-
-                {uploadProgress > 0 && (
-                    <p style={{ textAlign: 'center', marginTop: '1rem', color: '#6b7280' }}>
-                        Upload progress: {uploadProgress.toFixed(2)}%
-                    </p>
-                )}
-            </form>
-        </div>
+      }
     );
+  };
+
+  return (
+    <div className={styles.container}>
+      <form className={styles.form} onSubmit={handleUpload}>
+
+        <div className={styles.header}>
+          <h2 className={styles.title}>Upload Your Notes</h2>
+          <p className={styles.subtitle}>
+            Help fellow students by sharing your study materials. Your contribution matters.
+          </p>
+        </div>
+
+        {/* ---------- TWO-COLUMN FORM ---------- */}
+        <div className={styles.formColumns}>
+          <div className={styles.formLeft}>
+            {/** Semester */}
+            <div className={styles.formGroup}>
+              <input type="text" value={semester} onChange={e => setSemester(e.target.value)} className={styles.input} placeholder=" " required />
+              <label className={styles.label}>Semester</label>
+            </div>
+
+            {/** Subject Name */}
+            <div className={styles.formGroup}>
+              <input type="text" value={subjectName} onChange={e => setSubjectName(e.target.value)} className={styles.input} placeholder=" " required />
+              <label className={styles.label}>Subject Name</label>
+            </div>
+
+            {/** Subject Code */}
+            <div className={styles.formGroup}>
+              <input type="text" value={subjectCode} onChange={e => setSubjectCode(e.target.value)} className={styles.input} placeholder=" " />
+              <label className={styles.label}>Subject Code (Optional)</label>
+            </div>
+          </div>
+
+          <div className={styles.formRight}>
+            {/** Optional Message */}
+            <div className={styles.formGroup}>
+              <textarea value={message} onChange={e => setMessage(e.target.value)} className={styles.textarea} placeholder=" "></textarea>
+              <label className={styles.label}>Optional Message</label>
+            </div>
+
+            {/** File Upload */}
+            <div className={styles.formGroup}>
+              <label className={styles.fileUploadLabel}>
+                <span>{file ? file.name : 'Choose a PDF file...'}</span>
+                <div className={styles.fileUploadButton}>Browse</div>
+                <input type="file" accept="application/pdf" onChange={handleFileChange} className={styles.fileInput} required />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        {/** Progress Bar */}
+        {isUploading && (
+          <div className={styles.progressContainer}>
+            <div className={styles.progressBar} style={{ width: `${uploadProgress}%` }}></div>
+          </div>
+        )}
+
+        {/** Feedback Message */}
+        {feedbackMessage && (
+          <div className={`${styles.feedbackMessage} ${isSuccess ? styles.success : styles.error}`}>
+            {feedbackMessage}
+          </div>
+        )}
+
+        {/** Submit Button */}
+        <button type="submit" className={styles.submitButton} disabled={isUploading}>
+          {isUploading ? `Uploading... ${Math.round(uploadProgress)}%` : 'Upload Notes'}
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default UploadForm;

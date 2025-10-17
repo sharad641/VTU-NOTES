@@ -1,0 +1,263 @@
+/* ---------- GENERAL CONTAINER ---------- */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #e8f0fe, #f8fafc);
+    padding: 2.5rem 1.5rem;
+    box-sizing: border-box;
+    transition: background 0.4s ease;
+}
+
+/* ---------- FORM CARD ---------- */
+.form {
+    width: 100%;
+    max-width: 860px;
+    background-color: #ffffff;
+    padding: 3rem 2.5rem;
+    border-radius: 28px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.form:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 35px 75px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- HEADER ---------- */
+.header {
+    text-align: center;
+    margin-bottom: 2.2rem;
+}
+
+.title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 1rem;
+    color: #64748b;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+}
+
+/* ---------- TWO-COLUMN FORM LAYOUT ---------- */
+.formColumns {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.formLeft, .formRight {
+    flex: 1 1 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+/* ---------- FORM GROUP WITH FLOATING LABELS ---------- */
+.formGroup {
+    position: relative;
+}
+
+.input, .textarea {
+    width: 100%;
+    padding: 1.3rem 1rem 0.6rem 1rem;
+    font-size: 1rem;
+    border-radius: 14px;
+    border: 1px solid #cbd5e1;
+    background-color: #f9fafb;
+    transition: all 0.25s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #64748b;
+    pointer-events: none;
+    transition: 0.2s all ease-in-out;
+    background-color: transparent;
+}
+
+.input:focus + .label,
+.input:not(:placeholder-shown) + .label,
+.textarea:focus + .label,
+.textarea:not(:placeholder-shown) + .label {
+    top: -0.6rem;
+    left: 0.9rem;
+    font-size: 0.8rem;
+    color: #2563eb;
+    background-color: #ffffff;
+    padding: 0 0.35rem;
+}
+
+.input:focus, .textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+    transform: scale(1.015);
+}
+
+/* ---------- CUSTOM FILE INPUT ---------- */
+.fileInput {
+    display: none;
+}
+
+.fileUploadLabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1rem;
+    border: 2px dashed #94a3b8;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: #f9fafb;
+    transition: all 0.3s ease;
+    color: #64748b;
+}
+
+.fileUploadLabel:hover {
+    background-color: #eff6ff;
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+}
+
+.fileUploadLabel span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.95rem;
+}
+
+.fileUploadButton {
+    padding: 0.55rem 1rem;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    color: #ffffff;
+    border-radius: 10px;
+    font-weight: 500;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    transition: all 0.25s ease;
+}
+
+.fileUploadButton:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(90deg, #2563eb, #1d4ed8);
+}
+
+/* ---------- PROGRESS BAR ---------- */
+.progressContainer {
+    width: 100%;
+    height: 12px;
+    background-color: #e2e8f0;
+    border-radius: 6px;
+    margin-top: 2rem;
+    overflow: hidden;
+}
+
+.progressBar {
+    height: 100%;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    border-radius: 6px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* ---------- FEEDBACK ---------- */
+.feedbackMessage {
+    text-align: center;
+    font-weight: 500;
+    margin-top: 2rem;
+    padding: 1rem 1.2rem;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.success {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* ---------- SUBMIT BUTTON ---------- */
+.submitButton {
+    width: 100%;
+    padding: 1.1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.submitButton:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+}
+
+.submitButton:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media (max-width: 992px) {
+    .formColumns {
+        flex-direction: column;
+        gap: 1.6rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .form {
+        border-radius: 20px;
+        padding: 2rem 1.2rem;
+        box-shadow: none;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .title {
+        font-size: 2.1rem;
+    }
+
+    .subtitle {
+        font-size: 0.95rem;
+    }
+
+    .input, .textarea {
+        font-size: 0.95rem;
+    }
+
+    .submitButton {
+        padding: 0.9rem;
+        font-size: 1rem;
+    }
+}
