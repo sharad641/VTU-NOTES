@@ -707,3 +707,305 @@ body {
     padding: 0.8rem;
   }
 }
+/* Project Enquiry Section */
+.project-enquiry-section {
+  background: linear-gradient(135deg, #eff6ff, #dbeafe); /* light blue gradient */
+  padding: 4rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.project-enquiry-container {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
+  padding: 2rem;
+  background: white;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-enquiry-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e3a8a; /* dark blue */
+  margin-bottom: 1rem;
+}
+
+.project-enquiry-desc {
+  font-size: 1.1rem;
+  color: #334155; /* grayish text */
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Button styling */
+.project-enquiry-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.project-enquiry-link {
+  text-decoration: none;
+}
+
+.project-enquiry-btn {
+  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.project-enquiry-btn .btn-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.project-enquiry-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+}
+
+.project-enquiry-btn:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+.project-enquiry-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-enquiry-title {
+    font-size: 1.7rem;
+  }
+  .project-enquiry-desc {
+    font-size: 1rem;
+  }
+  .project-enquiry-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
+/* Home Project Section */
+.home-project-section {
+  background: #f9fafb;
+  padding: 3rem 1rem;
+  border-radius: 12px;
+  margin: 3rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.home-project-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1e3a8a;
+}
+
+.home-project-section p {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #374151;
+}
+
+/* Project Types */
+.project-types-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.project-type-card {
+  background: #fff;
+  flex: 1 1 250px;
+  max-width: 300px;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-type-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.project-type-card h3 {
+  margin: 1rem 0 0.5rem;
+  color: #111827;
+}
+
+.project-type-card p {
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* Icon wrapper */
+.icon-wrapper {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Why Choose Us */
+.why-choose-us {
+  background: #e0f2fe;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.why-choose-us h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #1e40af;
+}
+
+.why-choose-us ul {
+  list-style: none;
+  padding: 0;
+}
+
+.why-choose-us ul li {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  gap: 0.5rem;
+  color: #1e3a8a;
+}
+
+/* CTA Button */
+.project-enquiry-btn-container {
+  margin-top: 2rem;
+}
+
+.project-enquiry-btn {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #e2e5e8, #626c84);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-enquiry-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+/* 🎯 CTA & Project Enquiry Buttons */
+.project-enquiry-btn,
+.cta-btn,
+.chatbot-toggle-btn {
+  padding: 0.85rem 1.8rem;
+  border-radius: 9999px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+}
+
+/* Gradient Backgrounds */
+.project-enquiry-btn,
+.chatbot-toggle-btn {
+  background: linear-gradient(90deg, #c8c9cd, #4f46e5);
+}
+
+.cta-btn {
+  background: linear-gradient(to right, #b1b3b6, #8d9eb3);
+}
+
+/* Hover Effects */
+.project-enquiry-btn:hover,
+.cta-btn:hover,
+.chatbot-toggle-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+/* Active / Click Effect */
+.project-enquiry-btn:active,
+.cta-btn:active,
+.chatbot-toggle-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
+  background: linear-gradient(90deg, #a3a5ac, #696783);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 480px) {
+  .project-enquiry-btn,
+  .cta-btn,
+  .chatbot-toggle-btn {
+    width: 100%;
+    padding: 0.85rem 0;
+    font-size: 0.95rem;
+  }
+}
+/* Mini Projects Section */
+.mini-projects-section {
+  background: #f0f9ff;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin: 2rem auto;
+  max-width: 800px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+.mini-projects-section h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #1e40af;
+}
+
+.mini-projects-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mini-projects-section ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: #1e3a8a;
+}
+
+@media (max-width: 768px) {
+  .mini-projects-section {
+    padding: 1rem 1.5rem;
+  }
+  .mini-projects-section h3 {
+    font-size: 1.3rem;
+  }
+}

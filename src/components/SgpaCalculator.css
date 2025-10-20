@@ -1,740 +1,764 @@
-/* 🌟 Overall Container */
-.sgpa-container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 2rem;
-  background: #f7f9fc;
-  color: #1a1a40;
-  font-family: "Poppins", sans-serif;
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-
-/* 🌟 Header */
-.main-title {
-  text-align: center;
-  font-size: 2.1rem;
-  font-weight: 700;
-  color: #1b2e59;
-  margin-bottom: 2rem;
-  letter-spacing: 0.3px;
-}
-
-/* 🌟 Responsive Grid Layout */
-.main-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-/* Two-column layout for desktops */
-@media (min-width: 992px) {
-  .main-grid {
-    grid-template-columns: 1fr 2fr;
-    align-items: flex-start;
-  }
-
-  .left-panel {
-    position: sticky;
-    top: 20px;
-    align-self: flex-start;
-  }
-}
-
-/* 🌟 Form Sections / Cards */
-.form-section {
-  background: #ffffff;
-  padding: 1.8rem;
-  border-radius: 16px;
-  box-shadow: 0 3px 10px rgba(0, 0, 60, 0.08);
-  transition: all 0.2s ease-in-out;
-  overflow: hidden;
-}
-
-.form-section:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 60, 0.12);
-}
-
-.form-section h3 {
-  font-size: 1.25rem;
-  color: #1b2e59;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  border-left: 4px solid #2563eb;
-  padding-left: 10px;
-  letter-spacing: 0.2px;
-}
-
-/* 🌟 Input Fields */
-.input-group {
-  margin-bottom: 1rem;
-}
-
-.input-group label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 0.4rem;
-  color: #1a1a40;
-}
-
-input,
-select {
-  width: 100%;
-  padding: 0.7rem 0.9rem;
-  font-size: 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  background: #f9fbff;
-  outline: none;
-  transition: all 0.25s ease;
-}
-
-input:focus,
-select:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-  background: #ffffff;
-}
-
-/* 🌟 Table Section */
-.table-container {
-  overflow-x: auto;
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 60, 0.05);
-}
-
-.syllabus-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-  min-width: 650px;
-}
-
-.syllabus-table th,
-.syllabus-table td {
-  padding: 0.8rem;
-  text-align: center;
-  border: 1px solid #e5e7eb;
-  font-size: 0.95rem;
-  word-break: break-word;
-}
-
-.syllabus-table th {
-  background: linear-gradient(135deg, #1b2e59, #2563eb);
-  color: #ffffff;
-  font-weight: 600;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-.syllabus-table tbody tr:nth-child(even) {
-  background: #f3f6fc;
-}
-
-.syllabus-table input {
-  width: 80px;
-  padding: 0.4rem;
-  text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fafbff;
-}
-
-/* 🌟 SGPA Result Card */
-.sgpa-result-card {
-  background: linear-gradient(135deg, #1b2e59, #3b82f6);
-  color: #ffffff;
-  text-align: center;
-  padding: 1.8rem;
-  border-radius: 16px;
-  box-shadow: 0 3px 10px rgba(0, 0, 80, 0.25);
-  transition: transform 0.3s ease;
-}
-
-.sgpa-result-card:hover {
-  transform: scale(1.03);
-}
-
-.sgpa-result-card h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.sgpa-result-card p {
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-/* 🌟 Download Button */
-.download-btn {
-  width: 100%;
-  padding: 0.9rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  border: none;
-  border-radius: 10px;
-  margin-top: 1.2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.download-btn:hover {
-  background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
-}
-
-/* 🌟 Mobile Card View */
-.mobile-card-view {
-  display: none;
-}
-
-.subject-card {
-  background: #ffffff;
-  padding: 16px;
-  margin-bottom: 14px;
-  border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
-}
-
-.subject-card h4 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #1b2e59;
-}
-
-.subject-card p {
-  font-size: 0.9rem;
-  color: #555;
-  margin: 4px 0;
-}
-
-.subject-card input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-top: 6px;
-  font-size: 0.95rem;
-}
-
-/* 🌟 Responsive Fixes */
-
-/* Medium Screens (Tablets & Small Laptops) */
-@media (max-width: 1100px) {
-  .main-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .left-panel {
-    position: relative;
-    top: auto;
-  }
-
-  .sgpa-container {
-    padding: 1.5rem;
-  }
-
-  .sgpa-result-card {
-    margin-top: 1.5rem;
-  }
-}
-
-/* Small Screens (Mobiles) */
-@media (max-width: 768px) {
-  .desktop-view {
-    display: none;
-  }
-
-  .mobile-card-view {
-    display: block;
-  }
-
-  .form-section {
-    padding: 1.2rem;
-  }
-
-  .main-title {
-    font-size: 1.7rem;
-  }
-
-  .sgpa-result-card h2 {
-    font-size: 1.6rem;
-  }
-
-  .sgpa-result-card {
-    padding: 1.2rem;
-  }
-
-  .syllabus-table {
-    min-width: 550px;
-  }
-}
-
-/* Extra Small Screens (Phones <480px) */
-@media (max-width: 480px) {
-  .sgpa-container {
-    padding: 1rem;
-  }
-
-  input,
-  select {
-    font-size: 0.9rem;
-  }
-
-  .sgpa-result-card h2 {
-    font-size: 1.4rem;
-  }
-
-  .download-btn {
-    font-size: 0.9rem;
-  }
-
-  .form-section {
-    padding: 1rem;
-  }
-}
-
-/* 🌟 Placeholder */
-::placeholder {
-  color: #9ca3af;
-  opacity: 1;
-}
-/* ===== Container ===== */
-.sgpa-container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 15px;
+/* Global Styles */
+body.light-mode {
+  background: #f4f6fc;
+  color: #222;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #1a1a40;
+  margin: 0;
 }
 
-/* ===== Title ===== */
-.main-title {
-  text-align: center;
-  font-size: 28px;
-  margin-bottom: 25px;
-  color: #1a1a40;
+body.dark-mode {
+  background: #1e1e2f;
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
 }
 
-/* ===== Main Grid ===== */
-.main-grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-/* ===== Panels ===== */
-.left-panel, .right-panel {
-  flex: 1 1 400px;
-  background-color: #f3f6ff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-
-/* ===== Form Sections ===== */
-.form-section {
-  margin-bottom: 25px;
-}
-
-.form-section h3 {
-  margin-bottom: 15px;
-  font-size: 18px;
-  color: #1a1a40;
-  border-bottom: 2px solid #1a1a40;
-  display: inline-block;
-  padding-bottom: 3px;
-}
-
-/* ===== Inputs and Selects ===== */
-input[type="text"], input[type="number"], select {
-  width: 100%;
-  padding: 10px 12px;
-  margin-bottom: 12px;
-  border: 1px solid #c1c7e0;
-  border-radius: 6px;
-  font-size: 14px;
-  outline: none;
-  transition: 0.3s;
-}
-
-input:focus, select:focus {
-  border-color: #1a1a40;
-  box-shadow: 0 0 5px rgba(26,26,64,0.3);
-}
-
-/* ===== SGPA Result Card ===== */
-.sgpa-result-card {
-  background: #1a1a40;
-  color: #fff;
-  padding: 18px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-}
-
-.sgpa-result-card h2 {
-  font-size: 28px;
-  margin-bottom: 8px;
-}
-
-.sgpa-result-card p {
-  font-size: 14px;
-  margin-bottom: 12px;
-}
-
-/* ===== Download Button ===== */
-.download-btn {
-  padding: 10px 18px;
-  background: #4d6ef3;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.download-btn:hover {
-  background: #3551c8;
-}
-
-/* ===== Marks Table ===== */
-.table-container {
-  overflow-x: auto;
-}
-
-.syllabus-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.syllabus-table th, .syllabus-table td {
-  padding: 10px 8px;
-  border: 1px solid #c1c7e0;
-  text-align: center;
-  font-size: 14px;
-}
-
-.syllabus-table th {
-  background-color: #4d6ef3;
-  color: #fff;
-  font-weight: 600;
-}
-
-.syllabus-table td input {
-  width: 60px;
-  text-align: center;
-  border-radius: 5px;
-  border: 1px solid #c1c7e0;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-  .main-grid {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 500px) {
-  .syllabus-table th, .syllabus-table td {
-    font-size: 12px;
-    padding: 6px 4px;
-  }
-
-  .sgpa-result-card h2 {
-    font-size: 22px;
-  }
-}
-/* 🌟 Overall Container */
+/* Container */
 .sgpa-container {
-  max-width: 1200px;
-  margin: 20px auto;
-  padding: 2rem;
-  background: #f8fafc;
-  color: #1a1a40;
-  font-family: "Poppins", sans-serif;
-  box-sizing: border-box;
-  overflow-x: hidden;
+  max-width: 1000px;
+  margin: auto;
+  padding: 15px;
 }
 
-/* 🌟 Header */
-.main-title {
+/* Headings */
+h1 {
   text-align: center;
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #1b2e59;
-  margin-bottom: 2rem;
-  letter-spacing: 0.3px;
+  margin-bottom: 20px;
+  font-size: 26px;
 }
 
-/* 🌟 Responsive Grid Layout */
-.main-grid {
+/* Section Cards */
+.section-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 15px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+body.dark-mode .section-card {
+  background: #2c2c4a;
+  color: #eee;
+}
+
+/* Student Info */
+.student-info {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
 }
 
-@media (min-width: 992px) {
-  .main-grid {
-    grid-template-columns: 1fr 2fr;
-    align-items: flex-start;
-  }
-
-  .left-panel {
-    position: sticky;
-    top: 20px;
-    align-self: flex-start;
-  }
-}
-
-/* 🌟 Form Sections */
-.form-section {
-  background: #ffffff;
-  padding: 1.6rem;
-  border-radius: 14px;
-  box-shadow: 0 3px 10px rgba(0, 0, 60, 0.08);
-  transition: all 0.2s ease-in-out;
-}
-
-.form-section:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 60, 0.12);
-}
-
-.form-section h3 {
-  font-size: 1.2rem;
-  color: #1b2e59;
-  font-weight: 600;
-  margin-bottom: 1.1rem;
-  border-left: 4px solid #2563eb;
-  padding-left: 10px;
-  letter-spacing: 0.2px;
-}
-
-/* 🌟 Input & Select Styling */
+/* Inputs */
 input[type="text"],
 input[type="number"],
 select {
   width: 100%;
-  padding: 0.75rem 0.9rem;
-  font-size: 1rem;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  background: #f9fbff;
-  outline: none;
-  transition: 0.25s ease;
-  margin-bottom: 0.9rem;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: 0.3s;
 }
 
 input:focus,
 select:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
-  background: #ffffff;
+  outline: none;
+  border-color: #1a1a40;
 }
 
-/* 🌟 Table Section */
-.table-container {
-  overflow-x: auto;
+body.dark-mode input,
+body.dark-mode select {
+  background: #3a3a5c;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+/* Tables */
+.syllabus-table,
+.cgpa-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+.syllabus-table th,
+.syllabus-table td,
+.cgpa-table th,
+.cgpa-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.syllabus-table th,
+.cgpa-table th {
+  background-color: #1a1a40;
+  color: #fff;
+  font-weight: 600;
+}
+
+.syllabus-table tr:nth-child(even),
+.cgpa-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+body.dark-mode .syllabus-table tr:nth-child(even),
+body.dark-mode .cgpa-table tr:nth-child(even) {
+  background-color: #33335c;
+}
+
+/* Fail Row Highlight */
+.fail-row {
+  background-color: #ffe5e5 !important;
+  color: #d8000c;
+  font-weight: bold;
+}
+
+body.dark-mode .fail-row {
+  background-color: #5c2c2c !important;
+  color: #ff6b6b;
+}
+
+/* Buttons */
+button {
+  padding: 10px 18px;
+  border: none;
   border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 60, 0.05);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+  transition: 0.3s;
 }
 
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* Specific Buttons */
+.download-btn {
+  background-color: #1a1a40;
+  color: #fff;
+  width: 100%;
+}
+
+.download-btn:hover {
+  background-color: #333366;
+}
+
+.download-btn:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+.clear-btn {
+  background-color: #d9534f;
+  color: #fff;
+  width: 100%;
+}
+
+.clear-btn:hover {
+  background-color: #c9302c;
+}
+
+.btn-remove {
+  background-color: #ff4d4f;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+
+.btn-remove:hover {
+  background-color: #d9363e;
+}
+
+/* SGPA & CGPA Cards */
+.sgpa-result-card,
+.cgpa-results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.sgpa-result-item,
+.cgpa-display {
+  flex: 1;
+  min-width: 100px;
+  background: #f1f4ff;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+body.dark-mode .sgpa-result-item,
+body.dark-mode .cgpa-display {
+  background: #3a3a5c;
+}
+
+/* Result Colors */
+.pass-text {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.fail-text {
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Alerts */
+.alert-box {
+  background-color: #fffae6;
+  padding: 10px;
+  border-left: 5px solid #ffc107;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+body.dark-mode .alert-box {
+  background-color: #5c532c;
+  color: #fff;
+  border-left: 5px solid #ffcc00;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 0.3s;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.info { background: #2196F3; }
+.toast.success { background: #4CAF50; }
+.toast.error { background: #f44336; }
+
+.toast-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Mobile Cards */
+.mobile-card-view {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .desktop-view { display: none; }
+  .mobile-card-view { display: block; }
+
+  .subject-card {
+    background: #f1f4ff;
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  }
+
+  body.dark-mode .subject-card {
+    background: #3a3a5c;
+  }
+
+  .student-info {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .marks-section {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .download-btn,
+  .clear-btn {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .sgpa-result-item,
+  .cgpa-display {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .syllabus-table th,
+  .syllabus-table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .cgpa-table th,
+  .cgpa-table td {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+/* Global Styles */
+body.light-mode {
+  background: #f4f6fc;
+  color: #222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.dark-mode {
+  background: #1e1e2f;
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container */
+.sgpa-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+/* Section Cards */
+.section-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .section-card {
+  background: #2c2c4a;
+  color: #eee;
+}
+
+/* Labels and Inputs */
+label {
+  font-weight: 600;
+  margin-top: 10px;
+  display: block;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 6px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+  outline: none;
+  border-color: #1a1a40;
+  box-shadow: 0 0 6px rgba(26,26,64,0.3);
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="number"],
+body.dark-mode select {
+  background: #3a3a5c;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.download-btn {
+  background-color: #1a1a40;
+  color: #fff;
+}
+
+.download-btn:hover {
+  background-color: #333366;
+}
+
+.clear-btn {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+.clear-btn:hover {
+  background-color: #c9302c;
+}
+
+/* Alerts */
+.alert-box {
+  background-color: #fffae6;
+  padding: 12px;
+  border-left: 5px solid #ffc107;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+body.dark-mode .alert-box {
+  background-color: #5c532c;
+  color: #fff;
+  border-left: 5px solid #ffcc00;
+}
+
+/* SGPA Result */
+.sgpa-result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Table Styles */
 .syllabus-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
-  min-width: 650px;
 }
 
-.syllabus-table th,
-.syllabus-table td {
-  padding: 0.8rem;
+.syllabus-table th, .syllabus-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
   text-align: center;
-  border: 1px solid #e5e7eb;
-  font-size: 0.95rem;
 }
 
 .syllabus-table th {
-  background: linear-gradient(135deg, #1b2e59, #2563eb);
-  color: #ffffff;
-  font-weight: 600;
-  position: sticky;
-  top: 0;
-  z-index: 2;
-}
-
-.syllabus-table tbody tr:nth-child(even) {
-  background: #f3f6fc;
-}
-
-.syllabus-table input {
-  width: 80px;
-  padding: 0.4rem;
-  text-align: center;
-  border: 1px solid #c1c7e0;
-  border-radius: 6px;
-  background: #fafbff;
-}
-
-/* 🌟 SGPA Result Card */
-.sgpa-result-card {
-  background: linear-gradient(135deg, #1b2e59, #3b82f6);
-  color: #ffffff;
-  text-align: center;
-  padding: 1.8rem;
-  border-radius: 14px;
-  box-shadow: 0 3px 12px rgba(0, 0, 80, 0.25);
-  transition: transform 0.3s ease;
-}
-
-.sgpa-result-card:hover {
-  transform: scale(1.03);
-}
-
-.sgpa-result-card h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.sgpa-result-card p {
-  font-size: 1rem;
-  opacity: 0.9;
-}
-
-/* 🌟 Download Button */
-.download-btn {
-  width: 100%;
-  padding: 0.9rem;
-  font-size: 1rem;
-  font-weight: 600;
+  background-color: #1a1a40;
   color: #fff;
-  background: linear-gradient(135deg, #2563eb, #1e40af);
-  border: none;
-  border-radius: 10px;
-  margin-top: 1.2rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  font-weight: 600;
 }
 
-.download-btn:hover {
-  background: linear-gradient(135deg, #1d4ed8, #1e3a8a);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
+.syllabus-table tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-/* 🌟 Mobile Card View */
+body.dark-mode .syllabus-table tr:nth-child(even) {
+  background-color: #33335c;
+}
+
+/* Mobile Cards */
 .mobile-card-view {
   display: none;
 }
 
 .subject-card {
-  background: #ffffff;
-  padding: 16px;
-  margin-bottom: 14px;
+  background: #f1f4ff;
+  padding: 15px;
   border-radius: 12px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 12px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  transition: all 0.3s;
 }
 
+body.dark-mode .subject-card {
+  background: #3a3a5c;
+}
+
+/* Collapsible Subject */
 .subject-card h4 {
-  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.subject-card h4:hover {
+  color: #1a1a40;
+}
+
+.input-group {
+  margin-top: 8px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 4px;
   font-weight: 600;
-  margin-bottom: 6px;
-  color: #1b2e59;
 }
 
-.subject-card p {
-  font-size: 0.9rem;
-  color: #555;
-  margin: 4px 0;
+/* Pass / Fail Text */
+.pass-text {
+  color: green;
+  font-weight: bold;
 }
 
-.subject-card input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-top: 6px;
-  font-size: 0.95rem;
+.fail-text {
+  color: red;
+  font-weight: bold;
 }
 
-/* 🌟 Responsive Design */
-@media (max-width: 1100px) {
-  .main-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sgpa-container {
-    padding: 1.5rem;
-  }
-
-  .sgpa-result-card {
-    margin-top: 1.5rem;
-  }
+/* Fail Row in Table */
+.fail-row {
+  background-color: #ffe5e5 !important;
+  color: #d8000c;
+  font-weight: bold;
 }
 
-@media (max-width: 768px) {
-  .desktop-view {
-    display: none;
-  }
-
-  .mobile-card-view {
-    display: block;
-  }
-
-  .form-section {
-    padding: 1.2rem;
-  }
-
-  .main-title {
-    font-size: 1.8rem;
-  }
-
-  .sgpa-result-card h2 {
-    font-size: 1.6rem;
-  }
-
-  .syllabus-table {
-    min-width: 500px;
-  }
+body.dark-mode .fail-row {
+  background-color: #5c2c2c !important;
+  color: #ff6b6b;
 }
 
-@media (max-width: 480px) {
-  .sgpa-container {
-    padding: 1rem;
-  }
-
-  input,
-  select {
-    font-size: 0.9rem;
-  }
-
-  .sgpa-result-card h2 {
-    font-size: 1.4rem;
-  }
-
-  .download-btn {
-    font-size: 0.9rem;
-  }
-
-  .form-section {
-    padding: 1rem;
-  }
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: 0.4s;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
-/* 🌟 Placeholder */
-::placeholder {
-  color: #9ca3af;
+.toast.show {
   opacity: 1;
+  transform: translateY(0);
+}
+
+.toast.info { background: #2196F3; }
+.toast.success { background: #4CAF50; }
+.toast.error { background: #f44336; }
+
+.toast-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .desktop-view { display: none; }
+  .mobile-card-view { display: block; }
+}
+/* Global Styles */
+body.light-mode {
+  background: #f4f6fc;
+  color: #222;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.dark-mode {
+  background: #1e1e2f;
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container */
+.sgpa-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+/* Sections */
+.section-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  padding: 20px;
+  margin-bottom: 20px;
+  transition: 0.3s;
+}
+
+body.dark-mode .section-card {
+  background: #2c2c4a;
+  color: #eee;
+}
+
+/* Inputs */
+input[type="text"], input[type="number"], select {
+  width: 100%;
+  padding: 8px 12px;
+  margin: 8px 0 12px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="number"],
+body.dark-mode select {
+  background: #3a3a5c;
+  color: #eee;
+  border: 1px solid #555;
+}
+
+/* Buttons */
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.download-btn {
+  background-color: #1a1a40;
+  color: #fff;
+  margin-right: 10px;
+}
+
+.download-btn:hover {
+  background-color: #333366;
+}
+
+/* Alerts */
+.alert-box {
+  background-color: #fffae6;
+  padding: 10px;
+  border-left: 5px solid #ffc107;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+body.dark-mode .alert-box {
+  background-color: #5c532c;
+  color: #fff;
+  border-left: 5px solid #ffcc00;
+}
+
+/* Syllabus Table */
+.syllabus-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.syllabus-table th, .syllabus-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.syllabus-table th {
+  background-color: #1a1a40;
+  color: #fff;
+  font-weight: 600;
+}
+
+.syllabus-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+body.dark-mode .syllabus-table tr:nth-child(even) {
+  background-color: #33335c;
+}
+
+/* Grade Colors */
+.grade-pass { color: green; font-weight: bold; }
+.grade-marginal { color: orange; font-weight: bold; }
+.grade-fail { color: red; font-weight: bold; }
+
+/* SGPA Result */
+.sgpa-result {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Mobile Card View */
+.mobile-card-view { display: none; }
+
+.subject-card {
+  background: #f1f4ff;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+body.dark-mode .subject-card { background: #3a3a5c; }
+
+.mobile-card-content {
+  margin-top: 8px;
+  max-height: 500px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/* Collapsible arrow */
+.subject-card h4 {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  margin: 0;
+}
+
+.subject-card h4::after {
+  content: "▼";
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.subject-card.open h4::after { transform: rotate(-180deg); }
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .desktop-view { display: none; }
+  .mobile-card-view { display: block; }
+
+  input[type="text"], input[type="number"], select { font-size: 1rem; padding: 10px; }
+  .sgpa-container { padding: 10px; }
 }

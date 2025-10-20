@@ -67,9 +67,11 @@ const Navbar = () => {
                 <li><Link to="/model-papers" className="nav-link" onClick={closeMenu}>Model QP & PYQPS</Link></li>
                 <li><Link to="/branch/cse" className="nav-link" onClick={closeMenu}>CSE Stream</Link></li>
                 <li><Link to="/sgpa-calculator" className="nav-link" onClick={closeMenu}>SGPA Calculator</Link></li>
-                <li><Link to="/placement-guide" className="nav-link" onClick={closeMenu}>
-                    👉 Explore Placement Guide
-                </Link></li>
+                <li>
+                    <Link to="/project-enquiry" className="nav-link" onClick={closeMenu}>
+                        👉 Project Enquiry
+                    </Link>
+                </li>
             </ul>
 
             {/* Profile/Login Button */}
@@ -95,6 +97,7 @@ const Navbar = () => {
                 )}
             </Link>
 
+            {/* Hamburger */}
             <div className="hamburger" onClick={toggleMenu} aria-label="Toggle navigation">
                 {isMobile ? <FaTimes size={30} color="#fff" /> : <FaBars size={30} color="#fff" />}
             </div>

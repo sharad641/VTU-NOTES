@@ -2,15 +2,16 @@
 .dashboard-layout {
   display: flex;
   min-height: 100vh;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background: #f8fafc;
   color: #1f2937;
+  transition: all 0.3s ease;
 }
 
 /* === Sidebar === */
 .sidebar {
   width: 260px;
-  background: linear-gradient(to bottom, #0f172a, #1e293b);
+  background: linear-gradient(180deg, #0f172a, #1e293b);
   color: #fff;
   padding: 25px 20px;
   display: flex;
@@ -20,150 +21,174 @@
   bottom: 0;
   left: 0;
   z-index: 999;
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.35s ease-in-out;
+  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.25);
+  border-right: 1px solid rgba(255,255,255,0.05);
 }
 
 .sidebar h2 {
   text-align: center;
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin-bottom: 30px;
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin-bottom: 35px;
   color: #fff;
+  letter-spacing: 0.5px;
 }
 
 .sidebar nav {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 .sidebar nav button {
-  padding: 12px 14px;
+  padding: 14px 16px;
   border: none;
   background: rgba(255, 255, 255, 0.05);
   color: #d1d5db;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: left;
   font-size: 1rem;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.25s ease;
 }
 
 .sidebar nav button:hover,
 .sidebar nav button.active {
   background: #2563eb;
   color: #fff;
-  transform: translateX(5px);
+  transform: translateX(6px);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
 }
 
 .logout-btn {
   margin-top: auto;
-  padding: 12px;
+  padding: 14px;
   background: #ef4444;
   border: none;
   color: white;
   font-size: 1rem;
-  border-radius: 8px;
+  font-weight: 500;
+  border-radius: 10px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.25s ease;
 }
 
 .logout-btn:hover {
   background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
 }
 
 /* === Content === */
 .dashboard-content {
   flex: 1;
   margin-left: 260px;
-  padding: 40px 30px;
+  padding: 40px 35px;
   transition: all 0.3s ease;
 }
 
-/* === Hamburger Button for Mobile === */
+/* === Hamburger Button === */
 .hamburger {
   display: none;
   position: fixed;
-  top: 15px;
-  left: 15px;
+  top: 18px;
+  left: 18px;
   z-index: 1000;
-  background: none;
+  background: #2563eb;
   border: none;
-  font-size: 1.8rem;
-  color: #1e293b;
+  color: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 1.6rem;
   cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.25s ease;
+}
+
+.hamburger:hover {
+  transform: scale(1.1);
 }
 
 /* === Admin Card === */
 .admin-card {
-  background: white;
-  border-radius: 14px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  padding: 25px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  padding: 28px 25px;
   margin-bottom: 30px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.admin-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
 .admin-card h3 {
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-bottom: 20px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  margin-bottom: 22px;
   color: #1e293b;
   border-left: 4px solid #2563eb;
-  padding-left: 10px;
+  padding-left: 12px;
+  letter-spacing: 0.5px;
 }
 
 /* === Analytics Stats === */
 .analytics-stats {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: 22px;
+  margin-bottom: 25px;
 }
 
 .analytics-stats div {
   background: #f1f5f9;
   flex: 1;
   min-width: 150px;
-  padding: 20px;
+  padding: 22px;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease;
+  border-radius: 12px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
+  transition: all 0.2s ease;
 }
 
 .analytics-stats div:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.15);
 }
 
 .analytics-stats strong {
   font-size: 2rem;
   color: #2563eb;
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 /* === Table Styling === */
-.table-container {
+.table-responsive {
   overflow-x: auto;
-  border-radius: 10px;
+  border-radius: 12px;
   border: 1px solid #e5e7eb;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 600px;
+  min-width: 650px;
+  transition: all 0.3s ease;
 }
 
 th, td {
-  padding: 12px 14px;
+  padding: 14px 16px;
   border-bottom: 1px solid #e5e7eb;
   text-align: left;
   font-size: 0.95rem;
+  transition: background 0.2s ease;
 }
 
 th {
@@ -177,140 +202,71 @@ tr:hover {
 }
 
 /* === Buttons === */
-.reply-btn,
-.save-btn,
-.cancel-btn,
-.delete-btn {
-  padding: 7px 14px;
+.reply-btn, .save-btn, .cancel-btn, .delete-btn {
+  padding: 8px 16px;
   border: none;
-  border-radius: 8px;
-  font-size: 0.85rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.25s ease;
 }
 
-.reply-btn {
-  background: #3b82f6;
-  color: white;
-}
-.reply-btn:hover {
-  background: #2563eb;
-}
+.reply-btn { background: #3b82f6; color: #fff; }
+.reply-btn:hover { background: #2563eb; transform: translateY(-2px); }
 
-.save-btn {
-  background: #10b981;
-  color: white;
-}
-.save-btn:hover {
-  background: #059669;
-}
+.save-btn { background: #10b981; color: #fff; }
+.save-btn:hover { background: #059669; transform: translateY(-2px); }
 
-.cancel-btn {
-  background: #9ca3af;
-  color: white;
-}
-.cancel-btn:hover {
-  background: #6b7280;
-}
+.cancel-btn { background: #9ca3af; color: #fff; }
+.cancel-btn:hover { background: #6b7280; transform: translateY(-2px); }
 
-.delete-btn {
-  background: #ef4444;
-  color: white;
-}
-.delete-btn:hover {
-  background: #dc2626;
-}
+.delete-btn { background: #ef4444; color: #fff; }
+.delete-btn:hover { background: #dc2626; transform: translateY(-2px); }
 
 /* === Reply Box === */
 .reply-box {
   display: flex;
-  gap: 8px;
-  margin-top: 5px;
+  gap: 10px;
+  margin-top: 6px;
 }
 
 .reply-box input {
   flex: 1;
-  padding: 7px;
-  border-radius: 8px;
+  padding: 8px;
+  border-radius: 10px;
   border: 1px solid #cbd5e1;
   font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.reply-box input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 5px rgba(37, 99, 235, 0.4);
 }
 
 /* === Responsive Design === */
 @media (max-width: 1024px) {
-  .dashboard-content {
-    margin-left: 220px;
-    padding: 30px;
-  }
-
-  .sidebar {
-    width: 220px;
-  }
+  .dashboard-content { margin-left: 220px; padding: 30px; }
+  .sidebar { width: 220px; }
 }
 
 @media (max-width: 768px) {
-  .dashboard-layout {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    transform: translateX(-100%);
-    position: fixed;
-    width: 250px;
-    height: 100vh;
-    top: 0;
-    left: 0;
-  }
-
-  .sidebar.open {
-    transform: translateX(0%);
-  }
-
-  .dashboard-content {
-    margin-left: 0;
-    margin-top: 70px;
-    padding: 20px;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .analytics-stats {
-    flex-direction: column;
-  }
-
-  .sidebar nav {
-    gap: 12px;
-  }
-
-  .sidebar nav button {
-    font-size: 1rem;
-  }
-
-  .logout-btn {
-    display: none;
-  }
+  .dashboard-layout { flex-direction: column; }
+  .sidebar { transform: translateX(-100%); width: 250px; }
+  .sidebar.open { transform: translateX(0); }
+  .dashboard-content { margin-left: 0; margin-top: 70px; padding: 22px; }
+  .hamburger { display: block; }
+  .analytics-stats { flex-direction: column; }
+  .sidebar nav { gap: 10px; }
+  .sidebar nav button { font-size: 1rem; }
+  .logout-btn { display: none; }
 }
 
 @media (max-width: 480px) {
-  .analytics-stats div strong {
-    font-size: 1.6rem;
-  }
-
-  table {
-    font-size: 0.85rem;
-  }
-
-  th, td {
-    padding: 10px;
-  }
-
-  .reply-box input {
-    font-size: 0.85rem;
-  }
-
-  .admin-card h3 {
-    font-size: 1.4rem;
-  }
+  .analytics-stats div strong { font-size: 1.5rem; }
+  table { font-size: 0.85rem; }
+  th, td { padding: 10px; }
+  .reply-box input { font-size: 0.85rem; }
+  .admin-card h3 { font-size: 1.4rem; }
 }

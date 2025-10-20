@@ -27,13 +27,11 @@ import TermsAndConditions from './components/TermsAndConditions';
 import AdSenseAd from './components/AdSenseAd';
 import AdminDashboard from './components/AdminDashboard';
 import SgpaCalculator from './components/SgpaCalculator';
+import ProjectEnquiry from './components/ProjectEnquiry'; // ✅ Import ProjectEnquiry
 
-// Firebase
 import { auth, database } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { ref, get, update } from 'firebase/database';
-
-// CSS
 import './App.css';
 
 function AnalyticsTracker() {
@@ -42,7 +40,7 @@ function AnalyticsTracker() {
   useEffect(() => {
     const updateAnalytics = async () => {
       try {
-        const analyticsRef = ref(database, 'analytics');
+        const analyticsRef = ref(database, "analytics");
         const snapshot = await get(analyticsRef);
         const analyticsData = snapshot.exists() ? snapshot.val() : {};
 
@@ -59,7 +57,7 @@ function AnalyticsTracker() {
 
         await update(analyticsRef, { totalPageViews, visits, topPages });
       } catch (error) {
-        console.error('Error updating analytics:', error);
+        console.error("Error updating analytics:", error);
       }
     };
 
@@ -75,7 +73,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [darkMode, setDarkMode] = useState(false);
 
-  const adminEmail = 'sp1771838@gmail.com';
+  const adminEmail = "sp1771838@gmail.com";
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -88,14 +86,15 @@ function App() {
 
   const toggleDarkMode = () => setDarkMode((prev) => !prev);
 
-  // Redirect if logged in
   const RedirectAuthenticatedUser = ({ element }) => {
-    if (isAuthenticated && userEmail === adminEmail) return <Navigate to="/admin-dashboard" />;
+    if (isAuthenticated && userEmail === adminEmail) {
+      return <Navigate to="/admin-dashboard" />;
+    }
     return isAuthenticated ? <Navigate to="/" /> : element;
   };
 
-  // Admin Route Protection
-  const AdminRoute = ({ element }) => (isAuthenticated && userEmail === adminEmail ? element : <Navigate to="/" />);
+  const AdminRoute = ({ element }) =>
+    isAuthenticated && userEmail === adminEmail ? element : <Navigate to="/" />;
 
   if (loading) {
     return (
@@ -111,7 +110,6 @@ function App() {
     <Router>
       <AnalyticsTracker />
       <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-        {/* Theme toggle */}
         <button className="theme-toggle-button" onClick={toggleDarkMode}>
           {darkMode ? '🌞' : '🌙'}
         </button>
@@ -120,43 +118,39 @@ function App() {
         <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
 
         <Routes>
-          {/* Public Pages */}
           <Route path="/" element={<Home />} />
           <Route path="/bee-scene" element={<BeeScene />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-          <Route path="/faqs" element={<FAQs />} />
-          <Route path="/pdf/:pdfUrl" element={<PdfViewer />} />
-          <Route path="/model-papers" element={<ModelPapers />} />
-          <Route path="/calculator" element={<Calculator />} />
-          <Route path="/sgpa-calculator" element={<SgpaCalculator />} />
-
-          {/* Branch selection with dynamic scheme */}
           <Route path="/branch-selection/:scheme" element={<BranchSelection />} />
           <Route path="/branch/:branch" element={<Branch />} />
           <Route path="/branch/:branch/:semester" element={<Subjects />} />
           <Route path="/branch/:branch/:semester/modules/:subjectName" element={<ModuleDetail />} />
+          <Route path="/faqs" element={<FAQs />} />
+          <Route path="/pdf/:pdfUrl" element={<PdfViewer />} />
+          <Route path="/model-papers" element={<ModelPapers />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
 
-          {/* Authenticated User Pages */}
+          {/* Authenticated routes */}
           <Route path="/placement-guide" element={isAuthenticated ? <PlacementGuide /> : <Navigate to="/login" />} />
           <Route path="/study-planner" element={isAuthenticated ? <StudyPlanner /> : <Navigate to="/login" />} />
           <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
 
-          {/* Chat, Comments & Tests */}
+          <Route path="/calculator" element={<Calculator />} />
+          <Route path="/sgpa-calculator" element={<SgpaCalculator />} />
           <Route path="/chatbot" element={<ChatBot />} />
           <Route path="/comments" element={<CommentSection />} />
           <Route path="/test" element={<TestPage />} />
 
-          {/* Auth Pages */}
+          {/* ✅ Project Enquiry */}
+          <Route path="/project-enquiry" element={<ProjectEnquiry />} />
+
           <Route path="/login" element={<RedirectAuthenticatedUser element={<Login setIsAuthenticated={setIsAuthenticated} />} />} />
           <Route path="/signup" element={<RedirectAuthenticatedUser element={<Signup />} />} />
 
-          {/* Admin Dashboard */}
           <Route path="/admin-dashboard" element={<AdminRoute element={<AdminDashboard />} />} />
 
-          {/* Redirect unknown routes */}
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
 
