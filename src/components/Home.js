@@ -29,30 +29,30 @@ const Home = () => {
       icon: <FaLaptopCode size={40} />,
       title: 'Fullstack',
       desc: 'Web & mobile apps using React, Node.js, MongoDB, etc.',
-      color: '#3b82f6'
+      color: '#3b82f6',
     },
     {
       icon: <FaRobot size={40} />,
       title: 'ML / AI',
       desc: 'Machine Learning & AI projects built with Python & TensorFlow.',
-      color: '#2563eb'
+      color: '#2563eb',
     },
     {
       icon: <FaMicrochip size={40} />,
       title: 'IoT',
       desc: 'Smart devices, sensors, and automation using ESP32, Arduino, and more.',
-      color: '#1e40af'
+      color: '#1e40af',
     },
     {
       icon: <FaLightbulb size={40} />,
       title: 'Other',
       desc: 'Custom innovative ideas & research-based projects.',
-      color: '#60a5fa'
+      color: '#60a5fa',
     },
   ];
 
   return (
-    <div className="home-container">
+    <main className="home-container">
 
       {/* 🔔 Announcement Marquee */}
       <div className="headline-message88">
@@ -64,70 +64,65 @@ const Home = () => {
       </div>
 
       {/* 🛠 Project Enquiry Section */}
-<section className="project-section home-project-section">
-  <h2>🛠 Bring Your Project Idea to Life!</h2>
-  <p className="project-intro">
-    Get expert guidance for Fullstack, ML/AI, or IoT projects. Learn, implement, and showcase your skills professionally!
-  </p>
+      <section className="project-section home-project-section">
+        <h2>🛠 Bring Your Project Idea to Life!</h2>
+        <p className="project-intro">
+          Get expert guidance for Fullstack, ML/AI, or IoT projects. Learn, implement, and showcase your skills professionally!
+        </p>
 
-  {/* Project Types Cards */}
-  <div className="project-types-container">
-    {projectTypes.map((type, idx) => (
-      <div
-        key={idx}
-        className="project-type-card"
-        style={{ borderTop: `4px solid ${type.color}` }}
-      >
-        <div className="icon-wrapper" style={{ color: type.color, fontSize: '48px' }}>
-          {type.icon}
+        {/* Project Types Cards */}
+        <div className="project-types-container">
+          {projectTypes.map((type, idx) => (
+            <div
+              key={idx}
+              className="project-type-card"
+              style={{ borderTop: `4px solid ${type.color}` }}
+            >
+              <div className="icon-wrapper" style={{ color: type.color }}>
+                {type.icon}
+              </div>
+              <h3>{type.title}</h3>
+              <p>{type.desc}</p>
+              <Link to="/project-enquiry" className="cta-btn" style={{ color: type.color }}>
+                Request Project
+              </Link>
+            </div>
+          ))}
         </div>
-        <h3>{type.title}</h3>
-        <p>{type.desc}</p>
-        <Link
-          to="/project-enquiry"
-          className="cta-btn"
-          style={{ borderColor: type.color, color: type.color }}
-        >
-          Request Project
-        </Link>
-      </div>
-    ))}
-  </div>
 
-  {/* Mini Projects & College Projects */}
-  <div className="mini-projects-section">
-    <h3>🎓 Mini & College Projects We Provide</h3>
-    <ul>
-      <li>💻 Web & Mobile Mini Projects (React, Node.js, Flutter)</li>
-      <li>🤖 AI & ML Mini Projects (Python, TensorFlow, OpenCV)</li>
-      <li>📡 IoT College Projects (ESP32, Arduino, Sensors & Automation)</li>
-      <li>💡 Research & Innovative College Projects</li>
-      <li>📊 Data Science Projects with real-world datasets</li>
-    </ul>
-  </div>
+        {/* Mini Projects & College Projects */}
+        <div className="mini-projects-section">
+          <h3>🎓 Mini & College Projects We Provide</h3>
+          <ul>
+            <li>💻 Web & Mobile Mini Projects (React, Node.js, Flutter)</li>
+            <li>🤖 AI & ML Mini Projects (Python, TensorFlow, OpenCV)</li>
+            <li>📡 IoT College Projects (ESP32, Arduino, Sensors & Automation)</li>
+            <li>💡 Research & Innovative College Projects</li>
+            <li>📊 Data Science Projects with real-world datasets</li>
+          </ul>
+        </div>
 
-  {/* Why Choose Us */}
-  <div className="why-choose-us">
-    <h3>💡 Why Work With Us?</h3>
-    <ul>
-      <li>🌟 Innovative & practical project ideas</li>
-      <li>🧠 Guidance from experienced developers</li>
-      <li>📘 Learn while building your project</li>
-      <li>⏱ Fast delivery with full support</li>
-      <li>💰 Affordable & student-friendly pricing</li>
-    </ul>
-  </div>
+        {/* Why Choose Us */}
+        <div className="why-choose-us">
+          <h3>💡 Why Work With Us?</h3>
+          <ul>
+            <li>🌟 Innovative & practical project ideas</li>
+            <li>🧠 Guidance from experienced developers</li>
+            <li>📘 Learn while building your project</li>
+            <li>⏱ Fast delivery with full support</li>
+            <li>💰 Affordable & student-friendly pricing</li>
+          </ul>
+        </div>
 
-  {/* Big CTA Button */}
-  <div className="project-enquiry-btn-container">
-    <Link to="/project-enquiry">
-      <button className="project-enquiry-btn hover-scale">
-        🛠 Submit Your Project Requirement →
-      </button>
-    </Link>
-  </div>
-</section>
-
+        {/* Big CTA Button */}
+        <div className="project-enquiry-btn-container">
+          <Link to="/project-enquiry">
+            <button className="project-enquiry-btn hover-scale">
+              🛠 Submit Your Project Requirement →
+            </button>
+          </Link>
+        </div>
+      </section>
 
       {/* Branch Selection */}
       <BranchSelection />
@@ -150,7 +145,7 @@ const Home = () => {
       <section className="info-box modern-box">
         <h2>🔗 VTU Links</h2>
         <div className="vtu-links-container">
-          {[ /* VTU Links */].map((item, index) => (
+          {[ /* Add VTU Links here */].map((item, index) => (
             <div key={index} className="vtu-link-card modern-card">
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
@@ -176,7 +171,7 @@ const Home = () => {
       {/* 💬 Comments */}
       <CommentSection />
 
-    </div>
+    </main>
   );
 };
 

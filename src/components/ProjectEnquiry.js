@@ -1,7 +1,7 @@
 // src/components/ProjectEnquiry.js
 import React, { useState, useEffect } from 'react';
 import { database, auth } from '../firebase';
-import { ref, push, set, onValue, off } from 'firebase/database';
+import { ref, push, set, onValue, off, get } from 'firebase/database';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import { 
@@ -10,6 +10,7 @@ import {
 } from 'react-icons/fa';
 import ProjectReviews from './ProjectReviews';
 import './ProjectEnquiry.css';
+
 
 const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
 
@@ -23,7 +24,7 @@ const ProjectEnquiry = () => {
   const [favorites, setFavorites] = useState([]);
   const [submittedProjects, setSubmittedProjects] = useState({});
   const [isAdmin, setIsAdmin] = useState(false);
-  const [allProjects, setAllProjects] = useState({});
+  const [allProjects, setAllProjects] = useState({}); // Admin sees all projects
 
   const projectTypes = [
     { icon: <FaLaptopCode size={40} />, title: 'Fullstack', desc: 'Web & mobile apps with React, Node.js, MongoDB.', color: '#3b82f6' },
@@ -32,10 +33,10 @@ const ProjectEnquiry = () => {
     { icon: <FaLightbulb size={40} />, title: 'Other', desc: 'Custom innovative or research projects.', color: '#60a5fa' },
   ];
 
-  // Handle form input change
+  // Input change handler
   const handleChange = (e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
-  // Suggest project ideas
+  // Suggest ideas based on project type
   useEffect(() => {
     const suggestions = {
       Fullstack: '💡 VTU Notes Portal, Portfolio Website, Student Management System.',
@@ -54,10 +55,9 @@ const ProjectEnquiry = () => {
     }
   }, []);
 
-  // Fetch projects
+  // Fetch user projects or all projects for admin
   useEffect(() => {
     if (!auth.currentUser) return;
-
     if (isAdmin) {
       const rootRef = ref(database, 'project_enquiries');
       onValue(rootRef, snapshot => setAllProjects(snapshot.val() || {}));
@@ -135,16 +135,15 @@ const ProjectEnquiry = () => {
   // Admin toggling steps
   const toggleStep = async (userId, projectId, step) => {
     if (!isAdmin) return;
+
     const projectRef = ref(database, `project_enquiries/${userId}/${projectId}/steps`);
-    onValue(projectRef, async (snapshot) => {
-      const currentSteps = snapshot.val() || {};
-      const newSteps = {
-        step1: step === 'step1' || step === 'step2' || step === 'step3' ? true : currentSteps.step1,
-        step2: step === 'step2' || step === 'step3' ? true : currentSteps.step2,
-        step3: step === 'step3' ? true : currentSteps.step3,
-      };
-      await set(projectRef, newSteps);
-    }, { onlyOnce: true });
+
+    const newSteps = { step1: false, step2: false, step3: false };
+    if (step === 'step1') newSteps.step1 = true;
+    if (step === 'step2') { newSteps.step1 = true; newSteps.step2 = true; }
+    if (step === 'step3') { newSteps.step1 = true; newSteps.step2 = true; newSteps.step3 = true; }
+
+    await set(projectRef, newSteps);
   };
 
   // Render projects
@@ -180,6 +179,7 @@ const ProjectEnquiry = () => {
 
   return (
     <section className="project-enquiry-section">
+      {/* Hero */}
       <motion.div className="project-hero" initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <h1>🚀 Start Your Project Journey</h1>
         <p>Submit your project request in <span>Fullstack</span>, <span>ML/AI</span>, or <span>IoT</span>. Track progress & get AI guidance.</p>
@@ -264,7 +264,7 @@ const ProjectEnquiry = () => {
         }
       </div>
 
-      {/* WhatsApp Contact */}
+      {/* Contact Info */}
       <div className="contact-info">
         <h4>📱 WhatsApp Contact</h4>
         <p>

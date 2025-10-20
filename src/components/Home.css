@@ -707,9 +707,9 @@ body {
     padding: 0.8rem;
   }
 }
-/* Project Enquiry Section */
+/* ================= Project Enquiry Section ================= */
 .project-enquiry-section {
-  background: linear-gradient(135deg, #eff6ff, #dbeafe); /* light blue gradient */
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
   padding: 4rem 1rem;
   display: flex;
   justify-content: center;
@@ -720,206 +720,43 @@ body {
   width: 100%;
   text-align: center;
   border-radius: 20px;
-  padding: 2rem;
-  background: white;
+  padding: 2.5rem;
+  background: #ffffff;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-enquiry-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.12);
 }
 
 .project-enquiry-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #1e3a8a; /* dark blue */
+  color: #1e3a8a;
   margin-bottom: 1rem;
 }
 
 .project-enquiry-desc {
   font-size: 1.1rem;
-  color: #334155; /* grayish text */
+  color: #334155;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
-/* Button styling */
+/* ================= Buttons ================= */
 .project-enquiry-btn-container {
   display: flex;
   justify-content: center;
-}
-
-.project-enquiry-link {
-  text-decoration: none;
-}
-
-.project-enquiry-btn {
-  background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 600;
-  padding: 0.8rem 2rem;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-}
-
-.project-enquiry-btn .btn-arrow {
-  font-size: 1.2rem;
-  transition: transform 0.3s ease;
-}
-
-.project-enquiry-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  background: linear-gradient(135deg, #2563eb, #60a5fa);
-}
-
-.project-enquiry-btn:hover .btn-arrow {
-  transform: translateX(5px);
-}
-
-.project-enquiry-btn:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .project-enquiry-title {
-    font-size: 1.7rem;
-  }
-  .project-enquiry-desc {
-    font-size: 1rem;
-  }
-  .project-enquiry-btn {
-    width: 100%;
-    justify-content: center;
-    font-size: 1rem;
-    padding: 0.7rem 1.5rem;
-  }
-}
-/* Home Project Section */
-.home-project-section {
-  background: #f9fafb;
-  padding: 3rem 1rem;
-  border-radius: 12px;
-  margin: 3rem 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.home-project-section h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #1e3a8a;
-}
-
-.home-project-section p {
-  text-align: center;
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
-  color: #374151;
-}
-
-/* Project Types */
-.project-types-container {
-  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  gap: 1rem;
 }
 
-.project-type-card {
-  background: #fff;
-  flex: 1 1 250px;
-  max-width: 300px;
-  padding: 1.5rem;
-  border-radius: 10px;
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.project-type-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.project-type-card h3 {
-  margin: 1rem 0 0.5rem;
-  color: #111827;
-}
-
-.project-type-card p {
-  font-size: 0.95rem;
-  color: #6b7280;
-}
-
-/* Icon wrapper */
-.icon-wrapper {
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
-}
-
-/* Why Choose Us */
-.why-choose-us {
-  background: #e0f2fe;
-  padding: 1.5rem;
-  border-radius: 10px;
-  margin-bottom: 2rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.why-choose-us h3 {
-  text-align: center;
-  margin-bottom: 1rem;
-  color: #1e40af;
-}
-
-.why-choose-us ul {
-  list-style: none;
-  padding: 0;
-}
-
-.why-choose-us ul li {
-  display: flex;
-  align-items: center;
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
-  gap: 0.5rem;
-  color: #1e3a8a;
-}
-
-/* CTA Button */
-.project-enquiry-btn-container {
-  margin-top: 2rem;
-}
-
-.project-enquiry-btn {
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(90deg, #e2e5e8, #626c84);
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.project-enquiry-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-/* 🎯 CTA & Project Enquiry Buttons */
 .project-enquiry-btn,
 .cta-btn,
 .chatbot-toggle-btn {
-  padding: 0.85rem 1.8rem;
+  padding: 0.85rem 2rem;
   border-radius: 9999px;
   border: none;
   font-size: 1rem;
@@ -932,17 +769,15 @@ body {
   box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
 }
 
-/* Gradient Backgrounds */
 .project-enquiry-btn,
 .chatbot-toggle-btn {
-  background: linear-gradient(90deg, #c8c9cd, #4f46e5);
+  background: linear-gradient(90deg, #4f46e5, #2563eb);
 }
 
 .cta-btn {
-  background: linear-gradient(to right, #b1b3b6, #8d9eb3);
+  background: linear-gradient(to right, #6366f1, #818cf8);
 }
 
-/* Hover Effects */
 .project-enquiry-btn:hover,
 .cta-btn:hover,
 .chatbot-toggle-btn:hover {
@@ -950,41 +785,132 @@ body {
   box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
 }
 
-/* Active / Click Effect */
 .project-enquiry-btn:active,
 .cta-btn:active,
 .chatbot-toggle-btn:active {
   transform: translateY(1px);
   box-shadow: 0 4px 10px rgba(37, 99, 235, 0.25);
-  background: linear-gradient(90deg, #a3a5ac, #696783);
+  background: linear-gradient(90deg, #3730a3, #1e40af);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 480px) {
-  .project-enquiry-btn,
-  .cta-btn,
-  .chatbot-toggle-btn {
-    width: 100%;
-    padding: 0.85rem 0;
-    font-size: 0.95rem;
-  }
+/* ================= Home Project Section ================= */
+.home-project-section {
+  background: #f0f4ff;
+  padding: 3rem 1rem;
+  border-radius: 16px;
+  margin: 3rem auto;
+  max-width: 1200px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-/* Mini Projects Section */
+
+.home-project-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.home-project-section h2 {
+  font-size: 2.2rem;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+}
+
+.home-project-section p.project-intro {
+  font-size: 1.1rem;
+  color: #334155;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+/* ================= Project Type Cards ================= */
+.project-types-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.project-type-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+}
+
+.project-type-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.project-type-card .icon-wrapper {
+  font-size: 48px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.project-type-card:hover .icon-wrapper {
+  transform: scale(1.2);
+  color: #4f46e5;
+}
+
+.project-type-card h3 {
+  font-size: 1.25rem;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.project-type-card p {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-bottom: 1.25rem;
+}
+
+.project-type-card .cta-btn {
+  display: inline-block;
+  padding: 0.6rem 1.4rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  color: #1e3a8a;
+  background: linear-gradient(90deg, #dbeafe, #bfdbfe);
+}
+
+.project-type-card .cta-btn:hover {
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: #fff;
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ================= Mini & College Projects ================= */
 .mini-projects-section {
-  background: #f0f9ff;
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
-  margin: 2rem auto;
-  max-width: 800px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  background: #ffffff;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
   text-align: left;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mini-projects-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }
 
 .mini-projects-section h3 {
+  font-size: 1.6rem;
+  color: #1e3a8a;
   text-align: center;
   margin-bottom: 1rem;
-  font-size: 1.5rem;
-  color: #1e40af;
 }
 
 .mini-projects-section ul {
@@ -994,18 +920,117 @@ body {
 
 .mini-projects-section ul li {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  align-items: flex-start;
+  gap: 0.6rem;
   font-size: 1rem;
   margin-bottom: 0.75rem;
   color: #1e3a8a;
 }
 
+.mini-projects-section ul li::before {
+  content: "•";
+  color: #2563eb;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* ================= Why Choose Us ================= */
+.why-choose-us {
+  background: #dbeafe;
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+}
+
+.why-choose-us h3 {
+  font-size: 1.6rem;
+  color: #1e40af;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.why-choose-us ul {
+  list-style: none;
+  padding: 0;
+}
+
+.why-choose-us ul li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: #1e3a8a;
+  transition: color 0.3s ease;
+}
+
+.why-choose-us ul li:hover {
+  color: #4f46e5;
+}
+
+/* ================= Big CTA Button ================= */
+.project-enquiry-btn-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.project-enquiry-btn {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: none;
+  background: linear-gradient(90deg, #3b82f6, #2563eb);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.3);
+}
+
+.project-enquiry-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+}
+
+/* ================= Responsive ================= */
 @media (max-width: 768px) {
-  .mini-projects-section {
-    padding: 1rem 1.5rem;
+  .project-types-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   }
-  .mini-projects-section h3 {
-    font-size: 1.3rem;
+
+  .mini-projects-section,
+  .why-choose-us,
+  .home-project-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .project-enquiry-btn {
+    width: 100%;
+    padding: 0.9rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-types-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .project-enquiry-btn,
+  .cta-btn,
+  .chatbot-toggle-btn {
+    width: 100%;
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+  }
+
+  .project-type-card {
+    max-width: 90%;
+    padding: 1.2rem;
   }
 }
