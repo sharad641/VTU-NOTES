@@ -1,16 +1,15 @@
 // src/components/ProjectEnquiry.js
 import React, { useState, useEffect } from 'react';
 import { database, auth } from '../firebase';
-import { ref, push, set, onValue, off, get } from 'firebase/database';
+import { ref, push, set, onValue, off } from 'firebase/database';
 import { motion } from 'framer-motion';
 import axios from 'axios';
-import { 
-  FaLaptopCode, FaRobot, FaMicrochip, FaLightbulb, 
-  FaCheckCircle, FaSpinner, FaStar 
+import {
+  FaLaptopCode, FaRobot, FaMicrochip, FaLightbulb,
+  FaCheckCircle, FaSpinner, FaStar
 } from 'react-icons/fa';
 import ProjectReviews from './ProjectReviews';
 import './ProjectEnquiry.css';
-
 
 const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
 
@@ -24,7 +23,7 @@ const ProjectEnquiry = () => {
   const [favorites, setFavorites] = useState([]);
   const [submittedProjects, setSubmittedProjects] = useState({});
   const [isAdmin, setIsAdmin] = useState(false);
-  const [allProjects, setAllProjects] = useState({}); // Admin sees all projects
+  const [allProjects, setAllProjects] = useState({});
 
   const projectTypes = [
     { icon: <FaLaptopCode size={40} />, title: 'Fullstack', desc: 'Web & mobile apps with React, Node.js, MongoDB.', color: '#3b82f6' },
@@ -33,10 +32,9 @@ const ProjectEnquiry = () => {
     { icon: <FaLightbulb size={40} />, title: 'Other', desc: 'Custom innovative or research projects.', color: '#60a5fa' },
   ];
 
-  // Input change handler
   const handleChange = (e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
-  // Suggest ideas based on project type
+  // Suggest ideas
   useEffect(() => {
     const suggestions = {
       Fullstack: '💡 VTU Notes Portal, Portfolio Website, Student Management System.',
@@ -47,25 +45,32 @@ const ProjectEnquiry = () => {
     setIdeaSuggestion(suggestions[formData.projectType] || '');
   }, [formData.projectType]);
 
-  // Check admin privileges
+  // Check admin
   useEffect(() => {
     if (auth.currentUser) {
-      const adminUIDs = ['ADMIN_UID_1', 'ADMIN_UID_2']; // Replace with actual admin UIDs
+      const adminUIDs = ['ADMIN_UID_1', 'ADMIN_UID_2']; // replace with real UIDs
       setIsAdmin(adminUIDs.includes(auth.currentUser.uid));
     }
   }, []);
 
-  // Fetch user projects or all projects for admin
+  // Fetch projects
   useEffect(() => {
     if (!auth.currentUser) return;
+
     if (isAdmin) {
       const rootRef = ref(database, 'project_enquiries');
-      onValue(rootRef, snapshot => setAllProjects(snapshot.val() || {}));
-      return () => off(rootRef);
+      const unsubscribe = onValue(rootRef, snapshot => setAllProjects(snapshot.val() || {}));
+      return () => {
+        off(rootRef);
+        unsubscribe();
+      };
     } else {
       const userRef = ref(database, `project_enquiries/${auth.currentUser.uid}`);
-      onValue(userRef, snapshot => setSubmittedProjects(snapshot.val() || {}));
-      return () => off(userRef);
+      const unsubscribe = onValue(userRef, snapshot => setSubmittedProjects(snapshot.val() || {}));
+      return () => {
+        off(userRef);
+        unsubscribe();
+      };
     }
   }, [isAdmin]);
 
@@ -97,7 +102,7 @@ const ProjectEnquiry = () => {
     }
   };
 
-  // Generate AI suggestions
+  // AI suggestions
   const generateAiIdeas = async () => {
     if (!formData.projectType) return;
     setGenerating(true);
@@ -132,21 +137,17 @@ const ProjectEnquiry = () => {
     });
   };
 
-  // Admin toggling steps
+  // Admin step toggling
   const toggleStep = async (userId, projectId, step) => {
     if (!isAdmin) return;
-
     const projectRef = ref(database, `project_enquiries/${userId}/${projectId}/steps`);
-
     const newSteps = { step1: false, step2: false, step3: false };
     if (step === 'step1') newSteps.step1 = true;
     if (step === 'step2') { newSteps.step1 = true; newSteps.step2 = true; }
     if (step === 'step3') { newSteps.step1 = true; newSteps.step2 = true; newSteps.step3 = true; }
-
     await set(projectRef, newSteps);
   };
 
-  // Render projects
   const renderProjects = (projectsData, userKey = null) => {
     return Object.entries(projectsData).map(([projId, proj]) => {
       const completedSteps = Object.values(proj.steps).filter(Boolean).length;
@@ -179,13 +180,11 @@ const ProjectEnquiry = () => {
 
   return (
     <section className="project-enquiry-section">
-      {/* Hero */}
       <motion.div className="project-hero" initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <h1>🚀 Start Your Project Journey</h1>
         <p>Submit your project request in <span>Fullstack</span>, <span>ML/AI</span>, or <span>IoT</span>. Track progress & get AI guidance.</p>
       </motion.div>
 
-      {/* Project Types */}
       <div className="project-types">
         {projectTypes.map((type, idx) => (
           <motion.div key={idx} className="project-type-card" style={{ borderTop: `4px solid ${type.color}` }} whileHover={{ scale: 1.05 }}>
@@ -196,10 +195,12 @@ const ProjectEnquiry = () => {
         ))}
       </div>
 
-      {/* Idea Suggestion */}
-      {ideaSuggestion && <motion.div className="idea-suggestion" initial={{ opacity: 0 }} animate={{ opacity: 1 }}><p>{ideaSuggestion}</p></motion.div>}
+      {ideaSuggestion && (
+        <motion.div className="idea-suggestion" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          <p>{ideaSuggestion}</p>
+        </motion.div>
+      )}
 
-      {/* Form */}
       <motion.div className="project-enquiry-card" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
         {success && <p className="success-msg"><FaCheckCircle /> {success}</p>}
         <form onSubmit={handleSubmit}>
@@ -223,7 +224,6 @@ const ProjectEnquiry = () => {
         </form>
       </motion.div>
 
-      {/* AI Ideas */}
       {aiIdeas.length > 0 && (
         <motion.div className="ai-ideas" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <h3>💡 AI-Suggested Ideas</h3>
@@ -246,7 +246,6 @@ const ProjectEnquiry = () => {
         </motion.div>
       )}
 
-      {/* Submitted Projects */}
       <div className="submitted-projects">
         <h2>📋 {isAdmin ? 'All User Projects' : 'Your Projects'}</h2>
         {isAdmin
@@ -264,13 +263,12 @@ const ProjectEnquiry = () => {
         }
       </div>
 
-      {/* Contact Info */}
       <div className="contact-info">
         <h4>📱 WhatsApp Contact</h4>
         <p>
-          <a 
-            href="https://wa.me/917338023261" 
-            target="_blank" 
+          <a
+            href="https://wa.me/917338023261"
+            target="_blank"
             rel="noopener noreferrer"
             style={{ textDecoration: 'none', color: '#25D366', fontWeight: 'bold' }}
           >
