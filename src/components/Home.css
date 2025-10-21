@@ -1034,3 +1034,199 @@ body {
     padding: 1.2rem;
   }
 }
+/* 🌟 Section Headings */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 40px;
+  color: #0f172a;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #475569;
+  max-width: 700px;
+  margin: 10px auto 30px;
+}
+
+/* ⚡ Project Cards */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+  margin: 0.8rem 0 0.5rem;
+  font-size: 1.25rem;
+  color: #1e293b;
+}
+
+.project-card p {
+  color: #475569;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.cta-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* 🌈 Mini & College Projects */
+.mini-projects, .why-choose-us {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.mini-projects h3, .why-choose-us h3 {
+  color: #0f172a;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.mini-projects ul, .why-choose-us ul {
+  list-style: none;
+  padding: 0;
+}
+
+.mini-projects li, .why-choose-us li {
+  margin: 0.5rem 0;
+  text-align: center;
+  color: #334155;
+}
+
+/* 🚀 Big CTA Button */
+.cta-container {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.big-cta-btn {
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.big-cta-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 20px rgba(96, 165, 250, 0.4);
+}
+/* 🎓 Projects Offer Section */
+.projects-offer-section {
+  background: #f8fafc;
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+}
+
+.projects-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.project-item {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.project-icon {
+  font-size: 1.5rem;
+}
+
+/* 💡 Why Choose Section */
+.why-choose-section {
+  background: linear-gradient(180deg, #f1f5f9 0%, #ffffff 100%);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  margin: 2.5rem auto;
+  max-width: 1000px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.why-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px rgba(96, 165, 250, 0.25);
+}
+
+.why-card h4 {
+  font-size: 1.1rem;
+  color: #1e3a8a;
+  margin-bottom: 0.5rem;
+}
+
+.why-card p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.4;
+}

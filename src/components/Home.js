@@ -27,150 +27,172 @@ const Home = () => {
   const projectTypes = [
     {
       icon: <FaLaptopCode size={40} />,
-      title: 'Fullstack',
-      desc: 'Web & mobile apps using React, Node.js, MongoDB, etc.',
+      title: 'Fullstack Development',
+      desc: 'Create modern, scalable web & mobile apps using React, Node.js, MongoDB & more.',
       color: '#3b82f6',
     },
     {
       icon: <FaRobot size={40} />,
-      title: 'ML / AI',
-      desc: 'Machine Learning & AI projects built with Python & TensorFlow.',
+      title: 'AI / Machine Learning',
+      desc: 'Design smart ML/AI systems using Python, TensorFlow & computer vision.',
       color: '#2563eb',
     },
     {
       icon: <FaMicrochip size={40} />,
-      title: 'IoT',
-      desc: 'Smart devices, sensors, and automation using ESP32, Arduino, and more.',
+      title: 'Internet of Things (IoT)',
+      desc: 'Build IoT automation with ESP32, Arduino, sensors & smart integrations.',
       color: '#1e40af',
     },
     {
       icon: <FaLightbulb size={40} />,
-      title: 'Other',
-      desc: 'Custom innovative ideas & research-based projects.',
+      title: 'Innovative Ideas',
+      desc: 'Turn your creative or research-based concepts into reality with expert guidance.',
       color: '#60a5fa',
     },
   ];
 
   return (
     <main className="home-container">
-
-      {/* 🔔 Announcement Marquee */}
+      {/* 🔔 Announcement Banner */}
       <div className="headline-message88">
         <div className="marquee-text">
-          🚀 New placement test login feature! Check it out to level up your preparation.
-          <br />
-          📚 Notes updated including 6th Semester (2022). Access freely and share with friends.
+          🚀 New Placement Test Login feature live! <br />
+          📚 6th Semester (2022) Notes added — Access them free & share with peers.
         </div>
       </div>
 
-      {/* 🛠 Project Enquiry Section */}
-      <section className="project-section home-project-section">
-        <h2>🛠 Bring Your Project Idea to Life!</h2>
-        <p className="project-intro">
-          Get expert guidance for Fullstack, ML/AI, or IoT projects. Learn, implement, and showcase your skills professionally!
+      {/* 🛠 Modern Project Section */}
+      <section className="project-section">
+        <h2 className="section-title">🛠 Bring Your Project Idea to Life!</h2>
+        <p className="section-subtitle">
+          Work with mentors to design and develop impactful projects in Fullstack, AI/ML, or IoT.
         </p>
 
-        {/* Project Types Cards */}
-        <div className="project-types-container">
+        {/* Project Cards */}
+        <div className="project-grid">
           {projectTypes.map((type, idx) => (
             <div
               key={idx}
-              className="project-type-card"
-              style={{ borderTop: `4px solid ${type.color}` }}
+              className="project-card"
+              style={{
+                borderTop: `4px solid ${type.color}`,
+                boxShadow: `0 4px 20px ${type.color}30`,
+              }}
             >
               <div className="icon-wrapper" style={{ color: type.color }}>
                 {type.icon}
               </div>
               <h3>{type.title}</h3>
               <p>{type.desc}</p>
-              <Link to="/project-enquiry" className="cta-btn" style={{ color: type.color }}>
-                Request Project
+              <Link
+                to="/project-enquiry"
+                className="cta-btn"
+                style={{
+                  background: `linear-gradient(90deg, ${type.color}, #60a5fa)`,
+                  color: '#fff',
+                }}
+              >
+                Request Project →
               </Link>
             </div>
           ))}
         </div>
 
-        {/* Mini Projects & College Projects */}
-        <div className="mini-projects-section">
-          <h3>🎓 Mini & College Projects We Provide</h3>
-          <ul>
-            <li>💻 Web & Mobile Mini Projects (React, Node.js, Flutter)</li>
-            <li>🤖 AI & ML Mini Projects (Python, TensorFlow, OpenCV)</li>
-            <li>📡 IoT College Projects (ESP32, Arduino, Sensors & Automation)</li>
-            <li>💡 Research & Innovative College Projects</li>
-            <li>📊 Data Science Projects with real-world datasets</li>
-          </ul>
-        </div>
+       {/* 🎓 Projects We Offer */}
+<section className="projects-offer-section">
+  <h3 className="section-heading">🎓 Mini & College Projects We Provide</h3>
+  <div className="projects-list-grid">
+    <div className="project-item">
+      <span className="project-icon">💻</span>
+      <p>Web & Mobile Projects (React, Node.js, Flutter)</p>
+    </div>
+    <div className="project-item">
+      <span className="project-icon">🤖</span>
+      <p>AI & ML Projects (Python, TensorFlow, OpenCV)</p>
+    </div>
+    <div className="project-item">
+      <span className="project-icon">📡</span>
+      <p>IoT Automation Projects (ESP32, Arduino, Sensors)</p>
+    </div>
+    <div className="project-item">
+      <span className="project-icon">💡</span>
+      <p>Innovative Research & Final Year Projects</p>
+    </div>
+    <div className="project-item">
+      <span className="project-icon">📊</span>
+      <p>Data Science Projects with Real-world Datasets</p>
+    </div>
+  </div>
+</section>
 
-        {/* Why Choose Us */}
-        <div className="why-choose-us">
-          <h3>💡 Why Work With Us?</h3>
-          <ul>
-            <li>🌟 Innovative & practical project ideas</li>
-            <li>🧠 Guidance from experienced developers</li>
-            <li>📘 Learn while building your project</li>
-            <li>⏱ Fast delivery with full support</li>
-            <li>💰 Affordable & student-friendly pricing</li>
-          </ul>
-        </div>
+{/* 💡 Why Choose Us */}
+<section className="why-choose-section">
+  <h3 className="section-heading">💡 Why Work With Us?</h3>
+  <div className="why-grid">
+    <div className="why-card">
+      <h4>🌟 Practical Ideas</h4>
+      <p>Projects are designed to solve real-world problems and enhance your resume.</p>
+    </div>
+    <div className="why-card">
+      <h4>🧠 Expert Guidance</h4>
+      <p>Get mentorship from experienced developers and engineers throughout your project.</p>
+    </div>
+    <div className="why-card">
+      <h4>📘 Learn by Building</h4>
+      <p>Hands-on learning experience with source code, explanation, and documentation.</p>
+    </div>
+    <div className="why-card">
+      <h4>⚡ Fast & Reliable</h4>
+      <p>Quick project delivery with complete report, video, and implementation support.</p>
+    </div>
+    <div className="why-card">
+      <h4>💰 Affordable</h4>
+      <p>We offer cost-effective solutions tailored for students with 24/7 assistance.</p>
+    </div>
+  </div>
+</section>
 
-        {/* Big CTA Button */}
-        <div className="project-enquiry-btn-container">
+
+        {/* CTA Button */}
+        <div className="cta-container">
           <Link to="/project-enquiry">
-            <button className="project-enquiry-btn hover-scale">
-              🛠 Submit Your Project Requirement →
+            <button className="big-cta-btn">
+              🚀 Submit Your Project Requirement
             </button>
           </Link>
         </div>
       </section>
 
-      {/* Branch Selection */}
+      {/* 🌿 Other Sections */}
       <BranchSelection />
-
-      {/* Model Papers */}
       <ModelPapers />
 
-      {/* 🤖 ChatBot Toggle */}
+      {/* 🤖 Chatbot */}
       <div className="chatbot-button-container">
         <button className="chatbot-toggle-btn hover-scale" onClick={toggleChatbot}>
-          {showChatbot ? 'Hide Chatbot' : 'Chat with Us!'}
+          {showChatbot ? 'Hide Chatbot' : '💬 Chat with Us!'}
         </button>
       </div>
       {showChatbot && <ChatBot />}
 
-      {/* 🎓 SGPA Calculator */}
       <SgpaCalculator />
 
-      {/* 🔗 VTU Resources & Upload Notes */}
+      {/* 🔗 VTU Resources */}
       <section className="info-box modern-box">
-        <h2>🔗 VTU Links</h2>
-        <div className="vtu-links-container">
-          {[ /* Add VTU Links here */].map((item, index) => (
-            <div key={index} className="vtu-link-card modern-card">
-              <h3>{item.title}</h3>
-              <p>{item.desc}</p>
-              <a href={item.link} target="_blank" rel="noopener noreferrer" className="button modern-button">
-                🔗 Visit
-              </a>
-            </div>
-          ))}
-        </div>
+        <h2>🔗 VTU Resources</h2>
+        <p>Access official VTU links and upload your study notes easily.</p>
         <UploadForm />
       </section>
 
       {/* 📖 FAQs */}
       <section className="info-box modern-box-new">
-        <h2>📖 Frequently Asked Questions (FAQs)</h2>
-        <p>Quick answers to your most common concerns.</p>
-        <Link to="/faqs" className="button modern-button-nw">🔗 Go to FAQs</Link>
+        <h2>📖 Frequently Asked Questions</h2>
+        <p>Find quick answers to your common queries.</p>
+        <Link to="/faqs" className="button modern-button-nw">Go to FAQs →</Link>
       </section>
 
-      {/* 📞 Contact */}
       <Contact />
-
-      {/* 💬 Comments */}
       <CommentSection />
-
     </main>
   );
 };
