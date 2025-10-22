@@ -15,7 +15,8 @@ import {
   FaSpinner,
   FaStar,
   FaCopy,
-  FaDownload
+  FaDownload,
+  FaSearch
 } from 'react-icons/fa';
 import ProjectReviews from './ProjectReviews';
 import './ProjectEnquiry.css';
@@ -33,6 +34,7 @@ const ProjectEnquiry = () => {
   const [submittedProjects, setSubmittedProjects] = useState({});
   const [isAdmin, setIsAdmin] = useState(false);
   const [allProjects, setAllProjects] = useState({});
+  const [searchQuery, setSearchQuery] = useState('');
 
   const projectTypes = [
     { icon: <FaLaptopCode size={40} />, title: 'Fullstack', desc: 'Web & Mobile Apps with React, Node.js, MongoDB', color: '#3b82f6' },
@@ -41,9 +43,10 @@ const ProjectEnquiry = () => {
     { icon: <FaLightbulb size={40} />, title: 'Other', desc: 'Custom innovative or research projects', color: '#60a5fa' },
   ];
 
+  // Handle input changes
   const handleChange = (e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
 
-  // Suggest ideas
+  // Update idea suggestions based on project type
   useEffect(() => {
     const suggestions = {
       Fullstack: '💡 Try: VTU Notes Portal, Portfolio Website, Student Management System.',
@@ -62,7 +65,7 @@ const ProjectEnquiry = () => {
     }
   }, []);
 
-  // Fetch projects
+  // Fetch projects from Firebase
   useEffect(() => {
     if (!auth.currentUser) return;
 
@@ -77,7 +80,7 @@ const ProjectEnquiry = () => {
     }
   }, [isAdmin]);
 
-  // Submit project
+  // Submit new project
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, projectType } = formData;
@@ -103,7 +106,7 @@ const ProjectEnquiry = () => {
     } finally { setLoading(false); }
   };
 
-  // AI suggestions
+  // Generate AI ideas
   const generateAiIdeas = async () => {
     if (!formData.projectType) return;
     setGenerating(true);
@@ -127,6 +130,7 @@ const ProjectEnquiry = () => {
     } finally { setGenerating(false); }
   };
 
+  // Toggle favorite ideas
   const toggleFavorite = (index) => {
     setAiIdeas(prev => {
       const updated = [...prev];
@@ -136,6 +140,7 @@ const ProjectEnquiry = () => {
     });
   };
 
+  // Copy or download favorite ideas
   const copyFavorites = () => {
     if (favorites.length === 0) return;
     navigator.clipboard.writeText(favorites.map(f => f.text).join('\n'));
@@ -150,7 +155,7 @@ const ProjectEnquiry = () => {
     doc.save('favorites.pdf');
   };
 
-  // Admin step toggling
+  // Admin toggle project steps
   const toggleStep = async (userId, projectId, step) => {
     if (!isAdmin) return;
     const projectRef = ref(database, `project_enquiries/${userId}/${projectId}/steps`);
@@ -161,8 +166,11 @@ const ProjectEnquiry = () => {
     await set(projectRef, newSteps);
   };
 
+  // Render project cards
   const renderProjects = (projectsData, userKey = null) => {
-    return Object.entries(projectsData).map(([projId, proj]) => {
+    return Object.entries(projectsData)
+      .filter(([_, proj]) => proj.projectType?.toLowerCase().includes(searchQuery.toLowerCase()))
+      .map(([projId, proj]) => {
       const completedSteps = Object.values(proj.steps).filter(Boolean).length;
       const progressWidth = (completedSteps / 3) * 100;
       const userId = userKey || auth.currentUser.uid;
@@ -287,6 +295,14 @@ const ProjectEnquiry = () => {
             )}
           </div>
         </DragDropContext>
+      )}
+
+      {/* Search for Admin */}
+      {isAdmin && (
+        <div className="admin-search">
+          <FaSearch />
+          <input type="text" placeholder="Search projects by type..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} />
+        </div>
       )}
 
       {/* Projects */}

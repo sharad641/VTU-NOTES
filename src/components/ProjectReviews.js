@@ -14,6 +14,7 @@ const ProjectReviews = () => {
   const [search, setSearch] = useState("");
   const [avgRating, setAvgRating] = useState(0);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [hoverRating, setHoverRating] = useState(0);
 
   useEffect(() => {
     const reviewsRef = ref(database, "project_reviews");
@@ -33,6 +34,7 @@ const ProjectReviews = () => {
   }, []);
 
   const handleChange = (e) => setReviewData({ ...reviewData, [e.target.name]: e.target.value });
+
   const handleRating = (rate) => setReviewData((prev) => ({ ...prev, rating: rate }));
 
   const handleSubmit = async (e) => {
@@ -84,8 +86,8 @@ const ProjectReviews = () => {
         ⭐ Project Reviews & Ratings
       </motion.h2>
 
-      {/* Average Rating Section */}
-      <div className="avg-rating-box">
+      {/* Average Rating */}
+      <div className="avg-rating-box sticky">
         <div className="avg-stars">
           {[1, 2, 3, 4, 5].map((i) => (
             <FaStar key={i} color={i <= avgRating ? "#facc15" : "#e2e8f0"} size={22} />
@@ -95,15 +97,33 @@ const ProjectReviews = () => {
       </div>
 
       {/* Review Form */}
-      <motion.form onSubmit={handleSubmit} className="review-form-pro" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-        <input name="name" value={reviewData.name} onChange={handleChange} placeholder="Your Name" />
-        <input name="project" value={reviewData.project} onChange={handleChange} placeholder="Project Title" />
-        <textarea name="review" value={reviewData.review} onChange={handleChange} placeholder="Share your experience..." />
+      <motion.form
+        onSubmit={handleSubmit}
+        className="review-form-pro"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        <input name="name" value={reviewData.name} onChange={handleChange} placeholder="Your Name" required />
+        <input name="project" value={reviewData.project} onChange={handleChange} placeholder="Project Title" required />
+        <textarea
+          name="review"
+          value={reviewData.review}
+          onChange={handleChange}
+          placeholder="Share your experience..."
+          required
+        />
 
+        {/* Rating Stars */}
         <div className="rating-stars-input">
           {[1, 2, 3, 4, 5].map((i) => (
-            <motion.div key={i} whileHover={{ scale: 1.2 }} onClick={() => handleRating(i)}>
-              <FaStar size={28} color={i <= reviewData.rating ? "#facc15" : "#cbd5e1"} />
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.2 }}
+              onMouseEnter={() => setHoverRating(i)}
+              onMouseLeave={() => setHoverRating(0)}
+              onClick={() => handleRating(i)}
+            >
+              <FaStar size={28} color={i <= (hoverRating || reviewData.rating) ? "#facc15" : "#cbd5e1"} />
             </motion.div>
           ))}
         </div>
@@ -113,13 +133,20 @@ const ProjectReviews = () => {
         </motion.button>
       </motion.form>
 
-      {/* Filter + Sort Controls */}
+      {/* Search & Sort */}
       <div className="reviews-controls">
         <div className="search-box">
           <FaSearch />
-          <input placeholder="Search by project or name..." value={search} onChange={(e) => setSearch(e.target.value)} />
+          <input
+            placeholder="Search by project or name..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
-        <button onClick={() => setSortType(sortType === "newest" ? "rating" : "newest")} className="sort-btn-pro">
+        <button
+          onClick={() => setSortType(sortType === "newest" ? "rating" : "newest")}
+          className="sort-btn-pro"
+        >
           {sortType === "newest" ? (
             <>
               <FaSortAmountUp /> Sort by Rating
@@ -135,7 +162,7 @@ const ProjectReviews = () => {
       {/* Reviews Display */}
       <div className="reviews-grid-pro">
         {filtered.length === 0 ? (
-          <p className="no-reviews-pro">No reviews found. Be the first to share!</p>
+          <p className="no-reviews-pro">No reviews found. Be the first to share your project experience!</p>
         ) : (
           filtered.map((r, idx) => (
             <motion.div
