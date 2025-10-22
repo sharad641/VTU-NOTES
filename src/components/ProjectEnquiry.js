@@ -4,9 +4,18 @@ import { database, auth } from '../firebase';
 import { ref, push, set, onValue, off } from 'firebase/database';
 import { motion } from 'framer-motion';
 import axios from 'axios';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { jsPDF } from 'jspdf';
 import {
-  FaLaptopCode, FaRobot, FaMicrochip, FaLightbulb,
-  FaCheckCircle, FaSpinner, FaStar
+  FaLaptopCode,
+  FaRobot,
+  FaMicrochip,
+  FaLightbulb,
+  FaCheckCircle,
+  FaSpinner,
+  FaStar,
+  FaCopy,
+  FaDownload
 } from 'react-icons/fa';
 import ProjectReviews from './ProjectReviews';
 import './ProjectEnquiry.css';
@@ -26,10 +35,10 @@ const ProjectEnquiry = () => {
   const [allProjects, setAllProjects] = useState({});
 
   const projectTypes = [
-    { icon: <FaLaptopCode size={40} />, title: 'Fullstack', desc: 'Web & mobile apps with React, Node.js, MongoDB.', color: '#3b82f6' },
-    { icon: <FaRobot size={40} />, title: 'ML / AI', desc: 'Machine Learning & AI projects using Python & TensorFlow.', color: '#2563eb' },
-    { icon: <FaMicrochip size={40} />, title: 'IoT', desc: 'Smart devices & automation using ESP32, Arduino.', color: '#1e40af' },
-    { icon: <FaLightbulb size={40} />, title: 'Other', desc: 'Custom innovative or research projects.', color: '#60a5fa' },
+    { icon: <FaLaptopCode size={40} />, title: 'Fullstack', desc: 'Web & Mobile Apps with React, Node.js, MongoDB', color: '#3b82f6' },
+    { icon: <FaRobot size={40} />, title: 'ML / AI', desc: 'Machine Learning & AI projects using Python & TensorFlow', color: '#2563eb' },
+    { icon: <FaMicrochip size={40} />, title: 'IoT', desc: 'Smart devices & automation using ESP32, Arduino', color: '#1e40af' },
+    { icon: <FaLightbulb size={40} />, title: 'Other', desc: 'Custom innovative or research projects', color: '#60a5fa' },
   ];
 
   const handleChange = (e) => setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
@@ -37,10 +46,10 @@ const ProjectEnquiry = () => {
   // Suggest ideas
   useEffect(() => {
     const suggestions = {
-      Fullstack: '💡 VTU Notes Portal, Portfolio Website, Student Management System.',
-      'ML / AI': '🤖 Chatbot Assistant, Image Recognition Tool, Fake News Detector.',
-      IoT: '🔌 Smart Irrigation, Air Quality Monitor, Home Automation.',
-      Other: '✨ Custom innovative or research-based projects.',
+      Fullstack: '💡 Try: VTU Notes Portal, Portfolio Website, Student Management System.',
+      'ML / AI': '🤖 Try: Chatbot Assistant, Image Recognition Tool, Fake News Detector.',
+      IoT: '🔌 Try: Smart Irrigation, Air Quality Monitor, Home Automation.',
+      Other: '✨ Try: Custom innovative or research-based projects.',
     };
     setIdeaSuggestion(suggestions[formData.projectType] || '');
   }, [formData.projectType]);
@@ -48,7 +57,7 @@ const ProjectEnquiry = () => {
   // Check admin
   useEffect(() => {
     if (auth.currentUser) {
-      const adminUIDs = ['ADMIN_UID_1', 'ADMIN_UID_2']; // replace with real UIDs
+      const adminUIDs = ['ADMIN_UID_1', 'ADMIN_UID_2'];
       setIsAdmin(adminUIDs.includes(auth.currentUser.uid));
     }
   }, []);
@@ -60,17 +69,11 @@ const ProjectEnquiry = () => {
     if (isAdmin) {
       const rootRef = ref(database, 'project_enquiries');
       const unsubscribe = onValue(rootRef, snapshot => setAllProjects(snapshot.val() || {}));
-      return () => {
-        off(rootRef);
-        unsubscribe();
-      };
+      return () => { off(rootRef); unsubscribe(); };
     } else {
       const userRef = ref(database, `project_enquiries/${auth.currentUser.uid}`);
       const unsubscribe = onValue(userRef, snapshot => setSubmittedProjects(snapshot.val() || {}));
-      return () => {
-        off(userRef);
-        unsubscribe();
-      };
+      return () => { off(userRef); unsubscribe(); };
     }
   }, [isAdmin]);
 
@@ -79,7 +82,7 @@ const ProjectEnquiry = () => {
     e.preventDefault();
     const { name, email, projectType } = formData;
     if (!name || !email || !projectType) return alert('⚠️ Fill all required fields.');
-    if (!auth.currentUser) return alert('❌ Login required to submit.');
+    if (!auth.currentUser) return alert('❌ Login required.');
 
     setLoading(true);
     try {
@@ -97,9 +100,7 @@ const ProjectEnquiry = () => {
     } catch (err) {
       console.error(err);
       alert('❌ Something went wrong. Try again.');
-    } finally {
-      setLoading(false);
-    }
+    } finally { setLoading(false); }
   };
 
   // AI suggestions
@@ -123,9 +124,7 @@ const ProjectEnquiry = () => {
     } catch (err) {
       console.error(err);
       setAiIdeas([{ text: '💡 Fallback: Portfolio Website, Student Management System.', favorite: false }]);
-    } finally {
-      setGenerating(false);
-    }
+    } finally { setGenerating(false); }
   };
 
   const toggleFavorite = (index) => {
@@ -135,6 +134,20 @@ const ProjectEnquiry = () => {
       setFavorites(updated.filter(i => i.favorite));
       return updated;
     });
+  };
+
+  const copyFavorites = () => {
+    if (favorites.length === 0) return;
+    navigator.clipboard.writeText(favorites.map(f => f.text).join('\n'));
+    alert('Copied to clipboard!');
+  };
+
+  const downloadFavoritesPDF = () => {
+    if (favorites.length === 0) return;
+    const doc = new jsPDF();
+    doc.setFontSize(12);
+    favorites.forEach((f, idx) => doc.text(`${idx + 1}. ${f.text}`, 10, 10 + idx * 10));
+    doc.save('favorites.pdf');
   };
 
   // Admin step toggling
@@ -180,11 +193,14 @@ const ProjectEnquiry = () => {
 
   return (
     <section className="project-enquiry-section">
+
+      {/* Hero */}
       <motion.div className="project-hero" initial={{ opacity: 0, y: -30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
         <h1>🚀 Start Your Project Journey</h1>
         <p>Submit your project request in <span>Fullstack</span>, <span>ML/AI</span>, or <span>IoT</span>. Track progress & get AI guidance.</p>
       </motion.div>
 
+      {/* Project types */}
       <div className="project-types">
         {projectTypes.map((type, idx) => (
           <motion.div key={idx} className="project-type-card" style={{ borderTop: `4px solid ${type.color}` }} whileHover={{ scale: 1.05 }}>
@@ -195,12 +211,10 @@ const ProjectEnquiry = () => {
         ))}
       </div>
 
-      {ideaSuggestion && (
-        <motion.div className="idea-suggestion" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <p>{ideaSuggestion}</p>
-        </motion.div>
-      )}
+      {/* Idea suggestion */}
+      {ideaSuggestion && <motion.div className="idea-suggestion" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>{ideaSuggestion}</motion.div>}
 
+      {/* Form */}
       <motion.div className="project-enquiry-card" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}>
         {success && <p className="success-msg"><FaCheckCircle /> {success}</p>}
         <form onSubmit={handleSubmit}>
@@ -224,28 +238,58 @@ const ProjectEnquiry = () => {
         </form>
       </motion.div>
 
+      {/* AI Ideas & Favorites */}
       {aiIdeas.length > 0 && (
-        <motion.div className="ai-ideas" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h3>💡 AI-Suggested Ideas</h3>
-          <ul>
-            {aiIdeas.map((idea, idx) => (
-              <li key={idx} className="idea-card">
-                {idea.text}
-                <span onClick={() => toggleFavorite(idx)} className="favorite-icon">
-                  <FaStar color={idea.favorite ? '#facc15' : '#cbd5e1'} />
-                </span>
-              </li>
-            ))}
-          </ul>
-          {favorites.length > 0 && (
-            <div className="favorites-section">
-              <h4>⭐ Favorites</h4>
-              <ul>{favorites.map((fav, idx) => <li key={idx}>{fav.text}</li>)}</ul>
-            </div>
-          )}
-        </motion.div>
+        <DragDropContext
+          onDragEnd={(result) => {
+            const { source, destination } = result;
+            if (!destination) return;
+            const items = Array.from(aiIdeas);
+            const [removed] = items.splice(source.index, 1);
+            items.splice(destination.index, 0, removed);
+            setAiIdeas(items);
+            setFavorites(items.filter(i => i.favorite));
+          }}
+        >
+          <div className="ai-ideas-wrapper">
+            <Droppable droppableId="ai-ideas">
+              {(provided) => (
+                <motion.div className="ai-ideas" ref={provided.innerRef} {...provided.droppableProps} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+                  <h3>💡 AI-Suggested Ideas</h3>
+                  <ul>
+                    {aiIdeas.map((idea, idx) => (
+                      <Draggable key={idx} draggableId={`idea-${idx}`} index={idx}>
+                        {(provided) => (
+                          <li className="idea-card" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                            {idea.text}
+                            <span onClick={() => toggleFavorite(idx)} className="favorite-icon">
+                              <FaStar color={idea.favorite ? '#facc15' : '#cbd5e1'} />
+                            </span>
+                          </li>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </ul>
+                </motion.div>
+              )}
+            </Droppable>
+
+            {favorites.length > 0 && (
+              <div className="favorites-section sticky-favorites">
+                <h4>⭐ Favorites</h4>
+                <ul>{favorites.map((fav, idx) => <li key={idx}>{fav.text}</li>)}</ul>
+                <div className="favorites-actions">
+                  <button onClick={copyFavorites}><FaCopy /> Copy</button>
+                  <button onClick={downloadFavoritesPDF}><FaDownload /> PDF</button>
+                </div>
+              </div>
+            )}
+          </div>
+        </DragDropContext>
       )}
 
+      {/* Projects */}
       <div className="submitted-projects">
         <h2>📋 {isAdmin ? 'All User Projects' : 'Your Projects'}</h2>
         {isAdmin
@@ -263,17 +307,13 @@ const ProjectEnquiry = () => {
         }
       </div>
 
+      {/* WhatsApp contact */}
       <div className="contact-info">
         <h4>📱 WhatsApp Contact</h4>
         <p>
-          <a
-            href="https://wa.me/917338023261"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: 'none', color: '#25D366', fontWeight: 'bold' }}
-          >
+          <a href="https://wa.me/917338023261" target="_blank" rel="noopener noreferrer" className="whatsapp-link">
             Chat on WhatsApp: +91 7338023261
-          </a> (Messages only, no calls)
+          </a> (Messages only)
         </p>
       </div>
 
