@@ -1,86 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- ✅ Basic Meta -->
+    <!-- ✅ Meta Basics -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0a192f" />
-    <title>VTU Notes for All | Study Materials, Calculators & Project Guidance</title>
+    <title>VTU Notes for All: #1 Resource Hub for VTU Engineering Students</title>
 
     <!-- ✅ Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <!-- ✅ General SEO -->
-    <meta
-      name="description"
-      content="VTU Notes for All: Your complete portal for VTU notes, question papers, CGPA/SGPA calculators, placement prep, and final-year project guidance."
-    />
-    <meta
-      name="keywords"
-      content="VTU Notes, VTU Study Materials, CGPA Calculator, SGPA Calculator, VTU Project Enquiry, VTU Engineering Notes, VTU Question Papers, Placement Preparation, VTU CSE Notes, VTU First Year Notes, VTU Percentage Calculator"
-    />
+    <!-- ✅ SEO Meta: VTU Notes -->
+    <meta name="description" content="VTU Notes for All: The ultimate study portal for VTU students. Access high-quality VTU notes, solved question papers, CGPA/SGPA calculators, and placement prep tools." />
+    <meta name="keywords" content="VTU Notes, VTU Study Materials, VTU Engineering Notes, CGPA Calculator, SGPA Calculator, Question Banks, Placement Preparation, VTU CSE Notes, VTU First Year Notes" />
     <meta name="author" content="Sharad Patil - VTU Notes for All" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://vtunotesforall.in/" />
 
-    <!-- ✅ Page Specific Canonicals -->
-    <link rel="canonical" href="https://vtunotesforall.in/sgpa-calculator" />
-    <link rel="canonical" href="https://vtunotesforall.in/cgpa-calculator" />
+    <!-- ✅ SEO Meta: VTU Projects -->
+    <meta name="description" content="Explore VTU mini and final-year project ideas for all branches. Get Web, ML, IoT, and App development projects with full documentation." />
+    <meta name="keywords" content="VTU Projects, VTU Mini Projects, VTU Final Year Projects, VTU Project Ideas, VTU Project Enquiry, VTU Engineering Projects, VTU Web Projects, VTU ML Projects, VTU IoT Projects, VTU App Projects" />
     <link rel="canonical" href="https://vtunotesforall.in/project-enquiry" />
 
-    <!-- ✅ Open Graph -->
-    <meta
-      property="og:title"
-      content="VTU Notes for All | VTU Notes, Calculators & Projects"
-    />
-    <meta
-      property="og:description"
-      content="Access VTU study materials, CGPA/SGPA calculators, project enquiry, and placement prep tools – all in one place."
-    />
-    <meta
-      property="og:image"
-      content="https://vtunotesforall.in/assets/logo.jpg"
-    />
+    <!-- ✅ Open Graph (Facebook/LinkedIn) -->
+    <meta property="og:title" content="VTU Notes for All: Study Materials for Engineering Students" />
+    <meta property="og:description" content="Your one-stop resource for VTU notes, solved papers, project guidance, and academic tools across all semesters and branches." />
+    <meta property="og:image" content="https://vtunotesforall.in/assets/logo.jpg" />
     <meta property="og:url" content="https://vtunotesforall.in/" />
     <meta property="og:type" content="website" />
 
-    <!-- ✅ Twitter Card -->
+    <!-- ✅ Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="VTU Notes for All | Study Materials & Project Guidance"
-    />
-    <meta
-      name="twitter:description"
-      content="VTU Notes, calculators, and placement help – explore notes, projects, and tools for all branches."
-    />
-    <meta
-      name="twitter:image"
-      content="https://vtunotesforall.in/assets/logo.jpg"
-    />
+    <meta name="twitter:title" content="VTU Notes for All: Study Materials for Engineering Students" />
+    <meta name="twitter:description" content="Access notes, calculators, placement tips, and project ideas – all VTU branches covered!" />
+    <meta name="twitter:image" content="https://vtunotesforall.in/assets/logo.jpg" />
 
-    <!-- ✅ Icons -->
-    <link
-      rel="icon"
-      href="%PUBLIC_URL%/logovtu.png"
-      type="image/png"
-      sizes="192x192"
-    />
+    <!-- ✅ Favicon & Icons -->
+    <link rel="icon" href="%PUBLIC_URL%/logovtu.png" type="image/png" sizes="192x192" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logovtu.png" />
 
     <!-- ✅ Manifest -->
     <link rel="manifest" href="https://vtunotesforall.in/manifest.json" />
 
-    <!-- ✅ Styles -->
+    <!-- ✅ Stylesheet -->
     <link rel="preload" href="https://vtunotesforall.in/styles.css" as="style" />
     <link rel="stylesheet" href="https://vtunotesforall.in/styles.css" />
 
-    <!-- ✅ Schema: Organization -->
+    <!-- ✅ JSON-LD: Educational Organization -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -88,7 +56,7 @@
         "name": "VTU Notes for All",
         "url": "https://vtunotesforall.in",
         "logo": "https://vtunotesforall.in/assets/logo.jpg",
-        "description": "VTU notes, question banks, calculators, and project ideas for engineering students.",
+        "description": "VTU notes, question banks, and academic resources for engineering students.",
         "sameAs": [
           "https://www.linkedin.com/in/sharad/",
           "https://twitter.com/vtunotesforall",
@@ -103,13 +71,21 @@
       }
     </script>
 
-    <!-- ✅ Schema: Website -->
+    <!-- ✅ JSON-LD: WebSite Schema -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "VTU Notes for All",
         "url": "https://vtunotesforall.in",
+        "publisher": {
+          "@type": "Organization",
+          "name": "VTU Notes for All",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://vtunotesforall.in/assets/logo.jpg"
+          }
+        },
         "potentialAction": {
           "@type": "SearchAction",
           "target": "https://vtunotesforall.in/search?query={search_term_string}",
@@ -118,7 +94,57 @@
       }
     </script>
 
-    <!-- ✅ Schema: Service (Project Enquiry) -->
+    <!-- ✅ JSON-LD: FAQ Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is VTU Notes for All?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "VTU Notes for All is a digital platform that offers notes, model papers, calculators, and placement prep resources for VTU engineering students."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I download VTU notes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Go to your branch and semester on the website and click to download the available PDF notes or papers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you provide solved question papers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, we provide both solved and unsolved previous year question papers along with model solutions for better understanding."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer final-year project ideas?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes! Visit the Project Enquiry page to explore trending Web, ML, and IoT project ideas with documentation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I get mini-project guidance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Absolutely! We provide mini-project ideas, implementation tips, and full reports for all VTU branches."
+            }
+          }
+        ]
+      }
+    </script>
+
+    <!-- ✅ JSON-LD: VTU Project Service -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -135,40 +161,6 @@
       }
     </script>
 
-    <!-- ✅ Schema: FAQ -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How do I calculate my VTU SGPA?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Use our SGPA Calculator tool to compute your semester GPA easily by entering subject grades."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do you offer final-year project ideas?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes! Visit the Project Enquiry page to explore trending Web, ML, and IoT project ideas with documentation."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Are your VTU notes available for all branches?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, we offer curated VTU notes for all branches and 2022 scheme subjects."
-            }
-          }
-        ]
-      }
-    </script>
-
     <!-- ✅ Breadcrumb Schema -->
     <script type="application/ld+json">
       {
@@ -176,40 +168,33 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://vtunotesforall.in/" },
-          { "@type": "ListItem", "position": 2, "name": "SGPA Calculator", "item": "https://vtunotesforall.in/sgpa-calculator" },
-          { "@type": "ListItem", "position": 3, "name": "CGPA Calculator", "item": "https://vtunotesforall.in/cgpa-calculator" },
-          { "@type": "ListItem", "position": 4, "name": "Project Enquiry", "item": "https://vtunotesforall.in/project-enquiry" },
-          { "@type": "ListItem", "position": 5, "name": "Placement Guide", "item": "https://vtunotesforall.in/placement-guide" },
-          { "@type": "ListItem", "position": 6, "name": "Contact", "item": "https://vtunotesforall.in/contact" }
+          { "@type": "ListItem", "position": 2, "name": "First Year Notes", "item": "https://vtunotesforall.in/branch/first-year" },
+          { "@type": "ListItem", "position": 3, "name": "CSE Notes", "item": "https://vtunotesforall.in/branch/cse" },
+          { "@type": "ListItem", "position": 4, "name": "Placement Guide", "item": "https://vtunotesforall.in/placement-guide" },
+          { "@type": "ListItem", "position": 5, "name": "Profile", "item": "https://vtunotesforall.in/profile" },
+          { "@type": "ListItem", "position": 6, "name": "About", "item": "https://vtunotesforall.in/about" },
+          { "@type": "ListItem", "position": 7, "name": "Contact", "item": "https://vtunotesforall.in/contact" },
+          { "@type": "ListItem", "position": 8, "name": "Project Enquiry", "item": "https://vtunotesforall.in/project-enquiry" }
         ]
       }
     </script>
 
     <!-- ✅ Google Ads -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9499544849301534"
-      crossorigin="anonymous"
-    ></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9499544849301534" crossorigin="anonymous"></script>
 
     <!-- ✅ Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "GA_TRACKING_ID");
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'GA_TRACKING_ID');
     </script>
   </head>
 
   <body>
     <noscript>
-      JavaScript is disabled in your browser. Enable it to experience full functionality.
+      Your browser does not support JavaScript. Please enable JavaScript to view this site properly.
     </noscript>
     <div id="root"></div>
   </body>
