@@ -1,7 +1,7 @@
 // src/components/Home.js
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { analytics } from '../firebase';
+import { Link, useNavigate } from 'react-router-dom';
+import { analytics, auth } from '../firebase';
 import { logEvent } from 'firebase/analytics';
 
 import BranchSelection from './BranchSelection';
@@ -17,6 +17,7 @@ import './Home.css';
 
 const Home = () => {
   const [showChatbot, setShowChatbot] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     logEvent(analytics, 'homepage_view');
@@ -51,6 +52,16 @@ const Home = () => {
     },
   ];
 
+  // ✅ Secure navigation to ProjectEnquiry page
+  const handleProjectNavigation = () => {
+    if (!auth.currentUser) {
+      localStorage.setItem('redirectAfterLogin', '/project-enquiry');
+      navigate('/login');
+    } else {
+      navigate('/project-enquiry');
+    }
+  };
+
   return (
     <main className="home-container">
       {/* 🔔 Announcement Banner */}
@@ -84,8 +95,8 @@ const Home = () => {
               </div>
               <h3>{type.title}</h3>
               <p>{type.desc}</p>
-              <Link
-                to="/project-enquiry"
+              <button
+                onClick={handleProjectNavigation}
                 className="cta-btn"
                 style={{
                   background: `linear-gradient(90deg, ${type.color}, #60a5fa)`,
@@ -93,73 +104,70 @@ const Home = () => {
                 }}
               >
                 Request Project →
-              </Link>
+              </button>
             </div>
           ))}
         </div>
 
-       {/* 🎓 Projects We Offer */}
-<section className="projects-offer-section">
-  <h3 className="section-heading">🎓 Mini & College Projects We Provide</h3>
-  <div className="projects-list-grid">
-    <div className="project-item">
-      <span className="project-icon">💻</span>
-      <p>Web & Mobile Projects (React, Node.js, Flutter)</p>
-    </div>
-    <div className="project-item">
-      <span className="project-icon">🤖</span>
-      <p>AI & ML Projects (Python, TensorFlow, OpenCV)</p>
-    </div>
-    <div className="project-item">
-      <span className="project-icon">📡</span>
-      <p>IoT Automation Projects (ESP32, Arduino, Sensors)</p>
-    </div>
-    <div className="project-item">
-      <span className="project-icon">💡</span>
-      <p>Innovative Research & Final Year Projects</p>
-    </div>
-    <div className="project-item">
-      <span className="project-icon">📊</span>
-      <p>Data Science Projects with Real-world Datasets</p>
-    </div>
-  </div>
-</section>
+        {/* 🎓 Projects We Offer */}
+        <section className="projects-offer-section">
+          <h3 className="section-heading">🎓 Mini & College Projects We Provide</h3>
+          <div className="projects-list-grid">
+            <div className="project-item">
+              <span className="project-icon">💻</span>
+              <p>Web & Mobile Projects (React, Node.js, Flutter)</p>
+            </div>
+            <div className="project-item">
+              <span className="project-icon">🤖</span>
+              <p>AI & ML Projects (Python, TensorFlow, OpenCV)</p>
+            </div>
+            <div className="project-item">
+              <span className="project-icon">📡</span>
+              <p>IoT Automation Projects (ESP32, Arduino, Sensors)</p>
+            </div>
+            <div className="project-item">
+              <span className="project-icon">💡</span>
+              <p>Innovative Research & Final Year Projects</p>
+            </div>
+            <div className="project-item">
+              <span className="project-icon">📊</span>
+              <p>Data Science Projects with Real-world Datasets</p>
+            </div>
+          </div>
+        </section>
 
-{/* 💡 Why Choose Us */}
-<section className="why-choose-section">
-  <h3 className="section-heading">💡 Why Work With Us?</h3>
-  <div className="why-grid">
-    <div className="why-card">
-      <h4>🌟 Practical Ideas</h4>
-      <p>Projects are designed to solve real-world problems and enhance your resume.</p>
-    </div>
-    <div className="why-card">
-      <h4>🧠 Expert Guidance</h4>
-      <p>Get mentorship from experienced developers and engineers throughout your project.</p>
-    </div>
-    <div className="why-card">
-      <h4>📘 Learn by Building</h4>
-      <p>Hands-on learning experience with source code, explanation, and documentation.</p>
-    </div>
-    <div className="why-card">
-      <h4>⚡ Fast & Reliable</h4>
-      <p>Quick project delivery with complete report, video, and implementation support.</p>
-    </div>
-    <div className="why-card">
-      <h4>💰 Affordable</h4>
-      <p>We offer cost-effective solutions tailored for students with 24/7 assistance.</p>
-    </div>
-  </div>
-</section>
-
+        {/* 💡 Why Choose Us */}
+        <section className="why-choose-section">
+          <h3 className="section-heading">💡 Why Work With Us?</h3>
+          <div className="why-grid">
+            <div className="why-card">
+              <h4>🌟 Practical Ideas</h4>
+              <p>Projects are designed to solve real-world problems and enhance your resume.</p>
+            </div>
+            <div className="why-card">
+              <h4>🧠 Expert Guidance</h4>
+              <p>Get mentorship from experienced developers and engineers throughout your project.</p>
+            </div>
+            <div className="why-card">
+              <h4>📘 Learn by Building</h4>
+              <p>Hands-on learning experience with source code, explanation, and documentation.</p>
+            </div>
+            <div className="why-card">
+              <h4>⚡ Fast & Reliable</h4>
+              <p>Quick project delivery with complete report, video, and implementation support.</p>
+            </div>
+            <div className="why-card">
+              <h4>💰 Affordable</h4>
+              <p>We offer cost-effective solutions tailored for students with 24/7 assistance.</p>
+            </div>
+          </div>
+        </section>
 
         {/* CTA Button */}
         <div className="cta-container">
-          <Link to="/project-enquiry">
-            <button className="big-cta-btn">
-              🚀 Submit Your Project Requirement
-            </button>
-          </Link>
+          <button className="big-cta-btn" onClick={handleProjectNavigation}>
+            🚀 Submit Your Project Requirement
+          </button>
         </div>
       </section>
 
@@ -178,9 +186,7 @@ const Home = () => {
       <SgpaCalculator />
 
       {/* 🔗 VTU Resources */}
-      <section className="info-box modern-box">
-        <h2>🔗 VTU Resources</h2>
-        <p>Access official VTU links and upload your study notes easily.</p>
+      <section className="info-box modern-boxs23">
         <UploadForm />
       </section>
 

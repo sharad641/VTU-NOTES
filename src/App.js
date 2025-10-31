@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import BeeScene from './components/BeeScene';
@@ -27,20 +33,23 @@ import TermsAndConditions from './components/TermsAndConditions';
 import AdSenseAd from './components/AdSenseAd';
 import AdminDashboard from './components/AdminDashboard';
 import SgpaCalculator from './components/SgpaCalculator';
-import ProjectEnquiry from './components/ProjectEnquiry'; // ✅ Import ProjectEnquiry
+import ProjectEnquiry from './components/ProjectEnquiry';
 
 import { auth, database } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { ref, get, update } from 'firebase/database';
 import './App.css';
 
+// ---------------------------
+// ✅ Analytics Tracker
+// ---------------------------
 function AnalyticsTracker() {
   const location = useLocation();
 
   useEffect(() => {
     const updateAnalytics = async () => {
       try {
-        const analyticsRef = ref(database, "analytics");
+        const analyticsRef = ref(database, 'analytics');
         const snapshot = await get(analyticsRef);
         const analyticsData = snapshot.exists() ? snapshot.val() : {};
 
@@ -48,16 +57,17 @@ function AnalyticsTracker() {
         const totalPageViews = (analyticsData.totalPageViews || 0) + 1;
         const visits = {
           ...(analyticsData.visits || {}),
-          [today]: ((analyticsData.visits && analyticsData.visits[today]) || 0) + 1
+          [today]: ((analyticsData.visits && analyticsData.visits[today]) || 0) + 1,
         };
         const topPages = {
           ...(analyticsData.topPages || {}),
-          [location.pathname]: ((analyticsData.topPages && analyticsData.topPages[location.pathname]) || 0) + 1
+          [location.pathname]:
+            ((analyticsData.topPages && analyticsData.topPages[location.pathname]) || 0) + 1,
         };
 
         await update(analyticsRef, { totalPageViews, visits, topPages });
       } catch (error) {
-        console.error("Error updating analytics:", error);
+        console.error('Error updating analytics:', error);
       }
     };
 
@@ -67,14 +77,53 @@ function AnalyticsTracker() {
   return null;
 }
 
+// ---------------------------
+// ✅ Protected Route Component
+// ---------------------------
+function ProtectedRoute({ element, isAuthenticated }) {
+  const location = useLocation();
+
+  return isAuthenticated ? (
+    element
+  ) : (
+    // Store full state with pathname for redirect after login
+    <Navigate to="/login" state={{ from: { pathname: location.pathname } }} replace />
+  );
+}
+
+// ---------------------------
+// ✅ Admin Protected Route
+// ---------------------------
+function AdminRoute({ element, isAuthenticated, userEmail, adminEmail }) {
+  return isAuthenticated && userEmail === adminEmail ? (
+    element
+  ) : (
+    <Navigate to="/" replace />
+  );
+}
+
+// ---------------------------
+// ✅ Redirect if Already Logged In
+// ---------------------------
+function RedirectAuthenticatedUser({ element, isAuthenticated, userEmail, adminEmail }) {
+  if (isAuthenticated && userEmail === adminEmail) {
+    return <Navigate to="/admin-dashboard" replace />;
+  }
+  return isAuthenticated ? <Navigate to="/" replace /> : element;
+}
+
+// ---------------------------
+// ✅ Main App Component
+// ---------------------------
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userEmail, setUserEmail] = useState(null);
   const [loading, setLoading] = useState(true);
   const [darkMode, setDarkMode] = useState(false);
 
-  const adminEmail = "sp1771838@gmail.com";
+  const adminEmail = 'sp1771838@gmail.com';
 
+  // Firebase Auth listener
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setIsAuthenticated(!!user);
@@ -84,17 +133,8 @@ function App() {
     return () => unsubscribe();
   }, []);
 
+  // Dark mode toggle
   const toggleDarkMode = () => setDarkMode((prev) => !prev);
-
-  const RedirectAuthenticatedUser = ({ element }) => {
-    if (isAuthenticated && userEmail === adminEmail) {
-      return <Navigate to="/admin-dashboard" />;
-    }
-    return isAuthenticated ? <Navigate to="/" /> : element;
-  };
-
-  const AdminRoute = ({ element }) =>
-    isAuthenticated && userEmail === adminEmail ? element : <Navigate to="/" />;
 
   if (loading) {
     return (
@@ -106,6 +146,9 @@ function App() {
     );
   }
 
+  // ---------------------------
+  // ✅ Render Application
+  // ---------------------------
   return (
     <Router>
       <AnalyticsTracker />
@@ -118,6 +161,7 @@ function App() {
         <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
 
         <Routes>
+          {/* Public Routes */}
           <Route path="/" element={<Home />} />
           <Route path="/bee-scene" element={<BeeScene />} />
           <Route path="/branch-selection/:scheme" element={<BranchSelection />} />
@@ -132,26 +176,79 @@ function App() {
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
 
-          {/* Authenticated routes */}
-          <Route path="/placement-guide" element={isAuthenticated ? <PlacementGuide /> : <Navigate to="/login" />} />
-          <Route path="/study-planner" element={isAuthenticated ? <StudyPlanner /> : <Navigate to="/login" />} />
-          <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
+          {/* Authenticated Routes */}
+          <Route
+            path="/placement-guide"
+            element={
+              <ProtectedRoute element={<PlacementGuide />} isAuthenticated={isAuthenticated} />
+            }
+          />
+          <Route
+            path="/study-planner"
+            element={<ProtectedRoute element={<StudyPlanner />} isAuthenticated={isAuthenticated} />}
+          />
+          <Route
+            path="/profile"
+            element={<ProtectedRoute element={<Profile />} isAuthenticated={isAuthenticated} />}
+          />
 
+          {/* Utilities */}
           <Route path="/calculator" element={<Calculator />} />
           <Route path="/sgpa-calculator" element={<SgpaCalculator />} />
           <Route path="/chatbot" element={<ChatBot />} />
           <Route path="/comments" element={<CommentSection />} />
           <Route path="/test" element={<TestPage />} />
 
-          {/* ✅ Project Enquiry */}
-          <Route path="/project-enquiry" element={<ProjectEnquiry />} />
+          {/* ✅ Protected Project Enquiry Route */}
+          <Route
+            path="/project-enquiry"
+            element={<ProtectedRoute element={<ProjectEnquiry />} isAuthenticated={isAuthenticated} />}
+          />
 
-          <Route path="/login" element={<RedirectAuthenticatedUser element={<Login setIsAuthenticated={setIsAuthenticated} />} />} />
-          <Route path="/signup" element={<RedirectAuthenticatedUser element={<Signup />} />} />
+          {/* ✅ Login & Signup */}
+          <Route
+            path="/login"
+            element={
+              <RedirectAuthenticatedUser
+                element={
+                  <Login
+                    setIsAuthenticated={setIsAuthenticated}
+                    setIsAdmin={() => {}}
+                  />
+                }
+                isAuthenticated={isAuthenticated}
+                userEmail={userEmail}
+                adminEmail={adminEmail}
+              />
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <RedirectAuthenticatedUser
+                element={<Signup />}
+                isAuthenticated={isAuthenticated}
+                userEmail={userEmail}
+                adminEmail={adminEmail}
+              />
+            }
+          />
 
-          <Route path="/admin-dashboard" element={<AdminRoute element={<AdminDashboard />} />} />
+          {/* ✅ Admin Dashboard */}
+          <Route
+            path="/admin-dashboard"
+            element={
+              <AdminRoute
+                element={<AdminDashboard />}
+                isAuthenticated={isAuthenticated}
+                userEmail={userEmail}
+                adminEmail={adminEmail}
+              />
+            }
+          />
 
-          <Route path="*" element={<Navigate to="/" />} />
+          {/* Fallback */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
 
         <Footer />

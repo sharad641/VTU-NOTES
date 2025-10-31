@@ -2,16 +2,17 @@
 .dashboard-layout {
   display: flex;
   min-height: 100vh;
-  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f8fafc;
+  font-family: "Inter", "Poppins", "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #f9fafc, #eef2ff);
   color: #1f2937;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  overflow-x: hidden;
 }
 
 /* === Sidebar === */
 .sidebar {
   width: 260px;
-  background: linear-gradient(180deg, #0f172a, #1e293b);
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
   color: #fff;
   padding: 25px 20px;
   display: flex;
@@ -21,9 +22,10 @@
   bottom: 0;
   left: 0;
   z-index: 999;
-  transition: transform 0.35s ease-in-out;
-  box-shadow: 2px 0 15px rgba(0, 0, 0, 0.25);
-  border-right: 1px solid rgba(255,255,255,0.05);
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
 }
 
 .sidebar h2 {
@@ -33,6 +35,7 @@
   margin-bottom: 35px;
   color: #fff;
   letter-spacing: 0.5px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
 }
 
 .sidebar nav {
@@ -44,9 +47,9 @@
 .sidebar nav button {
   padding: 14px 16px;
   border: none;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
   color: #d1d5db;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: left;
   font-size: 1rem;
   display: flex;
@@ -54,14 +57,15 @@
   gap: 12px;
   cursor: pointer;
   transition: all 0.25s ease;
+  backdrop-filter: blur(5px);
 }
 
 .sidebar nav button:hover,
 .sidebar nav button.active {
-  background: #2563eb;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
   color: #fff;
   transform: translateX(6px);
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
 }
 
 .logout-btn {
@@ -71,7 +75,7 @@
   border: none;
   color: white;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -80,7 +84,7 @@
 .logout-btn:hover {
   background: #dc2626;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  box-shadow: 0 6px 15px rgba(220, 38, 38, 0.4);
 }
 
 /* === Content === */
@@ -88,7 +92,7 @@
   flex: 1;
   margin-left: 260px;
   padding: 40px 35px;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 /* === Hamburger Button === */
@@ -97,35 +101,38 @@
   position: fixed;
   top: 18px;
   left: 18px;
-  z-index: 1000;
+  z-index: 1001;
   background: #2563eb;
   border: none;
   color: #fff;
-  padding: 8px;
-  border-radius: 8px;
+  padding: 10px 12px;
+  border-radius: 10px;
   font-size: 1.6rem;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   transition: all 0.25s ease;
 }
 
 .hamburger:hover {
   transform: scale(1.1);
+  background: #1d4ed8;
 }
 
 /* === Admin Card === */
 .admin-card {
-  background: #fff;
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
   padding: 28px 25px;
   margin-bottom: 30px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
 .admin-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.15);
 }
 
 .admin-card h3 {
@@ -149,24 +156,26 @@
 .analytics-stats div {
   background: #f1f5f9;
   flex: 1;
-  min-width: 150px;
-  padding: 22px;
+  min-width: 180px;
+  padding: 24px;
   text-align: center;
-  border-radius: 12px;
-  box-shadow: inset 0 1px 3px rgba(0,0,0,0.06);
-  transition: all 0.2s ease;
+  border-radius: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: all 0.25s ease;
 }
 
 .analytics-stats div:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.15);
+  transform: scale(1.04);
+  background: #e0e7ff;
+  box-shadow: 0 8px 22px rgba(37, 99, 235, 0.15);
 }
 
 .analytics-stats strong {
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #2563eb;
   display: block;
   margin-bottom: 6px;
+  font-weight: 700;
 }
 
 /* === Table Styling === */
@@ -174,13 +183,13 @@
   overflow-x: auto;
   border-radius: 12px;
   border: 1px solid #e5e7eb;
+  background: #fff;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 650px;
-  transition: all 0.3s ease;
+  min-width: 700px;
 }
 
 th, td {
@@ -188,7 +197,6 @@ th, td {
   border-bottom: 1px solid #e5e7eb;
   text-align: left;
   font-size: 0.95rem;
-  transition: background 0.2s ease;
 }
 
 th {
@@ -203,7 +211,7 @@ tr:hover {
 
 /* === Buttons === */
 .reply-btn, .save-btn, .cancel-btn, .delete-btn {
-  padding: 8px 16px;
+  padding: 9px 16px;
   border: none;
   border-radius: 10px;
   font-size: 0.9rem;
@@ -227,12 +235,12 @@ tr:hover {
 .reply-box {
   display: flex;
   gap: 10px;
-  margin-top: 6px;
+  margin-top: 8px;
 }
 
 .reply-box input {
   flex: 1;
-  padding: 8px;
+  padding: 10px 12px;
   border-radius: 10px;
   border: 1px solid #cbd5e1;
   font-size: 0.95rem;
@@ -242,24 +250,35 @@ tr:hover {
 .reply-box input:focus {
   outline: none;
   border-color: #2563eb;
-  box-shadow: 0 0 5px rgba(37, 99, 235, 0.4);
+  box-shadow: 0 0 6px rgba(37, 99, 235, 0.4);
 }
 
 /* === Responsive Design === */
 @media (max-width: 1024px) {
-  .dashboard-content { margin-left: 220px; padding: 30px; }
-  .sidebar { width: 220px; }
+  .dashboard-content { margin-left: 230px; padding: 30px; }
+  .sidebar { width: 230px; }
 }
 
 @media (max-width: 768px) {
   .dashboard-layout { flex-direction: column; }
-  .sidebar { transform: translateX(-100%); width: 250px; }
-  .sidebar.open { transform: translateX(0); }
-  .dashboard-content { margin-left: 0; margin-top: 70px; padding: 22px; }
+  .sidebar {
+    transform: translateX(-100%);
+    width: 250px;
+    position: fixed;
+    height: 100%;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: 4px 0 25px rgba(0, 0, 0, 0.4);
+  }
+  .dashboard-content {
+    margin-left: 0;
+    margin-top: 70px;
+    padding: 22px;
+  }
   .hamburger { display: block; }
   .analytics-stats { flex-direction: column; }
   .sidebar nav { gap: 10px; }
-  .sidebar nav button { font-size: 1rem; }
   .logout-btn { display: none; }
 }
 
@@ -269,4 +288,5 @@ tr:hover {
   th, td { padding: 10px; }
   .reply-box input { font-size: 0.85rem; }
   .admin-card h3 { font-size: 1.4rem; }
+  .hamburger { font-size: 1.4rem; padding: 8px 10px; }
 }
