@@ -1,6 +1,5 @@
 // src/components/ProjectEnquiry.js
 import React, { useState, useEffect } from "react";
-
 import { database, auth } from "../firebase";
 import { ref, push, set, onValue, off } from "firebase/database";
 import { motion } from "framer-motion";
@@ -86,6 +85,7 @@ const ProjectEnquiry = () => {
       }
     });
     return () => unsubscribe();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [navigate, location]);
 
   // ------------------ PROJECT FETCH ------------------
@@ -256,9 +256,7 @@ const ProjectEnquiry = () => {
                 {["step1", "step2", "step3"].map((step, idx) => (
                   <div
                     key={step}
-                    className={`progress-step ${proj.steps[step] ? "active" : ""} ${
-                      isAdmin ? "admin" : "locked"
-                    }`}
+                    className={`progress-step ${proj.steps[step] ? "active" : ""} ${isAdmin ? "admin" : "locked"}`}
                     onClick={() => isAdmin && toggleStep(userId, projId, step)}
                   >
                     {proj.steps[step] ? <FaCheckCircle /> : idx + 1}

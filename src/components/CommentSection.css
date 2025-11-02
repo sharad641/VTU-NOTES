@@ -1101,3 +1101,98 @@ html {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.project-enquiry-form {
+  max-width: 600px;
+  margin: 50px auto;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 30px 40px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.project-enquiry-form:hover {
+  transform: translateY(-3px);
+}
+
+.project-enquiry-form h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #fff;
+  font-size: 1.8rem;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Input Fields ===== */
+.project-enquiry-form input,
+.project-enquiry-form select,
+.project-enquiry-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: #f9f9f9;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.project-enquiry-form input::placeholder,
+.project-enquiry-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.project-enquiry-form input:focus,
+.project-enquiry-form select:focus,
+.project-enquiry-form textarea:focus {
+  border-color: #00c4ff;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 196, 255, 0.4);
+}
+
+/* ===== Textarea ===== */
+.project-enquiry-form textarea {
+  min-height: 120px;
+  resize: none;
+  line-height: 1.4;
+}
+
+/* ===== Button ===== */
+.project-enquiry-form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #00c4ff, #007bff);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.project-enquiry-form button:hover {
+  background: linear-gradient(135deg, #007bff, #00c4ff);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 196, 255, 0.3);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .project-enquiry-form {
+    padding: 25px 20px;
+  }
+
+  .project-enquiry-form h2 {
+    font-size: 1.5rem;
+  }
+
+  .project-enquiry-form input,
+  .project-enquiry-form select,
+  .project-enquiry-form textarea {
+    font-size: 0.95rem;
+  }
+}
