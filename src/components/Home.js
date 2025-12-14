@@ -71,6 +71,9 @@ const Home = () => {
           📚 6th Semester (2022) Notes added — Access them free & share with peers.
         </div>
       </div>
+        <BranchSelection />
+      <ModelPapers />
+
 
       {/* 🛠 Modern Project Section */}
       <section className="project-section">
@@ -171,9 +174,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 🌿 Other Sections */}
-      <BranchSelection />
-      <ModelPapers />
+     
 
       {/* 🤖 Chatbot */}
       <div className="chatbot-button-container">

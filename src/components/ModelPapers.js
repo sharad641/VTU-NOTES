@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import './ModelPapers.css';
 
 const papers = [
+
+
+  {
+    title: 'Software Engineering and Project Management',
+    code: 'BCS501',
+    modelPaperLink: 'https://drive.google.com/file/d/1aHbJ6mj2m71hYtjnTt-ODAZXLnavDPF4/preview',
+     oldPaperLink: 'https://drive.google.com/file/d/19ycoCUMX7u9EI9zwcCe0tkdShwTSIErC/preview', solutionLink: 'https://drive.google.com/file/d/1wiliZvzo0-Zc2E_UMZDhXuNa2mKgKjw5/preview',
+    
+  },
   {
     title: 'DISCRETE MATHEMATICAL STRUCTURES (BCS405A)',
     code: 'BCS405A',

@@ -1,77 +1,142 @@
-/* ========== GLOBAL CONTAINER ========== */
+/* ================================
+   🌐 GLOBAL CONTAINER
+================================ */
+.branch-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
 
-
+/* ================================
+   🏷️ HEADER
+================================ */
 .branch-header {
-  font-size: 3rem; /* slightly larger for more impact */
-  margin-bottom: 3rem;
-  color: #1e3a8a; /* deep blue base */
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
   font-weight: 900;
+  font-family: "Inter", sans-serif;
   letter-spacing: -0.03rem;
-  font-family: 'Inter', sans-serif;
   text-transform: uppercase;
-  line-height: 1.2;
   background: linear-gradient(135deg, #1e3a8a, #2563eb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
 }
 
+.branch-header:hover {
+  transform: scale(1.03);
+}
 
+/* ================================
+   🎓 SCHEME SECTIONS
+================================ */
+.scheme-section {
+  width: 100%;
+  max-width: 1300px;
+  margin-bottom: 60px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s ease;
+}
 
+.scheme-section:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
 
-/* ========== CARD WRAPPER ========== */
+.scheme-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #1e3a8a;
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  letter-spacing: -0.02rem;
+}
+
+.scheme-title::after {
+  content: "";
+  position: absolute;
+  width: 80px;
+  height: 4px;
+  border-radius: 2px;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+}
+
+/* ================================
+   🧩 CARD GRID
+================================ */
 .branch-section {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 40px;
+  justify-items: center;
+  margin-top: 30px;
 }
 
-/* ========== CARD STYLE ========== */
+/* ================================
+   💎 CARD DESIGN
+================================ */
 .branch-card {
   width: 100%;
-  max-width: 350px;
   background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   border: 1px solid #e5e7eb;
   transition: all 0.35s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transform: translateY(0);
 }
 
 .premium-card {
   border: 2px solid #2563eb;
-  box-shadow: 0 6px 24px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.15);
 }
 
 .premium-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.25);
 }
 
-/* ========== IMAGE SECTION ========== */
+/* ================================
+   🖼️ IMAGE / HEADER AREA
+================================ */
 .branch-image {
   background: linear-gradient(135deg, #2563eb, #1e40af);
   color: #ffffff;
   text-align: center;
-  padding: 50px 20px;
-  font-size: 1.9rem;
+  padding: 60px 20px;
+  font-size: 2rem;
   font-weight: 700;
-  transition: background 0.4s ease;
+  letter-spacing: 0.5px;
+  transition: all 0.4s ease;
 }
 
 .branch-card:hover .branch-image {
   background: linear-gradient(135deg, #1e40af, #2563eb);
+  letter-spacing: 1px;
 }
 
-/* ========== CONTENT SECTION ========== */
+/* ================================
+   📝 CONTENT SECTION
+================================ */
 .branch-content {
-  padding: 24px;
+  padding: 26px;
   text-align: left;
 }
 
@@ -92,10 +157,10 @@
 }
 
 .branch-content h3 {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #111827;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   transition: color 0.3s ease;
 }
 
@@ -110,7 +175,9 @@
   margin-bottom: 16px;
 }
 
-/* ========== META INFO & BRAND ========== */
+/* ================================
+   ℹ️ META INFO & BRAND
+================================ */
 .branch-meta {
   display: flex;
   justify-content: space-between;
@@ -126,11 +193,96 @@
   text-align: center;
 }
 
-/* ========== RESPONSIVE ========== */
+/* ================================
+   🔍 SEARCH BAR
+================================ */
+.search-bar-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  padding: 12px 16px;
+  width: 320px;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.25);
+}
+
+.search-button {
+  padding: 12px 22px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+}
+
+.search-button:hover {
+  background-color: #1e3a8a;
+  transform: scale(1.05);
+}
+
+/* ================================
+   📋 SEARCH RESULTS
+================================ */
+.search-results {
+  margin-top: 20px;
+  background: #f1f5f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  width: 100%;
+}
+
+.search-results h3 {
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.search-results ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.search-results li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+/* ================================
+   📱 RESPONSIVE DESIGN
+================================ */
+@media (max-width: 1024px) {
+  .scheme-section {
+    padding: 30px 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .branch-header {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 2.3rem;
+  }
+
+  .scheme-title {
+    font-size: 1.6rem;
   }
 
   .branch-card {
@@ -139,11 +291,7 @@
 
   .branch-image {
     font-size: 1.6rem;
-    padding: 40px 15px;
-  }
-
-  .branch-content {
-    padding: 20px;
+    padding: 45px 15px;
   }
 
   .branch-content h3 {
@@ -157,12 +305,16 @@
 
 @media (max-width: 480px) {
   .branch-header {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
+  }
+
+  .scheme-title {
+    font-size: 1.4rem;
   }
 
   .branch-card {
     max-width: 100%;
-    border-radius: 12px;
+    border-radius: 14px;
   }
 
   .branch-content p,
@@ -170,69 +322,8 @@
   .brand-tag {
     font-size: 0.85rem;
   }
-}
-/* 🔍 Search Bar Styling */
-.search-bar-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  margin: 30px 0;
-  flex-wrap: wrap;
-}
 
-.search-input {
-  padding: 12px 16px;
-  width: 300px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  background-color: #f9f9f9;
-  transition: all 0.3s ease;
-}
-
-.search-input:focus {
-  outline: none;
-  border-color: #1e90ff;
-  box-shadow: 0 0 8px rgba(30, 144, 255, 0.3);
-}
-
-.search-button {
-  padding: 12px 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  background-color: #1e90ff;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.search-button:hover {
-  background-color: #005bb5;
-}
-
-/* Search Results Styling */
-.search-results {
-  margin-top: 20px;
-  background: #f1f5f9;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-}
-
-.search-results h3 {
-  color: #1a1a1a;
-  margin-bottom: 10px;
-}
-
-.search-results ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.search-results li {
-  padding: 10px 0;
-  border-bottom: 1px solid #ccc;
+  .search-input {
+    width: 100%;
+  }
 }

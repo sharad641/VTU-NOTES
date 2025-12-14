@@ -1584,10 +1584,22 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/14htN4dswag4Pm9tuqWnQOCPvUB8-BQMo/preview",
             },
             {
+              title: "Module 1:New Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1qQrjUOTMKHEKZt9RsBqAZ5ejtNf5fq_J/preview",
+            },
+            {
               title: "Module 2: Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:
                 "https://drive.google.com/file/d/1-RibizuedU-k5TgYSk9panOpyoSogNvC/preview",
+            },
+            {
+              title: "Module 2:New Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1AY06kg3xmclh-wM815S2gjHgzZTIhCn9/preview",
             },
             {
               title: "Module 3: Notes",
@@ -1596,10 +1608,22 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1bAm05nOtffFzZ6rEhRp1VCjQTqrb86Fz/preview",
             },
             {
+              title: "Module 3:New Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1g49h6F8cegbTlEYchutMDahr9DuP0AZB/preview",
+            },
+            {
               title: "module 4:Notes",
               content: "Comprehensive notes for Module 4.",
               previewUrl:
                 "https://drive.google.com/file/d/1cpPl4-NTAs09C9gplu6s53m-FblYikpk/preview",
+            },
+             {
+              title: "module 4:New Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1ZiykwzFKrVrF0lV2jXKRVmwUjM7h0Eaj/preview",
             },
             {
               title: "Module 5: Notes",
@@ -1608,23 +1632,24 @@ const ModuleDetail = () => {
                 "https://drive.google.com/file/d/1uFRlNWRLIu07OrMl_IhYRTmyFaJNxx0E/preview",
             },
             {
+              title: "Module 5:New Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1LydiLZek-2_n2klxXLyCwiilhtpjuLCu/preview",
+            },
+            {
               title: " All Module : Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
                 "https://drive.google.com/file/d/1W5YQTnHRW9lpHG3j-BLABkV72kZwd_fO/preview",
             },
          {
-            title: "Question Paper",
+            title: "Model Question Paper Solutions  ",
             content: "Past question paper for Mathematics for CSE.",
             previewUrl:
-              "https://drive.google.com/file/d/1ucDCMJBz3s2vR7CPgS4FJgbK7-MueO5I/preview",
+              "https://drive.google.com/file/d/1aHbJ6mj2m71hYtjnTt-ODAZXLnavDPF4/preview",
           },
-          {
-            title: "Question Paper",
-            content: "question paper answer for CSE.",
-            previewUrl:
-              "https://drive.google.com/file/d/10v2_2Z7BviRPPxZrjOKUW-1snHuIk-Ne/preview",
-          },
+          
           {
             title: "Handwritten Question Bank With Answers",
             content: "Question bank for for CSE.",

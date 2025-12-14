@@ -1,0 +1,113 @@
+.branchDetails-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 40px 20px;
+  color: #fff;
+  background: linear-gradient(135deg, #0f0f10, #1b1b2b);
+  font-family: "Poppins", sans-serif;
+}
+
+.branchDetails-title {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  color: #00b4d8;
+}
+
+.branchDetails-description {
+  text-align: center;
+  font-size: 1rem;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.branchDetails-updated {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+.subjects-section {
+  display: grid;
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.subject-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s;
+}
+
+.subject-card:hover {
+  transform: translateY(-5px);
+}
+
+.subject-title {
+  color: #90e0ef;
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+}
+
+.modules-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.modules-list li {
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+
+.module-number {
+  color: #ffd166;
+  font-weight: 500;
+}
+
+.view-link {
+  color: #00b4d8;
+  margin-left: 6px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.view-link:hover {
+  color: #48cae4;
+}
+
+.extra-links {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 40px;
+  background: #00b4d8;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.back-btn:hover {
+  background: #0077b6;
+}
+
+@media (max-width: 768px) {
+  .subject-card {
+    padding: 20px;
+  }
+  .branchDetails-title {
+    font-size: 1.8rem;
+  }
+  .branchDetails-description {
+    font-size: 0.9rem;
+  }
+}
