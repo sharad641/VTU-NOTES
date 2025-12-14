@@ -2,7 +2,8 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import AdSenseAd from './AdSenseAd'; 
 import './Subjects.css';
-import { FaBookOpen, FaClock, FaArrowRight, FaSearch, FaLayerGroup } from 'react-icons/fa';
+import { FaBookOpen, FaClock, FaArrowRight, FaSearch } from 'react-icons/fa';
+
 
 const Subjects = () => {
   const { branch, semester } = useParams();
