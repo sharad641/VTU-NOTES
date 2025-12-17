@@ -3,7 +3,13 @@ import './ModelPapers.css';
 
 const papers = [
 
-
+   {
+    title: 'Computer Networks',
+    code: 'BCS502',
+    modelPaperLink: 'https://drive.google.com/file/d/10ENVRIXIu0mJDN-9HfkDIyciEWItiXb6/preview',
+     oldPaperLink: 'https://drive.google.com/file/d/17WdlxtTLAUE17KldQWdqiSPA3u4GWqMd/preview', solutionLink: 'https://drive.google.com/file/d/10ENVRIXIu0mJDN-9HfkDIyciEWItiXb6/preview',
+    
+  },
   {
     title: 'Software Engineering and Project Management',
     code: 'BCS501',
