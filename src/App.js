@@ -6,6 +6,8 @@ import {
   Navigate,
   useLocation,
 } from 'react-router-dom';
+
+// Component Imports
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import BeeScene from './components/BeeScene';
@@ -35,6 +37,11 @@ import AdminDashboard from './components/AdminDashboard';
 import SgpaCalculator from './components/SgpaCalculator';
 import ProjectEnquiry from './components/ProjectEnquiry';
 
+// ✅ NEW IMPORTS: Placement Feature
+import PlacementSection from './pages/PlacementSection';
+import ShareExperiencePage from './pages/ShareExperiencePage'; // Added this
+
+// Firebase Imports
 import { auth, database } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { ref, get, update } from 'firebase/database';
@@ -86,7 +93,6 @@ function ProtectedRoute({ element, isAuthenticated }) {
   return isAuthenticated ? (
     element
   ) : (
-    // Store full state with pathname for redirect after login
     <Navigate to="/login" state={{ from: { pathname: location.pathname } }} replace />
   );
 }
@@ -119,7 +125,6 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userEmail, setUserEmail] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [darkMode, setDarkMode] = useState(false);
 
   const adminEmail = 'sp1771838@gmail.com';
 
@@ -133,9 +138,6 @@ function App() {
     return () => unsubscribe();
   }, []);
 
-  // Dark mode toggle
-  const toggleDarkMode = () => setDarkMode((prev) => !prev);
-
   if (loading) {
     return (
       <div className="loading-overlay">
@@ -146,17 +148,12 @@ function App() {
     );
   }
 
-  // ---------------------------
-  // ✅ Render Application
-  // ---------------------------
   return (
     <Router>
       <AnalyticsTracker />
-      <div className={`app-container ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-        <button className="theme-toggle-button" onClick={toggleDarkMode}>
-          {darkMode ? '🌞' : '🌙'}
-        </button>
-
+      
+      <div className="app-container">
+        
         <Navbar />
         <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
 
@@ -183,6 +180,25 @@ function App() {
               <ProtectedRoute element={<PlacementGuide />} isAuthenticated={isAuthenticated} />
             }
           />
+          
+          {/* ✅ PLACEMENT STORIES ROUTES */}
+          
+          {/* 1. Main Feed (List View) */}
+          <Route
+            path="/placement-stories"
+            element={
+              <ProtectedRoute element={<PlacementSection />} isAuthenticated={isAuthenticated} />
+            }
+          />
+
+          {/* 2. Share Experience (Full Page Form) */}
+          <Route
+            path="/share-experience"
+            element={
+              <ProtectedRoute element={<ShareExperiencePage />} isAuthenticated={isAuthenticated} />
+            }
+          />
+
           <Route
             path="/study-planner"
             element={<ProtectedRoute element={<StudyPlanner />} isAuthenticated={isAuthenticated} />}
@@ -199,13 +215,13 @@ function App() {
           <Route path="/comments" element={<CommentSection />} />
           <Route path="/test" element={<TestPage />} />
 
-          {/* ✅ Protected Project Enquiry Route */}
+          {/* Protected Project Enquiry Route */}
           <Route
             path="/project-enquiry"
             element={<ProtectedRoute element={<ProjectEnquiry />} isAuthenticated={isAuthenticated} />}
           />
 
-          {/* ✅ Login & Signup */}
+          {/* Login & Signup */}
           <Route
             path="/login"
             element={
@@ -234,7 +250,7 @@ function App() {
             }
           />
 
-          {/* ✅ Admin Dashboard */}
+          {/* Admin Dashboard */}
           <Route
             path="/admin-dashboard"
             element={

@@ -1,106 +1,90 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import { FaInstagram, FaWhatsapp, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaChevronRight } from "react-icons/fa";
 import "./Footer.css";
 
 const Footer = ({ handleBranchClick }) => {
-  // Dynamic Social Links
-  const socialLinks = [
-    
-  ];
-
-  // Reusable Footer Link Component
-  const FooterLink = ({ href, label }) => (
-    <li>
-      <a href={href}>{label}</a>
-    </li>
-  );
+  const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="footer">
-      <div className="footer-container">
-        {/* Footer Logo and Description */}
-        <div className="footer-section footer-logo-section">
-          <h2 className="footer-logo">VTU Notes</h2>
-          <p className="footer-description">
-  Discover a comprehensive collection of VTU engineering notes, study materials, and resources. Simplify your learning journey with easy access to high-quality content tailored for every branch and semester.
-</p>
-
-        </div>
-
-        {/* Quick Links Section */}
-        <div className="footer-section footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <FooterLink href="/about" label="About Us" />
-            <FooterLink href="/contact" label="Contact" />
-            <FooterLink href="/privacy-policy" label="Privacy Policy" />
-            <FooterLink href="/terms-and-conditions" label="Terms and Conditions" />
-          </ul>
-        </div>
-
-        {/* Study Resources Section */}
-        <div className="footer-section footer-study-resources">
-          <h4>Study Resources</h4>
-          <ul>
-            <li>
-              <button
-                className="button"
-                onClick={() => handleBranchClick("first-year")}
-                aria-label="1st Year Engineering"
-              >
-                1st Year Engineering
-              </button>
-            </li>
-            <li>
-              <button
-                className="button"
-                onClick={() => handleBranchClick("cse")}
-                aria-label="CSE Stream"
-              >
-                CSE Stream
-              </button>
-            </li>
-          </ul>
-        </div>
-
-        {/* Social Media Section */}
-        <div className="footer-section footer-social">
-          <h4>Follow Us</h4>
-          <div className="social-icons">
-            {socialLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                className="social-icon"
-                aria-label={link.label}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className={link.icon}></i>
-              </a>
-            ))}
+    <footer className="modern-footer">
+      <div className="footer-content">
+        
+        {/* Column 1: Brand & About */}
+        <div className="footer-col brand-col">
+          <h2 className="footer-logo">VTU <span className="highlight">Notes</span></h2>
+          <p className="footer-desc">
+            Your one-stop destination for VTU engineering resources. 
+            We simplify learning with curated notes, question papers, and 
+            project guidance for all semesters.
+          </p>
+          <div className="contact-mini">
+            <div className="icon-row"><FaEnvelope /> support@vtunotesforall.in</div>
+            <div className="icon-row"><FaMapMarkerAlt /> Karnataka, India</div>
           </div>
         </div>
+
+        {/* Column 2: Quick Links */}
+        <div className="footer-col">
+          <h4>Quick Links</h4>
+          <ul className="footer-links">
+            <li><Link to="/"><FaChevronRight /> Home</Link></li>
+            <li><Link to="/about"><FaChevronRight /> About Us</Link></li>
+            <li><Link to="/contact"><FaChevronRight /> Contact</Link></li>
+            <li><Link to="/project-enquiry"><FaChevronRight /> Projects</Link></li>
+          </ul>
+        </div>
+
+        {/* Column 3: Resources */}
+        <div className="footer-col">
+          <h4>Resources</h4>
+          <ul className="footer-links">
+            <li>
+              <button className="text-btn" onClick={() => handleBranchClick("first-year")}>
+                <FaChevronRight /> 1st Year Engineering
+              </button>
+            </li>
+            <li>
+              <button className="text-btn" onClick={() => handleBranchClick("cse")}>
+                <FaChevronRight /> CSE Stream
+              </button>
+            </li>
+            <li><Link to="/sgpa-calculator"><FaChevronRight /> SGPA Calculator</Link></li>
+            <li><Link to="/model-papers"><FaChevronRight /> Model Papers</Link></li>
+          </ul>
+        </div>
+
+        {/* Column 4: Socials & Legal */}
+        <div className="footer-col">
+          <h4>Stay Connected</h4>
+          <p className="social-text">Join our community for updates.</p>
+          <div className="social-icons">
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="sc-icon"><FaInstagram /></a>
+            <a href="https://whatsapp.com" target="_blank" rel="noreferrer" className="sc-icon"><FaWhatsapp /></a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="sc-icon"><FaLinkedin /></a>
+          </div>
+        </div>
+
       </div>
 
-    
-
-      {/* Footer Bottom Section */}
+      {/* Bottom Bar */}
       <div className="footer-bottom">
-        <p>
-          © {new Date().getFullYear()} VTU Notes. All rights reserved. |{" "}
-          <a href="/terms-and-conditions">Terms</a> |{" "}
-          <a href="/privacy-policy">Privacy</a>
-        </p>
+        <div className="bottom-container">
+          <p>© {currentYear} VTU Notes For All. All rights reserved.</p>
+          <div className="legal-links">
+            <Link to="/privacy-policy">Privacy Policy</Link>
+            <span className="separator">•</span>
+            <Link to="/terms-and-conditions">Terms of Service</Link>
+          </div>
+        </div>
       </div>
     </footer>
   );
 };
 
-// PropType Validation
 Footer.propTypes = {
   handleBranchClick: PropTypes.func.isRequired,
 };
 
-// Exporting Component
 export default Footer;

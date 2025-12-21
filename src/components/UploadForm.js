@@ -1,60 +1,92 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { storage, firestore } from '../firebase'; 
 import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import { collection, addDoc } from 'firebase/firestore';
+import { 
+  CloudUpload, FileText, X, CheckCircle, AlertCircle, 
+  Send, Loader2 
+} from 'lucide-react';
 import styles from './UploadForm.module.css';
 
 const UploadForm = () => {
   const [file, setFile] = useState(null);
-  const [semester, setSemester] = useState('');
-  const [subjectName, setSubjectName] = useState('');
-  const [subjectCode, setSubjectCode] = useState('');
-  const [message, setMessage] = useState('');
-  const [uploadProgress, setUploadProgress] = useState(0);
-  const [feedbackMessage, setFeedbackMessage] = useState('');
-  const [isUploading, setIsUploading] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(null);
+  const [dragActive, setDragActive] = useState(false);
+  const [formData, setFormData] = useState({
+    semester: '',
+    subjectName: '',
+    subjectCode: '',
+    message: ''
+  });
+  
+  const [status, setStatus] = useState('idle'); // idle, uploading, success, error
+  const [progress, setProgress] = useState(0);
+  const [statusMsg, setStatusMsg] = useState('');
+  const fileInputRef = useRef(null);
 
-  const handleFileChange = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile?.type === 'application/pdf') {
+  // Handle Input Changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle File Selection
+  const validateFile = (selectedFile) => {
+    if (selectedFile && selectedFile.type === 'application/pdf') {
+      if (selectedFile.size > 15 * 1024 * 1024) { // 15MB Limit
+        setStatus('error');
+        setStatusMsg('File too large. Max size is 15MB.');
+        return;
+      }
       setFile(selectedFile);
-      setFeedbackMessage('');
-      setIsSuccess(null);
-    } else if (selectedFile) {
-      setFeedbackMessage('Please select a valid PDF file.');
-      setIsSuccess(false);
-      setFile(null);
-      e.target.value = null;
+      setStatus('idle');
+      setStatusMsg('');
+    } else {
+      setStatus('error');
+      setStatusMsg('Only PDF files are allowed.');
     }
   };
 
-  const resetForm = () => {
-    setFile(null);
-    setSemester('');
-    setSubjectName('');
-    setSubjectCode('');
-    setMessage('');
-    setUploadProgress(0);
-    setIsUploading(false);
-    setTimeout(() => {
-      setFeedbackMessage('');
-      setIsSuccess(null);
-    }, 5000);
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      validateFile(e.target.files[0]);
+    }
   };
 
-  const handleUpload = async (e) => {
+  // Drag & Drop Handlers
+  const handleDrag = (e) => {
     e.preventDefault();
-    if (!file || !semester || !subjectName) {
-      setFeedbackMessage('Please fill all required fields and select a file.');
-      setIsSuccess(false);
+    e.stopPropagation();
+    if (e.type === 'dragenter' || e.type === 'dragover') {
+      setDragActive(true);
+    } else if (e.type === 'dragleave') {
+      setDragActive(false);
+    }
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDragActive(false);
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      validateFile(e.dataTransfer.files[0]);
+    }
+  };
+
+  const removeFile = () => {
+    setFile(null);
+    setStatus('idle');
+    if (fileInputRef.current) fileInputRef.current.value = '';
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!file || !formData.semester || !formData.subjectName) {
+      setStatus('error');
+      setStatusMsg('Please fill required fields & attach a PDF.');
       return;
     }
 
-    setIsUploading(true);
-    setUploadProgress(0);
-    setFeedbackMessage('');
-    setIsSuccess(null);
+    setStatus('uploading');
+    setProgress(0);
 
     const storageRef = ref(storage, `notes/${Date.now()}_${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
@@ -62,33 +94,35 @@ const UploadForm = () => {
     uploadTask.on(
       'state_changed',
       (snapshot) => {
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setUploadProgress(progress);
+        const prog = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        setProgress(prog);
       },
       (error) => {
-        setFeedbackMessage(`Upload failed: ${error.message}`);
-        setIsSuccess(false);
-        setIsUploading(false);
+        setStatus('error');
+        setStatusMsg(`Upload failed: ${error.message}`);
       },
       async () => {
         try {
           const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
           await addDoc(collection(firestore, 'notes'), {
-            semester,
-            subjectName,
-            subjectCode,
+            ...formData,
             url: downloadURL,
             fileName: file.name,
-            message,
             uploadedAt: new Date(),
           });
-          setFeedbackMessage('🎉 Upload successful! Thank you for your contribution.');
-          setIsSuccess(true);
-          resetForm();
+          setStatus('success');
+          setStatusMsg('Notes uploaded successfully!');
+          
+          // Reset after 3 seconds
+          setTimeout(() => {
+            setFile(null);
+            setFormData({ semester: '', subjectName: '', subjectCode: '', message: '' });
+            setStatus('idle');
+            setProgress(0);
+          }, 3000);
         } catch (error) {
-          setFeedbackMessage(`Error saving document: ${error.message}`);
-          setIsSuccess(false);
-          setIsUploading(false);
+          setStatus('error');
+          setStatusMsg(`Database Error: ${error.message}`);
         }
       }
     );
@@ -96,74 +130,138 @@ const UploadForm = () => {
 
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleUpload}>
-
+      <div className={styles.glassCard}>
         <div className={styles.header}>
-          <h2 className={styles.title}>Upload Your Notes</h2>
-          <p className={styles.subtitle}>
-            Help fellow students by sharing your study materials. Your contribution matters.
-          </p>
+          <h2><CloudUpload size={28} className={styles.iconBrand} /> Contribute Notes</h2>
+          <p>Help your juniors by sharing your study materials.</p>
         </div>
 
-        {/* ---------- TWO-COLUMN FORM ---------- */}
-        <div className={styles.formColumns}>
-          <div className={styles.formLeft}>
-            {/** Semester */}
-            <div className={styles.formGroup}>
-              <input type="text" value={semester} onChange={e => setSemester(e.target.value)} className={styles.input} placeholder=" " required />
-              <label className={styles.label}>Semester</label>
-            </div>
-
-            {/** Subject Name */}
-            <div className={styles.formGroup}>
-              <input type="text" value={subjectName} onChange={e => setSubjectName(e.target.value)} className={styles.input} placeholder=" " required />
-              <label className={styles.label}>Subject Name</label>
-            </div>
-
-            {/** Subject Code */}
-            <div className={styles.formGroup}>
-              <input type="text" value={subjectCode} onChange={e => setSubjectCode(e.target.value)} className={styles.input} placeholder=" " />
-              <label className={styles.label}>Subject Code (Optional)</label>
+        <form onSubmit={handleSubmit} className={styles.formGrid}>
+          
+          {/* Left Column: File Upload */}
+          <div className={styles.leftCol}>
+            <div 
+              className={`${styles.dropZone} ${dragActive ? styles.dragActive : ''} ${file ? styles.hasFile : ''}`}
+              onDragEnter={handleDrag}
+              onDragLeave={handleDrag}
+              onDragOver={handleDrag}
+              onDrop={handleDrop}
+              onClick={() => !file && fileInputRef.current.click()}
+            >
+              <input 
+                ref={fileInputRef}
+                type="file" 
+                accept="application/pdf" 
+                onChange={handleFileChange} 
+                className={styles.hiddenInput} 
+              />
+              
+              {file ? (
+                <div className={styles.filePreview}>
+                  <div className={styles.fileIcon}><FileText size={40} /></div>
+                  <div className={styles.fileInfo}>
+                    <span className={styles.fileName}>{file.name}</span>
+                    <span className={styles.fileSize}>{(file.size / 1024 / 1024).toFixed(2)} MB</span>
+                  </div>
+                  <button type="button" onClick={(e) => { e.stopPropagation(); removeFile(); }} className={styles.removeBtn}>
+                    <X size={20} />
+                  </button>
+                </div>
+              ) : (
+                <div className={styles.uploadPlaceholder}>
+                  <CloudUpload size={48} className={styles.cloudIcon} />
+                  <p><strong>Click to upload</strong> or drag and drop</p>
+                  <span>PDF only (Max 15MB)</span>
+                </div>
+              )}
             </div>
           </div>
 
-          <div className={styles.formRight}>
-            {/** Optional Message */}
-            <div className={styles.formGroup}>
-              <textarea value={message} onChange={e => setMessage(e.target.value)} className={styles.textarea} placeholder=" "></textarea>
-              <label className={styles.label}>Optional Message</label>
+          {/* Right Column: Details */}
+          <div className={styles.rightCol}>
+            <div className={styles.inputGroup}>
+              <input 
+                type="text" 
+                name="semester" 
+                value={formData.semester} 
+                onChange={handleChange} 
+                required 
+                placeholder=" " 
+              />
+              <label>Semester (e.g., 5th Sem)</label>
             </div>
 
-            {/** File Upload */}
-            <div className={styles.formGroup}>
-              <label className={styles.fileUploadLabel}>
-                <span>{file ? file.name : 'Choose a PDF file...'}</span>
-                <div className={styles.fileUploadButton}>Browse</div>
-                <input type="file" accept="application/pdf" onChange={handleFileChange} className={styles.fileInput} required />
-              </label>
+            <div className={styles.inputGroup}>
+              <input 
+                type="text" 
+                name="subjectName" 
+                value={formData.subjectName} 
+                onChange={handleChange} 
+                required 
+                placeholder=" " 
+              />
+              <label>Subject Name</label>
             </div>
-          </div>
-        </div>
 
-        {/** Progress Bar */}
-        {isUploading && (
-          <div className={styles.progressContainer}>
-            <div className={styles.progressBar} style={{ width: `${uploadProgress}%` }}></div>
-          </div>
-        )}
+            <div className={styles.inputGroup}>
+              <input 
+                type="text" 
+                name="subjectCode" 
+                value={formData.subjectCode} 
+                onChange={handleChange} 
+                placeholder=" " 
+              />
+              <label>Subject Code (Optional)</label>
+            </div>
 
-        {/** Feedback Message */}
-        {feedbackMessage && (
-          <div className={`${styles.feedbackMessage} ${isSuccess ? styles.success : styles.error}`}>
-            {feedbackMessage}
-          </div>
-        )}
+            <div className={styles.inputGroup}>
+              <textarea 
+                name="message" 
+                value={formData.message} 
+                onChange={handleChange} 
+                placeholder=" " 
+                rows="3"
+              ></textarea>
+              <label>Short Message (Optional)</label>
+            </div>
 
-        {/** Submit Button */}
-        <button type="submit" className={styles.submitButton} disabled={isUploading}>
-          {isUploading ? `Uploading... ${Math.round(uploadProgress)}%` : 'Upload Notes'}
-        </button>
-      </form>
+            {/* Status Feedback */}
+            {status === 'error' && (
+              <div className={styles.errorMsg}>
+                <AlertCircle size={16} /> {statusMsg}
+              </div>
+            )}
+            
+            {status === 'success' && (
+              <div className={styles.successMsg}>
+                <CheckCircle size={16} /> {statusMsg}
+              </div>
+            )}
+
+            {/* Submit Button with Progress */}
+            <button 
+              type="submit" 
+              className={styles.submitBtn} 
+              disabled={status === 'uploading' || status === 'success'}
+            >
+              {status === 'uploading' ? (
+                <span className={styles.uploadingState}>
+                   <Loader2 className={styles.spinner} size={20} /> {Math.round(progress)}%
+                </span>
+              ) : status === 'success' ? (
+                <span>Uploaded!</span>
+              ) : (
+                <>Upload Notes <Send size={18} /></>
+              )}
+              
+              {/* Internal Progress Bar fill */}
+              {status === 'uploading' && (
+                <div className={styles.progressFill} style={{ width: `${progress}%` }}></div>
+              )}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

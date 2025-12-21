@@ -1230,3 +1230,536 @@ body {
   color: #475569;
   line-height: 1.4;
 }
+/* =========================
+   1. GLOBAL VARIABLES & RESET
+   ========================= */
+:root {
+  --brand-blue: #2563eb;
+  --brand-dark: #1e3a8a;
+  --brand-light: #eff6ff;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --bg-page: #f8fafc;
+  --bg-white: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --radius-lg: 16px;
+  --radius-full: 999px;
+  --font-main: 'Inter', system-ui, sans-serif;
+}
+
+.home-container {
+  background-color: var(--bg-page);
+  min-height: 100vh;
+  font-family: var(--font-main);
+  color: var(--text-main);
+  padding-bottom: 80px;
+}
+
+/* =========================
+   2. ANNOUNCEMENT BAR
+   ========================= */
+.announcement-bar {
+  background: linear-gradient(90deg, #1e3a8a, #2563eb);
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+
+.announcement-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.new-badge {
+  background: #f59e0b;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   3. SECTIONS LAYOUT
+   ========================= */
+.core-section, 
+.project-section-wrapper, 
+.tools-section, 
+.contribute-section, 
+.support-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* =========================
+   4. PROJECT SECTION (Main Feature)
+   ========================= */
+.project-section-wrapper {
+  background: var(--bg-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  border: 1px solid var(--border-color);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-pill {
+  background: var(--brand-light);
+  color: var(--brand-blue);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 15px 0;
+  color: var(--text-main);
+}
+
+.highlight-blue {
+  color: var(--brand-blue);
+  position: relative;
+}
+
+.section-header p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Project Cards Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.feature-card {
+  background: var(--bg-page);
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--brand-blue);
+  background: var(--bg-white);
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.text-link-btn {
+  background: none;
+  border: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  transition: gap 0.2s;
+}
+
+.text-link-btn:hover { gap: 12px; }
+
+/* Info Grid (Why Choose Us) */
+.info-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  padding: 0 20px;
+  margin-bottom: 60px;
+}
+
+.info-col h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text-main);
+  border-left: 5px solid var(--brand-blue);
+  padding-left: 15px;
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+}
+
+.check-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.05rem;
+  margin-bottom: 16px;
+  color: var(--text-muted);
+}
+
+.check-icon {
+  color: #10b981; /* Green */
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.reasons-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.reason-item {
+  background: var(--bg-page);
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.reason-icon { font-size: 1.5rem; color: var(--brand-blue); }
+.reason-item strong { display: block; color: var(--text-main); font-size: 0.95rem; margin-bottom: 4px; }
+.reason-item p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+
+/* CTA Banner */
+.cta-banner {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  margin: 0 20px;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.cta-content h3 { font-size: 1.8rem; margin: 0 0 8px 0; }
+.cta-content p { margin: 0; opacity: 0.9; font-size: 1.1rem; }
+
+.cta-btn-primary {
+  background: white;
+  color: var(--brand-blue);
+  border: none;
+  padding: 14px 28px;
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s;
+  white-space: nowrap;
+}
+
+.cta-btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   5. CONTRIBUTE SECTION
+   ========================= */
+.glass-box {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  backdrop-filter: blur(10px);
+}
+
+/* =========================
+   6. SUPPORT SECTION
+   ========================= */
+.support-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.support-card {
+  background: var(--bg-white);
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.support-card:hover {
+  border-color: var(--brand-blue);
+  box-shadow: var(--shadow-md);
+}
+
+.support-icon {
+  font-size: 2.5rem;
+  color: var(--brand-blue);
+  margin-bottom: 16px;
+}
+
+.support-card h3 { margin: 0 0 8px 0; font-size: 1.25rem; }
+.support-card p { color: var(--text-muted); margin-bottom: 20px; }
+
+.btn-outline {
+  display: inline-block;
+  border: 1px solid var(--border-color);
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.btn-outline:hover {
+  border-color: var(--brand-blue);
+  color: var(--brand-blue);
+  background: var(--brand-light);
+}
+
+/* =========================
+   7. CHATBOT FAB
+   ========================= */
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.chatbot-window {
+  margin-bottom: 10px;
+}
+
+.chatbot-fab {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--brand-blue);
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+  transition: transform 0.2s, background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatbot-fab:hover {
+  background: var(--brand-dark);
+  transform: scale(1.1);
+}
+
+/* =========================
+   8. RESPONSIVE
+   ========================= */
+@media (max-width: 900px) {
+  .info-grid-layout { grid-template-columns: 1fr; gap: 40px; }
+  .cta-banner { flex-direction: column; text-align: center; gap: 20px; }
+  .support-section { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .section-header h2 { font-size: 1.8rem; }
+  .project-grid { grid-template-columns: 1fr; }
+  .reasons-grid { grid-template-columns: 1fr; }
+  .cta-content h3 { font-size: 1.5rem; }
+  .chatbot-fab { width: 50px; height: 50px; font-size: 1.2rem; }
+}/* =========================
+   MODERN HEADLINE / NEWS BAR
+   ========================= */
+
+/* 1. Container with Animated Gradient */
+.modern-news-bar {
+  width: 100%;
+  background: linear-gradient(
+    90deg, 
+    #1e3a8a 0%, 
+    #2563eb 50%, 
+    #4f46e5 100%
+  );
+  background-size: 200% auto;
+  color: white;
+  padding: 12px 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
+  
+  /* The "Flow" Animation */
+  animation: gradientFlow 5s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 2. Content Wrapper */
+.news-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap; /* Wraps on mobile */
+  font-family: var(--font-main);
+}
+
+/* 3. The "NEW" Badge */
+.news-badge {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(4px);
+}
+
+/* Green Pulse Dot inside Badge */
+.badge-pulse {
+  width: 8px;
+  height: 8px;
+  background-color: #4ade80; /* Bright Green */
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(74, 222, 128, 0.7);
+  animation: pulseGreen 2s infinite;
+}
+
+@keyframes pulseGreen {
+  0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.7); }
+  70% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+/* 4. Text Styling */
+.news-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.news-text strong {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.divider {
+  opacity: 0.5;
+  margin: 0 4px;
+}
+
+/* 5. "Check it out" Link */
+.news-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.news-link:hover {
+  border-bottom-color: white;
+  gap: 10px; /* Moves arrow slightly */
+}
+
+.arrow-icon {
+  font-size: 0.8rem;
+  transition: transform 0.2s ease;
+}
+
+/* =========================
+   RESPONSIVE TWEAKS
+   ========================= */
+@media (max-width: 768px) {
+  .news-content {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+  
+  .news-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    width: 100%; /* Force new line on very small screens if needed */
+  }
+
+  .divider {
+    display: none; /* Hide divider on mobile, just stack text visually */
+  }
+  
+  .news-text br {
+    display: block; /* If you use <br> in text */
+  }
+
+  .news-link {
+    margin-left: auto; /* Push link to right */
+    font-size: 0.85rem;
+  }
+}

@@ -1,153 +1,186 @@
 import React, { useState } from "react";
-import "./Contact.css";
 import { database } from "../firebase";
 import { ref, push } from "firebase/database";
+import {
+  FaEnvelope,
+  FaWhatsapp,
+  FaPaperPlane,
+  FaUser,
+  FaCommentAlt,
+  FaCheckCircle
+} from "react-icons/fa";
+import "./Contact.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    message: "",
+    message: ""
   });
-  const [submitStatus, setSubmitStatus] = useState("");
 
-  // Handle input changes
+  const [status, setStatus] = useState({ type: "", msg: "" });
+  const [loading, setLoading] = useState(false);
+
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Email validation
-  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, message } = formData;
 
     if (!name.trim() || !email.trim() || !message.trim()) {
-      setSubmitStatus("⚠️ All fields are required.");
+      setStatus({ type: "error", msg: "Please fill in all fields." });
       return;
     }
 
-    if (!isValidEmail(email)) {
-      setSubmitStatus("⚠️ Please enter a valid email address.");
-      return;
-    }
-
+    setLoading(true);
     try {
-      const contactRef = ref(database, "contacts");
-      await push(contactRef, {
-        name,
-        email,
-        message,
+      await push(ref(database, "contacts"), {
+        ...formData,
         timestamp: new Date().toISOString(),
       });
 
-      setSubmitStatus("✅ Message sent successfully!");
+      setStatus({
+        type: "success",
+        msg: "Message sent! We'll reply shortly.",
+      });
+
       setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error("Error submitting message:", error);
-      setSubmitStatus("❌ Failed to send message. Please try again later.");
+    } catch {
+      setStatus({
+        type: "error",
+        msg: "Something went wrong. Please try again.",
+      });
+    } finally {
+      setLoading(false);
+      setTimeout(() => setStatus({ type: "", msg: "" }), 5000);
     }
   };
 
   return (
-    <div className="contact-page">
-      {/* Introduction */}
-      <section className="contact-intro">
-        <h1>📞 Contact Us</h1>
-        <p>
-          Have questions or feedback? We're here to help! Fill out the form
-          below, and we'll get back to you as soon as possible.
-        </p>
-      </section>
+    <div className="contact-page-wrapper">
+      <div className="contact-container">
 
-      {/* Contact Section */}
-      <section className="contact-details">
-        <h2>📧 Get in Touch</h2>
-        <div className="contact-box">
-          {/* Contact Info */}
-          <div className="contact-info">
-            <h3>Email Us</h3>
+        {/* LEFT: INFO CARD */}
+        <div className="contact-info-card">
+          <div className="info-content">
+            <h2>Let's Chat</h2>
             <p>
-              <a href="mailto:vtunotesforall@gmail.com" className="contact-link">
-                vtunotesforall@gmail.com
-              </a>
+              Whether you have a question about notes, projects,
+              or just want to say hi, our inbox is open.
             </p>
+
+            <div className="info-item">
+              <div className="icon-circle">
+                <FaEnvelope />
+              </div>
+              <div>
+                <span>Email Us</span>
+                <a href="mailto:vtunotesforall@gmail.com">
+                  vtunotesforall@gmail.com
+                </a>
+              </div>
+            </div>
+
+            <div className="social-section">
+              <h4>Join our Communities</h4>
+              <div className="wa-groups">
+                <a
+                  href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="wa-btn"
+                >
+                  <FaWhatsapp /> Group 1
+                </a>
+
+                <a
+                  href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="wa-btn"
+                >
+                  <FaWhatsapp /> Group 2
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="contact-form">
-            <h3>📨 Send Us a Message</h3>
-            <form onSubmit={handleSubmit}>
-              <label htmlFor="name">Your Name</label>
+          <div className="circle c1"></div>
+          <div className="circle c2"></div>
+        </div>
+
+        {/* RIGHT: FORM */}
+        <div className="contact-form-wrapper">
+          <form onSubmit={handleSubmit} className="modern-form">
+            <h3>Send a Message</h3>
+
+            {/* NAME */}
+            <div className="input-group">
+             
               <input
                 type="text"
-                id="name"
                 name="name"
+                className="contact-input"
+                placeholder="Your Name"
                 value={formData.name}
                 onChange={handleInputChange}
-                placeholder="Enter your name"
+                aria-label="Your Name"
               />
+            </div>
 
-              <label htmlFor="email">Your Email</label>
+            {/* EMAIL */}
+            <div className="input-group">
+             
               <input
                 type="email"
-                id="email"
                 name="email"
+                className="contact-input"
+                placeholder="Your Email"
                 value={formData.email}
                 onChange={handleInputChange}
-                placeholder="Enter your email"
+                aria-label="Your Email"
               />
+            </div>
 
-              <label htmlFor="message">Message</label>
+            {/* MESSAGE */}
+            <div className="input-group">
+              
               <textarea
-                id="message"
                 name="message"
+                className="contact-input"
+                placeholder="How can we help you?"
                 value={formData.message}
                 onChange={handleInputChange}
-                placeholder="Write your message"
-                rows="5"
-              ></textarea>
+                aria-label="Message"
+              />
+            </div>
 
-              <button type="submit" className="button modern-button">
-                Send Message
-              </button>
-            </form>
+            {/* SUBMIT */}
+            <button
+              type="submit"
+              className="submit-btn"
+              disabled={loading}
+            >
+              {loading ? "Sending..." : (
+                <>
+                  Send Message <FaPaperPlane />
+                </>
+              )}
+            </button>
 
-            {submitStatus && <p className="submit-status">{submitStatus}</p>}
-          </div>
+            {/* STATUS */}
+            {status.msg && (
+              <div className={`status-msg ${status.type}`}>
+                {status.type === "success" && <FaCheckCircle />}
+                {status.msg}
+              </div>
+            )}
+          </form>
         </div>
-      </section>
 
-      {/* Social Links */}
-      <section className="follow-us">
-        <h2>📲 Follow Us</h2>
-        <ul className="social-links">
-          <li>
-            <a
-              href="https://chat.whatsapp.com/GV4LJ4FE4I1KvCyM6DTbsG"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-whatsapp"></i> WhatsApp Group 1
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://chat.whatsapp.com/IK3T3NpNZNWG9SY3ai1h8t"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i className="fab fa-whatsapp"></i> WhatsApp Group 2
-            </a>
-          </li>
-          <li>
-           
-          </li>
-        </ul>
-      </section>
+      </div>
     </div>
   );
 };
