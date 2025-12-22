@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { database, auth } from '../firebase';
 import { ref, push, onValue, remove, update } from 'firebase/database';
 import { onAuthStateChanged } from 'firebase/auth';
 import { 
   FaPaperPlane, FaReply, FaTrash, FaThumbtack, 
-  FaUser, FaEnvelope, FaChevronDown, FaChevronUp, FaShieldAlt, FaEllipsisH
+  FaUser, FaShieldAlt
 } from 'react-icons/fa';
 import './CommentSection.css';
 
@@ -41,7 +41,6 @@ const CommentSection = () => {
   const [expandedReplies, setExpandedReplies] = useState({});
   const [loading, setLoading] = useState(true);
   const [showLoginPopup, setShowLoginPopup] = useState(false);
-  const commentFormRef = useRef(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => setCurrentUserEmail(user?.email || null));

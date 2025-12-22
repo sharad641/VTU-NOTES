@@ -40,16 +40,7 @@ const Footer = ({ handleBranchClick }) => {
         <div className="footer-col">
           <h4>Resources</h4>
           <ul className="footer-links">
-            <li>
-              <button className="text-btn" onClick={() => handleBranchClick("first-year")}>
-                <FaChevronRight /> 1st Year Engineering
-              </button>
-            </li>
-            <li>
-              <button className="text-btn" onClick={() => handleBranchClick("cse")}>
-                <FaChevronRight /> CSE Stream
-              </button>
-            </li>
+           
             <li><Link to="/sgpa-calculator"><FaChevronRight /> SGPA Calculator</Link></li>
             <li><Link to="/model-papers"><FaChevronRight /> Model Papers</Link></li>
           </ul>

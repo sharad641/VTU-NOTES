@@ -57,7 +57,7 @@
 .brand-pill { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 6px 16px; border-radius: 30px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; margin-bottom: 24px; }
 .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e; }
 .hero-title { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
-.text-gradient { background: linear-gradient(to right, #a5f3fc, #6366f1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.text-gradient { background: linear-gradient(to right, #a5f3fc, #6366f1); background-clip: text; -webkit-text-fill-color: transparent; }
 .hero-desc { font-size: 1.1rem; color: rgba(255,255,255,0.8); line-height: 1.6; margin-bottom: 40px; }
 .glass-stats-card { display: flex; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 20px; padding: 20px; margin-bottom: 40px; transition: transform 0.3s; }
 .glass-stats-card:hover { transform: translateY(-5px); }
