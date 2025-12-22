@@ -7,7 +7,8 @@ import {
   XCircle, Layers, TrendingUp, Users, Plus, BookOpen, Clock, AlertCircle, 
   MessageSquare, Send, User as UserIcon, Lightbulb, GraduationCap, Sparkles,
   Code2, Database, Globe, Cpu, Terminal, ThumbsUp, Link as LinkIcon,
-  ExternalLink, FileText, DownloadCloud, ChevronRight, ChevronLeft, Star
+  ExternalLink, FileText, DownloadCloud, ChevronRight, ChevronLeft, Star,
+  PenTool // Added icon for submit button
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { auth, database } from '../firebase';
@@ -744,6 +745,34 @@ export default function PlacementSection() {
                 </button>
               </div>
             )}
+
+            {/* SUBMIT YOUR EXPERIENCE BUTTON - Added at the bottom */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="submit-experience-container"
+            >
+              <div className="submit-experience-card">
+                <div className="submit-content">
+                  <div className="submit-icon">
+                    <PenTool size={28} />
+                  </div>
+                  <div className="submit-text">
+                    <h3>Have a placement experience to share?</h3>
+                    <p>Your story can help thousands of students prepare better. 
+                       Share your interview process, questions asked, and tips for success.</p>
+                  </div>
+                </div>
+                <button 
+                  onClick={() => navigate('/share-experience')}
+                  className="submit-experience-button"
+                >
+                  <Share2 size={18} />
+                  Submit Your Experience
+                </button>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

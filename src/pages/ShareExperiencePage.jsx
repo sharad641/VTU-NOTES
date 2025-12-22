@@ -4,7 +4,7 @@ import {
   ArrowLeft, CheckCircle, User, Briefcase, BookOpen, 
   Target, FileText, Plus, Trash2, Loader2, Sparkles, Wand2, 
   Lightbulb, ChevronRight, GraduationCap, MapPin, 
-  Link2, PlusCircle, X 
+  Link2, PlusCircle, X, Upload, Send, CheckSquare
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -47,6 +47,7 @@ const ShareExperiencePage = () => {
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [activeSection, setActiveSection] = useState('personal');
+  const [showSubmitSuccess, setShowSubmitSuccess] = useState(false);
 
   // Helper state for adding links one by one
   const [currentLink, setCurrentLink] = useState({ title: '', url: '' });
@@ -171,7 +172,30 @@ const ShareExperiencePage = () => {
     e.preventDefault();
     setLoading(true);
 
-    if (!auth.currentUser) { alert("Please login to submit."); setLoading(false); return; }
+    if (!auth.currentUser) { 
+      alert("Please login to submit."); 
+      setLoading(false); 
+      return; 
+    }
+
+    // Basic validation
+    if (!formData.company.trim()) {
+      alert("Please fill in the Company Name.");
+      setLoading(false);
+      return;
+    }
+
+    if (!formData.role.trim()) {
+      alert("Please fill in the Role/Title.");
+      setLoading(false);
+      return;
+    }
+
+    if (!formData.experience.trim()) {
+      alert("Please share your overall experience.");
+      setLoading(false);
+      return;
+    }
 
     try {
       // Data Transformation
@@ -203,7 +227,13 @@ const ShareExperiencePage = () => {
       };
 
       await push(ref(database, 'placement_reviews'), payload);
-      navigate('/placement-stories');
+      
+      // Show success message
+      setShowSubmitSuccess(true);
+      setTimeout(() => {
+        navigate('/placement-stories');
+      }, 2000);
+      
     } catch (error) {
       console.error(error);
       alert("Submission failed. Please try again.");
@@ -211,8 +241,46 @@ const ShareExperiencePage = () => {
     setLoading(false);
   };
 
+  // Success Modal Component
+  const SubmitSuccessModal = () => (
+    <div className="submit-success-modal">
+      <div className="success-modal-content">
+        <div className="success-icon">
+          <CheckSquare size={48} />
+        </div>
+        <h3>Experience Published Successfully!</h3>
+        <p>Thank you for sharing your placement journey. Your story will help many students.</p>
+        <div className="success-actions">
+          <button onClick={() => navigate('/placement-stories')} className="btn-success">
+            View All Experiences
+          </button>
+          <button onClick={() => {
+            setShowSubmitSuccess(false);
+            setFormData({
+              isAnonymous: false,
+              status: 'B.Tech Student', college: '', gradYear: '', 
+              company: '', role: '', jobType: 'On-Campus', 
+              location: '', duration: '', ctc: '',
+              resources: '', technologies: '', 
+              rounds: [{ title: '', date: '', description: '' }],
+              experience: '', difficulty: 'Medium', offerStatus: 'Selected',
+              placementTips: '', 
+              studySuggestions: '',
+              externalLinks: []
+            });
+          }} className="btn-secondary">
+            Share Another
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div className="share-container">
+      
+      {/* Success Modal */}
+      {showSubmitSuccess && <SubmitSuccessModal />}
       
       {/* 1. Sticky Navbar */}
       <nav className="share-nav">
@@ -220,7 +288,9 @@ const ShareExperiencePage = () => {
         <div className="save-indicator">
            {saving ? <><Loader2 className="animate-spin" size={14}/> Saving...</> : <><CheckCircle size={14}/> Draft Saved</>}
         </div>
-        <button onClick={handleSubmit} className="nav-btn-primary">Publish <ChevronRight size={16}/></button>
+        <button onClick={handleSubmit} className="nav-btn-primary" disabled={loading}>
+          {loading ? "Publishing..." : <>Publish <ChevronRight size={16}/></>}
+        </button>
       </nav>
 
       <div className="main-layout">
@@ -484,10 +554,70 @@ const ShareExperiencePage = () => {
               </div>
            </div>
 
-           <div className="mobile-submit-spacer"></div>
-           <button type="submit" className="btn-mobile-submit" disabled={loading}>
-              {loading ? "Publishing..." : "Publish Experience"}
-           </button>
+           {/* ===========================================
+               SUBMIT BUTTON SECTION - ADDED AT THE BOTTOM
+               =========================================== */}
+           <div className="submit-section">
+             <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.5 }}
+               className="submit-card"
+             >
+               <div className="submit-content">
+                 <div className="submit-icon">
+                   <Upload size={28} />
+                 </div>
+                 <div className="submit-text">
+                   <h3>Ready to Share Your Experience?</h3>
+                   <p>Your story will help thousands of students prepare for their placement journey. 
+                      Make sure all information is accurate and helpful.</p>
+                   
+                   <div className="checklist">
+                     <div className="checklist-item">
+                       <CheckCircle size={16} />
+                       <span>Company name and role are filled</span>
+                     </div>
+                     <div className="checklist-item">
+                       <CheckCircle size={16} />
+                       <span>Interview rounds are described</span>
+                     </div>
+                     <div className="checklist-item">
+                       <CheckCircle size={16} />
+                       <span>Overall experience is shared</span>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+               
+               <div className="submit-actions">
+                 <button 
+                   type="button" 
+                   onClick={() => navigate(-1)}
+                   className="btn-cancel"
+                 >
+                   Cancel
+                 </button>
+                 <button 
+                   type="submit" 
+                   disabled={loading}
+                   className="btn-submit-main"
+                 >
+                   {loading ? (
+                     <>
+                       <Loader2 className="animate-spin" size={18} />
+                       Publishing...
+                     </>
+                   ) : (
+                     <>
+                       <Send size={18} />
+                       Publish Experience
+                     </>
+                   )}
+                 </button>
+               </div>
+             </motion.div>
+           </div>
 
         </form>
       </div>

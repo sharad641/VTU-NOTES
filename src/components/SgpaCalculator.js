@@ -8,7 +8,7 @@ import {
   FaSpinner, FaChartPie, FaCheckCircle
 } from 'react-icons/fa';
 
-export default function SgpaCalculator() {
+export default function SgpaCalculator({ mode = 'full' }) {
   const [syllabusData, setSyllabusData] = useState(null);
   const [loading, setLoading] = useState(true);
   
@@ -20,6 +20,8 @@ export default function SgpaCalculator() {
   const [marks, setMarks] = useState({});
   const [studentName, setStudentName] = useState('');
   const [studentUSN, setStudentUSN] = useState('');
+
+  const isWidget = mode === 'widget';
 
   // 1. Fetch Data
   useEffect(() => {
@@ -276,15 +278,22 @@ export default function SgpaCalculator() {
     doc.save(`Transcript_${studentUSN || 'Draft'}.pdf`);
   };
 
-  if (loading) return <div className="sgpa-loader-container"><FaSpinner className="sgpa-spinner"/> Loading...</div>;
+  if (loading) return (
+    <div className={`sgpa-loader-container ${isWidget ? 'sgpa-widget-mode' : ''}`}>
+      <FaSpinner className="sgpa-spinner"/> Loading...
+    </div>
+  );
 
   return (
-    <div className="sgpa-isolated-container">
-      <header className="sgpa-custom-header">
-        <div className="sgpa-icon-wrapper"><FaCalculator /></div>
-        <h1>Modern SGPA <span className="sgpa-gradient-text">Calculator</span></h1>
-        <p>2022 Scheme • {branch}</p>
-      </header>
+    <div className={isWidget ? 'sgpa-widget-mode' : 'sgpa-isolated-container'}>
+      {/* Header only shows in full mode */}
+      {!isWidget && (
+        <header className="sgpa-custom-header">
+          <div className="sgpa-icon-wrapper"><FaCalculator /></div>
+          <h1>Modern SGPA <span className="sgpa-gradient-text">Calculator</span></h1>
+          <p>2022 Scheme • {branch}</p>
+        </header>
+      )}
 
       <div className="sgpa-responsive-grid">
         
