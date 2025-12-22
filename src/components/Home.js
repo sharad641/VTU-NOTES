@@ -192,29 +192,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* 🧮 Tools Section */}
-      <section className="tools-section">
-        <div className="tools-header">
-          <div className="tools-icon">
-            <FaCalculator />
-          </div>
-          <h2>
-            Academic <span className="highlight-blue">Tools</span>
-          </h2>
-          <p>Essential calculators and utilities for your academic success</p>
-        </div>
-        
-        <div className="calculator-widget-container">
-          <SgpaCalculator mode="widget" />
-        </div>
-        
-        <div className="tools-cta">
-          <Link to="/tools" className="tools-link">
-            View All Tools <FaArrowRight />
-          </Link>
-        </div>
-      </section>
-
+      <SgpaCalculator mode="widget" />
       {/* 📤 Upload */}
       <section className="contribute-section">
         <UploadForm />

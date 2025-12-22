@@ -341,7 +341,7 @@ const ShareExperiencePage = () => {
                  <div className="form-group">
                     <label>Current Status</label>
                     <select name="status" value={formData.status} onChange={handleChange}>
-                       <option>B.Tech Student</option><option>M.Tech Student</option><option>Alumni</option>
+                       <option>BE</option><option>B.Tech Student</option><option>M.Tech Student</option><option>Alumni</option>
                     </select>
                  </div>
                  <div className="form-group">
@@ -573,20 +573,8 @@ const ShareExperiencePage = () => {
                    <p>Your story will help thousands of students prepare for their placement journey. 
                       Make sure all information is accurate and helpful.</p>
                    
-                   <div className="checklist">
-                     <div className="checklist-item">
-                       <CheckCircle size={16} />
-                       <span>Company name and role are filled</span>
-                     </div>
-                     <div className="checklist-item">
-                       <CheckCircle size={16} />
-                       <span>Interview rounds are described</span>
-                     </div>
-                     <div className="checklist-item">
-                       <CheckCircle size={16} />
-                       <span>Overall experience is shared</span>
-                     </div>
-                   </div>
+                   
+                   
                  </div>
                </div>
                
