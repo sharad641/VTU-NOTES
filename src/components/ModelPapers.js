@@ -1,756 +1,842 @@
-import React, { useState, useEffect, useMemo, useCallback } from "react";
-import "./ModelPapers.css";
-import {
-  FaSearch, FaCheck, FaFilePdf, FaHistory,
-  FaDatabase, FaArrowRight, FaTimes, FaCopy, 
-  FaThLarge, FaList, FaCloudDownloadAlt, FaFilter,
-  FaBook, FaDownload, FaExternalLinkAlt, FaStar,
-  FaRegStar, FaSortAmountDown, FaSortAmountUp
-} from "react-icons/fa";
+import React, { useState, useEffect, useRef } from 'react';
+import './ModelPapers.css';
 
-// --- Static Data with Enhanced Information ---
-const PAPERS_DATA = [
-  { 
-    title: 'Computer Networks', 
-    code: 'BCS502', 
-    modelPaperLink: '#', 
-    oldPaperLink: '#', 
-    solutionLink: '#',
-    difficulty: 'Medium',
-    year: 2024,
-    rating: 4.5,
-    downloads: 1245,
-    lastUpdated: '2024-03-15'
+const papers = [
+  {
+    id: 1,
+    title: 'Computer Networks',
+    code: 'BCS502',
+    category: 'core',
+    semester: '5',
+    year: '2024',
+    modelPaperLink: 'https://drive.google.com/file/d/10ENVRIXIu0mJDN-9HfkDIyciEWItiXb6/preview',
+    oldPaperLink: 'https://drive.google.com/file/d/17WdlxtTLAUE17KldQWdqiSPA3u4GWqMd/preview',
+    solutionLink: 'https://drive.google.com/file/d/10ENVRIXIu0mJDN-9HfkDIyciEWItiXb6/preview',
+    popularity: 'high',
   },
-  { 
-    title: 'Software Engineering', 
-    code: 'BCS501', 
-    modelPaperLink: '#', 
-    oldPaperLink: '#', 
-    solutionLink: '#',
-    difficulty: 'Easy',
-    year: 2023,
-    rating: 4.2,
-    downloads: 987,
-    lastUpdated: '2024-02-28'
+  {
+    id: 2,
+    title: 'Software Engineering and Project Management',
+    code: 'BCS501',
+    category: 'core',
+    semester: '5',
+    year: '2024',
+    modelPaperLink: 'https://drive.google.com/file/d/1aHbJ6mj2m71hYtjnTt-ODAZXLnavDPF4/preview',
+    oldPaperLink: 'https://drive.google.com/file/d/19ycoCUMX7u9EI9zwcCe0tkdShwTSIErC/preview',
+    solutionLink: 'https://drive.google.com/file/d/1wiliZvzo0-Zc2E_UMZDhXuNa2mKgKjw5/preview',
+    popularity: 'high',
   },
-  { 
-    title: 'Discrete Math Structures', 
-    code: 'BCS405A', 
-    modelPaperLink: '#', 
-    oldPaperLink: '#', 
-    solutionLink: '#',
-    difficulty: 'Hard',
-    year: 2024,
-    rating: 4.7,
-    downloads: 1567,
-    lastUpdated: '2024-03-20'
+  {
+    id: 3,
+    title: 'Discrete Mathematical Structures',
+    code: 'BCS405A',
+    category: 'core',
+    semester: '4',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1rFJKUntE4UNWRL1IMg2QjWzkVoeEFeuG/preview',
+    oldPaperLink: 'https://drive.google.com/file/d/1rFJKUntE4UNWRL1IMg2QjWzkVoeEFeuG/preview',
+    solutionLink: 'https://drive.google.com/file/d/1wiliZvzo0-Zc2E_UMZDhXuNa2mKgKjw5/preview',
+    popularity: 'medium',
   },
-  { 
-    title: 'Applied Physics', 
-    code: 'BPHYS102', 
-    modelPaperLink: '#', 
-    solutionLink: '#',
-    difficulty: 'Medium',
-    year: 2023,
-    rating: 4.0,
-    downloads: 876,
-    lastUpdated: '2024-01-10'
+  {
+    id: 4,
+    title: 'Database Management System',
+    code: 'BCS403',
+    category: 'core',
+    semester: '4',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/16Vzo3cbtNfTGpLS3Z8LNTDe2E7dx0Bgh/preview',
+    oldPaperLink: 'https://drive.google.com/file/d/1cqwCLrwgW7Lj3e1P1ofUsz1IkMa7-WxK/preview',
+    solutionLink: 'https://drive.google.com/file/d/1cqwCLrwgW7Lj3e1P1ofUsz1IkMa7-WxK/preview',
+    popularity: 'high',
   },
-  { 
-    title: 'Applied Chemistry', 
-    code: 'BCHES202', 
-    modelPaperLink: '#', 
-    solutionLink: '#',
-    difficulty: 'Easy',
-    year: 2024,
-    rating: 4.1,
-    downloads: 654,
-    lastUpdated: '2024-03-05'
+  {
+    id: 5,
+    title: 'Machine Learning',
+    code: 'BCS602',
+    category: 'elective',
+    semester: '6',
+    year: '2024',
+    modelPaperLink: 'https://drive.google.com/file/d/1cjG_nakCffLmtjD9n7Esa5f8ROqXhOR8/view',
+    popularity: 'very-high',
   },
-  { 
-    title: 'Graph Theory', 
-    code: 'BCS5405B', 
-    modelPaperLink: '#', 
-    solutionLink: '#',
-    difficulty: 'Hard',
-    year: 2023,
-    rating: 4.8,
-    downloads: 1432,
-    lastUpdated: '2024-02-15'
+  {
+    id: 6,
+    title: 'Cloud Computing',
+    code: 'BCS601',
+    category: 'elective',
+    semester: '6',
+    year: '2024',
+    modelPaperLink: 'https://drive.google.com/file/d/1fhIl9-oR8sCf_9zf0QD1m3mzoFrOPP7w/view',
+    solutionLink: 'https://drive.google.com/file/d/181F2lTn_jMHgAm64ZjuEnI3FFLInfXdq/view',
+    oldPaperLink: 'https://drive.google.com/file/d/1RM-0q01QYQFubdFR9fmGNlicFyRbeHl-/view',
+    popularity: 'very-high',
   },
-  { 
-    title: 'Database Mgmt System', 
-    code: 'BCS403', 
-    modelPaperLink: '#', 
-    solutionLink: '#',
-    difficulty: 'Medium',
-    year: 2024,
-    rating: 4.3,
-    downloads: 1789,
-    lastUpdated: '2024-03-25'
+  {
+    id: 7,
+    title: 'Applied Physics',
+    code: 'BPHYS102',
+    category: 'basic_science',
+    semester: '1',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1rZNOK4PUfRHIAQmKrBnVare0rsNDjQHk/preview',
+    solutionLink: 'https://drive.google.com/file/d/1JYhf1gRdDphyZEijSf_tEIpCN0uyN1i7/preview',
+    popularity: 'medium',
   },
-  { 
-    title: 'Cloud Computing', 
-    code: 'BCS601', 
-    modelPaperLink: '#',
-    difficulty: 'Hard',
-    year: 2024,
-    rating: 4.6,
-    downloads: 1123,
-    lastUpdated: '2024-03-18'
+  {
+    id: 8,
+    title: 'Mathematics-II',
+    code: 'BMATS201',
+    category: 'basic_science',
+    semester: '2',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1vHxAXnHlBBglr-K3ZUAGqzwP5SC0qNki/preview',
+    solutionLink: 'https://drive.google.com/file/d/1BXyhq4ZiTLbhpIwJHGkRYe60rbJQqQne/preview',
+    oldPaperLink: 'https://drive.google.com/file/d/1cWG4jvZRZ2iBJA09t0WRW78dqw2vdm9x/preview',
+    popularity: 'high',
   },
-  { 
-    title: 'Machine Learning', 
-    code: 'BCS602', 
-    modelPaperLink: '#',
-    difficulty: 'Hard',
-    year: 2024,
-    rating: 4.9,
-    downloads: 2345,
-    lastUpdated: '2024-03-22'
-  },
-  { 
-    title: 'Microcontroller', 
-    code: 'BCS601', 
-    solutionLink: '#', 
-    oldPaperLink: '#',
-    difficulty: 'Medium',
-    year: 2023,
-    rating: 4.4,
-    downloads: 765,
-    lastUpdated: '2024-01-30'
-  },
-  { 
-    title: 'Python Programming', 
-    code: 'BPLCK205B', 
-    modelPaperLink: '#', 
-    solutionLink: '#',
-    difficulty: 'Easy',
-    year: 2024,
-    rating: 4.7,
-    downloads: 1987,
-    lastUpdated: '2024-03-28'
-  },
-  { 
-    title: 'Mathematics-II', 
-    code: 'BMATS201', 
-    modelPaperLink: '#', 
-    solutionLink: '#',
-    difficulty: 'Hard',
-    year: 2023,
-    rating: 4.2,
-    downloads: 1345,
-    lastUpdated: '2024-02-20'
-  },
-  { 
-    title: 'Data Structures', 
-    code: 'BCS304', 
-    modelPaperLink: '#', 
-    solutionLink: '#',
-    difficulty: 'Medium',
-    year: 2024,
-    rating: 4.8,
-    downloads: 2567,
-    lastUpdated: '2024-03-30'
-  },
-  { 
-    title: 'OOPS with JAVA', 
-    code: 'BCS306A', 
-    modelPaperLink: '#', 
-    solutionLink: '#',
-    difficulty: 'Medium',
-    year: 2024,
-    rating: 4.5,
-    downloads: 1765,
-    lastUpdated: '2024-03-12'
-  }
 ];
 
-// --- Utilities ---
-const getGradient = (str) => {
-  const hash = str.split('').reduce((acc, char) => char.charCodeAt(0) + ((acc << 5) - acc), 0);
-  const hue1 = Math.abs(hash % 360);
-  const hue2 = (hue1 + 60) % 360;
-  return `linear-gradient(135deg, hsl(${hue1}, 85%, 96%) 0%, hsl(${hue2}, 90%, 98%) 100%)`;
-};
+const categories = [
+  { id: 'all', label: 'All Papers', icon: '📚', color: '#8B5CF6' },
+  { id: 'core', label: 'Core Subjects', icon: '💻', color: '#3B82F6' },
+  { id: 'elective', label: 'Electives', icon: '🎯', color: '#10B981' },
+  { id: 'basic_science', label: 'Basic Sciences', icon: '🔬', color: '#F59E0B' }
+];
 
-const getInitials = (title) => {
-  const parts = title.split(' ');
-  return parts.length > 1 
-    ? (parts[0][0] + parts[1][0]).toUpperCase()
-    : parts[0].substring(0, 2).toUpperCase();
-};
-
-const difficultyColors = {
-  Easy: '#10b981',
-  Medium: '#f59e0b',
-  Hard: '#ef4444'
-};
-
-const renderStars = (rating) => {
-  const stars = [];
-  const fullStars = Math.floor(rating);
-  const hasHalfStar = rating % 1 >= 0.5;
-  
-  for (let i = 0; i < 5; i++) {
-    if (i < fullStars) {
-      stars.push(<FaStar key={i} className="star filled" />);
-    } else if (i === fullStars && hasHalfStar) {
-      stars.push(<FaStar key={i} className="star half" />);
-    } else {
-      stars.push(<FaRegStar key={i} className="star" />);
-    }
-  }
-  return stars;
-};
-
-// --- Sub-Components ---
-const SkeletonCard = ({ viewMode }) => (
-  <div className={`paper-card skeleton ${viewMode}`}>
-    <div className="sk-header">
-      <div className="sk-icon"></div>
-      <div className="sk-badge"></div>
-    </div>
-    <div className="sk-content">
-      <div className="sk-title"></div>
-      <div className="sk-meta"></div>
-      <div className="sk-tags">
-        <div className="sk-tag"></div>
-        <div className="sk-tag"></div>
-      </div>
-    </div>
-    <div className="sk-actions">
-      <div className="sk-button"></div>
-      <div className="sk-icons">
-        <div className="sk-icon-small"></div>
-        <div className="sk-icon-small"></div>
-      </div>
-    </div>
-  </div>
-);
-
-const MobileFilterPanel = ({ 
-  isOpen, 
-  onClose, 
-  activeFilter, 
-  setActiveFilter,
-  sortBy,
-  setSortBy,
-  sortOrder,
-  setSortOrder
-}) => (
-  <div className={`mobile-filter-panel ${isOpen ? 'open' : ''}`}>
-    <div className="filter-panel-header">
-      <h3>Filters & Sort</h3>
-      <button className="close-filter" onClick={onClose}>
-        <FaTimes />
-      </button>
-    </div>
-    
-    <div className="filter-section">
-      <h4>Resource Type</h4>
-      <div className="filter-options">
-        <button 
-          className={activeFilter === 'all' ? 'active' : ''} 
-          onClick={() => setActiveFilter('all')}
-        >
-          All Resources
-        </button>
-        <button 
-          className={activeFilter === 'solutions' ? 'active' : ''} 
-          onClick={() => setActiveFilter('solutions')}
-        >
-          With Solutions
-        </button>
-        <button 
-          className={activeFilter === 'model' ? 'active' : ''} 
-          onClick={() => setActiveFilter('model')}
-        >
-          Model Papers
-        </button>
-      </div>
-    </div>
-    
-    <div className="filter-section">
-      <h4>Sort By</h4>
-      <div className="sort-options">
-        <select 
-          value={sortBy} 
-          onChange={(e) => setSortBy(e.target.value)}
-          className="sort-select"
-        >
-          <option value="title">Title</option>
-          <option value="year">Year</option>
-          <option value="rating">Rating</option>
-          <option value="downloads">Downloads</option>
-          <option value="difficulty">Difficulty</option>
-        </select>
-        
-        <button 
-          className="sort-order-btn"
-          onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-        >
-          {sortOrder === 'asc' ? <FaSortAmountUp /> : <FaSortAmountDown />}
-          {sortOrder === 'asc' ? 'Ascending' : 'Descending'}
-        </button>
-      </div>
-    </div>
-    
-    <button className="apply-filters" onClick={onClose}>
-      Apply Filters
-    </button>
-  </div>
-);
+const semesters = [
+  { id: 'all', label: 'All Semesters', icon: '📅' },
+  { id: '1', label: 'Semester 1', icon: '1️⃣' },
+  { id: '2', label: 'Semester 2', icon: '2️⃣' },
+  { id: '3', label: 'Semester 3', icon: '3️⃣' },
+  { id: '4', label: 'Semester 4', icon: '4️⃣' },
+  { id: '5', label: 'Semester 5', icon: '5️⃣' },
+  { id: '6', label: 'Semester 6', icon: '6️⃣' },
+];
 
 const ModelPapers = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [activeFilter, setActiveFilter] = useState("all");
-  const [viewMode, setViewMode] = useState("grid");
-  const [showAll, setShowAll] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [toast, setToast] = useState(null);
-  const [sortBy, setSortBy] = useState("title");
-  const [sortOrder, setSortOrder] = useState("asc");
-  const [showMobileFilters, setShowMobileFilters] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const [selectedYears, setSelectedYears] = useState([]);
-  const [selectedDifficulties, setSelectedDifficulties] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedSemester, setSelectedSemester] = useState('all');
+  const [sortBy, setSortBy] = useState('alphabetical');
+  const [filteredPapers, setFilteredPapers] = useState(papers);
+  const [selectedPaper, setSelectedPaper] = useState(null);
+  const [viewMode, setViewMode] = useState('view');
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [showBookmarks, setShowBookmarks] = useState(false);
+  const [bookmarkedPapers, setBookmarkedPapers] = useState([]);
+  const [showNotification, setShowNotification] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState('');
+  const [modalView, setModalView] = useState('resources'); // 'resources' or 'preview'
+  const searchRef = useRef(null);
+  const modalRef = useRef(null);
 
+  // Initialize bookmarks from localStorage
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 800);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const filteredPapers = useMemo(() => {
-    let filtered = PAPERS_DATA.filter(p => {
-      const matchSearch = (p.title + p.code).toLowerCase().includes(searchTerm.toLowerCase());
-      
-      let matchFilter = true;
-      if (activeFilter === "solutions") matchFilter = p.solutionLink;
-      if (activeFilter === "model") matchFilter = p.modelPaperLink;
-      
-      const matchYear = selectedYears.length === 0 || selectedYears.includes(p.year.toString());
-      const matchDifficulty = selectedDifficulties.length === 0 || selectedDifficulties.includes(p.difficulty);
-      
-      return matchSearch && matchFilter && matchYear && matchDifficulty;
-    });
-
-    // Sorting logic
-    filtered.sort((a, b) => {
-      let aVal, bVal;
-      
-      switch(sortBy) {
-        case 'year':
-          aVal = a.year;
-          bVal = b.year;
-          break;
-        case 'rating':
-          aVal = a.rating;
-          bVal = b.rating;
-          break;
-        case 'downloads':
-          aVal = a.downloads;
-          bVal = b.downloads;
-          break;
-        case 'difficulty':
-          const difficultyOrder = { 'Easy': 1, 'Medium': 2, 'Hard': 3 };
-          aVal = difficultyOrder[a.difficulty];
-          bVal = difficultyOrder[b.difficulty];
-          break;
-        default:
-          aVal = a.title.toLowerCase();
-          bVal = b.title.toLowerCase();
-      }
-      
-      if (sortOrder === 'asc') {
-        return aVal > bVal ? 1 : -1;
-      } else {
-        return aVal < bVal ? 1 : -1;
-      }
-    });
-
-    return filtered;
-  }, [searchTerm, activeFilter, sortBy, sortOrder, selectedYears, selectedDifficulties]);
-
-  const displayPapers = showAll ? filteredPapers : filteredPapers.slice(0, 8);
-
-  const copyLink = useCallback((link) => {
-    if(!link) return;
-    navigator.clipboard.writeText(link);
-    setToast("Link copied to clipboard");
-    setTimeout(() => setToast(null), 3000);
-  }, []);
-
-  const formatNumber = (num) => {
-    if (num >= 1000) {
-      return (num / 1000).toFixed(1) + 'k';
+    const savedBookmarks = localStorage.getItem('paperBookmarks');
+    if (savedBookmarks) {
+      setBookmarkedPapers(JSON.parse(savedBookmarks));
     }
-    return num.toString();
+  }, []);
+
+  // Save bookmarks to localStorage
+  useEffect(() => {
+    localStorage.setItem('paperBookmarks', JSON.stringify(bookmarkedPapers));
+  }, [bookmarkedPapers]);
+
+  // Filter papers
+  useEffect(() => {
+    let result = papers;
+
+    if (searchTerm) {
+      result = result.filter(
+        paper =>
+          paper.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          paper.code.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+
+    if (selectedCategory !== 'all') {
+      result = result.filter(paper => paper.category === selectedCategory);
+    }
+
+    if (selectedSemester !== 'all') {
+      result = result.filter(paper => paper.semester === selectedSemester);
+    }
+
+    switch (sortBy) {
+      case 'alphabetical':
+        result.sort((a, b) => a.title.localeCompare(b.title));
+        break;
+      case 'newest':
+        result.sort((a, b) => b.year - a.year);
+        break;
+      case 'semester':
+        result.sort((a, b) => a.semester - b.semester);
+        break;
+      case 'popularity':
+        const popularityOrder = { 'very-high': 4, 'high': 3, 'medium': 2, 'low': 1 };
+        result.sort((a, b) => (popularityOrder[b.popularity] || 0) - (popularityOrder[a.popularity] || 0));
+        break;
+      default:
+        break;
+    }
+
+    setFilteredPapers(result);
+  }, [searchTerm, selectedCategory, selectedSemester, sortBy]);
+
+  // Close modal on escape key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') setSelectedPaper(null);
+    };
+    if (selectedPaper) {
+      document.addEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
+      document.body.style.overflow = 'auto';
+    };
+  }, [selectedPaper]);
+
+  const showNotificationMessage = (message) => {
+    setNotificationMessage(message);
+    setShowNotification(true);
+    setTimeout(() => setShowNotification(false), 3000);
+  };
+
+  const toggleBookmark = (paperId) => {
+    setBookmarkedPapers(prev => {
+      if (prev.includes(paperId)) {
+        showNotificationMessage('Paper removed from bookmarks');
+        return prev.filter(id => id !== paperId);
+      } else {
+        showNotificationMessage('Paper added to bookmarks');
+        return [...prev, paperId];
+      }
+    });
+  };
+
+  const getViewLink = (link) => {
+    if (!link) return null;
+    if (link.includes('drive.google.com')) {
+      if (link.includes('/view')) return link.replace('/view', '/preview');
+      if (link.includes('/preview')) return link;
+    }
+    return link;
+  };
+
+  const getDownloadLink = (link) => {
+    if (!link) return null;
+    if (link.includes('drive.google.com')) {
+      return link.replace('/preview', '/view?usp=sharing').replace('/view?usp=drive_link', '/view?usp=sharing');
+    }
+    return link;
+  };
+
+  const getPopularityIcon = (popularity) => {
+    switch(popularity) {
+      case 'very-high': return '🔥';
+      case 'high': return '⭐';
+      case 'medium': return '📈';
+      default: return '📄';
+    }
+  };
+
+  const handleQuickFilter = (category, semester) => {
+    setSelectedCategory(category);
+    setSelectedSemester(semester);
+    searchRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const PaperCard = ({ paper }) => {
+    const isBookmarked = bookmarkedPapers.includes(paper.id);
+    
+    return (
+      <div className="paper-card" data-category={paper.category}>
+        <div className="paper-card-gradient"></div>
+        <div className="paper-card-content">
+          <div className="paper-card-header">
+            <div className="paper-meta">
+              <span className="paper-badge semester">Sem {paper.semester}</span>
+              <span className="paper-badge year">{paper.year}</span>
+              <span className="paper-popularity">
+                {getPopularityIcon(paper.popularity)}
+              </span>
+            </div>
+            <button 
+              className={`bookmark-btn ${isBookmarked ? 'bookmarked' : ''}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleBookmark(paper.id);
+              }}
+            >
+              {isBookmarked ? '★' : '☆'}
+            </button>
+          </div>
+          
+          <h3 onClick={() => setSelectedPaper(paper)}>
+            {paper.title}
+          </h3>
+          
+          <div className="paper-code" onClick={() => setSelectedPaper(paper)}>
+            <span className="code-icon">📘</span>
+            {paper.code}
+          </div>
+          
+          <div className="paper-resources">
+            {paper.modelPaperLink && <span className="resource-badge">📄 Paper</span>}
+            {paper.solutionLink && <span className="resource-badge">✅ Solution</span>}
+            {paper.oldPaperLink && <span className="resource-badge">📜 Old</span>}
+          </div>
+          
+          <div className="paper-actions">
+            <button 
+              className="action-btn view-btn"
+              onClick={() => {
+                setSelectedPaper(paper);
+                setViewMode('view');
+                setModalView('resources');
+              }}
+            >
+              👁️ View
+            </button>
+            <button 
+              className="action-btn download-btn"
+              onClick={() => {
+                window.open(getDownloadLink(paper.modelPaperLink || paper.solutionLink || paper.oldPaperLink), '_blank');
+              }}
+            >
+              ⬇️ Download
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
-    <div className="library-container">
-      {/* Floating Toast */}
-      <div className={`toast ${toast ? 'show' : ''}`}>
-        <FaCheck className="toast-icon" /> {toast}
-      </div>
-
-      {/* Mobile Filter Panel */}
-      <MobileFilterPanel
-        isOpen={showMobileFilters}
-        onClose={() => setShowMobileFilters(false)}
-        activeFilter={activeFilter}
-        setActiveFilter={setActiveFilter}
-        sortBy={sortBy}
-        setSortBy={setSortBy}
-        sortOrder={sortOrder}
-        setSortOrder={setSortOrder}
-      />
-
-      {/* Header Section */}
-      <div className="library-header">
-        <div className="header-text">
-          <h1>Resource Library</h1>
-          <p>Curated collection of model papers, solutions, and study materials</p>
-        </div>
-        
-        <div className="stats-badges">
-          <div className="stat-pill">
-            <span className="pill-val">{PAPERS_DATA.length}</span> Subjects
+    <div className={`model-papers-container ${isDarkMode ? 'dark-mode' : ''}`}>
+      {/* Header with Theme Toggle */}
+      <div className="main-header">
+        <div className="header-content">
+          <div className="header-main">
+            <div className="logo-section">
+              <div className="logo">
+                <span className="logo-icon">📚</span>
+                <h1>PaperHub</h1>
+              </div>
+              <p className="tagline">Your Gateway to Academic Excellence</p>
+            </div>
+            
+            <div className="header-controls">
+              <button 
+                className="theme-toggle"
+                onClick={() => setIsDarkMode(!isDarkMode)}
+              >
+                {isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
+              </button>
+              <button 
+                className={`bookmarks-toggle ${showBookmarks ? 'active' : ''}`}
+                onClick={() => setShowBookmarks(!showBookmarks)}
+              >
+                {showBookmarks ? '📖 All Papers' : '⭐ Bookmarks'}
+              </button>
+            </div>
           </div>
-          <div className="stat-pill highlight">
-            <span className="pill-val">{PAPERS_DATA.filter(p => p.solutionLink).length}</span> Solved
-          </div>
-          <div className="stat-pill">
-            <span className="pill-val">{PAPERS_DATA.filter(p => p.modelPaperLink).length}</span> Model Papers
-          </div>
+          
+          <p className="header-description">
+            Access premium collection of model question papers, solutions, and previous year papers.
+            Smart search, instant preview, and organized by semester & category.
+          </p>
         </div>
       </div>
 
-      {/* Advanced Control Bar */}
-      <div className="advanced-control-bar">
-        <div className="control-group main-controls">
-          <div className="search-group">
-            <FaSearch className="search-icon" />
-            <input 
-              type="text" 
-              placeholder="Search subject, code, or topic..." 
+      {/* Stats Bar */}
+      <div className="stats-bar">
+        <div className="stat-item">
+          <div className="stat-icon">📚</div>
+          <div className="stat-info">
+            <div className="stat-number">{papers.length}</div>
+            <div className="stat-label">Total Papers</div>
+          </div>
+        </div>
+        <div className="stat-item">
+          <div className="stat-icon">⭐</div>
+          <div className="stat-info">
+            <div className="stat-number">{bookmarkedPapers.length}</div>
+            <div className="stat-label">Bookmarked</div>
+          </div>
+        </div>
+        <div className="stat-item">
+          <div className="stat-icon">🎯</div>
+          <div className="stat-info">
+            <div className="stat-number">{categories.length - 1}</div>
+            <div className="stat-label">Categories</div>
+          </div>
+        </div>
+        <div className="stat-item">
+          <div className="stat-icon">📅</div>
+          <div className="stat-info">
+            <div className="stat-number">6</div>
+            <div className="stat-label">Semesters</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Quick Filters */}
+      <div className="quick-filters">
+        <h3>⚡ Quick Access</h3>
+        <div className="quick-buttons">
+          <button 
+            className="quick-btn"
+            onClick={() => handleQuickFilter('core', '5')}
+          >
+            💻 5th Sem Core
+          </button>
+          <button 
+            className="quick-btn"
+            onClick={() => handleQuickFilter('elective', '6')}
+          >
+            🎯 6th Sem Electives
+          </button>
+          <button 
+            className="quick-btn"
+            onClick={() => handleQuickFilter('basic_science', 'all')}
+          >
+            🔬 Basic Sciences
+          </button>
+          <button 
+            className="quick-btn"
+            onClick={() => setShowBookmarks(true)}
+          >
+            ⭐ My Bookmarks
+          </button>
+        </div>
+      </div>
+
+      {/* Main Controls */}
+      <div className="main-controls" ref={searchRef}>
+        <div className="search-section">
+          <div className="search-box">
+            <span className="search-icon">🔍</span>
+            <input
+              type="text"
+              placeholder="Search papers by name or code..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
+              className="search-input"
             />
-            {searchTerm && <FaTimes className="clear-icon" onClick={() => setSearchTerm('')} />}
+            {searchTerm && (
+              <button className="clear-search" onClick={() => setSearchTerm('')}>
+                ✕
+              </button>
+            )}
           </div>
-
-          <button 
-            className="mobile-filter-btn"
-            onClick={() => setShowMobileFilters(true)}
-            aria-label="Open filters"
-          >
-            <FaFilter />
-            Filters
-          </button>
-        </div>
-
-        <div className="control-group secondary-controls">
-          <div className="desktop-filters">
-            <div className="filter-group">
-              <span className="filter-label">Filter:</span>
-              <div className="filter-options">
-                <button 
-                  className={activeFilter === 'all' ? 'active' : ''} 
-                  onClick={() => setActiveFilter('all')}
-                >
-                  All
-                </button>
-                <button 
-                  className={activeFilter === 'solutions' ? 'active' : ''} 
-                  onClick={() => setActiveFilter('solutions')}
-                >
-                  With Solutions
-                </button>
-                <button 
-                  className={activeFilter === 'model' ? 'active' : ''} 
-                  onClick={() => setActiveFilter('model')}
-                >
-                  Model Papers
-                </button>
-              </div>
-            </div>
-
-            <div className="filter-group">
-              <span className="filter-label">Sort:</span>
-              <select 
-                value={sortBy} 
-                onChange={(e) => setSortBy(e.target.value)}
-                className="sort-select"
-              >
-                <option value="title">Title</option>
-                <option value="year">Year</option>
-                <option value="rating">Rating</option>
-                <option value="downloads">Downloads</option>
-                <option value="difficulty">Difficulty</option>
-              </select>
-              
+          
+          <div className="mode-toggle">
+            <div className="toggle-switch">
               <button 
-                className="sort-order-btn"
-                onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
-                aria-label={`Sort ${sortOrder === 'asc' ? 'descending' : 'ascending'}`}
+                className={`toggle-option ${viewMode === 'view' ? 'active' : ''}`}
+                onClick={() => setViewMode('view')}
               >
-                {sortOrder === 'asc' ? <FaSortAmountUp /> : <FaSortAmountDown />}
+                <span className="toggle-icon">👁️</span>
+                <span className="toggle-label">View Mode</span>
+              </button>
+              <button 
+                className={`toggle-option ${viewMode === 'download' ? 'active' : ''}`}
+                onClick={() => setViewMode('download')}
+              >
+                <span className="toggle-icon">⬇️</span>
+                <span className="toggle-label">Download Mode</span>
               </button>
             </div>
           </div>
+        </div>
 
-          <div className="view-toggle">
-            <button 
-              className={viewMode === 'grid' ? 'active' : ''} 
-              onClick={() => setViewMode('grid')}
-              aria-label="Grid View"
+        <div className="filter-section">
+          <div className="filter-group">
+            <div className="filter-label">📁 Category</div>
+            <div className="category-chips">
+              {categories.map(cat => (
+                <button
+                  key={cat.id}
+                  className={`category-chip ${selectedCategory === cat.id ? 'active' : ''}`}
+                  onClick={() => setSelectedCategory(cat.id)}
+                  style={{ '--category-color': cat.color }}
+                >
+                  {cat.icon} {cat.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="filter-group">
+            <div className="filter-label">📅 Semester</div>
+            <div className="semester-grid">
+              {semesters.map(sem => (
+                <button
+                  key={sem.id}
+                  className={`semester-chip ${selectedSemester === sem.id ? 'active' : ''}`}
+                  onClick={() => setSelectedSemester(sem.id)}
+                >
+                  {sem.icon} {sem.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="filter-group">
+            <div className="filter-label">🔀 Sort</div>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="sort-select"
             >
-              <FaThLarge />
-            </button>
-            <button 
-              className={viewMode === 'list' ? 'active' : ''} 
-              onClick={() => setViewMode('list')}
-              aria-label="List View"
-            >
-              <FaList />
-            </button>
+              <option value="alphabetical">A → Z Alphabetical</option>
+              <option value="newest">🆕 Newest First</option>
+              <option value="semester">📚 By Semester</option>
+              <option value="popularity">🔥 By Popularity</option>
+            </select>
           </div>
         </div>
       </div>
 
-      {/* Advanced Filters (Desktop) */}
-      <div className="advanced-filters">
-        <div className="filter-category">
-          <h4>Year</h4>
-          <div className="filter-chips">
-            {[2024, 2023, 2022].map(year => (
-              <button
-                key={year}
-                className={`filter-chip ${selectedYears.includes(year.toString()) ? 'active' : ''}`}
-                onClick={() => {
-                  setSelectedYears(prev => 
-                    prev.includes(year.toString())
-                      ? prev.filter(y => y !== year.toString())
-                      : [...prev, year.toString()]
-                  );
-                }}
-              >
-                {year}
-              </button>
-            ))}
-          </div>
+      {/* Papers Display */}
+      <div className="results-header">
+        <h2>
+          {showBookmarks ? '⭐ My Bookmarked Papers' : '📄 Available Papers'}
+          <span className="results-count">{filteredPapers.length} papers</span>
+        </h2>
+        <div className="view-mode-indicator">
+          <span className="mode-badge">
+            {viewMode === 'view' ? '👁️ View Mode' : '⬇️ Download Mode'}
+          </span>
         </div>
-        
-        <div className="filter-category">
-          <h4>Difficulty</h4>
-          <div className="filter-chips">
-            {['Easy', 'Medium', 'Hard'].map(diff => (
-              <button
-                key={diff}
-                className={`filter-chip difficulty-${diff.toLowerCase()} ${selectedDifficulties.includes(diff) ? 'active' : ''}`}
-                style={{ '--difficulty-color': difficultyColors[diff] }}
-                onClick={() => {
-                  setSelectedDifficulties(prev => 
-                    prev.includes(diff)
-                      ? prev.filter(d => d !== diff)
-                      : [...prev, diff]
-                  );
-                }}
-              >
-                {diff}
-              </button>
-            ))}
-          </div>
-        </div>
-        
-        {(selectedYears.length > 0 || selectedDifficulties.length > 0) && (
+      </div>
+
+      {filteredPapers.length === 0 ? (
+        <div className="empty-state">
+          <div className="empty-icon">📭</div>
+          <h3>No papers found</h3>
+          <p>Try adjusting your search criteria or browse all papers</p>
           <button 
-            className="clear-filters"
+            className="reset-btn"
             onClick={() => {
-              setSelectedYears([]);
-              setSelectedDifficulties([]);
+              setSearchTerm('');
+              setSelectedCategory('all');
+              setSelectedSemester('all');
+              setShowBookmarks(false);
             }}
           >
-            Clear Filters
+            🔄 Show All Papers
           </button>
-        )}
-      </div>
-
-      {/* Content Area */}
-      <div className={`papers-layout ${viewMode}`}>
-        {loading ? (
-          Array(6).fill(0).map((_, i) => <SkeletonCard key={i} viewMode={viewMode} />)
-        ) : displayPapers.length > 0 ? (
-          displayPapers.map((paper, idx) => (
-            <div 
-              key={idx} 
-              className="paper-card"
-              style={{ 
-                background: viewMode === 'grid' ? getGradient(paper.title) : '#fff',
-                '--hover-color': getGradient(paper.title)
-              }}
-              onMouseEnter={() => setHoveredCard(idx)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              <div className="card-header">
-                <div className="subject-icon">
-                  {getInitials(paper.title)}
-                </div>
-                <div className="card-meta">
-                  <span className="subject-code">
-                    <FaDatabase /> {paper.code}
-                  </span>
-                  <span 
-                    className="difficulty-badge"
-                    style={{ backgroundColor: difficultyColors[paper.difficulty] }}
-                  >
-                    {paper.difficulty}
-                  </span>
-                </div>
-              </div>
-
-              <div className="card-content">
-                <h3>{paper.title}</h3>
-                
-                <div className="card-stats">
-                  <div className="rating">
-                    {renderStars(paper.rating)}
-                    <span className="rating-value">{paper.rating}</span>
-                  </div>
-                  <div className="downloads">
-                    <FaDownload /> {formatNumber(paper.downloads)}
-                  </div>
-                  <div className="year">
-                    {paper.year}
-                  </div>
-                </div>
-                
-                <div className="resource-tags">
-                  {paper.modelPaperLink && <span className="tag tag-model">Model Paper</span>}
-                  {paper.oldPaperLink && <span className="tag tag-old">Old Papers</span>}
-                  {paper.solutionLink && <span className="tag tag-sol">Solutions</span>}
-                </div>
-                
-                <div className="updated-info">
-                  Updated: {new Date(paper.lastUpdated).toLocaleDateString('en-US', {
-                    month: 'short',
-                    day: 'numeric',
-                    year: 'numeric'
-                  })}
-                </div>
-              </div>
-
-              <div className={`card-actions ${hoveredCard === idx ? 'hovered' : ''}`}>
-                <div className="primary-actions">
-                  {paper.solutionLink ? (
-                    <a 
-                      href={paper.solutionLink} 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="btn-main"
-                    >
-                      <FaCheck /> <span>View Solution</span> <FaExternalLinkAlt className="external-icon" />
-                    </a>
-                  ) : (
-                    <button className="btn-main disabled" disabled>
-                      <FaBook /> <span>Study Material</span>
-                    </button>
-                  )}
-                </div>
-
-                <div className="secondary-actions">
-                  {paper.modelPaperLink && (
-                    <a 
-                      href={paper.modelPaperLink} 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="icon-action" 
-                      title="Model Paper"
-                    >
-                      <FaFilePdf />
-                    </a>
-                  )}
-                  {paper.oldPaperLink && (
-                    <a 
-                      href={paper.oldPaperLink} 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="icon-action" 
-                      title="Previous Papers"
-                    >
-                      <FaHistory />
-                    </a>
-                  )}
-                  <button 
-                    className="icon-action copy-btn"
-                    onClick={() => copyLink(paper.solutionLink || paper.modelPaperLink)}
-                    title="Copy Link"
-                  >
-                    <FaCopy />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))
-        ) : (
-          <div className="empty-state">
-            <div className="empty-icon"><FaCloudDownloadAlt /></div>
-            <h3>No resources found</h3>
-            <p>Try adjusting your search or filters</p>
-            <button 
-              className="clear-all-btn"
-              onClick={() => {
-                setSearchTerm('');
-                setActiveFilter('all');
-                setSelectedYears([]);
-                setSelectedDifficulties([]);
-              }}
-            >
-              Clear All Filters
-            </button>
-          </div>
-        )}
-      </div>
-
-      {/* Load More Button */}
-      {!showAll && !loading && displayPapers.length < filteredPapers.length && (
-        <div className="load-more-container">
-          <button 
-            className="load-more-btn"
-            onClick={() => setShowAll(true)}
-          >
-            View All Resources ({filteredPapers.length - displayPapers.length} more)
-            <FaArrowRight className="arrow-icon" />
-          </button>
+        </div>
+      ) : (
+        <div className="papers-grid">
+          {(showBookmarks ? papers.filter(p => bookmarkedPapers.includes(p.id)) : filteredPapers)
+            .map(paper => (
+              <PaperCard key={paper.id} paper={paper} />
+            ))
+          }
         </div>
       )}
 
-      {/* Quick Stats Footer */}
-      <div className="quick-stats">
-        <div className="stat-item">
-          <div className="stat-value">{PAPERS_DATA.length}</div>
-          <div className="stat-label">Total Subjects</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-value">{PAPERS_DATA.filter(p => p.solutionLink).length}</div>
-          <div className="stat-label">With Solutions</div>
-        </div>
-        <div className="stat-item">
-          <div className="stat-value">
-            {Math.round(PAPERS_DATA.reduce((acc, p) => acc + p.rating, 0) / PAPERS_DATA.length * 10) / 10}
+      {/* Featured Papers */}
+      {!showBookmarks && filteredPapers.length > 0 && (
+        <div className="featured-section">
+          <h3>🔥 Most Popular Papers</h3>
+          <div className="featured-grid">
+            {papers
+              .filter(p => p.popularity === 'very-high')
+              .slice(0, 3)
+              .map(paper => (
+                <div key={paper.id} className="featured-card">
+                  <div className="featured-badge">🔥 Popular</div>
+                  <h4>{paper.title}</h4>
+                  <div className="featured-code">{paper.code}</div>
+                  <button 
+                    className="featured-btn"
+                    onClick={() => setSelectedPaper(paper)}
+                  >
+                    Access Now →
+                  </button>
+                </div>
+              ))
+            }
           </div>
-          <div className="stat-label">Avg Rating</div>
         </div>
-        <div className="stat-item">
-          <div className="stat-value">
-            {PAPERS_DATA.reduce((acc, p) => acc + p.downloads, 0).toLocaleString()}
+      )}
+
+      {/* Modern Paper Details Modal */}
+      {selectedPaper && (
+        <div className="modern-modal-overlay" onClick={() => setSelectedPaper(null)}>
+          <div className="modern-modal" onClick={e => e.stopPropagation()} ref={modalRef}>
+            {/* Modal Header */}
+            <div className="modern-modal-header">
+              <div className="modal-header-content">
+                <div className="modal-title-group">
+                  <div className="modal-main-title">
+                    <h2>{selectedPaper.title}</h2>
+                    <div className="title-actions">
+                      <span className="modal-code-badge">{selectedPaper.code}</span>
+                      <button 
+                        className={`modal-bookmark-btn ${bookmarkedPapers.includes(selectedPaper.id) ? 'bookmarked' : ''}`}
+                        onClick={() => toggleBookmark(selectedPaper.id)}
+                        title={bookmarkedPapers.includes(selectedPaper.id) ? 'Remove bookmark' : 'Add bookmark'}
+                      >
+                        {bookmarkedPapers.includes(selectedPaper.id) ? '★' : '☆'}
+                      </button>
+                    </div>
+                  </div>
+                  <div className="modal-sub-info">
+                    <span className="modal-info-item">
+                      <span className="info-icon">📅</span>
+                      Sem {selectedPaper.semester} • {selectedPaper.year}
+                    </span>
+                    <span className="modal-info-item">
+                      <span className="info-icon">{getPopularityIcon(selectedPaper.popularity)}</span>
+                      {selectedPaper.popularity.replace('-', ' ')}
+                    </span>
+                    <span className="modal-info-item">
+                      <span className="info-icon">
+                        {selectedPaper.category === 'core' ? '💻' : 
+                         selectedPaper.category === 'elective' ? '🎯' : '🔬'}
+                      </span>
+                      {selectedPaper.category.replace('_', ' ')}
+                    </span>
+                  </div>
+                </div>
+                <button 
+                  className="modern-modal-close"
+                  onClick={() => setSelectedPaper(null)}
+                  aria-label="Close modal"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            {/* Modal Tabs */}
+            <div className="modal-tabs">
+              <button 
+                className={`modal-tab ${modalView === 'resources' ? 'active' : ''}`}
+                onClick={() => setModalView('resources')}
+              >
+                <span className="tab-icon">📚</span>
+                <span className="tab-label">Resources</span>
+              </button>
+              <button 
+                className={`modal-tab ${modalView === 'preview' ? 'active' : ''}`}
+                onClick={() => setModalView('preview')}
+              >
+                <span className="tab-icon">👁️</span>
+                <span className="tab-label">Preview</span>
+              </button>
+            </div>
+
+            {/* Modal Content */}
+            <div className="modern-modal-content">
+              {/* Resources View */}
+              {modalView === 'resources' && (
+                <div className="resources-view">
+                  <div className="mode-selector-section">
+                    <div className="mode-selector">
+                      <div className="mode-header">
+                        <h4>Access Mode</h4>
+                        <span className="mode-hint">Choose how to access the paper</span>
+                      </div>
+                      <div className="mode-options-grid">
+                        <button 
+                          className={`mode-option-card ${viewMode === 'view' ? 'active' : ''}`}
+                          onClick={() => setViewMode('view')}
+                        >
+                          <div className="mode-option-icon">👁️</div>
+                          <div className="mode-option-content">
+                            <div className="mode-option-title">View Online</div>
+                            <div className="mode-option-desc">Preview in browser instantly</div>
+                          </div>
+                          {viewMode === 'view' && <div className="active-indicator"></div>}
+                        </button>
+                        <button 
+                          className={`mode-option-card ${viewMode === 'download' ? 'active' : ''}`}
+                          onClick={() => setViewMode('download')}
+                        >
+                          <div className="mode-option-icon">⬇️</div>
+                          <div className="mode-option-content">
+                            <div className="mode-option-title">Download</div>
+                            <div className="mode-option-desc">Save for offline use</div>
+                          </div>
+                          {viewMode === 'download' && <div className="active-indicator"></div>}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="resources-grid-modern">
+                    <h4>Available Resources</h4>
+                    <div className="resources-cards-container">
+                      {selectedPaper.modelPaperLink && (
+                        <a
+                          href={viewMode === 'view' ? getViewLink(selectedPaper.modelPaperLink) : getDownloadLink(selectedPaper.modelPaperLink)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="resource-card-modern primary"
+                        >
+                          <div className="resource-card-icon">
+                            <span>📄</span>
+                          </div>
+                          <div className="resource-card-content">
+                            <div className="resource-card-title">Model Question Paper</div>
+                            <div className="resource-card-desc">Latest pattern & syllabus based</div>
+                            <div className="resource-card-meta">Primary Resource</div>
+                          </div>
+                          <div className="resource-card-action">
+                            <span className="action-text">
+                              {viewMode === 'view' ? 'View Paper →' : 'Download →'}
+                            </span>
+                          </div>
+                        </a>
+                      )}
+                      
+                      {selectedPaper.solutionLink && (
+                        <a
+                          href={viewMode === 'view' ? getViewLink(selectedPaper.solutionLink) : getDownloadLink(selectedPaper.solutionLink)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="resource-card-modern success"
+                        >
+                          <div className="resource-card-icon">
+                            <span>✅</span>
+                          </div>
+                          <div className="resource-card-content">
+                            <div className="resource-card-title">Solutions & Answer Key</div>
+                            <div className="resource-card-desc">Detailed step-by-step solutions</div>
+                            <div className="resource-card-meta">Verified Answers</div>
+                          </div>
+                          <div className="resource-card-action">
+                            <span className="action-text">
+                              {viewMode === 'view' ? 'View Solutions →' : 'Download →'}
+                            </span>
+                          </div>
+                        </a>
+                      )}
+                      
+                      {selectedPaper.oldPaperLink && (
+                        <a
+                          href={viewMode === 'view' ? getViewLink(selectedPaper.oldPaperLink) : getDownloadLink(selectedPaper.oldPaperLink)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="resource-card-modern warning"
+                        >
+                          <div className="resource-card-icon">
+                            <span>📜</span>
+                          </div>
+                          <div className="resource-card-content">
+                            <div className="resource-card-title">Previous Year Papers</div>
+                            <div className="resource-card-desc">Past examination papers</div>
+                            <div className="resource-card-meta">Practice Material</div>
+                          </div>
+                          <div className="resource-card-action">
+                            <span className="action-text">
+                              {viewMode === 'view' ? 'View Papers →' : 'Download →'}
+                            </span>
+                          </div>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="study-tips-modern">
+                    <div className="study-tips-header">
+                      <span className="tips-icon">💡</span>
+                      <h5>Smart Study Tips</h5>
+                    </div>
+                    <div className="tips-content">
+                      <p>Start with the model paper to understand the current pattern, then check solutions for better understanding. Finally, practice with old papers under timed conditions to improve speed and accuracy.</p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Preview View */}
+              {modalView === 'preview' && selectedPaper.modelPaperLink && (
+                <div className="preview-view">
+                  <div className="preview-header">
+                    <h4>Paper Preview</h4>
+                    <div className="preview-controls">
+                      <button 
+                        className="preview-action-btn"
+                        onClick={() => window.open(getViewLink(selectedPaper.modelPaperLink), '_blank')}
+                      >
+                        🔗 Open in New Tab
+                      </button>
+                      <button 
+                        className="preview-action-btn"
+                        onClick={() => window.open(getDownloadLink(selectedPaper.modelPaperLink), '_blank')}
+                      >
+                        ⬇️ Download Paper
+                      </button>
+                    </div>
+                  </div>
+                  <div className="preview-container">
+                    <iframe
+                      src={getViewLink(selectedPaper.modelPaperLink)}
+                      title={`Preview of ${selectedPaper.title}`}
+                      className="paper-preview-iframe"
+                      allow="autoplay"
+                    />
+                  </div>
+                  <div className="preview-footer">
+                    <p>Use the controls above to open in a new tab or download the paper for offline access.</p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer */}
+            <div className="modern-modal-footer">
+              <div className="modal-footer-actions">
+                <button 
+                  className="footer-action-btn share-btn"
+                  onClick={() => {
+                    navigator.clipboard.writeText(window.location.href);
+                    showNotificationMessage('Link copied to clipboard!');
+                  }}
+                >
+                  <span className="footer-action-icon">🔗</span>
+                  Share Paper
+                </button>
+                <button 
+                  className="footer-action-btn close-btn"
+                  onClick={() => setSelectedPaper(null)}
+                >
+                  <span className="footer-action-icon">✕</span>
+                  Close
+                </button>
+              </div>
+              <div className="modal-footer-info">
+                <span className="footer-info-text">
+                  All papers are provided for educational purposes only.
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="stat-label">Total Downloads</div>
         </div>
-      </div>
+      )}
+
+      {/* Notification Toast */}
+      {showNotification && (
+        <div className="notification-toast">
+          <div className="toast-content">
+            <span className="toast-icon">✨</span>
+            {notificationMessage}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

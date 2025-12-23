@@ -17,7 +17,8 @@ import { QRCodeCanvas } from 'qrcode.react';
 import { 
   FaCamera, FaPen, FaSave, FaTimes, FaSignOutAlt, FaTrash, 
   FaKey, FaUniversity, FaPhone, FaEnvelope, FaTrophy, FaClipboardList,
-  FaShieldAlt, FaBuilding, FaUserTie, FaCalendarAlt, FaEdit, FaCheck
+  FaShieldAlt, FaBuilding, FaUserTie, FaCalendarAlt, FaEdit, FaCheck,
+  FaCog, FaChartLine, FaUsers, FaComments, FaProjectDiagram, FaHome
 } from 'react-icons/fa';
 import './Profile.css';
 
@@ -213,6 +214,10 @@ const Profile = () => {
     }
   };
 
+  // --- Navigation Handlers ---
+  const goToHome = () => navigate('/');
+  const goToAdminDashboard = () => navigate('/admin-dashboard');
+
   // --- REVIEW EDIT HANDLERS ---
   const openEditModal = (review) => {
     setEditingReview({ ...review });
@@ -293,6 +298,27 @@ const Profile = () => {
         {/* HEADER */}
         <div className="profile-banner"><div className="banner-overlay"></div></div>
 
+        {/* Navigation Bar */}
+        <div className="profile-nav-bar">
+          <button className="nav-btn home-btn" onClick={goToHome} title="Go to Home">
+            <FaHome /> Home
+          </button>
+          
+          {isAdmin && (
+            <button className="nav-btn admin-btn" onClick={goToAdminDashboard} title="Admin Dashboard">
+              <FaCog /> Admin Panel
+            </button>
+          )}
+          
+          <div className="nav-spacer"></div>
+          
+          <div className="header-badges">
+            {isAdmin && <span className="badge admin">Admin</span>}
+            {user.isAnonymous && <span className="badge guest">Guest</span>}
+            {!user.isAnonymous && <span className="badge student">Student</span>}
+          </div>
+        </div>
+
         <div className="profile-header-content">
           <div className="avatar-container">
             <div className="avatar-circle">
@@ -309,21 +335,34 @@ const Profile = () => {
               <h1>{profileInfo.displayName}</h1>
             )}
             <p className="user-email"><FaEnvelope /> {profileInfo.email}</p>
-            <div className="header-badges">
-              {isAdmin && <span className="badge admin">Admin</span>}
-              {user.isAnonymous && <span className="badge guest">Guest</span>}
-              {!user.isAnonymous && <span className="badge student">Student</span>}
+            
+            {/* Quick Stats Row */}
+            <div className="quick-stats-row">
+              <div className="quick-stat">
+                <FaClipboardList className="stat-icon-small" />
+                <span>{stats.totalTests} Tests</span>
+              </div>
+              <div className="quick-stat">
+                <FaTrophy className="stat-icon-small" />
+                <span>{stats.avgScore}% Avg</span>
+              </div>
+              {myReviews.length > 0 && (
+                <div className="quick-stat">
+                  <FaBuilding className="stat-icon-small" />
+                  <span>{myReviews.length} Reviews</span>
+                </div>
+              )}
             </div>
           </div>
 
           <div className="header-actions">
             {!user.isAnonymous && (
               !editMode ? (
-                <button className="btn-icon-primary" onClick={() => setEditMode(true)}><FaPen /> Edit</button>
+                <button className="btn-icon-primary" onClick={() => setEditMode(true)}><FaPen /> Edit Profile</button>
               ) : (
                 <div className="edit-actions">
                   <button className="btn-icon-success" onClick={handleSave} disabled={loading}><FaSave /> {loading ? 'Saving...' : 'Save'}</button>
-                  <button className="btn-icon-danger" onClick={() => { setEditMode(false); setPreviewUrl(null); }}><FaTimes /></button>
+                  <button className="btn-icon-danger" onClick={() => { setEditMode(false); setPreviewUrl(null); }}><FaTimes /> Cancel</button>
                 </div>
               )
             )}
@@ -340,6 +379,12 @@ const Profile = () => {
             <div className="stat-icon gold"><FaTrophy /></div>
             <div><h3>{stats.avgScore}%</h3><span>Avg Score</span></div>
           </div>
+          {myReviews.length > 0 && (
+            <div className="stat-card">
+              <div className="stat-icon blue"><FaBuilding /></div>
+              <div><h3>{myReviews.length}</h3><span>Reviews Posted</span></div>
+            </div>
+          )}
         </div>
 
         {/* DETAILS GRID */}
@@ -347,7 +392,10 @@ const Profile = () => {
           
           {/* Left: Info */}
           <div className="details-column">
-            <h3>Personal Information</h3>
+            <div className="section-header">
+              <h3>Personal Information</h3>
+              <span className="section-icon"><FaUserTie /></span>
+            </div>
             <div className="info-group">
               <label><FaPhone /> Phone</label>
               {editMode ? <input name="phoneNumber" value={profileInfo.phoneNumber} onChange={handleChange} placeholder="+91..."/> : <p>{profileInfo.phoneNumber || "Not Provided"}</p>}
@@ -356,9 +404,12 @@ const Profile = () => {
               <label><FaUniversity /> College</label>
               {editMode ? <input name="collegeName" value={profileInfo.collegeName} onChange={handleChange} placeholder="University Name"/> : <p>{profileInfo.collegeName || "Not Provided"}</p>}
             </div>
-            <div className="qr-container">
-              <QRCodeCanvas value={profileLink} size={100} />
-              <span>Scan to Share Profile</span>
+            <div className="qr-section">
+              <h4>Share Profile</h4>
+              <div className="qr-container">
+                <QRCodeCanvas value={profileLink} size={120} />
+                <p className="qr-note">Scan QR code to view this profile</p>
+              </div>
             </div>
           </div>
 
@@ -368,9 +419,9 @@ const Profile = () => {
             {/* My Contributions Section */}
             {!user.isAnonymous && (
               <div className="my-contributions-section">
-                <div className="section-title-row">
+                <div className="section-header">
                   <h3>My Placement Reviews</h3>
-                  {myReviews.length > 0 && <span className="badge student">{myReviews.length} Posted</span>}
+                  <span className="section-icon"><FaComments /></span>
                 </div>
                 
                 {myReviews.length > 0 ? (
@@ -401,27 +452,48 @@ const Profile = () => {
                 ) : (
                   <div className="empty-mini-state">
                     <p>You haven't shared any experiences yet.</p>
-                    <button className="btn-text-link" onClick={() => navigate('/share-experience')}>Share Now</button>
+                    <button className="btn-text-link" onClick={() => navigate('/share-experience')}>Share Your Experience</button>
                   </div>
                 )}
               </div>
             )}
 
-            <h3 style={{marginTop: '2rem'}}>Recent Tests</h3>
+            <div className="section-header">
+              <h3>Recent Tests</h3>
+              <span className="section-icon"><FaClipboardList /></span>
+            </div>
+            
             {testResults.length > 0 ? (
               <div className="test-history-list">
-                <div className="table-header desktop-only"><span>Test Name</span><span>Difficulty</span><span>Score</span><span>Date</span></div>
+                <div className="table-header desktop-only">
+                  <span>Test Name</span>
+                  <span>Difficulty</span>
+                  <span>Score</span>
+                  <span>Date</span>
+                </div>
                 {testResults.map((test, i) => (
                   <div className="history-row" key={i}>
-                    <div className="col-name"><strong>{test.test}</strong><span className="mobile-only">{new Date(test.timestamp).toLocaleDateString()}</span></div>
-                    <div className="col-diff"><span className={`tag ${test.difficulty.toLowerCase()}`}>{test.difficulty}</span></div>
-                    <div className="col-score"><span className="percent">{test.percentage}%</span></div>
-                    <div className="col-date desktop-only">{test.timestamp ? new Date(test.timestamp).toLocaleDateString() : '-'}</div>
+                    <div className="col-name">
+                      <strong>{test.test}</strong>
+                      <span className="mobile-only">{new Date(test.timestamp).toLocaleDateString()}</span>
+                    </div>
+                    <div className="col-diff">
+                      <span className={`tag ${test.difficulty.toLowerCase()}`}>{test.difficulty}</span>
+                    </div>
+                    <div className="col-score">
+                      <span className="percent">{test.percentage}%</span>
+                    </div>
+                    <div className="col-date desktop-only">
+                      {test.timestamp ? new Date(test.timestamp).toLocaleDateString() : '-'}
+                    </div>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="empty-state"><p>No tests taken yet. Start learning!</p></div>
+              <div className="empty-state">
+                <p>No tests taken yet. Start learning!</p>
+                <button className="btn-text-link" onClick={() => navigate('/tests')}>Browse Tests</button>
+              </div>
             )}
           </div>
         </div>
@@ -479,21 +551,60 @@ const Profile = () => {
         {isAdmin && (
           <div className="admin-section">
             <div className="admin-header">
-              <h3><FaShieldAlt /> Admin: All Reviews</h3>
-              <span className="badge admin">{adminReviews.length}</span>
+              <h3><FaShieldAlt /> Admin: All Placement Reviews</h3>
+              <div className="admin-header-actions">
+                <span className="badge admin">{adminReviews.length}</span>
+                <button className="btn-admin-dashboard" onClick={goToAdminDashboard}>
+                  <FaChartLine /> Full Dashboard
+                </button>
+              </div>
             </div>
-            <div className="admin-reviews-grid">
-              {adminReviews.map((review) => (
-                <div className="admin-review-card" key={review.id}>
-                  <div className="review-top">
-                    <div><h4>{review.company}</h4><p className="role-text">{review.role}</p></div>
-                    <span className={`status-pill ${review.status || review.offerStatus}`}>{review.status || review.offerStatus}</span>
+            
+            {adminReviews.length > 0 ? (
+              <div className="admin-reviews-grid">
+                {adminReviews.slice(0, 3).map((review) => (
+                  <div className="admin-review-card" key={review.id}>
+                    <div className="review-top">
+                      <div>
+                        <h4>{review.company}</h4>
+                        <p className="role-text">{review.role}</p>
+                      </div>
+                      <span className={`status-pill ${review.status || review.offerStatus}`}>
+                        {review.status || review.offerStatus}
+                      </span>
+                    </div>
+                    <div className="review-meta">
+                      <small><FaUserTie /> {review.author?.name || 'Anonymous'}</small>
+                      <small><FaCalendarAlt /> {new Date(review.createdAt).toLocaleDateString()}</small>
+                    </div>
+                    <p className="review-snippet">{review.experience?.substring(0, 100)}...</p>
+                    <div className="review-actions">
+                      <button className="btn-view-review" onClick={() => navigate(`/review/${review.id}`)}>
+                        View Full
+                      </button>
+                      <button className="btn-delete-review" onClick={() => handleDeleteReview(review.id)}>
+                        <FaTrash /> Delete
+                      </button>
+                    </div>
                   </div>
-                  <div className="review-meta"><small>{review.author?.name}</small><small>{new Date(review.createdAt).toLocaleDateString()}</small></div>
-                  <div className="review-actions"><button className="btn-delete-review" onClick={() => handleDeleteReview(review.id)}><FaTrash /> Delete</button></div>
-                </div>
-              ))}
-            </div>
+                ))}
+                {adminReviews.length > 3 && (
+                  <div className="view-all-card">
+                    <div className="view-all-content">
+                      <h4>+{adminReviews.length - 3} More Reviews</h4>
+                      <p>View all reviews in the admin dashboard</p>
+                      <button className="btn-view-all" onClick={goToAdminDashboard}>
+                        <FaChartLine /> Go to Admin Dashboard
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <div className="empty-state">
+                <p>No placement reviews submitted yet.</p>
+              </div>
+            )}
           </div>
         )}
 
@@ -504,6 +615,7 @@ const Profile = () => {
             <button className="text-btn danger" onClick={handleDeleteAccount}><FaTrash /> Delete Account</button>
           </div>
         )}
+        
         <button className="logout-float-btn" onClick={handleLogout}><FaSignOutAlt /> Sign Out</button>
 
       </div>
