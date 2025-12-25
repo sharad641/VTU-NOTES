@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import './ModelPapers.css';
 
 const papers = [
+  // Existing papers (1-8)
   {
     id: 1,
     title: 'Computer Networks',
@@ -95,13 +96,219 @@ const papers = [
     oldPaperLink: 'https://drive.google.com/file/d/1cWG4jvZRZ2iBJA09t0WRW78dqw2vdm9x/preview',
     popularity: 'high',
   },
+  
+  // New papers added (9-25)
+  {
+    id: 9,
+    title: 'Applied Chemistry for CSE stream',
+    code: 'BCHES202',
+    category: 'basic_science',
+    semester: '2',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1HkhlDCYaNe8yPC5td-aCksjyMtz7hiLH/preview',
+    solutionLink: 'https://drive.google.com/file/d/1Qsw-USW8fq6meVzpU74mYOIP7WwECOXb/preview',
+    popularity: 'medium',
+  },
+  {
+    id: 10,
+    title: 'GRAPH THEORY',
+    code: 'BCS5405B',
+    category: 'core',
+    semester: '5',
+    year: '2024',
+    modelPaperLink: 'https://drive.google.com/file/d/1Jdgxk2UiVeXb-TJJywapMucYhW_HLqj3/preview',
+    solutionLink: 'https://drive.google.com/file/d/15m3xXKv-Os6JlQI6QvlTnBet7lI2ynCx/preview',
+    popularity: 'medium',
+  },
+  {
+    id: 11,
+    title: 'INTEGRATED WASTE MANAGEMENT FOR A SMART CITY',
+    code: 'BCV654C',
+    category: 'elective',
+    semester: '6',
+    year: '2024',
+    modelPaperLink: 'https://drive.google.com/file/d/1S6IqRQY87HsRhsqKC3CWsljih5zQoWt-/preview',
+    popularity: 'low',
+  },
+  {
+    id: 12,
+    title: 'RENEWABLE ENERGY POWER PLANTS',
+    code: 'BME654B',
+    category: 'elective',
+    semester: '6',
+    year: '2024',
+    modelPaperLink: 'https://drive.google.com/file/d/1Ny11P33Gx1VgtTPeBR2C-Pixd2OWuO7U/preview',
+    popularity: 'low',
+  },
+  {
+    id: 13,
+    title: 'CLOUD COMPUTING AND SECURITY',
+    code: 'BIS613D',
+    category: 'elective',
+    semester: '6',
+    year: '2024',
+    modelPaperLink: 'https://drive.google.com/file/d/1fhIl9-oR8sCf_9zf0QD1m3mzoFrOPP7w/view?usp=drive_link',
+    popularity: 'high',
+  },
+  {
+    id: 14,
+    title: 'WATER CONSERVATION AND RAIN WATER HARVESTING',
+    code: 'BCV654A',
+    category: 'elective',
+    semester: '6',
+    year: '2024',
+    modelPaperLink: 'https://drive.google.com/file/d/1bOrd1-U9omf_IH3ZS5gWPceSfP01O4a8/preview',
+    popularity: 'low',
+  },
+  {
+    id: 15,
+    title: 'Microcontroller',
+    code: 'BCS402',
+    category: 'core',
+    semester: '4',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1bFd7GbQA6GycngDouhlvhnjNAoPW6t6q/view?usp=drive_link',
+    popularity: 'high',
+  },
+  {
+    id: 16,
+    title: 'Principles of Programming Using C',
+    code: 'BPOPS103',
+    category: 'programming',
+    semester: '1',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1XbWC-4lhCglAe2uNps_S0yJtRjx8JKY8/preview',
+    popularity: 'high',
+  },
+  {
+    id: 17,
+    title: 'Introduction to Python Programming',
+    code: 'BPLCK205B',
+    category: 'programming',
+    semester: '2',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1XIvt4xN6tEo34CYD1kpn2OWrgRy0zdEo/preview',
+    solutionLink: 'https://drive.google.com/file/d/12PN6-yofvVSVi3xgnbsTc2mhzuWRt4gS/preview',
+    popularity: 'high',
+  },
+  {
+    id: 18,
+    title: 'Introduction to Electrical Engineering',
+    code: 'BESCK104B',
+    category: 'basic_science',
+    semester: '1',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1xm1BU-8LUzSmpWSc30vJNtRvTeqQcYS2/preview',
+    popularity: 'medium',
+  },
+  {
+    id: 19,
+    title: 'MATHEMATICS FOR CS ENGINEERING STREAM',
+    code: 'BCS301',
+    category: 'basic_science',
+    semester: '3',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1yWlFPiwEkizdCX-nfOJhg4j571naHRh9/preview',
+    solutionLink: 'https://drive.google.com/file/d/1__LR4Vo4wqsQYd8IbIixnxFOM85AmAY-/preview',
+    popularity: 'high',
+  },
+  {
+    id: 20,
+    title: 'Operating System',
+    code: 'BCS303',
+    category: 'core',
+    semester: '3',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1YXVbpdqeVKm4Hozh7lLH7mFS8NkLWz_k/preview',
+    popularity: 'high',
+  },
+  {
+    id: 21,
+    title: 'Data Structures and Applications',
+    code: 'BCS304',
+    category: 'core',
+    semester: '3',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1inTZ9YeyPBbXGvKJDtbxGvEMPTgVYSml/preview',
+    solutionLink: 'https://drive.google.com/file/d/1oqqZKNvDkFMtU5210eS_Q-LFEepR_bfr/preview',
+    popularity: 'very-high',
+  },
+  {
+    id: 22,
+    title: 'Object Oriented Programming with JAVA',
+    code: 'BCS306A',
+    category: 'programming',
+    semester: '3',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1LLY2jEI-KnI6M5wacApA_KW-SViB0pIs/preview',
+    solutionLink: 'https://drive.google.com/file/d/1g4x5sDmgyLnsC0kkWPhGuy1BNcJnF5Sd/preview',
+    popularity: 'very-high',
+  },
+  {
+    id: 23,
+    title: 'DISCRETE MATHEMATICAL STRUCTURES (BCS405A)',
+    code: 'BCS405A',
+    category: 'core',
+    semester: '4',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1cOOJv05d1Dl_7pL7ANCMxXTuvUziD9ai/preview',
+    solutionLink: 'https://drive.google.com/file/d/1iuXEzjqn6yqNc3AnkBMEyQN1M3qb0JYs/preview',
+    popularity: 'medium',
+  },
+  {
+    id: 24,
+    title: 'Biology for Engineering',
+    code: 'BBOC407',
+    category: 'basic_science',
+    semester: '4',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1qRg6fD6doTfw9h51suNe5fbjuWgeECQO/preview',
+    solutionLink: 'https://drive.google.com/file/d/1h_udrhNRqd0UiwdM8bVeH_PTXyWsVcKB/preview',
+    popularity: 'low',
+  },
+  {
+    id: 25,
+    title: 'Applied Physics for CSE stream',
+    code: 'BPHYS102',
+    category: 'basic_science',
+    semester: '1',
+    year: '2023',
+    modelPaperLink: 'https://drive.google.com/file/d/1Qsw-USW8fq6meVzpU74mYOIP7WwECOXb/preview',
+    popularity: 'medium',
+  },
+  {
+    id: 26, // 继续之前的ID序列
+    title: 'Theory of Computation',
+    code: 'BCS503',
+    category: 'core',
+    semester: '5',
+    year: '2024',
+    modelPaperLink: 'https://drive.google.com/file/d/1YBiqED7uRBVSs3yFOpUi4Lpqx9EAOKZ5/preview',
+    // 关联的解答样本
+    relatedSolutions: [
+      {
+        title: "BCS503 MQP SOLUTION SAMPLE 1 (Comprehensive notes for Module 5)",
+        previewUrl: "https://drive.google.com/file/d/1OfbbBXT1eYl-mAruZYJZzNiRotujQe5E/preview",
+      },
+      {
+        title: "BCS503 MQP 1 SOLUTION SAMPLE 1",
+        previewUrl: "https://drive.google.com/file/d/1FrvIgJ-jQjWZ0ECR0zSP0e1JizJaAWXE/preview",
+      },
+      {
+        title: "BCS503 MQP 2 SOLUTION SAMPLE 1",
+        previewUrl: "https://drive.google.com/file/d/1uo_V8O6catQ2rKKqEmHYPL4TMcvr8Yf9/preview",
+      },
+    ],
+    popularity: 'high',
+  }
 ];
 
 const categories = [
   { id: 'all', label: 'All Papers', icon: '📚', color: '#8B5CF6' },
   { id: 'core', label: 'Core Subjects', icon: '💻', color: '#3B82F6' },
   { id: 'elective', label: 'Electives', icon: '🎯', color: '#10B981' },
-  { id: 'basic_science', label: 'Basic Sciences', icon: '🔬', color: '#F59E0B' }
+  { id: 'basic_science', label: 'Basic Sciences', icon: '🔬', color: '#F59E0B' },
+  { id: 'programming', label: 'Programming', icon: '💾', color: '#EC4899' }
 ];
 
 const semesters = [
@@ -223,6 +430,7 @@ const ModelPapers = () => {
     if (link.includes('drive.google.com')) {
       if (link.includes('/view')) return link.replace('/view', '/preview');
       if (link.includes('/preview')) return link;
+      if (link.includes('/view?usp=drive_link')) return link.replace('/view?usp=drive_link', '/preview');
     }
     return link;
   };
@@ -289,6 +497,7 @@ const ModelPapers = () => {
             {paper.modelPaperLink && <span className="resource-badge">📄 Paper</span>}
             {paper.solutionLink && <span className="resource-badge">✅ Solution</span>}
             {paper.oldPaperLink && <span className="resource-badge">📜 Old</span>}
+            {paper.relatedSolutions && <span className="resource-badge">📚 Samples</span>}
           </div>
           
           <div className="paper-actions">
@@ -602,7 +811,8 @@ const ModelPapers = () => {
                     <span className="modal-info-item">
                       <span className="info-icon">
                         {selectedPaper.category === 'core' ? '💻' : 
-                         selectedPaper.category === 'elective' ? '🎯' : '🔬'}
+                         selectedPaper.category === 'elective' ? '🎯' : 
+                         selectedPaper.category === 'programming' ? '💾' : '🔬'}
                       </span>
                       {selectedPaper.category.replace('_', ' ')}
                     </span>
@@ -747,6 +957,38 @@ const ModelPapers = () => {
                           </div>
                         </a>
                       )}
+                      
+                      {/* Related Solutions for BCS503 */}
+                      {selectedPaper.relatedSolutions && selectedPaper.relatedSolutions.length > 0 && (
+                        <div className="related-solutions-section">
+                          <div className="section-header">
+                            <span className="section-icon">📚</span>
+                            <h5>Related Solution Samples</h5>
+                          </div>
+                          <div className="related-solutions-grid">
+                            {selectedPaper.relatedSolutions.map((solution, index) => (
+                              <a
+                                key={index}
+                                href={viewMode === 'view' ? getViewLink(solution.previewUrl) : getDownloadLink(solution.previewUrl)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="solution-sample-card"
+                              >
+                                <div className="solution-sample-header">
+                                  <span className="solution-icon">📝</span>
+                                  <span className="solution-index">Sample {index + 1}</span>
+                                </div>
+                                <div className="solution-sample-title">
+                                  {solution.title}
+                                </div>
+                                <div className="solution-sample-action">
+                                  {viewMode === 'view' ? 'View →' : 'Download →'}
+                                </div>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
 
@@ -756,7 +998,12 @@ const ModelPapers = () => {
                       <h5>Smart Study Tips</h5>
                     </div>
                     <div className="tips-content">
-                      <p>Start with the model paper to understand the current pattern, then check solutions for better understanding. Finally, practice with old papers under timed conditions to improve speed and accuracy.</p>
+                      <p>
+                        Start with the model paper to understand the current pattern, then check solutions for better understanding. 
+                        Finally, practice with old papers under timed conditions to improve speed and accuracy.
+                        {selectedPaper.relatedSolutions && 
+                          " Use the solution samples above for additional practice on specific modules."}
+                      </p>
                     </div>
                   </div>
                 </div>
