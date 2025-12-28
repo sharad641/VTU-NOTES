@@ -2761,14 +2761,9 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1jRFYhJ_qFwyLUdOCfRT7_uAdCqIilj5M/preview",
             },
-             {
-              title: "Module 1:Handwritten Notes",
-              content: "Comprehensive notes for Module 1.",
-              previewUrl:
-                "https://drive.google.com/file/d/186TvAtD4hPtltprNBhReK_BejAvV2GIX/preview",
-            },
+             
 
-            {
+        {
               title: "Module 2:Printed Notes",
               content: "Comprehensive notes for Module 2.",
               previewUrl:

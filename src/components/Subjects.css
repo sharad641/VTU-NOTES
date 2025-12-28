@@ -336,3 +336,55 @@
     transform: translateY(-2px); /* Less movement on touch */
   }
 }
+/* --- Modern Back Button Styles --- */
+
+.back-button-wrapper {
+  width: 100%;
+  margin-bottom: 20px; /* Spacing below the button */
+  display: flex;
+  justify-content: flex-start;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #ffffff;
+  color: #333333;
+  border: 1px solid #e0e0e0;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.back-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-color: #007bff; /* Or your theme color */
+  color: #007bff;
+}
+
+.back-btn:hover svg {
+  transform: translateX(-3px);
+}
+
+.back-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.back-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+  .back-btn {
+      padding: 8px 18px;
+      font-size: 14px;
+  }
+}

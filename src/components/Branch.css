@@ -181,3 +181,75 @@ body {
 }
 
 
+/* --- Modern Back Button Styles --- */
+
+/* Wrapper handles positioning and outer spacing */
+.back-button-wrapper {
+    width: 100%;
+    max-width: 1200px; /* Matches standard container width */
+    margin: 0 auto;
+    padding: 20px 20px 0 20px; /* Top padding to breathe */
+    box-sizing: border-box;
+}
+
+/* The Button Itself */
+.back-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #e0e0e0;
+    
+    padding: 10px 24px;
+    border-radius: 50px; /* Pill shape for modern look */
+    
+    font-size: 16px;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Subtle shadow */
+}
+
+/* Hover Effect: Lifts up and glows slightly */
+.back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: #007bff; /* Change this to your theme color */
+    color: #007bff;        /* Change this to your theme color */
+}
+
+.back-btn:hover svg {
+    transform: translateX(-3px); /* Arrow moves slightly left */
+}
+
+/* SVG Icon transition */
+.back-btn svg {
+    transition: transform 0.3s ease;
+}
+
+/* Click/Active State */
+.back-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .back-button-wrapper {
+        padding: 15px 15px 0 15px;
+    }
+
+    .back-btn {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+    
+    .back-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+}

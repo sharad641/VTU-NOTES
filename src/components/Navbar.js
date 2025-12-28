@@ -105,12 +105,11 @@ const Navbar = () => {
   // --- 5. Navigation Config ---
   const mainLinks = [
     { to: "/", label: "Home", icon: <Home size={20} /> },
-    
-    { to: "/sgpa-calculator", label: "SGPA Calculator", icon: <Calculator size={20} /> },
+    { to: "/about", label: "About", icon: <Info size={20} /> },
     
     { to: "/model-papers", label: "Model QP & PYQPs", icon: <BookOpen size={20} /> },
     { to: "/branch/cse", label: "CSE Stream", icon: <GraduationCap size={20} /> },
-   
+    { to: "/placement-stories", label: "Placements Stories", icon: <Users size={20} /> },
     { to: "/sgpa-calculator", label: "SGPA Calculator", icon: <Calculator size={20} /> },
     { to: "/project-enquiry", label: "🚀 Project Enquiry", icon: <Rocket size={20} /> },
   ];
@@ -279,11 +278,10 @@ const Navbar = () => {
           <div className="bottom-nav-container">
             {[
               { to: "/", icon: <Home size={22} />, label: "Home" },
-               { to: "/placement-stories", icon: <Users size={22} />, label: "Placements" },
-             
+              { to: "/notes", icon: <FileText size={22} />, label: "Notes" },
               { to: "/search", icon: <Search size={22} />, label: "Search" },
               { to: "/model-papers", icon: <BookOpen size={22} />, label: "QP" },
-            { to: "/sgpa-calculator", label: "Calculator", icon: <Calculator size={20} /> },
+              { to: "/placement-stories", icon: <Users size={22} />, label: "Placements" },
               { to: user ? "/profile" : "/login", icon: user ? renderProfile() : <User size={22} />, label: user ? "Me" : "Login" }
             ].map((item) => (
               <Link

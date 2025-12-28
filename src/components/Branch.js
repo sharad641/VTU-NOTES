@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import AdSenseAd from './AdSenseAd'; 
 import './Branch.css'; 
 import CommentSection from './CommentSection';
+import Breadcrumbs from './Breadcrumbs'; // 1. Import the Breadcrumbs component
 
 function Branch() {
     const { branch } = useParams();
@@ -15,8 +16,11 @@ function Branch() {
 
     return (
         <div>
-            {/* Headline Message Section */}
-            
+            {/* 2. Modern Navigation Path (Breadcrumbs) */}
+            {/* Added marginTop to prevent it from hiding behind your fixed Navbar */}
+            <div style={{ marginTop: '80px' }}> 
+                <Breadcrumbs />
+            </div>
 
             {/* Branch Section */}
             <div className="branch">
@@ -30,23 +34,21 @@ function Branch() {
                                     <span>Semester {sem}</span>
                                 </div>
                                 <div className="ad-container">
-                                                <AdSenseAd
-                                                    adClient="ca-pub-9499544849301534"
-                                                    adSlot="7579321744"
-                                                    adFormat="auto"
-                                                    fullWidthResponsive={true}
-                                                />
-                                            </div>
-                                            
+                                    <AdSenseAd
+                                        adClient="ca-pub-9499544849301534"
+                                        adSlot="7579321744"
+                                        adFormat="auto"
+                                        fullWidthResponsive={true}
+                                    />
+                                </div>     
                             </Link>
-                            
                         </li>
-                        
                     ))}
                 </ul>
             </div>
-             {/* 💬 Comments */}
-                                                  <CommentSection />
+            
+            {/* 💬 Comments */}
+            <CommentSection />
         </div>
     );
 }

@@ -3,13 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import AdSenseAd from './AdSenseAd'; 
 import './Subjects.css';
 import { FaBookOpen, FaClock, FaArrowRight, FaSearch } from 'react-icons/fa';
-
+import Breadcrumbs from './Breadcrumbs'; // 1. Import Breadcrumbs
 
 const Subjects = () => {
   const { branch, semester } = useParams();
   const navigate = useNavigate();
 
-  // --- DATA (Preserved) ---
+  // --- DATA ---
   const subjectsData = {
     'first-year': {
       1: [
@@ -77,8 +77,6 @@ const Subjects = () => {
         { name:'MACHINE LEARNING', code: 'BIC703', credits: 4, info: 'Sem 7 Machine Learning' },
         { name:'BIG DATA ANALYTICS', code: 'BCS714D', credits: 4, info: 'Big Data Analytics Notes' },
         { name:'The software quality challenge', code: 'BIS714B', credits: 3, info: 'Big Data Analytics Notes' },
-        
-
       ],
     },
     ece: {
@@ -98,6 +96,11 @@ const Subjects = () => {
 
   return (
     <div className="subjects-page">
+      {/* 2. Added Breadcrumbs at the top with spacing for navbar */}
+      <div style={{ marginTop: '80px' }}> 
+          <Breadcrumbs />
+      </div>
+
       <div className="subjects-container">
         
         {/* Modern Header */}
@@ -120,7 +123,7 @@ const Subjects = () => {
                 {/* Subject Card */}
                 <div 
                   className="subject-card animate-card"
-                  style={{ animationDelay: `${index * 0.1}s` }} // Staggered animation
+                  style={{ animationDelay: `${index * 0.1}s` }} 
                   onClick={() => handleSubjectClick(subject)}
                   role="button"
                   tabIndex={0}
