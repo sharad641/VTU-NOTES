@@ -2753,6 +2753,54 @@ const ModuleDetail = () => {
         ],
         },
         {
+          title: "The software quality challenge",
+          modules: [
+            {
+              title: "Module 1:Printed Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1jRFYhJ_qFwyLUdOCfRT7_uAdCqIilj5M/preview",
+            },
+             {
+              title: "Module 1:Handwritten Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/186TvAtD4hPtltprNBhReK_BejAvV2GIX/preview",
+            },
+
+            {
+              title: "Module 2:Printed Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1RXccBLtUX8myHoLwrhylV0reZTpo8gGB/preview",
+            },
+            
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1VzolDybW9lxf2ankJkXqAItFnC-sb9yJ/preview",
+            },
+             
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/18-piP3-clRxXvctyCN-D-thJDGSZihBK/preview",
+            },
+            
+             {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1AsrHV1U6o8N38JtM8BcCJIsxd_f2cEjq/preview",
+            },
+           
+          
+        ],
+        },
+        
+        {
           title: "BIG DATA ANALYTICS",
           modules: [
             {
@@ -2785,6 +2833,18 @@ const ModuleDetail = () => {
               previewUrl:
                 "https://drive.google.com/file/d/1graCHdRSVXvChRcXKdkWWPhP6ZH2XxfO/preview",
             },
+            {
+            title: "ALL Question Paper",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1YyscUweUvfoV0BP0RQvrUREgv7mOpmAS/preview",
+          },
+           {
+            title: "ALL Question Paper solutions",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1m9VH6NBghr7IWFk2v798RrMbLXeZQahf/preview",
+          },
          
         
         ],

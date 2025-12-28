@@ -16,6 +16,18 @@ const papers = [
     popularity: 'high',
   },
   {
+    id: 27,
+    title: 'BIG DATA ANALYTICS',
+    code: 'BAD601',
+    category: 'core',
+    semester: '7',
+    year: '2024',
+    modelPaperLink: 'https://drive.google.com/file/d/1YyscUweUvfoV0BP0RQvrUREgv7mOpmAS/preview',
+    oldPaperLink: 'https://drive.google.com/file/d/1YyscUweUvfoV0BP0RQvrUREgv7mOpmAS/preview',
+    solutionLink: 'https://drive.google.com/file/d/1m9VH6NBghr7IWFk2v798RrMbLXeZQahf/preview',
+    popularity: 'high',
+  },
+  {
     id: 2,
     title: 'Software Engineering and Project Management',
     code: 'BCS501',
@@ -277,7 +289,7 @@ const papers = [
     popularity: 'medium',
   },
   {
-    id: 26, // 继续之前的ID序列
+    id: 26, 
     title: 'Theory of Computation',
     code: 'BCS503',
     category: 'core',
