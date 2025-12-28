@@ -2904,6 +2904,57 @@ const ModuleDetail = () => {
          
         ],
         },
+        {
+          title: "Parallel Computing",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1z-IDMo50tWbK09AgneAmwnmwhv5QYAU7/preview",
+            },
+             {
+              title: "Module 1: handwrittenNotes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/14QGnrqwzSiZ0Zn5oQ8BJhp2iXK_HpRQz/preview",
+            },
+             {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1QO0UGjEsmr-8J4vyTllPKMQxqbiTKmi6/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1wgAYv3ILH8tEfEvwUuq31sulLzaUbmiU/preview",
+            },
+             {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1CABkB7_q449Xx4X8Zost8W9sklCZTSz_/preview",
+            },
+           
+             
+           
+             {
+            title: "ALL Question Paper",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/170ExErQsAgDRdAlwd2vRcYSu43RaIgb_/preview",
+          },
+           {
+            title: "QB",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1gigxbfaP9OQJhGRlpmNvRu9H1UgDBcBc/preview",
+          },
+         
+        ],
+        },
         
         
         
