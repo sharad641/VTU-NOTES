@@ -2844,6 +2844,66 @@ const ModuleDetail = () => {
         
         ],
         },
+        {
+          title: "Cryptography & Network Security",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/1RmrMh00z0WNpkbwZlUDKWIBN1y88_mHv/preview",
+            },
+             {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/16A5UzpyCUdcbLMvPx5rxfgDAlhrDFmx0/preview",
+            },
+            {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1OmN17Z7hhKrgAS8FTzSNcDcK8Xm2xkIg/preview",
+            },
+             {
+              title: "Module 2: Notes",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1XGt_On6rVX6g-9QLo_ugWmu1wFA41XDw/preview",
+            },
+            {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/18VKZo6Ock9ghHOUZ2guBSkaVKtN_Bb0q/preview",
+            },
+             {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1djYC-nYh8uoSAICd1JYPollU3IoInmMm/preview",
+            },
+            {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1JmDHb_V1kjM9IQUZbbslbIvS4OX8uro1/preview",
+            },
+             {
+            title: "ALL Question Paper",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1BzdLI_W8Cw9CrnyoJip_OLKoEQu-fLpg/preview",
+          },
+           {
+            title: "CN&S QB",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1XU1m2qtorVG6u4EgZLpKRqFo8czFb-Yi/preview",
+          },
+         
+        ],
+        },
         
         
         

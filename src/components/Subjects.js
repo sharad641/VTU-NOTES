@@ -77,6 +77,7 @@ const Subjects = () => {
         { name:'MACHINE LEARNING', code: 'BIC703', credits: 4, info: 'Sem 7 Machine Learning' },
         { name:'BIG DATA ANALYTICS', code: 'BCS714D', credits: 4, info: 'Big Data Analytics Notes' },
         { name:'The software quality challenge', code: 'BIS714B', credits: 3, info: 'Big Data Analytics Notes' },
+         { name: 'Cryptography & Network Security', code: 'BCO601', credits: 4, info: 'Security Notes' },
       ],
     },
     ece: {
