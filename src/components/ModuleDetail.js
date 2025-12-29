@@ -2752,48 +2752,69 @@ const ModuleDetail = () => {
           
         ],
         },
-        {
-          title: "The software quality challenge",
-          modules: [
-            {
-              title: "Module 1:Printed Notes",
-              content: "Comprehensive notes for Module 1.",
-              previewUrl:
-                "https://drive.google.com/file/d/1jRFYhJ_qFwyLUdOCfRT7_uAdCqIilj5M/preview",
-            },
-             
+       {
+  title: "The software quality challenge",
+  description:
+    "VTU-prescribed subject focusing on software quality concepts, challenges in building reliable systems, quality models, testing strategies, and process improvement techniques.",
 
-        {
-              title: "Module 2:Printed Notes",
-              content: "Comprehensive notes for Module 2.",
-              previewUrl:
-                "https://drive.google.com/file/d/1RXccBLtUX8myHoLwrhylV0reZTpo8gGB/preview",
-            },
-            
-            {
-              title: "Module 3: Notes",
-              content: "Comprehensive notes for Module 3.",
-              previewUrl:
-                "https://drive.google.com/file/d/1VzolDybW9lxf2ankJkXqAItFnC-sb9yJ/preview",
-            },
-             
-            {
-              title: "Module 4: Notes",
-              content: "Comprehensive notes for Module 4.",
-              previewUrl:
-                "https://drive.google.com/file/d/18-piP3-clRxXvctyCN-D-thJDGSZihBK/preview",
-            },
-            
-             {
-              title: "Module 5: Notes",
-              content: "Comprehensive notes for Module 5.",
-              previewUrl:
-                "https://drive.google.com/file/d/1AsrHV1U6o8N38JtM8BcCJIsxd_f2cEjq/preview",
-            },
-           
-          
-        ],
-        },
+  modules: [
+    {
+      title: "Top Study Notes: Complete Software Quality Engineering – Set 01",
+      content:
+        "Complete, exam-oriented notes covering all 5 modules with clear explanations, diagrams, examples, and VTU important questions.",
+      previewUrl:
+        "https://drive.google.com/file/d/1FASS4k2QRC_GOqxUVWcsoS_tDeoIJV1c/preview",
+    },
+    {
+      title: "Top Study Notes: Complete Software Quality Engineering – Set 02",
+      content:
+        "Alternate complete notes set for revision, including simplified concepts, key points, and last-minute exam preparation material.",
+      previewUrl:
+        "https://drive.google.com/file/d/1IGnWxsfCgYmH0y-G-B5L0PJiEIu46V2j/preview",
+    },
+
+    {
+      title: "Module 1: Introduction to Software Quality (Printed Notes)",
+      content:
+        "Introduction to software quality, quality challenges, errors vs defects, cost of quality, and the role of quality assurance in software engineering.",
+      previewUrl:
+        "https://drive.google.com/file/d/1jRFYhJ_qFwyLUdOCfRT7_uAdCqIilj5M/preview",
+    },
+
+    {
+      title: "Module 2: Software Quality Models & Standards (Printed Notes)",
+      content:
+        "Software quality models, ISO quality standards, software metrics, and quality measurement techniques as per VTU syllabus.",
+      previewUrl:
+        "https://drive.google.com/file/d/1RXccBLtUX8myHoLwrhylV0reZTpo8gGB/preview",
+    },
+
+    {
+      title: "Module 3: Software Testing Fundamentals",
+      content:
+        "Testing principles, levels of testing, black-box and white-box techniques, test case design, and defect life cycle.",
+      previewUrl:
+        "https://drive.google.com/file/d/1VzolDybW9lxf2ankJkXqAItFnC-sb9yJ/preview",
+    },
+
+    {
+      title: "Module 4: Software Quality Assurance & Reviews",
+      content:
+        "Software quality assurance activities, reviews, inspections, audits, and verification versus validation concepts.",
+      previewUrl:
+        "https://drive.google.com/file/d/18-piP3-clRxXvctyCN-D-thJDGSZihBK/preview",
+    },
+
+    {
+      title: "Module 5: Process Improvement & Advanced Quality Topics",
+      content:
+        "Process improvement models, CMMI, Six Sigma basics, defect prevention techniques, and quality management tools.",
+      previewUrl:
+        "https://drive.google.com/file/d/1AsrHV1U6o8N38JtM8BcCJIsxd_f2cEjq/preview",
+    },
+  ],
+},
+
         
         {
           title: "BIG DATA ANALYTICS",
@@ -2917,7 +2938,7 @@ const ModuleDetail = () => {
               title: "Module 1: handwrittenNotes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/14QGnrqwzSiZ0Zn5oQ8BJhp2iXK_HpRQz/preview",
+                "https://drive.google.com/file/d/14QGnrqwzSiZ0Zn5oQ8BJhp2iXK_HpRQz/view",
             },
              {
               title: "Module 2: Notes",
