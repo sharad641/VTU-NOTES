@@ -2796,6 +2796,31 @@ const ModuleDetail = () => {
         "https://drive.google.com/file/d/1FASS4k2QRC_GOqxUVWcsoS_tDeoIJV1c/preview",
     },
     {
+title: "Module 1: Last-Minute Revision Notes & Important Q/A",
+content: "Concise revision of Introduction to Software Quality, Quality Challenges, Cost of Quality, and VTU's most asked questions with model answers.",
+previewUrl: "https://drive.google.com/file/d/1BWIc0iPpG3GjHj00YyYGK6d4vE9lHYdE/preview",
+},
+{
+title: "Module 2: Last-Minute Revision Notes & Important Q/A",
+content: "Quick recap of Quality Models (McCall, ISO 9126), ISO 9001, SQA Standards, and Software Metrics with solved important questions.",
+previewUrl: "https://drive.google.com/file/d/1QZonHjuFxQpOpWm39K8ugLvz2lPwR8Tc/preview",
+},
+{
+title: "Module 3: Last-Minute Revision Notes & Important Q/A",
+content: "Focused revision on Testing Levels, Black-Box & White-Box Techniques, Test Case Design, and Defect Life Cycle with previous year Q/A.",
+previewUrl: "https://drive.google.com/file/d/1Vi5_2ClB6PABCQ6EjBzDLmSwKJtLAdL0/preview",
+},
+{
+title: "Module 4: Last-Minute Revision Notes & Important Q/A",
+content: "still not uploaded waiting for the file",
+previewUrl: "https://drive.google.com/file/d/1dHX5FZcfojic9oysv9_aA32RTUYtkzvA/preview",
+},
+{
+title: "Module 5: Last-Minute Revision Notes & Important Q/A",
+content: "Final revision notes on CMMI, Six Sigma, Process Improvement, Defect Prevention, and key questions with answers for VTU exams.",
+previewUrl: "https://drive.google.com/file/d/1MOD5_REVISION_ID_5/preview",
+},
+    {
       title: "Top Study Notes: Complete Software Quality Engineering – Set 02",
       content:
         "Alternate complete notes set for revision, including simplified concepts, key points, and last-minute exam preparation material.",
