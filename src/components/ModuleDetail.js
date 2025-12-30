@@ -2812,13 +2812,13 @@ previewUrl: "https://drive.google.com/file/d/1Vi5_2ClB6PABCQ6EjBzDLmSwKJtLAdL0/p
 },
 {
 title: "Module 4: Last-Minute Revision Notes & Important Q/A",
-content: "still not uploaded waiting for the file",
+content: "",
 previewUrl: "https://drive.google.com/file/d/1dHX5FZcfojic9oysv9_aA32RTUYtkzvA/preview",
 },
 {
 title: "Module 5: Last-Minute Revision Notes & Important Q/A",
 content: "Final revision notes on CMMI, Six Sigma, Process Improvement, Defect Prevention, and key questions with answers for VTU exams.",
-previewUrl: "https://drive.google.com/file/d/1MOD5_REVISION_ID_5/preview",
+previewUrl: "https://drive.google.com/file/d/1npzJmFzBaD3B3HW2NCv1k3RIybOiS5f9/preview",
 },
     {
       title: "Top Study Notes: Complete Software Quality Engineering – Set 02",
