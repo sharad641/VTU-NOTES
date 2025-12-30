@@ -1878,6 +1878,12 @@ const ModuleDetail = () => {
               previewUrl:
                 "ttps://drive.google.com/file/d/1o73EvSDKnuy5qcoLitiaCSAYZ4PeMNSu/preview",
             },
+            {
+            title: "Question Paper solution",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1Tk6xZC9hMrbLHgiFaHie5uiMDQ3s5YJ3/preview",
+          },
           ],
           questionPaper: {
             title: "Question Paper",
@@ -2101,14 +2107,14 @@ const ModuleDetail = () => {
               title: "Module 1: Notes",
               content: "Comprehensive notes for Module 1.",
               previewUrl:
-                "https://drive.google.com/file/d/11HU4yDA5PHElqHshiD-J2P14TMnne_gw/preview",
+                "https://drive.google.com/file/d/18FJ3L2iS5xmoFRhHkP-dXSLCIgsbWYMV/preview" ,
             },
             
             {
               title: "Module 3: Notes",
               content: "Comprehensive notes for Module 3.",
               previewUrl:
-                "https://drive.google.com/file/d/1ogZ4DWUGVo-XFW4NAuE7j_XF-XKdZP2d/preview",
+                "https://drive.google.com/file/d/1_OFLcnjDroW2P92YjL9AaC8aouxWwzc_/preview",
             },
             {
               title: "Module 4: Notes",
@@ -2120,7 +2126,31 @@ const ModuleDetail = () => {
               title: "Module 5: Notes",
               content: "Comprehensive notes for Module 5.",
               previewUrl:
-                "https://drive.google.com/file/d/1FKnAr1Rw7Xa8trJQt1AiOXb7TZRuqma7/preview",
+                "https://drive.google.com/file/d/12Uwd_ACK7vWfnnvTxr0HD7RbuazbloZg/preview",
+            },
+            {
+              title: "Module QP SOLUTION",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1TuS1E1iSPJ7G5vyfcreNjq4_m6O6ZFuQ/preview",
+            },
+             {
+              title: " previous year QP SOLUTION",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/11Siw_HL7A-YPM5S0McJzu4TSwfNZG8lW/preview",
+            },
+            {
+              title: "ALL_IN_ONE_QP",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1Blttayw5q6cGL7OLd1ufoV5hGv5PZLPH/preview",
+            },
+             {
+              title: "MQP",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/1uLiZKT2rA7GMgqMaYzH7IAGu5KcgOSgv/preview",
             },
             
           ],
