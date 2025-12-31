@@ -2980,6 +2980,51 @@ previewUrl: "https://drive.google.com/file/d/1npzJmFzBaD3B3HW2NCv1k3RIybOiS5f9/p
          
         ],
         },
+         {
+          title: "BLOCKCHAIN TECHNOLOGY",
+          modules: [
+            {
+              title: "Module 1: Notes",
+              content: "Comprehensive notes for Module 1.",
+              previewUrl:
+                "https://drive.google.com/file/d/12CzjYxD_LtPpSa49H1gsEdQZJgZBYNi7/preview",
+            },
+             {
+              title: "Module 2: ",
+              content: "Comprehensive notes for Module 2.",
+              previewUrl:
+                "https://drive.google.com/file/d/1ueFQqgmgjVrfhBh_6anbno6pmjat85S-/preview",
+            },
+             {
+              title: "Module 3: Notes",
+              content: "Comprehensive notes for Module 3.",
+              previewUrl:
+                "https://drive.google.com/file/d/1FHPVvnGOt-ZpHIgpekFuSkAi6f4KiSfP/preview",
+            },
+            {
+              title: "Module 4: Notes",
+              content: "Comprehensive notes for Module 4.",
+              previewUrl:
+                "https://drive.google.com/file/d/1PCkM767281tyr9p3vHi69sZpdOElgGEx/preview",
+            },
+             {
+              title: "Module 5: Notes",
+              content: "Comprehensive notes for Module 5.",
+              previewUrl:
+                "https://drive.google.com/file/d/163O6oqpWGpXotwEXfHCDN-KPWzTnrTDQ/preview",
+            },
+
+
+           {
+            title: "QB SOLUTION",
+            content: "Past question paper for Applied Physics for CSE.",
+            previewUrl:
+              "https://drive.google.com/file/d/1aVOQct7SvLFpplBUstaJrvjQkP-6KSqh/preview",
+          },
+          
+           
+        ],
+        },
         {
           title: "Parallel Computing",
           modules: [

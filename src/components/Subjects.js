@@ -80,6 +80,7 @@ const Subjects = () => {
          { name: 'Cryptography & Network Security', code: 'BCO601', credits: 4, info: 'Security Notes' },
 
           { name: 'Parallel Computing', code: 'BCS702', credits: 4, info: '' },
+           { name: 'BLOCKCHAIN TECHNOLOGY', code: 'BIC702', credits: 4, info: '' },
       ],
     },
     ece: {
