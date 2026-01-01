@@ -81,6 +81,8 @@ const Subjects = () => {
 
           { name: 'Parallel Computing', code: 'BCS702', credits: 4, info: '' },
            { name: 'BLOCKCHAIN TECHNOLOGY', code: 'BIC702', credits: 4, info: '' },
+
+           { name: 'CONSERVATION OF NATURAL RESOURCES', code: 'BCV755B', credits: 3, info: '' },
       ],
     },
     ece: {
