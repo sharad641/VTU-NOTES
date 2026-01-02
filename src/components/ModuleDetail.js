@@ -6463,6 +6463,19 @@ const ModuleDetail = () => {
       fileSize: "3.9",
       tags: ["important-questions", "exam-prep", "answers", "BCV755B"]
     },
+     {
+      id: "cnr-7",
+      title: "Important Questions",
+      description: "Important questions and answers for Conservation of Natural Resources",
+      fileUrl: "https://drive.google.com/uc?export=download&id=1XlZKNv2HV94EjZSNHEj2C2LbqdwwWhAl",
+      previewUrl: "https://drive.google.com/file/d/1XlZKNv2HV94EjZSNHEj2C2LbqdwwWhAl/preview",
+      type: "solutions",
+      category: "pyq",
+      essential: true,
+      uploadedDate: "",
+      fileSize: "3.9",
+      tags: ["important-questions", "exam-prep", "all-papers", "BCV755B"]
+    },
   ],
 },
   {
