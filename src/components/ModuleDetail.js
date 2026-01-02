@@ -3960,7 +3960,7 @@ const ModuleDetail = () => {
         type: "notes",
         category: "notes",
         essential: true,
-        uploadedDate: "2024-04-09",
+        uploadedDate: "2026-01-02",
         fileSize: "3.5",
         tags: ["module-5", "ipr", "copyrights"]
       },
@@ -3973,7 +3973,7 @@ const ModuleDetail = () => {
         type: "questions",
         category: "pyq",
         essential: true,
-        uploadedDate: "2024-04-11",
+        uploadedDate: "2026-01-02",
         fileSize: "4.2",
         tags: ["model-papers", "multiple", "practice"]
       },
@@ -3986,7 +3986,7 @@ const ModuleDetail = () => {
         type: "solutions",
         category: "solved-qp",
         essential: true,
-        uploadedDate: "2024-04-13",
+        uploadedDate: "2026-01-02",
         fileSize: "4.8",
         tags: ["model-papers", "solutions", "answers"]
       },
@@ -3999,7 +3999,7 @@ const ModuleDetail = () => {
         type: "textbook",
         category: "reference",
         essential: true,
-        uploadedDate: "2024-04-15",
+        uploadedDate: "2026-01-02",
         fileSize: "7.5",
         tags: ["textbook", "reference", "vtu"]
       },
@@ -4012,7 +4012,7 @@ const ModuleDetail = () => {
         type: "solutions",
         category: "solved-qp",
         essential: true,
-        uploadedDate: "2024-04-17",
+        uploadedDate: "2026-01-02",
         fileSize: "4.0",
         tags: ["model-paper", "solutions", "answer"]
       },
@@ -4025,7 +4025,7 @@ const ModuleDetail = () => {
         type: "solutions",
         category: "solved-qp",
         essential: true,
-        uploadedDate: "2024-04-17",
+        uploadedDate: "2026-01-02",
         fileSize: "4.0",
         tags: ["model-paper", "solutions", "answer"]
       },
@@ -4038,7 +4038,7 @@ const ModuleDetail = () => {
         type: "syllabus",
         category: "reference",
         essential: true,
-        uploadedDate: "2024-04-19",
+        uploadedDate: "2026-01-02",
         fileSize: "1.5",
         tags: ["syllabus", "course-outline", "structure"]
       },
@@ -4046,12 +4046,12 @@ const ModuleDetail = () => {
         id: "rmipr-11",
         title: "Question Paper",
         description: "Question paper for Research Methodology and IPR",
-        fileUrl: "https://drive.google.com/uc?export=download&id=1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0",
-        previewUrl: "https://drive.google.com/file/d/1WF1xwH9qupTMAh1LQ1jjG6_eW7gLSoU0/preview",
+        fileUrl: "https://drive.google.com/file/d/1-30gK3LYRL6J1zgepkqzaOmc4OvD0AnG/preview",
+        previewUrl: "https://drive.google.com/file/d/1-30gK3LYRL6J1zgepkqzaOmc4OvD0AnG/preview",
         type: "questions",
         category: "pyq",
         essential: true,
-        uploadedDate: "2024-04-21",
+        uploadedDate: "2026-01-02",
         fileSize: "3.0",
         tags: ["question-paper", "exam", "research"]
       },
@@ -4064,7 +4064,7 @@ const ModuleDetail = () => {
         type: "notes",
         category: "last-night",
         essential: true,
-        uploadedDate: "2024-04-22",
+        uploadedDate: "2026-01-02",
         fileSize: "~1.5 MB",
         tags: ["module-1", "introduction", "research-types", "foundation"]
       },
@@ -4077,7 +4077,20 @@ const ModuleDetail = () => {
         type: "notes",
         category: "last-night",
         essential: true,
-        uploadedDate: "2024-04-22",
+        uploadedDate: "2026-01-02",
+        fileSize: "~1.3 MB",
+        tags: ["module-2", "literature-review", "background", "knowledge-foundation"]
+  },
+  {
+        id: "rmipr-18",
+        title: "Module 3 Study Notes: Literature Review & Background",
+        description: "Notes detailing the primary goals and importance of literature review in research, including how to connect existing knowledge to new findings.",
+        fileUrl: "https://drive.google.com/file/d/1XEoeNpfXNQGLu-Ui-UqCBWNcBB2D59ZU",
+        previewUrl: "https://drive.google.com/file/d/1XEoeNpfXNQGLu-Ui-UqCBWNcBB2D59ZU/preview",
+        type: "notes",
+        category: "last-night",
+        essential: true,
+        uploadedDate: "2026-01-02",
         fileSize: "~1.3 MB",
         tags: ["module-2", "literature-review", "background", "knowledge-foundation"]
   },
@@ -4091,7 +4104,7 @@ const ModuleDetail = () => {
     type: "notes",
     category: "last-night",
     essential: true,
-    uploadedDate: "2024-04-22",
+    uploadedDate: "2026-01-02",
     fileSize: "~1.0 MB",
     tags: ["module-4"]
   },
@@ -4104,7 +4117,20 @@ const ModuleDetail = () => {
     type: "notes",
     category: "last-night",
     essential: true,
-    uploadedDate: "2024-04-22",
+    uploadedDate: "2026-01-02",
+    fileSize: "~0.8 MB",
+    tags: ["module-5"]
+  },
+   {
+    id: "rmipr-19",
+    title: "Importent Questions ",
+    description: "Study notes for Module 5 of Research Methodology and IPR. Content details to be confirmed upon file access.",
+    fileUrl: "https://drive.google.com/file/d/1Tvb9MaFIMgO90CNGqjNgnE54LvJZzxPe",
+    previewUrl: "https://drive.google.com/file/d/1Tvb9MaFIMgO90CNGqjNgnE54LvJZzxPe/preview",
+    type: "notes",
+    category: "important-questions",
+    essential: true,
+    uploadedDate: "2026-01-02",
     fileSize: "~0.8 MB",
     tags: ["module-5"]
   },
@@ -4112,12 +4138,12 @@ const ModuleDetail = () => {
         id: "rmipr-12",
         title: "Question Bank",
         description: "Question bank for Research Methodology and IPR",
-        fileUrl: "https://drive.google.com/uc?export=download&id=1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W",
-        previewUrl: "https://drive.google.com/file/d/1Cac42RDBC9UtXGKfUi5Me14FG-aLc-6W/preview",
+        fileUrl: "https://drive.google.com/file/d/1Tvb9MaFIMgO90CNGqjNgnE54LvJZzxPe",
+        previewUrl: "https://drive.google.com/file/d/1Tvb9MaFIMgO90CNGqjNgnE54LvJZzxPe/preview",
         type: "questions",
         category: "question-bank",
         essential: true,
-        uploadedDate: "2024-04-23",
+        uploadedDate: "2026-01-02",
         fileSize: "3.5",
         tags: ["question-bank", "practice", "research"]
       }
