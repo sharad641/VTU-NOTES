@@ -58,7 +58,7 @@ const Subjects = () => {
         { name: 'COMPUTER NETWORKS', code: 'BCS502', credits: 4, info: 'Fifth Semester COMPUTER NETWORKS Notes.' },
         { name: 'THEORY OF COMPUTATION', code: 'BCS503', credits: 4, info: 'Fifth Semester THEORY OF COMPUTATION Notes.' },
         { name: 'ARTIFICIAL INTELLIGENCE', code: 'BCS525B', credits: 3, info: 'Fourth Semester ARTIFICIAL INTELLIGENCE Notes.' },
-        { name: 'RESEARCH AND METHODOLOGY AND IPR', code: 'BRMK557', credits: 3, info: 'Research Methodology and IPR Notes.' },
+        { name: 'RESEARCH AND METHO AND IPR', code: 'BRMK557', credits: 3, info: 'Research Methodology and IPR Notes.' },
         { name: 'Environmental Studies', code: 'BESK508', credits: 1, info: 'All module notes with MCQ and model question paper solutions.' },
         { name: 'Unix System Programming', code: 'BCS515C', credits: 3, info: 'Unix System Programming all modules available.' },
       ],

@@ -3897,18 +3897,18 @@ const ModuleDetail = () => {
     title: "RESEARCH AND METHO AND IPR",
     code: "BRMK557",
     vtuCode: "BRMK557",
-    credits: 2,
+    credits: 3,
     modules: [
       {
         id: "rmipr-1",
         title: "Module 1: Notes",
         description: "Comprehensive notes for Module 1",
-        fileUrl: "https://drive.google.com/uc?export=download&id=1uDkrg0L6mvJRCMKPkbYF1jJSvW83cXVv",
-        previewUrl: "https://drive.google.com/file/d/1uDkrg0L6mvJRCMKPkbYF1jJSvW83cXVv/preview",
+        fileUrl: "https://drive.google.com/file/d/1o0XGDRWLlgHxxjIbzZob-nk7SxB4d5rS",
+        previewUrl: "https://drive.google.com/file/d/1o0XGDRWLlgHxxjIbzZob-nk7SxB4d5rS/preview",
         type: "notes",
         category: "notes",
         essential: true,
-        uploadedDate: "2024-04-01",
+        uploadedDate: "2026-01-02",
         fileSize: "3.6",
         tags: ["module-1", "research", "methodology"]
       },
@@ -3916,12 +3916,12 @@ const ModuleDetail = () => {
         id: "rmipr-2",
         title: "Module 2: Notes",
         description: "Comprehensive notes for Module 2",
-        fileUrl: "https://drive.google.com/uc?export=download&id=1rjrWMSe0ucOPX1t63LaX34zwduijeJNp",
-        previewUrl: "https://drive.google.com/file/d/1rjrWMSe0ucOPX1t63LaX34zwduijeJNp/preview",
+        fileUrl: "https://drive.google.com/file/d/1CVV5FFQDCwhxmgmtlUmBk66YxKoMxoB0",
+        previewUrl: "https://drive.google.com/file/d/1CVV5FFQDCwhxmgmtlUmBk66YxKoMxoB0/preview",
         type: "notes",
         category: "notes",
         essential: true,
-        uploadedDate: "2024-04-03",
+        uploadedDate: "2026-01-02",
         fileSize: "3.8",
         tags: ["module-2", "research", "literature-review"]
       },
@@ -3929,12 +3929,12 @@ const ModuleDetail = () => {
         id: "rmipr-3",
         title: "Module 3: Notes",
         description: "Comprehensive notes for Module 3",
-        fileUrl: "https://drive.google.com/uc?export=download&id=12m4OeJVinpx1SZLzIsNJsrOl66iu0krQ",
-        previewUrl: "https://drive.google.com/file/d/12m4OeJVinpx1SZLzIsNJsrOl66iu0krQ/preview",
+        fileUrl: "https://drive.google.com/file/d/1H6I3v94zQElgkMEopAqQ9rPXb5jHuXBU/preview",
+        previewUrl: "https://drive.google.com/file/d/1H6I3v94zQElgkMEopAqQ9rPXb5jHuXBU/preview",
         type: "notes",
         category: "notes",
         essential: true,
-        uploadedDate: "2024-04-05",
+        uploadedDate: "2026-01-02",
         fileSize: "3.7",
         tags: ["module-3", "research", "data-analysis"]
       },
@@ -3942,12 +3942,12 @@ const ModuleDetail = () => {
         id: "rmipr-4",
         title: "Module 4: Notes",
         description: "Comprehensive notes for Module 4",
-        fileUrl: "https://drive.google.com/uc?export=download&id=178WfEwDsqxJWZHjgh6Hlu3yaJOPoXZN8",
-        previewUrl: "https://drive.google.com/file/d/178WfEwDsqxJWZHjgh6Hlu3yaJOPoXZN8/preview",
+        fileUrl: "https://drive.google.com/file/d/11uVrT-3CUb7NQXDSfXUsHpQWGUsBFKL-",
+        previewUrl: "https://drive.google.com/file/d/11uVrT-3CUb7NQXDSfXUsHpQWGUsBFKL-/preview",
         type: "notes",
         category: "notes",
         essential: true,
-        uploadedDate: "2024-04-07",
+        uploadedDate: "2026-01-02",
         fileSize: "3.9",
         tags: ["module-4", "ipr", "patents"]
       },
@@ -3955,8 +3955,8 @@ const ModuleDetail = () => {
         id: "rmipr-5",
         title: "Module 5: Notes",
         description: "Comprehensive notes for Module 5",
-        fileUrl: "https://drive.google.com/uc?export=download&id=1a5RBMQxT3nsDqUna90vHTBTJSfYzAm2J",
-        previewUrl: "https://drive.google.com/file/d/1a5RBMQxT3nsDqUna90vHTBTJSfYzAm2J/preview",
+        fileUrl: "https://drive.google.com/file/d/11uVrT-3CUb7NQXDSfXUsHpQWGUsBFKL-/preview",
+        previewUrl: "https://drive.google.com/file/d/11uVrT-3CUb7NQXDSfXUsHpQWGUsBFKL-/preview",
         type: "notes",
         category: "notes",
         essential: true,
@@ -3968,8 +3968,8 @@ const ModuleDetail = () => {
         id: "rmipr-6",
         title: "Model Question Papers 1,2,3",
         description: "Model question papers 1, 2, and 3",
-        fileUrl: "https://drive.google.com/uc?export=download&id=1OmwKGOZ1V_uK3o_8XUiZJyR48erF_Mg6",
-        previewUrl: "https://drive.google.com/file/d/1OmwKGOZ1V_uK3o_8XUiZJyR48erF_Mg6/preview",
+        fileUrl: "https://drive.google.com/file/d/1-30gK3LYRL6J1zgepkqzaOmc4OvD0AnG",
+        previewUrl: "https://drive.google.com/file/d/1-30gK3LYRL6J1zgepkqzaOmc4OvD0AnG/preview",
         type: "questions",
         category: "pyq",
         essential: true,
@@ -4007,8 +4007,21 @@ const ModuleDetail = () => {
         id: "rmipr-9",
         title: "Model Question Paper 1 Answer",
         description: "Model question paper 1 with answer",
-        fileUrl: "https://drive.google.com/uc?export=download&id=1WUMy8vTu9HrlV6vd1mUAop4HvdPHop6A",
-        previewUrl: "https://drive.google.com/file/d/1WUMy8vTu9HrlV6vd1mUAop4HvdPHop6A/preview",
+        fileUrl: "https://drive.google.com/file/d/1doZ5uKEGadaTKXStgbpREZlKHEGlKbNI",
+        previewUrl: "https://drive.google.com/file/d/1doZ5uKEGadaTKXStgbpREZlKHEGlKbNI/preview",
+        type: "solutions",
+        category: "solved-qp",
+        essential: true,
+        uploadedDate: "2024-04-17",
+        fileSize: "4.0",
+        tags: ["model-paper", "solutions", "answer"]
+      },
+      {
+        id: "rmipr-13",
+        title: "Model Question Paper 1 Answer",
+        description: "Model question paper 1 with answer",
+        fileUrl: "https://drive.google.com/file/d/1iS_zGfCD8DxYnkYr_8Xqsqmuusfs95UQ",
+        previewUrl: "https://drive.google.com/file/d/1iS_zGfCD8DxYnkYr_8Xqsqmuusfs95UQ/preview",
         type: "solutions",
         category: "solved-qp",
         essential: true,
@@ -4042,6 +4055,59 @@ const ModuleDetail = () => {
         fileSize: "3.0",
         tags: ["question-paper", "exam", "research"]
       },
+      {
+        id: "rmipr-14",
+        title: "Module 1 Study Notes: Introduction & Types of Research",
+        description: "Comprehensive notes on the meaning, objectives, motivation, and types of engineering research. Covers foundational concepts for Research Methodology.",
+        fileUrl: "https://drive.google.com/uc?export=download&id=13NnRHqpgwWeIBTC_-n2zJ07N30bko6QG",
+        previewUrl: "https://drive.google.com/file/d/13NnRHqpgwWeIBTC_-n2zJ07N30bko6QG/preview",
+        type: "notes",
+        category: "last-night",
+        essential: true,
+        uploadedDate: "2024-04-22",
+        fileSize: "~1.5 MB",
+        tags: ["module-1", "introduction", "research-types", "foundation"]
+      },
+      {
+        id: "rmipr-15",
+        title: "Module 2 Study Notes: Literature Review & Background",
+        description: "Notes detailing the primary goals and importance of literature review in research, including how to connect existing knowledge to new findings.",
+        fileUrl: "https://drive.google.com/uc?export=download&id=1mijoqzZNm3_BSimHtVVMJiw31duDtHUr",
+        previewUrl: "https://drive.google.com/file/d/1mijoqzZNm3_BSimHtVVMJiw31duDtHUr/preview",
+        type: "notes",
+        category: "last-night",
+        essential: true,
+        uploadedDate: "2024-04-22",
+        fileSize: "~1.3 MB",
+        tags: ["module-2", "literature-review", "background", "knowledge-foundation"]
+  },
+
+   {
+    id: "rmipr-16",
+    title: "Module 4 Study Notes: TBD",
+    description: "Study notes for Module 4 of Research Methodology and IPR. Content details to be confirmed upon file access.",
+    fileUrl: "https://drive.google.com/uc?export=download&id=1jvJK7D10u9PENv0iF95Dka-G8joHKmSR",
+    previewUrl: "https://drive.google.com/file/d/1jvJK7D10u9PENv0iF95Dka-G8joHKmSR/preview",
+    type: "notes",
+    category: "last-night",
+    essential: true,
+    uploadedDate: "2024-04-22",
+    fileSize: "~1.0 MB",
+    tags: ["module-4"]
+  },
+  {
+    id: "rmipr-17",
+    title: "Module 5 Study Notes: TBD",
+    description: "Study notes for Module 5 of Research Methodology and IPR. Content details to be confirmed upon file access.",
+    fileUrl: "https://drive.google.com/uc?export=download&id=1Td0exJs9ggNyIlryHpzvAFNSMX-bPcF4",
+    previewUrl: "https://drive.google.com/file/d/1Td0exJs9ggNyIlryHpzvAFNSMX-bPcF4/preview",
+    type: "notes",
+    category: "last-night",
+    essential: true,
+    uploadedDate: "2024-04-22",
+    fileSize: "~0.8 MB",
+    tags: ["module-5"]
+  },
       {
         id: "rmipr-12",
         title: "Question Bank",
@@ -6525,19 +6591,8 @@ const ModuleDetail = () => {
       filtered = filtered.filter(module => module.category === activeCategory);
     }
     
-    // Apply search filter
-    if (searchTerm) {
-      filtered = filtered.filter(module => 
-        module.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        module.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        module.tags?.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-      );
-    }
     
-    // Apply type filter
-    if (filterType !== "all") {
-      filtered = filtered.filter(module => module.type === filterType);
-    }
+   
     
     // Apply sorting
     switch (sortBy) {
@@ -7132,89 +7187,11 @@ const ModuleDetail = () => {
         <CategoryTabs />
       </section>
 
-      {/* Search and Filter Section */}
-      <section className="filter-section">
-        <div className="search-container">
-          <div className="search-box">
-            <AiOutlineSearch className="search-icon" />
-            <input
-              type="text"
-              placeholder="Search study materials, topics, or keywords..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="search-input"
-              aria-label="Search VTU study materials"
-            />
-            {searchTerm && (
-              <button 
-                onClick={() => setSearchTerm("")}
-                className="clear-search-btn"
-                aria-label="Clear search"
-              >
-                <AiOutlineClose />
-              </button>
-            )}
-          </div>
-          
-          <div className="filter-controls">
-            <div className="filter-group">
-              <RiFilterLine className="filter-icon" />
-              <div className="filter-tabs">
-                {["all", "notes", "questions", "solutions"].map(type => (
-                  <button
-                    key={type}
-                    className={`filter-tab ${filterType === type ? 'active' : ''}`}
-                    onClick={() => setFilterType(type)}
-                  >
-                    {type === "notes" ? "Study Notes" : 
-                     type === "questions" ? "Question Papers" : 
-                     type === "solutions" ? "Solutions" : "All Types"}
-                  </button>
-                ))}
-              </div>
-            </div>
+     
             
-            <div className="sort-group">
-              <FaSortAmountDown className="sort-icon" />
-              <select 
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="sort-select"
-                aria-label="Sort by"
-              >
-                <option value="default">Most Relevant</option>
-                <option value="essential">Essential First</option>
-                <option value="date">Recently Added</option>
-                <option value="size">File Size</option>
-                <option value="name">A to Z</option>
-              </select>
-            </div>
-
-            <div className="view-toggle">
-              <button 
-                className={`view-btn ${viewMode === "grid" ? "active" : ""}`}
-                onClick={() => setViewMode("grid")}
-                aria-label="Grid view"
-              >
-                <AiOutlineAppstore />
-              </button>
-              <button 
-                className={`view-btn ${viewMode === "list" ? "active" : ""}`}
-                onClick={() => setViewMode("list")}
-                aria-label="List view"
-              >
-                <AiOutlineMenu />
-              </button>
-            </div>
-          </div>
+            
           
-          {(searchTerm || filterType !== "all" || sortBy !== "default" || activeCategory !== "all") && (
-            <button onClick={clearFilters} className="clear-filters-btn">
-              Clear All Filters
-            </button>
-          )}
-        </div>
-      </section>
+         
 
       {/* Main Content */}
       <main className="main-content">
