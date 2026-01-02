@@ -49,9 +49,7 @@ const ModuleDetail = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [viewMode, setViewMode] = useState("grid");
 
-  // Clean Module Data Structure - No fake stats
- // Updated Module Data Structure
-const moduleDetails = {
+ const moduleDetails = {
   "first-year": {
     1: [
       {
@@ -6479,8 +6477,6 @@ const moduleDetails = {
 
 },
 };
-
-
   // Extract subject data
   const subjectData = useMemo(() => {
     const branchData = moduleDetails[branch?.toLowerCase()] || moduleDetails["first-year"];
@@ -6879,7 +6875,7 @@ const moduleDetails = {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="mobile-menu">
+        <div className="mobile-menu show">
           <div className="mobile-menu-content">
             <button 
               className="mobile-menu-close"
@@ -6887,34 +6883,41 @@ const moduleDetails = {
             >
               <AiOutlineClose />
             </button>
-            <h3><FaUniversity /> VTU Exam Resources</h3>
-            <button 
-              onClick={() => {
-                handleBatchDownload(essentialNotes, "essential");
-                setMobileMenuOpen(false);
-              }}
-              className="mobile-menu-btn-action"
-            >
-              <AiOutlineStar /> Essential Notes
-            </button>
-            <button 
-              onClick={() => {
-                handleBatchDownload(categorizedModules["pyq"] || [], "PYQs");
-                setMobileMenuOpen(false);
-              }}
-              className="mobile-menu-btn-action"
-            >
-              <FaUniversity /> Previous Year Papers
-            </button>
-            <button 
-              onClick={() => {
-                handleBatchDownload(categorizedModules["important-questions"] || [], "Important Qs");
-                setMobileMenuOpen(false);
-              }}
-              className="mobile-menu-btn-action"
-            >
-              <AiOutlineFire /> 100% Important
-            </button>
+            <div className="mobile-menu-header">
+              <FaUniversity className="mobile-menu-icon" />
+              <h3>VTU Exam Resources</h3>
+            </div>
+            
+            <div className="mobile-menu-actions">
+              <button 
+                onClick={() => {
+                  handleBatchDownload(essentialNotes, "essential");
+                  setMobileMenuOpen(false);
+                }}
+                className="mobile-menu-btn-action"
+              >
+                <AiOutlineStar /> Essential Notes
+              </button>
+              <button 
+                onClick={() => {
+                  handleBatchDownload(categorizedModules["pyq"] || [], "PYQs");
+                  setMobileMenuOpen(false);
+                }}
+                className="mobile-menu-btn-action"
+              >
+                <FaUniversity /> Previous Year Papers
+              </button>
+              <button 
+                onClick={() => {
+                  handleBatchDownload(categorizedModules["important-questions"] || [], "Important Qs");
+                  setMobileMenuOpen(false);
+                }}
+                className="mobile-menu-btn-action"
+              >
+                <AiOutlineFire /> 100% Important
+              </button>
+            </div>
+            
             <div className="mobile-menu-section">
               <h4>Quick Filters</h4>
               <div className="mobile-filter-buttons">
@@ -6927,7 +6930,10 @@ const moduleDetails = {
                       setMobileMenuOpen(false);
                     }}
                   >
-                    {type.charAt(0).toUpperCase() + type.slice(1)}
+                    {type === "all" ? "All" : 
+                     type === "notes" ? "Notes" : 
+                     type === "questions" ? "Q Papers" : 
+                     "Solutions"}
                   </button>
                 ))}
               </div>
@@ -6961,6 +6967,17 @@ const moduleDetails = {
               <p className="subject-meta">
                 VTU Syllabus • Semester {semester} • {branch.toUpperCase()} • {stats.total} Resources
               </p>
+              <div className="subject-stats">
+                <span className="stat-item">
+                  <AiOutlineFilePdf /> {stats.notes} Notes
+                </span>
+                <span className="stat-item">
+                  <FaUniversity /> {stats.pyq} PYQs
+                </span>
+                <span className="stat-item">
+                  <AiOutlineCheckCircle /> {stats.solutions} Solved
+                </span>
+              </div>
             </div>
             <div className="header-actions">
               <button 
@@ -7345,6 +7362,7 @@ const moduleDetails = {
           aria-label="Download important questions"
         >
           <AiOutlineFire />
+          <span className="fab-tooltip">Important Questions</span>
         </button>
         <button 
           onClick={() => handleBatchDownload(categorizedModules["pyq"] || [], "PYQs")}
@@ -7352,6 +7370,7 @@ const moduleDetails = {
           aria-label="Download previous year papers"
         >
           <FaUniversity />
+          <span className="fab-tooltip">PYQ Papers</span>
         </button>
         <button 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -7359,32 +7378,33 @@ const moduleDetails = {
           aria-label="Scroll to top"
         >
           ↑
+          <span className="fab-tooltip">Scroll to Top</span>
         </button>
       </div>
 
       {/* Mobile Bottom Navigation */}
-      <nav className="bottom-nav">
+      <nav className="bottom-navsve">
         <button 
           onClick={() => navigate(-1)}
-          className="nav-btn"
+          className="nav-btnwer"
         >
-          ← Back
+          <AiOutlineHome style={{fontSize: '16px'}} /> Home
         </button>
         <button 
           onClick={() => handleBatchDownload(categorizedModules["important-questions"] || [], "Important Qs")}
-          className="nav-btn important"
+          className="nav-btn importantdfrt"
         >
           <AiOutlineFire /> Important
         </button>
         <button 
           onClick={() => handleBatchDownload(categorizedModules["pyq"] || [], "PYQs")}
-          className="nav-btn pyq"
+          className="nav-btn pyqdfrt"
         >
           <FaUniversity /> PYQs
         </button>
         <button 
           onClick={() => setMobileMenuOpen(true)}
-          className="nav-btn"
+          className="nav-btnsdfrt"
         >
           <AiOutlineMenu /> More
         </button>
