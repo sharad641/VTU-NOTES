@@ -5,7 +5,7 @@ import { logEvent } from 'firebase/analytics';
 
 // Sub-components
 import BranchSelection from './BranchSelection';
-import ModelPapers from './ModelPapers';
+
 import UploadForm from './UploadForm';
 import Contact from './Contact';
 import CommentSection from './CommentSection';
@@ -76,28 +76,46 @@ const Home = () => {
   return (
     <main className="home-container">
 
-      {/* 🔔 Announcement Banner */}
-      <div className="modern-news-bar">
-        <div className="news-content">
-          <span className="news-badge">
-            <span className="badge-pulse"></span>
-            NEW UPDATE
-          </span>
-          <p className="news-text">
-            🚀 <strong>Placement Test Login</strong> is now live! &nbsp;
-            <span className="divider">|</span> &nbsp;
-            📚 <strong>6th Sem Notes (2022)</strong> added.
-          </p>
-          <Link to="/latest-updates" className="news-link">
-            Check it out <FaArrowRight />
-          </Link>
-        </div>
+      {/* ⚡ Quick Access Notes */}
+<section className="quick-access-section">
+  <h3 className="quick-title">⚡ Quick Access Notes</h3>
+
+  <div className="quick-access-grid">
+    <a
+      href="https://vtunotesforall.in/branch/cse/7"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="quick-card"
+    >
+      <FaBookOpen />
+      <div>
+        <strong>CSE Semester 7</strong>
+        <p>All modules, notes & PYQs</p>
       </div>
+      <FaArrowRight />
+    </a>
+
+    <a
+      href="https://vtunotesforall.in/branch/cse/5"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="quick-card"
+    >
+      <FaBookOpen />
+      <div>
+        <strong>CSE Semester 5</strong>
+        <p>Notes, syllabus & question papers</p>
+      </div>
+      <FaArrowRight />
+    </a>
+  </div>
+</section>
+
 
       {/* 🌳 Branch & Papers */}
       <section className="core-section">
         <BranchSelection />
-        <ModelPapers />
+       
       </section>
 
       {/* 🛠 Project Section */}
@@ -197,6 +215,7 @@ const Home = () => {
       <section className="contribute-section">
         <UploadForm />
       </section>
+       <Contact />
 
       {/* ❓ Support */}
       <section className="support-section">
@@ -216,7 +235,6 @@ const Home = () => {
         <CommentSection />
       </div>
 
-      <Contact />
     </main>
   );
 };

@@ -37,15 +37,27 @@ import AdminDashboard from './components/AdminDashboard';
 import SgpaCalculator from './components/SgpaCalculator';
 import ProjectEnquiry from './components/ProjectEnquiry';
 
-// ✅ NEW IMPORTS: Placement Feature
+// Placement Feature
 import PlacementSection from './pages/PlacementSection';
-import ShareExperiencePage from './pages/ShareExperiencePage'; // Added this
+import ShareExperiencePage from './pages/ShareExperiencePage';
 
 // Firebase Imports
 import { auth, database } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { ref, get, update } from 'firebase/database';
 import './App.css';
+
+// ---------------------------
+// ✅ Simple Loading Component
+// ---------------------------
+function LoadingScreen() {
+  return (
+    <div className="app-loading">
+      <div className="loading-spinner"></div>
+      <div className="loading-text">Loading...</div>
+    </div>
+  );
+}
 
 // ---------------------------
 // ✅ Analytics Tracker
@@ -139,13 +151,7 @@ function App() {
   }, []);
 
   if (loading) {
-    return (
-      <div className="loading-overlay">
-        <div className="loading-container">
-          <div className="loader-wrapper">Loading...</div>
-        </div>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   return (
@@ -153,7 +159,6 @@ function App() {
       <AnalyticsTracker />
       
       <div className="app-container">
-        
         <Navbar />
         <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />
 
@@ -181,24 +186,19 @@ function App() {
             }
           />
           
-          {/* ✅ PLACEMENT STORIES ROUTES */}
-          
-          {/* 1. Main Feed (List View) */}
+          {/* PLACEMENT STORIES ROUTES */}
           <Route
             path="/placement-stories"
             element={
               <ProtectedRoute element={<PlacementSection />} isAuthenticated={isAuthenticated} />
             }
           />
-
-          {/* 2. Share Experience (Full Page Form) */}
           <Route
             path="/share-experience"
             element={
               <ProtectedRoute element={<ShareExperiencePage />} isAuthenticated={isAuthenticated} />
             }
           />
-
           <Route
             path="/study-planner"
             element={<ProtectedRoute element={<StudyPlanner />} isAuthenticated={isAuthenticated} />}

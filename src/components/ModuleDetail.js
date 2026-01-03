@@ -6465,10 +6465,10 @@ const ModuleDetail = () => {
     },
      {
       id: "cnr-7",
-      title: "Important Questions",
+      title: "Previous Year Questions",
       description: "Important questions and answers for Conservation of Natural Resources",
-      fileUrl: "https://drive.google.com/uc?export=download&id=1XlZKNv2HV94EjZSNHEj2C2LbqdwwWhAl",
-      previewUrl: "https://drive.google.com/file/d/1XlZKNv2HV94EjZSNHEj2C2LbqdwwWhAl/preview",
+      fileUrl: "https://drive.google.com/file/d/1D5X9yRrnZ5T_r-jA0m1TQWOHAA2JyPiK",
+      previewUrl: "https://drive.google.com/file/d/1D5X9yRrnZ5T_r-jA0m1TQWOHAA2JyPiK/preview",
       type: "solutions",
       category: "pyq",
       essential: true,

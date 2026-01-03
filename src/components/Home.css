@@ -580,4 +580,57 @@
   .tools-header p {
     font-size: 1rem;
   }
+}.quick-access-section {
+  padding: 1.2rem;
+  margin: 1rem;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  border-radius: 16px;
+}
+
+.quick-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.8rem;
+  color: #1e293b;
+}
+
+.quick-access-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.quick-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: #ffffff;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #0f172a;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.quick-card svg {
+  font-size: 1.4rem;
+  color: #2563eb;
+}
+
+.quick-card p {
+  font-size: 0.8rem;
+  color: #64748b;
+}
+
+/* Desktop enhancement */
+@media (min-width: 768px) {
+  .quick-access-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
