@@ -4134,6 +4134,32 @@ const ModuleDetail = () => {
     fileSize: "~0.8 MB",
     tags: ["module-5"]
   },
+  {
+        id: "rmipr-20",
+        title: "PYQ-DEC-JAN",
+        description: "Model question papers 1, 2, and 3",
+        fileUrl: "https://drive.google.com/file/d/112lKJ-Nbx5_Y-opWoMU0-Z1padwzOJMt",
+        previewUrl: "https://drive.google.com/file/d/112lKJ-Nbx5_Y-opWoMU0-Z1padwzOJMt/preview",
+        type: "questions",
+        category: "pyq",
+        essential: true,
+        uploadedDate: "2026-01-02",
+        fileSize: "4.2",
+        tags: ["model-papers", "multiple", "practice"]
+      },
+      {
+        id: "rmipr-21",
+        title: "PYQ_JUNE-JULY",
+        description: "Model question papers 1, 2, and 3",
+        fileUrl: "https://drive.google.com/file/d/1DYiUNFOI_UH7PpMGAKf_g8MS3ko-ebym",
+        previewUrl: "https://drive.google.com/file/d/1DYiUNFOI_UH7PpMGAKf_g8MS3ko-ebym/preview",
+        type: "questions",
+        category: "pyq",
+        essential: true,
+        uploadedDate: "2026-01-02",
+        fileSize: "4.2",
+        tags: ["model-papers", "multiple", "practice"]
+      },
       {
         id: "rmipr-12",
         title: "Question Bank",
@@ -6488,6 +6514,19 @@ const ModuleDetail = () => {
       uploadedDate: "",
       fileSize: "3.9",
       tags: ["important-questions", "exam-prep", "all-papers", "BCV755B"]
+    },
+    {
+      id: "cnr-9",
+      title: "Module 1: Last Night Study Notes",
+      description: "Concise revision notes for Module 5 - perfect for last-minute exam preparation",
+      fileUrl: "https://drive.google.com/file/d/1nTV44TrnMfkHxxPPjJEcXTlR2zqPvFjd",
+      previewUrl: "https://drive.google.com/file/d/1nTV44TrnMfkHxxPPjJEcXTlR2zqPvFjd/preview",
+      type: "notes",
+      category: "last-night",
+      essential: true,
+      uploadedDate: "2026-01-03",
+      fileSize: "3.9",
+      tags: ["module-1", "last-night-study", "revision", "exam-prep", "BCV715B"]
     },
      {
       id: "cnr-8",
