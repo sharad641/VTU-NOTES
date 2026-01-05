@@ -6594,6 +6594,19 @@ const ModuleDetail = () => {
       fileSize: "3.9",
       tags: ["module-5", "last-night-study", "revision", "exam-prep", "BCV715B"]
     },
+    {
+      id: "cnr-13",
+      title: "Module 1- 5: Previous Year Question Paper Answers ALL IN ONE",
+      description: "Concise revision notes for Module 5 - perfect for last-minute exam preparation",
+      fileUrl: "https://drive.google.com/file/d/1v9VKTJjTLe5h0qIjYEe3FCX0JD9LMRZ8",
+      previewUrl: "https://drive.google.com/file/d/1v9VKTJjTLe5h0qIjYEe3FCX0JD9LMRZ8/preview",
+      type: "notes",
+      category: "last-night",
+      essential: true,
+      uploadedDate: "2026-01-03",
+      fileSize: "3.9",
+      tags: ["module-5", "last-night-study", "revision", "exam-prep", "BCV715B"]
+    },
      {
       id: "cnr-8",
       title: "Previous Year Questions",
