@@ -11,8 +11,7 @@ import {
   FaTimes, FaCoffee, FaEye, FaCheckCircle
 } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
-import { database, auth, signInAnonymously } from '../firebase';
-import { ref, onValue, query, limitToLast, orderByChild } from 'firebase/database';
+import { database } from '../firebase';
 import './Home.css';
 import './SupportPopup.css';
 
@@ -27,38 +26,7 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = React.useState('All');
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
   const [showWelcomePopup, setShowWelcomePopup] = React.useState(false);
-  const [supporters, setSupporters] = React.useState([]);
-  const [totalSupport, setTotalSupport] = React.useState(0);
   const itemsPerPage = 9;
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Ensure user is authenticated (anonymously) to satisfy Firebase Rules
-        await signInAnonymously(auth);
-        
-        const donationsRef = query(ref(database, 'donations'), orderByChild('timestamp'), limitToLast(12));
-        const unsubscribe = onValue(donationsRef, (snapshot) => {
-          const data = snapshot.val();
-          if (data) {
-            const list = Object.values(data).sort((a, b) => b.timestamp - a.timestamp);
-            setSupporters(list);
-            
-            const total = list.reduce((acc, curr) => acc + (parseInt(curr.amount) || 0), 0);
-            setTotalSupport(total);
-          }
-        });
-        return unsubscribe;
-      } catch (error) {
-        console.error("Home Firebase Auth Error:", error);
-      }
-    };
-
-    const unsubscribePromise = fetchData();
-    return () => {
-      unsubscribePromise.then(unsubscribe => unsubscribe && unsubscribe());
-    };
-  }, []);
 
   // Helper to generate gradients based on id
   const getGradient = (id) => {
@@ -376,126 +344,15 @@ const Home = () => {
         )}
       </div>
 
+      {/* --- Support Section --- */}
+      <SupportSection />
+
       {/* --- Discussion Forum Section --- */}
       <div className="home-discussion-wrapper">
         <CommentSection />
       </div>
 
-      {/* --- Support Section --- */}
-      <SupportSection />
 
-      {/* Hall of Fame / Donor Wall Section */}
-      <section className="hall-of-fame-section">
-        {/* Futuristic Background Elements */}
-        <div className="fame-bg-orb orb-1"></div>
-        <div className="fame-bg-orb orb-2"></div>
-        <div className="fame-bg-grid"></div>
-
-        <div className="section-container relative-z">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="fame-header"
-          >
-            <motion.div 
-              animate={{ rotate: [0, 10, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-              className="fame-badge"
-            >
-              <FaCrown /> <span>Supporters Hall of Fame</span>
-            </motion.div>
-            <h2 className="section-title">Fueling the <span className="gradient-text">Future</span></h2>
-            
-            <div className="fame-stats-row-magazine">
-              <motion.div 
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="fame-stat-glass"
-              >
-                <div className="stat-icon-wrap"><FaBolt /></div>
-                <div className="stat-content">
-                  <span className="stat-value-new">₹{totalSupport}+</span>
-                  <span className="stat-label-new">Energy Contributed</span>
-                </div>
-              </motion.div>
-              
-              <motion.div 
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="fame-stat-glass"
-              >
-                <div className="stat-icon-wrap"><FaStar /></div>
-                <div className="stat-content">
-                  <span className="stat-value-new">{supporters.length}</span>
-                  <span className="stat-label-new">Active Legends</span>
-                </div>
-              </motion.div>
-            </div>
-            
-            <p className="fame-desc">A special thanks to the legends who keep this portal alive and free for everyone.</p>
-          </motion.div>
-
-          <div className="fame-grid-magazine">
-            <AnimatePresence>
-              {supporters.map((s, idx) => (
-                <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, scale: 0.8, y: 30 }}
-                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                  whileHover={{ y: -15, scale: 1.02, rotateY: 5 }}
-                  transition={{ 
-                    type: "spring", 
-                    stiffness: 300, 
-                    damping: 20,
-                    delay: idx * 0.05 
-                  }}
-                  className="fame-card-premium"
-                >
-                   <div className="fame-card-inner">
-                      <div className="fame-card-header">
-                        <div className="avatar-hex-wrapper">
-                          <div className="fame-avatar-hexagon">
-                            <FaUserAstronaut />
-                          </div>
-                          <div className="hex-border-spin"></div>
-                        </div>
-                        <div className="fame-info-set">
-                          <h4>{s.name || "Anonymous Legend"}</h4>
-                          <span className="fame-date-tag">{new Date(s.timestamp).toLocaleDateString()}</span>
-                        </div>
-                      </div>
-
-                      <div className="fame-card-footer">
-                        <div className="fame-amount-pill">
-                          <FaHeart className="pulse-heart" /> 
-                          <span>₹{s.amount}</span>
-                        </div>
-                        {s.paymentId && (
-                          <div className="verified-seal" title="Sync Verified">
-                            <FaCheckCircle />
-                            <span>Verified</span>
-                          </div>
-                        )}
-                      </div>
-                   </div>
-                   <div className="card-glare"></div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="fame-cta"
-          >
-            <button onClick={handleSupportClick} className="btn-support-ultra">
-               <div className="btn-content">
-                 <HiOutlineSparkles /> <span>Become a Legend</span>
-               </div>
-               <div className="btn-glow-layer"></div>
-            </button>
-          </motion.div>
-        </div>
-      </section>
 
       {/* --- Support Modal --- */}
       <SupportModal isOpen={isPopupOpen} onClose={closePopup} />
@@ -511,14 +368,37 @@ const Home = () => {
           >
             <div className="support-popup-card">
               <div className="support-popup-glow"></div>
+              <div className="popup-scanning-line"></div>
+              
+              {/* Decorative Corners */}
+              <div className="corner-bracket tl"></div>
+              <div className="corner-bracket tr"></div>
+              <div className="corner-bracket bl"></div>
+              <div className="corner-bracket br"></div>
+
+              <div className="popup-status-bar">
+                <span className="status-dot"></span>
+                <span className="status-text">SYSTEM OPTIMAL // SECURE CONNECTION</span>
+              </div>
+
               <button className="support-popup-close" onClick={closePopup}>
                 <FaTimes />
               </button>
-              <h4><FaCoffee style={{ color: '#F59E0B' }} /> Support Us</h4>
-              <p>Love our VTU resources? Help us keep the platform free and updated by supporting us!</p>
-              <button className="support-popup-btn" onClick={handleSupportClick}>
-                Support Now <FaBolt />
-              </button>
+
+              <div className="popup-content-inner">
+                <div className="popup-icon-wrap">
+                  <FaCoffee className="floating-coffee" />
+                  <div className="icon-pulse-ring"></div>
+                </div>
+                
+                <h4>Support <span className="gradient-text">VTUNOTES</span></h4>
+                <p>Fuel the mission. Help us keep this portal free and evolving for every student.</p>
+                
+                <button className="support-popup-btn" onClick={handleSupportClick}>
+                  <span>Become a Legend</span>
+                  <FaBolt className="bolt-energy" />
+                </button>
+              </div>
             </div>
           </motion.div>
         )}

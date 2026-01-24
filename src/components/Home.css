@@ -1298,12 +1298,39 @@ input:focus-visible {
 
 /* --- High-Fidelity Hall of Fame Section --- */
 .hall-of-fame-section {
-  padding: 140px 0;
+  padding: 0 0 140px;
+  /* Merged top with SupportSection */
   background: #080d1a;
-  /* Darker, deeper base */
   position: relative;
   overflow: hidden;
   perspective: 2000px;
+}
+
+/* Integrated Cyber-Conduit */
+.hall-of-fame-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(to bottom, #6366f1, #d946ef, transparent);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+  z-index: 5;
+}
+
+/* Section Horizontal Circuit */
+.hall-of-fame-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.3), transparent);
+  z-index: 4;
 }
 
 /* Futuristic Background Elements */
@@ -1412,19 +1439,43 @@ input:focus-visible {
 }
 
 .fame-stat-glass {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(25px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 32px;
-  padding: 30px 40px;
+  padding: 30px 45px;
   display: flex;
   align-items: center;
-  gap: 24px;
-  min-width: 300px;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  gap: 28px;
+  min-width: 320px;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+  transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   position: relative;
   overflow: hidden;
+}
+
+/* Internal Scanning Ray */
+.fame-stat-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+  transform: skewX(-20deg);
+  animation: scanRay 6s infinite;
+}
+
+@keyframes scanRay {
+  0% {
+    left: -100%;
+  }
+
+  30%,
+  100% {
+    left: 200%;
+  }
 }
 
 .fame-stat-glass::after {

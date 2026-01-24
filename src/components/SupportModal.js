@@ -13,6 +13,7 @@ const SupportModal = ({ isOpen, onClose }) => {
   const [amount, setAmount] = useState(20);
   const [supporters, setSupporters] = useState([]);
   const [copySuccess, setCopySuccess] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const presetAmounts = [10, 20, 50, 100, 200, 500];
   const upiId = "sp1771838-1@okaxis";
@@ -139,10 +140,93 @@ const SupportModal = ({ isOpen, onClose }) => {
         alert("Payment was successful, but we had trouble updating the Hall of Fame. Our team will verify it manually!");
     }
     
-    alert(`Thank you, ${newSupporter.name}! Your support means the world to us.`);
-    onClose();
+    setSuccess(true);
     // Refresh the local state if needed (though useEffect should catch it via Firebase listener)
   };
+
+  if (success) {
+    return (
+      <div className="gratitude-portal-overlay">
+        <div className="portal-particle-field"></div>
+        <motion.div
+          initial={{ scale: 0.5, opacity: 0, translateY: 100 }}
+          animate={{ scale: 1, opacity: 1, translateY: 0 }}
+          className="legend-master-card"
+        >
+          {/* Top Technical Stripe */}
+          <div className="card-tech-stripe">
+            <div className="stripe-item">SYS_STATUS: LEGEND_VERIFIED</div>
+            <div className="stripe-item">ENCRYPTION: AES_256_ACTIVE</div>
+            <div className="stripe-item">NODE: VTU_GLOBAL_S3</div>
+          </div>
+
+          <div className="card-top-header">
+            <div className="vtu-logo-badge">
+              <span className="logo-v">V</span>
+            </div>
+            <div className="transaction-id-scroll">
+              <marquee scrollamount="3">SECURE_PAYMENT_ID_{Math.random().toString(36).substr(2, 12).toUpperCase()}_LOGGED_IN_BLOCKCHAIN_VERIFIED_AUTH_SUCCESS</marquee>
+            </div>
+          </div>
+
+          <div className="card-hero-section">
+            <motion.div
+              animate={{ rotateY: [0, 360] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+              className="legend-medal-3d"
+            >
+              <FaHeart className="medal-crown" style={{ color: '#ef4444' }} />
+              <div className="medal-glow"></div>
+            </motion.div>
+
+            <div className="boot-text-sequence">
+              <motion.h2
+                initial={{ width: 0 }}
+                animate={{ width: "100%" }}
+                transition={{ duration: 1.5, ease: "steps(20)" }}
+              >
+                ASCENSION_COMPLETE
+              </motion.h2>
+              <p className="legend-subtitle">Welcome to the inner circle, <span>{name || 'Legend'}</span>.</p>
+            </div>
+          </div>
+
+          <div className="card-impact-grid">
+            <div className="impact-item">
+              <span className="i-label">CONTRIBUTION_VALUE</span>
+              <span className="i-value">₹{amount}.00</span>
+            </div>
+            <div className="impact-item">
+              <span className="i-label">COMMUNITY_RANK</span>
+              <span className="i-value gold-text">ELITE_SUPPORTER</span>
+            </div>
+            <div className="impact-item">
+              <span className="i-label">RESOURCES_FUELED</span>
+              <span className="i-value">~{(amount * 12).toFixed(0)} STUDENTS</span>
+            </div>
+          </div>
+
+          <div className="gratitude-manifesto">
+            <p>"Your support has successfully bypassed the server maintenance bottleneck. You are now recognized as a vital architecture of this platform's future."</p>
+          </div>
+
+          <button className="final-exit-btn" onClick={() => { setSuccess(false); onClose(); }}>
+            <div className="btn-inner">
+              <span>INITIALIZE SYSTEM RETURN</span>
+              <FaBolt className="btn-bolt" />
+            </div>
+            <div className="btn-scanner"></div>
+          </button>
+
+          {/* Corner Tech Brackets */}
+          <div className="tech-corner t-l"></div>
+          <div className="tech-corner t-r"></div>
+          <div className="tech-corner b-l"></div>
+          <div className="tech-corner b-r"></div>
+        </motion.div>
+      </div>
+    );
+  }
 
   const formatDate = (timestamp) => {
     if (!timestamp) return "";

@@ -151,6 +151,7 @@
 .highlight-text {
     background: linear-gradient(135deg, #6366f1 0%, #d946ef 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
 }
@@ -471,5 +472,328 @@
     .close-modal-btn {
         top: 10px;
         right: 10px;
+    }
+}
+
+/* --- Legend Master-Card Gratitude Portal --- */
+.gratitude-portal-overlay {
+    position: fixed;
+    inset: 0;
+    background: #020617;
+    /* Stronger dark background */
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    perspective: 2000px;
+    overflow: hidden;
+}
+
+.portal-particle-field {
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(1px 1px at 10% 10%, #fff, transparent),
+        radial-gradient(1px 1px at 20% 50%, #fff, transparent),
+        radial-gradient(1px 1px at 50% 80%, #fff, transparent),
+        radial-gradient(2px 2px at 80% 20%, #6366f1, transparent);
+    background-size: 200px 200px;
+    animation: particleDrift 60s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes particleDrift {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-1000px);
+    }
+}
+
+.legend-master-card {
+    background: linear-gradient(165deg, rgba(15, 23, 42, 0.9) 0%, rgba(2, 6, 23, 0.95) 100%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 40px;
+    width: 100%;
+    max-width: 600px;
+    padding: 0;
+    /* Padding handled by internal sections */
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 80px 150px rgba(0, 0, 0, 1),
+        0 0 100px rgba(99, 102, 241, 0.2);
+}
+
+.card-tech-stripe {
+    background: rgba(99, 102, 241, 0.15);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.stripe-item {
+    font-size: 0.6rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: #818cf8;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.card-top-header {
+    padding: 30px 40px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vtu-logo-badge {
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 1000;
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, #6366f1, #d946ef);
+}
+
+.transaction-id-scroll {
+    flex: 1;
+    margin-left: 30px;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 8px 15px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.transaction-id-scroll marquee {
+    color: #4ade80;
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.card-hero-section {
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.legend-medal-3d {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 30px;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.medal-crown {
+    font-size: 5rem;
+    color: #fbbf24;
+    filter: drop-shadow(0 0 25px rgba(251, 191, 36, 0.8));
+}
+
+.medal-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: pulseGlow 4s infinite;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.4);
+        opacity: 0.2;
+    }
+}
+
+.boot-text-sequence h2 {
+    font-size: 2.8rem;
+    font-weight: 1000;
+    color: white;
+    letter-spacing: -0.05em;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #6366f1;
+}
+
+.legend-subtitle {
+    color: #94a3b8;
+    font-size: 1.25rem;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.legend-subtitle span {
+    color: white;
+    font-weight: 900;
+    background: linear-gradient(90deg, #6366f1, #d946ef);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card-impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 30px 0;
+}
+
+.impact-item {
+    background: #0f172a;
+    padding: 25px 15px;
+    text-align: center;
+}
+
+.i-label {
+    display: block;
+    font-size: 0.65rem;
+    color: #64748b;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.i-value {
+    font-size: 1.4rem;
+    font-weight: 1000;
+    color: white;
+}
+
+.gold-text {
+    background: linear-gradient(to right, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gratitude-manifesto {
+    padding: 0 50px;
+    text-align: center;
+}
+
+.gratitude-manifesto p {
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-style: italic;
+    font-family: 'Inter', sans-serif;
+}
+
+.final-exit-btn {
+    width: 80%;
+    margin: 40px 10%;
+    background: #6366f1;
+    color: white;
+    border: none;
+    padding: 24px;
+    border-radius: 20px;
+    font-weight: 1000;
+    font-size: 1.1rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    letter-spacing: 2px;
+}
+
+.final-exit-btn:hover {
+    background: #4f46e5;
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
+}
+
+.btn-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    z-index: 5;
+}
+
+.btn-scanner {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: btnScan 2s linear infinite;
+}
+
+@keyframes btnScan {
+    to {
+        left: 100%;
+    }
+}
+
+/* Tech Corners */
+.tech-corner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #6366f1;
+    pointer-events: none;
+}
+
+.t-l {
+    top: 20px;
+    left: 20px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.t-r {
+    top: 20px;
+    right: 20px;
+    border-left: none;
+    border-bottom: none;
+}
+
+.b-l {
+    bottom: 20px;
+    left: 20px;
+    border-right: none;
+    border-top: none;
+}
+
+.b-r {
+    bottom: 20px;
+    right: 20px;
+    border-left: none;
+    border-top: none;
+}
+
+@media (max-width: 650px) {
+    .boot-text-sequence h2 {
+        font-size: 1.8rem;
+    }
+
+    .card-impact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .legend-master-card {
+        border-radius: 30px;
     }
 }
