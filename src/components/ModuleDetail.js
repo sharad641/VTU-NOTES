@@ -6954,7 +6954,8 @@ const ModuleDetail = () => {
 
   const handlePreview = (url) => {
     if (url && url !== "#") {
-      window.open(url, '_blank');
+      // Use the internal PDF Viewer route
+      navigate(`/pdf/${encodeURIComponent(url)}`);
     } else {
       showToast("Preview not available", "warning");
     }

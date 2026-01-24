@@ -241,11 +241,11 @@ const PdfViewer = () => {
       </header>
       
       {/* Top Banner Ad - High Visibility */}
-      <div className={`pdf-top-ad ${cinemaMode ? 'is-hidden' : ''}`} style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '80px', marginBottom: '10px' }}>
+      <div className={`pdf-top-ad ${cinemaMode ? 'is-hidden' : ''}`} style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: '20px', marginBottom: '10px' }}>
           <AdSenseAd 
              adClient="ca-pub-9499544849301534" 
              adSlot="3936951010" 
-             style={{ width: "728px", height: "90px" }} // Leaderboard preference
+             style={{ width: "100%", maxWidth: "728px", height: "90px" }} // Responsive Leaderboard
           />
       </div>
 
