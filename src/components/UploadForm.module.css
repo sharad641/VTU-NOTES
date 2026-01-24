@@ -1,0 +1,305 @@
+/* Variables */
+.container {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  --success: #10b981;
+  --error: #ef4444;
+  --bg-glass: rgba(255, 255, 255, 0.95);
+  --border-light: rgba(0, 0, 0, 0.1);
+  --text-dark: #1e293b;
+  --text-muted: #64748b;
+  
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* Glass Card */
+.glassCard {
+  background: var(--bg-glass);
+  width: 100%;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.header h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.8rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.iconBrand {
+  color: var(--primary);
+}
+
+.header p {
+  color: var(--text-muted);
+}
+
+/* Form Grid */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+}
+
+/* --- Left Column: Drop Zone --- */
+.dropZone {
+  border: 2px dashed #cbd5e1;
+  border-radius: 16px;
+  height: 100%;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #f8fafc;
+  position: relative;
+  overflow: hidden;
+}
+
+.dragActive {
+  border-color: var(--primary);
+  background: #eff6ff;
+  transform: scale(0.99);
+}
+
+.hasFile {
+  border-style: solid;
+  border-color: #e2e8f0;
+  background: white;
+  cursor: default;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.uploadPlaceholder {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
+.cloudIcon {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.uploadPlaceholder p {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+}
+
+.uploadPlaceholder span {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+/* File Preview */
+.filePreview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+}
+
+.fileIcon {
+  color: var(--error); /* PDF color */
+  background: #fef2f2;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.fileName {
+  font-weight: 600;
+  color: var(--text-dark);
+  word-break: break-word;
+  max-width: 90%;
+}
+
+.fileSize {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.removeBtn {
+  background: #f1f5f9;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: 0.2s;
+}
+
+.removeBtn:hover {
+  background: #fee2e2;
+  color: var(--error);
+}
+
+/* --- Right Column: Inputs --- */
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Floating Labels */
+.inputGroup {
+  position: relative;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: white;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+  color: var(--text-dark);
+}
+
+.inputGroup textarea {
+  resize: none;
+}
+
+.inputGroup label {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  color: var(--text-muted);
+  background: white;
+  padding: 0 4px;
+  transition: all 0.2s;
+  pointer-events: none;
+  font-size: 1rem;
+}
+
+/* Focus & Filled State for Floating Label */
+.inputGroup input:focus,
+.inputGroup textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.inputGroup input:focus + label,
+.inputGroup input:not(:placeholder-shown) + label,
+.inputGroup textarea:focus + label,
+.inputGroup textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+/* Messages */
+.errorMsg, .successMsg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  animation: slideIn 0.3s ease;
+}
+
+.errorMsg {
+  background: #fef2f2;
+  color: var(--error);
+}
+
+.successMsg {
+  background: #ecfdf5;
+  color: var(--success);
+}
+
+/* Submit Button */
+.submitBtn {
+  position: relative;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.submitBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.progressFill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.15);
+  transition: width 0.2s linear;
+  z-index: 1;
+}
+
+.uploadingState, .submitBtn span {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Animations & Responsive */
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes slideIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .dropZone {
+    min-height: 200px;
+  }
+}

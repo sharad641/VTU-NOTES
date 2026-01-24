@@ -1,0 +1,190 @@
+/* --- VARIABLES --- */
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --bg-gradient: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+  --text-main: #1f2937;
+  --text-mute: #6b7280;
+  --border: #e5e7eb;
+  --input-bg: #f9fafb;
+}
+
+.signup-container {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: white;
+  overflow: hidden;
+}
+
+/* --- LEFT SIDE: HERO --- */
+.signup-hero {
+  flex: 1.2;
+  position: relative;
+  background: var(--bg-gradient);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  overflow: hidden;
+}
+
+.hero-mesh {
+  position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+  background: radial-gradient(circle at 30% 30%, rgba(236, 72, 153, 0.2), transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(99, 102, 241, 0.2), transparent 40%);
+  animation: meshSpin 40s linear infinite; z-index: 0;
+}
+@keyframes meshSpin { 100% { transform: rotate(360deg); } }
+
+.hero-content { position: relative; z-index: 10; max-width: 500px; }
+
+.logo-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+  padding: 8px 16px; border-radius: 30px; font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 1px; margin-bottom: 24px;
+}
+.rocket-icon { color: #fbbf24; }
+
+.hero-content h1 {
+  font-size: 3.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px;
+}
+.text-highlight {
+  background: linear-gradient(to right, #a5f3fc, #818cf8);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero-content p {
+  font-size: 1.1rem; color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: 40px;
+}
+
+.feature-list { display: flex; flex-direction: column; gap: 15px; }
+.feature-item { display: flex; align-items: center; gap: 15px; }
+.check-box {
+  width: 24px; height: 24px; color: #34d399; font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+}
+.feature-item span { font-weight: 500; font-size: 1rem; }
+
+/* --- RIGHT SIDE: FORM --- */
+.signup-form-wrapper {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px; background: white; overflow-y: auto;
+}
+
+.form-box { width: 100%; max-width: 450px; }
+
+.form-head { margin-bottom: 30px; }
+.form-head h2 { font-size: 2rem; font-weight: 800; color: var(--text-main); margin: 0 0 5px 0; }
+.form-head p { color: var(--text-mute); }
+
+/* Inputs */
+.input-row { margin-bottom: 18px; }
+.input-row label {
+  display: block; font-size: 0.85rem; font-weight: 600;
+  color: var(--text-main); margin-bottom: 6px;
+}
+.input-shell {
+  position: relative; display: flex; align-items: center;
+  background: var(--input-bg); border: 1px solid var(--border);
+  border-radius: 12px; transition: all 0.2s;
+}
+.input-shell:focus-within {
+  background: white; border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+}
+.shell-icon {
+  position: absolute; left: 14px; color: var(--text-mute); font-size: 1rem;
+}
+.input-shell input {
+  width: 100%; padding: 14px 14px 14px 44px;
+  border: none; background: transparent; outline: none;
+  font-size: 0.95rem; color: var(--text-main);
+}
+.input-shell input::placeholder { color: #d1d5db; }
+.eye-btn {
+  padding: 0 14px; background: none; border: none;
+  cursor: pointer; color: var(--text-mute);
+}
+
+/* Password Strength */
+.strength-meter {
+  display: flex; gap: 5px; margin-top: 8px;
+}
+.bar {
+  flex: 1; height: 4px; background: #e5e7eb; border-radius: 2px; transition: 0.3s;
+}
+.bar.filled:nth-child(1) { background: #ef4444; } /* Weak (Red) */
+.bar.filled:nth-child(2) { background: #f59e0b; } /* Medium (Yellow) */
+.bar.filled:nth-child(3) { background: #10b981; } /* Strong (Green) */
+
+/* Caps Warning */
+.caps-warning {
+  display: flex; align-items: center; gap: 6px; font-size: 0.8rem;
+  color: #f59e0b; margin-bottom: 15px; opacity: 0; height: 0; transition: 0.3s;
+}
+.caps-warning.visible { opacity: 1; height: auto; margin-bottom: 15px; }
+
+/* Buttons */
+.signup-btn {
+  width: 100%; padding: 14px; border: none; border-radius: 12px;
+  background: var(--primary); color: white; font-size: 1rem; font-weight: 600;
+  cursor: pointer; display: flex; justify-content: center; align-items: center;
+  gap: 10px; transition: 0.2s; box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+}
+.signup-btn:hover {
+  background: var(--primary-hover); transform: translateY(-1px);
+}
+
+.google-btn-full {
+  width: 100%; padding: 12px; background: white; border: 1px solid var(--border);
+  border-radius: 12px; font-weight: 600; color: var(--text-main);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  gap: 10px; transition: 0.2s;
+}
+.google-btn-full:hover { background: #f9fafb; border-color: #d1d5db; }
+
+/* Divider */
+.divider-text { text-align: center; margin: 24px 0; position: relative; }
+.divider-text span {
+  background: white; padding: 0 10px; color: var(--text-mute);
+  font-size: 0.75rem; font-weight: 700; position: relative; z-index: 1;
+}
+.divider-text::before {
+  content: ""; position: absolute; top: 50%; left: 0; right: 0;
+  height: 1px; background: var(--border);
+}
+
+/* Footer */
+.footer-login {
+  margin-top: 25px; text-align: center; color: var(--text-mute); font-size: 0.9rem;
+}
+.footer-login span {
+  color: var(--primary); font-weight: 700; cursor: pointer; transition: 0.2s;
+}
+.footer-login span:hover { text-decoration: underline; }
+
+/* Toast */
+.toast-notification {
+  position: fixed; top: 20px; right: 20px; background: #333; color: white;
+  padding: 12px 20px; border-radius: 10px; display: flex; align-items: center; gap: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 2000;
+  transform: translateX(120%); transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.toast-notification.show { transform: translateX(0); }
+
+/* Loader */
+.spinner-white {
+  width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3);
+  border-left-color: white; border-radius: 50%; animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .signup-hero { display: none; }
+  .signup-form-wrapper { padding: 20px; }
+  .form-box { box-shadow: 0 10px 30px rgba(0,0,0,0.05); padding: 30px; border-radius: 20px; }
+}

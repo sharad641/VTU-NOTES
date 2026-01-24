@@ -1,0 +1,206 @@
+/* AboutModern.css */
+:root {
+    --about-bg: #0F172A;
+    --about-glass: rgba(255, 255, 255, 0.03);
+    --about-border: rgba(255, 255, 255, 0.1);
+    --about-accent: #6366F1;
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+}
+
+.about-container {
+    min-height: 100vh;
+    background: var(--about-bg);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background elements */
+.about-container::before {
+    content: '';
+    position: fixed;
+    top: -20%;
+    left: -10%;
+    width: 50%;
+    height: 50%;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
+    filter: blur(80px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.about-hero {
+    padding: 120px 20px 80px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.about-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 0.85rem;
+    color: var(--about-accent);
+    border: 1px solid var(--about-border);
+    margin-bottom: 24px;
+}
+
+.about-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    background: linear-gradient(to right, #fff, #cbd5e1);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+/* Stats */
+.about-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto 100px;
+    padding: 0 20px;
+}
+
+.stat-card-modern {
+    background: var(--about-glass);
+    border: 1px solid var(--about-border);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.stat-card-modern:hover {
+    transform: translateY(-5px);
+    border-color: var(--about-accent);
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    margin: 10px 0;
+    display: block;
+}
+
+.stat-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Features */
+.features-section {
+    padding: 80px 20px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card-glass {
+    background: var(--about-glass);
+    border: 1px solid var(--about-border);
+    padding: 30px;
+    border-radius: 24px;
+    transition: all 0.3s;
+}
+
+.feature-card-glass:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-5px);
+}
+
+.feature-icon-box {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: rgba(99, 102, 241, 0.1);
+    color: var(--about-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.feature-card-glass h3 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.feature-card-glass p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Team/Developer */
+.team-section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.dev-highlight-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    border: 1px solid var(--about-border);
+    border-radius: 30px;
+    padding: 50px 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.dev-highlight-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--about-accent), transparent);
+}
+
+.dev-avatar-large {
+    width: 100px;
+    height: 100px;
+    background: var(--about-accent);
+    border-radius: 50%;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: 800;
+    color: white;
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+}
+
+.responsive-text-check {
+    /* Ensure text is visible even if variables fail */
+    color: #F8FAFC !important;
+}

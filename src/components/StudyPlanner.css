@@ -1,0 +1,257 @@
+/* Root variables for colors, shadows, and transitions */
+:root {
+  --primary-color: #4caf50; /* Green for key highlights */
+  --secondary-color: #f9f9f9; /* Light gray for backgrounds */
+  --background-light: #1e293b; /* Deep blue-gray for dark mode */
+  --background-dark: #d3d7e0; /* Darker blue-gray for contrast */
+  --text-light: #ffffff; /* White for text on dark backgrounds */
+  --text-dark: #2d3748; /* Dark gray for text on light backgrounds */
+  --accent-color: #3b82f6; /* Blue accent color */
+  --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease-in-out;
+}
+
+/* General styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-light);
+  color: var(--text-light);
+}
+
+/* Study Planner */
+.study-planner {
+  background-color: var(--background-light);
+  color: var(--text-light);
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: var(--transition);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--background-dark);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: var(--accent-color);
+  transition: var(--transition);
+}
+
+.header button {
+  padding: 10px 15px;
+  border: none;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.header button:hover {
+  background-color: var(--accent-color);
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 80%;
+  height: 25px;
+  background: var(--secondary-color);
+  border-radius: 50px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px;
+  box-shadow: var(--box-shadow);
+}
+
+.progress-bar .progress {
+  height: 100%;
+  background: var(--primary-color);
+  color: var(--text-light);
+  text-align: center;
+  line-height: 25px;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+/* Task Form */
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--background-dark);
+}
+
+.task-form input,
+.task-form select {
+  padding: 10px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 200px;
+  transition: var(--transition);
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+}
+
+.task-form input:focus,
+.task-form select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.task-form button {
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--text-light);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.task-form button:hover {
+  background-color: var(--accent-color);
+}
+
+/* Filters */
+.filters {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  background-color: var(--background-dark);
+}
+
+.filters input,
+.filters select {
+  padding: 10px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 200px;
+  transition: var(--transition);
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+}
+
+.filters input:focus,
+.filters select:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Task List */
+.task-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+}
+
+.task-box {
+  background: var(--background-dark);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  padding: 15px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: var(--transition);
+  border-left: 5px solid var(--primary-color);
+  color: var(--text-light);
+}
+
+.task-box span {
+  font-size: 1.2rem;
+  word-wrap: break-word;
+}
+
+.task-box-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.task-box button {
+  flex: 1 1 calc(50% - 5px);
+  padding: 10px;
+  border: none;
+  background: var(--accent-color);
+  color: var(--text-light);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.task-box button:hover {
+  background: var(--primary-color);
+}
+
+.task-box.completed {
+  background: rgba(59, 130, 246, 0.1);
+  border-left: 5px solid var(--accent-color);
+  color: var(--text-light);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .task-box-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .task-box button {
+    flex: 1 1 100%;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .task-form input,
+  .task-form select,
+  .filters input,
+  .filters select {
+    width: 100%;
+  }
+
+  .task-box {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-actions button {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}

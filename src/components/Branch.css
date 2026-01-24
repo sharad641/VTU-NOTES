@@ -1,0 +1,129 @@
+/* Branch.css - synced with Home.css Portal Theme */
+
+.branch-header-modern {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: white;
+    padding: 40px;
+    /* Increased padding */
+    border-radius: 24px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.branch-icon-large {
+    width: 80px;
+    height: 80px;
+    background: #F3F0FF;
+    color: #7E5BEF;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.branch-label-pill {
+    background: #F9FAFB;
+    color: #6B7280;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-block;
+    border: 1px solid #E5E7EB;
+}
+
+.branch-main-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1F2937;
+    margin: 0 0 10px 0;
+    line-height: 1.2;
+}
+
+.branch-desc-text {
+    font-size: 1.05rem;
+    color: #6B7280;
+    margin: 0;
+}
+
+/* Semester Grid */
+.semester-grid-portal {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+.semester-portal-card {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.semester-portal-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px -10px rgba(126, 91, 239, 0.2);
+    border-color: rgba(126, 91, 239, 0.3);
+}
+
+.sem-number-box {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #7E5BEF 0%, #5B21B6 100%);
+    color: white;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 5px 15px rgba(126, 91, 239, 0.3);
+}
+
+.sem-info-box h3 {
+    font-size: 1.2rem;
+    color: #1F2937;
+    margin: 0 0 5px 0;
+    font-weight: 700;
+}
+
+.view-link {
+    font-size: 0.85rem;
+    color: #7E5BEF;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+}
+
+.portal-ad-banner {
+    margin-top: 40px;
+    padding: 20px;
+    background: #F9FAFB;
+    border-radius: 16px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .branch-header-modern {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+        padding: 30px 20px;
+    }
+}

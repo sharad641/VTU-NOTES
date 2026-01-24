@@ -1,0 +1,65 @@
+.notes-page {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.branch-selector {
+  margin-bottom: 1.5rem;
+}
+
+.branch-selector select {
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+.branch-selector select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.subject-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.subject-card {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.subject-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.subject-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.8rem;
+  color: #1b2e59;
+}
+
+.subject-card .button {
+  padding: 0.6rem 1rem;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.subject-card .button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+}

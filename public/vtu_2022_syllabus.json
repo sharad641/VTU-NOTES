@@ -1,0 +1,710 @@
+{
+  "CSE (Physics Group)": {
+    "I SEMESTER": [
+      { "code": "BMATS101", "title": "Mathematics-I for CSE Stream", "credits": "4" },
+      { "code": "BPHYS102", "title": "Applied Physics for CSE Stream", "credits": "4" },
+      { "code": "BPOPS103", "title": "Principles of Programming Using C", "credits": "3" },
+      { "code": "BESCK104x", "title": "Engineering Science Course-I", "credits": "3" },
+      { "code": "BETCK105x", "title": "Emerging Technology Course-I", "credits": "3" },
+      { "code": "BENGK106", "title": "Communicative English", "credits": "1" },
+      { "code": "BKSKK107", "title": "Samskrutika Kannada / Balake Kannada", "credits": "1" },
+      { "code": "BIDTK158", "title": "Innovation and Design Thinking", "credits": "1" }
+    ],
+    "II SEMESTER": [
+      { "code": "BMATS201", "title": "Mathematics-II for CSE Stream", "credits": "4" },
+      { "code": "BPHYS202", "title": "Applied Physics - II", "credits": "4" },
+      { "code": "BCEDK203", "title": "Computer-Aided Engineering Drawing", "credits": "3" },
+      { "code": "BESCK204x", "title": "Engineering Science Course-II", "credits": "3" },
+      { "code": "BPLCK205x", "title": "Programming Languages Course-I", "credits": "3" },
+      { "code": "BPWSK206", "title": "Professional Writing Skills in English", "credits": "1" },
+      { "code": "BICOK207", "title": "Indian Constitution", "credits": "1" },
+      { "code": "BSFHK258", "title": "Scientific Foundations of Health", "credits": "1" }
+    ]
+  },
+  "CSE (Chemistry Group)": {
+    "I SEMESTER": [
+      { "code": "BMATS101", "title": "Mathematics-I for CSE Stream", "credits": "4" },
+      { "code": "BCHES102", "title": "Applied Chemistry for CSE Stream", "credits": "4" },
+      { "code": "BCEDK103", "title": "Computer-Aided Engineering Drawing", "credits": "3" },
+      { "code": "BESCK104x", "title": "Engineering Science Course-I", "credits": "3" },
+      { "code": "BPLCK105x", "title": "Programming Language Course-I", "credits": "3" },
+      { "code": "BPWSK106", "title": "Professional Writing Skills in English", "credits": "1" },
+      { "code": "BICOK107", "title": "Indian Constitution", "credits": "1" },
+      { "code": "BSFHK158", "title": "Scientific Foundations of Health", "credits": "1" }
+    ],
+    "II SEMESTER": [
+      { "code": "BMATS201", "title": "Mathematics-II for CSE Stream", "credits": "4" },
+      { "code": "BCHES202", "title": "Applied Chemistry - II", "credits": "4" },
+      { "code": "BPOPS203", "title": "Principles of Programming Using C", "credits": "3" },
+      { "code": "BESCK204x", "title": "Engineering Science Course-II", "credits": "3" },
+      { "code": "BETCK205x", "title": "Emerging Technology Course-II", "credits": "3" },
+      { "code": "BENGK206", "title": "Communicative English", "credits": "1" },
+      { "code": "BKSKK207", "title": "Samskrutika Kannada / Balake Kannada", "credits": "1" },
+      { "code": "BIDTK258", "title": "Innovation and Design Thinking", "credits": "1" }
+    ]
+  },
+ 
+  "CSE": {
+    "III SEMESTER": [
+      { "code": "BCS301", "title": "Mathematics for Computer Science", "credits": "4" },
+      { "code": "BCS302", "title": "Digital Design & Computer Organization", "credits": "4" },
+      { "code": "BCS303", "title": "Operating Systems", "credits": "4" },
+      { "code": "BCS304", "title": "Data Structures and Applications", "credits": "3" },
+      { "code": "BCSL305", "title": "Data Structures Lab", "credits": "1" },
+      { "code": "BCS306x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BSCK307", "title": "Social Connect and Responsibility", "credits": "1" },
+      { "code": "BCS358x", "title": "Ability Enhancement / Skill Enhancement Course - III", "credits": "1" },
+      { "code": "BNSK359", "title": "National Service Scheme / Physical Education / Yoga", "credits": "0" }
+    ],
+    "IV SEMESTER": [
+      { "code": "BCS401", "title": "Analysis & Design of Algorithms", "credits": "3" },
+      { "code": "BCS402", "title": "Microcontrollers", "credits": "4" },
+      { "code": "BCS403", "title": "Database Management Systems", "credits": "4" },
+      { "code": "BCSL404", "title": "Analysis & Design of Algorithms Lab", "credits": "1" },
+      { "code": "BCS405x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BCS456x", "title": "Ability Enhancement / Skill Enhancement Course - IV", "credits": "1" },
+      { "code": "BBOC407", "title": "Biology for Computer Engineers", "credits": "2" },
+      { "code": "BUHK408", "title": "Universal Human Values", "credits": "1" },
+      { "code": "BNSK459", "title": "National Service Scheme / Physical Education / Yoga", "credits": "0" }
+    ],
+    "V SEMESTER": [
+      { "code": "BCS501", "title": "Software Engineering & Project Management", "credits": "4" },
+      { "code": "BCS502", "title": "Computer Networks", "credits": "4" },
+      { "code": "BCS503", "title": "Theory of Computation", "credits": "4" },
+      { "code": "BCSL504", "title": "Web Technology Lab", "credits": "1" },
+      { "code": "BCS515x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BCS586", "title": "Mini Project", "credits": "2" },
+      { "code": "BRMK557", "title": "Research Methodology and IPR", "credits": "3" },
+      { "code": "BCS508", "title": "Environmental Studies and E-waste Management", "credits": "1" },
+      { "code": "BNSK559", "title": "National Service Scheme / Physical Education / Yoga", "credits": "0" }
+    ],
+    "VI SEMESTER": [
+      { "code": "BCS601", "title": "Cloud Computing (Open Stack / Google)", "credits": "4" },
+      { "code": "BCS602", "title": "Machine Learning", "credits": "4" },
+      { "code": "BXX613x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BXX654x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BCS685", "title": "Project Phase I", "credits": "2" },
+      { "code": "BCSL606", "title": "Machine Learning Lab", "credits": "1" },
+      { "code": "BXX657x", "title": "Ability Enhancement Course / Skill Development - V", "credits": "1" },
+      { "code": "BNSK658", "title": "National Service Scheme / Physical Education / Yoga", "credits": "0" },
+      { "code": "BIKS609", "title": "Indian Knowledge System", "credits": "0" }
+    ],
+    "VII SEMESTER": [
+      { "code": "BCS701", "title": "Internet of Things", "credits": "4" },
+      { "code": "BCS702", "title": "Parallel Computing", "credits": "4" },
+      { "code": "BCS703", "title": "Cryptography & Network Security", "credits": "4" },
+      { "code": "BCS714x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BCS755x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BCS786", "title": "Major Project Phase-II", "credits": "6" }
+    ],
+    "VIII SEMESTER": [
+      { "code": "BCS801x", "title": "Professional Elective (Online Courses)", "credits": "3" },
+      { "code": "BCS802x", "title": "Open Elective (Online Courses)", "credits": "3" },
+      { "code": "BCS803", "title": "Internship (Industry/Research) (14 - 20 weeks)", "credits": "10" }
+    ]
+  },
+  "Information_Science_Engineering": {
+    "III SEMESTER": [
+      { "code": "BCS301", "title": "Mathematics for Computer Science", "credits": "4" },
+      { "code": "BCS302", "title": "Digital Design & Computer Organization", "credits": "4" },
+      { "code": "BCS303", "title": "Operating Systems", "credits": "4" },
+      { "code": "BCS304", "title": "Data Structures and Applications", "credits": "3" },
+      { "code": "BCSL305", "title": "Data Structures Lab", "credits": "1" },
+      { "code": "BCS306x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BSCK307", "title": "Social Connect and Responsibility", "credits": "1" },
+      { "code": "BCS358x", "title": "Ability / Skill Enhancement Course - III", "credits": "1" },
+      { "code": "BNSK359", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "IV SEMESTER": [
+      { "code": "BCS401", "title": "Analysis & Design of Algorithms", "credits": "3" },
+      { "code": "BIS402", "title": "Advanced Java", "credits": "4" },
+      { "code": "BCS403", "title": "Database Management Systems", "credits": "4" },
+      { "code": "BCSL404", "title": "Analysis & Design of Algorithms Lab", "credits": "1" },
+      { "code": "BCS405x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BCS456x", "title": "Ability / Skill Enhancement Course - IV", "credits": "1" },
+      { "code": "BBOC407", "title": "Biology for Computer Engineers", "credits": "3" },
+      { "code": "BUHK408", "title": "Universal Human Values", "credits": "1" },
+      { "code": "BNSK459", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "V SEMESTER": [
+      { "code": "BCS501", "title": "Software Engineering & Project Management", "credits": "4" },
+      { "code": "BCS502", "title": "Computer Networks", "credits": "4" },
+      { "code": "BCS503", "title": "Theory of Computation", "credits": "4" },
+      { "code": "BAIL504", "title": "Data Visualization Lab", "credits": "1" },
+      { "code": "BXX515x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BIS586", "title": "Mini Project", "credits": "2" },
+      { "code": "BRMK557", "title": "Research Methodology and IPR", "credits": "3" },
+      { "code": "BCS508", "title": "Environmental Studies and E-waste Management", "credits": "1" },
+      { "code": "BNSK559", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "VI SEMESTER": [
+      { "code": "BIS601", "title": "Full Stack Development", "credits": "4" },
+      { "code": "BCS602", "title": "Machine Learning", "credits": "4" },
+      { "code": "BXX613x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BXX654x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BIS685", "title": "Project Phase I", "credits": "2" },
+      { "code": "BCSL606", "title": "Machine Learning Lab", "credits": "1" },
+      { "code": "BXX657x", "title": "Ability Enhancement / Skill Development Course - V", "credits": "1" },
+      { "code": "BNSK658", "title": "NSS / PE / Yoga", "credits": "0" },
+      { "code": "BIKS609", "title": "Indian Knowledge System", "credits": "0" }
+    ],
+    "VII SEMESTER": [
+      { "code": "BIS701", "title": "Big Data Analytics", "credits": "4" },
+      { "code": "BCS702", "title": "Parallel Computing", "credits": "4" },
+      { "code": "BIS703", "title": "Information & Network Security", "credits": "4" },
+      { "code": "BIS714x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BIS755x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BIS786", "title": "Major Project Phase-II", "credits": "6" }
+    ],
+    "VIII SEMESTER": [
+      { "code": "BIS801x", "title": "Professional Elective (Online Courses)", "credits": "3" },
+      { "code": "BIS802x", "title": "Open Elective (Online Courses)", "credits": "3" },
+      { "code": "BIS803", "title": "Internship (Industry/Research)", "credits": "10" }
+    ]
+  },
+
+  "AI_ML": {
+    "III SEMESTER": [
+      { "code": "BCS301", "title": "Mathematics for Computer Science", "credits": "4" },
+      { "code": "BCS302", "title": "Digital Design & Computer Organization", "credits": "4" },
+      { "code": "BCS303", "title": "Operating Systems", "credits": "4" },
+      { "code": "BCS304", "title": "Data Structures and Applications", "credits": "3" },
+      { "code": "BCSL305", "title": "Data Structures Lab", "credits": "1" },
+      { "code": "BXX306x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BSCK307", "title": "Social Connect and Responsibility", "credits": "1" },
+      { "code": "BXX358x", "title": "Ability/Skill Enhancement Course - III", "credits": "1" }
+    ],
+    "IV SEMESTER": [
+      { "code": "BCS401", "title": "Analysis & Design of Algorithms", "credits": "3" },
+      { "code": "BAI402", "title": "Artificial Intelligence", "credits": "4" },
+      { "code": "BCS403", "title": "Database Management Systems", "credits": "4" },
+      { "code": "BCSL404", "title": "Analysis & Design of Algorithms Lab", "credits": "1" },
+      { "code": "BXX405x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BXX456x", "title": "Ability/Skill Enhancement Course - IV", "credits": "1" },
+      { "code": "BBOC407", "title": "Biology for Computer Engineers", "credits": "2" },
+      { "code": "BUHK408", "title": "Universal Human Values", "credits": "1" }
+    ],
+    "V SEMESTER": [
+      { "code": "BCS501", "title": "Software Engineering & Project Management", "credits": "4" },
+      { "code": "BCS502", "title": "Computer Networks", "credits": "4" },
+      { "code": "BCS503", "title": "Theory of Computation", "credits": "4" },
+      { "code": "BAIL504", "title": "Data Visualization Lab", "credits": "1" },
+      { "code": "BXX515x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BCI586", "title": "Mini Project", "credits": "2" },
+      { "code": "BRMK557", "title": "Research Methodology and IPR", "credits": "3" },
+      { "code": "BCS508", "title": "Environmental Studies and E-waste Management", "credits": "1" }
+    ],
+    "VI SEMESTER": [
+      { "code": "BCO601", "title": "Microcontrollers & Embedded Systems", "credits": "4" },
+      { "code": "BCS602", "title": "Machine Learning - I", "credits": "4" },
+      { "code": "BXX613x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BXX654x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BCI685", "title": "Project Phase I", "credits": "2" },
+      { "code": "BCSL606", "title": "Machine Learning Lab", "credits": "1" },
+      { "code": "BXX657x", "title": "Ability/Skill Development Course - V", "credits": "1" }
+    ],
+    "VII SEMESTER": [
+      { "code": "BCA701", "title": "Deep Learning", "credits": "4" },
+      { "code": "BAI702", "title": "Machine Learning - II", "credits": "4" },
+      { "code": "BCS703", "title": "Cryptography & Network Security", "credits": "4" },
+      { "code": "BCI714x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BCI755x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BCI786", "title": "Major Project Phase-II", "credits": "6" }
+    ],
+    "VIII SEMESTER": [
+      { "code": "BCI801x", "title": "Professional Elective (Online - NPTEL)", "credits": "3" },
+      { "code": "BCI802x", "title": "Open Elective (Online - NPTEL)", "credits": "3" },
+      { "code": "BCI803", "title": "Internship (Industry/Research)", "credits": "10" }
+    ]
+  },
+  
+  "Computer_Science_and_Design": {
+    "III SEMESTER": [
+      { "code": "BCS301", "title": "Mathematics for Computer Science", "credits": "4" },
+      { "code": "BCS302", "title": "Digital Design & Computer Organization", "credits": "4" },
+      { "code": "BCS303", "title": "Operating Systems", "credits": "4" },
+      { "code": "BCS304", "title": "Data Structures and Applications", "credits": "3" },
+      { "code": "BCSL305", "title": "Data Structures Lab", "credits": "1" },
+      { "code": "BCS306x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BSCK307", "title": "Social Connect and Responsibility", "credits": "1" },
+      { "code": "BXX358x", "title": "Ability / Skill Enhancement Course - III", "credits": "1" },
+      { "code": "BNSK359", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "IV SEMESTER": [
+      { "code": "BCS401", "title": "Analysis & Design of Algorithms", "credits": "3" },
+      { "code": "BCG402", "title": "Computer Graphics and Visualization", "credits": "4" },
+      { "code": "BCS403", "title": "Database Management Systems", "credits": "4" },
+      { "code": "BCSL404", "title": "Analysis & Design of Algorithms Lab", "credits": "1" },
+      { "code": "BCS405x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BXX456x", "title": "Ability / Skill Enhancement Course - IV", "credits": "1" },
+      { "code": "BBOC407", "title": "Biology For Computer Engineers", "credits": "2" },
+      { "code": "BUHK408", "title": "Universal Human Values", "credits": "1" },
+      { "code": "BNSK459", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "V SEMESTER": [
+      { "code": "BCS501", "title": "Software Engineering & Project Management", "credits": "4" },
+      { "code": "BCS502", "title": "Computer Networks", "credits": "4" },
+      { "code": "BCS503", "title": "Theory of Computation", "credits": "4" },
+      { "code": "BCGL504", "title": "OO Design Pattern Lab", "credits": "1" },
+      { "code": "BXX515x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BCG586", "title": "Mini Project", "credits": "2" },
+      { "code": "BRMK557", "title": "Research Methodology and IPR", "credits": "3" },
+      { "code": "BCS508", "title": "Environmental Studies and E-waste Management", "credits": "1" },
+      { "code": "BNSK559", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "VI SEMESTER": [
+      { "code": "BCM601", "title": "Machine Learning", "credits": "4" },
+      { "code": "BCG602", "title": "Design Processes and Perspectives", "credits": "4" },
+      { "code": "BXX613x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BXX654x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BCG685", "title": "Project Phase I", "credits": "2" },
+      { "code": "BCGL606", "title": "UI/UX Lab", "credits": "1" },
+      { "code": "BXX657x", "title": "Ability / Skill Development Course - V", "credits": "1" },
+      { "code": "BNSK658", "title": "NSS / PE / Yoga", "credits": "0" },
+      { "code": "BIKS609", "title": "Indian Knowledge System", "credits": "0" }
+    ],
+    "VII SEMESTER": [
+      { "code": "BCG701", "title": "Robotic Process Automation Design and Development (UiPath)", "credits": "4" },
+      { "code": "BCS702", "title": "Parallel Computing", "credits": "4" },
+      { "code": "BCS703", "title": "Cryptography & Network Security", "credits": "4" },
+      { "code": "BCG714x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BCG755x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BCG786", "title": "Major Project Phase-II", "credits": "6" }
+    ],
+    "VIII SEMESTER": [
+      { "code": "BCG801x", "title": "Professional Elective (Online Courses)", "credits": "3" },
+      { "code": "BCG802x", "title": "Open Elective (Online Courses)", "credits": "3" },
+      { "code": "BCG803", "title": "Internship (Industry/Research) (14 - 20 weeks)", "credits": "10" }
+    ]
+  },
+
+"Cyber_Security": {
+  "III SEMESTER": [
+    { "code": "BCS301", "title": "Mathematics for Computer Science", "credits": "4" },
+    { "code": "BCS302", "title": "Digital Design & Computer Organization", "credits": "4" },
+    { "code": "BCS303", "title": "Operating Systems", "credits": "4" },
+    { "code": "BCS304", "title": "Data Structures and Applications", "credits": "3" },
+    { "code": "BCSL305", "title": "Data Structures Lab", "credits": "1" },
+    { "code": "BCS306x", "title": "ESC/ETC/PLC", "credits": "3" },
+    { "code": "BSCK307", "title": "Social Connect and Responsibility", "credits": "1" },
+    { "code": "BXX358x", "title": "Ability / Skill Enhancement Course - III", "credits": "1" },
+    { "code": "BNSK359", "title": "NSS / PE / Yoga", "credits": "0" }
+  ],
+  "IV SEMESTER": [
+    { "code": "BCS401", "title": "Analysis & Design of Algorithms", "credits": "3" },
+    { "code": "BCY402", "title": "Elements of Cyber Security", "credits": "4" },
+    { "code": "BCS403", "title": "Database Management Systems", "credits": "4" },
+    { "code": "BCSL404", "title": "Analysis & Design of Algorithms Lab", "credits": "1" },
+    { "code": "BXX405x", "title": "ESC/ETC/PLC", "credits": "3" },
+    { "code": "BCY456x", "title": "Ability / Skill Enhancement Course - IV", "credits": "1" },
+    { "code": "BBOC407", "title": "Biology for Computer Engineers", "credits": "2" },
+    { "code": "BUHK408", "title": "Universal Human Values", "credits": "1" },
+    { "code": "BNSK459", "title": "NSS / PE / Yoga", "credits": "0" }
+  ],
+  "V SEMESTER": [
+    { "code": "BCS501", "title": "Software Engineering & Project Management", "credits": "4" },
+    { "code": "BCS502", "title": "Computer Networks", "credits": "4" },
+    { "code": "BCS503", "title": "Theory of Computation", "credits": "4" },
+    { "code": "BCYL504", "title": "Advanced Cyber Security Lab", "credits": "1" },
+    { "code": "BXX515x", "title": "Professional Elective Course", "credits": "3" },
+    { "code": "BCY586", "title": "Mini Project", "credits": "2" },
+    { "code": "BRMK557", "title": "Research Methodology and IPR", "credits": "3" },
+    { "code": "BCS508", "title": "Environmental Studies and E-waste Management", "credits": "1" },
+    { "code": "BNSK559", "title": "NSS / PE / Yoga", "credits": "0" }
+  ],
+  "VI SEMESTER": [
+    { "code": "BCO601", "title": "Microcontrollers & Embedded Systems", "credits": "4" },
+    { "code": "BCY602", "title": "Cryptography & Network Security", "credits": "4" },
+    { "code": "BXX613x", "title": "Professional Elective Course", "credits": "3" },
+    { "code": "BXX654x", "title": "Open Elective Course", "credits": "3" },
+    { "code": "BCY685", "title": "Project Phase I", "credits": "2" },
+    { "code": "BCYL606", "title": "Network Security Lab", "credits": "1" },
+    { "code": "BXX657x", "title": "Ability / Skill Development Course - V", "credits": "1" },
+    { "code": "BNSK658", "title": "NSS / PE / Yoga", "credits": "0" },
+    { "code": "BIKS609", "title": "Indian Knowledge System", "credits": "0" }
+  ],
+  "VII SEMESTER": [
+    { "code": "BCY701", "title": "Vulnerability Assessment & Penetration Testing", "credits": "4" },
+    { "code": "BCY702", "title": "Ethical Hacking", "credits": "4" },
+    { "code": "BIC703", "title": "Machine Learning", "credits": "4" },
+    { "code": "BCY714x", "title": "Professional Elective Course", "credits": "3" },
+    { "code": "BCY755x", "title": "Open Elective Course", "credits": "3" },
+    { "code": "BCY786", "title": "Major Project Phase-II", "credits": "6" }
+  ],
+  "VIII SEMESTER": [
+    { "code": "BCY801x", "title": "Professional Elective (Online Courses)", "credits": "3" },
+    { "code": "BCY802x", "title": "Open Elective (Online Courses)", "credits": "3" },
+    { "code": "BCY803", "title": "Internship (Industry/Research)", "credits": "10" }
+  ]
+},
+"CSE (IoT & Cyber Security including Block Chain Technology)": {
+    "III SEMESTER": [
+      { "code": "BCS301", "title": "Mathematics for Computer Science", "credits": "4" },
+      { "code": "BCS302", "title": "Digital Design & Computer Organization", "credits": "4" },
+      { "code": "BCS303", "title": "Operating Systems", "credits": "4" },
+      { "code": "BCS304", "title": "Data Structures and Applications", "credits": "3" },
+      { "code": "BCSL305", "title": "Data Structures Lab", "credits": "1" },
+      { "code": "BCS306x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BSCK307", "title": "Social Connect and Responsibility", "credits": "1" },
+      { "code": "BXX358x", "title": "Ability/Skill Enhancement Course – III", "credits": "1" },
+      { "code": "BNSK359", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "IV SEMESTER": [
+      { "code": "BIC401", "title": "Elements of Cyber Security & IoT", "credits": "3" },
+      { "code": "BCO402", "title": "Analysis & Design of Algorithms", "credits": "4" },
+      { "code": "BCS403", "title": "Database Management Systems", "credits": "4" },
+      { "code": "BCSL404", "title": "Cyber Security Lab", "credits": "1" },
+      { "code": "BXX405x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BXX456x", "title": "Ability / Skill Enhancement Course - IV", "credits": "1" },
+      { "code": "BBOC407", "title": "Biology For Computer Engineers", "credits": "2" },
+      { "code": "BUHK408", "title": "Universal Human Values", "credits": "1" },
+      { "code": "BNSK459", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "V SEMESTER": [
+      { "code": "BCS501", "title": "Software Engineering & Project Management", "credits": "4" },
+      { "code": "BCS502", "title": "Computer Networks", "credits": "4" },
+      { "code": "BCS503", "title": "Theory of Computation", "credits": "4" },
+      { "code": "BICL504", "title": "IoT Lab", "credits": "1" },
+      { "code": "BXX515x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BIC586", "title": "Mini Project", "credits": "2" },
+      { "code": "BRMK557", "title": "Research Methodology and IPR", "credits": "3" },
+      { "code": "BCS508", "title": "Environmental Studies and E-waste Management", "credits": "1" },
+      { "code": "BNSK559", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "VI SEMESTER": [
+      { "code": "BCO601", "title": "Microcontrollers & Embedded Systems", "credits": "4" },
+      { "code": "BCY602", "title": "Cryptography & Network Security", "credits": "4" },
+      { "code": "BXX613x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BXX654x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BIC685", "title": "Project Phase I", "credits": "2" },
+      { "code": "BICL606", "title": "Vulnerability Assessment and Penetration Testing Lab", "credits": "1" },
+      { "code": "BXX657x", "title": "Ability / Skill Development Course - V", "credits": "1" },
+      { "code": "BNSK658", "title": "NSS / PE / Yoga", "credits": "0" },
+      { "code": "BIKS609", "title": "Indian Knowledge System", "credits": "0" }
+    ],
+    "VII SEMESTER": [
+      { "code": "BCO701", "title": "IoT Communication Protocols", "credits": "4" },
+      { "code": "BIC702", "title": "Blockchain Technology", "credits": "4" },
+      { "code": "BIC703", "title": "Machine Learning", "credits": "4" },
+      { "code": "BIC714x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BIC755x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BIC786", "title": "Major Project Phase-II", "credits": "6" }
+    ],
+    "VIII SEMESTER": [
+      { "code": "BIC801x", "title": "Professional Elective (Online Courses)", "credits": "3" },
+      { "code": "BIC802x", "title": "Open Elective (Online Courses)", "credits": "3" },
+      { "code": "BIC803", "title": "Internship (Industry/Research)", "credits": "10" }
+    ]
+  },
+  
+  "Data_Science": {
+    "III SEMESTER": [
+      { "code": "BDS301", "title": "Mathematics for Data Science", "credits": "4" },
+      { "code": "BCS302", "title": "Digital Design & Computer Organization", "credits": "4" },
+      { "code": "BCS303", "title": "Operating Systems", "credits": "4" },
+      { "code": "BCS304", "title": "Data Structures and Applications", "credits": "3" },
+      { "code": "BCSL305", "title": "Data Structures Lab", "credits": "1" },
+      { "code": "BXX306x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BSCK307", "title": "Social Connect and Responsibility", "credits": "1" },
+      { "code": "BXX358x", "title": "Ability Enhancement / Skill Enhancement Course – III", "credits": "1" },
+      { "code": "BNSK359", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "IV SEMESTER": [
+      { "code": "BCS401", "title": "Analysis & Design of Algorithms", "credits": "3" },
+      { "code": "BDS402", "title": "Computer Networks (NS-2/3)", "credits": "4" },
+      { "code": "BCS403", "title": "Database Management Systems", "credits": "4" },
+      { "code": "BCSL404", "title": "Analysis & Design of Algorithms Lab", "credits": "1" },
+      { "code": "BXX405x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BDS456x", "title": "Ability Enhancement / Skill Enhancement Course - IV", "credits": "1" },
+      { "code": "BBOC407", "title": "Biology for Computer Engineers", "credits": "2" },
+      { "code": "BUHK408", "title": "Universal Human Values", "credits": "1" },
+      { "code": "BNSK459", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "V SEMESTER": [
+      { "code": "BCS501", "title": "Software Engineering & Project Management", "credits": "4" },
+      { "code": "BDS502", "title": "NoSQL Databases", "credits": "4" },
+      { "code": "BCS503", "title": "Theory of Computation", "credits": "4" },
+      { "code": "BAIL504", "title": "Data Visualization Lab", "credits": "1" },
+      { "code": "BXX515x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BDS586", "title": "Mini Project", "credits": "2" },
+      { "code": "BRMK557", "title": "Research Methodology and IPR", "credits": "3" },
+      { "code": "BCS508", "title": "Environmental Studies and E-waste Management", "credits": "1" },
+      { "code": "BNSK559", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "VI SEMESTER": [
+      { "code": "BDS601", "title": "Big Data Analytics", "credits": "4" },
+      { "code": "BDS602", "title": "Artificial Intelligence & Machine Learning", "credits": "4" },
+      { "code": "BXX613x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BXX654x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BDS685", "title": "Project Phase I", "credits": "2" },
+      { "code": "BCSL606", "title": "Machine Learning Lab", "credits": "1" },
+      { "code": "BXX657x", "title": "Ability Enhancement / Skill Development Course - V", "credits": "1" },
+      { "code": "BNSK658", "title": "NSS / PE / Yoga", "credits": "0" },
+      { "code": "BIKS609", "title": "Indian Knowledge System", "credits": "0" }
+    ],
+    "VII SEMESTER": [
+      { "code": "BDS701", "title": "Parallel Programming", "credits": "4" },
+      { "code": "BAD702", "title": "Statistical Machine Learning", "credits": "4" },
+      { "code": "BAD703", "title": "Data Security & Privacy", "credits": "4" },
+      { "code": "BDS714x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BDS755x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BDS786", "title": "Major Project Phase-II", "credits": "6" }
+    ],
+    "VIII SEMESTER": [
+      { "code": "BDS801x", "title": "Professional Elective (Online Courses)", "credits": "3" },
+      { "code": "BDS802x", "title": "Open Elective (Online Courses)", "credits": "3" },
+      { "code": "BDS803", "title": "Internship (Industry/Research)", "credits": "10" }
+    ]
+  },
+  
+  
+  
+  "ECE": {
+    "III SEMESTER": [
+      { "code": "BMATEC301", "title": "AV Mathematics-III for EC Engineering", "credits": "3" },
+      { "code": "BEC302", "title": "Digital System Design using Verilog", "credits": "4" },
+      { "code": "BEC303", "title": "Electronic Principles and Circuits", "credits": "4" },
+      { "code": "BEC304", "title": "Network Analysis", "credits": "3" },
+      { "code": "BECL305", "title": "Analog and Digital Systems Design Lab", "credits": "1" },
+      { "code": "BXX306x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BSCK307", "title": "Social Connect and Responsibility", "credits": "1" },
+      { "code": "BXX358x", "title": "Ability Enhancement / Skill Enhancement Course - III", "credits": "1" },
+      { "code": "BNSK359", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "V SEMESTER": [
+      { "code": "BEC501", "title": "Technological Innovation and Management Entrepreneurship", "credits": "3" },
+      { "code": "BEC502", "title": "Digital Signal Processing", "credits": "4" },
+      { "code": "BEC503", "title": "Digital Communication", "credits": "4" },
+      { "code": "BECL504", "title": "Digital Communication Lab", "credits": "1" },
+      { "code": "BEC515x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BEC586", "title": "Mini Project", "credits": "2" },
+      { "code": "BRMK557", "title": "Research Methodology and IPR", "credits": "3" },
+      { "code": "BESK508", "title": "Environmental Studies", "credits": "2" },
+      { "code": "BNSK559", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "VI SEMESTER": [
+      { "code": "BEC601", "title": "Embedded System Design", "credits": "4" },
+      { "code": "BEC602", "title": "VLSI Design and Testing", "credits": "4" },
+      { "code": "BEC613x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BEC654x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BEC685", "title": "Major Project Phase I", "credits": "2" },
+      { "code": "BECL606", "title": "VLSI Design and Testing Lab", "credits": "1" },
+      { "code": "BEC657x", "title": "Ability Enhancement / Skill Development Course - V", "credits": "1" },
+      { "code": "BNSK658", "title": "NSS / PE / Yoga", "credits": "0" },
+      { "code": "BIKS609", "title": "Indian Knowledge System", "credits": "0" }
+    ],
+    "VII SEMESTER": [
+      { "code": "BEC701", "title": "Microwave Engineering and Antenna Theory", "credits": "4" },
+      { "code": "BEC702", "title": "Computer Networks and Protocols", "credits": "4" },
+      { "code": "BEC703", "title": "Wireless Communication Systems", "credits": "4" },
+      { "code": "BEC714x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BEC755x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BEC786", "title": "Major Project Phase-II", "credits": "6" }
+    ],
+    "VIII SEMESTER": [
+      { "code": "BEC801x", "title": "Professional Elective (Online Courses)", "credits": "3" },
+      { "code": "BEC802x", "title": "Open Elective (Online Courses)", "credits": "3" },
+      { "code": "BEC803", "title": "Internship (Industry/Research)", "credits": "10" }
+    ]
+  },
+  
+  "EEE": {
+    "III SEMESTER": [
+      { "code": "BEE301", "title": "Engineering Mathematics for EEE", "credits": "3" },
+      { "code": "BEE302", "title": "Electric Circuit Analysis", "credits": "4" },
+      { "code": "BEE303", "title": "Analog Electronic Circuits", "credits": "4" },
+      { "code": "BEE304", "title": "Transformers and Generators", "credits": "3" },
+      { "code": "BEEL305", "title": "Transformers and Generators Lab", "credits": "1" },
+      { "code": "BEE306x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BSCK307", "title": "Social Connect and Responsibility", "credits": "1" },
+      { "code": "BEE358x", "title": "Ability/Skill Enhancement Course - III", "credits": "1" },
+      { "code": "BNSK359", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "IV SEMESTER": [
+      { "code": "BEE401", "title": "Electric Motors", "credits": "3" },
+      { "code": "BEE402", "title": "Transmission and Distribution", "credits": "4" },
+      { "code": "BEE403", "title": "Microcontrollers", "credits": "4" },
+      { "code": "BEEL404", "title": "Electric Motors Lab", "credits": "1" },
+      { "code": "BEE405x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BEE456x", "title": "Ability/Skill Enhancement Course - IV", "credits": "1" },
+      { "code": "BBOK407", "title": "Biology for Engineers", "credits": "3" },
+      { "code": "BUHK408", "title": "Universal Human Values", "credits": "1" },
+      { "code": "BNSK459", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "V SEMESTER": [
+      { "code": "BEE501", "title": "Engineering Management and Entrepreneurship", "credits": "3" },
+      { "code": "BEE502", "title": "Signals & DSP", "credits": "4" },
+      { "code": "BEE503", "title": "Power Electronics", "credits": "4" },
+      { "code": "BEEL504", "title": "Power Electronics Lab", "credits": "1" },
+      { "code": "BEE515x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BEE586", "title": "Mini Project", "credits": "2" },
+      { "code": "BRMK557", "title": "Research Methodology and IPR", "credits": "3" },
+      { "code": "BESK508", "title": "Environmental Studies", "credits": "2" },
+      { "code": "BNSK559", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "VI SEMESTER": [
+      { "code": "BEE601", "title": "Power System Analysis - I", "credits": "4" },
+      { "code": "BEE602", "title": "Control Systems", "credits": "4" },
+      { "code": "BEE613x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BEE654x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BEE685", "title": "Project Phase I", "credits": "2" },
+      { "code": "BEEL606", "title": "Control System Lab", "credits": "1" },
+      { "code": "BEE657x", "title": "Ability/Skill Development Course - V", "credits": "1" },
+      { "code": "BNSK658", "title": "NSS / PE / Yoga", "credits": "0" },
+      { "code": "BIKS609", "title": "Indian Knowledge System", "credits": "0" }
+    ],
+    "VII SEMESTER": [
+      { "code": "BEE701", "title": "Switchgear and Protection", "credits": "4" },
+      { "code": "BEE702", "title": "Industrial Drives and Applications", "credits": "4" },
+      { "code": "BEE703", "title": "Power System Analysis - II", "credits": "4" },
+      { "code": "BEE714x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BEE755x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BEE786", "title": "Major Project Phase-II", "credits": "6" }
+    ],
+    "VIII SEMESTER": [
+      { "code": "BEE801x", "title": "Professional Elective (Online Courses)", "credits": "3" },
+      { "code": "BEE802x", "title": "Open Elective (Online Courses)", "credits": "3" },
+      { "code": "BEE803", "title": "Internship (Industry/Research)", "credits": "10" }
+    ],
+    "SCHEME-B VI SEMESTER (Two-Semester Internship)": [
+      { "code": "BXX601", "title": "Power System Analysis - I", "credits": "4" },
+      { "code": "BXX602", "title": "Control Systems", "credits": "4" },
+      { "code": "BXX613x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BXX654x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BXXL606", "title": "Control System Lab", "credits": "1" },
+      { "code": "BXX657x", "title": "Ability/Skill Development Course - V", "credits": "1" },
+      { "code": "BNSK658", "title": "NSS / PE / Yoga", "credits": "0" },
+      { "code": "BIKS609", "title": "Indian Knowledge System", "credits": "0" }
+    ]
+  },
+  
+  "Mechanical_Engineering": {
+    "III SEMESTER": [
+      { "code": "BME301", "title": "Mechanics of Materials", "credits": "3" },
+      { "code": "BME302", "title": "Manufacturing Process", "credits": "4" },
+      { "code": "BME303", "title": "Material Science and Engineering", "credits": "4" },
+      { "code": "BME304", "title": "Basic Thermodynamics", "credits": "3" },
+      { "code": "BME305", "title": "Introduction to Modelling and Design for Manufacturing", "credits": "1" },
+      { "code": "BME306x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BSCK307", "title": "Social Connect and Responsibility", "credits": "1" },
+      { "code": "BME358x", "title": "Ability Enhancement / Skill Enhancement Course - III", "credits": "1" },
+      { "code": "BNSK359", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "IV SEMESTER": [
+      { "code": "BME401", "title": "Applied Thermodynamics", "credits": "3" },
+      { "code": "BME402", "title": "Machining Science & Metrology", "credits": "4" },
+      { "code": "BME403", "title": "Fluid Mechanics", "credits": "4" },
+      { "code": "BME404", "title": "Mechanical Measurements and Metrology Lab", "credits": "1" },
+      { "code": "BME405x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BME456x", "title": "Ability Enhancement / Skill Enhancement Course - IV", "credits": "1" },
+      { "code": "BBOK407", "title": "Biology for Engineers", "credits": "3" },
+      { "code": "BUHK408", "title": "Universal Human Values", "credits": "1" },
+      { "code": "BNSK459", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "V SEMESTER": [
+      { "code": "BME501", "title": "Industrial Management & Entrepreneurship", "credits": "3" },
+      { "code": "BME502", "title": "Turbo Machines", "credits": "4" },
+      { "code": "BME503", "title": "Theory of Machines", "credits": "4" },
+      { "code": "BME504L", "title": "CNC Programming and 3-D Printing Lab", "credits": "1" },
+      { "code": "BME515x", "title": "Professional Elective - I", "credits": "3" },
+      { "code": "BME586", "title": "Mini Project", "credits": "2" },
+      { "code": "BRMK557", "title": "Research Methodology and IPR", "credits": "3" },
+      { "code": "BESK508", "title": "Environmental Studies", "credits": "2" },
+      { "code": "BNSK559", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "VI SEMESTER": [
+      { "code": "BME601", "title": "Heat Transfer", "credits": "4" },
+      { "code": "BME602", "title": "Machine Design", "credits": "4" },
+      { "code": "BME613x", "title": "Professional Elective - II", "credits": "3" },
+      { "code": "BME654x", "title": "Open Elective - I", "credits": "3" },
+      { "code": "BME685", "title": "Major Project Phase - I", "credits": "2" },
+      { "code": "BMEL606L", "title": "Design Lab", "credits": "1" },
+      { "code": "BME657x", "title": "Ability Enhancement / Skill Development Course - V", "credits": "1" },
+      { "code": "BNSK658", "title": "NSS / PE / Yoga", "credits": "0" },
+      { "code": "BIKS609", "title": "Indian Knowledge System", "credits": "0" }
+    ],
+    "VII SEMESTER": [
+      { "code": "BME701", "title": "Finite Element Methods", "credits": "4" },
+      { "code": "BME702", "title": "Hydraulics and Pneumatics", "credits": "4" },
+      { "code": "BME703", "title": "Control Engineering", "credits": "4" },
+      { "code": "BME714x", "title": "Professional Elective - III", "credits": "3" },
+      { "code": "BME755x", "title": "Open Elective - II", "credits": "3" },
+      { "code": "BME786", "title": "Major Project Phase - II", "credits": "6" }
+    ],
+    "VIII SEMESTER": [
+      { "code": "BME801x", "title": "Professional Elective - IV (Online Courses)", "credits": "3" },
+      { "code": "BME802x", "title": "Open Elective - III (Online Courses)", "credits": "3" },
+      { "code": "BME803", "title": "Internship (Industry/Research)", "credits": "10" }
+    ],
+    "SCHEME-B VI SEMESTER (Two-Semester Internship)": [
+      { "code": "BXX601", "title": "Heat Transfer", "credits": "4" },
+      { "code": "BXX602", "title": "Machine Design", "credits": "4" },
+      { "code": "BXX613x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BXX654x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BXXL606", "title": "Machine Design Lab", "credits": "1" },
+      { "code": "BXX657x", "title": "Ability Enhancement / Skill Development Course - V", "credits": "1" },
+      { "code": "BNSK658", "title": "NSS / PE / Yoga", "credits": "0" },
+      { "code": "BIKS609", "title": "Indian Knowledge System", "credits": "0" }
+    ]
+  },
+  
+  "Civil_Engineering": {
+    "III SEMESTER": [
+      { "code": "BCV301", "title": "Strength of Materials", "credits": "3" },
+      { "code": "BCV302", "title": "Engineering Survey", "credits": "4" },
+      { "code": "BCV303", "title": "Engineering Geology", "credits": "4" },
+      { "code": "BCV304", "title": "Water Supply and Wastewater Engineering", "credits": "3" },
+      { "code": "BCV305", "title": "Computer Aided Building Planning and Drawing", "credits": "1" },
+      { "code": "BCV306x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BSCK307", "title": "Social Connect and Responsibility", "credits": "1" },
+      { "code": "BCV358x", "title": "Ability / Skill Enhancement Course - III", "credits": "1" },
+      { "code": "BNSK359", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "IV SEMESTER": [
+      { "code": "BCV401", "title": "Analysis of Structures", "credits": "3" },
+      { "code": "BCV402", "title": "Fluid Mechanics and Hydraulics", "credits": "4" },
+      { "code": "BCV403", "title": "Transportation Engineering", "credits": "4" },
+      { "code": "BCVL404", "title": "Building Materials Testing Lab", "credits": "1" },
+      { "code": "BCV405x", "title": "ESC/ETC/PLC", "credits": "3" },
+      { "code": "BCV456x", "title": "Ability / Skill Enhancement Course - IV", "credits": "1" },
+      { "code": "BBOK407", "title": "Biology For Engineers", "credits": "3" },
+      { "code": "BUHK408", "title": "Universal Human Values", "credits": "1" },
+      { "code": "BNSK459", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "V SEMESTER": [
+      { "code": "BCV501", "title": "Construction Management and Entrepreneurship", "credits": "3" },
+      { "code": "BCV502", "title": "Geotechnical Engineering", "credits": "4" },
+      { "code": "BCV503", "title": "Concrete Technology", "credits": "4" },
+      { "code": "BCV504", "title": "Environmental Engineering Lab", "credits": "1" },
+      { "code": "BCV515x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BCV586", "title": "Mini Project / Extensive Survey Project", "credits": "2" },
+      { "code": "BRMK557", "title": "Research Methodology and IPR", "credits": "3" },
+      { "code": "BESK508", "title": "Environmental Studies", "credits": "2" },
+      { "code": "BNSK559", "title": "NSS / PE / Yoga", "credits": "0" }
+    ],
+    "VI SEMESTER": [
+      { "code": "BCV601", "title": "Design of RCC Structures", "credits": "4" },
+      { "code": "BCV602", "title": "Irrigation Engineering and Hydraulic Structures", "credits": "4" },
+      { "code": "BCV613x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BCV654x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BCV685", "title": "Major Project Phase I", "credits": "2" },
+      { "code": "BCVL606", "title": "Software Application Lab", "credits": "1" },
+      { "code": "BCV657x", "title": "Ability / Skill Development Course - V", "credits": "1" },
+      { "code": "BNSK658", "title": "NSS / PE / Yoga", "credits": "0" },
+      { "code": "BIKS609", "title": "Indian Knowledge System", "credits": "0" }
+    ],
+    "VII SEMESTER": [
+      { "code": "BCV701", "title": "Design of Steel Structures", "credits": "4" },
+      { "code": "BCV702", "title": "Estimation and Contract Management", "credits": "4" },
+      { "code": "BCV703", "title": "Prestressed Concrete", "credits": "4" },
+      { "code": "BCV714x", "title": "Professional Elective Course", "credits": "3" },
+      { "code": "BCV755x", "title": "Open Elective Course", "credits": "3" },
+      { "code": "BCV786", "title": "Major Project Phase-II", "credits": "6" }
+    ],
+    "VIII SEMESTER": [
+      { "code": "BCV801x", "title": "Professional Elective (Online Courses)", "credits": "3" },
+      { "code": "BCV802x", "title": "Open Elective (Online Courses)", "credits": "3" },
+      { "code": "BCV803", "title": "Internship (Industry / Research)", "credits": "10" }
+    ]
+  }
+}

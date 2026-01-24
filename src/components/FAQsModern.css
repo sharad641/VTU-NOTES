@@ -1,0 +1,194 @@
+/* FAQsModern.css - Extreme Theme */
+:root {
+    --faq-bg: #0F172A;
+    --faq-glass: rgba(255, 255, 255, 0.03);
+    --faq-border: rgba(255, 255, 255, 0.1);
+    --faq-accent: #8B5CF6;
+    /* Violet */
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+    --faq-glow: rgba(139, 92, 246, 0.4);
+}
+
+.faq-page-container {
+    min-height: 100vh;
+    background: var(--faq-bg);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    padding: 60px 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Background Animation */
+.faq-bg-blob {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.blob-left {
+    background: var(--faq-accent);
+    top: -200px;
+    left: -200px;
+}
+
+.blob-right {
+    background: #EC4899;
+    bottom: -200px;
+    right: -200px;
+}
+
+.faq-content-wrapper {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Header */
+.faq-hero {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.faq-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 100px;
+    color: #A78BFA;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.faq-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, white 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+}
+
+.faq-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Accordion */
+.faq-list-modern {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.faq-item-modern {
+    background: var(--faq-glass);
+    border: 1px solid var(--faq-border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.faq-item-modern.active {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--faq-accent);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.faq-question {
+    padding: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    transition: color 0.3s;
+}
+
+.faq-question:hover {
+    color: var(--faq-accent);
+}
+
+.faq-icon {
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.faq-item-modern.active .faq-icon {
+    transform: rotate(180deg);
+    background: var(--faq-accent);
+    color: white;
+}
+
+.faq-answer-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.faq-item-modern.active .faq-answer-wrapper {
+    max-height: 500px;
+    /* Adjust if needed */
+    transition: max-height 0.5s ease-in;
+}
+
+.faq-answer {
+    padding: 0 24px 24px;
+    color: #CBD5E1;
+    /* High contrast text */
+    line-height: 1.7;
+    font-size: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 16px;
+}
+
+/* Search Bar */
+.faq-search-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--faq-border);
+    border-radius: 12px;
+    padding: 16px 24px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 50px;
+    color: white;
+    font-size: 1rem;
+    display: block;
+    transition: all 0.3s;
+    outline: none;
+}
+
+.faq-search-box:focus {
+    border-color: var(--faq-accent);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+}

@@ -1,0 +1,227 @@
+/* BranchModern.css - Extreme Theme */
+
+:root {
+    --branch-bg: #0F172A;
+    --branch-card-glass: rgba(255, 255, 255, 0.03);
+    --branch-card-border: rgba(255, 255, 255, 0.1);
+    --branch-accent-blue: #3B82F6;
+    --branch-accent-purple: #8B5CF6;
+    --branch-accent-pink: #EC4899;
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+}
+
+.branch-page-container {
+    min-height: 100vh;
+    background: var(--branch-bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    position: relative;
+    overflow-x: hidden;
+    padding-bottom: 80px;
+}
+
+/* --- Animated Background --- */
+.branch-bg-decoration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.15), transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(139, 92, 246, 0.15), transparent 40%);
+}
+
+.branch-content {
+    position: relative;
+    z-index: 10;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* --- Hero Section --- */
+.branch-hero {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-top: 40px;
+}
+
+.branch-hero-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--branch-card-border);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--branch-accent-blue);
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.branch-hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0 0 16px 0;
+    background: linear-gradient(135deg, white 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.1;
+}
+
+.branch-hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- Branch Selection Grid --- */
+.branch-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.branch-card-glass {
+    background: var(--branch-card-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--branch-card-border);
+    border-radius: 24px;
+    padding: 40px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.branch-card-glass:hover {
+    transform: translateY(-10px);
+    border-color: var(--branch-accent-blue);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.bm-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 24px;
+    transition: all 0.3s;
+}
+
+.branch-card-glass:hover .bm-icon-wrapper {
+    background: var(--branch-accent-blue);
+    color: white;
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.bm-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: white;
+}
+
+.bm-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    flex: 1;
+}
+
+.bm-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--branch-accent-blue);
+}
+
+.bm-arrow {
+    transition: transform 0.3s;
+}
+
+.branch-card-glass:hover .bm-arrow {
+    transform: translateX(5px);
+}
+
+/* --- Semester Selection Page --- */
+.sem-grid-modern {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.sem-card-modern {
+    background: var(--branch-card-glass);
+    border: 1px solid var(--branch-card-border);
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s;
+    text-decoration: none;
+    color: white;
+}
+
+.sem-card-modern:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+    border-color: var(--branch-accent-purple);
+}
+
+.sem-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.1);
+    line-height: 1;
+    transition: color 0.3s;
+}
+
+.sem-card-modern:hover .sem-number {
+    color: var(--branch-accent-purple);
+}
+
+.sem-info h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.sem-info span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .branch-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .branch-card-glass {
+        padding: 30px;
+    }
+}

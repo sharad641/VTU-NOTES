@@ -1,0 +1,133 @@
+/* src/components/Breadcrumbs.css */
+
+/* --- Container --- */
+.modern-breadcrumb-nav {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 15px auto;
+    padding: 12px 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); /* Subtle float effect */
+    border: 1px solid #f0f0f0;
+    box-sizing: border-box;
+    
+    /* Ensure it doesn't spill out */
+    overflow: hidden; 
+}
+
+/* --- The List (Flexbox & Scroll) --- */
+.modern-breadcrumb-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    
+    /* Mobile Magic: Allow horizontal scroll if path is long */
+    overflow-x: auto;
+    white-space: nowrap;
+    
+    /* Hide scrollbar for cleaner look */
+    -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+    scrollbar-width: none; /* Firefox */
+}
+
+.modern-breadcrumb-list::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* --- Items --- */
+.modern-breadcrumb-item {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #64748b; /* Slate gray */
+    flex-shrink: 0; /* Prevent squishing */
+}
+
+/* --- Separator Icon --- */
+.modern-breadcrumb-separator {
+    font-size: 10px;
+    color: #cbd5e1; /* Light gray */
+    margin: 0 8px;
+}
+
+/* --- Links (The Clickable Parts) --- */
+.modern-breadcrumb-link {
+    text-decoration: none;
+    color: #475569;
+    font-weight: 500;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+}
+
+/* Hover Effect: Soft Pill Background */
+.modern-breadcrumb-link:hover {
+    background-color: #f1f5f9; /* Very light slate */
+    color: #0f172a; /* Darker text */
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+/* Home Icon Specifics */
+.home-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px; /* Square-ish */
+}
+
+/* --- Current Page (The Last Item) --- */
+.modern-breadcrumb-text {
+    font-weight: 700;
+    color: #0f172a; /* Deep dark blue/black */
+    padding: 6px 10px;
+    background-color: #f8fafc; /* Subtle highlight */
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    
+    /* Truncate if insanely long */
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- Screen Reader Only Class --- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 600px) {
+    .modern-breadcrumb-nav {
+        margin: 0 0 10px 0; /* Reduce margins */
+        border-radius: 0;   /* Full width look */
+        border-left: none;
+        border-right: none;
+        background: #ffffff;
+    }
+
+    .modern-breadcrumb-link {
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+
+    .modern-breadcrumb-text {
+        font-size: 13px;
+        max-width: 180px; /* Shorter truncation on phone */
+    }
+}

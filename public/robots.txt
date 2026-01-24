@@ -1,0 +1,28 @@
+# robots.txt for VTU Notes for All
+User-agent: *
+Disallow: /private/   # Block access to private files or folders
+Disallow: /temp/      # Block access to temporary folders
+
+# Allow search engines to crawl public areas
+
+Allow: /branch/
+Allow: /placement-guide/
+Allow: /profile/
+Allow: /about/
+Allow: /contact/
+
+
+
+# Sitemap
+Sitemap: https://vtunotesforall.in/sitemap.xml
+
+# Specific Rules
+User-agent: Googlebot
+Allow: /           # Allow full crawling for Googlebot
+
+User-agent: Bingbot
+Allow: /           # Allow full crawling for Bingbot
+
+# Custom Crawling Instructions
+User-agent: *
+Crawl-delay: 10     # Reduce the crawl rate to avoid server overload

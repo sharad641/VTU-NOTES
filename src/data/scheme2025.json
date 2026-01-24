@@ -1,0 +1,153 @@
+{
+  "scheme": "2025",
+  "last_updated": "2025-11-02",
+  "branches": [
+    {
+      "id": "first-year",
+      "name": "First Year",
+      "description": "Notes, model question papers, and previous year papers for 2025 scheme first-year students.",
+      "updated_on": "2025-10-30",
+      "modules": [
+        {
+          "subject": "Engineering Mathematics - 1",
+          "modules": [
+            {
+              "module_number": 1,
+              "title": "Differential Calculus",
+              "link": "https://drive.google.com/file/d/EXAMPLE_MATHS1_MODULE1"
+            },
+            {
+              "module_number": 2,
+              "title": "Partial Differentiation",
+              "link": "https://drive.google.com/file/d/EXAMPLE_MATHS1_MODULE2"
+            },
+            {
+              "module_number": 3,
+              "title": "Vector Calculus",
+              "link": "https://drive.google.com/file/d/EXAMPLE_MATHS1_MODULE3"
+            }
+          ],
+          "model_question_paper": "https://drive.google.com/file/d/EXAMPLE_MATHS1_MODELQP",
+          "previous_year_papers": [
+            "https://drive.google.com/file/d/EXAMPLE_MATHS1_PYQ1",
+            "https://drive.google.com/file/d/EXAMPLE_MATHS1_PYQ2"
+          ]
+        },
+        {
+          "subject": "Engineering Physics",
+          "modules": [
+            {
+              "module_number": 1,
+              "title": "Quantum Mechanics",
+              "link": "https://drive.google.com/file/d/EXAMPLE_PHYSICS_MODULE1"
+            },
+            {
+              "module_number": 2,
+              "title": "Crystallography",
+              "link": "https://drive.google.com/file/d/EXAMPLE_PHYSICS_MODULE2"
+            }
+          ],
+          "model_question_paper": "https://drive.google.com/file/d/EXAMPLE_PHYSICS_MODELQP",
+          "previous_year_papers": [
+            "https://drive.google.com/file/d/EXAMPLE_PHYSICS_PYQ"
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "cse",
+      "name": "Computer Science and Engineering",
+      "description": "VTU 2025 Scheme CSE Notes, Model Papers, and Question Banks.",
+      "updated_on": "2025-10-30",
+      "modules": [
+        {
+          "subject": "Data Structures",
+          "modules": [
+            {
+              "module_number": 1,
+              "title": "Introduction to Data Structures",
+              "link": "https://drive.google.com/file/d/EXAMPLE_DS_MODULE1"
+            },
+            {
+              "module_number": 2,
+              "title": "Stacks and Queues",
+              "link": "https://drive.google.com/file/d/EXAMPLE_DS_MODULE2"
+            }
+          ],
+          "model_question_paper": "https://drive.google.com/file/d/EXAMPLE_DS_MODELQP",
+          "previous_year_papers": [
+            "https://drive.google.com/file/d/EXAMPLE_DS_PYQ1",
+            "https://drive.google.com/file/d/EXAMPLE_DS_PYQ2"
+          ]
+        },
+        {
+          "subject": "Object-Oriented Programming",
+          "modules": [
+            {
+              "module_number": 1,
+              "title": "OOP Concepts",
+              "link": "https://drive.google.com/file/d/EXAMPLE_OOP_MODULE1"
+            },
+            {
+              "module_number": 2,
+              "title": "Classes and Objects",
+              "link": "https://drive.google.com/file/d/EXAMPLE_OOP_MODULE2"
+            }
+          ],
+          "model_question_paper": "https://drive.google.com/file/d/EXAMPLE_OOP_MODELQP",
+          "previous_year_papers": [
+            "https://drive.google.com/file/d/EXAMPLE_OOP_PYQ1"
+          ]
+        }
+      ]
+    },
+
+    {
+      "id": "ece",
+      "name": "Electronics and Communication Engineering",
+      "description": "VTU 2025 Scheme ECE Notes, Model Question Papers, and PYQs.",
+      "updated_on": "2025-10-30",
+      "modules": [
+        {
+          "subject": "Analog Electronics",
+          "modules": [
+            {
+              "module_number": 1,
+              "title": "Diode Circuits",
+              "link": "https://drive.google.com/file/d/EXAMPLE_AE_MODULE1"
+            },
+            {
+              "module_number": 2,
+              "title": "Transistor Amplifiers",
+              "link": "https://drive.google.com/file/d/EXAMPLE_AE_MODULE2"
+            }
+          ],
+          "model_question_paper": "https://drive.google.com/file/d/EXAMPLE_AE_MODELQP",
+          "previous_year_papers": [
+            "https://drive.google.com/file/d/EXAMPLE_AE_PYQ1"
+          ]
+        },
+        {
+          "subject": "Digital System Design",
+          "modules": [
+            {
+              "module_number": 1,
+              "title": "Number Systems and Logic Gates",
+              "link": "https://drive.google.com/file/d/EXAMPLE_DSD_MODULE1"
+            },
+            {
+              "module_number": 2,
+              "title": "Combinational Circuits",
+              "link": "https://drive.google.com/file/d/EXAMPLE_DSD_MODULE2"
+            }
+          ],
+          "model_question_paper": "https://drive.google.com/file/d/EXAMPLE_DSD_MODELQP",
+          "previous_year_papers": [
+            "https://drive.google.com/file/d/EXAMPLE_DSD_PYQ1"
+          ]
+        }
+      ]
+    }
+  ]
+}

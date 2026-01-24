@@ -1,0 +1,197 @@
+/* Modern Branch Details CSS */
+.branchDetails-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: var(--light, #f8fafc);
+  /* Fallback if var not set*/
+  font-family: 'Inter', sans-serif;
+  color: #1e293b;
+}
+
+/* Header Section */
+.branchDetails-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.branchDetails-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+.branchDetails-description {
+  font-size: 1.15rem;
+  color: #64748b;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.branchDetails-updated {
+  display: inline-block;
+  font-size: 0.9rem;
+  color: #64748b;
+  background: #e2e8f0;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* Grid Layout for Subjects */
+.subjects-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Subject Card */
+.subject-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid #f1f5f9;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.subject-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border-color: #bfdbfe;
+}
+
+.subject-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #3b82f6;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.subject-card:hover::before {
+  opacity: 1;
+}
+
+.subject-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  /* Darker Slate 900 for better contrast */
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Modules List */
+.modules-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modules-list li {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  color: #334155;
+  /* Slate 700 for better readability */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.module-number {
+  color: #3b82f6;
+  font-weight: 600;
+  min-width: 80px;
+}
+
+.view-link {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #f8fafc;
+  transition: all 0.2s;
+}
+
+.view-link:hover {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+/* Extra Links */
+.extra-links {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px dashed #e2e8f0;
+  text-align: right;
+}
+
+.view-link.notes-link {
+  background: #eff6ff;
+  color: #2563eb;
+  font-weight: 500;
+  width: 100%;
+  display: block;
+  text-align: center;
+  padding: 10px;
+}
+
+.view-link.notes-link:hover {
+  background: #2563eb;
+  color: white;
+}
+
+/* Back Button */
+.back-btn {
+  display: inline-block;
+  margin-bottom: 40px;
+  background: white;
+  color: #1e293b;
+  padding: 10px 24px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s;
+}
+
+.back-btn:hover {
+  transform: translateX(-4px);
+  border-color: #cbd5e1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .branchDetails-container {
+    padding: 30px 15px;
+  }
+
+  .branchDetails-title {
+    font-size: 2.2rem;
+  }
+
+  .subjects-section {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-card {
+    padding: 20px;
+  }
+}

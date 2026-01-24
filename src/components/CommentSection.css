@@ -1,0 +1,234 @@
+/* =========================
+   1. VARIABLES & RESET
+   ========================= */
+:root {
+  --ds-bg: #f8fafc;
+  --ds-card: #ffffff;
+  --ds-border: #e2e8f0;
+  --ds-primary: #2563eb;
+  --ds-text: #0f172a;
+  --ds-muted: #64748b;
+  --ds-radius: 12px;
+  --ds-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.discussion-section {
+  background: var(--ds-bg);
+  padding: 60px 20px;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--ds-text);
+}
+
+.ds-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+/* =========================
+   2. HEADER
+   ========================= */
+.ds-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.ds-header h2 { font-size: 2rem; margin-bottom: 8px; font-weight: 800; }
+.highlight { color: var(--ds-primary); }
+.ds-header p { color: var(--ds-muted); }
+
+/* =========================
+   3. CREATE POST CARD
+   ========================= */
+.create-post-card {
+  background: var(--ds-card);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  padding: 20px;
+  box-shadow: var(--ds-shadow);
+  margin-bottom: 40px;
+}
+
+.cp-header {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.fake-avatar {
+  width: 40px; height: 40px; border-radius: 50%; background: #f1f5f9; 
+  display: flex; align-items: center; justify-content: center; color: var(--ds-muted);
+}
+
+.cp-header input {
+  flex: 1;
+  border: none;
+  background: #f8fafc;
+  padding: 0 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.create-post-card textarea {
+  width: 100%;
+  border: 1px solid var(--ds-border);
+  border-radius: 8px;
+  padding: 12px;
+  min-height: 80px;
+  resize: vertical;
+  font-family: inherit;
+  margin-bottom: 12px;
+}
+
+.create-post-card textarea:focus, .cp-header input:focus {
+  outline: 2px solid var(--ds-primary);
+  border-color: transparent;
+}
+
+.cp-footer { text-align: right; }
+
+.post-btn {
+  background: var(--ds-primary); color: white; border: none;
+  padding: 8px 20px; border-radius: 20px; font-weight: 600; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px; transition: 0.2s;
+}
+.post-btn:hover { background: #1d4ed8; transform: translateY(-1px); }
+
+/* =========================
+   4. MAIN COMMENTS
+   ========================= */
+.main-comment {
+  background: var(--ds-card);
+  border: 1px solid var(--ds-border);
+  border-radius: var(--ds-radius);
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+
+.main-comment:hover { box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+
+.pinned-highlight { border: 2px solid var(--ds-primary); background: #eff6ff; }
+.pin-banner {
+  background: var(--ds-primary); color: white; font-size: 0.75rem;
+  padding: 4px 12px; display: flex; align-items: center; gap: 6px; font-weight: 600;
+}
+
+.mc-body { padding: 20px; display: flex; gap: 16px; }
+
+/* Avatar */
+.avatar {
+  width: 42px; height: 42px; border-radius: 50%; color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1.1rem; position: relative;
+}
+.avatar-badge {
+  position: absolute; bottom: -2px; right: -2px; font-size: 0.8rem;
+  background: white; border-radius: 50%; color: var(--ds-primary);
+}
+
+.mc-right { flex: 1; }
+.mc-meta { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.mc-author { font-weight: 700; color: var(--ds-text); display: flex; align-items: center; gap: 6px; }
+.admin-text { color: var(--ds-primary); }
+.mc-date { font-size: 0.8rem; color: var(--ds-muted); }
+.mc-text { line-height: 1.5; color: #334155; white-space: pre-wrap; }
+
+/* Actions */
+.mc-actions {
+  display: flex; align-items: center; gap: 15px; margin-top: 12px;
+}
+.act-btn {
+  background: none; border: none; color: var(--ds-muted); font-size: 0.85rem;
+  font-weight: 600; cursor: pointer; padding: 0;
+}
+.act-btn:hover { text-decoration: underline; color: var(--ds-primary); }
+.danger:hover { color: #ef4444; }
+
+.emoji-dock button {
+  background: #f1f5f9; border: none; border-radius: 4px; padding: 2px 6px;
+  margin-right: 4px; cursor: pointer; transition: 0.2s;
+}
+.emoji-dock button:hover { transform: scale(1.2); background: #e2e8f0; }
+
+/* =========================
+   5. REPLIES (Threaded)
+   ========================= */
+.replies-zone {
+  background: #f8fafc;
+  border-top: 1px solid var(--ds-border);
+  padding: 0 20px 20px 20px;
+}
+
+.reply-tree {
+  position: relative;
+  margin-top: 15px;
+  padding-left: 15px;
+}
+
+.tree-line {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 2px; background: #e2e8f0;
+}
+
+.reply-card-modern {
+  padding-left: 15px;
+}
+
+.reply-header {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 6px;
+}
+.reply-header .avatar { width: 28px; height: 28px; font-size: 0.8rem; }
+
+.meta-info { display: flex; gap: 8px; align-items: baseline; }
+.author-name { font-weight: 600; font-size: 0.9rem; }
+.admin-tag { background: var(--ds-primary); color: white; font-size: 0.65rem; padding: 1px 4px; border-radius: 4px; }
+.comment-time { font-size: 0.75rem; color: var(--ds-muted); }
+
+.comment-content { font-size: 0.9rem; color: #475569; margin-left: 38px; }
+
+.mod-controls { margin-left: auto; display: flex; gap: 8px; color: var(--ds-muted); cursor: pointer; }
+.mod-controls svg:hover { color: var(--ds-primary); }
+.active { color: var(--ds-primary); }
+
+.reaction-pill {
+  font-size: 0.75rem; background: #e2e8f0; padding: 2px 6px; border-radius: 10px;
+  margin-left: 38px; margin-top: 4px; display: inline-block; cursor: pointer;
+}
+
+/* Nested Levels */
+.nested-level { margin-left: 20px; border-left: 2px solid #e2e8f0; }
+.view-replies-link {
+  margin-left: 38px; background: none; border: none; color: var(--ds-primary);
+  font-size: 0.8rem; font-weight: 600; cursor: pointer; margin-top: 4px;
+}
+
+/* =========================
+   6. INPUTS
+   ========================= */
+.main-reply-input, .inline-reply-box {
+  display: flex; gap: 10px; padding: 15px;
+}
+.main-reply-input input, .inline-reply-box input {
+  flex: 1; padding: 8px 12px; border: 1px solid var(--ds-border); border-radius: 20px;
+}
+.main-reply-input button, .inline-reply-box button {
+  background: var(--ds-primary); color: white; border: none; padding: 0 16px; border-radius: 20px; cursor: pointer;
+}
+
+/* =========================
+   7. LOAD MORE & MODAL
+   ========================= */
+.load-more {
+  display: block; margin: 30px auto 0; background: white; border: 1px solid var(--ds-border);
+  padding: 10px 24px; border-radius: 20px; font-weight: 600; color: var(--ds-muted); cursor: pointer;
+}
+.load-more:hover { border-color: var(--ds-primary); color: var(--ds-primary); }
+
+.auth-modal {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 1000;
+}
+.auth-box {
+  background: white; padding: 30px; border-radius: 12px; text-align: center;
+}
+.auth-box button { margin: 10px; padding: 8px 16px; border-radius: 6px; cursor: pointer; border: none; }
+.auth-box button:first-of-type { background: var(--ds-primary); color: white; }

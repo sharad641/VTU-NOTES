@@ -1,0 +1,112 @@
+/* Global fix for navbar overlap */
+body {
+  padding-top: 70px; /* Desktop navbar height */
+  padding-bottom: 70px; /* Mobile bottom nav height */
+}
+
+/* Desktop - remove bottom padding, adjust top */
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0;
+    padding-top: 72px; /* Slightly larger for desktop navbar */
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 640px) {
+  body {
+    padding-top: 64px;
+    padding-bottom: 60px;
+  }
+}
+
+/* Fix for specific pages if needed */
+.page-content {
+  min-height: calc(100vh - 140px); /* Full viewport minus nav heights */
+}
+
+@media (min-width: 768px) {
+  .page-content {
+    min-height: calc(100vh - 72px);
+  }
+}
+
+
+
+/* App.css - Add these styles at the top or in appropriate section */
+
+/* Simple Loading Screen */
+.app-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Simple Spinner */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+/* Loading Text */
+.loading-text {
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Spin Animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border-width: 2.5px;
+  }
+  
+  .loading-text {
+    font-size: 14px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .app-loading {
+    background: #1a1a1a;
+  }
+  
+  .loading-spinner {
+    border-color: #333;
+    border-top-color: #667eea;
+  }
+  
+  .loading-text {
+    color: #e0e0e0;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner {
+    animation: spin 2s linear infinite;
+  }
+}

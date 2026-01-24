@@ -1,0 +1,302 @@
+/* PlacementGuide.css */
+
+/* Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafb;
+    color: #333;
+    line-height: 1.6;
+}
+
+.placement-guide-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: white;
+    color: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.test-link-container {
+    margin-top: 20px;
+}
+
+.test-link-button {
+    background: #ffffff;
+    color: #3b82f6;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.test-link-button:hover {
+    background: #eff6ff;
+    transform: scale(1.05);
+}
+
+/* Sections */
+.section-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.section-box {
+    background: #ffffff;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.section-box h2 {
+    font-size: 1.8rem;
+    color: #3b82f6;
+    margin-bottom: 16px;
+}
+
+.section-box p {
+    font-size: 1rem;
+    margin-bottom: 16px;
+    color: #555;
+}
+
+.resources-list {
+    list-style: none;
+    padding: 0;
+}
+
+.resources-list li {
+    margin-bottom: 10px;
+}
+
+.resources-list a {
+    color: #9333ea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.resources-list a:hover {
+    text-decoration: underline;
+}
+
+.download-button {
+    display: inline-block;
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 16px;
+}
+
+.download-button:hover {
+    background: linear-gradient(to right, #2563eb, #7e22ce);
+    transform: scale(1.05);
+}
+
+/* Additional Links Section */
+.additional-links {
+    margin-bottom: 40px;
+    padding: 20px;
+    background: #f3f4f6;
+    border-radius: 16px;
+}
+
+.additional-links h2 {
+    font-size: 1.8rem;
+    color: #1e3a8a;
+    margin-bottom: 16px;
+}
+
+.additional-resources {
+    list-style: none;
+    padding: 0;
+}
+
+.additional-resources li {
+    margin-bottom: 10px;
+}
+
+.additional-resources a {
+    color: #3b82f6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.additional-resources a:hover {
+    text-decoration: underline;
+}
+
+/* Checklist Section */
+.placement-checklist {
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.placement-checklist h2 {
+    font-size: 1.8rem;
+    color: #3b82f6;
+    margin-bottom: 16px;
+}
+
+.placement-checklist ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+.placement-checklist li {
+    margin-bottom: 10px;
+}
+
+/* Footer Section */
+.career-footer {
+    background:  white;
+    color: white;
+    padding: 40px 20px;
+    border-radius: 16px;
+    margin-top: 40px;
+}
+
+.career-footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.career-footer-info {
+    max-width: 600px;
+}
+
+.career-footer-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.career-footer-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.career-footer-button {
+    background: linear-gradient(to right, #3b82f6, #9333ea);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.career-footer-button:hover {
+    background: linear-gradient(to right, #2563eb, #7e22ce);
+    transform: scale(1.05);
+}
+
+.career-footer-links {
+    max-width: 400px;
+}
+
+.career-footer-links-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+}
+
+.career-footer-links-list {
+    list-style: none;
+    padding: 0;
+}
+
+.career-footer-link-item {
+    margin-bottom: 16px;
+}
+
+.career-footer-link-item a {
+    color: #93c5fd;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.career-footer-link-item a:hover {
+    text-decoration: underline;
+}
+/* General Button Styles */
+.placement-guide-container a.button, 
+.placement-guide-container .download-button,
+.career-footer-button a {
+    display: inline-block;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb); /* Blue gradient background */
+    color: #fff;
+    border: none;
+    border-radius: 50px; /* Rounded edges */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5); /* Subtle shadow for a floating effect */
+    transition: all 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* Hover Effect for Buttons */
+.placement-guide-container a.button:hover, 
+.placement-guide-container .download-button:hover,
+.career-footer-button a:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8); /* Darker gradient on hover */
+    transform: translateY(-5px); /* Lift effect */
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.6); /* Stronger shadow on hover */
+}
+
+/* Specific Button Customization */
+.test-link-button {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.career-footer-button {
+    margin-top: 20px;
+}
+
+.career-footer-button a {
+    padding: 15px 30px; /* Larger padding for emphasis */
+    font-size: 1.1rem;
+}
