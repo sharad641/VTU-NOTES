@@ -1,34 +1,52 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
-const AdSenseAd = ({ adClient, adSlot, adFormat = "auto", fullWidthResponsive = true }) => {
+const AdSenseAd = ({ adClient, adSlot, adFormat = "auto", fullWidthResponsive = true, style = {} }) => {
   useEffect(() => {
-    if (process.env.NODE_ENV === "production") {
+    if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development") {
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (e) {
-        console.error("AdSense error: ", e);
+        // console.error("AdSense error: ", e);
       }
-    } else {
-      console.warn("AdSense ads are not served in development mode.");
     }
   }, []);
 
   return (
-    <div style={{ textAlign: "center", margin: "20px 0" }}>
-      {/* First Ad */}
+    <div 
+      className="ad-slot-container" 
+      style={{ 
+        textAlign: "center", 
+        margin: "24px 0",
+        minHeight: "280px", // CLS Protection
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "rgba(255, 255, 255, 0.02)",
+        borderRadius: "12px",
+        overflow: "hidden",
+        ...style 
+      }}
+    >
+      <span style={{ 
+        fontSize: "0.6rem", 
+        color: "#64748B", 
+        textTransform: "uppercase", 
+        letterSpacing: "1px",
+        marginBottom: "8px",
+        display: "block"
+      }}>
+        Advertisement
+      </span>
       <ins
         className="adsbygoogle"
-        style={{ display: "block" }}
+        style={{ display: "block", minWidth: "300px", width: "100%" }}
         data-ad-client={adClient}
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         data-full-width-responsive={fullWidthResponsive ? "true" : "false"}
       ></ins>
-
-      
-
-      
     </div>
   );
 };
@@ -37,8 +55,9 @@ const AdSenseAd = ({ adClient, adSlot, adFormat = "auto", fullWidthResponsive = 
 AdSenseAd.propTypes = {
   adClient: PropTypes.string.isRequired,
   adSlot: PropTypes.string.isRequired,
-  adFormat: PropTypes.string, // Optional: Default to "auto"
-  fullWidthResponsive: PropTypes.bool, // Optional: Default to true
+  adFormat: PropTypes.string, 
+  fullWidthResponsive: PropTypes.bool,
+  style: PropTypes.object
 };
 
 export default AdSenseAd;

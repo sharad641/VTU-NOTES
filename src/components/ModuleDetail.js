@@ -18,6 +18,7 @@ import {
 import { AiOutlineHome, AiOutlineFilePdf } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
 import CommentSection from "./CommentSection";
+import AdSenseAd from "./AdSenseAd";
 
 const ModuleDetail = () => {
   const { branch, semester, subjectName } = useParams();
@@ -7124,49 +7125,60 @@ const ModuleDetail = () => {
         <div className="module-grid-layout">
           {/* Sidebar */}
           <aside className="module-sidebar">
-            <div className="sidebar-sticky-content glass-noise">
-              <div className="sidebar-subject-card">
-                <div className="sidebar-icon-box">
-                  <HiOutlineBookOpen />
+            <div className="sidebar-sticky-wrapper">
+              <div className="sidebar-sticky-content glass-noise">
+                <div className="sidebar-subject-card">
+                  <div className="sidebar-icon-box">
+                    <HiOutlineBookOpen />
+                  </div>
+                  <h1>{subjectName}</h1>
+                  <div className="sidebar-meta">
+                    <span className="sidebar-badge semester-badge">Sem {semester}</span>
+                    <span className="sidebar-badge branch-badge">{branch.toUpperCase()}</span>
+                  </div>
                 </div>
-                <h1>{subjectName}</h1>
-                <div className="sidebar-meta">
-                  <span className="sidebar-badge semester-badge">Sem {semester}</span>
-                  <span className="sidebar-badge branch-badge">{branch.toUpperCase()}</span>
+
+                <div className="sidebar-stats-list">
+                  <div className="sidebar-stat-item">
+                    <span className="stat-label">
+                      <HiOutlineDocumentText className="stat-icon-mini notes-icon" /> NOTES
+                    </span>
+                    <span className="stat-value purple-val">{stats.notes}</span>
+                  </div>
+                  <div className="sidebar-stat-item">
+                    <span className="stat-label">
+                      <FaUniversity className="stat-icon-mini pyq-icon" /> PYQS
+                    </span>
+                    <span className="stat-value purple-val">{stats.pyq}</span>
+                  </div>
+                  <div className="sidebar-stat-item">
+                    <span className="stat-label">
+                      <HiOutlineCheckCircle className="stat-icon-mini solved-icon" /> SOLVED
+                    </span>
+                    <span className="stat-value purple-val">{stats.solutions}</span>
+                  </div>
+                </div>
+
+                <div className="sidebar-actions">
+                  <button onClick={() => handleBatchDownload(categorizedModules["important-questions"] || [], "Important Qs")} className="sidebar-btn-modern important">
+                    <HiOutlineFire /> 100% Important
+                  </button>
+                  <button onClick={() => handleBatchDownload(categorizedModules["pyq"] || [], "PYQs")} className="sidebar-btn-modern secondary">
+                    <FaUniversity /> PYQ Papers
+                  </button>
+                  <button onClick={() => handleBatchDownload(subjectData.modules, "all")} className="sidebar-btn-modern primary">
+                    <HiOutlineCloudArrowDown /> Download All
+                  </button>
                 </div>
               </div>
 
-              <div className="sidebar-stats-list">
-                <div className="sidebar-stat-item">
-                  <span className="stat-label">
-                    <HiOutlineDocumentText className="stat-icon-mini notes-icon" /> NOTES
-                  </span>
-                  <span className="stat-value purple-val">{stats.notes}</span>
-                </div>
-                <div className="sidebar-stat-item">
-                  <span className="stat-label">
-                    <FaUniversity className="stat-icon-mini pyq-icon" /> PYQS
-                  </span>
-                  <span className="stat-value purple-val">{stats.pyq}</span>
-                </div>
-                <div className="sidebar-stat-item">
-                  <span className="stat-label">
-                    <HiOutlineCheckCircle className="stat-icon-mini solved-icon" /> SOLVED
-                  </span>
-                  <span className="stat-value purple-val">{stats.solutions}</span>
-                </div>
-              </div>
-
-              <div className="sidebar-actions">
-                <button onClick={() => handleBatchDownload(categorizedModules["important-questions"] || [], "Important Qs")} className="sidebar-btn-modern important">
-                  <HiOutlineFire /> 100% Important
-                </button>
-                <button onClick={() => handleBatchDownload(categorizedModules["pyq"] || [], "PYQs")} className="sidebar-btn-modern secondary">
-                  <FaUniversity /> PYQ Papers
-                </button>
-                <button onClick={() => handleBatchDownload(subjectData.modules, "all")} className="sidebar-btn-modern primary">
-                  <HiOutlineCloudArrowDown /> Download All
-                </button>
+              {/* Sticky Sidebar Ad */}
+              <div className="sidebar-ad-unit">
+                <AdSenseAd
+                  adClient="ca-pub-9499544849301534" 
+                  adSlot="3936951010" 
+                  style={{ minHeight: "600px" }}
+                />
               </div>
             </div>
           </aside>
@@ -7192,6 +7204,15 @@ const ModuleDetail = () => {
                 <span className="credits-label">CREDITS</span>
               </div>
             </motion.header>
+
+            {/* Hero Ad Placement */}
+            <div className="hero-leaderboard-ad">
+              <AdSenseAd
+                adClient="ca-pub-9499544849301534" 
+                adSlot="3936951010" 
+                style={{ minHeight: "90px" }}
+              />
+            </div>
 
             <section className="portal-stats-overview-modern">
               <div className="stat-glass-card resources">
@@ -7234,6 +7255,7 @@ const ModuleDetail = () => {
             <div className="modules-grid-modern">
               <AnimatePresence mode='popLayout'>
                 {filteredModules.map((module, idx) => (
+                  <React.Fragment key={module.id}>
                   <motion.div
                     layout
                     initial={{ opacity: 0, scale: 0.9, y: 20 }}
@@ -7265,6 +7287,18 @@ const ModuleDetail = () => {
                       </button>
                     </div>
                   </motion.div>
+                  {/* Inject In-Feed Ad after every 5th item */}
+                  {(idx + 1) % 5 === 0 && (
+                     <div className="in-feed-ad-container" style={{ gridColumn: "1 / -1" }}>
+                        <AdSenseAd 
+                           adClient="ca-pub-9499544849301534" 
+                           adSlot="3936951010" 
+                           adFormat="fluid"
+                           style={{ minHeight: "150px" }}
+                        />
+                     </div>
+                  )}
+                  </React.Fragment>
                 ))}
               </AnimatePresence>
             </div>
