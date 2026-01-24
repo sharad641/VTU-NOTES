@@ -105,30 +105,43 @@ const SupportModal = ({ isOpen, onClose }) => {
   };
 
   const handlePaymentSuccess = async (response) => {
+    console.log("💰 Razorpay Success Response:", response);
+    
     const newSupporter = {
-        name: name || 'Anonymous',
-        mobile, // Note: storing mobile in local storage/public DB is privacy risk, usually we'd omit this for display
+        name: name || 'Anonymous Legend',
+        mobile: mobile || 'N/A',
         amount: parseInt(amount),
         timestamp: Date.now(),
         paymentId: response.razorpay_payment_id,
+        orderId: response.razorpay_order_id || 'N/A',
+        signature: response.razorpay_signature || 'N/A',
         status: 'success'
     };
 
-    // Save to LocalStorage immediately (Fail-safe)
-    const localStored = JSON.parse(localStorage.getItem('vtu_supporters_local') || '[]');
-    localStorage.setItem('vtu_supporters_local', JSON.stringify([newSupporter, ...localStored]));
-
+    // 1. Fail-Safe: Save to LocalStorage immediately
     try {
-        console.log("Pushing to Firebase...");
-        await push(ref(database, 'donations'), newSupporter);
-        console.log("Firebase Push Success");
+        const localStored = JSON.parse(localStorage.getItem('vtu_supporters_local') || '[]');
+        localStorage.setItem('vtu_supporters_local', JSON.stringify([newSupporter, ...localStored]));
+        console.log("✅ Saved to LocalStorage");
+    } catch (e) {
+        console.error("LocalStorage Error:", e);
+    }
+
+    // 2. Sync to Firebase
+    try {
+        console.log("📡 Syncing to Firebase Hall of Fame...");
+        // Ensure we are using the Realtime Database 'donations' node
+        const donationsRef = ref(database, 'donations');
+        await push(donationsRef, newSupporter);
+        console.log("✨ Firebase Sync Complete!");
     } catch (error) {
-        console.error("Firebase Push Error:", error);
-        // We still show success because we saved locally
+        console.error("❌ Firebase Sync Failed:", error);
+        alert("Payment was successful, but we had trouble updating the Hall of Fame. Our team will verify it manually!");
     }
     
-    alert(`Thank you ${newSupporter.name}! Payment Successful.`);
+    alert(`Thank you, ${newSupporter.name}! Your support means the world to us.`);
     onClose();
+    // Refresh the local state if needed (though useEffect should catch it via Firebase listener)
   };
 
   const formatDate = (timestamp) => {

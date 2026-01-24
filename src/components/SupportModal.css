@@ -3,9 +3,10 @@
 .support-modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(5, 5, 10, 0.7);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: rgba(5, 5, 10, 0.85);
+    /* Darker overlay */
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     z-index: 10000;
     display: flex;
     align-items: center;
@@ -14,21 +15,28 @@
 }
 
 .support-modal-container {
-    background: linear-gradient(165deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.98));
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 32px;
+    background: rgba(10, 15, 30, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
     width: 100%;
-    max-width: 520px;
-    max-height: 85vh;
+    max-width: 550px;
+    max-height: 90vh;
     display: flex;
     flex-direction: column;
-    box-shadow:
-        0 30px 100px rgba(0, 0, 0, 0.6),
-        0 0 0 1px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.6);
     position: relative;
     color: #F8FAFC;
     overflow: hidden;
-    /* Prevent container level scroll */
+}
+
+.support-modal-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    border-radius: inherit;
 }
 
 .modal-inner-scroll {
@@ -67,35 +75,27 @@
 
 .close-modal-btn {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    background: rgba(15, 23, 42, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    top: 25px;
+    right: 25px;
+    background: #f43f5e;
+    border: none;
     border-radius: 50%;
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    backdrop-filter: blur(10px);
-    z-index: 100;
-    /* Ensure it stays above scrollable content */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 2000;
+    box-shadow: 0 10px 20px rgba(244, 63, 94, 0.4);
 }
 
 .close-modal-btn:hover {
-    background: #ef4444;
-    border-color: #ef4444;
-    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+    background: #eb1436;
     transform: rotate(90deg) scale(1.1);
-}
-
-.close-modal-btn:hover {
-    background: rgba(239, 68, 68, 0.8);
-    box-shadow: 0 0 25px rgba(239, 68, 68, 0.6);
-    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 0 30px rgba(244, 63, 94, 0.6);
 }
 
 .floating-orb {
@@ -141,15 +141,18 @@
 }
 
 .modal-header h2 {
-    font-size: 2rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    line-height: 1.2;
+    font-size: 2.2rem;
+    font-weight: 1000;
+    margin-bottom: 1.2rem;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
 }
 
 .highlight-text {
-    color: #6366F1;
-    text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    background: linear-gradient(135deg, #6366f1 0%, #d946ef 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
 }
 
 .modal-header p {
@@ -242,31 +245,31 @@
 
 /* Pay Button */
 .pay-now-btn {
-    margin-top: 1rem;
-    background: linear-gradient(135deg, #6366F1, #8B5CF6);
+    margin-top: 2rem;
+    background: linear-gradient(135deg, #6366f1, #d946ef);
     color: white;
     border: none;
-    padding: 16px;
-    border-radius: 12px;
-    font-weight: 800;
-    font-size: 1.2rem;
+    padding: 20px;
+    border-radius: 16px;
+    font-weight: 950;
+    font-size: 1.3rem;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    transition: transform 0.2s;
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .pay-now-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(217, 70, 239, 0.5);
 }
 
 .support-glow-btn {
-    background: linear-gradient(135deg, #818cf8, #6366f1);
+    background: linear-gradient(135deg, #6366f1, #d946ef);
 }
 
 .btn-shine {
@@ -375,21 +378,22 @@
 
 .supporter-badge {
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 14px 18px;
-    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 18px 24px;
+    border-radius: 24px;
     display: flex;
     align-items: center;
-    gap: 16px;
-    transition: all 0.4s ease;
+    gap: 20px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     overflow: hidden;
 }
 
 .supporter-badge:hover {
-    background: rgba(99, 102, 241, 0.08);
-    border-color: rgba(99, 102, 241, 0.2);
-    transform: scale(1.02);
+    background: rgba(10, 15, 30, 0.7);
+    border-color: rgba(99, 102, 241, 0.4);
+    transform: scale(1.02) translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .badge-glow {
@@ -405,16 +409,16 @@
 }
 
 .s-avatar {
-    width: 44px;
-    height: 44px;
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #6366f1, #d946ef);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.1rem;
-    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+    font-size: 1.25rem;
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
 }
 
 .s-content {

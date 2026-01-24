@@ -10,15 +10,54 @@
 }
 
 .support-popup-card {
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    padding: 1.5rem;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.2);
+    background: rgba(10, 15, 30, 0.95);
+    backdrop-filter: blur(40px) saturate(250%);
+    -webkit-backdrop-filter: blur(40px) saturate(250%);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 32px;
+    padding: 2rem 1.8rem 1.8rem;
+    box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.9),
+        0 0 40px rgba(99, 102, 241, 0.2);
     position: relative;
     overflow: hidden;
+}
+
+.support-popup-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.support-popup-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+    transform: translateX(-100%);
+    animation: neonSweep 4s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes neonSweep {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .support-popup-glow {
@@ -61,50 +100,56 @@
 
 .support-popup-btn {
     width: 100%;
-    background: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+    background: linear-gradient(135deg, #6366f1 0%, #d946ef 100%);
     color: white;
     border: none;
-    border-radius: 12px;
-    padding: 12px;
-    font-weight: 700;
-    font-size: 0.9rem;
+    border-radius: 16px;
+    padding: 14px;
+    font-weight: 1000;
+    font-size: 1rem;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+    position: relative;
+    z-index: 2;
 }
 
 .support-popup-btn:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(217, 70, 239, 0.5);
 }
 
 .support-popup-close {
     position: absolute;
-    top: 12px;
-    right: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    top: 15px;
+    right: 15px;
+    background: #f43f5e;
+    border: none;
     color: white;
-    width: 28px;
-    height: 28px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.2s;
-    font-size: 0.8rem;
-    z-index: 10;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1rem;
+    z-index: 200;
+    box-shadow: 0 5px 15px rgba(244, 63, 94, 0.4);
 }
 
 .support-popup-close:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: rotate(90deg);
+    background: #eb1436;
+    color: white;
+    transform: rotate(180deg) scale(1.1);
+    box-shadow: 0 0 25px rgba(244, 63, 94, 0.6);
 }
 
 @media (max-width: 640px) {

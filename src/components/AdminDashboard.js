@@ -7,8 +7,10 @@ import {
   FaBars, FaEnvelope, FaComments, FaSignOutAlt, FaCheckCircle,
   FaTrash, FaReply, FaSearch, FaFilter, FaBell, FaUserCircle,
   FaProjectDiagram, FaStar, FaTimes, FaMoon, FaSun, FaSpinner,
-  FaChevronLeft, FaChevronRight, FaHome, FaHistory, FaBriefcase, FaBuilding
+  FaChevronLeft, FaChevronRight, FaHome, FaHistory, FaBriefcase, FaBuilding,
+  FaHeart
 } from "react-icons/fa";
+import { HiOutlineSparkles } from "react-icons/hi2";
 import "./AdminModern.css"; // CHANGED: Modern CSS
 
 const StatCard = ({ icon, title, value, color, onClick, active, trend }) => (
@@ -39,7 +41,8 @@ const AdminDashboard = () => {
     reviews: [],
     placementReviews: [],
     contacts: [],
-    comments: []
+    comments: [],
+    donations: []
   });
 
   // Action State
@@ -48,6 +51,8 @@ const AdminDashboard = () => {
   const [notifications, setNotifications] = useState([]);
   const [replyingTo, setReplyingTo] = useState(null);
   const [replyText, setReplyText] = useState("");
+  const [showManualSync, setShowManualSync] = useState(false);
+  const [manualDonor, setManualDonor] = useState({ name: "", amount: "", paymentId: "", mobile: "" });
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -61,7 +66,8 @@ const AdminDashboard = () => {
       reviews: ref(database, "project_reviews"),
       placementReviews: ref(database, "placement_reviews"),
       contacts: ref(database, "contacts"),
-      comments: ref(database, "comments")
+      comments: ref(database, "comments"),
+      donations: ref(database, "donations")
     };
 
     const listeners = [];
@@ -192,6 +198,10 @@ const AdminDashboard = () => {
           <button className={`nav-item ${activeTab === 'contacts' ? 'active' : ''}`} onClick={() => { setActiveTab('contacts'); setCurrentPage(1); }}>
             <FaEnvelope /> Messages <span className="nav-badge">{data.contacts.length}</span>
           </button>
+
+          <button className={`nav-item ${activeTab === 'donations' ? 'active' : ''}`} onClick={() => { setActiveTab('donations'); setCurrentPage(1); }}>
+            <FaHeart /> Donations <span className="nav-badge">{data.donations.length}</span>
+          </button>
         </nav>
 
         <div className="admin-footer">
@@ -239,6 +249,11 @@ const AdminDashboard = () => {
             value={data.contacts.length} color="#10b981"
             active={activeTab === 'contacts'} onClick={() => setActiveTab('contacts')}
           />
+          <StatCard
+            icon={<FaHeart />} title="Total Support"
+            value={`₹${data.donations.reduce((acc, curr) => acc + (parseInt(curr.amount) || 0), 0)}`} color="#ec4899"
+            active={activeTab === 'donations'} onClick={() => setActiveTab('donations')}
+          />
         </div>
 
         {/* Content Body */}
@@ -284,6 +299,15 @@ const AdminDashboard = () => {
                     </select>
                   </div>
                 )}
+                {activeTab === 'donations' && (
+                  <button 
+                    className="pay-now-btn" 
+                    style={{ padding: '10px 20px', fontSize: '0.9rem', width: 'auto' }}
+                    onClick={() => setShowManualSync(true)}
+                  >
+                    <HiOutlineSparkles /> Add Record
+                  </button>
+                )}
               </div>
 
               {paginatedData.length === 0 ? (
@@ -304,12 +328,12 @@ const AdminDashboard = () => {
                         <tr key={item.id}>
                           <td>
                             <div className="user-cell">
-                              <div className="user-avatar-text" style={{ background: activeTab === 'placements' ? '#EC4899' : '#6366F1' }}>
+                              <div className="user-avatar-text" style={{ background: activeTab === 'placements' ? '#EC4899' : activeTab === 'donations' ? '#F43F5E' : '#6366F1' }}>
                                 {(item.name || item.user || 'U').charAt(0).toUpperCase()}
                               </div>
                               <div>
                                 <div style={{ fontWeight: '700' }}>{item.name || item.user || 'Anonymous'}</div>
-                                <div style={{ fontSize: '0.85rem', color: '#94A3B8' }}>{item.email || item.course || 'No Email'}</div>
+                                <div style={{ fontSize: '0.85rem', color: '#94A3B8' }}>{item.mobile || item.email || item.course || 'No Contact'}</div>
                               </div>
                             </div>
                           </td>
@@ -335,10 +359,29 @@ const AdminDashboard = () => {
                                 <p>{item.review}</p>
                               </div>
                             )}
+                            {activeTab === 'donations' && (
+                              <div>
+                                <strong style={{ color: '#F8FAFC' }}>
+                                  ID: <a 
+                                    href={`https://dashboard.razorpay.com/app/payments/${item.paymentId}`} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    style={{ color: '#6366F1', textDecoration: 'none' }}
+                                  >
+                                    {item.paymentId || 'Manual'}
+                                  </a>
+                                </strong>
+                                <p style={{ fontSize: '0.85rem', color: '#94A3B8' }}>Date: {formatDate(item.timestamp)}</p>
+                              </div>
+                            )}
                           </td>
                           <td>
                             {activeTab === 'projects' ? (
                               <span className={`status-badge ${item.status.toLowerCase().replace(' ', '-')}`}>{item.status}</span>
+                            ) : activeTab === 'donations' ? (
+                              <div style={{ color: '#4ADE80', fontWeight: '900', fontSize: '1.2rem' }}>
+                                ₹{item.amount}
+                              </div>
                             ) : (
                               <div style={{ fontSize: '0.9rem', color: '#E2E8F0', display: 'flex', alignItems: 'center', gap: '6px' }}>
                                 <FaBriefcase style={{ fontSize: '0.8rem', color: '#94A3B8' }} />
@@ -371,6 +414,65 @@ const AdminDashboard = () => {
           )}
         </div>
       </main>
+
+      {/* Manual Sync Modal */}
+      {showManualSync && (
+        <div className="support-modal-overlay" style={{ zIndex: 3000 }} onClick={() => setShowManualSync(false)}>
+          <div className="support-modal-container" style={{ maxWidth: '400px', padding: '30px' }} onClick={e => e.stopPropagation()}>
+            <h3>Manual Sync</h3>
+            <p style={{ fontSize: '0.85rem', color: '#94A3B8', marginBottom: '20px' }}>Enter historical Razorpay data manually.</p>
+            <div className="support-form">
+              <div className="form-group">
+                <label>Supporter Name</label>
+                <input 
+                  type="text" 
+                  value={manualDonor.name} 
+                  onChange={e => setManualDonor({...manualDonor, name: e.target.value})}
+                  placeholder="e.g. Rahul S"
+                />
+              </div>
+              <div className="form-group">
+                <label>Amount (₹)</label>
+                <input 
+                  type="number" 
+                  value={manualDonor.amount} 
+                  onChange={e => setManualDonor({...manualDonor, amount: e.target.value})}
+                  placeholder="e.g. 20"
+                />
+              </div>
+              <div className="form-group">
+                <label>Payment ID (Razorpay)</label>
+                <input 
+                  type="text" 
+                  value={manualDonor.paymentId} 
+                  onChange={e => setManualDonor({...manualDonor, paymentId: e.target.value})}
+                  placeholder="e.g. pay_S7jJw..."
+                />
+              </div>
+              <button 
+                className="pay-now-btn" 
+                onClick={async () => {
+                  if (!manualDonor.amount || !manualDonor.paymentId) return showNotification("Amount & ID required", "error");
+                  try {
+                    await push(ref(database, 'donations'), {
+                      ...manualDonor,
+                      timestamp: Date.now(),
+                      status: 'success'
+                    });
+                    setShowManualSync(false);
+                    setManualDonor({ name: "", amount: "", paymentId: "", mobile: "" });
+                    showNotification("Donor added to Hall of Fame", "success");
+                  } catch (e) {
+                    showNotification("Failed to add donor", "error");
+                  }
+                }}
+              >
+                Sync to Hall of Fame
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Notifications */}
       <div style={{ position: 'fixed', bottom: 24, right: 24, zIndex: 100, display: 'flex', flexDirection: 'column', gap: '10px' }}>

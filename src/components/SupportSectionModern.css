@@ -1,69 +1,90 @@
 /* SupportSectionModern.css - Extreme Glassmorphism */
 :root {
-    --sup-bg: #0F172A;
-    --sup-glass: rgba(30, 41, 59, 0.7);
-    --sup-border: rgba(255, 255, 255, 0.1);
+    --sup-bg: #080d1a;
+    --sup-glass: rgba(15, 23, 42, 0.8);
+    --sup-border: rgba(255, 255, 255, 0.08);
     --sup-accent: #6366F1;
-    --sup-accent-glow: rgba(99, 102, 241, 0.5);
+    --sup-accent-glow: rgba(99, 102, 241, 0.4);
     --sup-success: #10B981;
     --sup-text: #F8FAFC;
     --sup-muted: #94A3B8;
 }
 
 .support-section-root {
-    padding: 60px 20px;
+    padding: 100px 20px;
     position: relative;
+    background: #080d1a;
+    overflow: hidden;
     font-family: 'Inter', sans-serif;
 }
 
+/* Background Decor */
+.support-section-root::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: -5%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, #6366f1, transparent 70%);
+    filter: blur(80px);
+    opacity: 0.1;
+    z-index: 0;
+}
+
 .support-container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .support-card {
     background: var(--sup-glass);
+    backdrop-filter: blur(30px);
     border: 1px solid var(--sup-border);
-    border-radius: 30px;
-    padding: 40px;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    border-radius: 40px;
+    padding: 60px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
-    text-align: center;
+}
+
+.support-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.02;
+    pointer-events: none;
 }
 
 /* Header */
 .support-header {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 .heart-icon {
-    font-size: 3rem;
-    color: #EF4444;
-    filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.5));
-    animation: pulse 2s infinite;
+    font-size: 4rem;
+    color: #F43F5E;
+    filter: drop-shadow(0 0 20px rgba(244, 63, 94, 0.4));
+    animation: heartPulse 1.5s infinite;
 }
 
 .support-header h2 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: white;
-    margin: 10px 0;
-    font-weight: 800;
+    margin: 20px 0;
+    font-weight: 1000;
+    letter-spacing: -0.04em;
 }
 
 .highlight-text {
-    background: linear-gradient(135deg, #EF4444 0%, #F59E0B 100%);
+    background: linear-gradient(135deg, #6366f1 0%, #d946ef 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.support-p {
-    color: var(--sup-muted);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto;
+    filter: drop-shadow(0 0 15px rgba(99, 102, 241, 0.3));
 }
 
 /* Form Area */
@@ -133,26 +154,27 @@
 /* UPI Button */
 .pay-btn-large {
     width: 100%;
-    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    background: linear-gradient(135deg, #6366f1 0%, #d946ef 100%);
     color: white;
     border: none;
-    padding: 18px;
-    border-radius: 16px;
-    font-size: 1.2rem;
-    font-weight: 800;
+    padding: 22px;
+    border-radius: 20px;
+    font-size: 1.4rem;
+    font-weight: 950;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
-    transition: 0.3s;
-    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+    gap: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.4),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
 }
 
 .pay-btn-large:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(99, 102, 241, 0.6);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 60px rgba(217, 70, 239, 0.5);
 }
 
 /* Manual Copy Box */
@@ -324,79 +346,75 @@
 
 /* Recent Supporters Section in Card */
 .recent-supporters-section-card {
-    margin-top: 40px;
+    margin-top: 60px;
     text-align: left;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 40px;
 }
 
 .recent-supporters-section-card h3 {
-    font-size: 1.2rem;
-    color: #F8FAFC;
-    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 30px;
     display: flex;
     align-items: center;
+    font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .supporters-list-card {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
 }
 
 .supporter-badge-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    /* Faint border */
-    padding: 15px;
-    border-radius: 16px;
+    background: rgba(10, 15, 30, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 24px;
+    border-radius: 24px;
     display: flex;
     align-items: center;
-    gap: 15px;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px);
+    gap: 20px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     position: relative;
     overflow: hidden;
 }
 
-/* Glowing Accent Line */
-.supporter-badge-card::after {
+.supporter-badge-card::before {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #6366F1, transparent);
-    transform: translateX(-100%);
-    transition: 0.5s;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), transparent);
+    opacity: 0;
+    transition: 0.4s;
 }
 
 .supporter-badge-card:hover {
-    background: rgba(30, 41, 59, 0.8);
-    transform: translateY(-5px);
-    border-color: rgba(99, 102, 241, 0.5);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.supporter-badge-card:hover::after {
-    transform: translateX(100%);
+.supporter-badge-card:hover::before {
+    opacity: 1;
 }
 
 .s-avatar {
-    width: 45px;
-    height: 45px;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.2));
-    border-radius: 50%;
+    width: 54px;
+    height: 54px;
+    background: linear-gradient(135deg, #6366f1, #d946ef);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #C4B5FD;
-    font-size: 1.4rem;
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    box-shadow: 0 0 15px rgba(139, 92, 246, 0.2);
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+    position: relative;
+    z-index: 2;
 }
 
 .s-content {
@@ -404,31 +422,48 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
 .s-info {
     display: flex;
     flex-direction: column;
-    gap: 3px;
+    gap: 5px;
 }
 
 .supporter-badge-card .s-name {
-    color: #F8FAFC;
-    font-weight: 700;
-    font-size: 1.05rem;
+    color: white;
+    font-weight: 900;
+    font-size: 1.15rem;
+    letter-spacing: -0.02em;
 }
 
 .s-date {
-    color: #94A3B8;
+    color: #64748b;
     font-size: 0.8rem;
     display: flex;
     align-items: center;
-    font-family: 'Courier New', monospace;
+    font-weight: 700;
 }
 
 .supporter-badge-card .s-amt {
-    color: #4ADE80;
-    font-weight: 800;
-    font-size: 1.2rem;
-    text-shadow: 0 0 8px rgba(74, 222, 128, 0.4);
+    color: #4ade80;
+    font-weight: 1000;
+    font-size: 1.4rem;
+    text-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+}
+
+@media (max-width: 768px) {
+    .support-header h2 {
+        font-size: 2.2rem;
+    }
+
+    .support-card {
+        padding: 30px 20px;
+    }
+
+    .supporters-list-card {
+        grid-template-columns: 1fr;
+    }
 }
