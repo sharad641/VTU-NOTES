@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { database, auth, signInAnonymously } from '../firebase';
 import { ref, push, onValue, query, limitToLast, orderByChild } from 'firebase/database';
-import { FaHeart, FaTimes, FaCoffee, FaBolt, FaCopy, FaCreditCard, FaClock } from 'react-icons/fa';
+import { FaHeart, FaTimes, FaCoffee, FaBolt, FaCopy, FaCreditCard, FaClock, FaFire } from 'react-icons/fa';
 import { FaUserAstronaut } from 'react-icons/fa6';
+import { HiOutlineFire } from 'react-icons/hi2';
 import './SupportModal.css';
 
 const SupportModal = ({ isOpen, onClose }) => {
@@ -154,28 +155,34 @@ const SupportModal = ({ isOpen, onClose }) => {
             exit={{ scale: 0.8, opacity: 0, y: 20 }}
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close button moved inside the container but with fixed-like behavior via CSS or absolute top-level */}
             <motion.button
-              className="close-modal-btn floating-orb"
+              className="close-modal-btn"
               onClick={onClose}
               whileHover={{ scale: 1.1, rotate: 90 }}
               whileTap={{ scale: 0.9 }}
+              title="Close Portal"
             >
               <FaTimes />
             </motion.button>
 
-            <div className="modal-header">
-              <div className="heart-icon-wrapper">
-                <FaHeart />
+            <div className="modal-inner-scroll">
+              <div className="modal-header">
+                <motion.div 
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className="heart-icon-wrapper"
+                >
+                  <FaHeart />
+                </motion.div>
+                <h2>
+                  Support <span className="highlight-text">VTUNOTESFORALL</span>
+                </h2>
+                <p>
+                  We are students dedicating our time to manage this platform. 
+                  Hosting costs are real. If we helped you, consider supporting us!
+                </p>
               </div>
-              <h2>
-                Support <span className="highlight-text">VTUNOTESFORALL</span>
-              </h2>
-              <p>
-                We are students dedicating our time to manage this platform. Server
-                hosting and maintenance costs are real. If we helped you, consider
-                buying us a coffee! <FaCoffee className="coffee-icon" />
-              </p>
-            </div>
 
             <form className="support-form" onSubmit={handlePayment}>
               <div className="form-group">
@@ -247,26 +254,35 @@ const SupportModal = ({ isOpen, onClose }) => {
             {/* Recent Supporters Display */}
             {supporters.length > 0 && (
                 <div className="recent-supporters-section">
-                    <h3><FaUserAstronaut style={{ marginRight: '10px', color: '#6366F1' }} />Recent Supporters</h3>
+                    <h3><HiOutlineFire className="hot-icon" /> <span>The Hall of Fame</span></h3>
                     <div className="supporters-list">
+                        <AnimatePresence>
                         {supporters.map((s, idx) => (
-                            <div key={idx} className="supporter-badge">
+                            <motion.div 
+                                key={idx} 
+                                initial={{ x: -20, opacity: 0 }}
+                                animate={{ x: 0, opacity: 1 }}
+                                transition={{ delay: idx * 0.1 }}
+                                className="supporter-badge"
+                            >
                                 <div className="s-avatar">
                                     <FaUserAstronaut />
                                 </div>
                                 <div className="s-content">
                                     <div className="s-info">
                                         <span className="s-name">{s.name}</span>
-                                        <span className="s-date"><FaClock style={{ fontSize: '0.7em', marginRight: '4px' }}/>{formatDate(s.timestamp)}</span>
+                                        <span className="s-date">{formatDate(s.timestamp)}</span>
                                     </div>
                                     <span className="s-amt">₹{s.amount}</span>
                                 </div>
-                            </div>
+                                <div className="badge-glow"></div>
+                            </motion.div>
                         ))}
+                        </AnimatePresence>
                     </div>
                 </div>
             )}
-
+            </div>
           </motion.div>
         </motion.div>
       )}

@@ -14,20 +14,41 @@
 }
 
 .support-modal-container {
-    background: linear-gradient(145deg, rgba(30, 41, 59, 0.95), rgba(15, 23, 42, 0.98));
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    padding: 40px;
+    background: linear-gradient(165deg, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.98));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 32px;
     width: 100%;
-    max-width: 500px;
-    max-height: 90vh;
-    overflow-y: auto;
+    max-width: 520px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
     box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(255, 255, 255, 0.05);
+        0 30px 100px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(99, 102, 241, 0.1);
     position: relative;
-    text-align: center;
     color: #F8FAFC;
+    overflow: hidden;
+    /* Prevent container level scroll */
+}
+
+.modal-inner-scroll {
+    padding: 40px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Custom scrollbar for inner content */
+.modal-inner-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.modal-inner-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-inner-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.2);
+    border-radius: 10px;
 }
 
 /* Scrollbar styling for modal content */
@@ -46,22 +67,29 @@
 
 .close-modal-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(239, 68, 68, 0.2);
-    border: 1px solid rgba(239, 68, 68, 0.5);
+    top: 15px;
+    right: 15px;
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     backdrop-filter: blur(10px);
-    box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
-    z-index: 10;
+    z-index: 100;
+    /* Ensure it stays above scrollable content */
+}
+
+.close-modal-btn:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+    transform: rotate(90deg) scale(1.1);
 }
 
 .close-modal-btn:hover {
@@ -324,76 +352,69 @@
 }
 
 .recent-supporters-section h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 800;
     color: #E2E8F0;
-    margin-bottom: 1rem;
-    border-left: 3px solid #6366F1;
-    padding-left: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
-/* SupportModal.css */
-/* ... existing styles ... code up to supporters-list ... */
+.hot-icon {
+    color: #f97316;
+    font-size: 1.4rem;
+    filter: drop-shadow(0 0 8px rgba(249, 115, 22, 0.4));
+}
+
 .supporters-list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    max-height: 250px;
-    overflow-y: auto;
-    padding-right: 5px;
-}
-
-.supporters-list::-webkit-scrollbar {
-    width: 4px;
-}
-
-.supporters-list::-webkit-scrollbar-thumb {
-    background: rgba(99, 102, 241, 0.3);
-    border-radius: 4px;
+    gap: 14px;
 }
 
 .supporter-badge {
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-    border: 1px solid rgba(99, 102, 241, 0.1);
-    padding: 12px 16px;
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 14px 18px;
+    border-radius: 18px;
     display: flex;
     align-items: center;
-    gap: 15px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 16px;
+    transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
 }
 
-.supporter-badge::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 3px;
-    height: 100%;
-    background: #6366F1;
-    opacity: 0.6;
+.supporter-badge:hover {
+    background: rgba(99, 102, 241, 0.08);
+    border-color: rgba(99, 102, 241, 0.2);
+    transform: scale(1.02);
 }
 
-.supporter-badge:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(99, 102, 241, 0.4);
-    transform: translateX(5px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+.badge-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.supporter-badge:hover .badge-glow {
+    transform: translateX(100%);
 }
 
 .s-avatar {
-    width: 40px;
-    height: 40px;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #A5B4FC;
-    font-size: 1.2rem;
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
+    color: white;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
 }
 
 .s-content {
@@ -410,33 +431,41 @@
 }
 
 .s-name {
-    color: #F1F5F9;
-    font-weight: 700;
+    color: #ffffff;
+    font-weight: 800;
     font-size: 1rem;
-    letter-spacing: 0.5px;
 }
 
 .s-date {
-    color: #94A3B8;
+    color: #64748b;
     font-size: 0.75rem;
-    display: flex;
-    align-items: center;
-    font-family: monospace;
+    font-weight: 600;
 }
 
 .s-amt {
-    color: #4ADE80;
-    font-weight: 800;
+    color: #22c55e;
+    font-weight: 900;
     font-size: 1.1rem;
-    background: rgba(74, 222, 128, 0.15);
-    padding: 6px 12px;
+    padding: 6px 14px;
+    background: rgba(34, 197, 94, 0.1);
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(74, 222, 128, 0.2);
-    text-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
 }
 
 @media (max-width: 480px) {
-    .support-modal-container {
+    .modal-inner-scroll {
         padding: 30px 20px;
+    }
+
+    .support-modal-overlay {
+        padding: 10px;
+    }
+
+    .support-modal-container {
+        max-height: 90vh;
+    }
+
+    .close-modal-btn {
+        top: 10px;
+        right: 10px;
     }
 }

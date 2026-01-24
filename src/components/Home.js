@@ -2,14 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   HiOutlineMagnifyingGlass, HiOutlineBookOpen, HiOutlineFire,
-  HiOutlineClock, HiOutlineChevronRight
+  HiOutlineClock, HiOutlineChevronRight, HiOutlineSparkles
 } from 'react-icons/hi2';
 import {
-  FaBolt, FaEye, FaHeart, FaChevronLeft, FaChevronRight,
+  FaRocket, FaShieldAlt, FaLightbulb, FaUserAstronaut,
+  FaHeart, FaBolt, FaCrown, FaStar, FaChevronLeft, FaChevronRight,
   FaGraduationCap, FaLayerGroup, FaRobot, FaCalculator,
   FaTimes, FaCoffee
 } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import { database } from '../firebase';
+import { ref, onValue, query, limitToLast, orderByChild } from 'firebase/database';
 import './Home.css';
 import './SupportPopup.css';
 
@@ -19,12 +22,31 @@ import SupportSection from './SupportSection';
 import SupportModal from './SupportModal';
 
 const Home = () => {
-  const [searchQuery, setSearchQuery] = React.useState('');
+  const [searchTerm, setSearchTerm] = React.useState('');
   const [currentPage, setCurrentPage] = React.useState(1);
   const [selectedCategory, setSelectedCategory] = React.useState('All');
-  const [showSupportModal, setShowSupportModal] = React.useState(false);
+  const [isPopupOpen, setIsPopupOpen] = React.useState(false);
   const [showWelcomePopup, setShowWelcomePopup] = React.useState(false);
+  const [supporters, setSupporters] = React.useState([]);
+  const [totalSupport, setTotalSupport] = React.useState(0);
   const itemsPerPage = 9;
+
+  useEffect(() => {
+    // Fetch top 10 supporters for the Hall of Fame
+    const donationsRef = query(ref(database, 'donations'), orderByChild('timestamp'), limitToLast(12));
+    const unsubscribe = onValue(donationsRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const list = Object.values(data).sort((a, b) => b.timestamp - a.timestamp);
+        setSupporters(list);
+
+        // Calculate total support for a fun counter
+        const total = list.reduce((acc, curr) => acc + (parseInt(curr.amount) || 0), 0);
+        setTotalSupport(total);
+      }
+    });
+    return () => unsubscribe();
+  }, []);
 
   // Helper to generate gradients based on id
   const getGradient = (id) => {
@@ -98,20 +120,21 @@ const Home = () => {
 
   const handleSupportClick = () => {
     setShowWelcomePopup(false);
-    setShowSupportModal(true);
+    setIsPopupOpen(true);
     sessionStorage.setItem('welcomePopupSeen', 'true');
   };
 
   const closePopup = () => {
     setShowWelcomePopup(false);
+    setIsPopupOpen(false);
     sessionStorage.setItem('welcomePopupSeen', 'true');
   };
 
   const categories = ['All', 'First Year', 'CSE Core', 'CSE Lab', 'CSE Elective', 'AI/ML', 'AIML-DS', 'ECE Core'];
 
   const filteredSubjects = featuredSubjects.filter(subject => {
-    const matchesSearch = subject.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      subject.code.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = subject.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      subject.code.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'All' || subject.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -140,7 +163,7 @@ const Home = () => {
           className="home-hero-card"
         >
           <div className="hero-mesh-bg"></div>
-          
+
           <div className="hero-split-layout">
             <div className="hero-content-left">
               <div className="hero-badge">
@@ -155,8 +178,8 @@ const Home = () => {
                 <input
                   type="text"
                   placeholder="Search subjects, codes, or keywords..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
                 />
                 <button className="search-btn">EXPLORE</button>
               </div>
@@ -169,17 +192,17 @@ const Home = () => {
                  className="hero-logo-wrapper-col"
                >
                  <div className="hero-logo-container">
-                   <img 
-                     src="/Gemini_Generated_Image_rxara5rxara5rxar.png" 
-                     alt="VTU Portal Futuristic Logo" 
+                   <img
+                     src="/Gemini_Generated_Image_rxara5rxara5rxar.png"
+                     alt="VTU Portal Futuristic Logo"
                      className="hero-main-logo"
                    />
                    <div className="logo-glow-underlay"></div>
                  </div>
 
                  {/* Support Button */}
-                 <button 
-                    onClick={() => setShowSupportModal(true)}
+                 <button
+                    onClick={() => setIsPopupOpen(true)}
                     className="hero-support-pill"
                     style={{ cursor: 'pointer', background: 'transparent', border: '1px solid rgba(255,255,255,0.1)' }}
                  >
@@ -200,7 +223,7 @@ const Home = () => {
             { icon: <FaCalculator />, title: "SGPA Tools", desc: "Instant GPA & CGPA calculations", color: "var(--neon-green)" },
             { icon: <FaRobot />, title: "AI Assistant", desc: "Powered by Gemini for instant help", color: "var(--neon-rose)" }
           ].map((feature, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               whileHover={{ y: -5, scale: 1.02 }}
               className="feature-card-modern"
@@ -349,13 +372,65 @@ const Home = () => {
       {/* --- Support Section --- */}
       <SupportSection />
 
+      {/* Hall of Fame / Donor Wall Section */}
+      <section className="hall-of-fame-section">
+        <div className="section-container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="fame-header"
+          >
+            <div className="fame-badge">
+              <FaCrown /> <span>Supporters Hall of Fame</span>
+            </div>
+            <h2 className="section-title">Fueling the <span className="gradient-text">Future</span></h2>
+            <p className="fame-desc">A special thanks to the legends who keep this portal alive and free for everyone.</p>
+          </motion.div>
+
+          <div className="fame-grid">
+            <AnimatePresence>
+              {supporters.map((s, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  whileHover={{ y: -10 }}
+                  className="fame-card"
+                >
+                   <div className="card-top">
+                      <div className="fame-avatar">
+                        <FaUserAstronaut />
+                        <div className="fame-ring"></div>
+                      </div>
+                      <div className="fame-meta">
+                        <h3>{s.name || "Anonymous"}</h3>
+                        <span>Supported {new Date(s.timestamp).toLocaleDateString()}</span>
+                      </div>
+                   </div>
+                   <div className="fame-amount-badge">
+                     <FaHeart className="tiny-heart" /> <span>₹{s.amount}</span>
+                   </div>
+                   <div className="fame-card-glow"></div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
+
+          <div className="fame-cta">
+            <button onClick={handleSupportClick} className="btn-support-modern">
+               <HiOutlineSparkles /> <span>Join the Legends</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* --- Support Modal --- */}
-      <SupportModal isOpen={showSupportModal} onClose={() => setShowSupportModal(false)} />
+      <SupportModal isOpen={isPopupOpen} onClose={closePopup} />
 
       {/* --- Welcome Support Popup --- */}
       <AnimatePresence>
         {showWelcomePopup && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -100, scale: 0.8 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: -100, scale: 0.8, transition: { duration: 0.2 } }}
