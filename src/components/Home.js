@@ -19,6 +19,7 @@ import { subjectsData } from '../data/subjectsData';
 import CommentSection from './CommentSection';
 import SupportSection from './SupportSection';
 import SupportModal from './SupportModal';
+import AdSenseAd from './AdSenseAd';
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = React.useState('');
@@ -195,6 +196,15 @@ const Home = () => {
           </div>
         </motion.div>
 
+        {/* --- AdSense Home Placement --- */}
+        <div style={{ margin: "40px auto", maxWidth: "800px", padding: "0 20px" }}>
+          <AdSenseAd
+             adClient="ca-pub-9499544849301534"
+             adSlot="3936951010"
+             style={{ width: "600px", height: "80px" }} // Best effort for desktop
+          />
+        </div>
+
         {/* --- Feature Highlights Grid --- */}
         <div className="feature-highlights-grid">
           {[
@@ -251,6 +261,7 @@ const Home = () => {
         <div className="subjects-grid-3d">
           <AnimatePresence mode='popLayout'>
             {currentSubjects.map((subject, idx) => (
+              <React.Fragment key={subject.id}>
               <motion.div
                 key={subject.id}
                 layout
@@ -306,6 +317,32 @@ const Home = () => {
 
                 </Link>
               </motion.div>
+              {/* Inject In-Feed Ad after every 5th item */}
+              {(idx + 1) % 5 === 0 && (
+                 <motion.div 
+                   layout 
+                   initial={{ opacity: 0 }} 
+                   animate={{ opacity: 1 }} 
+                   className="card-perspective-wrapper ad-card-home"
+                   style={{ 
+                     display: 'flex', 
+                     alignItems: 'center', 
+                     justifyContent: 'center',
+                     minHeight: '280px',
+                     background: 'rgba(255,255,255,0.02)',
+                     borderRadius: '20px',
+                     border: '1px solid rgba(255,255,255,0.1)'
+                   }}
+                 >
+                    <AdSenseAd 
+                       adClient="ca-pub-9499544849301534" 
+                       adSlot="3936951010" 
+                       adFormat="fluid"
+                       style={{ display: 'block', width: '100%', minWidth: '250px' }}
+                    />
+                 </motion.div>
+              )}
+              </React.Fragment>
             ))}
           </AnimatePresence>
         </div>

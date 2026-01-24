@@ -25,9 +25,11 @@ const SupportModal = ({ isOpen, onClose }) => {
 
     const signInAndListen = async () => {
         try {
-            console.log("Attempting Anonymous Auth...");
-            await signInAnonymously(auth);
-            console.log("Auth Success");
+            if (!auth.currentUser) {
+                console.log("No user found, attempting Anonymous Auth...");
+                await signInAnonymously(auth);
+                console.log("Auth Success");
+            }
             
             const donationsRef = query(ref(database, 'donations'), orderByChild('timestamp'), limitToLast(10));
             const unsubscribe = onValue(donationsRef, (snapshot) => {

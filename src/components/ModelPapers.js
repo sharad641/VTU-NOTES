@@ -518,6 +518,7 @@ const ModelPapers = () => {
         <motion.div layout className="papers-high-grid">
           <AnimatePresence mode='popLayout'>
             {(showBookmarks ? papers.filter(p => bookmarkedPapers.includes(p.id)) : filteredPapers).map((paper, idx) => (
+              <React.Fragment key={paper.id}>
               <motion.div
                 layout
                 key={paper.id}
@@ -559,6 +560,30 @@ const ModelPapers = () => {
                   </a>
                 </div>
               </motion.div>
+              {/* Inject In-Feed Ad after every 6th item */}
+              {(idx + 1) % 6 === 0 && (
+                 <motion.div 
+                   layout 
+                   initial={{ opacity: 0 }} 
+                   animate={{ opacity: 1 }} 
+                   className="paper-high-card ad-card-container"
+                   style={{ 
+                     display: 'flex', 
+                     alignItems: 'center', 
+                     justifyContent: 'center',
+                     background: 'rgba(255,255,255,0.02)',
+                     border: '1px border rgba(255,255,255,0.1)'
+                   }}
+                 >
+                    <AdSenseAd 
+                       adClient="ca-pub-9499544849301534" 
+                       adSlot="3936951010" 
+                       adFormat="fluid"
+                       style={{ display: 'block', minWidth: '250px' }}
+                    />
+                 </motion.div>
+              )}
+              </React.Fragment>
             ))}
           </AnimatePresence>
         </motion.div>

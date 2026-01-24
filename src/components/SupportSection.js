@@ -26,9 +26,13 @@ const SupportSection = () => {
 
         const signInAndListen = async () => {
             try {
-                console.log("Attempting Anonymous Auth...");
-                await signInAnonymously(auth);
-                console.log("Auth Success");
+                if (!auth.currentUser) {
+                    console.log("No user found, attempting Anonymous Auth...");
+                    await signInAnonymously(auth);
+                    console.log("Auth Success");
+                } else {
+                    console.log("User already signed in:", auth.currentUser.uid);
+                }
 
                 const donationsRef = query(ref(database, 'donations'), orderByChild('timestamp'), limitToLast(50));
                 
