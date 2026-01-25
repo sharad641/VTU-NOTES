@@ -548,55 +548,118 @@
     font-weight: 700;
 }
 
+
+/* --- Modern Action Cards (Featuristic) --- */
 .resource-stack {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
-.stack-item {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--mp-border);
-    padding: 20px;
-    border-radius: 15px;
+.action-box {
+    border: none;
+    border-radius: 20px;
+    padding: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
     cursor: pointer;
+    text-align: left;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.action-box:hover {
+    transform: scale(1.02);
+}
+
+.action-box.primary-paper {
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+    color: white;
+}
+
+.action-box.secondary-paper {
+    background: rgba(30, 41, 59, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--mp-text-muted);
+}
+
+.action-box.secondary-paper:hover {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: white;
+}
+
+.box-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.box-info span {
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.box-icon {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+/* Secure Download Button */
+.secure-dl-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: white;
+    color: #0F172A;
+    font-weight: 800;
+    padding: 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-top: 30px;
+    font-size: 1.1rem;
     transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
 }
 
-.stack-item:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: white;
+.secure-dl-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 255, 255, 0.25);
 }
 
-.stack-item.prime {
-    background: var(--mp-accent);
-    border-color: var(--mp-accent);
-}
-
-.drawer-download-btn {
+.share-action-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    background: white;
-    color: black;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--mp-text-muted);
     padding: 15px;
     border-radius: 15px;
-    font-weight: 800;
-    text-decoration: none;
-    margin-top: 30px;
+    width: 100%;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
 }
 
+.share-action-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+}
 
-
-/* --- Trending Hub --- */
-.papers-premium-footer {
-    margin-top: 80px;
+.drawer-footer p {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--mp-text-muted);
+    opacity: 0.6;
+    margin-top: 20px;
 }
 
 .trending-barrier {
@@ -675,14 +738,187 @@
     color: var(--mp-text-muted);
 }
 
+/* Improved Mobile Response */
+/* Tablet Response */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .papers-high-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    .paper-glass-drawer {
+        width: 60%;
+    }
+}
+
+/* Large Desktop Response */
+@media (min-width: 1441px) {
+    .papers-high-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Base Mobile Response */
 @media (max-width: 768px) {
+    .papers-portal-root {
+        padding-top: 80px;
+        padding-bottom: 80px;
+        /* More bottom padding for nav */
+    }
+
+    .papers-hero-card {
+        padding: 30px 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        border-radius: 20px;
+    }
+
+    .hero-brand h1 {
+        font-size: 2rem;
+        /* Smaller title */
+    }
+
+    .hero-stats-island {
+        width: 100%;
+        justify-content: space-around;
+        gap: 10px;
+        padding: 15px 10px;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
     .papers-island-controls {
         flex-direction: column;
         height: auto;
-        border-radius: 20px;
+        border-radius: 25px;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .search-pill {
+        width: 100%;
+        height: 45px;
+    }
+
+    .filter-pill-group {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .sort-pill {
+        flex: 1;
+    }
+
+    .sort-pill select {
+        width: 100%;
+        height: 45px;
+        font-size: 0.9rem;
+    }
+
+    .bookmark-toggle-pill {
+        width: 45px;
+        height: 45px;
+    }
+
+    .papers-high-grid {
+        grid-template-columns: 1fr;
+        /* Single column on mobile */
+        gap: 20px;
+        padding-bottom: 20px;
+    }
+
+    .paper-high-card {
+        border-radius: 24px;
+        padding: 25px;
     }
 
     .paper-glass-drawer {
         width: 100%;
+        border-left: none;
+        padding: 25px 20px;
+        border-radius: 20px 20px 0 0;
+        top: 10vh;
+        /* Slide up sheet feel */
+        height: 90vh;
     }
+
+    .drawer-header {
+        margin-bottom: 25px;
+    }
+
+    .trending-scroller {
+        grid-auto-columns: 85%;
+        /* Peek effect */
+        grid-template-columns: initial;
+        display: flex;
+        /* Horizontal scroll */
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 20px;
+    }
+
+    .trending-mini-card {
+        scroll-snap-align: start;
+        min-width: 260px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .hero-p {
+        font-size: 0.95rem;
+    }
+
+    .cat-chip {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .sem-pill {
+        padding: 6px 14px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Animations */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.is-new-glow {
+    position: relative;
+}
+
+.is-new-glow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+    background-size: 1000px 100%;
+    animation: shimmer 3s infinite linear;
+    pointer-events: none;
+}
+
+.meta-new {
+    color: var(--neon-green);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.75rem;
+    background: rgba(52, 211, 153, 0.1);
+    padding: 2px 8px;
+    border-radius: 12px;
 }

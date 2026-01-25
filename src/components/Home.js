@@ -208,25 +208,28 @@ const Home = () => {
         {/* --- Feature Highlights Grid --- */}
         <div className="feature-highlights-grid">
           {[
-            { icon: <FaGraduationCap />, title: "Curated Notes", desc: "Expert-verified study material", color: "var(--neon-blue)" },
-            { icon: <FaLayerGroup />, title: "Model Papers", desc: "Previous years & predicted questions", color: "var(--neon-purple)" },
-            { icon: <FaCalculator />, title: "SGPA Tools", desc: "Instant GPA & CGPA calculations", color: "var(--neon-green)" },
-            { icon: <FaRobot />, title: "AI Assistant", desc: "Powered by Gemini for instant help", color: "var(--neon-rose)" }
+            { icon: <FaGraduationCap />, title: "Curated Notes", desc: "Expert-verified study material", color: "var(--neon-blue)", link: "/branch-selection/2022" },
+            { icon: <FaLayerGroup />, title: "Model Papers", desc: "Previous years & predicted questions", color: "var(--neon-purple)", link: "/model-papers" },
+            { icon: <FaCalculator />, title: "SGPA Tools", desc: "Instant GPA & CGPA calculations", color: "var(--neon-green)", link: "/sgpa-calculator" }
           ].map((feature, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -5, scale: 1.02 }}
-              className="feature-card-modern"
-            >
-              <div className="feature-icon-wrapper" style={{ boxShadow: `0 0 20px ${feature.color}33`, color: feature.color }}>
-                {feature.icon}
-              </div>
-              <div className="feature-info">
-                <h4>{feature.title}</h4>
-                <p>{feature.desc}</p>
-              </div>
-              <div className="feature-glow" style={{ background: feature.color }}></div>
-            </motion.div>
+            <Link to={feature.link} key={i} style={{ textDecoration: 'none' }}>
+              <motion.div
+                whileHover={{ y: -5, scale: 1.02 }}
+                className="feature-card-modern"
+              >
+                <div className="feature-icon-wrapper" style={{ boxShadow: `0 0 20px ${feature.color}33`, color: feature.color }}>
+                  {feature.icon}
+                </div>
+                <div className="feature-info">
+                  <h4>{feature.title}</h4>
+                  <p>{feature.desc}</p>
+                </div>
+                <div className="feature-glow" style={{ background: feature.color }}></div>
+                <div className="card-arrow-icon" style={{ marginLeft: 'auto', color: 'rgba(255,255,255,0.3)' }}>
+                    <HiOutlineChevronRight />
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
 
