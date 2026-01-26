@@ -885,29 +885,30 @@ const ModelPapers = () => {
                   </a>
                 </div>
               </motion.div>
-              {/* Inject In-Feed Ad after every 6th item */}
-              {(idx + 1) % 6 === 0 && (
-                 <motion.div 
-                   layout 
-                   initial={{ opacity: 0 }} 
-                   animate={{ opacity: 1 }} 
-                   className="paper-high-card ad-card-container"
-                   style={{ 
-                     display: 'flex', 
-                     alignItems: 'center', 
-                     justifyContent: 'center',
-                     background: 'rgba(255,255,255,0.02)',
-                     border: '1px border rgba(255,255,255,0.1)'
-                   }}
-                 >
-                    <AdSenseAd 
-                       adClient="ca-pub-9499544849301534" 
-                       adSlot="3936951010" 
-                       adFormat="fluid"
-                       style={{ display: 'block', minWidth: '250px' }}
-                    />
-                 </motion.div>
-              )}
+               {/* Inject In-Feed Ad after every 6th item */}
+               {(idx + 1) % 6 === 0 && (
+                  <motion.div 
+                    layout 
+                    initial={{ opacity: 0 }} 
+                    animate={{ opacity: 1 }} 
+                    className="paper-high-card ad-card-container"
+                    style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      justifyContent: 'center',
+                      background: 'rgba(255,255,255,0.02)',
+                      border: '1px solid rgba(255,255,255,0.1)'
+                    }}
+                  >
+                     <AdSenseAd 
+                        adClient="ca-pub-9499544849301534" 
+                        adSlot="4047001347" 
+                        adFormat="auto"
+                        fullWidthResponsive={true}
+                        style={{ display: 'block', minWidth: '250px' }}
+                     />
+                  </motion.div>
+               )}
               </React.Fragment>
             ))}
           </AnimatePresence>

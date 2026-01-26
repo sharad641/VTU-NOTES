@@ -9,6 +9,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import './PlacementModern.css'; // CHANGED: Modern CSS
 import PlacementDetailView from './PlacementDetailView';
+import AdSenseAd from '../components/AdSenseAd';
 
 // --- ANIMATION VARIANTS ---
 const containerVariants = {
@@ -249,6 +250,14 @@ export default function PlacementSection() {
                 </select>
               </div>
             </div>
+
+            {/* AdSense - Mobile-First Placement */}
+            <AdSenseAd
+              adClient="ca-pub-9499544849301534"
+              adSlot="4047001347"
+              adFormat="auto"
+              fullWidthResponsive={true}
+            />
 
             {/* Grid */}
             {filteredData.length > 0 ? (

@@ -9,6 +9,7 @@ import { auth, database } from "../firebase";
 import { ref, push, onValue, serverTimestamp } from "firebase/database";
 import "./PlacementModern.css";
 import { useNavigate } from "react-router-dom";
+import AdSenseAd from '../components/AdSenseAd';
 
 /* ----------------- Discussion Section ----------------- */
 const DiscussionSection = ({ reviewId }) => {
@@ -218,6 +219,16 @@ export default function PlacementDetailView({ data, onBack }) {
               </div>
             </div>
           )}
+
+          {/* AdSense - Mobile-First Placement (appears after resources) */}
+          <div className="mobile-order-ad" style={{ order: 6.5 }}>
+            <AdSenseAd
+              adClient="ca-pub-9499544849301534"
+              adSlot="4047001347"
+              adFormat="auto"
+              fullWidthResponsive={true}
+            />
+          </div>
 
           {/* Discussion */}
           <DiscussionSection reviewId={data.id} />
