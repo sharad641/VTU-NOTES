@@ -169,10 +169,7 @@ export default function PlacementSection() {
   return (
     <div className="placement-page-container">
       {/* Background Engine */}
-      <div className="placement-background-engine">
-        <div className="engine-shape blob-1"></div>
-        <div className="engine-shape blob-2"></div>
-      </div>
+      <div className="placement-background-engine"></div>
 
       <AnimatePresence mode="wait">
         {selectedExperience ? (

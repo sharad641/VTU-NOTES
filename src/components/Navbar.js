@@ -4,7 +4,7 @@ import { auth } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import {
   FaSearch, FaBars, FaTimes, FaHome, FaBook, FaGraduationCap,
-  FaCalculator, FaRocket, FaBriefcase
+  FaCalculator, FaRocket, FaBriefcase, FaChevronDown
 } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import MobileBottomNav from "./MobileBottomNav";
@@ -41,7 +41,17 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/", icon: <FaHome /> },
     { name: "Notes", path: "/branch-selection/2022", icon: <FaBook /> },
-    { name: "Placement", path: "/placement-stories", icon: <FaBriefcase /> },
+    { 
+      name: "Placement", 
+      path: "/placement-guide", // Default path
+      icon: <FaBriefcase />,
+      submenu: [
+        { name: "Guide & Roadmap", path: "/placement-guide" },
+        // { name: "Resume Builder", path: "/resume-builder" },
+        { name: "Success Stories", path: "/placement-stories" },
+        { name: "Share Experience", path: "/share-experience" }
+      ]
+    },
     { name: "Model Papers", path: "/model-papers", icon: <FaGraduationCap /> },
     { name: "SGPA", path: "/sgpa-calculator", icon: <FaCalculator /> },
     { name: "Projects", path: "/project-enquiry", icon: <FaRocket /> },
@@ -84,16 +94,25 @@ const Navbar = () => {
           <div className="nav-links-hub">
             <ul className="nav-list-desktop" onMouseLeave={() => setHoveredPath(location.pathname)}>
               {navLinks.map((link) => {
-                const isActive = location.pathname === link.path;
+                const isActive = location.pathname === link.path || (link.submenu && link.submenu.some(sub => location.pathname === sub.path));
+                const hasSubmenu = !!link.submenu;
+
                 return (
-                  <li key={link.name}>
+                  <li 
+                    key={link.name} 
+                    className={hasSubmenu ? "nav-item-dropdown-wrapper" : ""}
+                    onMouseEnter={() => setHoveredPath(link.path)}
+                  >
                     <Link
                       to={link.path}
                       className={`nav-link-item ${isActive ? "is-active" : ""}`}
-                      onMouseEnter={() => setHoveredPath(link.path)}
                     >
-                      <span style={{ position: "relative", zIndex: 10 }}>{link.name}</span>
-                      {hoveredPath === link.path && (
+                      <span style={{ position: "relative", zIndex: 10, display: 'flex', alignItems: 'center', gap: '5px' }}>
+                        {link.name} 
+                        {hasSubmenu && <FaChevronDown style={{ fontSize: '0.7em', opacity: 0.7 }} />}
+                      </span>
+                      
+                      {hoveredPath === link.path && !hasSubmenu && (
                         <motion.div
                           layoutId="navbar-spotlight"
                           className="nav-item-bg"
@@ -104,14 +123,10 @@ const Navbar = () => {
                             borderRadius: "50px",
                             zIndex: 0,
                           }}
-                          transition={{
-                            type: "spring",
-                            bounce: 0.2,
-                            duration: 0.6,
-                          }}
+                          transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                         />
                       )}
-                      {isActive && (
+                      {isActive && !hasSubmenu && (
                         <motion.div
                           layoutId="navbar-indicator"
                           className="nav-item-active-ring"
@@ -126,6 +141,17 @@ const Navbar = () => {
                         />
                       )}
                     </Link>
+
+                    {/* Dropdown Menu */}
+                    {hasSubmenu && (
+                      <div className="nav-dropdown-menu">
+                        {link.submenu.map((subItem) => (
+                          <Link key={subItem.name} to={subItem.path} className="nav-dropdown-item">
+                            {subItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
                   </li>
                 );
               })}

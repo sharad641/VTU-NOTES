@@ -127,57 +127,133 @@ export default function SgpaCalculator({ mode = 'full' }) {
     const pageWidth = doc.internal.pageSize.getWidth();
     const pageHeight = doc.internal.pageSize.getHeight();
     const themeColor = [99, 102, 241];
-    doc.setTextColor(240, 240, 240); doc.setFontSize(50); doc.setFont('helvetica', 'bold');
+    
+    // Watermark
+    doc.setTextColor(240, 240, 240); 
+    doc.setFontSize(50); 
+    doc.setFont('helvetica', 'bold');
     doc.text('PROVISIONAL RESULT', pageWidth / 2, pageHeight / 2, { align: 'center', angle: 45 });
-    doc.setFillColor(...themeColor); doc.rect(0, 0, pageWidth, 5, 'F');
-    doc.setTextColor(0, 0, 0); doc.setFontSize(16); doc.setFont('helvetica', 'bold');
-    doc.text('VTU NOTES - ACADEMICS', 14, 20);
-    doc.setFontSize(10); doc.setFont('helvetica', 'normal'); doc.setTextColor(100, 100, 100);
+    
+    // Top border
+    doc.setFillColor(...themeColor); 
+    doc.rect(0, 0, pageWidth, 5, 'F');
+    
+    // Header - Updated with vtunotesforall branding
+    doc.setTextColor(0, 0, 0); 
+    doc.setFontSize(18); 
+    doc.setFont('helvetica', 'bold');
+    doc.text('vtunotesforall', 14, 20);
+    
+    doc.setFontSize(10); 
+    doc.setFont('helvetica', 'normal'); 
+    doc.setTextColor(100, 100, 100);
     doc.text('Official SGPA Analytics Report', 14, 26);
+    
     const date = new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
     doc.text(`Date: ${date}`, pageWidth - 14, 20, { align: 'right' });
-    doc.setDrawColor(220, 220, 220); doc.setFillColor(250, 252, 255);
+    
+    // Student Info Box
+    doc.setDrawColor(220, 220, 220); 
+    doc.setFillColor(250, 252, 255);
     doc.roundedRect(14, 35, pageWidth - 28, 35, 3, 3, 'FD');
-    doc.setFontSize(11); doc.setTextColor(60, 60, 60);
-    const leftCol = 20; const rightCol = pageWidth / 2 + 10;
-    const row1 = 45; const row2 = 53; const row3 = 61;
-    doc.setFont('helvetica', 'bold'); doc.text("Name:", leftCol, row1); doc.text("USN:", rightCol, row1);
-    doc.text("Stream:", leftCol, row2); doc.text("Semester:", rightCol, row2); doc.text("Scheme:", leftCol, row3);
-    doc.setFont('helvetica', 'normal'); doc.setTextColor(0, 0, 0);
+    doc.setFontSize(11); 
+    doc.setTextColor(60, 60, 60);
+    
+    const leftCol = 20; 
+    const rightCol = pageWidth / 2 + 10;
+    const row1 = 45; 
+    const row2 = 53; 
+    const row3 = 61;
+    
+    doc.setFont('helvetica', 'bold'); 
+    doc.text("Name:", leftCol, row1); 
+    doc.text("USN:", rightCol, row1);
+    doc.text("Stream:", leftCol, row2); 
+    doc.text("Semester:", rightCol, row2); 
+    doc.text("Scheme:", leftCol, row3);
+    
+    doc.setFont('helvetica', 'normal'); 
+    doc.setTextColor(0, 0, 0);
     doc.text(studentName || "----------------", leftCol + 25, row1);
     doc.text(studentUSN || "----------------", rightCol + 25, row1);
-    doc.text(branch, leftCol + 25, row2); doc.text(semester, rightCol + 25, row2);
+    doc.text(branch, leftCol + 25, row2); 
+    doc.text(semester, rightCol + 25, row2);
     doc.text("VTU 2022 (Extreme)", leftCol + 25, row3);
-    const startY = 80; doc.setFontSize(12); doc.setFont('helvetica', 'bold');
-    doc.setTextColor(...themeColor); doc.text("Academic Performance Summary", 14, startY);
-    doc.setFillColor(...themeColor); doc.roundedRect(14, startY + 5, 40, 25, 2, 2, 'F');
-    doc.setTextColor(255, 255, 255); doc.setFontSize(9); doc.text("SGPA", 34, startY + 12, { align: 'center' });
-    doc.setFontSize(16); doc.setFont('helvetica', 'bold'); doc.text(sgpa, 34, startY + 22, { align: 'center' });
-    doc.setFillColor(241, 245, 249); doc.setDrawColor(...themeColor);
+    
+    // Performance Summary
+    const startY = 80; 
+    doc.setFontSize(12); 
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(...themeColor); 
+    doc.text("Academic Performance Summary", 14, startY);
+    
+    // SGPA Box
+    doc.setFillColor(...themeColor); 
+    doc.roundedRect(14, startY + 5, 40, 25, 2, 2, 'F');
+    doc.setTextColor(255, 255, 255); 
+    doc.setFontSize(9); 
+    doc.text("SGPA", 34, startY + 12, { align: 'center' });
+    doc.setFontSize(16); 
+    doc.setFont('helvetica', 'bold'); 
+    doc.text(sgpa, 34, startY + 22, { align: 'center' });
+    
+    // Percentage Box
+    doc.setFillColor(241, 245, 249); 
+    doc.setDrawColor(...themeColor);
     doc.roundedRect(60, startY + 5, 40, 25, 2, 2, 'FD');
-    doc.setTextColor(0, 0, 0); doc.setFontSize(9); doc.text("Percentage", 80, startY + 12, { align: 'center' });
-    doc.setFontSize(16); doc.setFont('helvetica', 'bold'); doc.text(`${displayPercentage}%`, 80, startY + 22, { align: 'center' });
-    doc.setFillColor(241, 245, 249); doc.roundedRect(106, startY + 5, pageWidth - 120, 25, 2, 2, 'FD');
-    doc.setFontSize(9); doc.setFont('helvetica', 'normal'); doc.text("Class Awarded", 112, startY + 12);
-    doc.setFontSize(12); doc.setFont('helvetica', 'bold'); doc.setTextColor(...themeColor);
+    doc.setTextColor(0, 0, 0); 
+    doc.setFontSize(9); 
+    doc.text("Percentage", 80, startY + 12, { align: 'center' });
+    doc.setFontSize(16); 
+    doc.setFont('helvetica', 'bold'); 
+    doc.text(`${displayPercentage}%`, 80, startY + 22, { align: 'center' });
+    
+    // Class Awarded Box
+    doc.setFillColor(241, 245, 249); 
+    doc.roundedRect(106, startY + 5, pageWidth - 120, 25, 2, 2, 'FD');
+    doc.setFontSize(9); 
+    doc.setFont('helvetica', 'normal'); 
+    doc.text("Class Awarded", 112, startY + 12);
+    doc.setFontSize(12); 
+    doc.setFont('helvetica', 'bold'); 
+    doc.setTextColor(...themeColor);
     doc.text(getClassAwarded(sgpa).toUpperCase(), 112, startY + 22);
+    
+    // Subject Table
     const tableBody = subjects.map(s => {
       const mark = marks[s.code];
       const grade = getGradePoint(mark);
       const label = getGradeLabel(mark);
       return [s.code, s.title.substring(0, 45), mark || '-', s.credits, label, grade * Number(s.credits)];
     });
+    
     autoTable(doc, {
-      startY: 120, head: [['Code', 'Subject Name', 'Marks', 'Credits', 'Grade', 'Points']], body: tableBody,
-      theme: 'grid', headStyles: { fillColor: themeColor, textColor: 255, fontSize: 10, fontStyle: 'bold' },
+      startY: 120, 
+      head: [['Code', 'Subject Name', 'Marks', 'Credits', 'Grade', 'Points']], 
+      body: tableBody,
+      theme: 'grid', 
+      headStyles: { fillColor: themeColor, textColor: 255, fontSize: 10, fontStyle: 'bold' },
       styles: { fontSize: 9, cellPadding: 4, valign: 'middle', lineColor: [220, 220, 220] },
-      columnStyles: { 0: { fontStyle: 'bold', cellWidth: 25 }, 1: { cellWidth: 'auto' }, 4: { fontStyle: 'bold', halign: 'center' }, 5: { halign: 'center' } }
+      columnStyles: { 
+        0: { fontStyle: 'bold', cellWidth: 25 }, 
+        1: { cellWidth: 'auto' }, 
+        4: { fontStyle: 'bold', halign: 'center' }, 
+        5: { halign: 'center' } 
+      }
     });
-    const footerY = pageHeight - 20; doc.setDrawColor(200, 200, 200); doc.line(14, footerY, pageWidth - 14, footerY);
-    doc.setFontSize(8); doc.setTextColor(150, 150, 150);
-    doc.text("This report is generated using VTU Notes Portal (3.0 Extreme Engine).", 14, footerY + 6);
-    doc.text("Always verify with official board results.", 14, footerY + 10);
-    doc.save(`Transcript_${studentUSN || 'VTU'}_3.0.pdf`);
+    
+    // Footer - Updated with vtunotesforall branding
+    const footerY = pageHeight - 25; 
+    doc.setDrawColor(200, 200, 200); 
+    doc.line(14, footerY, pageWidth - 14, footerY);
+    
+    doc.setFontSize(8); 
+    doc.setTextColor(150, 150, 150);
+    doc.text("Generated by vtunotesforall - Your Complete VTU Academic Companion", 14, footerY + 6);
+    doc.text("This report is generated using VTU Notes Portal (3.0 Extreme Engine).", 14, footerY + 10);
+    doc.text("Always verify with official board results.", 14, footerY + 14);
+    
+    doc.save(`Transcript_${studentUSN || 'VTU'}_vtunotesforall.pdf`);
   };
 
   if (loading) return (

@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  ArrowLeft, CheckCircle, User, Briefcase, BookOpen,
-  Target, FileText, Plus, Trash2, Loader2, Sparkles, Wand2,
-  Lightbulb, ChevronRight, GraduationCap, MapPin,
-  Link2, PlusCircle, X, Upload, Send, CheckSquare
+  ArrowLeft, CheckCircle, User, Briefcase,
+  Target, FileText, Trash2, Loader2, Wand2,
+  Send, ExternalLink, Plus
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -12,30 +11,11 @@ import { motion } from 'framer-motion';
 import { auth, database } from '../firebase';
 import { ref, push, serverTimestamp } from 'firebase/database';
 
-import './PlacementModern.css'; // CHANGED: Modern CSS
-
-// --- Smart Suggestions Data ---
-const SUGGESTED_RESOURCES = ["LeetCode", "GeeksforGeeks", "Striver SDE Sheet", "System Design Primer", "NeetCode 150", "InterviewBit", "Glassdoor"];
-const SUGGESTED_TECH = ["Java", "C++", "Python", "React.js", "Node.js", "SQL", "AWS", "Docker", "Kubernetes", "Spring Boot"];
-const SUGGESTED_TIPS = [
-  "Focus on communication skills",
-  "Prepare for behavioral questions (STAR method)",
-  "Network effectively on LinkedIn",
-  "Review core CS fundamentals (OS, DBMS)",
-  "Be honest about what you don't know"
-];
-const SUGGESTED_STUDY = [
-  "Master Dynamic Programming and Graphs",
-  "Understand OOPS concepts deeply",
-  "Build 2-3 strong full-stack projects",
-  "Participate in weekly coding contests",
-  "Read 'Cracking the Coding Interview'"
-];
+import './PlacementModern.css';
 
 const ShareExperiencePage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [activeSection, setActiveSection] = useState('personal');
   const [showSubmitSuccess, setShowSubmitSuccess] = useState(false);
 
   // Helper state for adding links one by one
@@ -61,25 +41,7 @@ const ShareExperiencePage = () => {
     setFormData(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
   };
 
-  const handleChipAdd = (field, value) => {
-    const current = formData[field];
-    const currentArray = current.split(',').map(item => item.trim().toLowerCase()).filter(Boolean);
-    if (!currentArray.includes(value.toLowerCase())) {
-      setFormData(prev => ({
-        ...prev,
-        [field]: current ? `${current}, ${value}` : value
-      }));
-    }
-  };
-
-  const insertIntoTextarea = (field, text) => {
-    setFormData(prev => ({
-      ...prev,
-      [field]: prev[field] ? `${prev[field]}\n• ${text}` : `• ${text}`
-    }));
-  };
-
-  // --- Link Management (New Feature) ---
+  // --- Link Management ---
   const handleLinkInput = (e) => {
     const { name, value } = e.target;
     setCurrentLink(prev => ({ ...prev, [name]: value }));
@@ -138,10 +100,12 @@ const ShareExperiencePage = () => {
     }
 
     try {
-      const techArray = formData.technologies.split(',').map(s => s.trim()).filter(s => s);
-      const resArray = formData.resources.split(',').map(s => s.trim()).filter(s => s);
-      const tipsArray = formData.placementTips.split('\n').map(s => s.replace(/^[•\-\*]\s*/, '').trim()).filter(s => s);
-      const studyArray = formData.studySuggestions.split('\n').map(s => s.replace(/^[•\-\*]\s*/, '').trim()).filter(s => s);
+      // Clean up legacy fields processing if they are empty
+      const techArray = formData.technologies ? formData.technologies.split(',').map(s => s.trim()).filter(s => s) : [];
+      const resArray = formData.resources ? formData.resources.split(',').map(s => s.trim()).filter(s => s) : [];
+      // Fix regex warning: unescaped * is fine in []
+      const tipsArray = formData.placementTips ? formData.placementTips.split('\n').map(s => s.replace(/^[•\-*]\s*/, '').trim()).filter(s => s) : [];
+      const studyArray = formData.studySuggestions ? formData.studySuggestions.split('\n').map(s => s.replace(/^[•\-*]\s*/, '').trim()).filter(s => s) : [];
 
       let formattedCTC = formData.ctc;
       if (formattedCTC && !formattedCTC.toLowerCase().includes('lpa') && !isNaN(parseFloat(formattedCTC))) {
@@ -175,146 +139,248 @@ const ShareExperiencePage = () => {
   };
 
   return (
-    <div className="placement-page-container">
+    <div className="placement-page-container share-story-container">
       <div className="placement-background-engine">
         <div className="engine-shape blob-1"></div>
         <div className="engine-shape blob-2"></div>
       </div>
 
-      <div className="placement-content-wrapper" style={{ paddingTop: '40px' }}>
+      <div className="placement-content-wrapper">
         <button
           onClick={() => navigate(-1)}
-          style={{
-            background: 'rgba(255,255,255,0.8)', border: 'none', padding: '10px 20px', borderRadius: '100px',
-            display: 'flex', alignItems: 'center', gap: '8px', fontWeight: '700', cursor: 'pointer',
-            marginBottom: '30px', backdropFilter: 'blur(10px)'
-          }}
+          className="btn-ghost"
+          style={{ marginBottom: '20px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
         >
-          <ArrowLeft size={18} /> Cancel
+          <ArrowLeft size={18} /> Back to Stories
         </button>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="form-glass-container"
-        >
-          <div className="form-header-modern">
-            <h1>Share Your Story</h1>
-            <p style={{ color: 'var(--text-gray)', fontSize: '1.1rem' }}>Help juniors by sharing your interview experience</p>
-          </div>
+        <div className="share-header-section">
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Share Your Journey
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            Your experience can guide thousands of juniors. Help build the community knowledge base.
+          </motion.p>
+        </div>
 
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="glass-card-form"
+        >
           <form onSubmit={handleSubmit}>
-            {/* Personal Info */}
-            <div style={{ marginBottom: '40px' }}>
-              <h3 style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}><User className="text-accent" /> Personal Info</h3>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+
+            {/* --- Personal Info Section --- */}
+            <div style={{ marginBottom: '50px' }}>
+              <div className="form-section-title">
+                <User size={24} /> <span>Personal Info</span>
+              </div>
+              <div className="form-grid-2">
                 <div className="modern-input-group">
-                  <label>Status</label>
+                  <label>Current Status</label>
                   <select name="status" value={formData.status} onChange={handleChange} className="modern-input">
-                    <option>B.Tech Student</option><option>Alumni</option>
+                    <option>B.Tech Student</option>
+                    <option>Alumni</option>
                   </select>
                 </div>
                 <div className="modern-input-group">
-                  <label>Grad Year</label>
-                  <input name="gradYear" value={formData.gradYear} onChange={handleChange} className="modern-input" placeholder="2025" />
+                  <label>Passout Year</label>
+                  <input name="gradYear" value={formData.gradYear} onChange={handleChange} className="modern-input" placeholder="e.g. 2025" />
                 </div>
               </div>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer', fontWeight: '600' }}>
+              <label className="modern-checkbox-label">
                 <input type="checkbox" name="isAnonymous" checked={formData.isAnonymous} onChange={handleChange} />
-                Post Anonymously
+                <span>Post Anonymously (Hide my name and photo)</span>
               </label>
             </div>
 
-            {/* Job Info */}
-            <div style={{ marginBottom: '40px' }}>
-              <h3 style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}><Briefcase className="text-accent" /> Job Details</h3>
-              <div className="modern-input-group">
-                <label>Company *</label>
-                <input name="company" value={formData.company} onChange={handleChange} className="modern-input" required placeholder="e.g. Google" />
+            {/* --- Job Details Section --- */}
+            <div style={{ marginBottom: '50px' }}>
+              <div className="form-section-title">
+                <Briefcase size={24} /> <span>Role & Company</span>
               </div>
-              <div className="modern-input-group">
-                <label>Role *</label>
-                <input name="role" value={formData.role} onChange={handleChange} className="modern-input" required placeholder="e.g. SDE Intern" />
-              </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+
+              <div className="form-grid-2">
                 <div className="modern-input-group">
-                  <label>CTC</label>
-                  <input name="ctc" value={formData.ctc} onChange={handleChange} className="modern-input" placeholder="e.g. 12 LPA" />
+                  <label>Company Name *</label>
+                  <input name="company" value={formData.company} onChange={handleChange} className="modern-input" required placeholder="e.g. Google" />
                 </div>
                 <div className="modern-input-group">
-                  <label>Location</label>
+                  <label>Role / Position *</label>
+                  <input name="role" value={formData.role} onChange={handleChange} className="modern-input" required placeholder="e.g. SDE Intern" />
+                </div>
+              </div>
+
+              <div className="form-grid-3">
+                <div className="modern-input-group">
+                  <label>CTC Offered</label>
+                  <input name="ctc" value={formData.ctc} onChange={handleChange} className="modern-input" placeholder="e.g. 24 LPA" />
+                </div>
+                <div className="modern-input-group">
+                  <label>Work Location</label>
                   <input name="location" value={formData.location} onChange={handleChange} className="modern-input" placeholder="e.g. Bangalore" />
+                </div>
+                <div className="modern-input-group">
+                  <label>Opportunity Type</label>
+                  <select name="jobType" value={formData.jobType} onChange={handleChange} className="modern-input">
+                    <option>On-Campus</option>
+                    <option>Off-Campus</option>
+                    <option>Internship</option>
+                  </select>
                 </div>
               </div>
             </div>
 
-            {/* Experience */}
-            <div style={{ marginBottom: '40px' }}>
-              <h3 style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}><FileText className="text-accent" /> Experience</h3>
+            {/* --- Outcome Analysis --- */}
+            <div style={{ marginBottom: '50px' }}>
+              <div className="form-section-title">
+                <Target size={24} /> <span>Process Analysis</span>
+              </div>
+              <div className="form-grid-2">
+                <div className="modern-input-group">
+                  <label>Perceived Difficulty</label>
+                  <select name="difficulty" value={formData.difficulty} onChange={handleChange} className="modern-input">
+                    <option>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+                  </select>
+                </div>
+                <div className="modern-input-group">
+                  <label>Final Verdict</label>
+                  <select name="offerStatus" value={formData.offerStatus} onChange={handleChange} className="modern-input">
+                    <option value="Selected">Selected</option>
+                    <option value="Rejected">Rejected</option>
+                    <option value="Pending">Pending</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            {/* --- Experience & Rounds --- */}
+            <div style={{ marginBottom: '50px' }}>
+              <div className="form-section-title">
+                <FileText size={24} /> <span>Detailed Experience</span>
+              </div>
+
               <div className="modern-input-group">
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
-                  <label>Your Journey</label>
-                  <button type="button" onClick={insertTemplate} style={{ background: 'none', border: 'none', color: 'var(--pm-accent)', cursor: 'pointer', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '4px' }}><Wand2 size={14} /> Use Template</button>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                  <label>Overall Experience Summary *</label>
+                  <button type="button" onClick={insertTemplate} className="btn-ghost" style={{ padding: '4px 12px', fontSize: '0.8rem', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Wand2 size={14} /> Auto-fill Template
+                  </button>
                 </div>
                 <textarea
                   name="experience"
                   value={formData.experience}
                   onChange={handleChange}
                   className="modern-input"
-                  style={{ minHeight: '200px', resize: 'vertical' }}
+                  style={{ minHeight: '180px', resize: 'vertical', lineHeight: '1.6' }}
                   required
-                  placeholder="Describe your interview process, difficulty, and experience..."
+                  placeholder="Share a comprehensive summary of your interview experience. What did they ask? How did you approach the problems?"
                 />
               </div>
 
-              {/* Rounds */}
-              <div>
-                <label style={{ fontWeight: '700', display: 'block', marginBottom: '10px' }}>Interview Rounds</label>
+              <div style={{ marginTop: '30px' }}>
+                <label style={{ fontWeight: '700', fontSize: '1.1rem', marginBottom: '16px', display: 'block', color: 'white' }}>Interview Rounds Breakdown</label>
                 {formData.rounds.map((round, index) => (
-                  <div key={index} style={{ background: 'rgba(255,255,255,0.5)', padding: '20px', borderRadius: '16px', marginBottom: '16px', border: '1px solid rgba(0,0,0,0.05)' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '10px' }}>
-                      <span style={{ fontWeight: '600' }}>Round {index + 1}</span>
-                      {formData.rounds.length > 1 && <button type="button" onClick={() => removeRound(index)} style={{ background: 'none', border: 'none', color: 'red', cursor: 'pointer' }}><Trash2 size={16} /></button>}
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="round-card"
+                  >
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '16px' }}>
+                      <span style={{ fontWeight: '700', color: 'var(--primary-neon)' }}>Round {index + 1}</span>
+                      {formData.rounds.length > 1 && (
+                        <button type="button" onClick={() => removeRound(index)} className="delete-btn-icon">
+                          <Trash2 size={18} />
+                        </button>
+                      )}
                     </div>
                     <input
-                      placeholder="Round Title (e.g. Coding Round)"
+                      placeholder="Round Title (e.g. 'Coding Round 1', 'System Design')"
                       value={round.title}
                       onChange={e => handleRoundChange(index, 'title', e.target.value)}
                       className="modern-input"
-                      style={{ marginBottom: '10px' }}
+                      style={{ marginBottom: '12px' }}
                     />
                     <textarea
-                      placeholder="Description of the round..."
+                      placeholder="Describe the questions asked in this round..."
                       value={round.description}
                       onChange={e => handleRoundChange(index, 'description', e.target.value)}
                       className="modern-input"
                       style={{ minHeight: '80px' }}
                     />
-                  </div>
+                  </motion.div>
                 ))}
-                <button type="button" onClick={addRound} style={{ background: 'none', border: '1px dashed var(--pm-accent)', color: 'var(--pm-accent)', padding: '10px', width: '100%', borderRadius: '12px', cursor: 'pointer', fontWeight: '600' }}>+ Add Round</button>
+
+                <button type="button" onClick={addRound} className="add-btn-dashed">
+                  <Plus size={20} /> Add Another Round
+                </button>
               </div>
             </div>
 
-            {/* Submit Action */}
-            <div style={{ borderTop: '1px solid rgba(0,0,0,0.1)', paddingTop: '30px', display: 'flex', justifyContent: 'flex-end', gap: '16px' }}>
+            {/* --- Resources & Tips --- */}
+            <div style={{ marginBottom: '30px' }}>
+              <div className="form-section-title">
+                <ExternalLink size={24} /> <span>Resources & Links</span>
+              </div>
+
+              <div className="modern-input-group">
+                <label>External Links (Notes, Portfolios, etc.)</label>
+                <div style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}>
+                  <input
+                    name="title" placeholder="Link Title (e.g. My Resume)"
+                    value={currentLink.title} onChange={handleLinkInput}
+                    className="modern-input" style={{ flex: 1 }}
+                  />
+                  <input
+                    name="url" placeholder="URL (https://...)"
+                    value={currentLink.url} onChange={handleLinkInput}
+                    className="modern-input" style={{ flex: 2 }}
+                  />
+                  <button type="button" onClick={addLink} className="btn-primary-neon" style={{ padding: '0 20px', borderRadius: '12px' }}>
+                    <Plus size={20} />
+                  </button>
+                </div>
+
+                {formData.externalLinks.length > 0 && (
+                  <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                    {formData.externalLinks.map((link, idx) => (
+                      <div key={idx} style={{ background: 'rgba(255,255,255,0.1)', padding: '6px 12px', borderRadius: '8px', display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.9rem' }}>
+                        <a href={link.url} target="_blank" rel="noreferrer" style={{ color: 'var(--primary-neon)', textDecoration: 'none' }}>{link.title}</a>
+                        <button type="button" onClick={() => removeLink(idx)} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.5)', cursor: 'pointer', padding: 0 }}>
+                          <Trash2 size={14} />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="action-bar-sticky">
               <button
                 type="button"
                 onClick={() => navigate(-1)}
-                style={{ background: 'transparent', border: 'none', padding: '12px 24px', fontSize: '1rem', fontWeight: '600', color: 'var(--text-gray)', cursor: 'pointer' }}
+                className="btn-ghost"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={loading}
-                style={{
-                  background: 'linear-gradient(135deg, var(--pm-accent), #EC4899)',
-                  color: 'white', border: 'none', padding: '12px 32px', borderRadius: '12px',
-                  fontSize: '1rem', fontWeight: '700', cursor: 'pointer',
-                  boxShadow: '0 10px 20px var(--pm-accent-glow)',
-                  display: 'flex', alignItems: 'center', gap: '10px'
-                }}
+                className="btn-primary-neon"
+                style={{ minWidth: '180px', justifyContent: 'center' }}
               >
                 {loading ? <Loader2 className="animate-spin" size={20} /> : <Send size={20} />}
                 Publish Story
@@ -323,6 +389,31 @@ const ShareExperiencePage = () => {
 
           </form>
         </motion.div>
+
+        {/* Success Modal */}
+        {showSubmitSuccess && (
+          <div className="download-overlay" style={{ zIndex: 2000 }}>
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="download-modal"
+              style={{ maxWidth: '450px', background: 'rgba(10, 10, 20, 0.95)', border: '1px solid var(--primary-neon)' }}
+            >
+              <div style={{
+                width: '80px', height: '80px', borderRadius: '50%',
+                background: 'linear-gradient(135deg, var(--primary-neon), var(--success))',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                margin: '0 auto 24px', boxShadow: '0 0 40px rgba(0, 240, 255, 0.4)'
+              }}>
+                <CheckCircle size={40} color="black" strokeWidth={3} />
+              </div>
+              <h3 style={{ fontSize: '1.8rem', marginBottom: '10px', background: 'linear-gradient(to right, white, var(--primary-neon))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Success!</h3>
+              <p style={{ color: 'var(--text-muted)', marginBottom: '0' }}>
+                Your story has been published successfully. Thank you for contributing to the community!
+              </p>
+            </motion.div>
+          </div>
+        )}
       </div>
     </div>
   );

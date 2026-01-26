@@ -21,6 +21,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Calculator from './components/Calculator';
 import PlacementGuide from './components/PlacementGuide';
+import ResumeBuilder from './components/ResumeBuilder';
 import FAQs from './components/FAQs';
 import ChatBot from './components/ChatBot';
 import TestPage from './components/TestPage';
@@ -172,6 +173,12 @@ function AppContent({ isAuthenticated, userEmail, adminEmail, setIsAuthenticated
             <ProtectedRoute element={<PlacementSection />} isAuthenticated={isAuthenticated} />
           }
         />
+        {/* <Route
+          path="/resume-builder"
+          element={
+            <ProtectedRoute element={<ResumeBuilder />} isAuthenticated={isAuthenticated} />
+          }
+        /> */}
         <Route
           path="/share-experience"
           element={

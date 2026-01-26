@@ -1,0 +1,1525 @@
+/* ResumeBuilder.css - Modern Featuristic Design */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --rb-bg: #0f172a;
+    --rb-sidebar: rgba(30, 41, 59, 0.7);
+    --rb-border: rgba(255, 255, 255, 0.08);
+    --rb-accent: #6366f1;
+    --rb-accent-glow: rgba(99, 102, 241, 0.5);
+    --rb-text: #f8fafc;
+    --rb-text-muted: #94a3b8;
+    --glass: rgba(15, 23, 42, 0.6);
+}
+
+.rb-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: radial-gradient(circle at top right, #1e1b4b, #0f172a);
+    color: var(--rb-text);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    padding-top: 70px;
+}
+
+/* NAVBAR */
+.rb-navbar {
+    height: 64px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rb-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    z-index: 50;
+}
+
+.rb-brand {
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rb-logo-circle {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--rb-accent), #a855f7);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 15px var(--rb-accent-glow);
+}
+
+.rb-logo-circle svg {
+    color: white;
+    width: 20px;
+}
+
+.rb-accent {
+    background: linear-gradient(to right, #818cf8, #c084fc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rb-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* BUTTONS */
+.rb-btn-download {
+    background: linear-gradient(135deg, var(--rb-accent), #4f46e5);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    transition: all 0.2s;
+}
+
+.rb-btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+.rb-btn-download:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
+.rb-btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border: 1px solid var(--rb-border);
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.rb-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.rb-btn-add-item {
+    width: 100%;
+    padding: 0.8rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--rb-border);
+    color: var(--rb-text-muted);
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.rb-btn-add-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border-color: var(--rb-accent);
+}
+
+.spin {
+    animation: spin 1s linear infinite;
+}
+
+/* SIDEBAR SECTION LIST */
+.rb-section-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 1rem;
+    padding-bottom: 20px;
+}
+
+/* ADD SECTION & BOTTOM ACTIONS */
+.rb-add-section-wrapper {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--rb-border);
+}
+
+.rb-btn-add-section {
+    width: 100%;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed var(--rb-border);
+    color: var(--rb-text-muted);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+.rb-btn-add-section:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: var(--rb-accent);
+}
+
+.rb-btn-icon {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--rb-border);
+    color: var(--rb-text-muted);
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.rb-btn-icon:hover {
+    background: var(--rb-accent);
+    color: white;
+    border-color: var(--rb-accent);
+}
+
+.rb-section-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    color: var(--rb-text-muted);
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+}
+
+.rb-section-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.rb-section-btn.active {
+    background: var(--rb-accent);
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hidden-sec {
+    opacity: 0.5;
+}
+
+/* SIDEBAR ENHANCEMENTS */
+.rb-drag-handle {
+    cursor: grab;
+    color: var(--rb-text-muted);
+    margin-right: 6px;
+    opacity: 0.5;
+}
+
+.rb-drag-handle:hover {
+    opacity: 1;
+}
+
+.rb-section-btn.dragging {
+    background: var(--rb-bg-card);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--rb-accent);
+}
+
+.rb-sec-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+    opacity: 0.5;
+}
+
+.rb-section-btn:hover .rb-sec-actions {
+    opacity: 1;
+}
+
+.rb-vis-toggle,
+.rb-del-sec {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--rb-text-muted);
+}
+
+.rb-vis-toggle:hover {
+    color: white;
+}
+
+.rb-section-btn.hidden-sec .truncate {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+/* SCORE PILL */
+.rb-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rb-score-pill {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 6px;
+    border-radius: 12px;
+}
+
+.score-ring {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 700;
+    color: white;
+}
+
+.score-ring svg {
+    width: 24px;
+    height: 24px;
+    transform: rotate(-90deg);
+    position: absolute;
+}
+
+.score-ring circle {
+    fill: none;
+    stroke-width: 3;
+    stroke: rgba(255, 255, 255, 0.1);
+    stroke-dasharray: 63;
+    stroke-dashoffset: 0;
+}
+
+.score-ring circle:nth-child(2) {
+    stroke: var(--c);
+    stroke-dashoffset: calc(63 - (63 * var(--p)) / 100);
+    transition: all 0.5s;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+
+/* GALLERY VIEW */
+.rb-gallery-container {
+    height: 100vh;
+    background: radial-gradient(circle at center, #1e293b, #0f172a);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.rb-gallery-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.rb-gallery-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rb-gallery-header p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+}
+
+.rb-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.rb-template-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--rb-border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.rb-template-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--rb-accent);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.rb-template-card h3 {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.rb-template-card p {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.rb-btn-select {
+    margin-top: auto;
+    background: var(--rb-accent);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.2s;
+}
+
+.rb-btn-text {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    margin-top: 2rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.rb-btn-text:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* MINI PREVIEWS (CSS DRAWN) */
+.rb-mini-preview {
+    width: 120px;
+    height: 170px;
+    background: white;
+    border-radius: 4px;
+    padding: 8px;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mini-header {
+    height: 16px;
+    background: #e2e8f0;
+    width: 40%;
+    margin-bottom: 4px;
+}
+
+.mini-line {
+    height: 4px;
+    background: #f1f5f9;
+    margin-bottom: 3px;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+/* Theme Styles for Mini */
+/* Modern has no specific font override, just color header */
+.rb-mini-preview.modern .mini-header {
+    background: var(--mini-color);
+}
+
+.rb-mini-preview.classic {
+    font-family: 'Times New Roman';
+}
+
+.rb-mini-preview.classic .mini-header {
+    width: 100%;
+    text-align: center;
+    margin: 0 auto 8px;
+}
+
+/* Layout Styles for Mini */
+.rb-mini-preview.two-column {
+    flex-direction: row;
+    padding: 0;
+}
+
+.rb-mini-preview.two-column::before {
+    content: '';
+    width: 30%;
+    background: #f8fafc;
+    border-right: 1px solid #e2e8f0;
+}
+
+.rb-mini-preview.two-column .mini-body {
+    flex: 1;
+    padding: 8px;
+}
+
+.rb-mini-preview.two-column.classic::before {
+    background: white;
+    border-right: 1px solid #333;
+}
+
+
+/* WORKSPACE */
+.rb-workspace {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    /* Ensure no wrapping on desktop */
+    min-height: 0;
+}
+
+/* 1. SIDEBAR */
+.rb-sidebar {
+    width: 280px;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid var(--rb-border);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hide storage input */
+.rb-input[type="file"] {
+    line-height: 1.2;
+}
+
+.rb-sidebar-header {
+    padding: 1.5rem 1rem 1rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--rb-text-muted);
+    letter-spacing: 1.2px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rb-btn-icon {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--rb-border);
+    color: var(--rb-text-muted);
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.rb-btn-icon:hover {
+    background: var(--rb-accent);
+    color: white;
+    border-color: var(--rb-accent);
+}
+
+.rb-sidebar-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0 1rem 1rem;
+}
+
+.rb-sidebar-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid transparent;
+    border-radius: 10px;
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.rb-sidebar-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--rb-accent);
+    transform: scaleY(0);
+    transition: transform 0.2s;
+}
+
+.rb-sidebar-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateX(2px);
+}
+
+.rb-sidebar-item.active {
+    background: linear-gradient(90deg, rgba(99, 102, 241, 0.1), transparent);
+    border-color: rgba(99, 102, 241, 0.3);
+    color: white;
+}
+
+.rb-sidebar-item.active::before {
+    transform: scaleY(1);
+}
+
+.rb-sidebar-label {
+    font-weight: 500;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rb-sidebar-label svg {
+    opacity: 0.8;
+}
+
+.rb-drag-handle {
+    color: var(--rb-text-muted);
+    cursor: grab;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.rb-sidebar-item:hover .rb-drag-handle {
+    opacity: 0.5;
+}
+
+.rb-sidebar-delete {
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    color: #ef4444;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.rb-sidebar-item:hover .rb-sidebar-delete {
+    opacity: 1;
+}
+
+/* 2. EDITOR */
+.rb-editor {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 3rem;
+    overflow-y: auto;
+    background: transparent;
+    max-width: 800px;
+    border-right: 1px solid var(--rb-border);
+}
+
+.rb-editor-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rb-border);
+}
+
+.rb-toolbar {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.rb-toolbar button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--rb-border);
+    color: var(--rb-text-muted);
+    border-radius: 4px;
+    padding: 2px 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.rb-toolbar button:hover {
+    background: var(--rb-accent);
+    color: white;
+}
+
+.rb-btn-ai {
+    margin-left: auto;
+    gap: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #a855f7 !important;
+    border-color: rgba(168, 85, 247, 0.3) !important;
+}
+
+.rb-btn-ai:hover {
+    background: #a855f7 !important;
+    color: white !important;
+}
+
+.rb-editor-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.rb-input-group {
+    margin-bottom: 1.5rem;
+}
+
+.rb-input-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    color: var(--rb-text-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.rb-input,
+.rb-textarea {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--rb-border);
+    color: white;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+
+.rb-input:focus,
+.rb-textarea:focus {
+    outline: none;
+    border-color: var(--rb-accent);
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.rb-input.ghost {
+    border: none;
+    border-bottom: 1px solid var(--rb-border);
+    border-radius: 0;
+    background: transparent;
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+}
+
+.rb-input.ghost:focus {
+    border-bottom-color: var(--rb-accent);
+    box-shadow: none;
+}
+
+.rb-input.bold {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--rb-accent);
+}
+
+.rb-input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.rb-input-icon {
+    position: absolute;
+    left: 0;
+    color: var(--rb-text-muted);
+    opacity: 0.7;
+}
+
+.rb-input-with-icon .rb-input {
+    padding-left: 24px;
+}
+
+.rb-card-item {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--rb-border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
+}
+
+.rb-card-item:hover {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.rb-btn-delete-item {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--rb-text-muted);
+}
+
+.rb-btn-delete-item:hover {
+    color: #ef4444;
+}
+
+.rb-kv-row,
+.rb-list-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.rb-kv-row input {
+    flex: 1;
+}
+
+.rb-sep {
+    color: var(--rb-text-muted);
+    font-weight: bold;
+}
+
+.rb-bullet {
+    color: var(--rb-accent);
+}
+
+/* 3. PREVIEW */
+.rb-preview {
+    flex: 1.2;
+    background: #0f172a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    overflow-y: auto;
+    border-left: 1px solid var(--rb-border);
+    background-image: radial-gradient(#334155 1px, transparent 1px);
+    background-size: 20px 20px;
+    position: relative;
+}
+
+.rb-preview.fullscreen {
+    position: fixed;
+    inset: 0;
+    z-index: 2001;
+    /* Higher than Navbar (1000) and Mobile Overlay (2000) */
+    background: #0f172a;
+    background-image: radial-gradient(#334155 1px, transparent 1px);
+    background-size: 20px 20px;
+    border-left: none;
+}
+
+.rb-fullscreen-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 10;
+}
+
+.rb-fullscreen-toggle:hover {
+    background: var(--rb-accent);
+}
+
+.rb-paper-container {
+    box-shadow: 0 20px 60px -10px rgba(0, 0, 0, 0.6);
+    background: white;
+    transform: scale(0.9);
+    transform-origin: top center;
+}
+
+/* RESUME PAPER STYLES */
+.resume-paper {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    padding: 15mm;
+    color: #1a1a1a;
+    line-height: 1.5;
+    --res-accent: #2563eb;
+    /* Default Blue */
+    /* Font size handled by inline style */
+}
+
+/* RESUME PHOTO STYLES */
+.res-photo-single {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 3px solid var(--res-accent);
+}
+
+.res-photo-sidebar {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    display: block;
+    border: 4px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* CLASSIC THEME */
+.resume-paper.classic {
+    font-family: 'Times New Roman', serif;
+}
+
+.resume-paper.classic .res-header {
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.resume-paper.classic .res-name {
+    font-size: 24pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000;
+}
+
+.resume-paper.classic .res-section-title {
+    text-transform: uppercase;
+    border-bottom: 1px solid #000;
+    font-size: 11pt;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+/* MODERN THEME */
+.resume-paper.modern {
+    font-family: 'Inter', sans-serif;
+}
+
+.resume-paper.modern .res-header {
+    text-align: left;
+    border-bottom: 2px solid var(--res-accent);
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.resume-paper.modern .res-name {
+    color: var(--res-accent);
+    font-size: 28pt;
+    font-weight: 800;
+    text-transform: none;
+    letter-spacing: -0.5px;
+}
+
+.resume-paper.modern .res-contact {
+    color: #555;
+    font-size: 9.5pt;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.resume-paper.modern .res-links {
+    color: var(--res-accent);
+    font-weight: 600;
+    font-size: 9pt;
+}
+
+.resume-paper.modern .res-section-title {
+    color: var(--res-accent);
+    text-transform: uppercase;
+    border-bottom: none;
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.resume-paper.modern .res-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e2e8f0;
+}
+
+/* TWO COLUMN LAYOUT */
+.resume-paper.two-column {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.resume-paper.two-column .res-two-col-grid {
+    display: grid;
+    grid-template-columns: 32% 68%;
+    height: 100%;
+    min-height: 297mm;
+}
+
+.res-left-col {
+    background: #f8fafc;
+    padding: 10mm;
+    border-right: 1px solid #e2e8f0;
+    color: #334155;
+}
+
+.resume-paper.two-column.classic .res-left-col {
+    background: #fff;
+    border-right: 1px solid #000;
+}
+
+.res-right-col {
+    padding: 10mm;
+}
+
+/* Two Col Profile */
+.res-profile-box {
+    margin-bottom: 30px;
+}
+
+.res-profile-box .res-name {
+    font-size: 22pt;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.res-contact-block,
+.res-links-block {
+    font-size: 9pt;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+/* Adjustments for Sidebar */
+.res-left-col .res-section-title {
+    font-size: 10pt;
+    border-bottom: 2px solid var(--res-accent);
+    margin-bottom: 10px;
+}
+
+.resume-paper.two-column.classic .res-left-col .res-section-title {
+    border-bottom: 1px solid #000;
+}
+
+.res-left-col .res-bold {
+    display: block;
+    margin-top: 6px;
+    color: var(--res-accent);
+}
+
+.resume-paper.two-column.classic .res-left-col .res-bold {
+    color: #000;
+}
+
+/* SHARED / UTILS */
+.res-contact span {
+    margin: 0 4px;
+}
+
+.res-contact span:first-child {
+    margin-left: 0;
+}
+
+.res-section {
+    margin-bottom: 25px;
+}
+
+.res-item {
+    margin-bottom: 15px;
+    page-break-inside: avoid;
+}
+
+.res-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.res-bold {
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.resume-paper.classic .res-bold {
+    color: #000;
+}
+
+.res-italic {
+    font-style: italic;
+    color: #4b5563;
+}
+
+.res-date {
+    font-weight: 600;
+    color: #374151;
+    font-size: 0.95em;
+}
+
+/* Education Specifics */
+.res-edu-school {
+    font-size: 1.05em;
+}
+
+.res-edu-degree {
+    font-size: 0.95em;
+}
+
+.res-score {
+    font-weight: 600;
+    color: var(--res-accent);
+    font-size: 0.9em;
+}
+
+.resume-paper.classic .res-score {
+    color: #333;
+}
+
+.res-link {
+    font-size: 0.85em;
+    color: var(--res-accent);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    margin-left: 8px;
+    font-weight: 500;
+}
+
+.resume-paper.classic .res-link {
+    color: #2563eb;
+    text-decoration: underline;
+}
+
+.res-list {
+    padding-left: 18px;
+    margin: 6px 0 0;
+}
+
+.res-list li {
+    margin-bottom: 4px;
+    color: #374151;
+    text-align: justify;
+}
+
+.resume-paper.classic .res-list li {
+    color: #000;
+}
+
+/* MODAL */
+.rb-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.rb-modal {
+    background: #1e293b;
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid var(--rb-border);
+    width: 450px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+}
+
+.rb-modal h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    color: white;
+}
+
+.rb-type-selector {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 1.5rem 0;
+}
+
+.rb-type-selector button {
+    padding: 1.5rem 0.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid transparent;
+    color: var(--rb-text-muted);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.rb-type-selector button svg {
+    opacity: 0.7;
+}
+
+.rb-type-selector button:hover {
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.rb-type-selector button.selected {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: var(--rb-accent);
+    color: white;
+}
+
+.rb-type-selector button.selected svg {
+    opacity: 1;
+    color: var(--rb-accent);
+}
+
+.rb-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.rb-modal-actions button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+}
+
+.rb-modal-actions .rb-btn-primary {
+    background: var(--rb-accent);
+    color: white;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Settings Modal Specifics */
+.rb-setting-group {
+    margin-bottom: 1.5rem;
+}
+
+.rb-setting-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--rb-text-muted);
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.rb-color-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.rb-color-swatch {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.rb-color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.rb-color-swatch.selected {
+    border-color: white;
+    box-shadow: 0 0 0 2px var(--rb-accent);
+    transform: scale(1.1);
+}
+
+/* TOAST */
+.rb-toast-success {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+/* RESPONSIVE */
+.mobile-visible {
+    display: none;
+}
+
+/* MODALS */
+.rb-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    /* High z-index to overlay navbar */
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.rb-modal {
+    background: #1e293b;
+    border: 1px solid var(--rb-border);
+    border-radius: 16px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    z-index: 3001;
+}
+
+/* Modal specific inputs */
+.rb-setting-group {
+    margin-bottom: 20px;
+}
+
+.rb-setting-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--rb-text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.rb-type-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.rb-type-selector button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--rb-border);
+    padding: 12px;
+    border-radius: 8px;
+    color: var(--rb-text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s;
+}
+
+.rb-type-selector button:hover,
+.rb-type-selector button.selected {
+    background: var(--rb-accent);
+    color: white;
+    border-color: var(--rb-accent);
+}
+
+.rb-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.rb-modal-actions button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--rb-border);
+    background: transparent;
+    color: white;
+    cursor: pointer;
+}
+
+.rb-modal-actions button.rb-btn-primary {
+    background: var(--rb-accent);
+    border-color: var(--rb-accent);
+}
+
+.rb-color-grid {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.rb-color-swatch {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.rb-color-swatch:hover {
+    transform: scale(1.1);
+}
+
+.rb-color-swatch.selected {
+    border-color: white;
+    box-shadow: 0 0 0 2px var(--rb-accent);
+}
+
+@media (max-width: 1024px) {
+    .rb-container {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .rb-workspace {
+        flex-direction: column;
+    }
+
+    .rb-sidebar {
+        width: 100%;
+        height: auto;
+        border: none;
+    }
+
+    .rb-sidebar-list {
+        display: flex;
+        overflow-x: auto;
+        padding: 1rem;
+        gap: 10px;
+    }
+
+    .rb-sidebar-item {
+        min-width: 160px;
+        margin-bottom: 0;
+    }
+
+    .rb-editor {
+        width: 100%;
+        max-width: 100%;
+        border: none;
+        padding: 1.5rem;
+    }
+
+    .rb-preview {
+        position: fixed;
+        inset: 0;
+        top: 0;
+        z-index: 300;
+        transform: translateY(100%);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .rb-preview.open {
+        transform: translateY(0);
+    }
+
+    /* Hide Fullscreen toggle on mobile since it's already full */
+    .rb-fullscreen-toggle {
+        display: none;
+    }
+
+    .mobile-visible {
+        display: flex;
+    }
+
+    .rb-preview-header {
+        width: 100%;
+        padding: 1rem;
+        background: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(10px);
+        display: flex;
+        gap: 10px;
+        margin-bottom: 1rem;
+        border-bottom: 1px solid var(--rb-border);
+    }
+
+    .resume-paper {
+        transform: scale(0.65);
+        margin-top: 1rem;
+    }
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    .resume-paper,
+    .resume-paper * {
+        visibility: visible;
+    }
+
+    .resume-paper {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        transform: scale(1);
+    }
+}
