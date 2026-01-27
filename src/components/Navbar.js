@@ -49,7 +49,8 @@ const Navbar = () => {
         { name: "Guide & Roadmap", path: "/placement-guide" },
         // { name: "Resume Builder", path: "/resume-builder" },
         { name: "Success Stories", path: "/placement-stories" },
-        { name: "Share Experience", path: "/share-experience" }
+        { name: "Share Experience", path: "/share-experience" },
+        { name: "Mock Tests", path: "/test" }
       ]
     },
     { name: "Model Papers", path: "/model-papers", icon: <FaGraduationCap /> },
@@ -209,15 +210,13 @@ const Navbar = () => {
 
               <div className="mobile-menu-items">
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    onClick={closeMenu}
-                    className={`mobile-menu-row ${location.pathname === link.path ? "active" : ""}`}
-                  >
-                    <span className="item-icon">{link.icon}</span>
-                    <span className="item-label">{link.name}</span>
-                  </Link>
+                  <MobileNavItem 
+                    key={link.name} 
+                    link={link} 
+                    closeMenu={closeMenu} 
+                    isActive={location.pathname === link.path || (link.submenu && link.submenu.some(sub => location.pathname === sub.path))}
+                    location={location}
+                  />
                 ))}
               </div>
 
@@ -232,6 +231,97 @@ const Navbar = () => {
       </AnimatePresence>
       <MobileBottomNav />
     </header>
+  );
+};
+
+// Helper Component for Mobile Nav Items
+const MobileNavItem = ({ link, closeMenu, isActive, location }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const hasSubmenu = !!link.submenu;
+
+  return (
+    <div className="mobile-nav-group">
+      <div className={`mobile-menu-row ${isActive ? "active" : ""}`}>
+        <Link
+          to={link.path}
+          onClick={closeMenu}
+          className="mobile-link-content"
+          style={{ flex: 1, display: 'flex', alignItems: 'center', gap: '1rem', textDecoration: 'none', color: 'inherit' }}
+        >
+          <span className="item-icon">{link.icon}</span>
+          <span className="item-label">{link.name}</span>
+        </Link>
+        
+        {hasSubmenu && (
+          <button 
+            className="mobile-submenu-toggle"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setIsExpanded(!isExpanded);
+            }}
+            style={{ 
+              background: 'transparent', 
+              border: 'none', 
+              color: 'white', 
+              padding: '0.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              cursor: 'pointer'
+            }}
+          >
+            <motion.div
+              animate={{ rotate: isExpanded ? 180 : 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <FaChevronDown />
+            </motion.div>
+          </button>
+        )}
+      </div>
+
+      <AnimatePresence>
+        {hasSubmenu && isExpanded && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            style={{ overflow: "hidden" }}
+          >
+            <div className="mobile-submenu-container" style={{ 
+                background: 'rgba(255,255,255,0.03)', 
+                margin: '0 1rem 1rem', 
+                borderRadius: '12px',
+                padding: '0.5rem'
+            }}>
+              {link.submenu.map((sub) => (
+                <Link
+                  key={sub.name}
+                  to={sub.path}
+                  onClick={closeMenu}
+                  className="mobile-submenu-item"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    padding: '0.8rem 1rem',
+                    color: '#ccc',
+                    textDecoration: 'none',
+                    fontSize: '0.95rem',
+                    marginBottom: '2px',
+                    borderRadius: '8px',
+                    transition: 'background 0.2s'
+                  }}
+                >
+                  <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: location.pathname === sub.path ? '#00F0FF' : '#555', marginRight: '10px' }}></span>
+                  {sub.name}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 };
 

@@ -72,7 +72,12 @@ export const subjectsData = {
         ],
     },
     ece: {
-        3: [],
+        3: [
+            { name: 'Computer Organization and Architecture', code: 'BEC306C', credits: 3, info: 'Third Semester EC Computer Organization and Architecture Notes.' },
+            { name: 'Digital System Design using Verilog', code: 'BEC302', credits: 3, info: 'Third Semester EC Digital System Design using Verilog Notes.' },
+            { name: 'Mathematics For CSE', code: 'BMATS301', credits: 4, info: 'Third Semester Mathematics For CSE Module 1 to 5 Notes, Solved Model Question papers.' },
+            { name: 'DATA STRUCTURES AND APPLICATIONS', code: 'BCS304', credits: 3, info: 'Third Semester DATA STRUCTURES AND APPLICATIONS For CSE Module 1 to 5 Notes, Solved Model Question papers.' },
+        ],
         5: [],
         6: [
             { name: 'VLSI', code: 'BEC602', credits: 4, info: 'Preparation: Fundamental knowledge in Digital Signal Processing' },

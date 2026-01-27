@@ -10,7 +10,7 @@ import {
   HiOutlineExclamationTriangle
 } from "react-icons/hi2";
 import {
-  FaUniversity, FaChevronRight, FaClock
+  FaUniversity, FaChevronRight, FaClock, FaChevronLeft
 } from "react-icons/fa";
 import { AiOutlineHome, AiOutlineFilePdf } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
@@ -166,12 +166,30 @@ const ModuleDetail = () => {
   );
 
   if (!subjectData) return (
-      <div className="portal-container empty-state">
-          <div className="empty-state-content">
-              <HiOutlineExclamationTriangle size={50} color="#FF0055" />
-              <h2>Subject Not Found</h2>
-              <button onClick={() => navigate(-1)} className="btn-primary">Go Back</button>
-          </div>
+      <div className="portal-container error-state-wrapper">
+          <div className="module-background-engine"></div>
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="error-glass-card"
+          >
+              <div className="error-icon-glow">
+                  <HiOutlineExclamationTriangle />
+              </div>
+              <h2 className="error-title">Subject Missing</h2>
+              <p className="error-message">
+                  We couldn't find the subject you're looking for.<br/>
+                  It might have been moved or doesn't exist in this semester.
+              </p>
+              <div className="error-actions">
+                  <button onClick={() => navigate(-1)} className="btn-primary-neon">
+                      <FaChevronLeft style={{ marginRight: '8px' }} /> Go Back
+                  </button>
+                  <button onClick={() => navigate('/')} className="btn-secondary-glass">
+                      <AiOutlineHome style={{ marginRight: '8px' }} /> Home
+                  </button>
+              </div>
+          </motion.div>
       </div>
   );
 

@@ -399,6 +399,7 @@
     /* Border container */
     background: linear-gradient(90deg, transparent, var(--pg-primary), transparent);
     border-radius: 20px;
+    box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.2);
 }
 
 .pg-tip-card {
@@ -406,31 +407,87 @@
     padding: 1.5rem 2rem;
     border-radius: 20px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1.5rem;
     text-align: left;
+    position: relative;
+    backdrop-filter: blur(10px);
+}
+
+.pg-tip-icon-box {
+    background: rgba(251, 191, 36, 0.1);
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(251, 191, 36, 0.2);
 }
 
 .pg-tip-icon {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #fbbf24;
     filter: drop-shadow(0 0 10px rgba(251, 191, 36, 0.4));
     flex-shrink: 0;
 }
 
+.pg-tip-content {
+    flex: 1;
+}
+
 .pg-tip-content h3 {
-    margin: 0 0 0.2rem;
-    font-size: 0.9rem;
+    margin: 0 0 0.5rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     color: var(--pg-text-sub);
     letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pg-tip-tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    color: #cbd5e1;
+    text-transform: none;
+    letter-spacing: 0;
 }
 
 .pg-tip-content p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     font-weight: 500;
     color: white;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.pg-tip-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pg-tip-action-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pg-tip-action-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* --- Timeline Section --- */
@@ -1576,5 +1633,104 @@
 @media (max-width: 1280px) {
     .mobile-visible {
         display: inline-flex !important;
+    }
+}
+
+/* --- Mobile Filter Dropdown Styles --- */
+.pg-mobile-filter-container {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .pg-filters {
+        display: none !important;
+    }
+
+    .pg-mobile-filter-container {
+        display: block;
+        position: relative;
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto 2rem;
+        z-index: 100;
+        padding: 0 1rem;
+    }
+
+    .pg-mobile-dropdown-btn {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        border-radius: 12px;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .pg-mobile-dropdown-btn:hover {
+        border-color: var(--pg-primary);
+        background: rgba(15, 23, 42, 0.95);
+    }
+
+    .pg-mobile-dropdown-btn.open {
+        background: rgba(99, 102, 241, 0.2);
+        border-color: var(--pg-primary);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .pg-mobile-dropdown-menu {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        margin: 0 1rem;
+        background: #1e293b;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        z-index: 101;
+    }
+
+    .pg-mobile-dropdown-item {
+        padding: 1rem 1.5rem;
+        color: var(--pg-text-sub);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+
+    .pg-mobile-dropdown-item:last-child {
+        border-bottom: none;
+    }
+
+    .pg-mobile-dropdown-item:hover {
+        background: rgba(255, 255, 255, 0.05);
+        color: white;
+    }
+
+    .pg-mobile-dropdown-item.active {
+        background: rgba(99, 102, 241, 0.1);
+        color: var(--pg-secondary);
+        font-weight: 600;
+        border-left: 3px solid var(--pg-secondary);
+    }
+
+    .pg-check-icon-mobile {
+        color: var(--pg-accent);
+    }
+
+    .pg-selected-cat {
+        text-transform: capitalize;
     }
 }

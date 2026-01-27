@@ -100,6 +100,17 @@ const SECTIONS_DATA = [
             { label: 'Figma for UI Design', url: 'https://www.figma.com/' }
         ],
         pdfs: [],
+    },
+    {
+        id: 'mock-tests',
+        category: 'Mock Tests',
+        icon: <FaBrain />,
+        title: 'Skill Assessment',
+        info: 'Test your knowledge in Coding, Aptitude, and Core CS subjects with our gamified quiz arena.',
+        resources: [
+            { label: 'Start Mock Test', url: '/test' } // Internal Link
+        ],
+        pdfs: [],
     }
 ];
 
@@ -195,6 +206,7 @@ const CHECKLIST_ITEMS = [
 const PlacementGuide = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [activeCategory, setActiveCategory] = useState('All');
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [expandedCompany, setExpandedCompany] = useState(null);
     const [checklist, setChecklist] = useState(() => {
         const saved = localStorage.getItem('modernPlacementChecklist');
@@ -262,10 +274,37 @@ const PlacementGuide = () => {
                     transition={{ delay: 0.5, duration: 0.8 }}
                 >
                     <div className="pg-tip-card">
-                        <FaLightbulb className="pg-tip-icon" />
+                        <div className="pg-tip-icon-box">
+                            <FaLightbulb className="pg-tip-icon" />
+                        </div>
                         <div className="pg-tip-content">
-                            <h3>Daily Logic</h3>
+                            <h3>
+                                Daily Logic 
+                                <span className="pg-tip-tag">#Motivation</span>
+                            </h3>
                             <p>"{dailyTip}"</p>
+                        </div>
+                        <div className="pg-tip-actions">
+                            <button 
+                                className="pg-tip-action-btn" 
+                                onClick={() => {
+                                    navigator.clipboard.writeText(dailyTip);
+                                    // Could add a toast here
+                                }}
+                                title="Copy Quote"
+                            >
+                                <FaCopy />
+                            </button>
+                            <button 
+                                className="pg-tip-action-btn" 
+                                onClick={() => {
+                                    const random = Math.floor(Math.random() * TIPS_DATA.length);
+                                    setDailyTip(TIPS_DATA[random]);
+                                }}
+                                title="Next Tip"
+                            >
+                                <FaSync />
+                            </button>
                         </div>
                     </div>
                 </motion.div>
@@ -281,6 +320,7 @@ const PlacementGuide = () => {
                     />
                 </div>
 
+                {/* Desktop Filters (Hidden on Mobile) */}
                 <div className="pg-filters">
                     {categories.map(cat => (
                         <button 
@@ -291,6 +331,43 @@ const PlacementGuide = () => {
                             {cat}
                         </button>
                     ))}
+                </div>
+
+                {/* Mobile Filter Dropdown (Visible on Mobile) */}
+                <div className="pg-mobile-filter-container">
+                    <button 
+                        className={`pg-mobile-dropdown-btn ${isDropdownOpen ? 'open' : ''}`} 
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                    >
+                        <span className="pg-selected-cat">{activeCategory}</span>
+                        {isDropdownOpen ? <FaChevronUp /> : <FaChevronDown />}
+                    </button>
+                    
+                    <AnimatePresence>
+                        {isDropdownOpen && (
+                            <motion.div 
+                                className="pg-mobile-dropdown-menu"
+                                initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                                transition={{ duration: 0.2 }}
+                            >
+                                {categories.map(cat => (
+                                    <div 
+                                        key={cat}
+                                        className={`pg-mobile-dropdown-item ${activeCategory === cat ? 'active' : ''}`}
+                                        onClick={() => {
+                                            setActiveCategory(cat);
+                                            setIsDropdownOpen(false);
+                                        }}
+                                    >
+                                        {cat}
+                                        {activeCategory === cat && <FaCheckCircle className="pg-check-icon-mobile" />}
+                                    </div>
+                                ))}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
                 </div>
             </header>
 
@@ -318,9 +395,15 @@ const PlacementGuide = () => {
                                 <ul className="pg-link-list">
                                     {section.resources.map((res, i) => (
                                         <li key={i} className="pg-link-item">
-                                            <a href={res.url} target="_blank" rel="noopener noreferrer" className="pg-link">
-                                                {res.label}
-                                            </a>
+                                            {res.url.startsWith('/') ? (
+                                                <Link to={res.url} className="pg-link">
+                                                    {res.label}
+                                                </Link>
+                                            ) : (
+                                                <a href={res.url} target="_blank" rel="noopener noreferrer" className="pg-link">
+                                                    {res.label}
+                                                </a>
+                                            )}
                                         </li>
                                     ))}
                                 </ul>

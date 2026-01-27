@@ -601,6 +601,30 @@ const papers = [
     "solutionLink": null,
     "oldPaperLink": "https://drive.google.com/file/d/1gigxbfaP9OQJhGRlpmNvRu9H1UgDBcBc/preview",
     "popularity": "medium"
+  },
+  {
+    "id": 49,
+    "title": "Computer Organization and Architecture",
+    "code": "BEC306C",
+    "category": "core",
+    "semester": "3",
+    "year": "2024",
+    "modelPaperLink": "https://drive.google.com/file/d/1EHnMkn1PkQRSocHJ8h8M9ht8W59qB1ZS/preview",
+    "solutionLink": "https://drive.google.com/file/d/1b1aubqMWwZf0de7OjiahFlvM8wXB8fon/preview",
+    "oldPaperLink": null,
+    "popularity": "medium"
+  },
+  {
+    "id": 50,
+    "title": "Digital System Design using Verilog",
+    "code": "BEC302",
+    "category": "core",
+    "semester": "3",
+    "year": "2024",
+    "modelPaperLink": "https://drive.google.com/file/d/1SYA9H_OjIPOtdledyKCMYr1tCLv0W471/preview",
+    "solutionLink": null,
+    "oldPaperLink": null,
+    "popularity": "medium"
   }
 ];
 
