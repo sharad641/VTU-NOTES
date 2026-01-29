@@ -1,0 +1,143 @@
+/* InterstitialAdModal.css */
+.interstitial-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.interstitial-modal {
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    width: 90%;
+    max-width: 450px;
+    margin: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: white;
+    font-size: 1.25rem;
+}
+
+.close-modal-btn {
+    background: transparent;
+    border: none;
+    color: #94A3B8;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.2s;
+    opacity: 1;
+}
+
+.close-modal-btn.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.close-modal-btn:hover:not(.disabled) {
+    color: white;
+}
+
+.modal-body {
+    padding: 25px;
+    text-align: center;
+}
+
+.support-msg {
+    color: #CBD5E1;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.sub-msg {
+    font-size: 0.9rem;
+    color: #94A3B8;
+    display: block;
+    margin-top: 5px;
+}
+
+.ad-container-modal {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 25px;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.action-area {
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.continue-btn {
+    background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
+    width: 100%;
+}
+
+.timer-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #94A3B8;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+}
+
+.spin-icon {
+    animation: spin 3s linear infinite;
+    color: #F59E0B;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .support-msg {
+        font-size: 1rem;
+    }
+
+    .ad-container-modal {
+        min-height: 200px;
+    }
+}

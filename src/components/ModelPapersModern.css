@@ -864,6 +864,13 @@
         scroll-snap-align: start;
         min-width: 260px;
     }
+
+    /* Ad Container Fix for Small Screens */
+    .ad-card-container {
+        padding: 5px !important;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 /* Small Mobile */

@@ -16,6 +16,7 @@ import { AiOutlineHome, AiOutlineFilePdf } from "react-icons/ai";
 import { motion, AnimatePresence } from "framer-motion";
 import CommentSection from "./CommentSection";
 import AdSenseAd from "./AdSenseAd";
+import InterstitialAdModal from "./InterstitialAdModal";
 import { moduleDetails } from "../data/moduleDetails";
 
 const ModuleDetail = () => {
@@ -27,7 +28,12 @@ const ModuleDetail = () => {
   const [loading, setLoading] = useState(true);
   const [showDownloadProgress, setShowDownloadProgress] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
+
   const [activeDownload, setActiveDownload] = useState(null);
+  
+  // Ad Wall State
+  const [showAdWall, setShowAdWall] = useState(false);
+  const [pendingAction, setPendingAction] = useState(null); // { type: 'download' | 'preview', payload: any }
   
   // Computed Data
   const subjectData = useMemo(() => {
@@ -80,12 +86,7 @@ const ModuleDetail = () => {
       console.log(`[${type}] ${msg}`);
   };
 
-  const handleDownload = useCallback((module) => {
-    if (!module.fileUrl || module.fileUrl === "#") {
-        showToast("Link not available", "warning");
-        return;
-    }
-
+  const executeDownload = useCallback((module) => {
     // 1. Trigger Futuristic Popup
     setActiveDownload(module.title);
     setShowDownloadProgress(true);
@@ -116,7 +117,16 @@ const ModuleDetail = () => {
     }, 100);
   }, []);
 
-  const handlePreview = (url) => {
+  const handleDownloadTrigger = useCallback((module) => {
+    if (!module.fileUrl || module.fileUrl === "#") {
+        showToast("Link not available", "warning");
+        return;
+    }
+    setPendingAction({ type: 'download', payload: module });
+    setShowAdWall(true);
+  }, []);
+
+  const executePreview = (url) => {
     if (url && url !== "#") {
       navigate(`/pdf/${encodeURIComponent(url)}`);
     } else {
@@ -124,11 +134,31 @@ const ModuleDetail = () => {
     }
   };
 
+  const handlePreviewTrigger = (url) => {
+     setPendingAction({ type: 'preview', payload: url });
+     setShowAdWall(true);
+  };
+
+  const handleAdWallComplete = () => {
+      setShowAdWall(false);
+      if (pendingAction) {
+          if (pendingAction.type === 'download') {
+              executeDownload(pendingAction.payload);
+          } else if (pendingAction.type === 'preview') {
+              executePreview(pendingAction.payload);
+          }
+          setPendingAction(null);
+      }
+  };
+
   const handleBatchDownload = (modules, label) => {
      if(!modules.length) return;
-     if(window.confirm(`Download all ${modules.length} ${label} files?`)) {
-         modules.forEach((m, i) => setTimeout(() => handleDownload(m), i * 1500));
-     }
+      if(window.confirm(`Download all ${modules.length} ${label} files?`)) {
+          // Note: Batch download logic might need refinement for ad strategy, 
+          // currently treating as one action or leaving as is.
+          // For now, let's just trigger them directly to avoid spamming the user with 10 ads.
+          modules.forEach((m, i) => setTimeout(() => executeDownload(m), i * 1500));
+      }
   };
 
   const getModuleIcon = (cat) => {
@@ -197,6 +227,13 @@ const ModuleDetail = () => {
     <div className="portal-container">
       {/* Background FX */}
       <div className="module-background-engine"></div>
+
+      <InterstitialAdModal 
+        isOpen={showAdWall} 
+        onClose={() => setShowAdWall(false)}
+        onComplete={handleAdWallComplete}
+        resourceTitle={pendingAction?.type === 'download' ? pendingAction.payload.title : 'Preview Document'}
+      />
 
       {/* Download Overlay */}
       <AnimatePresence>
@@ -340,10 +377,10 @@ const ModuleDetail = () => {
                               </div>
 
                               <div className="module-card-footer-modern" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
-                                  <button onClick={() => handleDownload(module)} className="card-action-btn download">
+                                  <button onClick={() => handleDownloadTrigger(module)} className="card-action-btn download">
                                       <HiOutlineCloudArrowDown /> Download
                                   </button>
-                                  <button onClick={() => handlePreview(module.previewUrl)} className="card-action-btn preview">
+                                  <button onClick={() => handlePreviewTrigger(module.previewUrl)} className="card-action-btn preview">
                                       <HiOutlineEye /> Preview
                                   </button>
                               </div>

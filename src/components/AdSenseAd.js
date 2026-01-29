@@ -52,7 +52,7 @@ const AdSenseAd = ({
           className="adsbygoogle"
           style={{ 
             display: "block", 
-            minWidth: "300px",
+            minWidth: "250px", // Reduced to fit 320px mobile screens
             width: style.width || "100%", 
             height: style.height || "auto",
             ...style 

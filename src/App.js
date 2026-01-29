@@ -142,13 +142,7 @@ function AppContent({ isAuthenticated, userEmail, adminEmail, setIsAuthenticated
   return (
     <div className="app-container">
       {!isPdfView && <Navbar />}
-      {!isPdfView && (
-        <AdSenseAd 
-          adClient="ca-pub-9499544849301534" 
-          adSlot="3936951010" 
-          style={{ display: 'inline-block', width: '600px', height: '80px', maxWidth: '100%' }}
-        />
-      )}
+      {!isPdfView && <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />}
 
       <Routes>
         {/* Public Routes */}

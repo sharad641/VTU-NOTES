@@ -23,6 +23,7 @@ import {
 } from 'react-icons/hi2';
 import { FaFilePdf, FaBolt, FaLayerGroup } from 'react-icons/fa6';
 import AdSenseAd from './AdSenseAd';
+import InterstitialAdModal from './InterstitialAdModal';
 import CommentSection from './CommentSection';
 import './ModelPapersModern.css'; // CHANGED: Modern Dark Theme
 
@@ -661,6 +662,8 @@ const ModelPapers = () => {
   const [showBookmarks, setShowBookmarks] = React.useState(false);
   const [selectedPaper, setSelectedPaper] = React.useState(null);
   const [showScrollTop, setShowScrollTop] = React.useState(false);
+  const [showAdWall, setShowAdWall] = React.useState(false);
+  const [pendingResource, setPendingResource] = React.useState(null);
 
   React.useEffect(() => {
     let result = [...papers];
@@ -715,7 +718,16 @@ const ModelPapers = () => {
       e.stopPropagation();
     }
     console.log("Opening Hub for:", paper.title);
-    setSelectedPaper(paper);
+    setPendingResource(paper);
+    setShowAdWall(true);
+  };
+
+  const handleAdWallComplete = () => {
+    setShowAdWall(false);
+    if (pendingResource) {
+      setSelectedPaper(pendingResource);
+      setPendingResource(null);
+    }
   };
 
   const handleCloseHub = (e) => {
@@ -742,6 +754,12 @@ const ModelPapers = () => {
 
   return (
     <div className={`papers-portal-root ${isDarkMode ? 'dark' : 'light'}`}>
+      <InterstitialAdModal 
+        isOpen={showAdWall} 
+        onClose={() => setShowAdWall(false)}
+        onComplete={handleAdWallComplete}
+        resourceTitle={pendingResource?.title}
+      />
       {/* --- Floating Background Elements --- */}
       <div className="papers-background-shapes">
         <div className="shape s1"></div>
