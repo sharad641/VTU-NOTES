@@ -6,6 +6,7 @@ import {
   Navigate,
   useLocation,
 } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 
 // Component Imports
 import Navbar from './components/Navbar';
@@ -141,7 +142,13 @@ function AppContent({ isAuthenticated, userEmail, adminEmail, setIsAuthenticated
   return (
     <div className="app-container">
       {!isPdfView && <Navbar />}
-      {!isPdfView && <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />}
+      {!isPdfView && (
+        <AdSenseAd 
+          adClient="ca-pub-9499544849301534" 
+          adSlot="3936951010" 
+          style={{ display: 'inline-block', width: '600px', height: '80px', maxWidth: '100%' }}
+        />
+      )}
 
       <Routes>
         {/* Public Routes */}
@@ -276,6 +283,7 @@ function App() {
   return (
     <Router>
       <AnalyticsTracker />
+      <ScrollToTop />
       <AppContent 
         isAuthenticated={isAuthenticated} 
         userEmail={userEmail} 

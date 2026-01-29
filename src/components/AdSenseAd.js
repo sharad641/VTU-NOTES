@@ -1,7 +1,14 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 
-const AdSenseAd = ({ adClient, adSlot, adFormat = "auto", fullWidthResponsive = true, style = {} }) => {
+const AdSenseAd = ({ 
+  adClient, 
+  adSlot, 
+  adFormat = "auto", 
+  fullWidthResponsive = true, 
+  style = {},
+  layoutKey = null // Added for Multiplex/In-feed ads
+}) => {
   useEffect(() => {
     // Push the ad to the queue
     if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development") {
@@ -23,10 +30,10 @@ const AdSenseAd = ({ adClient, adSlot, adFormat = "auto", fullWidthResponsive = 
         alignItems: "center",
         justifyContent: "center",
         margin: "24px 0",
-        minHeight: "100px", // Reduced min-height for banners
+        minHeight: "100px", 
         width: "100%",
         overflow: "hidden",
-        backgroundColor: "rgba(255, 255, 255, 0.01)" // Very subtle placeholder
+        backgroundColor: "rgba(255, 255, 255, 0.01)" 
       }}
     >
       <span style={{ 
@@ -40,21 +47,12 @@ const AdSenseAd = ({ adClient, adSlot, adFormat = "auto", fullWidthResponsive = 
         Sponsored
       </span>
 
-      {/* 
-        Responsive Wrapper:
-        On Desktop: Respects the wide 600px preference if Space allows.
-        On Mobile: Forces max-width 100% to prevent overflow.
-      */}
-      <div style={{ maxWidth: "100%", display: "flex", justifyContent: "center" }}>
+      <div style={{ maxWidth: "100%", display: "flex", justifyContent: "center", width: "100%" }}>
         <ins
           className="adsbygoogle"
           style={{ 
             display: "block", 
             minWidth: "300px",
-             // If user passes specific 600px width, we use it, but cap it at 100vw for mobile 
-             // using the wrapper's constraints.
-             // AdSense responsive code usually ignores width if format=auto.
-             // But if specific sizing is needed:
             width: style.width || "100%", 
             height: style.height || "auto",
             ...style 
@@ -63,6 +61,7 @@ const AdSenseAd = ({ adClient, adSlot, adFormat = "auto", fullWidthResponsive = 
           data-ad-slot={adSlot}
           data-ad-format={adFormat}
           data-full-width-responsive={fullWidthResponsive ? "true" : "false"}
+          {...(layoutKey && { "data-ad-layout-key": layoutKey })}
         ></ins>
       </div>
     </div>
@@ -75,6 +74,7 @@ AdSenseAd.propTypes = {
   adFormat: PropTypes.string,
   fullWidthResponsive: PropTypes.bool,
   style: PropTypes.object,
+  layoutKey: PropTypes.string
 };
 
 export default AdSenseAd;

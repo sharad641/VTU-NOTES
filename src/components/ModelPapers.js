@@ -18,7 +18,8 @@ import {
   HiInbox,
   HiShare,
   HiClipboard,
-  HiCheck
+  HiCheck,
+  HiArrowUp
 } from 'react-icons/hi2';
 import { FaFilePdf, FaBolt, FaLayerGroup } from 'react-icons/fa6';
 import AdSenseAd from './AdSenseAd';
@@ -659,6 +660,7 @@ const ModelPapers = () => {
   const [bookmarkedPapers, setBookmarkedPapers] = React.useState(() => JSON.parse(localStorage.getItem('paperBookmarks') || '[]'));
   const [showBookmarks, setShowBookmarks] = React.useState(false);
   const [selectedPaper, setSelectedPaper] = React.useState(null);
+  const [showScrollTop, setShowScrollTop] = React.useState(false);
 
   React.useEffect(() => {
     let result = [...papers];
@@ -687,6 +689,25 @@ const ModelPapers = () => {
   React.useEffect(() => {
     localStorage.setItem('paperBookmarks', JSON.stringify(bookmarkedPapers));
   }, [bookmarkedPapers]);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
 
   const handleOpenHub = (paper, e) => {
     if (e) {
@@ -877,6 +898,12 @@ const ModelPapers = () => {
                 whileHover={{ y: -8, perspective: 1000 }}
                 className={`paper-high-card ${paper.popularity === 'very-high' ? 'is-hot-glow' : ''} ${paper.year === '2024' ? 'is-new-glow' : ''}`}
               >
+                {/* -- INJECT MULTIPLEX AD EVERY 8 CARDS -- */}
+                {idx > 0 && idx % 8 === 0 && (
+                   <div style={{ position: 'absolute', top: '-20px', left: 0, right: 0, zIndex: 10 }}>
+                      <span className="ad-badge" style={{ background: '#F59E0B', color: 'black', padding: '2px 8px', borderRadius: '4px', fontSize: '0.6rem', fontWeight: 'bold' }}>AD</span>
+                   </div>
+                )}
                 <div className="card-glass-noise"></div>
                 <div className="paper-card-top">
                   <div className={`paper-type-tag ${paper.category}`}>{paper.category.replace('_', ' ')}</div>
@@ -909,8 +936,8 @@ const ModelPapers = () => {
                   </a>
                 </div>
               </motion.div>
-               {/* Inject In-Feed Ad after every 6th item */}
-               {(idx + 1) % 6 === 0 && (
+               {/* Inject In-Feed Ad after every 8th item */}
+               {(idx + 1) % 8 === 0 && (
                   <motion.div 
                     layout 
                     initial={{ opacity: 0 }} 
@@ -921,19 +948,21 @@ const ModelPapers = () => {
                       alignItems: 'center', 
                       justifyContent: 'center',
                       background: 'rgba(255,255,255,0.02)',
-                      border: '1px solid rgba(255,255,255,0.1)'
+                      border: '1px solid rgba(255,255,255,0.1)',
+                      gridColumn: 'span 1'
                     }}
                   >
                      <AdSenseAd 
                         adClient="ca-pub-9499544849301534" 
-                        adSlot="4047001347" 
-                        adFormat="auto"
+                        adSlot="5502713194" 
+                        adFormat="autorelaxed"
                         fullWidthResponsive={true}
-                        style={{ display: 'block', minWidth: '250px' }}
                      />
                   </motion.div>
                )}
               </React.Fragment>
+
+
             ))}
           </AnimatePresence>
         </motion.div>
@@ -1019,6 +1048,16 @@ const ModelPapers = () => {
                   )}
                 </div>
 
+                {/* -- DRAWER AD PLACEMENT -- */}
+                <div style={{ margin: '30px 0' }}>
+                   <AdSenseAd 
+                      adClient="ca-pub-9499544849301534" 
+                      adSlot="3936951010" 
+                      adFormat="auto" 
+                      fullWidthResponsive={true}
+                   />
+                </div>
+
                 <div className="drawer-actions">
                   <a href={getDownloadLink(selectedPaper.modelPaperLink)} download className="secure-dl-btn">
                     <HiArrowDownTray /> <span>Secure Download</span>
@@ -1036,6 +1075,38 @@ const ModelPapers = () => {
           </>
         )}
       </AnimatePresence>
+        <AnimatePresence>
+          {showScrollTop && (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              onClick={scrollToTop}
+              style={{
+                position: 'fixed',
+                bottom: '30px',
+                right: '30px',
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                background: '#6366F1',
+                color: 'white',
+                border: 'none',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxShadow: '0 10px 30px rgba(99, 102, 241, 0.4)',
+                zIndex: 100,
+                fontSize: '1.5rem'
+              }}
+              whileHover={{ scale: 1.1, backgroundColor: '#4F46E5' }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <HiArrowUp />
+            </motion.button>
+          )}
+        </AnimatePresence>
     </div>
   );
 };
