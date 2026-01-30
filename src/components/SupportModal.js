@@ -266,7 +266,7 @@ const SupportModal = ({ isOpen, onClose }) => {
             </motion.button>
 
             <div className="modal-inner-scroll">
-              <div className="modal-header">
+              <div className="support-modal-header">
                 <motion.div 
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
