@@ -38,6 +38,8 @@ import AdSenseAd from './components/AdSenseAd';
 import AdminDashboard from './components/AdminDashboard';
 import SgpaCalculator from './components/SgpaCalculator';
 import ProjectEnquiry from './components/ProjectEnquiry';
+import CareerToolsPage from './components/CareerToolsPage';
+import CareerArticlePage from './components/CareerArticlePage';
 
 // Placement Feature
 import PlacementSection from './pages/PlacementSection';
@@ -200,6 +202,8 @@ function AppContent({ isAuthenticated, userEmail, adminEmail, setIsAuthenticated
         <Route path="/chatbot" element={<ChatBot />} />
         <Route path="/comments" element={<CommentSection />} />
         <Route path="/test" element={<TestPage />} />
+        <Route path="/career-tools" element={<CareerToolsPage />} />
+        <Route path="/career-tools/:id" element={<CareerArticlePage />} />
 
         <Route
           path="/project-enquiry"

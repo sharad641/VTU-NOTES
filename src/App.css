@@ -1,14 +1,17 @@
 /* Global fix for navbar overlap */
 body {
-  padding-top: 70px; /* Desktop navbar height */
-  padding-bottom: 70px; /* Mobile bottom nav height */
+  padding-top: 70px;
+  /* Desktop navbar height */
+  padding-bottom: 70px;
+  /* Mobile bottom nav height */
 }
 
 /* Desktop - remove bottom padding, adjust top */
 @media (min-width: 768px) {
   body {
     padding-bottom: 0;
-    padding-top: 72px; /* Slightly larger for desktop navbar */
+    padding-top: 72px;
+    /* Slightly larger for desktop navbar */
   }
 }
 
@@ -22,7 +25,8 @@ body {
 
 /* Fix for specific pages if needed */
 .page-content {
-  min-height: calc(100vh - 140px); /* Full viewport minus nav heights */
+  min-height: calc(100vh - 140px);
+  /* Full viewport minus nav heights */
 }
 
 @media (min-width: 768px) {
@@ -71,8 +75,13 @@ body {
 
 /* Spin Animation */
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Responsive adjustments */
@@ -82,7 +91,7 @@ body {
     height: 40px;
     border-width: 2.5px;
   }
-  
+
   .loading-text {
     font-size: 14px;
   }
@@ -93,12 +102,12 @@ body {
   .app-loading {
     background: #1a1a1a;
   }
-  
+
   .loading-spinner {
     border-color: #333;
     border-top-color: #667eea;
   }
-  
+
   .loading-text {
     color: #e0e0e0;
   }

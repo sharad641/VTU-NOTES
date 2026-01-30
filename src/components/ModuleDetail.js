@@ -386,13 +386,13 @@ const ModuleDetail = () => {
                               </div>
                           </motion.div>
                           
-                          {/* Inject Ad after every 5th item */}
-                          {(idx + 1) % 5 === 0 && (
+                          {/* Inject Ad after every 3rd item (High Frequency) */}
+                          {(idx + 1) % 3 === 0 && (
                              <div className="in-feed-ad-container" style={{ gridColumn: '1 / -1', margin: '20px 0' }}>
                                 <AdSenseAd 
                                    adClient="ca-pub-9499544849301534" 
                                    adSlot="3936951010" 
-                                   // format="fluid" // Removed format to ensure size
+                                   // format="fluid" 
                                    style={{ display: 'block', minHeight: '150px' }}
                                 />
                              </div>

@@ -24,13 +24,15 @@ const AdSenseAd = ({
   return (
     <div 
       className="ad-slot-wrapper"
+      role="region" 
+      aria-label="Advertisement"
       style={{
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         margin: "24px 0",
-        minHeight: "100px", 
+        minHeight: "280px", // ✅ Prevent CLS: Reserve space for standard 300x250 ads
         width: "100%",
         overflow: "hidden",
         backgroundColor: "rgba(255, 255, 255, 0.01)" 

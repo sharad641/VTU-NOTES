@@ -571,6 +571,8 @@
 
   .pdf-stage {
     padding: 20px 16px 120px;
+    display: block !important;
+    /* Stack columns on mobile */
   }
 
   .pdf-floating-actions {

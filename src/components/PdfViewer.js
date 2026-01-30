@@ -249,7 +249,7 @@ const PdfViewer = () => {
           />
       </div>
 
-      <main className="pdf-stage">
+      <main className="pdf-stage" style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '30px' }}>
         <div className="viewer-core-wrapper">
           {loading && (
             <div className="loader-portal">
@@ -297,6 +297,20 @@ const PdfViewer = () => {
             />
           </motion.div>
         </div>
+
+        {/* ✅ SIDEBAR AD (High Value) */}
+        {!cinemaMode && (
+          <aside className="pdf-sidebar-ad mobile-hide-ad" style={{ position: 'sticky', top: '100px', height: 'fit-content' }}>
+             <div style={{ background: 'rgba(255,255,255,0.02)', padding: '15px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)' }}>
+                <p style={{ textAlign: 'center', fontSize: '0.7rem', color: '#64748B', marginBottom: '10px', textTransform: 'uppercase', letterSpacing: '1px' }}>Sponsored</p>
+                <AdSenseAd 
+                    adClient="ca-pub-9499544849301534" 
+                    adSlot="3936951010" 
+                    style={{ minHeight: "600px", width: "100%" }} 
+                />
+             </div>
+          </aside>
+        )}
 
         <AnimatePresence>
           {cinemaMode && (

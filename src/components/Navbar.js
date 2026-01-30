@@ -54,6 +54,7 @@ const Navbar = () => {
       ]
     },
     { name: "Model Papers", path: "/model-papers", icon: <FaGraduationCap /> },
+    { name: "Career & Tools", path: "/career-tools", icon: <FaRocket /> },
     { name: "SGPA", path: "/sgpa-calculator", icon: <FaCalculator /> },
     { name: "Projects", path: "/project-enquiry", icon: <FaRocket /> },
   ];
@@ -172,7 +173,7 @@ const Navbar = () => {
                 )}
               </Link>
 
-              <button className="nav-mobile-switch" onClick={() => setIsOpen(!isOpen)}>
+              <button className="nav-mobile-switch" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Navigation Menu">
                 <div className={`nav-burger ${isOpen ? "open" : ""}`}>
                   <span></span>
                   <span></span>
@@ -205,7 +206,7 @@ const Navbar = () => {
             >
               <div className="mobile-menu-header">
                 <div className="nav-brand-title">VTU<span className="accent-glow">PORTAL</span></div>
-                <button className="mobile-close-btn" onClick={closeMenu}><FaTimes /></button>
+                <button className="mobile-close-btn" onClick={closeMenu} aria-label="Close Menu"><FaTimes /></button>
               </div>
 
               <div className="mobile-menu-items">
