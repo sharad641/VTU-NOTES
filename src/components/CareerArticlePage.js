@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   HiArrowLeft, HiCalendar, HiTag, HiClock, 
-  HiSpeakerWave, HiPause, HiBookmark 
+  HiSpeakerWave, HiPause, HiBookmark, HiListBullet  // Switched to HiListBullet as HiBooking might not exist or be appropriate, but let's check standard icons. actually wait, let me just add HiBooking if it exists, or better yet use HiListBullet for TOC.
 } from 'react-icons/hi2';
 import { RiWhatsappLine, RiTwitterXLine, RiLinkedinLine, RiLinksLine } from 'react-icons/ri';
 import AdSenseAd from './AdSenseAd';
@@ -250,19 +250,44 @@ const CareerArticlePage = () => {
                                 )}
 
                                 {block.type === 'code' && (
-                                    <div className="code-block">
+                                    <div className="code-block" style={{ position: 'relative' }}>
                                         <div className="code-header">
                                             <span>{block.language || 'Code'}</span>
+                                            <button 
+                                                className="copy-btn"
+                                                onClick={(e) => {
+                                                    navigator.clipboard.writeText(block.code);
+                                                    const btn = e.target;
+                                                    btn.innerText = 'Copied!';
+                                                    setTimeout(() => btn.innerText = 'Copy', 2000);
+                                                }}
+                                                style={{
+                                                    background: 'rgba(255,255,255,0.1)',
+                                                    border: 'none',
+                                                    color: '#cbd5e1',
+                                                    padding: '4px 12px',
+                                                    borderRadius: '4px',
+                                                    fontSize: '0.75rem',
+                                                    cursor: 'pointer',
+                                                    transition: 'all 0.2s'
+                                                }}
+                                            >
+                                                Copy
+                                            </button>
                                         </div>
                                         <pre>
                                             <code>{block.code}</code>
                                         </pre>
                                     </div>
                                 )}
-
+                                
                                 {block.type === 'step' && (
                                     <div className="timeline-step">
-                                        <div className="step-marker"></div>
+                                        <motion.div 
+                                          initial={{ height: 0 }}
+                                          whileInView={{ height: '100%' }}
+                                          className="step-marker"
+                                        ></motion.div>
                                         <div className="step-content">
                                             <h4>{block.title}</h4>
                                             <p>{block.text}</p>
@@ -284,22 +309,44 @@ const CareerArticlePage = () => {
             </main>
 
             {/* RIGHT: Sidebar (TOC + Ads) */}
-            <aside style={{ display: 'none', lg: { display: 'block' } }}>
+            <aside className="right-sidebar">
                 <div style={{ position: 'sticky', top: '120px' }}>
                    
-                   {/* TOC Widget */}
-                   <div className="sidebar-widget">
-                       <div className="widget-title">Table of Contents</div>
-                       <nav>
+                   {/* TOC Widget (Mission Control Style) */}
+                   <div className="sidebar-widget" style={{ 
+                       background: 'rgba(15, 23, 42, 0.4)', 
+                       backdropFilter: 'blur(12px)',
+                       border: '1px solid rgba(255,255,255,0.08)',
+                       borderRadius: '20px',
+                       padding: '25px',
+                       marginBottom: '30px',
+                       boxShadow: '0 20px 40px -10px rgba(0,0,0,0.5)'
+                   }}>
+                       <div className="widget-title" style={{ 
+                           fontSize: '0.85rem', fontWeight: '700', letterSpacing: '1px', 
+                           color: '#94A3B8', textTransform: 'uppercase', marginBottom: '20px', 
+                           display: 'flex', alignItems: 'center', gap: '8px' 
+                       }}>
+                           <span style={{ width: '8px', height: '8px', background: '#00F0FF', borderRadius: '50%', boxShadow: '0 0 10px #00F0FF' }}></span>
+                           On This Page
+                       </div>
+                       <nav style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                           {toc.map((head, i) => (
-                              <a 
+                              <motion.a 
                                   key={i} 
                                   onClick={() => scrollToSection(head)}
+                                  whileHover={{ x: 5, color: '#00F0FF' }}
                                   className="toc-link-modern"
-                                  style={{ cursor: 'pointer' }}
+                                  style={{ 
+                                      cursor: 'pointer', 
+                                      fontSize: '0.9rem', color: '#CBD5E1', 
+                                      display: 'flex', alignItems: 'center', gap: '12px',
+                                      lineHeight: '1.4', transition: 'all 0.2s ease'
+                                  }}
                               >
+                                  <span style={{ fontSize: '0.7rem', color: '#475569', fontFamily: 'monospace' }}>{(i+1).toString().padStart(2, '0')}</span>
                                   {head}
-                              </a>
+                              </motion.a>
                           ))}
                        </nav>
                    </div>
@@ -320,6 +367,18 @@ const CareerArticlePage = () => {
              <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="5502713194" adFormat="autorelaxed" />
         </div>
 
+        {/* Mobile Floating Action Button (FAB) */}
+        <div className="mobile-fab-container">
+            <button 
+                className="fab-main-btn"
+                onClick={() => {
+                    const toc = document.querySelector('.sidebar-widget');
+                    if(toc) toc.scrollIntoView({ behavior: 'smooth' });
+                }}
+            >
+                <HiListBullet />
+            </button>
+        </div>
       </div>
     </div>
   );

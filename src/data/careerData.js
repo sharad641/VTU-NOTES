@@ -16,542 +16,631 @@ export const careerArticles = [
     date: "January 29, 2026",
     readingTime: "5 min read",
     fullContent: [
-      { type: 'p', text: 'In 2026, engineering students need more than just a basic laptop. From online classes and coding to final-year projects, simulations, and internships, the right laptop directly impacts your learning speed and career growth.' },
-      { type: 'p', text: 'This complete guide helps you choose the best laptop for engineering students in India, based on branch, budget, and future job requirements.' },
-      
-      { type: 'h3', text: '🚀 Why Choosing the Right Laptop Matters' },
-      { type: 'p', text: 'A poor laptop can cause slow compilation while coding, software crashes during labs, lag during project demos, and compatibility issues in your final year.' },
-      { type: 'ul', items: [
-          '✅ Saves time',
-          '✅ Boosts productivity',
-          '✅ Supports internships & freelancing',
-          '✅ Lasts all 4 years of engineering'
-      ]},
+      { type: 'p', text: 'Choosing a laptop for engineering is not like buying one for movies or social media. Your laptop becomes your coding machine, lab partner, design studio, and career-building tool for the next 4 years — and even beyond graduation.' },
+      { type: 'p', text: 'Many students buy a cheap laptop in first year and later struggle when running MATLAB, AutoCAD, Android Studio, or AI tools. Slow systems lead to frustration, project delays, and limited learning. This guide helps you pick the right laptop for studies, projects, programming, engineering software, and career growth.' },
 
-      { type: 'h3', text: '🔍 Minimum Specifications (2026 Standards)' },
+      { type: 'h3', text: '🚀 Why Engineering Students Need a Powerful Laptop' },
+      { type: 'p', text: 'Engineering students regularly use heavy software and programming tools that basic laptops cannot handle smoothly.' },
+      { type: 'ul', items: [
+          'Coding in Python, Java, C++, JavaScript',
+          'Web and app development',
+          'Running MATLAB simulations',
+          'Designing in AutoCAD, SolidWorks, Revit',
+          'Circuit tools like Proteus, Multisim',
+          'AI & Machine Learning tools like TensorFlow, PyTorch',
+          'Online courses, virtual labs, and certifications',
+          'Final-year projects and internships'
+      ]},
+      { type: 'tip', text: 'If your laptop is slow software crashes, code takes long to compile, and you waste time. A powerful laptop helps you learn faster.' },
+
+      { type: 'h3', text: '🔍 Minimum Laptop Requirements (Branch Wise)' },
+      
+      { type: 'step', title: '💻 CSE / IT Students', text: 'Main work: programming, AI, software development.' },
       { type: 'ul', items: [
           'Processor: Intel i5 (12th Gen+) / AMD Ryzen 5',
-          'RAM: 8GB minimum (16GB ideal)',
-          'Storage: 512GB NVMe SSD',
-          'Display: Full HD (IPS preferred)',
-          'Battery: 6–8 hours'
+          'RAM: 16GB (Crucial for virtualization)',
+          'Storage: 512GB SSD',
+          'GPU: Integrated is okay, but dedicated GPU helps for AI/ML training'
       ]},
-      { type: 'tip', text: '⚠️ Avoid laptops with HDDs or 4GB RAM — they are outdated and slow.' },
-      { type: 'table', headers: ['Component', 'Minimum (Basic)', 'Recommended (Pro)', 'High-End (Gaming/ML)'], rows: [
-          ['Processor', 'i3 12th Gen / Ryzen 3', 'i5 13th Gen / Ryzen 5', 'i7 13th Gen / Ryzen 7'],
-          ['RAM', '8GB', '16GB', '32GB'],
-          ['Storage', '256GB SSD', '512GB SSD', '1TB NVMe SSD'],
-          ['Graphics', 'Integrated', 'NVIDIA RTX 3050', 'NVIDIA RTX 4060+']
-      ]},
-      { type: 'warning', title: 'Refurbished Alert', text: 'Do not buy refurbished laptops for your primary machine. Battery life is typically degraded by 40%.' },
 
-      { type: 'h3', text: '👨‍💻 Best for CSE / IT / AI / Data Science' },
-      { type: 'p', text: 'You’ll run VS Code, IntelliJ, Android Studio, Python, Java, Web Development, ML models & virtual machines.' },
+      { type: 'step', title: '🔌 ECE Students', text: 'Work includes simulations, coding, electronics tools.' },
       { type: 'ul', items: [
-          'Best Specs: Intel i5 / Ryzen 5 or higher, 16GB RAM, SSD mandatory',
-          'Best Laptop Types: Thin & performance laptops, ultrabooks'
+          'Processor: i5 / Ryzen 5',
+          'RAM: 16GB',
+          'Storage: 512GB SSD',
+          'GPU: Useful for simulation software'
       ]},
 
-      { type: 'h3', text: '⚙️ Mechanical / Civil Engineering' },
-      { type: 'p', text: 'Used for AutoCAD, SolidWorks, ANSYS, 3D modeling.' },
+      { type: 'step', title: '🏗 Mechanical & Civil Students', text: 'Need high graphics power for 3D design.' },
       { type: 'ul', items: [
-          'Best Specs: Dedicated Graphics Card (NVIDIA GTX / RTX), 16GB RAM, High-performance CPU',
-          'Best Laptop Types: Entry-level gaming or creator laptops'
+          'Processor: i5/Ryzen 5 H-series preferred',
+          'RAM: 16GB (upgrade option important)',
+          'Storage: 512GB SSD',
+          'GPU: Dedicated NVIDIA GTX/RTX required for CAD/SolidWorks'
       ]},
 
-      { type: 'h3', text: '🔌 ECE / EEE' },
-      { type: 'p', text: 'Used for MATLAB, Proteus, Multisim, Circuit simulation.' },
+      { type: 'h3', text: '💰 Best Budget Laptops (Smart Value)' },
+      { type: 'p', text: 'Perfect for students starting college who focus on coding and academics. Series like Acer Aspire, HP Pavilion, Lenovo IdeaPad, ASUS VivoBook.' },
       { type: 'ul', items: [
-          'Best Specs: Intel i5 / Ryzen 5, 8GB RAM (16GB better), SSD storage'
+          'Good for: Programming, Web development, Online courses',
+          'College assignments & Basic MATLAB/AutoCAD',
+          'These laptops offer good performance at student-friendly prices.'
       ]},
 
-      { type: 'h3', text: '💰 Best Laptops by Budget (India – 2026)' },
-      { type: 'p', text: '🔹 Under ₹50,000: Best for First-year students, basic coding. (Ryzen 5 / Intel i3 12th gen, 8GB RAM).' },
-      { type: 'p', text: '🔹 ₹50,000 – ₹70,000: Most recommended range. Intel i5 / Ryzen 5, 16GB RAM possible. Perfect for coding & internships.' },
-      { type: 'p', text: '🔹 Above ₹70,000: High Performance for ML, Heavy software, Final-year projects. Intel i7 / Ryzen 7, Dedicated GPU.' },
-
-      { type: 'h3', text: '🍎 MacBook vs Windows' },
+      { type: 'h3', text: '⚡ Best Performance Laptops (Future-Proof)' },
+      { type: 'p', text: 'If you can invest more, performance laptops last longer. Series like ASUS ROG, Lenovo Legion, HP Omen, Dell G Series.' },
       { type: 'ul', items: [
-          'Coding & Development: Both are excellent (⭐⭐⭐⭐⭐)',
-          'Engineering Software: Windows is better (✅), Mac is limited (❌)',
-          'Battery Life: MacBook wins (⭐⭐⭐⭐⭐)',
-          'Price: Windows has a wider range.'
+          'Benefits: High-speed processors, RTX graphics cards, Better cooling',
+          'Ideal for: Machine learning projects, 3D modeling, Game dev, Video editing'
       ]},
-      { type: 'tip', text: '👉 Windows laptops are safer for VTU & Indian engineering curriculum due to software compatibility.' },
+
+      { type: 'h3', text: '👨‍💻 Laptops for Programming, AI & Software Development' },
+      { type: 'p', text: 'Students aiming for software jobs, product-based companies, or AI careers should focus on performance.' },
+      { type: 'ul', items: [
+          'For AI & Data Science: GPU helps train models faster',
+          '16–32GB RAM supports large datasets',
+          'Fast SSD improves coding speed',
+          'Capable of running Docker, Virtual Machines, and Android Studio'
+      ]},
+
+      { type: 'h3', text: '🛠 Important Features to Look For' },
+      { type: 'table', headers: ['Feature', 'Requirement', 'Why it matters'], rows: [
+          ['RAM', 'Min 16GB', 'Helps multitasking (browser + code + software)'],
+          ['Storage', 'Min 512GB SSD', 'Faster boot and loading. Much better than HDD.'],
+          ['Processor', 'i5/i7 (12th Gen+) or Ryzen 5/7', 'H-series = more performance for heavy tasks.'],
+          ['GPU', 'NVIDIA RTX series', 'Needed for AutoCAD, AI/ML, Video editing.'],
+          ['Battery', '6-8 Hours', 'Useful for college labs and libraries.']
+      ]},
+
+      { type: 'h3', text: '💾 Recommended Software Used by Engineering Students' },
+      { type: 'ul', items: [
+          'Programming: Python, Java, C/C++, VS Code, Git',
+          'Engineering Tools: MATLAB, AutoCAD, SolidWorks, Ansys',
+          'AI & Data Science: Jupyter Notebook, TensorFlow, PyTorch',
+          'Career: Cloud labs, Virtual machines'
+      ]},
+
+      { type: 'h3', text: '📈 How a Good Laptop Helps in Career Growth' },
+      { type: 'p', text: 'A laptop is not just for notes — it’s a career investment. With a powerful system, you can build real-world projects, practice coding daily, and prepare for technical interviews.' },
+      { type: 'tip', text: 'Students with good laptops can participate in Hackathons, Open-source contributions, and AI competitions more effectively.' },
+
+      { type: 'warning', title: 'Mistakes to Avoid', text: '❌ Buying only based on looks. ❌ Choosing 8GB RAM (too low for 2026). ❌ Buying HDD instead of SSD. ❌ Ignoring GPU for design branches.' },
+
+      { type: 'p', text: 'Conclusion: In 2026, engineering success depends on programming skills and software knowledge. Choose a laptop that helps you learn faster and build better projects — it is your most important partner.' }
+    ]
+  },
+  {
+    id: 9, 
+    title: "Career in Cloud Computing for Engineering Students",
+    category: "Career Focus",
+    cpcLevel: "High",
+    imageUrl: "/assets/career/cloud-computing.png",
+    takeaways: [
+      "Cloud computing is growing fast (AWS, Azure, GCP).",
+      "High demand for Cloud Engineers, Architects, and DevOps.",
+      "Salaries range from ₹4–8 LPA (Freshers) to ₹20+ LPA (Exp).",
+      "Certifications + Projects are the key to getting hired."
+    ],
+    summary: "Cloud computing is the backbone of modern tech. Learn how CSE, ECE, & IT students can build a high-paying career in Cloud, AWS, & Azure.",
+    keywords: ["Cloud Computing", "AWS", "Azure", "DevOps", "Cloud Engineer"],
+    date: "February 04, 2026",
+    readingTime: "7 min read",
+    fullContent: [
+      { type: 'p', text: 'Cloud computing is one of the fastest-growing career fields in the world. For engineering students in India, learning cloud skills can open doors to high-paying jobs, global opportunities, internships, and long-term career growth.' },
+      { type: 'p', text: 'Today, companies use cloud platforms for software development, data storage, artificial intelligence, websites, mobile apps, and business systems. If you are studying CSE, IT, ECE, or even other engineering branches, cloud computing can become a powerful career path.' },
+
+      { type: 'h3', text: '☁️ What is Cloud Computing?' },
+      { type: 'p', text: 'Cloud computing means using remote servers on the internet instead of your own computer to store data, run software, and manage systems.' },
+      { type: 'ul', items: [
+          'Host websites and apps',
+          'Store data securely',
+          'Run AI and machine learning tools',
+          'Manage databases'
+      ]},
+      { type: 'tip', text: 'In simple words, cloud computing is the backbone of modern software and digital services.' },
+
+      { type: 'h3', text: '🚀 Why Cloud Skills Are in High Demand' },
+      { type: 'p', text: 'Cloud technology is used in IT, Banking, Healthcare, E-commerce, and Government services.' },
+      { type: 'ul', items: [
+          'Businesses are moving from traditional servers to the cloud',
+          'Cloud reduces costs and improves performance',
+          'Remote work and online services depend on cloud systems',
+          'AI, big data, and IoT require cloud infrastructure'
+      ]},
+
+      { type: 'h3', text: '🌍 Real-World Applications' },
+      { type: 'ul', items: [
+          'Watching videos on streaming platforms',
+          'Using Google Drive or OneDrive',
+          'Online banking & Food delivery apps',
+          'Engineering simulations & AI model training'
+      ]},
+
+      { type: 'h3', text: '💼 Career Opportunities and Job Roles' },
+      { type: 'table', headers: ['Role', 'Description'], rows: [
+          ['Cloud Engineer', 'Manages cloud systems and services'],
+          ['Cloud Architect', 'Designs cloud solutions'],
+          ['DevOps Engineer', 'Automates software deployment'],
+          ['Cloud Security Engineer', 'Protects cloud data'],
+          ['Site Reliability Engineer', 'Ensures system uptime']
+      ]},
+
+      { type: 'h3', text: '💰 Average Salary in India' },
+      { type: 'table', headers: ['Experience Level', 'Salary Range'], rows: [
+          ['Freshers (0–2 years)', '₹4–8 LPA'],
+          ['Mid-level (3–5 years)', '₹10–18 LPA'],
+          ['Experienced', '₹20+ LPA']
+      ]},
+
+      { type: 'h3', text: '🛠️ Skills Required' },
+      { type: 'ul', items: [
+          'Basics of computer networks & OS (Linux/Windows)',
+          'Programming (Python, Java, or scripting)',
+          'Virtualization & Cybersecurity basics',
+          'AWS/Azure/GCP services',
+          'Containers (Docker basics) & CI/CD tools'
+      ]},
+
+      { type: 'h3', text: '🏆 Best Cloud Platforms to Learn' },
+      { type: 'ul', items: [
+          'AWS (Amazon Web Services): Most widely used, popular in startups.',
+          'Microsoft Azure: Strong in enterprise companies.',
+          'Google Cloud Platform (GCP): Known for AI & data analytics.'
+      ]},
+
+      { type: 'h3', text: '📜 Certifications for Students' },
+      { type: 'ul', items: [
+          'Beginner: AWS Cloud Practitioner, Azure Fundamentals (AZ-900), Google Cloud Digital Leader',
+          'Intermediate: AWS Solutions Architect Associate, Azure Administrator'
+      ]},
+
+      { type: 'h3', text: '🛣️ Step-by-Step Roadmap to Enter Cloud Field' },
+      { type: 'step', title: 'Step 1: Learn Basics', text: 'Understand networking, operating systems, and databases.' },
+      { type: 'step', title: 'Step 2: Learn Programming', text: 'Python is highly useful in cloud automation.' },
+      { type: 'step', title: 'Step 3: Choose One Cloud Platform', text: 'Start with AWS, Azure, or GCP.' },
+      { type: 'step', title: 'Step 4: Hands-on Practice', text: 'Create virtual machines, deploy websites, use cloud storage.' },
+      { type: 'step', title: 'Step 5: Earn Certifications', text: 'Start with foundational certifications.' },
+      { type: 'step', title: 'Step 6: Build Projects', text: 'Host a website, build a cloud-based app, or setup a database.' },
+
+      { type: 'warning', title: 'Common Mistakes', text: '❌ Learning only theory. ❌ Trying to learn all platforms at once. ❌ Ignoring networking basics. ❌ Not building projects.' },
+
+      { type: 'p', text: 'Conclusion: Cloud computing is one of the best career options for engineering students. Start early, practice regularly, and focus on real-world skills — your cloud computing career can grow faster than you expect.' }
+    ]
+  },
+  {
+    id: 10,
+    title: "How to Become a Software Developer After Engineering (2026 Guide)",
+    category: "Career Focus",
+    cpcLevel: "High",
+    imageUrl: "/assets/career/software-developer.png",
+    takeaways: [
+      "Master one language (Python/Java) before learning frameworks.",
+      "Data Structures & Algorithms (DSA) are mandatory for big tech jobs.",
+      "Projects > Certificates. Build a portfolio on GitHub.",
+      "Internships are the fastest way to get a full-time job."
+    ],
+    summary: "From choosing a language to cracking interviews. A complete roadmap for engineering students to become software developers.",
+    keywords: ["Software Developer", "Roadmap", "Full Stack", "Placement Guide", "Coding Interview"],
+    date: "February 06, 2026",
+    readingTime: "8 min read",
+    fullContent: [
+      { type: 'p', text: 'Software development is one of the most popular and high-growth career paths for engineering students in India. Every app, website, banking system, online platform, and digital service is built by software developers.' },
+      { type: 'p', text: 'If you enjoy coding, problem-solving, and building useful tools, this career can offer strong salary growth, global opportunities, remote jobs, and continuous learning. This guide explains what software developers do, what skills you need, which programming languages to learn, and the exact steps to enter this field.' },
+
+      { type: 'h3', text: '💻 What Does a Software Developer Do?' },
+      { type: 'p', text: 'A software developer designs, builds, tests, and maintains software applications. In simple words, they turn ideas into working digital products.' },
+      { type: 'ul', items: [
+          'Writing and testing code',
+          'Fixing bugs & Improving performance',
+          'Working with databases',
+          'Collaborating with designers and product managers'
+      ]},
+
+      { type: 'h3', text: '🛠️ Skills Required' },
+      { type: 'ul', items: [
+          'Programming Skills (Python, Java, C++, JS)',
+          'Problem-Solving Ability (DSA)',
+          'Knowledge of Databases (SQL)',
+          'Software Tools (Git, VS Code)',
+          'Soft Skills (Communication, Teamwork)'
+      ]},
+
+      { type: 'h3', text: '🏆 Best Programming Languages to Learn' },
+      { type: 'table', headers: ['Language', 'Best For'], rows: [
+          ['Python 🐍', 'AI, Data Science, Backend'],
+          ['Java ☕', 'Enterprise Software, Android'],
+          ['JavaScript 🌐', 'Web Development (React/Node)'],
+          ['C++ ⚙️', 'System Programming, Gaming']
+      ]},
+
+      { type: 'h3', text: '🧰 Tools Used by Developers' },
+      { type: 'ul', items: [
+          'Coding: VS Code, IntelliJ IDEA',
+          'Version Control: Git & GitHub',
+          'Databases: MySQL, PostgreSQL, MongoDB',
+          'Frameworks: React, Node.js, Spring Boot, Django'
+      ]},
+
+      { type: 'h3', text: '🎓 Online Courses & Certifications' },
+      { type: 'p', text: 'Online learning helps you build skills beyond college syllabus. Popular platforms include Coursera, Udemy, and edX.' },
+      { type: 'ul', items: [
+          'Full-stack web development',
+          'Data structures and algorithms',
+          'Cloud computing basics'
+      ]},
+
+      { type: 'h3', text: '💼 Internship and Job Opportunities' },
+      { type: 'p', text: 'Internships are crucial for real-world experience. Start applying in 2nd or 3rd year. Common roles include: Software Developer, Web Developer, Backend/Frontend Engineer, and DevOps Engineer.' },
+
+      { type: 'h3', text: '💰 Salary Trends in India' },
+      { type: 'table', headers: ['Experience', 'Salary Range'], rows: [
+          ['Freshers', '₹4–8 LPA'],
+          ['2–4 Years Exp', '₹8–15 LPA'],
+          ['Skilled Product Devs', '₹15–25+ LPA']
+      ]},
+
+      { type: 'h3', text: '🛣️ Step-by-Step Learning Roadmap' },
+      { type: 'step', title: 'Step 1: Learn Programming Basics', text: 'Start with Python or Java. Master the syntax.' },
+      { type: 'step', title: 'Step 2: Master DSA', text: 'Practice coding problems regularly for interviews.' },
+      { type: 'step', title: 'Step 3: Learn Git & GitHub', text: 'Essential for managing code and showing portfolio.' },
+      { type: 'step', title: 'Step 4: Choose a Field', text: 'Web, Mobile, Data Science, or Systems.' },
+      { type: 'step', title: 'Step 5: Build Projects', text: 'Make a personal website, to-do app, or portfolio. Projects show skill.' },
+      { type: 'step', title: 'Step 6: Apply for Internships', text: 'Gain industry exposure early.' },
+
+      { type: 'warning', title: 'Mistakes to Avoid', text: '❌ Learning too many languages at once. ❌ Ignoring Data Structures. ❌ Not building projects. ❌ Avoiding internships.' },
+
+      { type: 'p', text: 'Conclusion: Becoming a software developer is fully achievable if you follow the right steps. Focus on coding skills, tools, projects, and continuous learning. Your dedication will lead to a successful tech career.' }
     ]
   },
   {
     id: 2,
-    title: "Top Free Coding Courses with Certificates",
+    title: "Top Free Coding Courses with Certificates for Students (2026)",
     category: "Software / Tech",
     cpcLevel: "High",
     imageUrl: "/assets/career/free-courses.png",
     takeaways: [
-      "Strengthen your resume & LinkedIn profile.",
-      "Clear internship & fresher job screenings.",
-      "Prove skills during technical interviews.",
-      "Stand out without spending money."
+      "Learn in-demand programming skills (Python, Java, Web Dev).",
+      "Improve resume with verified certificates.",
+      "Practice with real coding tools & projects.",
+      "Explore technology fields like AI, Data Science & Cloud."
     ],
-    summary: "Boost your resume without spending a dime. Verified free courses from Google, IBM, and Harvard.",
-    keywords: ["Free Certificates", "CS50", "Google Cloud Skills", "Coursera Financial Aid"],
-    date: "January 25, 2026",
-    readingTime: "6 min read",
+    summary: "Don't pay for what you can get for free. A curated list of the best free certification courses for engineering students.",
+    keywords: ["Free Certificates", "Coding Courses", "Python", "Java", "Web Development"],
+    date: "February 08, 2026",
+    readingTime: "7 min read",
     fullContent: [
-      { type: 'p', text: 'In 2026, coding skills matter more than degrees alone. Recruiters now look for practical skills, verified certificates, and hands-on projects — not just marks.' },
-      { type: 'p', text: 'The good news? You can earn industry-recognized coding certificates for FREE from top organizations like Google, IBM, and Harvard University.' },
-      
-      { type: 'h3', text: '🎯 Why Free Coding Certificates Matter' },
+      { type: 'p', text: 'In today’s digital world, coding is one of the most powerful skills a student can learn. Whether you are in engineering, degree college, or preparing for IT jobs, programming knowledge opens doors to internships, software careers, freelancing, startups, and global job opportunities.' },
+      { type: 'p', text: 'Companies are looking for students with software skills, problem-solving ability, and practical coding experience. The good news? You don’t need expensive coaching. Many free programming courses with certificates are available online that can help you build a strong foundation and improve your career growth.' },
+
+      { type: 'h3', text: '🚀 Why Coding Skills Are Important for Students' },
+      { type: 'p', text: 'Coding is not just for computer science students. Today, programming is useful in Software development, Data science, AI, Automation, and Cloud computing.' },
       { type: 'ul', items: [
-          'Strengthen your resume & LinkedIn profile',
-          'Clear internship & fresher job screenings',
-          'Prove skills during technical interviews',
-          'Stand out without spending money'
+          'Better placement opportunities',
+          'Higher chances of IT jobs',
+          'Access to internships',
+          'Ability to build projects',
+          'Confidence in technical interviews'
       ]},
-      { type: 'tip', text: '💡 For engineering students, certificates + projects = higher placement chances.' },
+
+      { type: 'h3', text: '🎯 Benefits of Free Coding Courses with Certificates' },
+      { type: 'ul', items: [
+          '✅ Learn in-demand programming skills',
+          '✅ Improve your resume with certificates',
+          '✅ Practice with real coding tools',
+          '✅ Prepare for internships and jobs',
+          '✅ Explore different technology fields'
+      ]},
+      { type: 'tip', text: 'Certificates from recognized platforms show that you have taken initiative to learn beyond college syllabus.' },
 
       { type: 'h3', text: '🏆 Best Free Coding Courses with Certificates' },
-      
-      { type: 'h3', text: '1. CS50 – Introduction to Computer Science (Harvard)' },
-      { type: 'p', text: 'Perfect for CSE, IT & first-year students. Learn C, Python, SQL, and Web Development.' },
-      { type: 'ul', items: ['Platform: edX', 'Best for: Beginners → Advanced', 'Verdict: Globally Respected'] },
-      
-      { type: 'h3', text: '2. Google Cloud Skills Boost' },
-      { type: 'p', text: 'Cloud skills = higher-paying roles. Learn Kubernetes, App Deployment, and Cloud Fundamentals.' },
-      { type: 'ul', items: ['Provider: Google', 'Best for: Cloud & DevOps', 'Verdict: Highly valued in startups'] },
-      
-      { type: 'h3', text: '3. IBM Free Coding Courses' },
-      { type: 'p', text: 'Ideal for AI, ML & analytics aspirants. Covers Python, Data Science, and AI basics.' },
-      { type: 'ul', items: ['Platform: Coursera / IBM SkillsBuild', 'Best for: Python, AI & Data Science'] },
 
-      { type: 'h3', text: '📜 What Makes These Certificates Valuable?' },
-      { type: 'table', headers: ['Feature', 'Why It Matters'], rows: [
-          ['Verified Issuer', 'Trusted by recruiters'],
-          ['Online Verification', 'Easy resume validation'],
-          ['Skill-Based', 'Practical knowledge'],
-          ['Zero Cost', 'No financial risk']
-      ]},
-      { type: 'warning', title: 'Fake Certificate Alert', text: '⚠️ Avoid random websites offering “instant certificates” — recruiters ignore them.' },
+      { type: 'h3', text: '🐍 Python Programming Course' },
+      { type: 'p', text: 'Python is easy to start and widely used in software development, AI, and data science.' },
+      { type: 'ul', items: ['Skills: Basics, Loops, Functions, File handling', 'Who for: Beginners, Data Science aspirants'] },
 
-      { type: 'h3', text: '🧑💻 How to Use These Certificates Effectively' },
-      { type: 'ul', items: [
-          'Add certificates to LinkedIn',
-          'Mention them under Skills / Certifications',
-          'Combine with 1–2 mini projects',
-          'Explain learnings in interviews'
-      ]},
+      { type: 'h3', text: '🌐 Web Development Course' },
+      { type: 'p', text: 'Web development skills help you create websites and applications, a great start for internships.' },
+      { type: 'ul', items: ['Skills: HTML, CSS, JavaScript, Frontend design', 'Who for: Freelancers, Startup enthusiasts'] },
 
-      { type: 'h3', text: '🚀 Best Learning Path for Beginners' },
-      { type: 'step', title: 'Step 1: Foundation', text: 'Start with CS50 to build a rock-solid programming foundation.' },
-      { type: 'step', title: 'Step 2: Cloud Basics', text: 'Move to Google Cloud Skills Boost to understand modern infrastructure.' },
-      { type: 'step', title: 'Step 3: Specialization', text: 'Finish with IBM Python/AI courses to target high-growth fields.' },
+      { type: 'h3', text: '☕ Java Programming Course' },
+      { type: 'p', text: 'Java is widely used in enterprise software and IT companies.' },
+      { type: 'ul', items: ['Skills: OOPs, Java syntax, Logical problem-solving', 'Who for: Backend roles, Product companies'] },
 
-      { type: 'h3', text: '❓ Frequently Asked Questions' },
-      { type: 'p', text: 'Q: Are free certificates accepted by companies? \nA: Yes — if they are from reputed organizations and paired with skills.' },
-      { type: 'p', text: 'Q: Do these certificates expire? \nA: No, they remain valid permanently.' },
-      { type: 'p', text: 'Q: Can non-CSE students take these courses? \nA: Absolutely. These are open to all branches.' }
+      { type: 'h3', text: '� C++ Programming Course' },
+      { type: 'p', text: 'C++ builds strong fundamentals useful in placements and competitive coding.' },
+      { type: 'ul', items: ['Skills: Data structures, Memory management', 'Who for: Competitive coding, System programming'] },
+
+      { type: 'h3', text: '📊 Data Science & AI Basics' },
+      { type: 'p', text: 'For students curious about artificial intelligence and future tech careers.' },
+      { type: 'ul', items: ['Skills: Python for data, Visualization, ML concepts', 'Who for: Analytics & AI aspirants'] },
+
+      { type: 'h3', text: '🎓 How Certificates Help in Placements' },
+      { type: 'p', text: 'Certificates may not replace skills, but they show proof of learning, stand out in resume screening, and prove interest in software careers.' },
+
+      { type: 'h3', text: '�️ Step-by-Step Plan to Start Learning' },
+      { type: 'step', title: 'Step 1: Choose One Language', text: 'Start with Python or Java.' },
+      { type: 'step', title: 'Step 2: Enroll in a Course', text: 'Follow structured lessons on free platforms.' },
+      { type: 'step', title: 'Step 3: Practice Daily', text: 'Coding improves with regular practice.' },
+      { type: 'step', title: 'Step 4: Build Small Projects', text: 'Create a calculator, website, or to-do app.' },
+      { type: 'step', title: 'Step 5: Earn Certificates', text: 'Complete courses and add them to your resume.' },
+
+      { type: 'warning', title: 'Common Mistakes', text: '❌ Watching tutorials without coding. ❌ Learning too many languages at once. ❌ Not building projects. ❌ Giving up when problems are hard.' },
+
+      { type: 'p', text: 'Conclusion: Free coding courses with certificates are a powerful opportunity for students. They help you gain software skills, improve career growth, and prepare for IT jobs and internships without financial burden. Start now, stay consistent, and build the career you dream of.' }
     ]
   },
   {
     id: 3,
-    title: "Best Programming Languages to Get a Job in 2026",
-    category: "Software / Tech",
-    cpcLevel: "High",
-    imageUrl: "/assets/career/programming-languages.png",
-    takeaways: [
-      "Python is unbeatable for AI/ML and Data Science.",
-      "JavaScript/TypeScript is mandatory for Web Development.",
-      "Java is widely used in MNCs and for on-campus placements.",
-      "SQL is the most underrated skill for every developer."
-    ],
-    summary: "Which language pays the most? We analyzed 50,000+ job listings to find the winners.",
-    keywords: ["High Paying Jobs", "Python", "Rust", "JavaScript", "Go"],
-    date: "January 20, 2026",
-    readingTime: "6 min read",
-    fullContent: [
-      { type: 'p', text: 'In 2026, companies don’t hire based on degrees alone — they hire based on skills. Choosing the right programming language can directly impact your job opportunities, salary, and career growth.' },
-      
-      { type: 'h3', text: '🎯 Why Choosing the Right Language Matters' },
-      { type: 'ul', items: [
-          '✅ Open doors to internships',
-          '✅ Increase placement chances',
-          '✅ Help you switch roles faster',
-          '✅ Lead to higher-paying jobs'
-      ]},
-
-      { type: 'h3', text: '🏆 Top Programming Languages in 2026' },
-
-      { type: 'h3', text: '🥇 Python — Best Overall for Jobs' },
-      { type: 'p', text: 'Used in: AI, Data Science, Web Development, Automation, Cloud.' },
-      { type: 'ul', items: [
-          'Easy to learn (best for beginners)',
-          'Massive job demand (Startups & MNCs)',
-          'Essential for AI & ML roles'
-      ]},
-      { type: 'tip', text: '💰 High salary + massive hiring = must-learn language.' },
-
-      { type: 'h3', text: '🥈 JavaScript — Backbone of the Web' },
-      { type: 'p', text: 'Used in: Web Apps, Frontend, Backend, Mobile Apps.' },
-      { type: 'ul', items: [
-          'Runs in every browser',
-          'Powers frontend (React) & backend (Node.js)',
-          'Strong demand for full-stack developers'
-      ]},
-      { type: 'tip', text: '👉 If you want fast job entry, JavaScript is unbeatable.' },
-
-      { type: 'h3', text: '🥉 Java — King of Enterprise & Campus Placements' },
-      { type: 'p', text: 'Used in: Enterprise software, Android, Banking systems.' },
-      { type: 'ul', items: [
-          'Widely used in MNCs',
-          'Strong campus hiring',
-          'Excellent for DSA & interviews'
-      ]},
-
-      { type: 'h3', text: '🚀 C++ — High-Performance & Core Engineering' },
-      { type: 'p', text: 'Preferred for Competitive programming, Game engines, and System software.' },
-      { type: 'warning', title: 'Learning Curve', text: '⚠️ Steep learning curve but builds a strong base for technical interviews.' },
-
-      { type: 'h3', text: '📊 SQL — The Most Underrated Job Skill' },
-      { type: 'p', text: 'Required for Data Analyst & Backend Developer roles. SQL + any language = a stronger profile.' },
-
-      { type: 'h3', text: '🧭 Which Language Should YOU Learn?' },
-      { type: 'table', headers: ['Career Goal', 'Best Language'], rows: [
-          ['AI / Data Science', 'Python'],
-          ['Web Development', 'JavaScript'],
-          ['Campus Placements', 'Java'],
-          ['Competitive Coding', 'C++'],
-          ['Data Analyst', 'SQL'],
-          ['Mobile Apps', 'Kotlin / Swift']
-      ]},
-
-      { type: 'h3', text: '🛣️ Recommended Learning Roadmap (Beginners)' },
-      { type: 'step', title: 'Step 1: Pick a Core Language', text: 'Start with Python or Java to learn logic.' },
-      { type: 'step', title: 'Step 2: DSA Fundamentals', text: 'Master Data Structures & Algorithms.' },
-      { type: 'step', title: 'Step 3: Build Projects', text: 'Add JavaScript/React for web or specialized frameworks.' },
-      { type: 'step', title: 'Step 4: Database', text: 'Learn SQL for real-world backend skills.' },
-
-      { type: 'h3', text: '❓ Frequently Asked Questions' },
-      { type: 'p', text: 'Q: Can I get a job by learning only one language? \nA: Yes — but adding projects & DSA is mandatory.' },
-      { type: 'p', text: 'Q: Is C still useful in 2026? \nA: Yes for fundamentals, but not enough alone for jobs.' }
-    ]
-  },
-  {
-    id: 4,
-    title: "How to Learn Python from Scratch (2026 Roadmap)",
-    category: "Software / Tech",
-    cpcLevel: "High",
-    imageUrl: "/assets/career/python-roadmap.png",
-    takeaways: [
-      "Python is the best starting language for 2026.",
-      "Master Basics (Loops, Functions) in Weeks 1-2.",
-      "Data Structures (Lists, Dicts) are key for interviews.",
-      "Projects prove your skills more than certificates."
-    ],
-    summary: "A complete beginner-to-job-ready guide. Learn key concepts, build projects, and choose your career path.",
-    keywords: ["Python", "Roadmap", "Automate", "AI", "Data Science"],
-    date: "January 15, 2026",
-    readingTime: "8 min read",
-    fullContent: [
-      { type: 'p', text: 'Python is one of the most in-demand programming languages in 2026. It is used in software development, data science, AI, automation, and cloud computing — making it the best starting language for students and freshers.' },
-      { type: 'p', text: 'This roadmap shows exactly how to learn Python from scratch, even if you have zero coding background.' },
-      
-      { type: 'h3', text: '🎯 Why Python is the Best Language to Start With' },
-      { type: 'ul', items: [
-          'Simple, readable syntax',
-          'Huge job demand',
-          'Used in multiple career paths',
-          'Massive learning resources'
-      ]},
-      { type: 'tip', text: '💡 Many students land internships with Python as their first language.' },
-
-      { type: 'h3', text: '🧠 Step 0: Prerequisites (Don’t Skip This)' },
-      { type: 'p', text: 'Good news — you don’t need advanced math or prior programming experience. You only need basic computer knowledge and a willingness to practice daily.' },
-
-      { type: 'h3', text: '🛣️ Python Learning Roadmap (2026)' },
-      
-      { type: 'step', title: 'Step 1: Learn Python Basics (Week 1–2)', text: 'Start with core concepts: Variables, Input/Output, Conditions (if-else), Loops, and Functions.' },
-      { type: 'warning', title: 'Foundation Alert', text: '⚠️ Do not rush. Strong basics = faster growth later.' },
-
-      { type: 'step', title: 'Step 2: Master Data Structures (Week 3)', text: 'Learn Lists, Tuples, Sets, Dictionaries, and Strings. Practice real-life examples.' },
-      { type: 'tip', text: '💡 Data structures are asked in almost every interview.' },
-
-      { type: 'step', title: 'Step 3: Learn Object-Oriented Programming (Week 4)', text: 'Understand Classes, Inheritance, Encapsulation, and Polymorphism. Required for real-world projects.' },
-
-      { type: 'step', title: 'Step 4: Practice Problem Solving (Week 5–6)', text: 'Focus on Logic building and Basic DSA (Arrays, Strings, Searching & sorting).' },
-
-      { type: 'step', title: 'Step 5: Choose Your Python Career Path (Week 7+)', text: 'Choose ONE: Web Dev (Django/Flask), Data Science (Pandas), AI/ML, or Automation.' },
-
-      { type: 'h3', text: '🧑💻 Step 6: Build Projects (MOST IMPORTANT)' },
-      { type: 'p', text: 'Projects prove your skills more than certificates. Ideas:' },
-      { type: 'ul', items: [
-          'Beginner: To-do app, Number guessing game',
-          'Intermediate: Web app, Data analysis project, Automation script'
-      ]},
-      { type: 'tip', text: '🎯 Projects = interview confidence.' },
-
-      { type: 'h3', text: '📜 Step 7: Certificates & Resume Building' },
-      { type: 'p', text: 'Add Python certificates and GitHub project links to your resume.' },
-
-      { type: 'h3', text: '⏱️ How Long Does It Take to Learn Python?' },
-      { type: 'table', headers: ['Level', 'Time Needed'], rows: [
-          ['Basics', '2 weeks'],
-          ['Intermediate', '1–2 months'],
-          ['Job-ready', '3–4 months']
-      ]},
-      { type: 'p', text: 'Consistency matters more than speed.' },
-
-      { type: 'h3', text: '❓ Frequently Asked Questions' },
-      { type: 'p', text: 'Q: Is Python enough to get a job? \nA: Yes — if you combine it with projects and problem-solving.' },
-      { type: 'p', text: 'Q: Can non-CSE students learn Python? \nA: Absolutely. Python is widely used across branches.' }
-    ]
-  },
-  {
-    id: 5,
-    title: "Essential Software Tools for CSE Students (2026 Complete Guide)",
-    category: "Productivity / Dev Tools",
-    cpcLevel: "High",
-    imageUrl: "/assets/career/essential-tools.png",
-    takeaways: [
-      "VS Code is acceptable for 99% of coding tasks.",
-      "GitHub is your new resume — start pushing code today.",
-      "Linux skills are mandatory for Cloud & DevOps roles.",
-      "Learn Docker to stand out in interviews."
-    ],
-    summary: "Must-have tools every Computer Science student should use. From VS Code to Docker & AWS.",
-    keywords: ["VS Code", "GitHub", "Linux", "Docker", "Postman", "AWS"],
-    date: "January 10, 2026",
-    readingTime: "5 min read",
-    fullContent: [
-      { type: 'p', text: 'In 2026, being a Computer Science student is no longer just about learning theory. Recruiters expect students to be comfortable with real-world software tools used in the industry.' },
-      
-      { type: 'h3', text: '🧑💻 1. Code Editor: VS Code' },
-      { type: 'p', text: 'Free, lightweight, and supports every language via extensions.' },
-      { type: 'ul', items: ['Best for: Web Dev, Python, Java', 'Tip: Learn keyboard shortcuts to code faster.']},
-
-      { type: 'h3', text: '🔁 2. Version Control: GitHub' },
-      { type: 'p', text: 'Track changes and collaborate. A strong GitHub profile matters more than marks.' },
-
-      { type: 'h3', text: '🌐 3. Browser: Google Chrome' },
-      { type: 'p', text: 'Use Chrome DevTools to inspect HTML/CSS and debug JavaScript.' },
-
-      { type: 'h3', text: '🗄️ 4. Database: MySQL' },
-      { type: 'p', text: 'Required for almost every backend system. SQL knowledge is non-negotiable.' },
-
-      { type: 'h3', text: '📦 5. API Testing: Postman' },
-      { type: 'p', text: 'Essential for testing REST APIs and debugging backend projects.' },
-
-      { type: 'h3', text: '🐳 6. DevOps: Docker' },
-      { type: 'p', text: 'Helps deploy apps easily. Huge demand in cloud roles.' },
-      { type: 'tip', text: '💡 Docker knowledge gives you an edge in interviews.' },
-
-      { type: 'h3', text: '🐧 7. OS: Linux' },
-      { type: 'p', text: 'Servers run on Linux. Learn basic commands for better performance.' },
-
-      { type: 'h3', text: '☁️ 8. Cloud: AWS' },
-      { type: 'p', text: 'Most companies use AWS. Use the student free tier to learn hosting.' },
-
-      { type: 'h3', text: '📋 Recommended Tool Stack' },
-      { type: 'table', headers: ['Purpose', 'Tool'], rows: [
-          ['Coding', 'VS Code'],
-          ['Version Control', 'GitHub'],
-          ['Database', 'MySQL'],
-          ['API Testing', 'Postman'],
-          ['DevOps', 'Docker'],
-          ['Cloud', 'AWS']
-      ]},
-
-      { type: 'h3', text: '❓ Frequently Asked Questions' },
-      { type: 'p', text: 'Q: Are these tools free? \nA: Yes, most offer free student plans.' },
-      { type: 'p', text: 'Q: Do interviewers ask about tools? \nA: Yes — especially for internships.' }
-    ]
-  },
-  {
-    id: 6,
-    title: "How to Get a Software Job After Engineering (Step-by-Step Guide – 2026)",
+    title: "Cyber Security Career Guide for Engineering Students (2026)",
     category: "Career Focus",
     cpcLevel: "High",
-    imageUrl: "/assets/career/job-guide.png",
+    imageUrl: "/assets/career/cyber-security.png",
     takeaways: [
-      "Don’t try to learn everything — Pick ONE career path.",
-      "Projects prove you can apply knowledge, not just study theory.",
-      "Referrals on LinkedIn increase interview chances massively.",
-      "Consistency > Speed. It takes 4-6 months to be job-ready."
+      "High demand: 3.5 million unfilled cyber security jobs globally.",
+      "Open to all branches: CSE, IT, ECE, and even non-tech.",
+      "Key Skills: Linux, Networking (TCP/IP), and Python.",
+      "Certifications like CEH & Security+ boost hiring chances."
     ],
-    summary: "Finishing engineering is just the beginning. A complete 8-step roadmap to get hired.",
-    keywords: ["Software Job", "Off-Campus", "Resume Tips", "LinkedIn Strategy", "Roadmap"],
-    date: "January 29, 2026",
+    summary: "Protecting digital data is a top priority for companies. A complete guide to becoming a Cyber Security Engineer or Ethical Hacker.",
+    keywords: ["Cyber Security", "Ethical Hacking", "Network Security", "CEH", "Career Path"],
+    date: "February 10, 2026",
     readingTime: "8 min read",
     fullContent: [
-      { type: 'p', text: 'Finishing engineering is just the beginning. In 2026, companies don’t hire based only on degrees — they hire candidates who can code, build projects, and solve problems.' },
-      
-      { type: 'h3', text: '🎯 Reality Check: What Companies Look For' },
+      { type: 'p', text: 'Cyber security is one of the fastest-growing technology careers in the world. As businesses, banks, governments, and startups move their systems online, protecting digital data has become extremely important. Cyber attacks are increasing every year, and companies need skilled professionals to secure their systems.' },
+      { type: 'p', text: 'For engineering and college students in India, cyber security offers strong job demand, good salaries, global opportunities, and exciting work. If you are interested in computers, networks, problem-solving, and ethical hacking, this field can be a great career path.' },
+
+      { type: 'h3', text: '🛡️ What is Cyber Security?' },
+      { type: 'p', text: 'Cyber security is the practice of protecting computers, networks, servers, software, and data from cyber threats such as hacking, malware, phishing, and data breaches.' },
+      { type: 'tip', text: 'Imagine cyber security professionals as digital security guards who protect systems from online attackers.' },
+
+      { type: 'h3', text: '🚀 Why Engineering Students Should Learn Cyber Security' },
       { type: 'ul', items: [
-          '✅ Programming skills',
-          '✅ Projects & practical experience',
-          '✅ Problem-solving ability',
-          '❌ Marks alone are not enough'
+          'High demand in IT careers',
+          'Growing number of cyber attacks means more jobs',
+          'Good salary packages globally',
+          'Opportunity to work with top MNCs',
+          'Exciting and challenging work'
+      ]},
+      { type: 'p', text: 'Cyber security is not limited to one branch. Students from CSE, IT, ECE, and even other engineering streams can enter this field.' },
+
+      { type: 'h3', text: '💼 Types of Cyber Security Jobs' },
+      { type: 'table', headers: ['Role', 'What They Do'], rows: [
+          ['Ethical Hacker', 'Finds system weaknesses legally to fix them'],
+          ['Security Analyst', 'Monitors systems and detects threats'],
+          ['Network Security Eng.', 'Protects networks from unauthorized access'],
+          ['Penetration Tester', 'Simulates attacks to test security'],
+          ['Security Consultant', 'Advises companies on safety strategies']
       ]},
 
-      { type: 'h3', text: '🛣️ Complete Roadmap to Get a Software Job' },
-
-      { type: 'step', title: 'Step 1: Choose a Clear Career Path', text: 'Don’t try to learn everything. Pick ONE path first.' },
-      { type: 'table', headers: ['Career Path', 'What to Learn'], rows: [
-          ['Software Developer', 'Python / Java + DSA'],
-          ['Web Developer', 'JavaScript + React'],
-          ['Data Analyst', 'Python + SQL'],
-          ['Backend Developer', 'Java / Python + APIs'],
-          ['Cloud / DevOps', 'Linux + Cloud basics']
-      ]},
-
-      { type: 'step', title: 'Step 2: Learn One Language Properly', text: 'Recommended: Python (Beginners), Java (Placements), or JavaScript (Web).' },
-      { type: 'ul', items: ['Focus on basics, writing code daily, and understanding logic.'] },
-
-      { type: 'step', title: 'Step 3: Master DSA', text: 'Arrays, Loops, Strings, Searching & Sorting. Practice daily on LeetCode/GeeksforGeeks.' },
-
-      { type: 'step', title: 'Step 4: Build REAL Projects', text: 'Projects prove skills. Build a To-do app (Beginner) -> Full-stack app (Intermediate).' },
-      { type: 'tip', text: '📌 Even 3 good projects are enough for freshers.' },
-
-      { type: 'step', title: 'Step 5: Create a Strong Resume', text: 'Include Skills, Projects (with links), and Certifications. Avoid fake experience.' },
-
-      { type: 'step', title: 'Step 6: Apply Smartly', text: 'Use LinkedIn for referrals, Naukri/Indeed for listings, and Career pages.' },
-
-      { type: 'step', title: 'Step 7: Prepare for Interviews', text: 'Tech Rounds: Basics + DSA. HR Rounds: Communication + "Why this role?".' },
-      
-      { type: 'step', title: 'Step 8: Turn Internships into Jobs', text: 'Struggling to get a full-time role? Start with a paid internship and prove your worth.' },
-
-      { type: 'h3', text: '⏱️ How Long Does It Take?' },
-      { type: 'table', headers: ['Preparation Level', 'Time Needed'], rows: [
-          ['Basics only', '1–2 months'],
-          ['Skills + projects', '3–4 months'],
-          ['Job-ready', '4–6 months']
-      ]},
-
-      { type: 'h3', text: '❓ Frequently Asked Questions' },
-      { type: 'p', text: 'Q: Can non-CSE students get software jobs? \nA: Yes. Skills matter more than branch.' },
-      { type: 'p', text: 'Q: Do certificates guarantee jobs? \nA: No. Skills + projects do.' }
-    ]
-  },
-  {
-    id: 7,
-    title: "How to Land Your First Internship (Step-by-Step Guide – 2026)",
-    category: "Career Focus",
-    cpcLevel: "High",
-    imageUrl: "/assets/career/internship-guide.png",
-    takeaways: [
-      "Most students who get internships are not experts — they just follow the right process.",
-      "Don’t apply randomly. Choose ONE domain (Web, Data, etc.) first.",
-      "Projects prove your skills more than certificates.",
-      "Apply daily. Consistency matters more than luck."
-    ],
-    summary: "Getting your first internship made simple. A step-by-step roadmap for freshers.",
-    keywords: ["Internships", "Cold Emailing", "Resume Tips", "Internshala"],
-    date: "February 01, 2026",
-    readingTime: "6 min read",
-    fullContent: [
-      { type: 'p', text: 'Getting your first internship can feel confusing — especially if you have no experience. The truth is: Most students who get internships are not experts — they just follow the right process.' },
-      
-      { type: 'h3', text: '🎯 Why Internships Matter' },
+      { type: 'h3', text: '🛠️ Skills Required for Cyber Security' },
       { type: 'ul', items: [
-          'Gain real-world experience',
-          'Strengthen your resume',
-          'Perform better in placements',
-          'Convert internships into full-time jobs'
+          'Networking: IP addresses, TCP/IP, Routers',
+          'Linux Skills: Command line mastery (Kali Linux)',
+          'Programming: Python (Automation), C, JavaScript',
+          'Tools: Wireshark, Metasploit, Nmap, Burp Suite',
+          'Problem-Solving: Thinking like a hacker to stop one'
+      ]},
+
+      { type: 'h3', text: '🧰 Best Cyber Security Tools to Learn' },
+      { type: 'ul', items: [
+          'Wireshark – Network analysis',
+          'Metasploit – Penetration testing',
+          'Nmap – Network scanning',
+          'Burp Suite – Web application testing',
+          'Kali Linux – Security testing OS'
+      ]},
+
+      { type: 'h3', text: '📜 Certifications That Help' },
+      { type: 'p', text: 'Certifications prove your skills to recruiters. Start with:' },
+      { type: 'ul', items: [
+          'Beginner: CompTIA Security+, Google Cybersecurity Certificate',
+          'Intermediate: Certified Ethical Hacker (CEH), Cisco CyberOps',
+          'Advanced: CISSP, OSCP'
+      ]},
+
+      { type: 'h3', text: '💰 Average Salary in India' },
+      { type: 'table', headers: ['Experience', 'Salary Range'], rows: [
+          ['Freshers', '₹4–8 LPA'],
+          ['2–5 Years Experience', '₹10–18 LPA'],
+          ['Experts', '₹20+ LPA']
       ]},
 
       { type: 'h3', text: '🛣️ Step-by-Step Roadmap' },
+      { type: 'step', title: 'Step 1: Learn Basics', text: 'Understand networking and operating systems (Windows/Linux).' },
+      { type: 'step', title: 'Step 2: Learn Linux', text: 'Practice basic commands and file management.' },
+      { type: 'step', title: 'Step 3: Learn Programming', text: 'Python is great for automating security tasks.' },
+      { type: 'step', title: 'Step 4: Master Tools', text: 'Practice with Nmap, Wireshark, and Kali Linux.' },
+      { type: 'step', title: 'Step 5: Earn Certifications', text: 'Get Security+ or CEH to validate your skills.' },
+      { type: 'step', title: 'Step 6: Build Projects', text: 'Setup a secure home lab, practice on HackTheBox.' },
 
-      { type: 'step', title: 'Step 1: Choose ONE Domain', text: 'Don’t apply randomly. Decide if you want Web Dev, Data, or Non-Tech.' },
-      { type: 'table', headers: ['Internship Type', 'Skills Needed'], rows: [
-          ['Software / IT', 'Python / Java / JS'],
-          ['Web Develoment', 'HTML, CSS, JS'],
-          ['Data Analyst', 'Python + SQL'],
-          ['Cloud / DevOps', 'Linux + Cloud basics'],
-          ['Non-Tech', 'Excel, Communication']
-      ]},
+      { type: 'warning', title: 'Common Mistakes', text: '❌ Jumping to hacking tool without basics. ❌ Ignoring networking. ❌ Expecting quick success without practice.' },
 
-      { type: 'step', title: 'Step 2: Learn Minimum Skills', text: 'You don’t need to be an expert. Just be useful enough to build small things.' },
-
-      { type: 'step', title: 'Step 3: Build 1–2 Small Projects', text: 'Personal portfolio, To-do app, or a simple Data Analysis project. Projects > Certificates.' },
-
-      { type: 'step', title: 'Step 4: Create a Simple Resume', text: 'Keep it 1 page. Include Skills, Projects, and Education. No fake experience.' },
-
-      { type: 'step', title: 'Step 5: Apply on RIGHT Platforms', text: 'LinkedIn (Referrals), Internshala (Student-friendly), Indeed, and Company Career pages.' },
-
-      { type: 'step', title: 'Step 6: Write Honest Applications', text: '“I’m a student learning Python and have built basic projects. I’m eager to learn.” - Simple & Honest.' },
-
-      { type: 'step', title: 'Step 7: Prepare for Interviews', text: 'Expect basics of your skill + questions about your project. Attitude > Perfection.' },
-
-      { type: 'step', title: 'Step 8: Start Anywhere', text: 'Stuck? Take paid or stipend-based roles. Your first internship opens doors to better ones.' },
-
-      { type: 'h3', text: '⏱️ How Long Does It Take?' },
-      { type: 'table', headers: ['Preparation Level', 'Time Needed'], rows: [
-          ['Basics only', '2–3 weeks'],
-          ['Skills + projects', '1–2 months'],
-          ['Strong Profile', '2–3 months']
-      ]},
-
-      { type: 'h3', text: '❓ Frequently Asked Questions' },
-      { type: 'p', text: 'Q: Can first-year students get internships? \nA: Yes — especially learning-based ones.' },
-      { type: 'p', text: 'Q: Are unpaid internships worth it? \nA: Only if they provide real learning and projects.' }
+      { type: 'p', text: 'Conclusion: Cyber security is one of the most promising careers for engineering students. Start by learning basics, practice regularly, and build projects. Your career in digital security begins now.' }
     ]
   },
   {
-    id: 8,
-    title: "Top 10 Final Year Project Ideas for 2026 (Job-Oriented)",
-    category: "Projects",
-    cpcLevel: "Medium",
-    imageUrl: "/assets/career/project-ideas.png",
+    id: 11,
+    title: "How to Build a Career in Artificial Intelligence (AI) for Engineering Students",
+    category: "Career Focus",
+    cpcLevel: "High",
+    imageUrl: "/assets/career/ai-career.png",
     takeaways: [
-      "A strong project solves a real-world problem, not just a clear requirement.",
-      "Recruiters actively look for projects that use modern tools like AI or Cloud.",
-      "Simple + Useful beats Complex + Unclear.",
-      "Explain 'How you built it' perfectly in interviews."
+      "AI/ML is used in every industry: Banking, Healthcare, Automotive.",
+      "Key Skills: Python, Statistics, Machine Learning (Supervised/Unsupervised).",
+      "Salary Potential: ₹5–10 LPA (Freshers) to ₹25+ LPA (Experts).",
+      "Start with Python -> Math Basics -> ML Algorithms -> Projects."
     ],
-    summary: "Don't build a Library Management System. Build something that gets you hired. 10 practical ideas inside.",
-    keywords: ["Projects", "AI", "Resume", "Full-Stack", "Final Year"],
-    date: "February 02, 2026",
-    readingTime: "8 min read",
+    summary: "AI is the future of tech. Learn how to transform from an engineering student to an AI Engineer with this step-by-step guide.",
+    keywords: ["Artificial Intelligence", "Machine Learning", "Data Science", "Python", "AI Career"],
+    date: "February 12, 2026",
+    readingTime: "9 min read",
     fullContent: [
-      { type: 'p', text: 'Your final year project is more than just a college requirement. In 2026, recruiters actively look at what problem you solved, how you built it, and what technologies you used.' },
-      
-      { type: 'h3', text: '1️⃣ AI-Powered Resume Analyzer' },
-      { type: 'p', text: 'Build a system that analyzes resumes and suggests improvements based on job roles.' },
-      { type: 'ul', items: ['Tech Stack: Python, NLP, Basic AI', 'Why: Real HR use case + AI relevance.'] },
+      { type: 'p', text: 'Artificial Intelligence (AI) is one of the most powerful and fast-growing career fields in the world. From smart assistants and recommendation systems to self-driving cars and medical diagnosis, AI is transforming industries.' },
+      { type: 'p', text: 'For engineering and college students in India, learning AI and Machine Learning (ML) can lead to high-demand IT jobs, exciting projects, global opportunities, and strong career growth. If you enjoy programming, problem-solving, and working with data, AI can be a perfect career path.' },
 
-      { type: 'h3', text: '2️⃣ Smart Attendance System (Face Recognition)' },
-      { type: 'p', text: 'Automate attendance using face detection instead of manual entry.' },
-      { type: 'ul', items: ['Tech Stack: Python, OpenCV', 'Why: Automation + Computer Vision.'] },
+      { type: 'h3', text: '🤖 What is Artificial Intelligence & Machine Learning?' },
+      { type: 'p', text: 'Artificial Intelligence (AI) means making machines intelligent to perform tasks like decision-making. Machine Learning (ML) is a subset of AI where systems learn from data without being explicitly programmed.' },
+      { type: 'tip', text: 'Simple formula: AI = Intelligent Machines. ML = Teaching machines using data.' },
 
-      { type: 'h3', text: '3️⃣ Online Learning Management System (LMS)' },
-      { type: 'p', text: 'Create a platform where students can access courses, notes, and quizzes.' },
-      { type: 'ul', items: ['Tech Stack: MERN / Django, Database', 'Why: Full-stack exposure.'] },
+      { type: 'h3', text: '🚀 Why Engineering Students Should Learn AI' },
+      { type: 'ul', items: [
+          'Huge demand in technology jobs',
+          'High salary potential (one of the highest in IT)',
+          'Future-proof career',
+          'Opportunities for research and innovation',
+          'Useful for startups and product development'
+      ]},
 
-      { type: 'h3', text: '4️⃣ Job Portal for Freshers' },
-      { type: 'p', text: 'A portal focused on fresher jobs, internships, and skill matching.' },
-      { type: 'ul', items: ['Tech Stack: React, Node.js, Cloud', 'Why: Shows system design thinking.'] },
+      { type: 'h3', text: '🌍 Real-World Applications' },
+      { type: 'ul', items: [
+          'Voice Assistants (Siri, Alexa)',
+          'Netflix/YouTube Recommendations',
+          'Fraud Detection in Banking',
+          'Self-driving Cars',
+          'ChatGPT and Generative AI'
+      ]},
 
-      { type: 'h3', text: '5️⃣ Fake News Detection System' },
-      { type: 'p', text: 'Detect fake news using text analysis and machine learning.' },
-      { type: 'ul', items: ['Tech Stack: Python, ML Algorithms', 'Why: Social impact + Data Science stats.'] },
+      { type: 'h3', text: '💼 Career Opportunities in AI' },
+      { type: 'table', headers: ['Role', 'What They Do'], rows: [
+          ['ML Engineer', 'Builds and deploys ML models'],
+          ['Data Scientist', 'Analyzes complex data for insights'],
+          ['AI Engineer', 'Designs complete AI systems'],
+          ['NLP Engineer', 'Works on language (Chatbots, Translation)'],
+          ['Computer Vision Eng.', 'Works on Image/Video understanding']
+      ]},
 
-      { type: 'h3', text: '6️⃣ Expense Tracker & Budget Planner' },
-      { type: 'p', text: 'Track expenses, categorize spending, and generate insights.' },
-      { type: 'ul', items: ['Tech Stack: React/Flutter, Firebase', 'Why: Clean logic + Real-life utility.'] },
+      { type: 'h3', text: '🛠️ Skills Required to Enter AI' },
+      { type: 'ul', items: [
+          'Programming: Python (Most important), R',
+          'Math Basics: Statistics, Probability, Linear Algebra',
+          'Data Handling: Pandas, NumPy, SQL',
+          'ML Concepts: Supervised/Unsupervised Learning, Neural Networks',
+          'Problem-Solving: Logical thinking is key'
+      ]},
 
-      { type: 'h3', text: '7️⃣ Smart Healthcare Appointment System' },
-      { type: 'p', text: 'An online system to book doctor appointments and manage patient records.' },
-      { type: 'ul', items: ['Tech Stack: Web App, SQL', 'Why: Domain knowledge + CRUD.'] },
+      { type: 'h3', text: '🧰 Best AI Tools & Libraries' },
+      { type: 'ul', items: [
+          'Python (Language)',
+          'Jupyter Notebook (Environment)',
+          'TensorFlow & PyTorch (Deep Learning)',
+          'Scikit-learn (ML Algorithms)',
+          'Pandas & NumPy (Data Processing)'
+      ]},
 
-      { type: 'h3', text: '8️⃣ E-Commerce with Recommendation' },
-      { type: 'p', text: 'A small store that suggests products based on viewing history.' },
-      { type: 'ul', items: ['Tech Stack: MERN, Simple ML', 'Why: E-commerce is evergreen.'] },
+      { type: 'h3', text: '💰 Average Salary in India' },
+      { type: 'table', headers: ['Experience', 'Salary Range'], rows: [
+          ['Freshers', '₹5–10 LPA'],
+          ['Mid-level', '₹12–20 LPA'],
+          ['Experienced', '₹25+ LPA']
+      ]},
 
-      { type: 'h3', text: '9️⃣ College Enquiry Chatbot' },
-      { type: 'p', text: 'An AI chatbot that answers student queries about exams and syllabus.' },
-      { type: 'ul', items: ['Tech Stack: Python, NLP / Dialogflow', 'Why: AI interaction.'] },
+      { type: 'h3', text: '🛣️ Step-by-Step Roadmap to Start in AI' },
+      { type: 'step', title: 'Step 1: Learn Python', text: 'Master syntax, loops, functions, and libraries.' },
+      { type: 'step', title: 'Step 2: Understand Math', text: 'Focus on Statistics and Probability basics.' },
+      { type: 'step', title: 'Step 3: Learn Data Handling', text: 'Practice with Pandas and NumPy.' },
+      { type: 'step', title: 'Step 4: Study Machine Learning', text: 'Learn algorithms like Regression, Clustering, Decision Trees.' },
+      { type: 'step', title: 'Step 5: Build Projects', text: 'Create an Image Classifier, Chatbot, or Prediction Model.' },
+      { type: 'step', title: 'Step 6: Earn Certifications', text: 'Coursera (Andrew Ng), Google AI, or Udemy.' },
 
-      { type: 'h3', text: '🔟 Traffic Sign Recognition' },
-      { type: 'p', text: 'Detect and classify traffic signs from images for autonomous driving concepts.' },
-      { type: 'ul', items: ['Tech Stack: Deep Learning (CNNs)', 'Why: Advanced image processing.'] }
+      { type: 'warning', title: 'Common Mistakes', text: '❌ Ignoring basics. ❌ Skipping Math. ❌ Only watching videos (Tutorial Hell). ❌ Not building projects.' },
+
+      { type: 'p', text: 'Conclusion: AI is not just a trend; it is the future. Start learning Python today, understand the math, and build real projects. Your journey into the world of intelligent systems begins now.' }
+    ]
+  },
+  {
+    id: 12,
+    title: "DevOps Career Roadmap for Engineering Students (2026)",
+    category: "Career Focus",
+    cpcLevel: "High",
+    imageUrl: "/assets/career/devops-career.png",
+    takeaways: [
+      "DevOps is the bridge between coding and operations.",
+      "High Salaries: Freshers earn ₹5–8 LPA; 5+ years earn ₹25+ LPA.",
+      "Key Tools: Linux, Docker, Kubernetes, Jenkins, AWS.",
+      "Not just for coders: Requires logic, automation, and system skills."
+    ],
+    summary: "Scale your career with DevOps. A complete guide to Cloud, Automation, and CI/CD for students.",
+    keywords: ["DevOps", "Cloud Computing", "CI/CD", "Docker", "Kubernetes", "AWS"],
+    date: "February 14, 2026",
+    readingTime: "10 min read",
+    fullContent: [
+      { type: 'p', text: 'In today’s fast-moving digital world, companies want to release software faster, safer, and more reliably. This demand has made DevOps one of the most in-demand IT careers globally and especially in India.' },
+      { type: 'p', text: 'Startups, product-based companies, and MNCs are actively hiring DevOps professionals like you to manage cloud infrastructure, automate deployments, and ensure systems run smoothly 24/7.' },
+
+      { type: 'h3', text: '♾️ What Is DevOps?' },
+      { type: 'p', text: 'DevOps is a combination of Development (Dev) and Operations (Ops). It is a culture and set of practices that help teams build, test, deploy, and monitor software faster and more reliably.' },
+      { type: 'ul', items: [
+          'Automation of manual tasks',
+          'Continuous Integration & Deployment (CI/CD)',
+          'Cloud computing management',
+          'Real-time monitoring and feedback'
+      ]},
+      { type: 'tip', text: 'Goal: Deliver high-quality software quickly and consistently.' },
+
+      { type: 'h3', text: '🚀 Why Engineering Students Should Learn DevOps' },
+      { type: 'ul', items: [
+          'Very high demand in IT careers',
+          'Strong salary packages even for freshers',
+          'Less competition compared to traditional coding',
+          'Hands-on, practical work (not theory-heavy)',
+          'Works well with Cloud & Automation'
+      ]},
+
+      { type: 'h3', text: '🌍 Real-World Use of DevOps' },
+      { type: 'p', text: 'Companies like Amazon, Netflix, and Swiggy use DevOps to:' },
+      { type: 'ul', items: [
+          'Automate software updates',
+          'Manage thousands of cloud servers',
+          'Scale apps during high traffic (like Big Billion Days)',
+          'Improve security and reliability'
+      ]},
+
+      { type: 'h3', text: '💼 Career Opportunities and Roles' },
+      { type: 'table', headers: ['Role', 'Focus Area'], rows: [
+          ['DevOps Engineer', 'Automates CI/CD & Infrastructure'],
+          ['Cloud Engineer', 'Manages AWS/Azure/GCP resources'],
+          ['SRE (Site Reliability)', 'Ensures system uptime & performance'],
+          ['Platform Engineer', 'Builds internal developer platforms'],
+          ['Build & Release Eng.', 'Manages code releases']
+      ]},
+
+      { type: 'h3', text: '🛠️ Skills Required for a DevOps Career' },
+      { type: 'ul', items: [
+          'Operating Systems: Linux (File systems, Permissions, Bash)',
+          'Networking: IP, DNS, HTTP/HTTPS, Firewalls',
+          'Scripting: Bash Shell, Python (Basic)',
+          'Cloud Basics: Virtual Machines, Storage, Security',
+          'Version Control: Git & GitHub'
+      ]},
+
+      { type: 'h3', text: '🧰 Important DevOps Tools to Learn' },
+      { type: 'table', headers: ['Category', 'Tool'], rows: [
+          ['OS', 'Linux (Ubuntu/CentOS)'],
+          ['Container', 'Docker'],
+          ['Orchestration', 'Kubernetes (K8s)'],
+          ['CI/CD', 'Jenkins / GitHub Actions'],
+          ['IaC', 'Terraform'],
+          ['Monitoring', 'Prometheus & Grafana']
+      ]},
+
+      { type: 'h3', text: '💰 Average Salary in India (DevOps)' },
+      { type: 'table', headers: ['Experience', 'Salary Range'], rows: [
+          ['Freshers', '₹5–8 LPA'],
+          ['2–4 Years', '₹10–18 LPA'],
+          ['Senior (5+ Years)', '₹20–35+ LPA']
+      ]},
+
+      { type: 'h3', text: '🛣️ Step-by-Step Roadmap' },
+      { type: 'step', title: 'Step 1: Learn Linux Basics', text: 'Commands, File permissions, Process management.' },
+      { type: 'step', title: 'Step 2: Understand Networking', text: 'How the internet works, DNS, Ports, Protocols.' },
+      { type: 'step', title: 'Step 3: Learn Git & GitHub', text: 'Version control workflows are mandatory.' },
+      { type: 'step', title: 'Step 4: Learn One Cloud', text: 'AWS is the market leader. Learn EC2, S3, IAM.' },
+      { type: 'step', title: 'Step 5: Master Docker & Jenkins', text: 'Containerize apps and automate testing.' },
+      { type: 'step', title: 'Step 6: Build Projects', text: 'Deploy a web app on AWS using a CI/CD pipeline.' },
+
+      { type: 'warning', title: 'Common Mistakes', text: '❌ Skipping Linux. ❌ Learning tools without concepts. ❌ Not doing hands-on labs. ❌ Ignoring documentation.' },
+
+      { type: 'p', text: 'Conclusion: DevOps is shaping the future of IT. You don’t need to be a coding expert to succeed, but you need logic and persistence. Start with Linux, move to Cloud, and build your future today.' }
     ]
   }
-];
+]

@@ -196,41 +196,161 @@ const Home = () => {
           </div>
         </motion.div>
 
-        {/* --- AdSense Home Placement --- */}
-        <div style={{ margin: "40px auto", maxWidth: "800px", padding: "0 20px" }}>
-          <AdSenseAd
-             adClient="ca-pub-9499544849301534"
-             adSlot="3936951010"
-             style={{ width: "600px", height: "80px" }} // Best effort for desktop
-          />
-        </div>
-
-        {/* --- Feature Highlights Grid --- */}
-        <div className="feature-highlights-grid">
-          {[
-            { icon: <FaGraduationCap />, title: "Curated Notes", desc: "Expert-verified study material", color: "var(--neon-blue)", link: "/branch-selection/2022" },
-            { icon: <FaLayerGroup />, title: "Model Papers", desc: "Previous years & predicted questions", color: "var(--neon-purple)", link: "/model-papers" },
-            { icon: <FaCalculator />, title: "SGPA Tools", desc: "Instant GPA & CGPA calculations", color: "var(--neon-green)", link: "/sgpa-calculator" }
-          ].map((feature, i) => (
-            <Link to={feature.link} key={i} style={{ textDecoration: 'none' }}>
+        {/* --- Expert Career Guides Banner (Premium 3D Glass) --- */}
+        <div className="career-banner-container" style={{ maxWidth: '1200px', margin: '0 auto 80px', padding: '0 20px' }}>
+            <Link to="/career-tools" style={{ textDecoration: 'none' }}>
               <motion.div
-                whileHover={{ y: -5, scale: 1.02 }}
-                className="feature-card-modern"
+                whileHover={{ scale: 1.02, translateY: -5 }}
+                className="career-banner-modern"
+                style={{ 
+                    position: 'relative',
+                    background: 'radial-gradient(circle at top right, rgba(30, 41, 59, 0.4), rgba(2, 6, 23, 0.8))',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '30px',
+                    padding: '50px',
+                    overflow: 'hidden',
+                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+                    boxShadow: '0 30px 60px -10px rgba(0,0,0,0.6), inset 0 0 20px rgba(255,255,255,0.02)'
+                }}
               >
-                <div className="feature-icon-wrapper" style={{ boxShadow: `0 0 20px ${feature.color}33`, color: feature.color }}>
-                  {feature.icon}
+                {/* Background Glow Effects */}
+                <div style={{ position: 'absolute', top: '-50%', right: '-20%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none' }}></div>
+                <div style={{ position: 'absolute', bottom: '-50%', left: '-20%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(99, 102, 241, 0.1), transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none' }}></div>
+
+                <div className="cb-content" style={{ position: 'relative', zIndex: 2, flex: 1, paddingRight: '40px' }}>
+                   <div style={{ 
+                       display: 'inline-flex', alignItems: 'center', gap: '8px', 
+                       background: 'rgba(56, 189, 248, 0.1)', border: '1px solid rgba(56, 189, 248, 0.3)', 
+                       padding: '6px 16px', borderRadius: '100px',
+                       color: '#38BDF8', fontSize: '0.8rem', fontWeight: '700', letterSpacing: '1px',
+                       marginBottom: '20px', textTransform: 'uppercase'
+                   }}>
+                       <FaCrown style={{ color: '#FACC15' }} /> Premium Career Access
+                   </div>
+
+                   <h2 style={{ 
+                       fontSize: '2.8rem', fontWeight: '800', lineHeight: '1.1', color: 'white', marginBottom: '15px',
+                       textShadow: '0 10px 30px rgba(0,0,0,0.5)'
+                   }}>
+                       Master the Future of <br/>
+                       <span style={{ 
+                           background: 'linear-gradient(to right, #38BDF8, #818CF8)', 
+                           WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' 
+                       }}>Engineering Tech.</span>
+                   </h2>
+
+                   <p style={{ fontSize: '1.15rem', color: '#94A3B8', maxWidth: '550px', lineHeight: '1.6', marginBottom: '30px' }}>
+                       Get high-fidelity roadmaps, salary insights, and step-by-step guides for the most high-paying domains in 2026.
+                   </p>
+
+                   {/* Tech Stack Pills */}
+                   <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '35px' }}>
+                       {[
+                           { name: 'Artificial Intelligence', color: '#A855F7' },
+                           { name: 'Cyber Security', color: '#10B981' },
+                           { name: 'DevOps & Cloud', color: '#F59E0B' },
+                           { name: 'Full Stack', color: '#38BDF8' }
+                       ].map((tech, i) => (
+                           <div key={i} style={{ 
+                               background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', 
+                               padding: '8px 16px', borderRadius: '12px', color: '#E2E8F0', fontSize: '0.85rem', fontWeight: '500',
+                               display: 'flex', alignItems: 'center', gap: '8px'
+                           }}>
+                               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: tech.color, boxShadow: `0 0 10px ${tech.color}` }}></span>
+                               {tech.name}
+                           </div>
+                       ))}
+                   </div>
+
+                   {/* Placement Tools (Quick Access) */}
+                   <div style={{ marginBottom: '35px' }}>
+                       <div style={{ fontSize: '0.75rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '10px', fontWeight: '700' }}>
+                           Placement Resources
+                       </div>
+                       <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                           {[
+                               { name: 'Roadmap', link: '/placement-guide', icon: <FaGraduationCap /> },
+                               { name: 'Stories', link: '/placement-stories', icon: <FaStar /> },
+                               { name: 'Experience', link: '/share-experience', icon: <FaUserAstronaut /> },
+                               { name: 'Mock Tests', link: '/test', icon: <FaCheckCircle /> }
+                           ].map((tool, i) => (
+                               <Link to={tool.link} key={i} style={{ textDecoration: 'none' }}>
+                                   <div style={{ 
+                                       background: 'rgba(56, 189, 248, 0.05)', border: '1px solid rgba(56, 189, 248, 0.2)', 
+                                       padding: '8px 12px', borderRadius: '8px', color: '#94A3B8', fontSize: '0.8rem', fontWeight: '600',
+                                       display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s ease'
+                                   }}
+                                   onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(56, 189, 248, 0.15)'; e.currentTarget.style.color = 'white'; }}
+                                   onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(56, 189, 248, 0.05)'; e.currentTarget.style.color = '#94A3B8'; }}
+                                   >
+                                       <span style={{ color: '#38BDF8' }}>{tool.icon}</span>
+                                       {tool.name}
+                                   </div>
+                               </Link>
+                           ))}
+                       </div>
+                   </div>
+
+                   <motion.div 
+                     className="cb-cta"
+                     whileHover={{ scale: 1.05 }}
+                     whileTap={{ scale: 0.95 }}
+                     style={{ 
+                         background: 'white', color: 'black', padding: '16px 32px', borderRadius: '100px',
+                         fontWeight: '800', display: 'inline-flex', alignItems: 'center', gap: '10px',
+                         fontSize: '1rem', cursor: 'pointer', boxShadow: '0 0 30px rgba(255,255,255,0.3)'
+                     }}
+                   >
+                       START LEARNING <HiOutlineChevronRight />
+                   </motion.div>
                 </div>
-                <div className="feature-info">
-                  <h4>{feature.title}</h4>
-                  <p>{feature.desc}</p>
+
+                {/* 3D Visual Element (Right Side) */}
+                <div className="cb-visual" style={{ position: 'relative', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    
+                    {/* Floating Icons */}
+                    <motion.div 
+                      animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }} 
+                      transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                      style={{ 
+                          position: 'absolute', top: '0', right: '20px', 
+                          background: 'linear-gradient(135deg, #1e293b, #0f172a)', 
+                          border: '1px solid rgba(255,255,255,0.1)', padding: '20px', borderRadius: '20px',
+                          display: 'flex', alignItems: 'center', gap: '15px', color: 'white',
+                          boxShadow: '0 20px 40px rgba(0,0,0,0.5)', zIndex: 3
+                      }}
+                    >
+                        <div style={{ background: 'rgba(56, 189, 248, 0.2)', padding: '10px', borderRadius: '12px', color: '#38BDF8', fontSize: '1.5rem' }}><FaRobot /></div>
+                        <div>
+                            <div style={{ fontSize: '0.7rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '1px' }}>Trending</div>
+                            <div style={{ fontWeight: '700' }}>AI & ML Guide</div>
+                        </div>
+                    </motion.div>
+
+                    <motion.div 
+                      animate={{ y: [0, 15, 0], rotate: [0, -3, 0] }} 
+                      transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
+                      style={{ 
+                          position: 'absolute', bottom: '20px', left: '0', 
+                          background: 'linear-gradient(135deg, #1e293b, #0f172a)', 
+                          border: '1px solid rgba(255,255,255,0.1)', padding: '20px', borderRadius: '20px',
+                          display: 'flex', alignItems: 'center', gap: '15px', color: 'white',
+                          boxShadow: '0 20px 40px rgba(0,0,0,0.5)', zIndex: 4
+                      }}
+                    >
+                        <div style={{ background: 'rgba(16, 185, 129, 0.2)', padding: '10px', borderRadius: '12px', color: '#34D399', fontSize: '1.5rem' }}><FaShieldAlt /></div>
+                        <div>
+                            <div style={{ fontSize: '0.7rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '1px' }}>High Pay</div>
+                            <div style={{ fontWeight: '700' }}>Cyber Security</div>
+                        </div>
+                    </motion.div>
+
+                    {/* Center Glow */}
+                    <div style={{ width: '200px', height: '200px', background: 'radial-gradient(circle, rgba(99, 102, 241, 0.4), transparent 70%)', filter: 'blur(30px)' }}></div>
                 </div>
-                <div className="feature-glow" style={{ background: feature.color }}></div>
-                <div className="card-arrow-icon" style={{ marginLeft: 'auto', color: 'rgba(255,255,255,0.3)' }}>
-                    <HiOutlineChevronRight />
-                </div>
+
               </motion.div>
             </Link>
-          ))}
         </div>
 
         {/* --- Category Glass Navigation --- */}
