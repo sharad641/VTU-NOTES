@@ -729,6 +729,9 @@ body {
 
     .module-description-modern {
         font-size: 0.85rem;
+        overflow-wrap: break-word;
+        /* Prevent text overflow */
+        word-break: break-word;
     }
 
     /* Stack stats vertically on very small screens? No, 2x2 is better usually. 
@@ -739,12 +742,37 @@ body {
 
     .module-card-footer-modern {
         grid-template-columns: 1fr;
-        /* Stack buttons */
+        /* Stack buttons vertical */
         gap: 12px;
     }
 
     .card-action-btn {
         padding: 12px;
+        font-size: 0.9rem;
+        /* Slightly smaller font */
+    }
+
+    /* Ensure card content is not cut off */
+    .module-title-modern {
+        font-size: 1.15rem;
+        overflow-wrap: break-word;
+        word-break: break-word;
+    }
+
+    /* Reduce horizontal padding on container for max width */
+    .content-wrapper {
+        padding: 0 12px;
+    }
+}
+
+/* Extra small devices (e.g. Galaxy Fold) */
+@media (max-width: 320px) {
+    .module-card-modern {
+        padding: 15px;
+    }
+
+    .banner-title {
+        font-size: 1.5rem;
     }
 }
 

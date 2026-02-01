@@ -37,56 +37,45 @@
     font-size: 1.25rem;
 }
 
-.close-modal-btn {
-    background: transparent;
-    border: none;
-    color: #94A3B8;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: 0.2s;
-    opacity: 1;
-}
 
-.close-modal-btn.disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-}
-
-.close-modal-btn:hover:not(.disabled) {
-    color: white;
-}
-
-.modal-body {
-    padding: 25px;
-    text-align: center;
-}
-
-.support-msg {
-    color: #CBD5E1;
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-}
-
-.sub-msg {
-    font-size: 0.9rem;
-    color: #94A3B8;
-    display: block;
-    margin-top: 5px;
-}
-
-.ad-container-modal {
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 12px;
-    padding: 10px;
-    margin-bottom: 25px;
-    min-height: 250px;
+.header-actions {
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
+    width: 40px;
+    /* Fixed width to prevent shifting */
+    height: 40px;
 }
 
-/* Removed unused styles: .action-area, .continue-btn, .timer-badge, .spin-icon, @keyframes spin */
+.interstitial-close-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    color: #94A3B8;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    position: static;
+    /* Enforce normal flow */
+    transform: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.interstitial-close-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-color: #8B5CF6;
+}
+
+/* ... existing styles ... */
 
 .header-timer {
     display: flex;
@@ -98,6 +87,8 @@
     background: rgba(255, 255, 255, 0.1);
     border: 2px solid #8B5CF6;
     animation: pulse-border 1.5s infinite;
+    box-sizing: border-box;
+    /* Ensure padding/border doesn't increase size */
 }
 
 .timer-count {
@@ -118,6 +109,23 @@
     100% {
         box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
     }
+}
+
+.modal-body {
+    padding: 25px;
+    text-align: center;
+}
+
+.ad-container-modal {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 25px;
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
 @media (max-width: 480px) {
