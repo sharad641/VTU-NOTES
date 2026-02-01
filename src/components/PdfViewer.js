@@ -249,7 +249,7 @@ const PdfViewer = () => {
           />
       </div>
 
-      <main className="pdf-stage" style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '30px' }}>
+      <main className="pdf-stage responsive-grid">
         <div className="viewer-core-wrapper">
           {loading && (
             <div className="loader-portal">

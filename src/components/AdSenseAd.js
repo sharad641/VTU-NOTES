@@ -56,6 +56,7 @@ const AdSenseAd = ({
             display: "block", 
             minWidth: "250px", // Reduced to fit 320px mobile screens
             width: style.width || "100%", 
+            maxWidth: "100%", /* Force max width */
             height: style.height || "auto",
             ...style 
           }}

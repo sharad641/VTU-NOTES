@@ -366,17 +366,17 @@ const ModuleDetail = () => {
                               <div className="card-type-header">
                                   <span className="card-type-icon">{getModuleIcon(module.category)}</span>
                                   <span className="card-type-label">{getCategoryLabel(module.category)}</span>
-                                  {module.essential && <span className="status-badge-neon" style={{background: '#FFB800', color: 'black', padding: '2px 6px', borderRadius: '4px', fontSize: '0.7rem', fontWeight: 'bold'}}>ESSENTIAL</span>}
+                                  {module.essential && <span className="status-badge-neon essential">ESSENTIAL</span>}
                               </div>
                               <h3 className="module-title-modern">{module.title}</h3>
                               <p className="module-description-modern">{module.description}</p>
                               
-                              <div className="module-meta-modern" style={{ display: 'flex', gap: '15px', color: '#8F9BB3', fontSize: '0.85rem', marginBottom: '20px' }}>
-                                  <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}><HiOutlineDocumentText /> {module.fileSize} MB</span>
-                                  <span style={{ display: 'flex', alignItems: 'center', gap: '5px' }}><FaClock /> {module.uploadedDate}</span>
+                              <div className="module-meta-modern">
+                                  <span className="module-meta-item"><HiOutlineDocumentText /> {module.fileSize} MB</span>
+                                  <span className="module-meta-item"><FaClock /> {module.uploadedDate}</span>
                               </div>
 
-                              <div className="module-card-footer-modern" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px' }}>
+                              <div className="module-card-footer-modern">
                                   <button onClick={() => handleDownloadTrigger(module)} className="card-action-btn download">
                                       <HiOutlineCloudArrowDown /> Download
                                   </button>

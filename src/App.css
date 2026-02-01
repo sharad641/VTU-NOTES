@@ -84,6 +84,75 @@ body {
   }
 }
 
+/* ==============================
+   PDF VIEWER RESPONSIVE GRID
+============================== */
+.pdf-stage {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 30px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.viewer-core-wrapper {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  /* Prevents grid blowout */
+}
+
+.pdf-sidebar-ad {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+/* Mobile: Full Width PDF, Hide Sidebar */
+@media (max-width: 1024px) {
+  .pdf-stage {
+    grid-template-columns: 1fr !important;
+    gap: 0;
+  }
+
+  .pdf-sidebar-ad {
+    display: none !important;
+  }
+
+  .mobile-hide-ad {
+    display: none !important;
+  }
+
+  .mobile-hide-badges {
+    display: none !important;
+  }
+}
+
+/* Ultra-Mobile: Maximum Width Usage */
+@media (max-width: 768px) {
+  .pdf-stage {
+    padding: 0;
+    margin: 0;
+  }
+
+  .viewer-core-wrapper {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .iframe-container-vibe {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .iframe-actual {
+    width: 100% !important;
+    height: 85vh !important;
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .loading-spinner {

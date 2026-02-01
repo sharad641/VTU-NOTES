@@ -1,718 +1,936 @@
-/* PdfViewer.css - High Fidelity Futuristic Version */
+/* ==========================================
+   PDF VIEWER - MODERN FUTURISTIC DESIGN
+========================================== */
 
 :root {
-  --pdf-accent: #6366F1;
-  --pdf-accent-glow: rgba(99, 102, 241, 0.4);
-  --pdf-bg-light: #F1F5F9;
-  --pdf-bg-dark: #020617;
-  --pdf-glass: rgba(255, 255, 255, 0.8);
-  --pdf-glass-dark: rgba(15, 23, 42, 0.85);
-  --pdf-border: rgba(0, 0, 0, 0.05);
-  --pdf-border-dark: rgba(255, 255, 255, 0.08);
-  --pdf-text: #1E293B;
-  --pdf-text-muted: #64748B;
-  --neon-blue: #38bdf8;
-  --neon-purple: #a855f7;
-  --neon-rose: #fb7185;
-  --neon-green: #34d399;
-  --transition-futuristic: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+    --pdf-primary: #667eea;
+    --pdf-secondary: #764ba2;
+    --pdf-accent: #f093fb;
+    --pdf-dark: #0f0f23;
+    --pdf-glass: rgba(255, 255, 255, 0.08);
+    --pdf-border: rgba(255, 255, 255, 0.12);
 }
 
-.ultimate-progress-line {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple), var(--neon-blue));
-  background-size: 200% 100%;
-  animation: flowLine 2s linear infinite;
-  z-index: 2000;
-  box-shadow: 0 0 15px var(--pdf-accent-glow);
+/* ==========================================
+   ROOT CONTAINER
+========================================== */
+.pdf-modern-root {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+    color: #fff;
+    position: relative;
+    overflow-x: hidden;
 }
 
-@keyframes flowLine {
-  0% {
-    background-position: 100% 0%;
-  }
-
-  100% {
-    background-position: 0% 0%;
-  }
+.pdf-modern-root.is-dark {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
 }
 
-/* --- Background Engine --- */
+.pdf-modern-root.is-light {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #212529;
+}
+
+.pdf-modern-root.is-cinema {
+    background: #000;
+}
+
+/* ==========================================
+   BACKGROUND EFFECTS
+========================================== */
 .pdf-background-shapes {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.05) 0%, transparent 50%);
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
 }
 
-.is-dark .pdf-background-shapes {
-  background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.1) 0%, transparent 60%);
+.pdf-background-shapes .shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+    animation: float 20s ease-in-out infinite;
+}
+
+.pdf-background-shapes .s1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--pdf-primary), transparent);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.pdf-background-shapes .s2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--pdf-accent), transparent);
+    bottom: -150px;
+    right: -150px;
+    animation-delay: 5s;
 }
 
 .geo-shape {
-  position: absolute;
-  opacity: 0.12;
-  pointer-events: none;
-  filter: blur(2px);
-  animation: floatGeo 25s infinite linear;
+    position: absolute;
+    opacity: 0.05;
+    animation: rotate3d 30s linear infinite;
 }
 
-.hexagon {
-  width: 140px;
-  height: 81px;
-  background: var(--neon-blue);
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+.geo-shape.hexagon {
+    width: 60px;
+    height: 60px;
+    background: var(--pdf-primary);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 
-.triangle {
-  width: 0;
-  height: 0;
-  border-left: 45px solid transparent;
-  border-right: 45px solid transparent;
-  border-bottom: 78px solid var(--neon-purple);
+.geo-shape.triangle {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 70px solid var(--pdf-accent);
 }
 
-@keyframes floatGeo {
-  0% {
-    transform: translate(0, 0) rotate(0deg);
-  }
+@keyframes float {
 
-  50% {
-    transform: translate(80px, -80px) rotate(180deg);
-  }
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
 
-  100% {
-    transform: translate(0, 0) rotate(360deg);
-  }
+    33% {
+        transform: translate(30px, -30px) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.9);
+    }
 }
 
-.shape {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.2;
+@keyframes rotate3d {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-.s1 {
-  top: -10%;
-  left: 0%;
-  width: 500px;
-  height: 500px;
-  background: var(--pdf-accent);
+/* ==========================================
+   PROGRESS BAR
+========================================== */
+.ultimate-progress-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--pdf-primary), var(--pdf-accent));
+    z-index: 10000;
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px var(--pdf-primary);
 }
 
-.s2 {
-  bottom: -10%;
-  right: 0%;
-  width: 400px;
-  height: 400px;
-  background: var(--neon-purple);
+/* ==========================================
+   TOAST NOTIFICATIONS
+========================================== */
+.portal-toast {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--pdf-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--pdf-border);
+    padding: 14px 24px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 9999;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-.pdf-modern-root {
-  min-height: 100vh;
-  position: relative;
-  font-family: 'Inter', -apple-system, sans-serif;
-  transition: all 0.4s ease;
-  overflow-x: hidden;
-  z-index: 1;
+.portal-toast.success {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.15);
 }
 
-/* --- Header --- */
+.portal-toast.info {
+    border-color: var(--pdf-primary);
+}
+
+.portal-toast button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 0;
+    display: flex;
+}
+
+/* ==========================================
+   NAVIGATION HEADER
+========================================== */
 .pdf-nav-glass {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 32px;
-  background: var(--pdf-glass);
-  backdrop-filter: blur(30px) saturate(160%);
-  -webkit-backdrop-filter: blur(30px) saturate(160%);
-  border-bottom: 1px solid var(--pdf-border);
-  transition: var(--transition-futuristic);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(15, 15, 35, 0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--pdf-border);
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
 }
 
-.is-dark .pdf-nav-glass {
-  background: var(--pdf-glass-dark);
-  border-bottom: 1px solid var(--pdf-border-dark);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+.pdf-nav-glass.nav-scrolled {
+    background: rgba(15, 15, 35, 0.95);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.nav-hidden {
-  transform: translateY(-100%);
+.pdf-nav-glass.nav-hidden {
+    transform: translateY(-100%);
 }
 
 .nav-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
 }
 
 .glass-back-btn {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  border: 1px solid var(--pdf-border);
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.is-dark .glass-back-btn {
-  background: #1E293B;
-  border-color: #334155;
-  color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--pdf-glass);
+    border: 1px solid var(--pdf-border);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
 }
 
 .glass-back-btn:hover {
-  background: var(--pdf-accent);
-  color: white;
-  transform: translateX(-3px);
-  box-shadow: 0 5px 15px var(--pdf-accent-glow);
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(-4px);
 }
 
 .doc-profile {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .doc-icon-box {
-  width: 48px;
-  height: 48px;
-  background: var(--pdf-accent);
-  color: white;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  box-shadow: 0 8px 16px var(--pdf-accent-glow);
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--pdf-primary), var(--pdf-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
-.doc-name-vibe {
-  font-size: 1.15rem;
-  font-weight: 900;
-  margin: 0;
-  letter-spacing: -0.2px;
-  color: #1E293B;
-  transition: var(--transition-futuristic);
-}
-
-.is-dark .doc-name-vibe {
-  color: #F8FAFC;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+.doc-info-text h1.doc-name-vibe {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0 0 4px;
 }
 
 .doc-info-badges {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #94a3b8;
 }
 
 .info-badge-modern {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--pdf-text-muted);
-  display: flex;
-  align-items: center;
-  gap: 4px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .speed-icon {
-  color: #10B981;
+    color: #fbbf24;
 }
 
-/* --- Action Island --- */
+.dot-sep {
+    opacity: 0.5;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
 .glass-action-island {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 8px 16px;
-  border-radius: 100px;
-  border: 1px solid var(--pdf-border-dark);
-  backdrop-filter: blur(10px);
-}
-
-.is-dark .glass-action-island {
-  background: rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.1);
+    background: var(--pdf-glass);
+    border: 1px solid var(--pdf-border);
+    border-radius: 50px;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(20px);
 }
 
 .island-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: none;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--pdf-text-muted);
-  transition: all 0.2s;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
 }
 
-.island-btn:hover,
+.island-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
 .island-btn.active {
-  background: #F1F5F9;
-  color: var(--pdf-accent);
-}
-
-.is-dark .island-btn:hover {
-  background: #334155;
+    background: var(--pdf-primary);
+    color: #fff;
 }
 
 .island-zoom {
-  font-size: 0.85rem;
-  font-weight: 800;
-  min-width: 45px;
-  text-align: center;
+    padding: 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
 }
 
 .island-sep {
-  width: 1px;
-  height: 20px;
-  background: var(--pdf-border);
+    width: 1px;
+    height: 24px;
+    background: var(--pdf-border);
 }
 
 .island-btn-premium {
-  background: var(--pdf-accent);
-  color: white;
-  padding: 8px 20px;
-  border-radius: 100px;
-  text-decoration: none;
-  font-weight: 800;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: all 0.3s;
-  box-shadow: 0 4px 12px var(--pdf-accent-glow);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, var(--pdf-primary), var(--pdf-secondary));
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .island-btn-premium:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px var(--pdf-accent-glow);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
 }
 
-/* --- Main Stage --- */
+/* ==========================================
+   MAIN STAGE
+========================================== */
 .pdf-stage {
-  padding: 40px 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    padding: 24px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.pdf-top-ad {
+    transition: opacity 0.3s ease;
+}
+
+.pdf-top-ad.is-hidden {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .viewer-core-wrapper {
-  background: white;
-  border-radius: 28px;
-  min-height: 600px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--pdf-border);
-  transition: var(--transition-futuristic);
+    position: relative;
 }
 
-.is-dark .viewer-core-wrapper {
-  background: #0f172a;
-  border-color: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 0 50px rgba(99, 102, 241, 0.1);
-}
-
-.ambient-glow-aura {
-  position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle, var(--pdf-accent-glow) 0%, transparent 70%);
-  opacity: 0.3;
-  filter: blur(40px);
-  z-index: -1;
-  animation: pulseAura 4s infinite alternate;
-}
-
-@keyframes pulseAura {
-  from {
-    opacity: 0.2;
-    transform: scale(1);
-  }
-
-  to {
-    opacity: 0.4;
-    transform: scale(1.05);
-  }
-}
-
-.iframe-container-vibe {
-  width: 100%;
-  height: 100%;
-  transform-origin: top center;
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.iframe-actual {
-  width: 100%;
-  height: 80vh;
-  border: none;
-}
-
-/* --- Loader & Error --- */
+/* ==========================================
+   LOADER
+========================================== */
 .loader-portal {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: inherit;
-  z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
 }
 
 .spinner-futuristic {
-  position: relative;
-  width: 80px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 24px;
 }
 
 .spinner-ring {
-  position: absolute;
-  inset: 0;
-  border: 4px solid transparent;
-  border-top-color: var(--pdf-accent);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+    position: absolute;
+    inset: 0;
+    border: 3px solid transparent;
+    border-top-color: var(--pdf-primary);
+    border-right-color: var(--pdf-accent);
+    border-radius: 50%;
+    animation: spin 1.2s linear infinite;
 }
 
 .spinner-icon {
-  font-size: 2rem;
-  color: var(--pdf-accent);
-  animation: pulse 1.5s ease-in-out infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    color: var(--pdf-primary);
+    animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @keyframes pulse {
 
-  0%,
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+    0%,
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
 
-  50% {
-    transform: scale(0.8);
-    opacity: 0.5;
-  }
+    50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
 }
 
-/* --- FABs --- */
+/* ==========================================
+   ERROR STATE
+========================================== */
+.error-portal {
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.error-card-vibe {
+    max-width: 500px;
+    text-align: center;
+    padding: 40px;
+    background: var(--pdf-glass);
+    border: 1px solid var(--pdf-border);
+    border-radius: 24px;
+    backdrop-filter: blur(20px);
+}
+
+.error-icon-vibe {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+.error-card-vibe h2 {
+    margin: 0 0 12px;
+    font-size: 24px;
+}
+
+.error-card-vibe p {
+    color: #94a3b8;
+    margin-bottom: 28px;
+}
+
+.error-btn-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-retry-modern,
+.btn-download-modern {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-retry-modern {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid var(--pdf-border);
+    color: #fff;
+}
+
+.btn-download-modern {
+    background: linear-gradient(135deg, var(--pdf-primary), var(--pdf-secondary));
+    border: none;
+    color: #fff;
+}
+
+.btn-retry-modern:hover,
+.btn-download-modern:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================
+   IFRAME CONTAINER
+========================================== */
+.iframe-container-vibe {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.ambient-glow-aura {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(circle at center, rgba(102, 126, 234, 0.2), transparent 70%);
+    filter: blur(40px);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.iframe-actual {
+    width: 100%;
+    height: 80vh;
+    border: none;
+    border-radius: 16px;
+    display: block;
+}
+
+/* ==========================================
+   FLOATING ACTIONS
+========================================== */
 .pdf-floating-actions {
-  position: fixed;
-  right: 32px;
-  bottom: 120px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  z-index: 900;
-  transition: all 0.3s;
+    position: fixed;
+    right: 24px;
+    bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 90;
+    transition: opacity 0.3s ease;
 }
 
 .pdf-floating-actions.is-hidden {
-  opacity: 0;
-  pointer-events: none;
+    opacity: 0;
+    pointer-events: none;
 }
 
 .fab-item {
-  width: 56px;
-  height: 56px;
-  border-radius: 18px;
-  background: white;
-  border: 1px solid var(--pdf-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: var(--pdf-text);
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s;
-}
-
-.is-dark .fab-item {
-  background: #1E293B;
-  border-color: #334155;
-  color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--pdf-glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--pdf-border);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
 }
 
 .fab-item:hover {
-  transform: scale(1.1) rotate(5deg);
-  border-color: var(--pdf-accent);
-  color: var(--pdf-accent);
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
 }
 
-/* --- Custom Toast --- */
-.portal-toast {
-  position: fixed;
-  top: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--pdf-glass-dark);
-  backdrop-filter: blur(10px);
-  padding: 12px 24px;
-  border-radius: 100px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  color: white;
-  font-weight: 700;
-  z-index: 2000;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* --- Mobile Dock --- */
-.pdf-mobile-dock {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(15, 23, 42, 0.98);
-  backdrop-filter: blur(40px) saturate(200%);
-  -webkit-backdrop-filter: blur(40px) saturate(200%);
-  padding: 12px 24px;
-  border-radius: 100px;
-  display: none;
-  gap: 20px;
-  z-index: 3500;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 20px rgba(99, 102, 241, 0.2);
-}
-
-.dock-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  color: #94A3B8;
-  text-decoration: none;
-  background: transparent !important;
-  border: none !important;
-  padding: 0 !important;
-  cursor: pointer;
-  outline: none !important;
-  box-shadow: none !important;
-  transition: var(--transition-futuristic);
-}
-
-.dock-item:hover,
-.dock-active {
-  color: var(--neon-blue);
-  transform: translateY(-2px);
-}
-
-.dock-item span {
-  font-size: 0.65rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.dock-item-prime {
-  background: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-purple) 100%);
-  color: white;
-  border-radius: 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  padding: 12px 28px;
-  text-decoration: none;
-  border: none !important;
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
-  transition: var(--transition-futuristic);
-}
-
-.dock-item-prime:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
-}
-
-/* --- Responsive --- */
-@media (max-width: 1024px) {
-  .pdf-nav-glass {
-    padding: 12px 16px;
-  }
-
-  .nav-right .glass-action-island {
-    display: none;
-  }
-
-  .pdf-mobile-dock {
-    display: flex;
-  }
-
-  .pdf-stage {
-    padding: 20px 16px 120px;
-    display: block !important;
-    /* Stack columns on mobile */
-  }
-
-  .pdf-floating-actions {
-    bottom: 180px;
-  }
+/* ==========================================
+   MISSION CONTROL SIDEBAR
+========================================== */
+.sidebar-overlay-dim {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 200;
 }
 
 .mission-control-sidebar {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  bottom: 10px;
-  width: 400px;
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(50px) saturate(200%);
-  -webkit-backdrop-filter: blur(50px) saturate(200%);
-  border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  z-index: 4000;
-  display: flex;
-  flex-direction: column;
-  box-shadow: -20px 0 100px rgba(0, 0, 0, 0.8);
-  padding: 35px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 400px;
+    max-width: 90vw;
+    background: linear-gradient(135deg, rgba(15, 15, 35, 0.98), rgba(26, 26, 46, 0.98));
+    backdrop-filter: blur(20px);
+    border-left: 1px solid var(--pdf-border);
+    z-index: 201;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.5);
 }
 
 .sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    border-bottom: 1px solid var(--pdf-border);
 }
 
 .sidebar-header h2 {
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    margin: 0;
 }
 
 .mission-tab-group {
-  display: flex;
-  gap: 10px;
-  padding: 4px;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 12px;
-  margin-bottom: 30px;
+    display: flex;
+    padding: 16px;
+    gap: 8px;
+    border-bottom: 1px solid var(--pdf-border);
 }
 
 .mission-tab {
-  flex: 1;
-  padding: 10px;
-  border: none;
-  background: transparent;
-  color: #94A3B8;
-  font-weight: 700;
-  font-size: 0.8rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid transparent;
+    color: #94a3b8;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
 }
 
 .mission-tab.active {
-  background: rgba(255, 255, 255, 0.05);
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    background: var(--pdf-glass);
+    border-color: var(--pdf-border);
+    color: #fff;
+}
+
+.mission-content-vibe {
+    flex: 1;
+    padding: 24px;
+    overflow-y: auto;
 }
 
 .stats-grid-mission {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
 .stat-item-mission {
-  background: rgba(255, 255, 255, 0.03);
-  padding: 15px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 16px;
+    background: var(--pdf-glass);
+    border: 1px solid var(--pdf-border);
+    border-radius: 12px;
 }
 
 .stat-item-mission span {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: #64748B;
-  text-transform: uppercase;
-  margin-bottom: 4px;
+    display: block;
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 6px;
 }
 
 .stat-item-mission h4 {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: white;
-  margin: 0;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
 }
 
-.sidebar-overlay-dim {
-  position: fixed;
-  inset: 0;
-  background: rgba(2, 6, 23, 0.4);
-  backdrop-filter: blur(4px);
-  z-index: 2500;
+.insight-card-vibe {
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(240, 147, 251, 0.15));
+    border: 1px solid var(--pdf-border);
+    border-radius: 16px;
+    margin-top: 16px;
 }
 
-/* --- Mobile Fixes --- */
+.insight-card-vibe h4 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 12px;
+    font-size: 16px;
+}
+
+.insight-card-vibe p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #cbd5e1;
+}
+
+.history-scroll-v2 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.hist-item-modern {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px;
+    background: var(--pdf-glass);
+    border: 1px solid var(--pdf-border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hist-item-modern:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(-4px);
+}
+
+.hist-icon-v2 {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--pdf-primary), var(--pdf-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.hist-text-v2 h4 {
+    margin: 0 0 4px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.hist-text-v2 span {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.share-mission-panel {
+    text-align: center;
+}
+
+.qr-wrapper-v2 {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-copy-link {
+    background: linear-gradient(135deg, var(--pdf-primary), var(--pdf-secondary));
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-copy-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* ==========================================
+   EXIT CINEMA BUTTON
+========================================== */
+.exit-cinema-fab {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 150;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--pdf-border);
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.exit-cinema-fab:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* ==========================================
+   MOBILE DOCK
+========================================== */
+.pdf-mobile-dock {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 15, 35, 0.95);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid var(--pdf-border);
+    padding: 12px 16px;
+    display: none;
+    justify-content: space-around;
+    z-index: 100;
+}
+
+.pdf-mobile-dock.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.dock-item,
+.dock-item-prime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.dock-item span,
+.dock-item-prime span {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.dock-item-prime {
+    color: var(--pdf-primary);
+}
+
+.dock-item:active {
+    transform: scale(0.95);
+}
+
+/* ==========================================
+   FOOTER AD SECTION
+========================================== */
+.pdf-footer-ad-section {
+    padding: 40px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: opacity 0.3s ease;
+}
+
+.pdf-footer-ad-section.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+@media (max-width: 1024px) {
+    .pdf-stage {
+        padding: 16px;
+    }
+
+    .mission-control-sidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
 @media (max-width: 768px) {
-  .doc-info-text .mobile-hide-badges {
-    display: none !important;
-  }
+    .pdf-nav-glass {
+        padding: 12px 16px;
+    }
 
-  .pdf-mobile-dock {
-    display: flex !important;
-    z-index: 3500 !important;
-    background: rgba(15, 23, 42, 0.98) !important;
-    backdrop-filter: blur(40px) !important;
-  }
+    .doc-info-text h1.doc-name-vibe {
+        font-size: 14px;
+    }
 
-  .doc-name-vibe {
-    font-size: 0.9rem;
-    max-width: 150px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+    .glass-action-island {
+        padding: 6px 8px;
+        gap: 4px;
+    }
 
-  .pdf-nav-glass {
-    padding: 15px 20px;
-  }
+    .island-btn {
+        width: 34px;
+        height: 34px;
+        font-size: 14px;
+    }
+
+    .island-btn-premium span {
+        display: none;
+    }
+
+    .island-zoom {
+        display: none;
+    }
+
+    .pdf-mobile-dock {
+        display: flex;
+    }
+
+    .pdf-floating-actions {
+        display: none;
+    }
+
+    .iframe-actual {
+        height: 70vh;
+    }
+
+    .mission-control-sidebar {
+        width: 100vw;
+    }
+
+    .mobile-hide-badges {
+        display: none;
+    }
 }
 
-@media (max-width: 640px) {
-  .mission-control-sidebar {
-    width: calc(100% - 20px);
-    right: 10px;
-    top: 10px;
-    bottom: 80px;
-    padding: 25px;
-    z-index: 4001;
-  }
+@media (max-width: 480px) {
+    .glass-action-island {
+        flex-wrap: wrap;
+    }
+
+    .doc-icon-box {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .island-sep {
+        display: none;
+    }
 }
