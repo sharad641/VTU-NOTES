@@ -614,6 +614,7 @@ body {
 
 
 /* Responsive */
+/* Responsive Optimizations */
 @media (max-width: 1024px) {
     .module-grid-layout {
         grid-template-columns: 1fr;
@@ -621,30 +622,29 @@ body {
     }
 
     .module-sidebar {
-        display: block;
-        /* Make sidebar visible */
-        margin-bottom: 30px;
+        /* Move sidebar to top but hide non-essential parts */
+        margin-bottom: 20px;
     }
 
     .sidebar-sticky-content {
         position: static;
-        /* Remove sticky on mobile */
         flex-direction: row;
-        /* Horizontal layout for tablet/mobile if space allows */
-        flex-wrap: wrap;
         align-items: center;
         gap: 20px;
+        padding: 20px;
+        background: transparent;
+        /* Cleaner look on mobile */
+        border: none;
     }
 
-    .sidebar-icon-box {
-        margin: 0;
-        width: 60px;
-        height: 60px;
-        font-size: 1.8rem;
+    .sidebar-sticky-content::before {
+        display: none;
     }
 
+    /* Hide redundant info on mobile since Hero has it */
+    .sidebar-icon-box,
     .sidebar-subject-card {
-        flex: 1;
+        display: none;
     }
 
     .sidebar-actions {
@@ -652,42 +652,60 @@ body {
         flex-direction: row;
         flex-wrap: wrap;
         width: 100%;
+        gap: 10px;
     }
 
     .sidebar-btn-modern {
-        width: auto;
         flex: 1;
-        min-width: 140px;
+        min-width: 120px;
+        /* Allow shrinking */
+        padding: 12px;
+        font-size: 0.85rem;
     }
 
     .portal-stats-overview-modern {
         grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
     }
 }
 
 @media (max-width: 768px) {
+    .content-wrapper {
+        padding: 0 20px;
+    }
+
     .modules-grid-modern {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        /* Better for mobile */
+        grid-template-columns: 1fr;
+        /* Force single column for better readability */
+        gap: 20px;
     }
 
     .content-hero-banner-modern {
-        padding: 30px;
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 30px 20px;
+        border-radius: 20px;
+        margin-bottom: 30px;
     }
 
-    .sidebar-sticky-content {
-        flex-direction: column;
-        align-items: stretch;
+    .banner-title {
+        font-size: 2rem;
     }
 
-    .sidebar-actions {
-        flex-direction: column;
-    }
-
-    .sidebar-btn-modern {
+    .credits-badge-modern {
+        margin-left: 0;
+        margin-top: 20px;
         width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .credits-number {
+        font-size: 1.5rem;
+    }
+
+    .credits-label {
+        margin-top: 0;
     }
 }
 
@@ -697,19 +715,36 @@ body {
     }
 
     .banner-title {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
 
     .module-card-modern {
         padding: 20px;
+        border-radius: 16px;
     }
 
-    .portal-stats-overview-modern {
-        grid-template-columns: 1fr;
+    .module-title-modern {
+        font-size: 1.15rem;
+    }
+
+    .module-description-modern {
+        font-size: 0.85rem;
+    }
+
+    /* Stack stats vertically on very small screens? No, 2x2 is better usually. 
+       Let's keep 2x2 but smaller text. */
+    .stat-card-info h3 {
+        font-size: 1.5rem;
     }
 
     .module-card-footer-modern {
         grid-template-columns: 1fr;
+        /* Stack buttons */
+        gap: 12px;
+    }
+
+    .card-action-btn {
+        padding: 12px;
     }
 }
 
