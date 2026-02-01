@@ -7217,5 +7217,43 @@ export const moduleDetails = {
         ],
       },
     ]
+  },
+  "ece": {
+    5: [
+      {
+        title: "Digital Communication",
+        code: "BEC503",
+        vtuCode: "BEC503",
+        credits: 4,
+        modules: [
+          {
+            id: "dc-1",
+            title: "All Question Papers",
+            description: "Complete collection of all question papers for Digital Communication",
+            fileUrl: "https://drive.google.com/uc?export=download&id=1-17LanqQDcFIeEEAdT2z9f3H65t1a-Nd",
+            previewUrl: "https://drive.google.com/file/d/1-17LanqQDcFIeEEAdT2z9f3H65t1a-Nd/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-02",
+            fileSize: "5.2",
+            tags: ["PYQ", "all-papers", "exam", "digital-communication"]
+          },
+          {
+            id: "dc-2",
+            title: "All Question Papers - Solutions",
+            description: "Complete solutions for all question papers of Digital Communication",
+            fileUrl: "https://drive.google.com/uc?export=download&id=1BLUIWB4tfooTd00t-gjsuoXDRLJWMfov",
+            previewUrl: "https://drive.google.com/file/d/1BLUIWB4tfooTd00t-gjsuoXDRLJWMfov/preview",
+            type: "solutions",
+            category: "solved-qp",
+            essential: true,
+            uploadedDate: "2026-02-02",
+            fileSize: "6.8",
+            tags: ["solutions", "solved", "answers", "digital-communication"]
+          },
+        ],
+      },
+    ]
   }
 };
