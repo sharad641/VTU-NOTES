@@ -627,6 +627,18 @@ const papers = [
     "solutionLink": null,
     "oldPaperLink": null,
     "popularity": "medium"
+  },
+  {
+    "id": 51,
+    "title": "Digital Communication",
+    "code": "BEC503",
+    "category": "core",
+    "semester": "5",
+    "year": "2024",
+    "modelPaperLink": "https://drive.google.com/file/d/1-17LanqQDcFIeEEAdT2z9f3H65t1a-Nd/preview",
+    "solutionLink": "https://drive.google.com/file/d/1BLUIWB4tfooTd00t-gjsuoXDRLJWMfov/preview",
+    "oldPaperLink": null,
+    "popularity": "medium"
   }
 ];
 
