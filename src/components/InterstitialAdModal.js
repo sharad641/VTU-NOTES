@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom'; // Import ReactDOM
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiXMark, HiClock } from 'react-icons/hi2';
+import { HiXMark } from 'react-icons/hi2'; 
 import AdSenseAd from './AdSenseAd';
 import './InterstitialAdModal.css';
 
-const InterstitialAdModal = ({ isOpen, onClose, onComplete, resourceTitle }) => {
+const InterstitialAdModal = ({ isOpen, onComplete, resourceTitle, isVideoAd = false }) => {
   const [timeLeft, setTimeLeft] = useState(5);
   const [canClose, setCanClose] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
-      setTimeLeft(5);
+      const duration = isVideoAd ? 10 : 5;
+      setTimeLeft(duration);
       setCanClose(false);
       const timer = setInterval(() => {
         setTimeLeft((prev) => {
@@ -24,7 +26,7 @@ const InterstitialAdModal = ({ isOpen, onClose, onComplete, resourceTitle }) => 
       }, 1000);
       return () => clearInterval(timer);
     }
-  }, [isOpen]);
+  }, [isOpen, isVideoAd]);
 
   const handleClose = () => {
     if (canClose) {
@@ -32,7 +34,8 @@ const InterstitialAdModal = ({ isOpen, onClose, onComplete, resourceTitle }) => 
     }
   };
 
-  return (
+  // Use Portal to render outside root/stacking contexts
+  return ReactDOM.createPortal(
     <AnimatePresence>
       {isOpen && (
         <div className="interstitial-overlay">
@@ -44,54 +47,40 @@ const InterstitialAdModal = ({ isOpen, onClose, onComplete, resourceTitle }) => 
           >
             <div className="modal-header">
               <h3>Unlock Resource</h3>
-              <button 
-                className={`close-modal-btn ${!canClose ? 'disabled' : ''}`} 
-                onClick={handleClose}
-                disabled={!canClose}
-              >
-                <HiXMark />
-              </button>
+              <div className="header-actions">
+                {canClose ? (
+                  <motion.button 
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="close-modal-btn" 
+                    onClick={handleClose}
+                  >
+                    <HiXMark />
+                  </motion.button>
+                ) : (
+                  <div className="header-timer">
+                    <span className="timer-count">{timeLeft}</span>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div className="modal-body">
-              <p className="support-msg">
-                Please wait <strong>{timeLeft}s</strong> to support us.
-                <br />
-                <span className="sub-msg">Your resource "{resourceTitle}" is loading...</span>
-              </p>
-
               <div className="ad-container-modal">
                 <AdSenseAd
                   adClient="ca-pub-9499544849301534"
-                  adSlot="3936951010" // Using a display unit
+                  adSlot="3936951010"
                   adFormat="rectangle"
                   fullWidthResponsive={true}
                   style={{ display: 'block', minHeight: '250px' }}
                 />
               </div>
-
-              <div className="action-area">
-                {canClose ? (
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="continue-btn"
-                    onClick={handleClose}
-                  >
-                    Continue to Resource
-                  </motion.button>
-                ) : (
-                  <div className="timer-badge">
-                    <HiClock className="spin-icon" />
-                    <span>Please Wait {timeLeft}s...</span>
-                  </div>
-                )}
-              </div>
             </div>
           </motion.div>
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
 

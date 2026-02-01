@@ -110,6 +110,232 @@ export const careerArticles = [
     ]
   },
   {
+    id: 13,
+    title: "AWS Certification Cost, Salary & Career Path for Beginners (Complete 2026 Guide)",
+    category: "Career Focus",
+    cpcLevel: "High",
+    imageUrl: "/assets/career/aws-certification.png", 
+    takeaways: [
+      "AWS is the top cloud platform globally.",
+      "Certification validates skills & boosts salary.",
+      "Starts from ₹8,000 for foundational exams.",
+      "Key for Cloud Engineer & DevOps roles."
+    ],
+    summary: "Everything you need to know about AWS Certification: Costs, Salary, Career Path, and how to start as a beginner in 2026.",
+    keywords: ["AWS Certification", "Cloud Computing", "AWS Salary", "Career Path", "AWS Cost"],
+    date: "February 15, 2026",
+    readingTime: "10 min read",
+    fullContent: [
+      { type: 'p', text: 'Cloud computing is one of the highest-paying career paths in IT today. If you are an engineering or CSE student in India wondering how to build a strong IT career, AWS certification can be a life-changing step.' },
+      { type: 'p', text: 'This guide explains everything in simple English — AWS certification cost, cloud salary, career path, and how beginners can start from zero.' },
+
+      { type: 'h3', text: '1. Introduction: What is AWS?' },
+      { type: 'p', text: 'AWS (Amazon Web Services) is a cloud computing platform by Amazon. It allows companies to run applications, store data, host websites, build AI systems, and manage databases without buying physical servers.' },
+      { type: 'ul', items: [
+          'Run applications',
+          'Store data',
+          'Host websites',
+          'Build AI systems',
+          'Manage databases'
+      ]},
+      { type: 'tip', text: 'Instead of buying servers, companies rent computing services from AWS through the internet.' },
+      { type: 'p', text: '🔗 [Official AWS Website](https://aws.amazon.com/)' },
+
+      { type: 'h3', text: 'Why Cloud Computing is Important in 2026' },
+      { type: 'p', text: 'Cloud computing is now the backbone of modern software. In 2026, most startups run fully on cloud, companies are shifting from hardware, and AI/DevOps depend on it.' },
+
+      { type: 'h3', text: '2. What is AWS Certification?' },
+      { type: 'p', text: 'An AWS Certification is proof that you understand cloud computing and can work with AWS services. Think like this: College degree = Theory, AWS certification = Practical cloud skills.' },
+      { type: 'ul', items: [
+          'Know real cloud tools',
+          'Understand infrastructure',
+          'Can deploy applications',
+          'Help businesses reduce costs'
+      ]},
+      { type: 'p', text: '🔗 [AWS Certification Overview](https://aws.amazon.com/certification/)' },
+
+      { type: 'h3', text: '3. Types of AWS Certifications' },
+      
+      { type: 'step', title: 'Foundational Level', text: 'AWS Cloud Practitioner - For beginners.' },
+      { type: 'step', title: 'Associate Level (Best for students)', text: 'Solutions Architect Associate, Developer Associate, SysOps Administrator.' },
+      { type: 'step', title: 'Professional Level', text: 'Solutions Architect Professional, DevOps Engineer Professional.' },
+      { type: 'step', title: 'Specialty Level', text: 'Security, Machine Learning, Networking, Data Analytics.' },
+
+      { type: 'h3', text: '4. AWS Certification Cost in India' },
+      { type: 'table', headers: ['Level', 'Fee (USD)', 'Approx INR'], rows: [
+          ['Foundational', '$100', '₹8,000–₹9,000'],
+          ['Associate', '$150', '₹12,000–₹13,000'],
+          ['Professional', '$300', '₹24,000–₹26,000'],
+          ['Specialty', '$300', '₹24,000–₹26,000']
+      ]},
+      { type: 'p', text: '🔗 [Exam Pricing Details](https://aws.amazon.com/certification/pricing/)' },
+
+      { type: 'h3', text: 'AWS Course / Training Cost' },
+      { type: 'ul', items: [
+          'Self-study (Free): YouTube tutorials, AWS free tier. Cost: ₹0–₹2,000.',
+          'Paid Courses: Structured learning, Hands-on labs. Cost: ₹3,000–₹25,000.'
+      ]},
+
+      { type: 'h3', text: '5. Is AWS Good for CSE Students?' },
+      { type: 'p', text: 'Yes, AWS is one of the best tech skills for students. It improves placement chances, strengthens resumes, helps in internships, and opens global job opportunities.' },
+
+      { type: 'h3', text: '6. AWS Salary in India' },
+      { type: 'table', headers: ['Experience', 'Role', 'Salary'], rows: [
+          ['0–2 Years', 'Junior Cloud Engineer', '₹4–8 LPA'],
+          ['3–6 Years', 'Cloud Engineer / DevOps', '₹10–18 LPA'],
+          ['7+ Years', 'Cloud Architect', '₹25–45+ LPA']
+      ]},
+
+      { type: 'h3', text: '7. AWS Career Path' },
+      { type: 'ul', items: [
+          'Cloud Engineer: Manages cloud infrastructure.',
+          'DevOps Engineer: Works on automation and deployment.',
+          'Cloud Architect: Designs cloud systems.',
+          'Solutions Architect: Builds business solutions using AWS.'
+      ]},
+
+      { type: 'h3', text: '8. Important Skills Along with AWS' },
+      { type: 'ul', items: [
+          'Linux basics',
+          'Networking fundamentals',
+          'Python scripting',
+          'Git & Docker',
+          'CI/CD tools'
+      ]},
+      { type: 'p', text: '🔗 [AWS Free Tier for practice](https://aws.amazon.com/free/)' },
+
+      { type: 'h3', text: '9. How to Prepare for AWS Certification' },
+      { type: 'step', title: 'Step 1', text: 'Learn cloud basics.' },
+      { type: 'step', title: 'Step 2', text: 'Start AWS Cloud Practitioner.' },
+      { type: 'step', title: 'Step 3', text: 'Use AWS Free Tier.' },
+      { type: 'step', title: 'Step 4', text: 'Build projects.' },
+      { type: 'step', title: 'Step 5', text: 'Take practice tests.' },
+
+      { type: 'h3', text: '10. Real Projects for Resume' },
+      { type: 'ul', items: [
+          'Host a website on AWS',
+          'Deploy web app on EC2',
+          'Use cloud storage (S3)',
+          'Create CI/CD pipeline',
+          'Setup database on cloud'
+      ]},
+
+      { type: 'h3', text: '11. Common Beginner Mistakes' },
+      { type: 'warning', title: 'Avoid These', text: '❌ Only watching videos. ❌ No hands-on practice. ❌ Skipping networking basics. ❌ Not building projects.' },
+
+      { type: 'h3', text: '12. AWS vs Other Cloud Certifications' },
+      { type: 'p', text: 'AWS has the largest market share, more job openings, and more learning resources. After AWS, you can learn Azure or GCP easily.' },
+
+      { type: 'h3', text: '13. Advantages of Learning AWS in College' },
+      { type: 'ul', items: [
+          'Better internships',
+          'Strong final-year projects',
+          'Higher placement packages',
+          'Early start in cloud career'
+      ]},
+
+      { type: 'h3', text: '14. Future of Cloud Computing' },
+      { type: 'p', text: 'Cloud demand will grow due to AI, machine learning, data growth, and business automation. Cloud professionals will remain in demand for many years.' },
+
+      { type: 'h3', text: '15. Conclusion' },
+      { type: 'p', text: 'AWS certification is one of the smartest investments for students who want high-paying software jobs. Start small, stay consistent, and build projects. Your cloud journey can start today.' },
+
+      { type: 'h3', text: 'FAQ' },
+      { type: 'ul', items: [
+          'Is AWS difficult? No, with basics and practice, it is beginner-friendly.',
+          'How long does it take? 2–4 months for first certification.',
+          'Can non-IT students learn AWS? Yes, anyone interested in tech can learn.'
+      ]}
+    ]
+  },
+  {
+    id: 14,
+    title: "Full Stack Developer Salary, Skills & Roadmap for Beginners (2026 Career Guide)",
+    category: "Career Focus",
+    cpcLevel: "High",
+    imageUrl: "/assets/career/full-stack-guide.png",
+    takeaways: [
+      "Full Stack Developers build both Frontend (UI) & Backend (Logic).",
+      "High Demand: Startups & MNCs need versatile devs.",
+      "Salary: ₹4–6 LPA (Fresher) to ₹25+ LPA (Senior).",
+      "Top Stack: MERN (MongoDB, Express, React, Node)."
+    ],
+    summary: "From HTML/CSS to React, Node.js, and Databases. A complete roadmap to becoming a high-paid Full Stack Developer in 2026.",
+    keywords: ["Full Stack Developer", "Web Development", "MERN Stack", "React", "Node.js", "Software Salary"],
+    date: "February 20, 2026",
+    readingTime: "12 min read",
+    fullContent: [
+      { type: 'p', text: 'A Full Stack Developer is a software developer who can build both the front side and the back side of a website or web application. In simple words, they can create everything you see on a website and the logic that works behind it. Because they understand the complete system, full stack developers are highly valuable in today’s programming career world.' },
+      
+      { type: 'h3', text: '1. What Does a Full Stack Developer Do?' },
+      { type: 'p', text: 'They handle three main areas:' },
+      { type: 'step', title: 'Frontend Work', text: 'The visible part of a website (HTML, CSS, React).' },
+      { type: 'step', title: 'Backend Work', text: 'The brain of the application (Node.js, Python, APIs).' },
+      { type: 'step', title: 'Database Handling', text: 'Where information is stored (MySQL, MongoDB).' },
+
+      { type: 'h3', text: 'Why This Career Is in High Demand' },
+      { type: 'p', text: 'India’s IT industry is growing fast. Companies prefer full stack developers because they can work on both UI and server, reducing hiring costs and helping build products faster.' },
+
+      { type: 'h3', text: '2. Skills Required to Become a Full Stack Developer' },
+      { type: 'ul', items: [
+          'HTML, CSS, JavaScript (Foundation)',
+          'Frontend Frameworks: React, Angular, or Vue',
+          'Backend Technologies: Node.js, Python, or Java',
+          'Databases: MySQL, MongoDB',
+          'Version Control: Git & GitHub'
+      ]},
+
+      { type: 'h3', text: '3. Full Stack Developer Roadmap for Beginners' },
+      { type: 'step', title: 'Step 1: Basics (1-2 Months)', text: 'Master HTML, CSS, and JavaScript.' },
+      { type: 'step', title: 'Step 2: Deep Dive JS', text: 'Learn DOM manipulation, ES6+, and async programming.' },
+      { type: 'step', title: 'Step 3: Frontend Framework (2 Months)', text: 'Learn React (highly recommended).' },
+      { type: 'step', title: 'Step 4: Backend (2 Months)', text: 'Pick Node.js or Python. Learn APIs.' },
+      { type: 'step', title: 'Step 5: Databases (1 Month)', text: 'Learn SQL (MySQL) or NoSQL (MongoDB).' },
+      { type: 'step', title: 'Step 6: Projects', text: 'Build an E-commerce site or Blog platform.' },
+
+      { type: 'h3', text: '4. Best Programming Languages for Full Stack' },
+      { type: 'table', headers: ['Frontend', 'Backend', 'Database'], rows: [
+          ['JavaScript (React)', 'Node.js', 'MongoDB'],
+          ['HTML/CSS/JS', 'Python', 'MySQL'],
+          ['React', 'Java', 'MySQL']
+      ]},
+      { type: 'tip', text: 'The MERN stack (MongoDB, Express, React, Node.js) is very popular among beginners.' },
+
+      { type: 'h3', text: '5. Full Stack Developer Salary in India' },
+      { type: 'table', headers: ['Experience', 'Salary Range'], rows: [
+          ['Fresher (0-1 Year)', '₹3 LPA to ₹6 LPA'],
+          ['2–5 Years Exp', '₹6 LPA to ₹12 LPA'],
+          ['Senior (5+ Years)', '₹12 LPA to ₹25+ LPA']
+      ]},
+      { type: 'p', text: 'Freelancers and remote developers working for foreign clients can earn significantly more.' },
+
+      { type: 'h3', text: '6. Job Roles You Can Get' },
+      { type: 'ul', items: [
+          'Full Stack Developer',
+          'Web Developer',
+          'Software Engineer',
+          'Backend Developer',
+          'Frontend Developer'
+      ]},
+
+      { type: 'h3', text: '7. How Long Does It Take?' },
+      { type: 'p', text: 'If you learn consistently (2-3 hours daily), it takes about 6 to 9 months to become job-ready. Internships can speed this up.' },
+
+      { type: 'h3', text: '8. Future Scope' },
+      { type: 'p', text: 'The demand will grow as more businesses go online and startups need multi-skilled developers. Combining full stack skills with Cloud or AI creates powerful career growth.' },
+
+      { type: 'h3', text: 'Conclusion' },
+      { type: 'p', text: 'Full stack development is one of the best tech career choices for CSE students. Start early, practice daily, and build real projects. The IT industry is always looking for skilled developers.' },
+
+      { type: 'h3', text: 'FAQs' },
+      { type: 'ul', items: [
+          'Is full stack hard? It has a learning curve, but step-by-step is manageable.',
+          'Can beginners learn? Yes, many start from zero.',
+          'Do I need a degree? Skills and projects matter more.'
+      ]}
+    ]
+  },
+  {
     id: 9, 
     title: "Career in Cloud Computing for Engineering Students",
     category: "Career Focus",

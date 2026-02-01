@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  HiOutlineMagnifyingGlass, HiOutlineBookOpen, HiOutlineFire,
+  HiOutlineMagnifyingGlass, HiOutlineFire,
   HiOutlineClock, HiOutlineChevronRight, HiOutlineSparkles
 } from 'react-icons/hi2';
 import {
   FaRocket, FaShieldAlt, FaLightbulb, FaUserAstronaut,
   FaHeart, FaBolt, FaCrown, FaStar, FaChevronLeft, FaChevronRight,
   FaGraduationCap, FaLayerGroup, FaRobot, FaCalculator,
-  FaTimes, FaCoffee, FaEye, FaCheckCircle
+  FaTimes, FaCoffee, FaEye
 } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { database } from '../firebase';
 import './Home.css';
 import './SupportPopup.css';
+import './CareerBanner.css';
 
 import { subjectsData } from '../data/subjectsData';
 import CommentSection from './CommentSection';
@@ -197,95 +198,65 @@ const Home = () => {
         </motion.div>
 
         {/* --- Expert Career Guides Banner (Premium 3D Glass) --- */}
-        <div className="career-banner-container" style={{ maxWidth: '1200px', margin: '0 auto 80px', padding: '0 20px' }}>
-            <Link to="/career-tools" style={{ textDecoration: 'none' }}>
+        <div className="career-banner-container">
+            <Link to="/career-tools" className="career-banner-link">
               <motion.div
                 whileHover={{ scale: 1.02, translateY: -5 }}
+                whileTap={{ scale: 0.98 }}
                 className="career-banner-modern"
-                style={{ 
-                    position: 'relative',
-                    background: 'radial-gradient(circle at top right, rgba(30, 41, 59, 0.4), rgba(2, 6, 23, 0.8))',
-                    border: '1px solid rgba(255,255,255,0.1)',
-                    borderRadius: '30px',
-                    padding: '50px',
-                    overflow: 'hidden',
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                    boxShadow: '0 30px 60px -10px rgba(0,0,0,0.6), inset 0 0 20px rgba(255,255,255,0.02)'
-                }}
               >
                 {/* Background Glow Effects */}
-                <div style={{ position: 'absolute', top: '-50%', right: '-20%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(56, 189, 248, 0.15), transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none' }}></div>
-                <div style={{ position: 'absolute', bottom: '-50%', left: '-20%', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(99, 102, 241, 0.1), transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none' }}></div>
+                <div className="career-banner-glow career-banner-glow-top"></div>
+                <div className="career-banner-glow career-banner-glow-bottom"></div>
 
-                <div className="cb-content" style={{ position: 'relative', zIndex: 2, flex: 1, paddingRight: '40px' }}>
-                   <div style={{ 
-                       display: 'inline-flex', alignItems: 'center', gap: '8px', 
-                       background: 'rgba(56, 189, 248, 0.1)', border: '1px solid rgba(56, 189, 248, 0.3)', 
-                       padding: '6px 16px', borderRadius: '100px',
-                       color: '#38BDF8', fontSize: '0.8rem', fontWeight: '700', letterSpacing: '1px',
-                       marginBottom: '20px', textTransform: 'uppercase'
-                   }}>
-                       <FaCrown style={{ color: '#FACC15' }} /> Premium Career Access
+                <div className="cb-content">
+                   <div className="cb-badge">
+                       <FaCrown className="cb-crown-icon" /> Premium Career Access
                    </div>
 
-                   <h2 style={{ 
-                       fontSize: '2.8rem', fontWeight: '800', lineHeight: '1.1', color: 'white', marginBottom: '15px',
-                       textShadow: '0 10px 30px rgba(0,0,0,0.5)'
-                   }}>
+                   <h2 className="cb-heading">
                        Master the Future of <br/>
-                       <span style={{ 
-                           background: 'linear-gradient(to right, #38BDF8, #818CF8)', 
-                           WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' 
-                       }}>Engineering Tech.</span>
+                       <span className="cb-heading-gradient">Engineering Tech.</span>
                    </h2>
 
-                   <p style={{ fontSize: '1.15rem', color: '#94A3B8', maxWidth: '550px', lineHeight: '1.6', marginBottom: '30px' }}>
+                   <p className="cb-description">
                        Get high-fidelity roadmaps, salary insights, and step-by-step guides for the most high-paying domains in 2026.
                    </p>
 
                    {/* Tech Stack Pills */}
-                   <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '35px' }}>
+                   <div className="cb-tech-stack">
                        {[
                            { name: 'Artificial Intelligence', color: '#A855F7' },
                            { name: 'Cyber Security', color: '#10B981' },
                            { name: 'DevOps & Cloud', color: '#F59E0B' },
                            { name: 'Full Stack', color: '#38BDF8' }
                        ].map((tech, i) => (
-                           <div key={i} style={{ 
-                               background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', 
-                               padding: '8px 16px', borderRadius: '12px', color: '#E2E8F0', fontSize: '0.85rem', fontWeight: '500',
-                               display: 'flex', alignItems: 'center', gap: '8px'
-                           }}>
-                               <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: tech.color, boxShadow: `0 0 10px ${tech.color}` }}></span>
-                               {tech.name}
+                           <div key={i} className="cb-tech-pill">
+                               <span className="cb-tech-dot" style={{ background: tech.color, boxShadow: `0 0 10px ${tech.color}` }}></span>
+                               <span className="cb-tech-name">{tech.name}</span>
                            </div>
                        ))}
                    </div>
 
                    {/* Placement Tools (Quick Access) */}
-                   <div style={{ marginBottom: '35px' }}>
-                       <div style={{ fontSize: '0.75rem', color: '#64748B', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '10px', fontWeight: '700' }}>
+                   <div className="cb-placement-tools">
+                       <div className="cb-placement-label">
                            Placement Resources
                        </div>
-                       <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                       <div className="cb-placement-grid">
                            {[
                                { name: 'Roadmap', link: '/placement-guide', icon: <FaGraduationCap /> },
                                { name: 'Stories', link: '/placement-stories', icon: <FaStar /> },
-                               { name: 'Experience', link: '/share-experience', icon: <FaUserAstronaut /> },
-                               { name: 'Mock Tests', link: '/test', icon: <FaCheckCircle /> }
+                               { name: 'Experience', link: '/share-experience', icon: <FaUserAstronaut /> }
                            ].map((tool, i) => (
-                               <Link to={tool.link} key={i} style={{ textDecoration: 'none' }}>
-                                   <div style={{ 
-                                       background: 'rgba(56, 189, 248, 0.05)', border: '1px solid rgba(56, 189, 248, 0.2)', 
-                                       padding: '8px 12px', borderRadius: '8px', color: '#94A3B8', fontSize: '0.8rem', fontWeight: '600',
-                                       display: 'flex', alignItems: 'center', gap: '6px', transition: 'all 0.2s ease'
-                                   }}
-                                   onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(56, 189, 248, 0.15)'; e.currentTarget.style.color = 'white'; }}
-                                   onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(56, 189, 248, 0.05)'; e.currentTarget.style.color = '#94A3B8'; }}
-                                   >
-                                       <span style={{ color: '#38BDF8' }}>{tool.icon}</span>
-                                       {tool.name}
-                                   </div>
+                               <Link 
+                                 to={tool.link} 
+                                 key={i} 
+                                 className="cb-tool-link"
+                                 onClick={(e) => e.stopPropagation()}
+                               >
+                                   <span className="cb-tool-icon">{tool.icon}</span>
+                                   <span className="cb-tool-name">{tool.name}</span>
                                </Link>
                            ))}
                        </div>
@@ -295,58 +266,45 @@ const Home = () => {
                      className="cb-cta"
                      whileHover={{ scale: 1.05 }}
                      whileTap={{ scale: 0.95 }}
-                     style={{ 
-                         background: 'white', color: 'black', padding: '16px 32px', borderRadius: '100px',
-                         fontWeight: '800', display: 'inline-flex', alignItems: 'center', gap: '10px',
-                         fontSize: '1rem', cursor: 'pointer', boxShadow: '0 0 30px rgba(255,255,255,0.3)'
-                     }}
                    >
-                       START LEARNING <HiOutlineChevronRight />
+                       <span>START LEARNING</span>
+                       <HiOutlineChevronRight />
                    </motion.div>
                 </div>
 
                 {/* 3D Visual Element (Right Side) */}
-                <div className="cb-visual" style={{ position: 'relative', width: '300px', height: '300px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    
+                <div className="cb-visual">
                     {/* Floating Icons */}
                     <motion.div 
                       animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }} 
                       transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                      style={{ 
-                          position: 'absolute', top: '0', right: '20px', 
-                          background: 'linear-gradient(135deg, #1e293b, #0f172a)', 
-                          border: '1px solid rgba(255,255,255,0.1)', padding: '20px', borderRadius: '20px',
-                          display: 'flex', alignItems: 'center', gap: '15px', color: 'white',
-                          boxShadow: '0 20px 40px rgba(0,0,0,0.5)', zIndex: 3
-                      }}
+                      className="cb-floating-card cb-floating-card-top"
                     >
-                        <div style={{ background: 'rgba(56, 189, 248, 0.2)', padding: '10px', borderRadius: '12px', color: '#38BDF8', fontSize: '1.5rem' }}><FaRobot /></div>
-                        <div>
-                            <div style={{ fontSize: '0.7rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '1px' }}>Trending</div>
-                            <div style={{ fontWeight: '700' }}>AI & ML Guide</div>
+                        <div className="cb-floating-icon cb-floating-icon-ai">
+                          <FaRobot />
+                        </div>
+                        <div className="cb-floating-text">
+                            <div className="cb-floating-label">Trending</div>
+                            <div className="cb-floating-title">AI & ML Guide</div>
                         </div>
                     </motion.div>
 
                     <motion.div 
                       animate={{ y: [0, 15, 0], rotate: [0, -3, 0] }} 
                       transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                      style={{ 
-                          position: 'absolute', bottom: '20px', left: '0', 
-                          background: 'linear-gradient(135deg, #1e293b, #0f172a)', 
-                          border: '1px solid rgba(255,255,255,0.1)', padding: '20px', borderRadius: '20px',
-                          display: 'flex', alignItems: 'center', gap: '15px', color: 'white',
-                          boxShadow: '0 20px 40px rgba(0,0,0,0.5)', zIndex: 4
-                      }}
+                      className="cb-floating-card cb-floating-card-bottom"
                     >
-                        <div style={{ background: 'rgba(16, 185, 129, 0.2)', padding: '10px', borderRadius: '12px', color: '#34D399', fontSize: '1.5rem' }}><FaShieldAlt /></div>
-                        <div>
-                            <div style={{ fontSize: '0.7rem', color: '#94A3B8', textTransform: 'uppercase', letterSpacing: '1px' }}>High Pay</div>
-                            <div style={{ fontWeight: '700' }}>Cyber Security</div>
+                        <div className="cb-floating-icon cb-floating-icon-security">
+                          <FaShieldAlt />
+                        </div>
+                        <div className="cb-floating-text">
+                            <div className="cb-floating-label">High Pay</div>
+                            <div className="cb-floating-title">Cyber Security</div>
                         </div>
                     </motion.div>
 
                     {/* Center Glow */}
-                    <div style={{ width: '200px', height: '200px', background: 'radial-gradient(circle, rgba(99, 102, 241, 0.4), transparent 70%)', filter: 'blur(30px)' }}></div>
+                    <div className="cb-center-glow"></div>
                 </div>
 
               </motion.div>

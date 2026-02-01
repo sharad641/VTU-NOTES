@@ -208,7 +208,18 @@ const CareerArticlePage = () => {
                                     </h3>
                                 )}
                                 
-                                {block.type === 'p' && <p>{block.text}</p>}
+                                
+                                {block.type === 'p' && (
+                                    <p>
+                                        {block.text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, index) => {
+                                            const match = part.match(/\[([^\]]+)\]\(([^)]+)\)/);
+                                            if (match) {
+                                                return <a key={index} href={match[2]} target="_blank" rel="noopener noreferrer" style={{ color: '#34D399', textDecoration: 'underline' }}>{match[1]}</a>;
+                                            }
+                                            return part;
+                                        })}
+                                    </p>
+                                )}
                                 
                                 {block.type === 'ul' && (
                                     <ul>
