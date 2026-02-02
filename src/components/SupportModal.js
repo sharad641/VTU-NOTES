@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { database, auth, signInAnonymously } from '../firebase';
+import { database, auth } from '../firebase';
 import { ref, push, onValue, query, limitToLast, orderByChild } from 'firebase/database';
 import { FaHeart, FaTimes, FaCoffee, FaBolt, FaCopy, FaCreditCard, FaClock, FaFire } from 'react-icons/fa';
 import { FaUserAstronaut } from 'react-icons/fa6';
@@ -25,10 +25,9 @@ const SupportModal = ({ isOpen, onClose }) => {
 
     const signInAndListen = async () => {
         try {
+            // Do NOT auto-sign in anonymously on load
             if (!auth.currentUser) {
-                console.log("No user found, attempting Anonymous Auth...");
-                await signInAnonymously(auth);
-                console.log("Auth Success");
+                console.log("Guest view - Waiting for interaction");
             }
             
             const donationsRef = query(ref(database, 'donations'), orderByChild('timestamp'), limitToLast(10));
@@ -75,6 +74,7 @@ const SupportModal = ({ isOpen, onClose }) => {
 
   const handlePayment = async (e) => {
     e.preventDefault();
+    if (!auth.currentUser) return alert("Please login to support us.");
 
     const RAZORPAY_KEY_ID = process.env.REACT_APP_RAZORPAY_KEY_ID || "rzp_live_S7cmd8OGdxBedC"; 
 
@@ -135,6 +135,13 @@ const SupportModal = ({ isOpen, onClose }) => {
         console.log("📡 Syncing to Firebase Hall of Fame...");
         // Ensure we are using the Realtime Database 'donations' node
         const donationsRef = ref(database, 'donations');
+
+        // Ensure Auth before push
+        if (!auth.currentUser) {
+            alert("Please login to save your contribution.");
+            return;
+        }
+
         await push(donationsRef, newSupporter);
         console.log("✨ Firebase Sync Complete!");
     } catch (error) {

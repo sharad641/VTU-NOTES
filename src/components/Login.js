@@ -5,7 +5,6 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   googleAuthProvider,
-  signInAnonymously,
 } from "../firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import {
@@ -81,15 +80,6 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
     }
   };
 
-  const handleGuestLogin = async () => {
-    setLoading(true);
-    try {
-      await signInAnonymously(auth);
-    } catch (err) {
-      setLoading(false);
-      showToast("Guest login unavailable.");
-    }
-  };
 
   const handleKeyDown = (e) => {
     setCapsLock(e.getModifierState("CapsLock"));
@@ -210,12 +200,9 @@ const Login = ({ setIsAuthenticated, setIsAdmin }) => {
 
             <div className="divider-auth"><span>OR CONTINUE WITH</span></div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '16px' }}>
               <button type="button" className="btn-auth-social" onClick={handleGoogleLogin}>
                 <FcGoogle size={20} /> Google
-              </button>
-              <button type="button" className="btn-auth-social" onClick={handleGuestLogin}>
-                <FaUserSecret size={18} /> Guest
               </button>
             </div>
           </form>

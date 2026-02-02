@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { database, auth, signInAnonymously } from '../firebase';
+import { database, auth } from '../firebase';
 import { ref, push, onValue, query, limitToLast, orderByChild } from 'firebase/database';
 import { FaHeart, FaRupeeSign, FaCheckCircle, FaBolt, FaCopy, FaClock, FaCrown, FaStar, FaUserAstronaut } from 'react-icons/fa';
 import { HiOutlineSparkles } from 'react-icons/hi2';
@@ -26,12 +26,11 @@ const SupportSection = () => {
 
         const signInAndListen = async () => {
             try {
-                if (!auth.currentUser) {
-                    console.log("No user found, attempting Anonymous Auth...");
-                    await signInAnonymously(auth);
-                    console.log("Auth Success");
-                } else {
+                // Only listen for data, do NOT auto-sign in
+                if (auth.currentUser) {
                     console.log("User already signed in:", auth.currentUser.uid);
+                } else {
+                    console.log("Guest view - Waiting for interaction to auth");
                 }
 
                 const donationsRef = query(ref(database, 'donations'), orderByChild('timestamp'), limitToLast(50));
@@ -77,6 +76,7 @@ const SupportSection = () => {
 
     const handleDonate = async (e) => {
         e.preventDefault();
+        if (!auth.currentUser) return alert("Please login to support us.");
         if (!amount || !mobile) return alert("Please fill in valid details.");
 
         setLoading(true);
@@ -129,6 +129,14 @@ const SupportSection = () => {
 
         try {
             console.log("Pushing to Firebase...");
+
+            // Ensure Auth before push
+            if (!auth.currentUser) {
+                alert("Please login to save your contribution.");
+                setLoading(false);
+                return;
+            }
+
             await push(ref(database, 'donations'), newSupporter);
             console.log("Firebase Push Success");
             setSuccess(true);
