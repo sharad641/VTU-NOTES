@@ -40,6 +40,7 @@ export const subjectsData = {
             { name: 'Analysis & Design of Algorithms Lab', code: 'BCSL404', credits: 1, info: 'Fourth Semester Analysis & Design of Algorithms Lab Notes.' },
             { name: 'ARTIFICIAL INTELLIGENCE', code: 'BAD402', credits: 4, info: 'Fourth Semester ARTIFICIAL INTELLIGENCE For CSE Module 1 to 5 Notes.' },
             { name: 'BIOLOGY FOR ENGINEERS', code: 'BCS405C', credits: 2, info: 'Fourth Semester Biology For Engineers Notes.' },
+            { name: 'Computer Graphics and Visualization', code: 'BCG402', credits: 3, info: 'Fourth Semester Computer Graphics and Visualization Notes.' },
         ],
         5: [
             { name: 'Software Engineering & Project Management', code: 'BCS501', credits: 4, info: 'Fifth Semester Software Engineering & Project Management Notes.' },
@@ -80,6 +81,7 @@ export const subjectsData = {
         ],
         5: [
             { name: 'Digital Communication', code: 'BEC503', credits: 4, info: 'Fifth Semester Digital Communication - All Question Papers and Solutions available' },
+            { name: 'Technological Innovation Management and Entrepreneurship', code: 'BEC501', credits: 3, info: 'Fifth Semester TIME - Complete notes (Module 1-5), Question Papers, and Solutions' },
         ],
         6: [
             { name: 'VLSI', code: 'BEC602', credits: 4, info: 'Preparation: Fundamental knowledge in Digital Signal Processing' },

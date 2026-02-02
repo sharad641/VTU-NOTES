@@ -639,6 +639,18 @@ const papers = [
     "solutionLink": "https://drive.google.com/file/d/1BLUIWB4tfooTd00t-gjsuoXDRLJWMfov/preview",
     "oldPaperLink": null,
     "popularity": "medium"
+  },
+  {
+    "id": 52,
+    "title": "Technological Innovation Management and Entrepreneurship",
+    "code": "BEC501",
+    "category": "core",
+    "semester": "5",
+    "year": "2024",
+    "modelPaperLink": "https://drive.google.com/file/d/1Er_L83h4iDUyxT0Rg1p7TUBWmpjpWM5X/preview",
+    "solutionLink": "https://drive.google.com/file/d/1vLxPqQe6vpECDPtRTepwXGcRhmKNziFt/preview",
+    "oldPaperLink": "https://drive.google.com/file/d/1ic4WdSsfgPpxNqudGWeTh-xYeIVOYWrb/preview",
+    "popularity": "medium"
   }
 ];
 
