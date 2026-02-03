@@ -78,6 +78,7 @@ export const subjectsData = {
             { name: 'Digital System Design using Verilog', code: 'BEC302', credits: 3, info: 'Third Semester EC Digital System Design using Verilog Notes.' },
             { name: 'Mathematics For CSE', code: 'BMATS301', credits: 4, info: 'Third Semester Mathematics For CSE Module 1 to 5 Notes, Solved Model Question papers.' },
             { name: 'DATA STRUCTURES AND APPLICATIONS', code: 'BCS304', credits: 3, info: 'Third Semester DATA STRUCTURES AND APPLICATIONS For CSE Module 1 to 5 Notes, Solved Model Question papers.' },
+            { name: 'Network Analysis', code: 'BEC304', credits: 3, info: 'Third Semester EC Network Analysis Notes and Question Papers.' },
         ],
         5: [
             { name: 'Digital Communication', code: 'BEC503', credits: 4, info: 'Fifth Semester Digital Communication - All Question Papers and Solutions available' },
