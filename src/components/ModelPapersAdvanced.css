@@ -1,0 +1,240 @@
+/* PREMIUM ADVANCED FEATURES - Additional Styles */
+
+/* Keyboard Shortcuts Display */
+@media (min-width: 1024px) {
+    .keyboard-hints {
+        display: block !important;
+    }
+}
+
+/* View Mode Toggle */
+.view-mode-toggle {
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px;
+    border-radius: 50px;
+    border: 1px solid var(--mp-border);
+}
+
+.view-mode-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: transparent;
+    color: var(--mp-text-muted);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.view-mode-btn.active {
+    background: var(--mp-accent);
+    color: white;
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+.view-mode-btn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* List View Mode */
+.papers-high-grid.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.papers-high-grid.list-view .paper-high-card {
+    flex-direction: row;
+    align-items: center;
+    padding: 25px 30px;
+}
+
+.papers-high-grid.list-view .paper-card-body {
+    flex: 1;
+}
+
+.papers-high-grid.list-view .paper-card-body h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.papers-high-grid.list-view .paper-meta-row {
+    margin-bottom: 0;
+}
+
+.papers-high-grid.list-view .paper-card-footer {
+    margin-top: 0;
+    min-width: 200px;
+}
+
+/* Loading Skeleton */
+.skeleton-card {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 25%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s ease-in-out infinite;
+    border-radius: 40px;
+    height: 350px;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Enhanced Search */
+.search-pill {
+    position: relative;
+}
+
+.search-pill .clear-icon {
+    cursor: pointer;
+    color: var(--mp-text-muted);
+    transition: all 0.2s ease;
+}
+
+.search-pill .clear-icon:hover {
+    color: white;
+    transform: rotate(90deg);
+}
+
+/* Quick Action Tooltips */
+.quick-action-tooltip {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(15, 23, 42, 0.95);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 100;
+}
+
+.paper-prime-btn:hover .quick-action-tooltip,
+.paper-save-btn:hover .quick-action-tooltip {
+    opacity: 1;
+}
+
+/* Smooth transitions for all interactive elements */
+.cat-chip,
+.sem-pill,
+.paper-type-tag,
+.meta-item {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Enhanced card entrance animations */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.paper-high-card {
+    animation: cardEntrance 0.5s ease backwards;
+}
+
+.paper-high-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.paper-high-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.paper-high-card:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.paper-high-card:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.paper-high-card:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.paper-high-card:nth-child(6) {
+    animation-delay: 0.3s;
+}
+
+.paper-high-card:nth-child(7) {
+    animation-delay: 0.35s;
+}
+
+.paper-high-card:nth-child(8) {
+    animation-delay: 0.4s;
+}
+
+/* Scroll indicators */
+.category-scroller::-webkit-scrollbar,
+.sem-pill-grid::-webkit-scrollbar,
+.trending-scroller::-webkit-scrollbar {
+    height: 6px;
+}
+
+.category-scroller::-webkit-scrollbar-track,
+.sem-pill-grid::-webkit-scrollbar-track,
+.trending-scroller::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.category-scroller::-webkit-scrollbar-thumb,
+.sem-pill-grid::-webkit-scrollbar-thumb,
+.trending-scroller::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, #6366F1, #8B5CF6);
+    border-radius: 10px;
+}
+
+.category-scroller::-webkit-scrollbar-thumb:hover,
+.sem-pill-grid::-webkit-scrollbar-thumb:hover,
+.trending-scroller::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, #8B5CF6, #EC4899);
+}
+
+/* Accessibility improvements */
+*:focus-visible {
+    outline: 2px solid #6366F1;
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+button:focus-visible,
+a:focus-visible {
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3);
+}
+
+/* Print styles */
+@media print {
+
+    .papers-background-shapes,
+    .keyboard-hints,
+    .bookmark-toggle-pill,
+    .drawer-drag-handle {
+        display: none !important;
+    }
+}

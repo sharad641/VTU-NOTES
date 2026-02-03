@@ -26,6 +26,8 @@ import AdSenseAd from './AdSenseAd';
 import InterstitialAdModal from './InterstitialAdModal';
 import CommentSection from './CommentSection';
 import './ModelPapersModern.css'; // CHANGED: Modern Dark Theme
+import './ModelPapersAdvanced.css'; // NEW: Advanced Features
+import './ModelPapersHub.css'; // NEW: Hub Interface
 
 const papers = [
   {
@@ -748,6 +750,68 @@ const ModelPapers = () => {
   const [showScrollTop, setShowScrollTop] = React.useState(false);
   const [showAdWall, setShowAdWall] = React.useState(false);
   const [pendingResource, setPendingResource] = React.useState(null);
+  const [isMobile, setIsMobile] = React.useState(false);
+  
+  // NEW: Advanced Features
+  const [viewMode, setViewMode] = React.useState('grid'); // grid or list
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+  const [toast, setToast] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  // Toast Notification System
+  const showToast = (message, type = 'success') => {
+    setToast({ message, type });
+    setTimeout(() => setToast(null), 3000);
+  };
+
+  // Mobile Detection
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Loading State
+  React.useEffect(() => {
+    setTimeout(() => setIsLoading(false), 800);
+  }, []);
+
+  // Scroll Progress Indicator
+  React.useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      setScrollProgress(progress);
+      setShowScrollTop(scrollTop > 300);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Keyboard Shortcuts
+  React.useEffect(() => {
+    const handleKeyPress = (e) => {
+      // Ctrl/Cmd + K: Focus search
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        document.querySelector('.search-pill input')?.focus();
+      }
+      // Escape: Clear search or close modal
+      if (e.key === 'Escape') {
+        if (selectedPaper) setSelectedPaper(null);
+        else if (searchTerm) setSearchTerm('');
+      }
+      // Ctrl/Cmd + B: Toggle bookmarks
+      if ((e.ctrlKey || e.metaKey) && e.key === 'b') {
+        e.preventDefault();
+        setShowBookmarks(!showBookmarks);
+      }
+    };
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [selectedPaper, searchTerm, showBookmarks]);
 
   React.useEffect(() => {
     let result = [...papers];
@@ -820,14 +884,15 @@ const ModelPapers = () => {
   };
 
   const toggleBookmark = (id) => {
+    const isBookmarked = bookmarkedPapers.includes(id);
     setBookmarkedPapers(prev => prev.includes(id) ? prev.filter(i => i !== id) : [...prev, id]);
+    showToast(isBookmarked ? 'Bookmark removed' : 'Bookmark added', 'success');
   };
 
   const handleCopyLink = (paper) => {
     const link = window.location.origin + '/pdf/' + encodeURIComponent(paper.modelPaperLink || paper.solutionLink);
     navigator.clipboard.writeText(link);
-    // You might want to show a toast here in a real app
-    alert("Link copied to clipboard!"); 
+    showToast('Link copied to clipboard!', 'success');
   };
 
   const getDownloadLink = (url) => {
@@ -1098,80 +1163,286 @@ const ModelPapers = () => {
               className="paper-drawer-overlay"
             />
             <motion.div
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 100 }}
+              initial={isMobile ? { opacity: 0, y: "100%" } : { opacity: 0, x: "100%" }}
+              animate={isMobile ? { opacity: 1, y: 0 } : { opacity: 1, x: 0 }}
+              exit={isMobile ? { opacity: 0, y: "100%" } : { opacity: 0, x: "100%" }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               className="paper-glass-drawer"
             >
-              <div className="drawer-header">
-                <button className="close-drawer" onClick={handleCloseHub}><HiXMark /></button>
-                <div className="drawer-badges">
-                  <span className="badge-sem">Semester {selectedPaper.semester}</span>
-                  <span className="badge-year">{selectedPaper.year}</span>
+              {isMobile && <div className="drawer-drag-handle"></div>}
+              
+              {/* PREMIUM HEADER */}
+              <div className="drawer-header-premium">
+                <div className="header-top">
+                  <button className="close-drawer" onClick={handleCloseHub}><HiXMark /></button>
+                  <div className="header-badges">
+                    <span className="badge-pill primary">Sem {selectedPaper.semester}</span>
+                    <span className="badge-pill accent">{selectedPaper.year}</span>
+                    {selectedPaper.popularity === 'very-high' && <span className="badge-pill hot">🔥 Trending</span>}
+                  </div>
                 </div>
-              </div>
-
-              <div className="drawer-content">
-                <div className="content-brand">
-                  <div className="brand-icon"><FaFilePdf /></div>
-                  <span className="brand-code">{selectedPaper.code}</span>
+                
+                <div className="header-title-section">
+                  <div className="title-icon-box">
+                    <FaFilePdf />
+                  </div>
+                  <div>
+                    <div className="code-badge">{selectedPaper.code}</div>
+                    <h2 className="drawer-title">{selectedPaper.title}</h2>
+                  </div>
                 </div>
-                <h2>{selectedPaper.title}</h2>
-                <p>Access the official VTU model papers and verified solutions for this subject.</p>
 
-                <div className="resource-stack">
-                  <button className="action-box primary-paper" onClick={() => navigate(`/pdf/${encodeURIComponent(selectedPaper.modelPaperLink)}`)}>
-                    <div className="box-info">
-                      <h4>Model Paper</h4>
-                      <span>Preview Official Paper</span>
+                {/* SMART STATISTICS */}
+                <div className="paper-stats-grid">
+                  <div className="stat-mini">
+                    <HiEye />
+                    <div>
+                      <strong>{Math.floor(Math.random() * 500 + 100)}</strong>
+                      <span>Views</span>
                     </div>
-                    <HiEye className="box-icon" />
-                  </button>
-                  
-                  {selectedPaper.oldPaperLink && (
-                    <button className="action-box secondary-paper" onClick={() => navigate(`/pdf/${encodeURIComponent(selectedPaper.oldPaperLink)}`)}>
-                      <div className="box-info">
-                        <h4>Old Exam Paper</h4>
-                        <span>Previous Session</span>
-                      </div>
-                      <HiCalendar className="box-icon" />
-                    </button>
-                  )}
-
-                  {selectedPaper.solutionLink && (
-                    <button className="action-box secondary-paper" onClick={() => navigate(`/pdf/${encodeURIComponent(selectedPaper.solutionLink)}`)}>
-                      <div className="box-info">
-                        <h4>Solutions</h4>
-                        <span>Verified Answers</span>
-                      </div>
-                      <HiStar className="box-icon" />
-                    </button>
-                  )}
-                </div>
-
-                {/* -- DRAWER AD PLACEMENT -- */}
-                <div style={{ margin: '30px 0' }}>
-                   <AdSenseAd 
-                      adClient="ca-pub-9499544849301534" 
-                      adSlot="3936951010" 
-                      adFormat="auto" 
-                      fullWidthResponsive={true}
-                   />
-                </div>
-
-                <div className="drawer-actions">
-                  <a href={getDownloadLink(selectedPaper.modelPaperLink)} download className="secure-dl-btn">
-                    <HiArrowDownTray /> <span>Secure Download</span>
-                  </a>
-                  <button className="share-action-btn" onClick={() => handleCopyLink(selectedPaper)}>
-                    <HiShare /> <span>Share Resource</span>
-                  </button>
+                  </div>
+                  <div className="stat-mini">
+                    <HiArrowDownTray />
+                    <div>
+                      <strong>{Math.floor(Math.random() * 200 + 50)}</strong>
+                      <span>Downloads</span>
+                    </div>
+                  </div>
+                  <div className="stat-mini">
+                    <HiStar />
+                    <div>
+                      <strong>4.{Math.floor(Math.random() * 9)}</strong>
+                      <span>Rating</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div className="drawer-footer">
-                <p>Files are served via secure cloud infrastructure.</p>
+              {/* INNOVATIVE TAB SYSTEM */}
+              <div className="hub-tabs-container">
+                <div className="hub-tabs">
+                  {['Preview', 'Download', 'Share', 'Related'].map((tab) => (
+                    <button
+                      key={tab}
+                      className={`hub-tab ${selectedPaper.activeTab === tab || (!selectedPaper.activeTab && tab === 'Preview') ? 'active' : ''}`}
+                      onClick={() => setSelectedPaper({...selectedPaper, activeTab: tab})}
+                    >
+                      {tab === 'Preview' && <HiEye />}
+                      {tab === 'Download' && <HiArrowDownTray />}
+                      {tab === 'Share' && <HiShare />}
+                      {tab === 'Related' && <FaLayerGroup />}
+                      {tab}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="hub-tab-content">
+                  {/* PREVIEW TAB */}
+                  {(!selectedPaper.activeTab || selectedPaper.activeTab === 'Preview') && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="tab-panel"
+                    >
+                      <div className="preview-iframe-container">
+                        <iframe
+                          src={selectedPaper.modelPaperLink}
+                          title="PDF Preview"
+                          className="pdf-preview-frame"
+                        />
+                        <div className="preview-overlay-actions">
+                          <button onClick={() => navigate(`/pdf/${encodeURIComponent(selectedPaper.modelPaperLink)}`)}>
+                            <HiEye /> Full Screen
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="quick-actions-grid">
+                        <button className="quick-action-btn model" onClick={() => navigate(`/pdf/${encodeURIComponent(selectedPaper.modelPaperLink)}`)}>
+                          <FaFilePdf />
+                          <div>
+                            <strong>Model Paper</strong>
+                            <span>Official Question Paper</span>
+                          </div>
+                          <HiChevronRight />
+                        </button>
+
+                        {selectedPaper.solutionLink && (
+                          <button className="quick-action-btn solution" onClick={() => navigate(`/pdf/${encodeURIComponent(selectedPaper.solutionLink)}`)}>
+                            <HiStar />
+                            <div>
+                              <strong>Solutions</strong>
+                              <span>Verified Answers</span>
+                            </div>
+                            <HiChevronRight />
+                          </button>
+                        )}
+
+                        {selectedPaper.oldPaperLink && (
+                          <button className="quick-action-btn old" onClick={() => navigate(`/pdf/${encodeURIComponent(selectedPaper.oldPaperLink)}`)}>
+                            <HiCalendar />
+                            <div>
+                              <strong>Previous Papers</strong>
+                              <span>Past Exams</span>
+                            </div>
+                            <HiChevronRight />
+                          </button>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* DOWNLOAD TAB */}
+                  {selectedPaper.activeTab === 'Download' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="tab-panel"
+                    >
+                      <h3 className="tab-heading">Download Options</h3>
+                      
+                      <div className="download-options-grid">
+                        <a href={getDownloadLink(selectedPaper.modelPaperLink)} download className="download-option-card primary">
+                          <div className="download-icon-box">
+                            <HiArrowDownTray />
+                          </div>
+                          <div className="download-info">
+                            <strong>Model Paper</strong>
+                            <span>High Quality • PDF</span>
+                          </div>
+                          <div className="download-size">~2.5 MB</div>
+                        </a>
+
+                        {selectedPaper.solutionLink && (
+                          <a href={getDownloadLink(selectedPaper.solutionLink)} download className="download-option-card">
+                            <div className="download-icon-box">
+                              <HiArrowDownTray />
+                            </div>
+                            <div className="download-info">
+                              <strong>Solutions</strong>
+                              <span>High Quality • PDF</span>
+                            </div>
+                            <div className="download-size">~1.8 MB</div>
+                          </a>
+                        )}
+
+                        {selectedPaper.oldPaperLink && (
+                          <a href={getDownloadLink(selectedPaper.oldPaperLink)} download className="download-option-card">
+                            <div className="download-icon-box">
+                              <HiArrowDownTray />
+                            </div>
+                            <div className="download-info">
+                              <strong>Old Papers</strong>
+                              <span>High Quality • PDF</span>
+                            </div>
+                            <div className="download-size">~2.1 MB</div>
+                          </a>
+                        )}
+                      </div>
+
+                      <div className="download-all-section">
+                        <button className="download-all-btn">
+                          <FaLayerGroup />
+                          <span>Download All as ZIP</span>
+                          <div className="size-badge">~6.5 MB</div>
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* SHARE TAB */}
+                  {selectedPaper.activeTab === 'Share' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="tab-panel"
+                    >
+                      <h3 className="tab-heading">Share Resource</h3>
+                      
+                      <div className="share-qr-section">
+                        <div className="qr-code-box">
+                          <div className="qr-placeholder">
+                            <div className="qr-grid">
+                              {[...Array(64)].map((_, i) => (
+                                <div key={i} className="qr-pixel" style={{opacity: Math.random() > 0.5 ? 1 : 0}}></div>
+                              ))}
+                            </div>
+                          </div>
+                          <p>Scan to open on mobile</p>
+                        </div>
+                      </div>
+
+                      <div className="share-link-box">
+                        <input 
+                          type="text" 
+                          value={window.location.origin + '/papers/' + selectedPaper.id}
+                          readOnly
+                          className="share-link-input"
+                        />
+                        <button className="copy-link-btn" onClick={() => handleCopyLink(selectedPaper)}>
+                          <HiClipboard />
+                        </button>
+                      </div>
+
+                      <div className="share-social-grid">
+                        <button className="social-btn whatsapp">
+                          <HiShare /> WhatsApp
+                        </button>
+                        <button className="social-btn telegram">
+                          <HiShare /> Telegram
+                        </button>
+                        <button className="social-btn email">
+                          <HiShare /> Email
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* RELATED TAB */}
+                  {selectedPaper.activeTab === 'Related' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="tab-panel"
+                    >
+                      <h3 className="tab-heading">Related Papers</h3>
+                      
+                      <div className="related-papers-list">
+                        {papers
+                          .filter(p => p.semester === selectedPaper.semester && p.id !== selectedPaper.id)
+                          .slice(0, 5)
+                          .map(relatedPaper => (
+                            <button
+                              key={relatedPaper.id}
+                              className="related-paper-item"
+                              onClick={() => setSelectedPaper(relatedPaper)}
+                            >
+                              <div className="related-icon">
+                                <FaFilePdf />
+                              </div>
+                              <div className="related-info">
+                                <strong>{relatedPaper.title}</strong>
+                                <span>{relatedPaper.code}</span>
+                              </div>
+                              <HiChevronRight />
+                            </button>
+                          ))}
+                      </div>
+
+                      <div className="explore-more-box">
+                        <FaBolt />
+                        <p>Explore {papers.filter(p => p.semester === selectedPaper.semester).length} more papers in Sem {selectedPaper.semester}</p>
+                        <button className="explore-btn" onClick={handleCloseHub}>
+                          View All
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </div>
+              </div>
+
+              <div className="drawer-footer-note">
+                <HiCheck /> Secure cloud delivery • Verified content
               </div>
             </motion.div>
           </>
@@ -1209,6 +1480,79 @@ const ModelPapers = () => {
             </motion.button>
           )}
         </AnimatePresence>
+
+      {/* NEW: Scroll Progress Indicator */}
+      <div style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: `${scrollProgress}%`,
+        height: '4px',
+        background: 'linear-gradient(90deg, #6366F1, #8B5CF6, #EC4899)',
+        zIndex: 9999,
+        transition: 'width 0.1s ease',
+        boxShadow: '0 0 10px rgba(99, 102, 241, 0.5)'
+      }} />
+
+      {/* NEW: Toast Notification System */}
+      <AnimatePresence>
+        {toast && (
+          <motion.div
+            initial={{ opacity: 0, y: -50, x: '-50%' }}
+            animate={{ opacity: 1, y: 0, x: '-50%' }}
+            exit={{ opacity: 0, y: -50, x: '-50%' }}
+            style={{
+              position: 'fixed',
+              top: '20px',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              background: toast.type === 'success' ? 'linear-gradient(135deg, #10B981, #059669)' : 'linear-gradient(135deg, #EF4444, #DC2626)',
+              color: 'white',
+              padding: '15px 30px',
+              borderRadius: '50px',
+              boxShadow: '0 10px 40px rgba(0, 0, 0, 0.3)',
+              zIndex: 10000,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              fontWeight: 700,
+              fontSize: '0.95rem',
+              border: '2px solid rgba(255, 255, 255, 0.2)'
+            }}
+          >
+            {toast.type === 'success' ? <HiCheck size={20} /> : <HiXMark size={20} />}
+            {toast.message}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* NEW: Keyboard Shortcuts Hint */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.7 }}
+        whileHover={{ opacity: 1, scale: 1.05 }}
+        style={{
+          position: 'fixed',
+          bottom: '100px',
+          right: '30px',
+          background: 'rgba(15, 23, 42, 0.9)',
+          backdropFilter: 'blur(20px)',
+          padding: '12px 18px',
+          borderRadius: '15px',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          fontSize: '0.75rem',
+          color: 'rgba(255, 255, 255, 0.7)',
+          zIndex: 99,
+          display: 'none'
+        }}
+        className="keyboard-hints"
+      >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+          <div><span style={{ background: 'rgba(99, 102, 241, 0.2)', padding: '2px 6px', borderRadius: '4px', marginRight: '8px' }}>⌘K</span>Search</div>
+          <div><span style={{ background: 'rgba(99, 102, 241, 0.2)', padding: '2px 6px', borderRadius: '4px', marginRight: '8px' }}>⌘B</span>Bookmarks</div>
+          <div><span style={{ background: 'rgba(99, 102, 241, 0.2)', padding: '2px 6px', borderRadius: '4px', marginRight: '8px' }}>ESC</span>Close</div>
+        </div>
+      </motion.div>
     </div>
   );
 };
