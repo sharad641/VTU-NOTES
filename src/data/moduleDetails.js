@@ -1868,6 +1868,20 @@ export const moduleDetails = {
             fileSize: "4.5",
             tags: ["all-papers", "collection", "exam"]
           },
+
+          {
+            id: "os-12",
+            title: "Previous Year Question Paper",
+            description: "Previous Year Question Paper - BCS303",
+            fileUrl: "https://drive.google.com/file/d/1AFqAjGQhSeD9ATfkdMQoa_sAQP7GSSSJ/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1AFqAjGQhSeD9ATfkdMQoa_sAQP7GSSSJ/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "operating-systems", "bcs303"]
+          }
         ],
       },
       {
@@ -1993,6 +2007,19 @@ export const moduleDetails = {
             fileSize: "4.5",
             tags: ["all-papers", "collection", "exam"]
           },
+          {
+            id: "dsa-10",
+            title: "Previous Year Question Paper",
+            description: "Previous Year Question Paper - BCS304",
+            fileUrl: "https://drive.google.com/file/d/1ACZ7ewUdJsN5eHMdMLJDyArxfMXSbIca/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1ACZ7ewUdJsN5eHMdMLJDyArxfMXSbIca/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "dsa", "bcs304"]
+          }
         ],
       },
       {
@@ -2157,6 +2184,19 @@ export const moduleDetails = {
             fileSize: "4.5",
             tags: ["lab-manual", "practical", "java"]
           },
+          {
+            id: "java-13",
+            title: "Previous Year Question Paper",
+            description: "Previous Year Question Paper - BCS306A",
+            fileUrl: "https://drive.google.com/file/d/1OFU-2H6hGy6AddWa1AGItHVu8W-tb-NQ/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1OFU-2H6hGy6AddWa1AGItHVu8W-tb-NQ/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "java", "bcs306a"]
+          }
         ],
       },
       {
@@ -2256,6 +2296,19 @@ export const moduleDetails = {
             fileSize: "3.0",
             tags: ["question-bank", "practice", "c++"]
           },
+          {
+            id: "cpp-8",
+            title: "Previous Year Question Paper",
+            description: "Previous Year Question Paper - BCS306B",
+            fileUrl: "https://drive.google.com/file/d/1N-cgZloM_NdhwAMmMELojjdcQHI3HzPv/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1N-cgZloM_NdhwAMmMELojjdcQHI3HzPv/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "c++", "bcs306b"]
+          }
         ],
       },
       {
