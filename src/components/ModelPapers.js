@@ -623,9 +623,9 @@ const papers = [
     "category": "core",
     "semester": "3",
     "year": "2024",
-    "modelPaperLink": "https://drive.google.com/file/d/1SYA9H_OjIPOtdledyKCMYr1tCLv0W471/preview",
+    "modelPaperLink": "https://drive.google.com/file/d/1DyZxyX02nQG5MdtSgmSjZSFZOCw_MG5X/preview",
     "solutionLink": null,
-    "oldPaperLink": null,
+    "oldPaperLink": "https://drive.google.com/file/d/1sMO-3Xr4-_jfbpOUYinP-DOjKrUPCLa7/preview",
     "popularity": "medium"
   },
   {
@@ -650,6 +650,66 @@ const papers = [
     "modelPaperLink": "https://drive.google.com/file/d/1Er_L83h4iDUyxT0Rg1p7TUBWmpjpWM5X/preview",
     "solutionLink": "https://drive.google.com/file/d/1vLxPqQe6vpECDPtRTepwXGcRhmKNziFt/preview",
     "oldPaperLink": "https://drive.google.com/file/d/1ic4WdSsfgPpxNqudGWeTh-xYeIVOYWrb/preview",
+    "popularity": "medium"
+  },
+  {
+    "id": 53,
+    "title": "Network Analysis",
+    "code": "BEC304",
+    "category": "core",
+    "semester": "3",
+    "year": "2024",
+    "modelPaperLink": "https://drive.google.com/file/d/1QAMHkdLN1LDOQvkFOcWf1W7HddrBMy4O/preview",
+    "solutionLink": null,
+    "oldPaperLink": "https://drive.google.com/file/d/1z6VT-5KnX_l7caf6CqfyU8Fa47WhNk5L/preview",
+    "popularity": "medium"
+  },
+  {
+    "id": 54,
+    "title": "Electromagnetics Theory",
+    "code": "BEC401",
+    "category": "core",
+    "semester": "4",
+    "year": "2024",
+    "modelPaperLink": "https://drive.google.com/file/d/1ehYBhE-Mg0chQr8eGBGoVsV75XUGwo2B/preview",
+    "solutionLink": null,
+    "oldPaperLink": "https://drive.google.com/file/d/1U4LfrGtTeu198HUfnE8o2M_R3hBvC_gj/preview",
+    "popularity": "medium"
+  },
+  {
+    "id": 55,
+    "title": "Principles of Communication System",
+    "code": "BEC402",
+    "category": "core",
+    "semester": "4",
+    "year": "2024",
+    "modelPaperLink": "https://drive.google.com/file/d/19ZiZ6HI3A1--VEWnWh7yEBucmqjWhzVg/preview",
+    "solutionLink": null,
+    "oldPaperLink": "https://drive.google.com/file/d/1qxv_CLPoC2dNPkZBzXuUlGPyXXC1V0dV/preview",
+    "popularity": "medium"
+  },
+  {
+    "id": 56,
+    "title": "Control Systems",
+    "code": "BEC403",
+    "category": "core",
+    "semester": "4",
+    "year": "2024",
+    "modelPaperLink": "https://drive.google.com/file/d/14oonIJBEsBO7sAsPxuB_T9hHIVqO2fYW/preview",
+    "solutionLink": null,
+    "oldPaperLink": "https://drive.google.com/file/d/1JXOZ5pWRuDotWeTROehUSSR1_M9M8awS/preview",
+    "popularity": "medium"
+  },
+  {
+    "id": 57,
+    "title": "Microcontroller",
+    "code": "BEC405A",
+    "category": "core",
+    "semester": "4",
+    "year": "2024",
+    "modelPaperLink": "https://drive.google.com/file/d/1x_918aG_WjyQ6KlXVkxAx-R8VYuUD8Y9/preview",
+    "solutionLink": null,
+    "oldPaperLink": "https://drive.google.com/file/d/13Hnbhz64P38BVe0xYz9hqwddbQl0Ru6q/preview",
     "popularity": "medium"
   }
 ];

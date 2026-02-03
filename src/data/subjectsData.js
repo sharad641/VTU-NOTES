@@ -80,6 +80,12 @@ export const subjectsData = {
             { name: 'DATA STRUCTURES AND APPLICATIONS', code: 'BCS304', credits: 3, info: 'Third Semester DATA STRUCTURES AND APPLICATIONS For CSE Module 1 to 5 Notes, Solved Model Question papers.' },
             { name: 'Network Analysis', code: 'BEC304', credits: 3, info: 'Third Semester EC Network Analysis Notes and Question Papers.' },
         ],
+        4: [
+            { name: 'Electromagnetics Theory', code: 'BEC401', credits: 3, info: 'Fourth Semester Electromagnetics Theory Notes and Question Papers.' },
+            { name: 'Principles of Communication System', code: 'BEC402', credits: 3, info: 'Fourth Semester Principles of Communication System Notes and Question Papers.' },
+            { name: 'Control Systems', code: 'BEC403', credits: 3, info: 'Fourth Semester Control Systems Notes and Question Papers.' },
+            { name: 'Microcontroller', code: 'BEC405A', credits: 3, info: 'Fourth Semester Microcontroller Notes and Question Papers.' },
+        ],
         5: [
             { name: 'Digital Communication', code: 'BEC503', credits: 4, info: 'Fifth Semester Digital Communication - All Question Papers and Solutions available' },
             { name: 'Technological Innovation Management and Entrepreneurship', code: 'BEC501', credits: 3, info: 'Fifth Semester TIME - Complete notes (Module 1-5), Question Papers, and Solutions' },

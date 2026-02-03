@@ -7507,6 +7507,261 @@ export const moduleDetails = {
         ]
       },
     ],
+    4: [
+      {
+        title: "Electromagnetics Theory",
+        code: "BEC401",
+        vtuCode: "BEC401",
+        credits: 3,
+        modules: [
+          {
+            id: "emt-1",
+            title: "July 2024 Question Paper",
+            description: "Previous Year Question Paper - July 2024",
+            fileUrl: "https://drive.google.com/file/d/1J9uj1dVaVBWb2jDOHrSG7K9RZEGTLIMW/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1J9uj1dVaVBWb2jDOHrSG7K9RZEGTLIMW/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "july-2024", "electromagnetics"]
+          },
+          {
+            id: "emt-2",
+            title: "Model Question Paper (MQP)",
+            description: "Model Question Paper",
+            fileUrl: "https://drive.google.com/file/d/1ehYBhE-Mg0chQr8eGBGoVsV75XUGwo2B/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1ehYBhE-Mg0chQr8eGBGoVsV75XUGwo2B/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "mqp", "electromagnetics"]
+          },
+          {
+            id: "emt-3",
+            title: "Jan 2025 Question Paper",
+            description: "Previous Year Question Paper - Jan 2025",
+            fileUrl: "https://drive.google.com/file/d/1U4LfrGtTeu198HUfnE8o2M_R3hBvC_gj/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1U4LfrGtTeu198HUfnE8o2M_R3hBvC_gj/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "jan-2025", "electromagnetics"]
+          },
+          {
+            id: "emt-4",
+            title: "June-July 2024 Question Paper",
+            description: "Previous Year Question Paper - June-July 2024",
+            fileUrl: "https://drive.google.com/file/d/14o9teKO8-GPTovJ5-4yU6lQtFDCeuYm8/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/14o9teKO8-GPTovJ5-4yU6lQtFDCeuYm8/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "jun-july-2024", "electromagnetics"]
+          }
+        ]
+      },
+      {
+        title: "Principles of Communication System",
+        code: "BEC402",
+        vtuCode: "BEC402",
+        credits: 3,
+        modules: [
+          {
+            id: "pcs-1",
+            title: "July 2024 Question Paper",
+            description: "Previous Year Question Paper - July 2024",
+            fileUrl: "https://drive.google.com/file/d/1-40_AsgxX2timCcVIBEKERqqhwb_Pryn/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1-40_AsgxX2timCcVIBEKERqqhwb_Pryn/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "july-2024", "communication-system"]
+          },
+          {
+            id: "pcs-2",
+            title: "Model Question Paper (MQP)",
+            description: "Model Question Paper",
+            fileUrl: "https://drive.google.com/file/d/19ZiZ6HI3A1--VEWnWh7yEBucmqjWhzVg/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/19ZiZ6HI3A1--VEWnWh7yEBucmqjWhzVg/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "mqp", "communication-system"]
+          },
+          {
+            id: "pcs-3",
+            title: "Jan 2025 Question Paper",
+            description: "Previous Year Question Paper - Jan 2025",
+            fileUrl: "https://drive.google.com/file/d/1qxv_CLPoC2dNPkZBzXuUlGPyXXC1V0dV/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1qxv_CLPoC2dNPkZBzXuUlGPyXXC1V0dV/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "jan-2025", "communication-system"]
+          },
+          {
+            id: "pcs-4",
+            title: "June-July 2024 Question Paper",
+            description: "Previous Year Question Paper - June-July 2024",
+            fileUrl: "https://drive.google.com/file/d/1hhcS29xDW5sN0NCbsNX_QAxq6enwKuH_/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1hhcS29xDW5sN0NCbsNX_QAxq6enwKuH_/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "jun-july-2024", "communication-system"]
+          }
+        ]
+      },
+      {
+        title: "Control Systems",
+        code: "BEC403",
+        vtuCode: "BEC403",
+        credits: 3,
+        modules: [
+          {
+            id: "cs-1",
+            title: "July 2024 Question Paper",
+            description: "Previous Year Question Paper - July 2024",
+            fileUrl: "https://drive.google.com/file/d/1jJktOUM3TZLScfc2H5k0iLFIQQSkHPA1/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1jJktOUM3TZLScfc2H5k0iLFIQQSkHPA1/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "july-2024", "control-systems"]
+          },
+          {
+            id: "cs-2",
+            title: "Model Question Paper (MQP)",
+            description: "Model Question Paper",
+            fileUrl: "https://drive.google.com/file/d/14oonIJBEsBO7sAsPxuB_T9hHIVqO2fYW/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/14oonIJBEsBO7sAsPxuB_T9hHIVqO2fYW/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "mqp", "control-systems"]
+          },
+          {
+            id: "cs-3",
+            title: "Jan 2025 Question Paper (Set 1)",
+            description: "Previous Year Question Paper - Jan 2025 (Set 1)",
+            fileUrl: "https://drive.google.com/file/d/1JXOZ5pWRuDotWeTROehUSSR1_M9M8awS/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1JXOZ5pWRuDotWeTROehUSSR1_M9M8awS/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "jan-2025", "control-systems"]
+          },
+          {
+            id: "cs-4",
+            title: "June-July 2024 Question Paper",
+            description: "Previous Year Question Paper - June-July 2024",
+            fileUrl: "https://drive.google.com/file/d/1MlqGc7nVlEauaxF3lATwiVXoJoBQ6aXz/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1MlqGc7nVlEauaxF3lATwiVXoJoBQ6aXz/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "jun-july-2024", "control-systems"]
+          },
+          {
+            id: "cs-5",
+            title: "Jan 2025 Question Paper (Set 2)",
+            description: "Previous Year Question Paper - Jan 2025 (Set 2)",
+            fileUrl: "https://drive.google.com/file/d/1Og5nA81EVaEVm3bR4iWavD89k09npk3a/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1Og5nA81EVaEVm3bR4iWavD89k09npk3a/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "jan-2025", "control-systems"]
+          }
+        ]
+      },
+      {
+        title: "Microcontroller",
+        code: "BEC405A",
+        vtuCode: "BEC405A",
+        credits: 3,
+        modules: [
+          {
+            id: "mc-1",
+            title: "July 2024 Question Paper",
+            description: "Previous Year Question Paper - July 2024",
+            fileUrl: "https://drive.google.com/file/d/1wNq3MpphmOwbt-VFE_5fRewgdktafjZK/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1wNq3MpphmOwbt-VFE_5fRewgdktafjZK/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "july-2024", "microcontroller"]
+          },
+          {
+            id: "mc-2",
+            title: "Model Question Paper (MQP)",
+            description: "Model Question Paper",
+            fileUrl: "https://drive.google.com/file/d/1x_918aG_WjyQ6KlXVkxAx-R8VYuUD8Y9/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1x_918aG_WjyQ6KlXVkxAx-R8VYuUD8Y9/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "mqp", "microcontroller"]
+          },
+          {
+            id: "mc-3",
+            title: "Jan 2025 Question Paper",
+            description: "Previous Year Question Paper - Jan 2025",
+            fileUrl: "https://drive.google.com/file/d/13Hnbhz64P38BVe0xYz9hqwddbQl0Ru6q/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/13Hnbhz64P38BVe0xYz9hqwddbQl0Ru6q/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "jan-2025", "microcontroller"]
+          },
+          {
+            id: "mc-4",
+            title: "June-July 2024 Question Paper",
+            description: "Previous Year Question Paper - June-July 2024",
+            fileUrl: "https://drive.google.com/file/d/1o28Bl7_6FhiT7fa-dr0UQ1d6u7g7OKP3/view?usp=drive_link",
+            previewUrl: "https://drive.google.com/file/d/1o28Bl7_6FhiT7fa-dr0UQ1d6u7g7OKP3/preview",
+            type: "questions",
+            category: "pyq",
+            essential: true,
+            uploadedDate: "2026-02-03",
+            fileSize: "2.5",
+            tags: ["pyq", "jun-july-2024", "microcontroller"]
+          }
+        ]
+      }
+    ],
     5: [
       {
         title: "Digital Communication",
