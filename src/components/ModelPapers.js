@@ -28,6 +28,7 @@ import CommentSection from './CommentSection';
 import './ModelPapersModern.css'; // CHANGED: Modern Dark Theme
 import './ModelPapersAdvanced.css'; // NEW: Advanced Features
 import './ModelPapersHub.css'; // NEW: Hub Interface
+import './ModelPapersHubAdvanced.css'; // NEW: Enhanced Preview System
 
 const papers = [
   {
@@ -1237,57 +1238,290 @@ const ModelPapers = () => {
                 </div>
 
                 <div className="hub-tab-content">
-                  {/* PREVIEW TAB */}
+                  {/* PREVIEW TAB - ENHANCED MULTI-PREVIEW */}
                   {(!selectedPaper.activeTab || selectedPaper.activeTab === 'Preview') && (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       className="tab-panel"
                     >
-                      <div className="preview-iframe-container">
-                        <iframe
-                          src={selectedPaper.modelPaperLink}
+                      {/* Resource Preview Tabs */}
+                      <div className="preview-resource-tabs">
+                        {selectedPaper.modelPaperLink && (
+                          <button
+                            className={`resource-tab ${!selectedPaper.previewResource || selectedPaper.previewResource === 'model' ? 'active' : ''}`}
+                            onClick={() => setSelectedPaper({...selectedPaper, previewResource: 'model'})}
+                          >
+                            <FaFilePdf />
+                            <div>
+                              <strong>Model Paper</strong>
+                              <span>Official</span>
+                            </div>
+                          </button>
+                        )}
+                        
+                        {selectedPaper.solutionLink && (
+                          <button
+                            className={`resource-tab ${selectedPaper.previewResource === 'solution' ? 'active' : ''}`}
+                            onClick={() => setSelectedPaper({...selectedPaper, previewResource: 'solution'})}
+                          >
+                            <HiStar />
+                            <div>
+                              <strong>Solutions</strong>
+                              <span>Verified</span>
+                            </div>
+                          </button>
+                        )}
+                        
+                        {selectedPaper.oldPaperLink && (
+                          <button
+                            className={`resource-tab ${selectedPaper.previewResource === 'old' ? 'active' : ''}`}
+                            onClick={() => setSelectedPaper({...selectedPaper, previewResource: 'old'})}
+                          >
+                            <HiCalendar />
+                            <div>
+                              <strong>Previous</strong>
+                              <span>Archive</span>
+                            </div>
+                          </button>
+                        )}
+                      </div>
+
+                      {/* Active Preview Container */}
+                      <div className="preview-iframe-container premium">
+                        <div className="preview-header">
+                          <div className="preview-title-box">
+                            {(!selectedPaper.previewResource || selectedPaper.previewResource === 'model') && (
+                              <>
+                                <FaFilePdf className="preview-icon model" />
+                                <div>
+                                  <h4>Model Paper Preview</h4>
+                                  <span>Official Question Paper • VTU</span>
+                                </div>
+                              </>
+                            )}
+                            {selectedPaper.previewResource === 'solution' && (
+                              <>
+                                <HiStar className="preview-icon solution" />
+                                <div>
+                                  <h4>Solutions Preview</h4>
+                                  <span>Verified Answers • Complete</span>
+                                </div>
+                              </>
+                            )}
+                            {selectedPaper.previewResource === 'old' && (
+                              <>
+                                <HiCalendar className="preview-icon old" />
+                                <div>
+                                  <h4>Previous Papers Preview</h4>
+                                  <span>Past Exam • Reference</span>
+                                </div>
+                              </>
+                            )}
+                          </div>
+                          
+                          <div className="preview-actions-compact">
+                            <button 
+                              className="preview-action-btn download-mini"
+                              onClick={() => {
+                                const currentLink = 
+                                  selectedPaper.previewResource === 'solution' ? selectedPaper.solutionLink :
+                                  selectedPaper.previewResource === 'old' ? selectedPaper.oldPaperLink :
+                                  selectedPaper.modelPaperLink;
+                                window.open(getDownloadLink(currentLink), '_blank');
+                                showToast('Download started!', 'success');
+                              }}
+                            >
+                              <HiArrowDownTray />
+                              <span>Download</span>
+                            </button>
+                            
+                            <button 
+                              className="preview-action-btn fullscreen-mini"
+                              onClick={() => {
+                                const currentLink = 
+                                  selectedPaper.previewResource === 'solution' ? selectedPaper.solutionLink :
+                                  selectedPaper.previewResource === 'old' ? selectedPaper.oldPaperLink :
+                                  selectedPaper.modelPaperLink;
+                                navigate(`/pdf/${encodeURIComponent(currentLink)}`);
+                              }}
+                            >
+                              <HiEye />
+                              <span>Full Screen</span>
+                            </button>
+                          </div>
+                        </div>
+
+                        <motion.iframe
+                          key={selectedPaper.previewResource || 'model'}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.3 }}
+                          src={
+                            selectedPaper.previewResource === 'solution' ? selectedPaper.solutionLink :
+                            selectedPaper.previewResource === 'old' ? selectedPaper.oldPaperLink :
+                            selectedPaper.modelPaperLink
+                          }
                           title="PDF Preview"
-                          className="pdf-preview-frame"
+                          className="pdf-preview-frame enhanced"
                         />
-                        <div className="preview-overlay-actions">
-                          <button onClick={() => navigate(`/pdf/${encodeURIComponent(selectedPaper.modelPaperLink)}`)}>
-                            <HiEye /> Full Screen
+                        
+                        {/* Preview Controls Bar */}
+                        <div className="preview-controls-bar">
+                          <div className="preview-info-compact">
+                            <HiDocumentText />
+                            <span>PDF Document • High Quality</span>
+                          </div>
+                          
+                          <div className="preview-nav-controls">
+                            {selectedPaper.modelPaperLink && (
+                              <button 
+                                className={`nav-dot ${!selectedPaper.previewResource || selectedPaper.previewResource === 'model' ? 'active' : ''}`}
+                                onClick={() => setSelectedPaper({...selectedPaper, previewResource: 'model'})}
+                                title="Model Paper"
+                              />
+                            )}
+                            {selectedPaper.solutionLink && (
+                              <button 
+                                className={`nav-dot ${selectedPaper.previewResource === 'solution' ? 'active' : ''}`}
+                                onClick={() => setSelectedPaper({...selectedPaper, previewResource: 'solution'})}
+                                title="Solutions"
+                              />
+                            )}
+                            {selectedPaper.oldPaperLink && (
+                              <button 
+                                className={`nav-dot ${selectedPaper.previewResource === 'old' ? 'active' : ''}`}
+                                onClick={() => setSelectedPaper({...selectedPaper, previewResource: 'old'})}
+                                title="Previous Papers"
+                              />
+                            )}
+                          </div>
+                          
+                          <button 
+                            className="preview-share-mini"
+                            onClick={() => setSelectedPaper({...selectedPaper, activeTab: 'Share'})}
+                          >
+                            <HiShare />
                           </button>
                         </div>
                       </div>
 
-                      <div className="quick-actions-grid">
-                        <button className="quick-action-btn model" onClick={() => navigate(`/pdf/${encodeURIComponent(selectedPaper.modelPaperLink)}`)}>
-                          <FaFilePdf />
-                          <div>
-                            <strong>Model Paper</strong>
-                            <span>Official Question Paper</span>
+                      {/* Quick Stats Grid */}
+                      <div className="preview-quick-stats">
+                        <div className="quick-stat-item">
+                          <div className="stat-icon-box">
+                            <FaFilePdf />
                           </div>
-                          <HiChevronRight />
-                        </button>
+                          <div className="stat-info">
+                            <strong>{[selectedPaper.modelPaperLink, selectedPaper.solutionLink, selectedPaper.oldPaperLink].filter(Boolean).length}</strong>
+                            <span>Resources</span>
+                          </div>
+                        </div>
+                        
+                        <div className="quick-stat-item">
+                          <div className="stat-icon-box">
+                            <HiArrowDownTray />
+                          </div>
+                          <div className="stat-info">
+                            <strong>~2.5 MB</strong>
+                            <span>File Size</span>
+                          </div>
+                        </div>
+                        
+                        <div className="quick-stat-item">
+                          <div className="stat-icon-box">
+                            <HiEye />
+                          </div>
+                          <div className="stat-info">
+                            <strong>HD Quality</strong>
+                            <span>PDF Format</span>
+                          </div>
+                        </div>
+                      </div>
 
-                        {selectedPaper.solutionLink && (
-                          <button className="quick-action-btn solution" onClick={() => navigate(`/pdf/${encodeURIComponent(selectedPaper.solutionLink)}`)}>
-                            <HiStar />
-                            <div>
-                              <strong>Solutions</strong>
-                              <span>Verified Answers</span>
+                      {/* All Resources Quick Access */}
+                      <div className="all-resources-compact">
+                        <h4 className="compact-heading">All Available Resources</h4>
+                        <div className="resources-list-compact">
+                          <a 
+                            href={getDownloadLink(selectedPaper.modelPaperLink)} 
+                            download
+                            className="resource-item-compact primary"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <FaFilePdf />
+                            <div className="resource-compact-info">
+                              <strong>Model Paper</strong>
+                              <span>Official Question Paper</span>
                             </div>
-                            <HiChevronRight />
-                          </button>
-                        )}
+                            <div className="resource-compact-actions">
+                              <button 
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  setSelectedPaper({...selectedPaper, previewResource: 'model'});
+                                }}
+                                className="compact-preview-btn"
+                              >
+                                <HiEye />
+                              </button>
+                              <HiArrowDownTray className="download-icon" />
+                            </div>
+                          </a>
 
-                        {selectedPaper.oldPaperLink && (
-                          <button className="quick-action-btn old" onClick={() => navigate(`/pdf/${encodeURIComponent(selectedPaper.oldPaperLink)}`)}>
-                            <HiCalendar />
-                            <div>
-                              <strong>Previous Papers</strong>
-                              <span>Past Exams</span>
-                            </div>
-                            <HiChevronRight />
-                          </button>
-                        )}
+                          {selectedPaper.solutionLink && (
+                            <a 
+                              href={getDownloadLink(selectedPaper.solutionLink)} 
+                              download
+                              className="resource-item-compact"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <HiStar />
+                              <div className="resource-compact-info">
+                                <strong>Solutions</strong>
+                                <span>Verified Answers</span>
+                              </div>
+                              <div className="resource-compact-actions">
+                                <button 
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    setSelectedPaper({...selectedPaper, previewResource: 'solution'});
+                                  }}
+                                  className="compact-preview-btn"
+                                >
+                                  <HiEye />
+                                </button>
+                                <HiArrowDownTray className="download-icon" />
+                              </div>
+                            </a>
+                          )}
+
+                          {selectedPaper.oldPaperLink && (
+                            <a 
+                              href={getDownloadLink(selectedPaper.oldPaperLink)} 
+                              download
+                              className="resource-item-compact"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <HiCalendar />
+                              <div className="resource-compact-info">
+                                <strong>Previous Papers</strong>
+                                <span>Past Exam Archive</span>
+                              </div>
+                              <div className="resource-compact-actions">
+                                <button 
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    setSelectedPaper({...selectedPaper, previewResource: 'old'});
+                                  }}
+                                  className="compact-preview-btn"
+                                >
+                                  <HiEye />
+                                </button>
+                                <HiArrowDownTray className="download-icon" />
+                              </div>
+                            </a>
+                          )}
+                        </div>
                       </div>
                     </motion.div>
                   )}
