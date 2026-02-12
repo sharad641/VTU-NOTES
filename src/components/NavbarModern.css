@@ -1,15 +1,18 @@
 /* NavbarModern.css - Hyper-Modern Glassmorphism */
 :root {
-    --nav-height: 80px;
-    --nav-bg: rgba(8, 10, 20, 0.6);
-    --nav-border: rgba(255, 255, 255, 0.08);
-    --nav-text: #F8FAFC;
-    --nav-accent: #7C3AED;
-    /* Violet 600 */
-    --nav-highlight: #A78BFA;
-    /* Violet 400 */
-    --nav-hover: rgba(255, 255, 255, 0.05);
-    --glass-blur: blur(24px);
+    --nav-height: 70px;
+    /* Video game style compact */
+    --nav-bg: rgba(5, 5, 10, 0.4);
+    /* More transparent */
+    --nav-border: rgba(255, 255, 255, 0.05);
+    --nav-text: #E2E8F0;
+    --nav-accent: #00F0FF;
+    /* Cyberpunk Cyan */
+    --nav-highlight: #7000FF;
+    /* Neon Purple */
+    --nav-hover: rgba(0, 240, 255, 0.1);
+    --glass-blur: blur(30px);
+    /* Heavy frosted glass */
     --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -32,6 +35,30 @@
     border-bottom: 1px solid var(--nav-border);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     padding: 8px 0;
+}
+
+/* Holographic Bottom Border */
+.nav-portal-layer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--nav-accent), var(--nav-highlight), transparent);
+    background-size: 200% 100%;
+    animation: holoBorder 3s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes holoBorder {
+    0% {
+        background-position: 100% 0;
+    }
+
+    100% {
+        background-position: -100% 0;
+    }
 }
 
 /* Ticker Bar */
@@ -135,6 +162,11 @@
     letter-spacing: -0.5px;
     margin: 0;
     line-height: 1;
+    transition: text-shadow 0.3s;
+}
+
+.nav-brand-area:hover .nav-brand-title {
+    text-shadow: 0 0 15px var(--nav-accent);
 }
 
 .accent-glow {
@@ -229,34 +261,78 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    width: 100%;
+    /* Full width for mobile split */
+}
+
+@media (min-width: 1024px) {
+    .nav-action-cluster {
+        width: auto;
+        /* Reset for desktop */
+    }
 }
 
 .nav-btn-group {
     display: flex;
     align-items: center;
     gap: 16px;
+    width: 100%;
+    /* Ensure full width on mobile */
+    justify-content: space-between;
+    /* Push items apart */
 }
 
+@media (min-width: 1024px) {
+    .nav-btn-group {
+        width: auto;
+        /* Reset for desktop */
+        justify-content: flex-end;
+        gap: 16px;
+    }
+}
+
+/* Modern Gradient Login Button */
 .nav-login-btn {
-    background: #fff;
-    color: #0f172a;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    color: white;
     padding: 10px 28px;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
     transition: all var(--transition-fast);
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+    box-shadow:
+        0 4px 15px rgba(99, 102, 241, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-login-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: skewX(-20deg);
+    transition: 0.5s;
 }
 
 .nav-login-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.5);
+}
+
+.nav-login-btn:hover::before {
+    left: 200%;
 }
 
 .nav-user-avatar img {
     width: 40px;
     height: 40px;
-    border-radius: 12px;
+    border-radius: 50%;
     border: 2px solid rgba(255, 255, 255, 0.2);
     transition: var(--transition-fast);
 }
@@ -266,20 +342,30 @@
     box-shadow: 0 0 15px var(--nav-accent);
 }
 
-/* Mobile Toggle */
+/* Mobile Toggle - Circular Glass */
 .nav-mobile-switch {
-    display: block;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     cursor: pointer;
     z-index: 1002;
-    padding: 10px;
-    border-radius: 12px;
-    transition: background 0.2s;
+    padding: 0;
+    border-radius: 50%;
+    /* Perfect Circle */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .nav-mobile-switch:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 @media (min-width: 1024px) {
@@ -290,10 +376,12 @@
 
 .nav-burger span {
     display: block;
-    width: 22px;
+    width: 20px;
+    /* Slightly smaller width */
     height: 2px;
     background: white;
-    margin: 5px 0;
+    margin: 4px 0;
+    /* Tighter spacing */
     transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     border-radius: 10px;
 }
@@ -347,7 +435,10 @@
 
 .mobile-menu-container {
     position: relative;
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
     width: 85%;
     max-width: 380px;
     height: 100%;
@@ -460,8 +551,8 @@
     top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(12px);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(30px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 16px;
     padding: 8px;

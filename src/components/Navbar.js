@@ -65,8 +65,8 @@ const Navbar = () => {
       <div className="nav-ticker-bar">
         <div className="ticker-track">
           <p>
-            <span className="ticker-badge">UPDATED 2024</span>
-            All Computer Science (CSE) modules updated for Academic Year 2024-25.
+            <span className="ticker-badge">UPDATED 2026</span>
+            All Computer Science (CSE) modules updated for Academic Year 2026.
             <span className="ticker-sep">•</span>
             SGPA Calculator now supports latest VTU schemes.
             <span className="ticker-sep">•</span>
@@ -78,19 +78,7 @@ const Navbar = () => {
       <nav className="nav-main-island">
         <div className="nav-flex-container">
           {/* Futuristic Brand Logo */}
-          <Link to="/" className="nav-brand-area" onClick={closeMenu}>
-            <div className="nav-logo-wrapper">
-              <img
-                src="/Gemini_Generated_Image_rxara5rxara5rxar.png"
-                alt="VTU Portal Logo"
-                className="nav-logo-image"
-              />
-            </div>
-            <div className="nav-brand-info">
-              <h1 className="nav-brand-title">VTU<span className="accent-glow">NOTESFORALL</span></h1>
-              <p className="nav-brand-tagline">Study Smart. Lead More.</p>
-            </div>
-          </Link>
+          {/* Brand Removed as per user request */}
 
           {/* Desktop Navigation */}
           <div className="nav-links-hub">

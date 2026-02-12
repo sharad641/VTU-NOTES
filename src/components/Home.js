@@ -17,6 +17,7 @@ import './SupportPopup.css';
 import './CareerBanner.css';
 
 import { subjectsData } from '../data/subjectsData';
+import { careerArticles } from '../data/careerData';
 import CommentSection from './CommentSection';
 import SupportSection from './SupportSection';
 import SupportModal from './SupportModal';
@@ -114,16 +115,34 @@ const Home = () => {
 
   const categories = ['All', 'First Year', 'CSE Core', 'CSE Lab', 'CSE Elective', 'AI/ML', 'AIML-DS', 'ECE Core'];
 
-  const filteredSubjects = featuredSubjects.filter(subject => {
-    const matchesSearch = subject.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      subject.code.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'All' || subject.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  // Mix Logic: Insert 1 article after every 3 subjects
+  const mixedContent = React.useMemo(() => {
+    let mixed = [];
+    let articleIdx = 0;
 
-  const totalPages = Math.ceil(filteredSubjects.length / itemsPerPage);
+    const filtered = featuredSubjects.filter(subject => {
+      const matchesSearch = subject.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                          subject.code.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesCategory = selectedCategory === 'All' || subject.category === selectedCategory;
+      return matchesSearch && matchesCategory;
+    });
+
+    filtered.forEach((subject, i) => {
+      mixed.push({ type: 'subject', data: subject });
+      // Insert article every 4th item
+      if ((i + 1) % 4 === 0) {
+         const article = careerArticles[articleIdx % careerArticles.length];
+         mixed.push({ type: 'article', data: article });
+         articleIdx++;
+      }
+    });
+    
+    return mixed;
+  }, [searchTerm, selectedCategory, featuredSubjects]);
+
+  const totalPages = Math.ceil(mixedContent.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentSubjects = filteredSubjects.slice(startIndex, startIndex + itemsPerPage);
+  const currentItems = mixedContent.slice(startIndex, startIndex + itemsPerPage);
 
   return (
     <div className="home-extreme-root">
@@ -138,67 +157,213 @@ const Home = () => {
       </div>
 
       <div className="home-container">
-        {/* --- Extreme Hero Section --- */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+        {/* --- Extreme Hero Section (Centered & Clean) --- */}
+        {/* Hero Section Removed */}
+
+
+
+        {/* --- Category Glass Navigation --- */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="home-hero-card"
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="category-nav-island"
         >
-          <div className="hero-mesh-bg"></div>
-
-          <div className="hero-split-layout">
-            <div className="hero-content-left">
-              <div className="hero-badge">
-                <FaBolt className="bolt-icon" />
-                <span>VTU NOTES 3.0 EXTREME</span>
-              </div>
-              <h1>Ultimate Academic <span className="title-alt">Engine</span></h1>
-              <p>Access high-fidelity notes, model papers, and analytics for your VTU journey.</p>
-
-              <div className="hero-search-island">
-                <HiOutlineMagnifyingGlass className="search-icon" />
-                <input
-                  type="text"
-                  placeholder="Search subjects, codes, or keywords..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-                <button className="search-btn">EXPLORE</button>
-              </div>
-            </div>
-
-            <div className="hero-content-right">
-               <motion.div
-                 animate={{ y: [0, -20, 0] }}
-                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                 className="hero-logo-wrapper-col"
-               >
-                 <div className="hero-logo-container">
-                   <img
-                     src="/Gemini_Generated_Image_rxara5rxara5rxar.png"
-                     alt="VTU Portal Futuristic Logo"
-                     className="hero-main-logo"
-                   />
-                   <div className="logo-glow-underlay"></div>
-                 </div>
-
-                 {/* Support Button */}
-                 <button
-                    onClick={() => setIsPopupOpen(true)}
-                    className="hero-support-pill"
-                    style={{ cursor: 'pointer', background: 'transparent', border: '1px solid rgba(255,255,255,0.1)' }}
-                 >
-                    <FaHeart className="support-icon-pulse" />
-                    <span>Support Platform</span>
-                    <div className="pill-gleam"></div>
-                 </button>
-               </motion.div>
-            </div>
+          <div className="nav-scroll-wrapper">
+            {categories.map((cat, idx) => (
+              <motion.button
+                key={cat}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 + (idx * 0.05) }}
+                className={`category-pill ${selectedCategory === cat ? 'active' : ''}`}
+                onClick={() => { setSelectedCategory(cat); setCurrentPage(1); }}
+              >
+                {cat}
+              </motion.button>
+            ))}
           </div>
         </motion.div>
 
+        {/* --- Section Header --- */}
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="section-header-3d"
+          >
+            <div className="sh-left">
+              <HiOutlineFire className="fire-icon" />
+              <h2>Trending <span className="sh-alt">Assets</span></h2>
+            </div>
+
+            {/* Relocated Search Bar */}
+            <div className="trending-search-bar">
+                <div className="search-input-wrapper">
+                    <HiOutlineMagnifyingGlass className="search-icon-large" />
+                    <input 
+                      type="text" 
+                      placeholder="Search..." 
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      autoComplete="off"
+                      spellCheck="false"
+                    />
+                </div>
+                <button className="search-btn-large">
+                  <FaRocket />
+                </button>
+            </div>
+
+            <Link to="/notes" className="explore-link">
+              <span>View All</span>
+              <HiOutlineChevronRight />
+            </Link>
+          </motion.div>
+
+        {/* --- 3D Subject Grid (Mixed with Articles) --- */}
+        <div className="subjects-grid-3d">
+          <AnimatePresence mode='popLayout'>
+            {currentItems.map((item, idx) => (
+              <React.Fragment key={`${item.type}-${item.data.id}-${idx}`}>
+              
+              {item.type === 'subject' ? (
+                /* --- SUBJECT CARD --- */
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ delay: idx * 0.05 }}
+                  className="card-perspective-wrapper"
+                >
+                  <Link to={item.data.link} className="subject-card-magazine">
+                    <div className="card-header-magazine" style={{ background: item.data.gradient }}>
+                      <div className="card-overlay"></div>
+                      <div className="read-time-badge">
+                        <HiOutlineClock />
+                        <span>{item.data.readTime}</span>
+                      </div>
+                      <h3 className="card-title-magazine">{item.data.title}</h3>
+                      <div className="card-watermark">vtunotesforall.in</div>
+                    </div>
+
+                    <div className="card-content-magazine">
+                      <div className="card-tags">
+                        <span className="tag-category">{item.data.category}</span>
+                        <span className="tag-semester">{item.data.semester}</span>
+                      </div>
+                      <h4 className="card-code">{item.data.code}</h4>
+                      <p className="card-description">{item.data.description}</p>
+                      <div className="card-metrics">
+                        <div className="metric-item">
+                          <HiOutlineClock />
+                          <span>{item.data.date}</span>
+                        </div>
+                        <div className="metric-item">
+                          <FaEye />
+                          <span>{item.data.views}</span>
+                        </div>
+                        <div className="metric-item metric-likes">
+                          <FaHeart />
+                          <span>{item.data.likes}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ) : (
+                /* --- FEATURED ARTICLE CARD --- */
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ delay: idx * 0.05 }}
+                  className="card-perspective-wrapper"
+                >
+                   <Link to={`/career-tools/${item.data.id}`} className="article-card-mixed">
+                      <div className="ac-badge">Using AI & Tech</div>
+                      <div className="ac-content">
+                          <div className="ac-icon-box">
+                             <HiOutlineSparkles />
+                          </div>
+                          <h3>{item.data.title}</h3>
+                          <p>Career Insight • {item.data.readingTime}</p>
+                          <div className="ac-cta">
+                             Read Now <HiOutlineChevronRight />
+                          </div>
+                      </div>
+                      <div className="ac-bg-glow"></div>
+                   </Link>
+                </motion.div>
+              )}
+
+              {/* Inject In-Feed Ad after every 6th item (adjusted for mixed content) */}
+              {(idx + 1) % 6 === 0 && (
+                 <motion.div 
+                   layout 
+                   initial={{ opacity: 0 }} 
+                   animate={{ opacity: 1 }} 
+                   className="card-perspective-wrapper ad-card-home"
+                   style={{ 
+                     display: 'flex', 
+                     alignItems: 'center', 
+                     justifyContent: 'center',
+                     minHeight: '280px',
+                     background: 'rgba(255,255,255,0.02)',
+                     borderRadius: '20px',
+                     border: '1px solid rgba(255,255,255,0.1)'
+                   }}
+                 >
+                    <AdSenseAd 
+                       adClient="ca-pub-9499544849301534" 
+                       adSlot="3936951010" 
+                       adFormat="fluid"
+                       style={{ display: 'block', width: '100%', minWidth: '250px' }}
+                    />
+                 </motion.div>
+              )}
+              </React.Fragment>
+            ))}
+          </AnimatePresence>
+        </div>
+
+        {/* --- Premium Pagination --- */}
+        {totalPages > 1 && (
+          <div className="extreme-pagination">
+            <button
+              className="p-btn"
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage(prev => prev - 1)}
+            >
+              <FaChevronLeft />
+            </button>
+
+            <div className="p-numbers">
+              {[...Array(totalPages)].map((_, i) => (
+                <button
+                  key={i}
+                  className={`p-num ${currentPage === i + 1 ? 'active' : ''}`}
+                  onClick={() => setCurrentPage(i + 1)}
+                >
+                  {i + 1}
+                </button>
+              ))}
+            </div>
+
+            <button
+              className="p-btn"
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage(prev => prev + 1)}
+            >
+              <FaChevronRight />
+            </button>
+          </div>
+        )}
+
         {/* --- Expert Career Guides Banner (Premium 3D Glass) --- */}
-        <div className="career-banner-container">
+        <div className="career-banner-container" style={{ marginTop: '5rem', marginBottom: '3rem' }}>
             <Link to="/career-tools" className="career-banner-link">
               <motion.div
                 whileHover={{ scale: 1.02, translateY: -5 }}
@@ -311,155 +476,54 @@ const Home = () => {
             </Link>
         </div>
 
-        {/* --- Category Glass Navigation --- */}
-        <div className="category-nav-island">
-          <div className="nav-scroll-wrapper">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                className={`category-pill ${selectedCategory === cat ? 'active' : ''}`}
-                onClick={() => { setSelectedCategory(cat); setCurrentPage(1); }}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* --- Section Header --- */}
-        <div className="section-header-3d">
+        {/* --- Latest Insights Section --- */}
+        <div className="section-header-3d" style={{ marginTop: '5rem' }}>
           <div className="sh-left">
-            <HiOutlineFire className="fire-icon" />
-            <h2>Trending <span className="sh-alt">Assets</span></h2>
+            <HiOutlineSparkles className="fire-icon" style={{ color: '#F472B6' }} />
+            <h2>Latest <span className="sh-alt" style={{ background: 'linear-gradient(135deg, #F472B6, #A78BFA)', backgroundClip: 'text', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Insights</span></h2>
           </div>
-          <Link to="/notes" className="explore-link">
-            <span>View All</span>
+          <Link to="/career-tools" className="explore-link">
+            <span>Read All</span>
             <HiOutlineChevronRight />
           </Link>
         </div>
 
-        {/* --- 3D Subject Grid --- */}
-        <div className="subjects-grid-3d">
-          <AnimatePresence mode='popLayout'>
-            {currentSubjects.map((subject, idx) => (
-              <React.Fragment key={subject.id}>
-              <motion.div
-                key={subject.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ delay: idx * 0.05 }}
-                className="card-perspective-wrapper"
-              >
-                <Link to={subject.link} className="subject-card-magazine">
-                  {/* Card Header with Image Background and Dark Overlay */}
-                  <div className="card-header-magazine" style={{ background: subject.gradient }}>
-                    <div className="card-overlay"></div>
-                    <div className="read-time-badge">
-                      <HiOutlineClock />
-                      <span>{subject.readTime}</span>
-                    </div>
-                    <h3 className="card-title-magazine">{subject.title}</h3>
-                    <div className="card-watermark">vtunotesforall.in</div>
-                  </div>
-
-                  {/* Card Content */}
-                  <div className="card-content-magazine">
-                    {/* Category Tags */}
-                    <div className="card-tags">
-                      <span className="tag-category">{subject.category}</span>
-                      <span className="tag-semester">{subject.semester}</span>
-                    </div>
-
-                    {/* Subject Code */}
-                    <h4 className="card-code">{subject.code}</h4>
-
-                    {/* Description */}
-                    <p className="card-description">{subject.description}</p>
-
-                    {/* Metrics */}
-                    <div className="card-metrics">
-                      <div className="metric-item">
-                        <HiOutlineClock />
-                        <span>{subject.date}</span>
-                      </div>
-                      <div className="metric-item">
-                        <FaEye />
-                        <span>{subject.views}</span>
-                      </div>
-                      <div className="metric-item metric-likes">
-                        <FaHeart />
-                        <span>{subject.likes}</span>
-                      </div>
-                    </div>
-                  </div>
-
-
-                </Link>
-              </motion.div>
-              {/* Inject In-Feed Ad after every 5th item */}
-              {(idx + 1) % 5 === 0 && (
-                 <motion.div 
-                   layout 
-                   initial={{ opacity: 0 }} 
-                   animate={{ opacity: 1 }} 
-                   className="card-perspective-wrapper ad-card-home"
-                   style={{ 
-                     display: 'flex', 
-                     alignItems: 'center', 
-                     justifyContent: 'center',
-                     minHeight: '280px',
-                     background: 'rgba(255,255,255,0.02)',
-                     borderRadius: '20px',
-                     border: '1px solid rgba(255,255,255,0.1)'
-                   }}
-                 >
-                    <AdSenseAd 
-                       adClient="ca-pub-9499544849301534" 
-                       adSlot="3936951010" 
-                       adFormat="fluid"
-                       style={{ display: 'block', width: '100%', minWidth: '250px' }}
-                    />
-                 </motion.div>
-              )}
-              </React.Fragment>
-            ))}
-          </AnimatePresence>
+        <div className="insights-grid">
+          {careerArticles.slice(0, 3).map((article, idx) => (
+            <motion.div
+              key={article.id}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="insight-card-home"
+            >
+              <Link to={`/career-tools/${article.id}`} className="insight-link-wrapper">
+                <div className="insight-image-container">
+                  {article.imageUrl ? (
+                    <img src={article.imageUrl} alt={article.title} className="insight-image" />
+                  ) : (
+                    <div className="insight-placeholder-image"></div>
+                  )}
+                  <div className="insight-overlay"></div>
+                  <span className="insight-category-badge">{article.category}</span>
+                </div>
+                <div className="insight-content">
+                   <div className="insight-meta">
+                     <span>{article.readingTime}</span>
+                     <span>•</span>
+                     <span>{article.date}</span>
+                   </div>
+                   <h3 className="insight-title">{article.title}</h3>
+                   <div className="insight-arrow">
+                     Read Article <HiOutlineChevronRight />
+                   </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
         </div>
 
-        {/* --- Premium Pagination --- */}
-        {totalPages > 1 && (
-          <div className="extreme-pagination">
-            <button
-              className="p-btn"
-              disabled={currentPage === 1}
-              onClick={() => setCurrentPage(prev => prev - 1)}
-            >
-              <FaChevronLeft />
-            </button>
-
-            <div className="p-numbers">
-              {[...Array(totalPages)].map((_, i) => (
-                <button
-                  key={i}
-                  className={`p-num ${currentPage === i + 1 ? 'active' : ''}`}
-                  onClick={() => setCurrentPage(i + 1)}
-                >
-                  {i + 1}
-                </button>
-              ))}
-            </div>
-
-            <button
-              className="p-btn"
-              disabled={currentPage === totalPages}
-              onClick={() => setCurrentPage(prev => prev + 1)}
-            >
-              <FaChevronRight />
-            </button>
-          </div>
-        )}
       </div>
 
       {/* --- Support Section --- */}
