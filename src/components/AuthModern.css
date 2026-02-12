@@ -162,7 +162,7 @@ body {
     width: 100%;
     max-width: 480px;
     background: var(--auth-glass-strong);
-    backdrop-filter: blur(24px);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--auth-border);
     padding: 40px;
     border-radius: 24px;
@@ -264,6 +264,11 @@ body {
     box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
 }
 
+.btn-auth-primary:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
 .btn-auth-social {
     width: 100%;
     padding: 12px;
@@ -282,6 +287,11 @@ body {
 
 .btn-auth-social:hover {
     background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-auth-social:active {
+    transform: scale(0.98);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 /* Extras */

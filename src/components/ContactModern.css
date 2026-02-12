@@ -64,7 +64,7 @@
 /* Info Card */
 .contact-info-glass {
     background: rgba(30, 41, 59, 0.6);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--con-border);
     border-radius: 30px;
     padding: 40px;
@@ -139,7 +139,7 @@
 /* Form Card */
 .contact-form-glass {
     background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(12px);
     border: 1px solid var(--con-border);
     border-radius: 30px;
     padding: 50px;

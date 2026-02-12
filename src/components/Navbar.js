@@ -218,7 +218,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      <MobileBottomNav />
+      <MobileBottomNav isMobileMenuOpen={isOpen} />
     </header>
   );
 };

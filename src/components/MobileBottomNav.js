@@ -11,7 +11,7 @@ import {
 } from "react-icons/ai";
 import "./MobileBottomNav.css";
 
-const MobileBottomNav = () => {
+const MobileBottomNav = ({ isMobileMenuOpen }) => {
     const location = useLocation();
 
     const navItems = [
@@ -24,7 +24,7 @@ const MobileBottomNav = () => {
     ];
 
     return (
-        <div className="mobile-bottom-nav-island">
+        <div className={`mobile-bottom-nav-island ${isMobileMenuOpen ? 'nav-hidden' : ''}`}>
             <div className="nav-island-container">
                 {navItems.map((item) => {
                     const isActive = location.pathname === item.path;

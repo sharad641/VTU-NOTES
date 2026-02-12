@@ -16,19 +16,25 @@ const ReadingProgressBar = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
+    let requestRunning = null;
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const pct = (scrollTop / docHeight) * 100;
-      setProgress(pct);
+      if (requestRunning === null) {
+        requestRunning = window.requestAnimationFrame(() => {
+          const scrollTop = window.scrollY;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const pct = (scrollTop / docHeight) * 100;
+          setProgress(pct);
+          requestRunning = null;
+        });
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div className="reading-progress-container">
-       <div className="reading-progress-bar" style={{ width: `${progress}%` }}></div>
+       <div className="reading-progress-bar" style={{ width: `${progress}%`, transition: 'width 0.1s linear' }}></div>
     </div>
   );
 };
@@ -38,6 +44,7 @@ const CareerArticlePage = () => {
   const navigate = useNavigate();
   const article = careerArticles.find(a => a.id === parseInt(id));
   const [isSpeaking, setIsSpeaking] = useState(false);
+  const [isFocusMode, setIsFocusMode] = useState(false);
 
   // Extract headings for TOC
   const toc = useMemo(() => {
@@ -48,10 +55,19 @@ const CareerArticlePage = () => {
   }, [article]);
 
   const scrollToSection = (text) => {
-      const id = text.replace(/\\s+/g, '-').toLowerCase();
+      const id = text.replace(/\s+/g, '-').toLowerCase();
       const element = document.getElementById(id);
       if(element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const offset = 100; // Header offset
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = element.getBoundingClientRect().top;
+          const elementPosition = elementRect - bodyRect;
+          const offsetPosition = elementPosition - offset;
+
+          window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+          });
       }
   };
 
@@ -76,103 +92,135 @@ const CareerArticlePage = () => {
   if (!article) return <div>Not Found</div>;
 
   return (
-    <div className="papers-portal-root dark" style={{ background: '#0B1120', minHeight: '100vh' }}>
+    <div className={`papers-portal-root dark ${isFocusMode ? 'focus-mode-active' : ''}`} style={{ background: '#0B1120', minHeight: '100vh' }}>
       <ReadingProgressBar />
       
-      {/* Navbar Placeholder */}
-      <div style={{ height: '80px' }}></div>
+      {/* Navbar Placeholder - Hidden in Focus Mode */}
+      {!isFocusMode && <div style={{ height: '80px' }}></div>}
+
+      {/* IMMERSIVE HERO HEADER */}
+      <div className="immersive-hero-container">
+          {article.imageUrl && (
+            <div className="immersive-hero-bg">
+                <img src={article.imageUrl} alt="Background" />
+                <div className="hero-overlay-gradient"></div>
+            </div>
+          )}
+          
+          <div className="immersive-hero-content">
+                  <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="hero-text-wrapper"
+              >
+                  <div className="hero-badges">
+                      <span className="hero-pill"><HiTag /> {article.category}</span>
+                      <span className="hero-pill-glass"><HiClock /> {article.readingTime || '5 min read'}</span>
+                  </div>
+                  
+                  <h1 className="hero-title-main">{article.title}</h1>
+                  
+                  <div className="hero-meta-row">
+                      <div className="author-group">
+                          <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix" alt="Author" className="author-img-lg" />
+                          <div className="author-text">
+                              <span className="name">VTU Editorial Team</span>
+                              <span className="date">Posted on {article.date}</span>
+                          </div>
+                      </div>
+                      
+                      <div className="hero-actions">
+                          <button className="hero-action-btn" onClick={handleSpeak} title="Listen">
+                             {isSpeaking ? <HiPause /> : <HiSpeakerWave />}
+                          </button>
+                          <button 
+                            className={`hero-action-btn ${isFocusMode ? 'active' : ''}`} 
+                            onClick={() => setIsFocusMode(!isFocusMode)} 
+                            title="Focus Mode"
+                          >
+                             {isFocusMode ? <HiListBullet /> : <HiBookmark />}
+                          </button>
+                      </div>
+                  </div>
+              </motion.div>
+          </div>
+      </div>
 
       <div className="portal-container" style={{ maxWidth: '1400px', margin: '0 auto', padding: '0 20px 80px' }}>
         
-        {/* Breadcrumb / Back */}
-        <button 
-          onClick={() => navigate('/career-tools')}
-          style={{ background: 'transparent', border: 'none', color: '#64748B', display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '40px', cursor: 'pointer', fontSize: '0.9rem', fontWeight: '500' }}
-        >
-          <HiArrowLeft /> BACK TO CAREER HUB
-        </button>
+        {/* Breadcrumb / Back - Hidden in Focus Mode */}
+        {!isFocusMode && (
+            <button 
+              onClick={() => navigate('/career-tools')}
+              className="back-nav-btn"
+            >
+              <HiArrowLeft /> BACK TO CAREER HUB
+            </button>
+        )}
 
         <div className="article-page-layout">
             
-            {/* LEFT: Sticky Sharing Actions */}
-            <aside>
-                <div className="sticky-left-actions">
-                    <button className="action-btn" title="Listen to Article" onClick={handleSpeak} style={isSpeaking ? { color: '#34D399', borderColor: '#34D399' } : {}}>
-                        {isSpeaking ? <HiPause /> : <HiSpeakerWave />}
-                    </button>
-                    <button className="action-btn" title="Save Bookmark">
-                        <HiBookmark />
-                    </button>
-                    <div style={{ width: '20px', height: '1px', background: 'rgba(255,255,255,0.1)', margin: '10px 0' }}></div>
-                    <button className="action-btn" title="Share on WhatsApp" onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent(article.title + ' ' + window.location.href)}`)}>
-                        <RiWhatsappLine />
-                    </button>
-                    <button className="action-btn" title="Share on Twitter" onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(window.location.href)}`)}>
-                        <RiTwitterXLine />
-                    </button>
-                    <button className="action-btn" title="Share on LinkedIn" onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`)}>
-                        <RiLinkedinLine />
-                    </button>
-                    <button className="action-btn" title="Copy Link" onClick={() => navigator.clipboard.writeText(window.location.href)}>
-                        <RiLinksLine />
-                    </button>
-                </div>
-            </aside>
+            {/* LEFT: Sticky Sharing Actions - Hidden in Focus Mode */}
+            {!isFocusMode && (
+                <aside className="left-sidebar">
+                    <div className="sticky-left-actions">
+                        <button className="action-btn" title="Refocus" onClick={() => setIsFocusMode(true)}>
+                            <HiListBullet />
+                        </button>
+                        <div className="divider-vertical"></div>
+                        <button className="action-btn" onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent(article.title + ' ' + window.location.href)}`)}>
+                            <RiWhatsappLine />
+                        </button>
+                        <button className="action-btn" onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(window.location.href)}`)}>
+                            <RiTwitterXLine />
+                        </button>
+                        <button className="action-btn" onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`)}>
+                            <RiLinkedinLine />
+                        </button>
+                    </div>
+                </aside>
+            )}
 
             {/* CENTER: Main Content */}
-            <main>
+            <main className={isFocusMode ? 'focus-content' : ''}>
                 <article>
                     
-                    {/* Premium Hero */}
-                    <div className="article-hero-modern">
-                        <div className="hero-pill">
-                            <HiTag /> {article.category}
-                        </div>
-                        <h1>{article.title}</h1>
-                        
-                        <div className="author-strip">
-                            <div className="author-info">
-                                <div className="author-avatar">
-                                    <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix" alt="Author" />
-                                </div>
-                                <div style={{ textAlign: 'left' }}>
-                                    <div style={{ color: 'white', fontWeight: '600' }}>VTU Editorial Team</div>
-                                    <div style={{ fontSize: '0.8rem', opacity: 0.7 }}>Posted on {article.date}</div>
-                                </div>
-                            </div>
-                            <div style={{ width: '1px', height: '20px', background: 'rgba(255,255,255,0.2)' }}></div>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                                <HiClock style={{ color: '#34D399' }} /> {article.readingTime || '5 min read'}
-                            </div>
-                        </div>
-                    </div>
+                    {/* Hero Removed from here (moved up) */}
 
                     {/* Featured Image */}
                     {article.imageUrl && (
                         <motion.div 
-                          initial={{ opacity: 0, y: 20 }}
+                          initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.2 }}
+                          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
                           className="article-featured-image"
                         >
                             <img src={article.imageUrl} alt={article.title} />
                         </motion.div>
                     )}
 
-                    {/* Key Takeaways */}
+                    {/* Key Takeaways - Redesigned */}
                     {article.takeaways && (
                         <motion.div 
-                          initial={{ opacity: 0, y: 20 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 0.3 }}
-                          className="key-takeaways-box"
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                          className="key-takeaways-modern"
                         >
-                            <h3><HiBookmark /> Key Takeaways</h3>
-                            <ul className="key-takeaways-list">
+                            <div className="takeaways-header">
+                                <span className="icon-box"><HiBookmark /></span>
+                                <h3>Key Takeaways</h3>
+                            </div>
+                            <div className="takeaways-grid">
                                 {article.takeaways.map((point, i) => (
-                                    <li key={i}>{point}</li>
+                                    <div key={i} className="takeaway-card">
+                                        <span className="t-num">0{i+1}</span>
+                                        <p>{point}</p>
+                                    </div>
                                 ))}
-                            </ul>
+                            </div>
                         </motion.div>
                     )}
 
@@ -184,26 +232,27 @@ const CareerArticlePage = () => {
                     {/* Content Rendering */}
                     <div className="article-typography">
                         <motion.p 
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ delay: 0.4 }}
-                          className="lead-summary"
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, margin: "-100px" }}
+                          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                          className="lead-summary-modern"
                         >
                             {article.summary}
                         </motion.p>
-
-                        <div style={{ width: '100%', height: '1px', background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent)', margin: '40px 0' }}></div>
+                        
+                        <div className="article-divider"></div>
 
                         {article.fullContent && article.fullContent.map((block, i) => (
                             <motion.div 
                                 key={i}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                transition={{ duration: 0.5, delay: 0.1 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                             >
                                 {block.type === 'h3' && (
-                                    <h3 id={block.text.replace(/\s+/g, '-').toLowerCase()}>
+                                    <h3 id={block.text.replace(/\s+/g, '-').toLowerCase()} className="section-heading-modern">
                                         {block.text}
                                     </h3>
                                 )}
@@ -214,7 +263,7 @@ const CareerArticlePage = () => {
                                         {block.text.split(/(\[[^\]]+\]\([^)]+\))/g).map((part, index) => {
                                             const match = part.match(/\[([^\]]+)\]\(([^)]+)\)/);
                                             if (match) {
-                                                return <a key={index} href={match[2]} target="_blank" rel="noopener noreferrer" style={{ color: '#34D399', textDecoration: 'underline' }}>{match[1]}</a>;
+                                                return <a key={index} href={match[2]} target="_blank" rel="noopener noreferrer" className="modern-link">{match[1]}</a>;
                                             }
                                             return part;
                                         })}
@@ -222,22 +271,28 @@ const CareerArticlePage = () => {
                                 )}
                                 
                                 {block.type === 'ul' && (
-                                    <ul>
+                                    <ul className="modern-list">
                                         {block.items.map((item, idx) => <li key={idx}>{item}</li>)}
                                     </ul>
                                 )}
                                 
                                 {block.type === 'tip' && (
-                                    <div className="pro-tip-box">
-                                        <strong>Pro Tip</strong>
-                                        <div>{block.text}</div>
+                                    <div className="pro-tip-box-modern">
+                                        <div className="tip-icon">💡</div>
+                                        <div className="tip-content">
+                                            <strong>PRO TIP</strong>
+                                            <p>{block.text}</p>
+                                        </div>
                                     </div>
                                 )}
 
                                 {block.type === 'warning' && (
-                                    <div className="warning-box">
-                                        <strong>⚠️ {block.title || 'Important'}</strong>
-                                        <div>{block.text}</div>
+                                    <div className="warning-box-modern">
+                                        <div className="warn-icon">⚠️</div>
+                                        <div className="warn-content">
+                                            <strong>IMPORTANT</strong>
+                                            <p>{block.text}</p>
+                                        </div>
                                     </div>
                                 )}
 
@@ -272,37 +327,20 @@ const CareerArticlePage = () => {
                                                     btn.innerText = 'Copied!';
                                                     setTimeout(() => btn.innerText = 'Copy', 2000);
                                                 }}
-                                                style={{
-                                                    background: 'rgba(255,255,255,0.1)',
-                                                    border: 'none',
-                                                    color: '#cbd5e1',
-                                                    padding: '4px 12px',
-                                                    borderRadius: '4px',
-                                                    fontSize: '0.75rem',
-                                                    cursor: 'pointer',
-                                                    transition: 'all 0.2s'
-                                                }}
                                             >
                                                 Copy
                                             </button>
                                         </div>
-                                        <pre>
-                                            <code>{block.code}</code>
-                                        </pre>
+                                        <pre><code>{block.code}</code></pre>
                                     </div>
                                 )}
                                 
                                 {block.type === 'step' && (
-                                    <div className="timeline-step">
-                                        <motion.div 
-                                          initial={{ height: 0 }}
-                                          whileInView={{ height: '100%' }}
-                                          className="step-marker"
-                                        ></motion.div>
-                                        <div className="step-content">
+                                    <div className="step-card-modern">
+                                        <div className="step-header">
                                             <h4>{block.title}</h4>
-                                            <p>{block.text}</p>
                                         </div>
+                                        <p>{block.text}</p>
                                     </div>
                                 )}
 
@@ -319,57 +357,39 @@ const CareerArticlePage = () => {
                 </article>
             </main>
 
-            {/* RIGHT: Sidebar (TOC + Ads) */}
-            <aside className="right-sidebar">
-                <div style={{ position: 'sticky', top: '120px' }}>
-                   
-                   {/* TOC Widget (Mission Control Style) */}
-                   <div className="sidebar-widget" style={{ 
-                       background: 'rgba(15, 23, 42, 0.4)', 
-                       backdropFilter: 'blur(12px)',
-                       border: '1px solid rgba(255,255,255,0.08)',
-                       borderRadius: '20px',
-                       padding: '25px',
-                       marginBottom: '30px',
-                       boxShadow: '0 20px 40px -10px rgba(0,0,0,0.5)'
-                   }}>
-                       <div className="widget-title" style={{ 
-                           fontSize: '0.85rem', fontWeight: '700', letterSpacing: '1px', 
-                           color: '#94A3B8', textTransform: 'uppercase', marginBottom: '20px', 
-                           display: 'flex', alignItems: 'center', gap: '8px' 
-                       }}>
-                           <span style={{ width: '8px', height: '8px', background: '#00F0FF', borderRadius: '50%', boxShadow: '0 0 10px #00F0FF' }}></span>
-                           On This Page
+            {/* RIGHT: Sidebar (TOC + Ads) - Hidden in Focus Mode */}
+            {!isFocusMode && (
+                <aside className="right-sidebar">
+                    <div style={{ position: 'sticky', top: '120px' }}>
+                       
+                       {/* TOC Widget (Mission Control Style) */}
+                       <div className="sidebar-widget toc-widget-modern">
+                           <div className="widget-title">
+                               <span className="pulse-dot"></span>
+                               MISSION CONTROL
+                           </div>
+                           <nav className="toc-nav">
+                              {toc.map((head, i) => (
+                                  <motion.a 
+                                      key={i} 
+                                      onClick={() => scrollToSection(head)}
+                                      whileHover={{ x: 5 }}
+                                      className="toc-link-item"
+                                  >
+                                      <span className="toc-num">{(i+1).toString().padStart(2, '0')}</span>
+                                      {head}
+                                  </motion.a>
+                              ))}
+                           </nav>
                        </div>
-                       <nav style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                          {toc.map((head, i) => (
-                              <motion.a 
-                                  key={i} 
-                                  onClick={() => scrollToSection(head)}
-                                  whileHover={{ x: 5, color: '#00F0FF' }}
-                                  className="toc-link-modern"
-                                  style={{ 
-                                      cursor: 'pointer', 
-                                      fontSize: '0.9rem', color: '#CBD5E1', 
-                                      display: 'flex', alignItems: 'center', gap: '12px',
-                                      lineHeight: '1.4', transition: 'all 0.2s ease'
-                                  }}
-                              >
-                                  <span style={{ fontSize: '0.7rem', color: '#475569', fontFamily: 'monospace' }}>{(i+1).toString().padStart(2, '0')}</span>
-                                  {head}
-                              </motion.a>
-                          ))}
-                       </nav>
-                   </div>
 
-                   {/* Ad Widget */}
-                   <div className="sidebar-widget" style={{ padding: '10px' }}>
-                        <div className="widget-title" style={{ paddingLeft: '10px' }}>SPONSORED</div>
-                        <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="7579321744" style={{ minHeight: '300px' }} />
-                   </div>
+                       <div className="sidebar-widget">
+                            <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="7579321744" style={{ minHeight: '300px' }} />
+                       </div>
 
-                </div>
-            </aside>
+                    </div>
+                </aside>
+            )}
 
         </div>
         
@@ -378,16 +398,13 @@ const CareerArticlePage = () => {
              <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="5502713194" adFormat="autorelaxed" />
         </div>
 
-        {/* Mobile Floating Action Button (FAB) */}
+        {/* Floating Toggle for Mobile */}
         <div className="mobile-fab-container">
             <button 
                 className="fab-main-btn"
-                onClick={() => {
-                    const toc = document.querySelector('.sidebar-widget');
-                    if(toc) toc.scrollIntoView({ behavior: 'smooth' });
-                }}
+                onClick={() => setIsFocusMode(!isFocusMode)}
             >
-                <HiListBullet />
+                {isFocusMode ? <HiListBullet /> : <HiBookmark />}
             </button>
         </div>
       </div>

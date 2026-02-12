@@ -556,7 +556,7 @@
   opacity: 0;
   transition: opacity 0.6s ease;
   z-index: -1;
-  filter: blur(20px);
+  filter: blur(12px);
 }
 
 .paper-high-card:hover::before {

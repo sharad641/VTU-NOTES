@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { FaInstagram, FaWhatsapp, FaLinkedin, FaEnvelope, FaMapMarkerAlt, FaChevronRight } from "react-icons/fa";
-import "./Footer.css";
+import "./FooterModern.css";
 
 const Footer = ({ handleBranchClick }) => {
   const currentYear = new Date().getFullYear();

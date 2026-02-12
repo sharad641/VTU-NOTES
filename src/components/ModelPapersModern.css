@@ -72,7 +72,7 @@
     background: var(--bg-glass);
     border: 1px solid var(--border-glass);
     margin-bottom: 28px;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(12px);
     position: relative;
     overflow: hidden;
 }
@@ -373,7 +373,7 @@
     border-radius: 22px;
     background: var(--bg-glass);
     border: 1px solid var(--border-glass);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(12px);
     display: flex;
     flex-direction: column;
     gap: 14px;

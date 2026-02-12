@@ -125,7 +125,7 @@
     opacity: 0;
     transition: opacity 0.4s ease;
     z-index: 0;
-    filter: blur(20px);
+    filter: blur(12px);
 }
 
 .tp-cat-card:hover::before,
@@ -260,7 +260,7 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 30px;
     padding: 3rem;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(12px);
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
     position: relative;
     z-index: 2;
@@ -418,7 +418,7 @@
     border-radius: 40px;
     padding: 4rem 2rem;
     text-align: center;
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(12px);
     box-shadow: 0 50px 100px rgba(0, 0, 0, 0.7);
     position: relative;
     z-index: 2;

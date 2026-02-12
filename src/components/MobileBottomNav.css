@@ -2,22 +2,29 @@
 
 .mobile-bottom-nav-island {
     position: fixed;
-    bottom: 30px;
+    bottom: 24px;
     left: 0;
     right: 0;
-    z-index: 9999;
+    z-index: 999;
+    /* Below sidebar overlay (2000) */
     display: none;
-    /* Hidden by default on desktop */
     justify-content: center;
     pointer-events: none;
-    /* Allow clicking through the container */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
     animation: floatUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Hide when sidebar is open */
+.mobile-bottom-nav-island.nav-hidden {
+    transform: translateY(150%);
+    opacity: 0;
+    pointer-events: none;
 }
 
 @keyframes floatUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(40px);
     }
 
     to {
@@ -28,20 +35,20 @@
 
 .nav-island-container {
     pointer-events: auto;
-    /* Re-enable clicks for the island itself */
-    background: rgba(10, 10, 26, 0.6);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    padding: 8px 16px;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 10px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 0;
+    /* Removing gap, using padding instead */
     box-shadow:
-        0 20px 40px -5px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
-    width: fit-content;
+        0 20px 50px -10px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+    width: auto;
     max-width: 95vw;
     position: relative;
     overflow: hidden;
@@ -58,6 +65,7 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
     transform: skewX(-20deg);
     animation: shine 8s infinite;
+    pointer-events: none;
 }
 
 @keyframes shine {
@@ -78,22 +86,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px 14px;
+    padding: 8px 12px;
     text-decoration: none;
     color: rgba(255, 255, 255, 0.5);
-    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-    border-radius: 16px;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border-radius: 12px;
     z-index: 2;
+    min-width: 48px;
+    /* Consistent touch target */
 }
 
 .nav-island-item:hover {
     color: rgba(255, 255, 255, 0.9);
-    transform: translateY(-2px);
 }
 
 .item-icon-wrapper {
     position: relative;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -102,19 +111,19 @@
 }
 
 .nav-island-item.active .item-icon-wrapper {
-    transform: scale(1.1);
+    transform: translateY(-2px) scale(1.1);
     color: #fff;
-    filter: drop-shadow(0 0 8px rgba(124, 58, 237, 0.6));
+    filter: drop-shadow(0 0 8px rgba(124, 58, 237, 0.5));
 }
 
 .item-label {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.02em;
     margin-top: 4px;
     z-index: 2;
-    opacity: 0.7;
+    opacity: 0.6;
     transition: opacity 0.3s;
 }
 
@@ -128,27 +137,25 @@
 .nav-active-glow {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, rgba(124, 58, 237, 0.25) 0%, rgba(124, 58, 237, 0) 70%);
+    background: radial-gradient(circle at center, rgba(124, 58, 237, 0.3) 0%, rgba(124, 58, 237, 0) 70%);
     z-index: -1;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.15) inset;
+    border-radius: 12px;
 }
 
 /* Underline Indicator for Active State */
 .nav-island-item.active::after {
     content: '';
     position: absolute;
-    bottom: -8px;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
     width: 20px;
     height: 20px;
-    background: radial-gradient(circle, rgba(124, 58, 237, 0.8) 0%, transparent 60%);
-    filter: blur(4px);
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.8) 0%, transparent 70%);
+    filter: blur(5px);
     border-radius: 50%;
     opacity: 1;
 }
-
 
 /* Mobile Visibility */
 @media (max-width: 1024px) {
@@ -159,24 +166,33 @@
 
 @media (max-width: 480px) {
     .nav-island-container {
-        gap: 2px;
-        padding: 6px 8px;
-        border-radius: 20px;
+        padding: 6px 4px;
+        border-radius: 16px;
         bottom: 20px;
-        background: rgba(10, 10, 26, 0.7);
-        backdrop-filter: blur(30px);
+        background: rgba(15, 23, 42, 0.9);
+        /* More opaque for mobile */
     }
 
     .nav-island-item {
-        padding: 8px 10px;
+        padding: 8px 6px;
+        /* Tighter padding for mobile */
+        min-width: 16%;
+        /* Equal distribution */
     }
 
     .item-icon-wrapper {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
     }
 
     .item-label {
-        font-size: 0.55rem;
+        font-size: 0.5rem;
         margin-top: 2px;
+        display: none;
+        /* Hide labels on very small screens if needed, or keep for clarity */
+    }
+
+    .nav-island-item.active .item-label {
+        display: block;
+        /* Show label only for active item to save space? Optional */
     }
 }

@@ -53,7 +53,7 @@
 .create-post-card {
     background: var(--cs-glass);
     border: 1px solid var(--cs-border);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(12px);
     border-radius: 24px;
     padding: 30px;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);

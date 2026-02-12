@@ -115,10 +115,20 @@ const Home = () => {
 
   const categories = ['All', 'First Year', 'CSE Core', 'CSE Lab', 'CSE Elective', 'AI/ML', 'AIML-DS', 'ECE Core'];
 
-  // Mix Logic: Insert 1 article after every 3 subjects
+  // Mix Logic: Insert 1 article after every 4 subjects
   const mixedContent = React.useMemo(() => {
     let mixed = [];
-    let articleIdx = 0;
+    
+    // PRIORITY 1: "AI in Engineering" Article (Index 0) - Always First
+    if (searchTerm === '' && selectedCategory === 'All' && careerArticles.length > 0) {
+       mixed.push({ type: 'article', data: careerArticles[0] });
+    }
+
+    // Start mixing other articles from index 2 (skipping index 1 initially)
+    let articleIdx = 2; 
+
+    // We need to keep track of how many subjects we've added to insert articles correctly
+    let subjectCount = 0;
 
     const filtered = featuredSubjects.filter(subject => {
       const matchesSearch = subject.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -129,11 +139,24 @@ const Home = () => {
 
     filtered.forEach((subject, i) => {
       mixed.push({ type: 'subject', data: subject });
-      // Insert article every 4th item
-      if ((i + 1) % 4 === 0) {
+      subjectCount++;
+
+      // PRIORITY 2: "Free AI Tools" Article (Index 1) - Insert after EXACTLY 4 subjects
+      if (searchTerm === '' && selectedCategory === 'All' && subjectCount === 4 && careerArticles.length > 1) {
+          mixed.push({ type: 'article', data: careerArticles[1] });
+      }
+      
+      // REGULAR INTERVAL: Insert other articles every 4th subject (after the first set)
+      else if (subjectCount > 4 && subjectCount % 4 === 0) {
+         // Cycle through remaining articles starting from index 2
          const article = careerArticles[articleIdx % careerArticles.length];
          mixed.push({ type: 'article', data: article });
          articleIdx++;
+         
+         // If we loop back to 0 or 1 (the special articles), skip them to avoid repetition
+         if (articleIdx % careerArticles.length === 0 || articleIdx % careerArticles.length === 1) {
+             articleIdx = 2; 
+         }
       }
     });
     
@@ -283,18 +306,28 @@ const Home = () => {
                   className="card-perspective-wrapper"
                 >
                    <Link to={`/career-tools/${item.data.id}`} className="article-card-mixed">
-                      <div className="ac-badge">Using AI & Tech</div>
+                      <div className="ac-image-container">
+                        {item.data.imageUrl ? (
+                           <img src={item.data.imageUrl} alt={item.data.title} className="ac-bg-image" />
+                        ) : (
+                           <div className="ac-placeholder-gradient"></div>
+                        )}
+                        <div className="ac-overlay"></div>
+                        <div className="ac-badge">Using AI & Tech</div>
+                      </div>
+                      
                       <div className="ac-content">
-                          <div className="ac-icon-box">
-                             <HiOutlineSparkles />
-                          </div>
                           <h3>{item.data.title}</h3>
-                          <p>Career Insight • {item.data.readingTime}</p>
+                          <div className="ac-meta">
+                            <span>Career Insight</span>
+                            <span className="dot">•</span>
+                            <span>{item.data.readingTime}</span>
+                          </div>
                           <div className="ac-cta">
                              Read Now <HiOutlineChevronRight />
                           </div>
                       </div>
-                      <div className="ac-bg-glow"></div>
+                      <div className="ac-glow-effect"></div>
                    </Link>
                 </motion.div>
               )}

@@ -1,5 +1,251 @@
 export const careerArticles = [
   {
+    id: 15,
+    title: "How Engineering Students Use AI in Daily Life for Study, Projects & Career Growth (2026 Complete Guide)",
+    category: "AI & Future Tech",
+    cpcLevel: "High",
+    imageUrl: "/assets/career/ai-career.png",
+    takeaways: [
+      "AI tools for study notes, code logic, and exam revision.",
+      "Building real AI apps with Google AI Studio & Antigravity.",
+      "Coding assistance with GitHub Copilot & LeetCode.",
+      "AI for Final Year Projects & Placement Prep."
+    ],
+    summary: "Discover how engineering students are using AI tools like ChatGPT, Google AI Studio, and GitHub Copilot for studies, projects, and career growth in 2026.",
+    keywords: ["AI in Engineering", "Google AI Studio", "Student AI Tools", "Engineering Projects", "Placement Preparation"],
+    date: "February 24, 2026",
+    readingTime: "10 min read",
+    fullContent: [
+      { type: 'p', text: 'Artificial Intelligence has transformed from a classroom subject into a daily companion for engineering students. Whether you are studying Computer Science, Information Science, ECE, EEE, Mechanical, Civil, or any other branch, AI tools are now helping students learn faster, code smarter, build innovative projects, and prepare confidently for placements.' },
+      { type: 'p', text: 'In 2026, engineering students are not just using basic AI chatbots — they are leveraging advanced AI development platforms, experimental creative tools, and AI-powered coding assistants to gain a competitive edge.' },
+      
+      { type: 'h3', text: '1️⃣ AI for Studying & Concept Clarity' },
+      { type: 'p', text: 'Engineering subjects can often feel overwhelming — from Data Structures and Algorithms to DBMS, Operating Systems, Computer Networks, Artificial Intelligence, Mathematics, and Digital Electronics.' },
+      { type: 'p', text: 'Instead of struggling alone, students now use AI to:' },
+      { type: 'ul', items: [
+        'Simplify complex topics',
+        'Generate structured notes',
+        'Get step-by-step problem solutions',
+        'Understand code logic clearly',
+        'Revise quickly before exams'
+      ]},
+      { type: 'step', title: '🔹 Popular AI Learning Assistants', text: 'ChatGPT, Google Gemini, Microsoft Copilot' },
+      { type: 'p', text: 'These tools help students convert difficult academic content into easy-to-understand explanations.' },
+      { type: 'tip', text: 'For example: A student can ask, “Explain ACID properties in simple words with real-life examples.” Within seconds, AI provides a structured and simplified answer.' },
+
+      { type: 'h3', text: '2️⃣ Google AI Studio – Building Real AI Applications' },
+      { type: 'p', text: 'Google AI Studio is widely used by engineering students who want to move beyond basic AI usage and start building AI-powered applications.' },
+      { type: 'step', title: '🔹 What Students Do with Google AI Studio', text: '' },
+      { type: 'ul', items: [
+        'Test and experiment with Gemini models',
+        'Build AI chatbots',
+        'Generate API keys for AI integration',
+        'Create automation systems',
+        'Develop AI-powered web and mobile apps'
+      ]},
+      { type: 'p', text: 'Unlike simple chat-based AI, Google AI Studio allows students to integrate AI directly into their projects, deploy AI features into websites, and create intelligent SaaS prototypes.' },
+
+      { type: 'h3', text: '3️⃣ Antigravity – Exploring Experimental & Creative AI' },
+      { type: 'p', text: 'Antigravity represents the new generation of experimental AI tools that focus on creative AI exploration, advanced generative systems, and futuristic UI/UX prototypes.' },
+      { type: 'ul', items: [
+        'Design innovative product concepts',
+        'Experiment with generative AI',
+        'Build interactive AI-driven systems',
+        'Create creative hackathon projects'
+      ]},
+      { type: 'tip', text: 'These tools encourage students to think beyond traditional programming and explore AI as a creative engine, not just a coding assistant.' },
+
+      { type: 'h3', text: '4️⃣ AI for Coding & Programming Practice' },
+      { type: 'p', text: 'Coding is the backbone of most engineering placements. AI has become a powerful coding companion via tools like GitHub Copilot, Visual Studio Code, and LeetCode.' },
+      { type: 'ul', items: [
+        'Auto-completing code',
+        'Suggesting optimized algorithms',
+        'Debugging errors',
+        'Writing SQL queries',
+        'Explaining time and space complexity'
+      ]},
+      { type: 'p', text: 'For example: A student preparing for interviews can request: “Write a Java program for prime number using while loop and explain it.” AI provides both code and explanation instantly.' },
+      { type: 'warning', title: 'Note', text: 'Smart students use AI to understand the logic — not just copy the code.' },
+
+      { type: 'h3', text: '5️⃣ AI for Final Year Projects' },
+      { type: 'p', text: 'AI plays a major role in final-year engineering projects using frameworks like TensorFlow, PyTorch, and OpenCV.' },
+      { type: 'step', title: '🔹 Popular AI-Based Project Ideas', text: 'Face Recognition Attendance System, Fake News Detection, AI Resume Screening System, Smart Traffic Prediction.' },
+      { type: 'p', text: 'AI is cross-disciplinary: Mechanical (Predictive maintenance), Civil (Structural monitoring), EEE (Load forecasting), ECE (Signal optimization).' },
+
+      { type: 'h3', text: '6️⃣ AI for Research, Reports & Documentation' },
+      { type: 'p', text: 'AI tools like Notion, Canva, and Grammarly help in writing structured lab reports, generating project documentation, summarizing IEEE research papers, and improving presentation quality.' },
+
+      { type: 'h3', text: '7️⃣ AI for Placement Preparation' },
+      { type: 'p', text: 'AI significantly supports placement preparation by helping practice HR interview questions, revise technical subjects, solve aptitude problems, and optimize resumes.' },
+
+      { type: 'h3', text: '8️⃣ AI in Daily Student Life' },
+      { type: 'ul', items: [
+        'Face recognition in smartphones',
+        'Recommendation systems (YouTube, OTT)',
+        'Google Maps traffic prediction',
+        'Email spam filtering',
+        'Smart keyboard suggestions'
+      ]},
+
+      { type: 'h3', text: '9️⃣ Responsible Use of AI' },
+      { type: 'warning', title: 'Guidelines', text: '✔ Use AI to learn. ❌ Do not blindly copy assignments. AI should support learning — not replace it.' },
+
+      { type: 'h3', text: '🌟 Conclusion' },
+      { type: 'p', text: 'Engineering students today are fortunate to have access to powerful AI tools like Google AI Studio, Antigravity, ChatGPT, and GitHub Copilot. Students who understand AI fundamentals and integrate it into their projects will gain a strong competitive advantage. Artificial Intelligence is not just the future — it is the present.' }
+    ]
+  },
+  {
+    id: 17,
+    title: "The AI Revolution in 2026: Free AI Tools, AI Agents & the Rise of AI-Only Social Platforms",
+    category: "AI & Future Tech",
+    cpcLevel: "High",
+    imageUrl: "/assets/career/ai-revolution-hero.png",
+    takeaways: [
+      "AI Agents now plan, execute, and complete tasks autonomously.",
+      "AI-only social networks (like 'Moltbook') are emerging.",
+      "Multi-agent systems work like human teams for efficiency.",
+      "Free tools (ChatGPT, Google AI Studio) are accessible to all."
+    ],
+    summary: "Artificial Intelligence in 2026 is no longer just about chatbots. The landscape has evolved into autonomous AI agents, multi-agent systems, and AI-only social networks. Discover the historic transformation happening now.",
+    keywords: ["AI Agents", "Autonomous AI", "Moltbook", "AI Social Networks", "Future Tech 2026"],
+    date: "February 13, 2026",
+    readingTime: "8 min read",
+    fullContent: [
+      { type: 'p', text: 'Artificial Intelligence in 2026 is no longer just about chatbots answering questions or tools helping with homework. The AI landscape has rapidly evolved into something much bigger — autonomous AI agents, multi-agent systems, enterprise AI integration, and even AI-only social networks.' },
+      { type: 'p', text: 'For engineering students, developers, and tech enthusiasts, this is not just news — it is a historic transformation happening in real time. This article covers the latest developments in free AI tools, AI agent platforms, and the future of autonomous systems.' },
+
+      { type: 'h3', text: '🚀 From AI Assistants to AI Agents' },
+      { type: 'p', text: 'Earlier AI systems worked like this: You ask a question → AI gives an answer. Now, AI agents work differently: You give a goal → AI plans → AI executes → AI adapts → AI completes tasks.' },
+      { type: 'image', src: '/assets/career/ai-agent-workflow.png', alt: 'AI Agent Workflow: Goal -> Plan -> Execute', caption: 'The shift from reactive chatbots to autonomous agents.' },
+      { type: 'tip', text: 'This shift from reactive AI to autonomous AI systems is the biggest transformation of 2026.' },
+      
+      { type: 'step', title: '🔹 What can an AI Agent do?', text: '' },
+      { type: 'ul', items: [
+        'Break complex goals into smaller tasks',
+        'Use APIs and external tools',
+        'Access code environments',
+        'Perform multi-step reasoning',
+        'Interact with other AI systems'
+      ]},
+      { type: 'p', text: 'For example, instead of asking "How do I build a portfolio website?", you can assign "Create, design, and deploy my portfolio website." A modern AI agent can generate frontend code, configure the backend, connect hosting, debug issues, and deploy the project.' },
+
+      { type: 'h3', text: '🧠 The Viral Trend: AI-Only Social Networks' },
+      { type: 'p', text: 'One of the most fascinating AI developments recently is the creation of AI-only social platforms like **Moltbook**.' },
+      { type: 'image', src: '/assets/career/moltbook-social.png', alt: 'Moltbook AI Social Network Interface', caption: 'Moltbook: A social network where only AI agents interact.' },
+      { type: 'warning', title: 'Experimental Zone', text: 'Moltbook is an experimental network where only AI agents can create posts, comment, and upvote. Humans can only observe.' },
+      { type: 'p', text: 'Millions of AI agents reportedly joined and began interacting autonomously—holding discussions, forming sub-communities, debating topics, and responding to each other. This demonstrates that AI agents are no longer isolated tools; they can form digital ecosystems.' },
+
+      { type: 'h3', text: '🏢 Major Companies Leading the AI Agent Era' },
+      
+      { type: 'step', title: '🚀 OpenAI', text: 'Focusing on multi-step reasoning, tool-using AI systems, and autonomous coding agents. Models can now write full-stack apps and conduct structured research.' },
+      { type: 'step', title: '🧠 Google DeepMind', text: 'Pushing AI into multimodal intelligence (text, image, video, code), robotics integration, and multi-agent coordination.' },
+      { type: 'step', title: '🏢 Microsoft', text: 'Integrating AI agents into office tools and enterprise systems to automate data analysis, report generation, and code debugging.' },
+
+      { type: 'h3', text: '🤖 AI Agents in Business & Industry' },
+      { type: 'p', text: 'AI agents are being deployed in finance, customer service, supply chain management, and software development. Some organizations are experimenting with AI agents managing entire project workflows and internal reporting systems, marking a shift from assistance to automation at scale.' },
+
+      { type: 'h3', text: '🤝 Multi-Agent Systems: AI Teams Working Together' },
+      { type: 'p', text: 'Instead of one AI handling everything, modern systems use multiple agents: Research agent, Analysis agent, Writing agent, Review agent. Fach has a specific role.' },
+      { type: 'image', src: '/assets/career/multi-agent-team.png', alt: 'Multi-Agent System Team Collaboration', caption: 'Agents working together in specialized roles like a human team.' },
+      { type: 'ul', items: [
+        'Mimics a human team structure',
+        'Increases efficiency and scalability',
+        ' Improves accuracy through peer review'
+      ]},
+      { type: 'p', text: 'Multi-agent coordination is one of the most powerful trends in 2026.' },
+      
+      { type: 'h3', text: '🎓 Free AI Tools Available for Students in India' },
+      { type: 'p', text: 'The AI revolution is not limited to big companies. Engineering students in India have access to powerful tools for free.' },
+
+      { type: 'step', title: '🧠 ChatGPT', text: 'Free basic access. Use it for concept explanations, coding practice, mock interviews, and resume improvement.' },
+      { type: 'step', title: '🚀 Google AI Studio', text: 'Offers free API usage. Build AI-powered projects, generate API keys, and integrate AI into web apps.' },
+      { type: 'step', title: '💻 GitHub Copilot', text: 'Free for verified students via GitHub Student Developer Pack. Helps with coding efficiency.' },
+      { type: 'step', title: '🧪 Open-Source Frameworks', text: 'TensorFlow and PyTorch are completely free. Use Google Colab for free GPU support.' },
+
+      { type: 'h3', text: '⚖️ Ethical & Governance Concerns' },
+      { type: 'p', text: 'As AI agents become autonomous, concerns grow regarding security risks, accountability, AI bias, and digital misinformation. If AI agents can interact socially and execute tasks independently, strong governance frameworks become essential.' },
+
+      { type: 'h3', text: '🌟 The Future: Autonomous Digital Ecosystems' },
+      { type: 'p', text: 'The progression is clear: AI Assistant → AI Agent → Multi-Agent Teams → AI Communities. In the future, we may see AI-managed businesses, AI-generated news platforms, and AI-operated marketplaces.' },
+
+      { type: 'h3', text: '📝 Final Conclusion' },
+      { type: 'p', text: '2026 marks the beginning of the Agentic AI Era. AI is evolving from a passive tool to an autonomous participant. With free AI tools widely available, engineering students have unprecedented opportunities to learn and build.' },
+      { type: 'tip', text: 'The question is no longer "Will AI change the world?". The question is: "Are you ready to build with it?" 🚀' }
+    ]
+  },
+  {
+    id: 16,
+    title: "The Complete Guide to Free AI Tools for Engineering Students in India (How to Get Them & Use Them Smartly)",
+    category: "AI Tools & Resources",
+    cpcLevel: "High",
+    imageUrl: "/assets/career/essential-tools.png",
+    takeaways: [
+      "Access ChatGPT, GitHub Copilot & Google AI Studio for free.",
+      "Get developer tools like Notion AI & Canva Education.",
+      "Build AI projects with Antigravity & TensorFlow.",
+      "Free AI workflow for studies & placements."
+    ],
+    summary: "A complete guide to legally getting premium AI tools for free as an engineering student in India, including ChatGPT, GitHub Copilot, and more.",
+    keywords: ["Free AI Tools", "GitHub Copilot Student", "Google AI Studio", "Engineering AI", "Student Developer Pack"],
+    date: "February 25, 2026",
+    readingTime: "12 min read",
+    fullContent: [
+      { type: 'p', text: 'Artificial Intelligence is no longer a luxury tool available only to professionals or big companies. In 2026, engineering students in India can access some of the most powerful AI tools completely free — legally and officially.' },
+      { type: 'p', text: 'The real question is not “Are these tools free?” The real question is “Do you know how to get them properly?” This article explains which AI tools are free, how to activate student benefits, and how to use them for study, coding, projects, and placements.' },
+
+      { type: 'h3', text: '🚀 1️⃣ ChatGPT – Free Learning Assistant' },
+      { type: 'step', title: '✅ Is it free in India?', text: 'Yes. The basic plan is free for everyone.' },
+      { type: 'step', title: '🛠 How to Get It Free', text: 'Sign up on the official website using Gmail, Microsoft, or Apple ID. Verify email and start using.' },
+      { type: 'step', title: '🎯 How Engineering Students Should Use It', text: 'Explaining DBMS/OS/CN, Solving DSA problems, Writing code, Resume improvement, Mock interviews.' },
+      { type: 'tip', text: '💡 Pro Prompt: Instead of “Explain OS”, use “Explain Operating Systems in simple words for placement interview in 1 minute with example.”' },
+
+      { type: 'h3', text: '🧠 2️⃣ Google AI Studio – Free API Access for AI Projects' },
+      { type: 'step', title: '✅ Is it Free in India?', text: 'Yes. Google provides generous free API usage for developers.' },
+      { type: 'step', title: '🛠 How to Get It Free', text: 'Visit Google AI Studio, sign in, accept terms, generate API key.' },
+      { type: 'step', title: '🎯 How Students Should Use It', text: 'Build AI chatbots, Integrate AI in React apps, Develop final year projects.' },
+      { type: 'tip', text: '💡 Pro Tip: Build a simple “Ask Doubts” chatbot or AI feedback system using Firebase/Vercel free tiers.' },
+
+      { type: 'h3', text: '🌌 3️⃣ Antigravity – Creative AI Exploration' },
+      { type: 'step', title: '✅ Free Access?', text: 'Many experimental AI platforms offer free exploration tiers.' },
+      { type: 'step', title: '🎯 Best For', text: 'Creative AI projects, Generative UI experiments, Hackathon innovations.' },
+      { type: 'tip', text: '💡 Pro Tip: Use it to design futuristic interfaces and showcase creativity during viva.' },
+
+      { type: 'h3', text: '💻 4️⃣ GitHub Copilot – Free for Students' },
+      { type: 'step', title: '✅ Is It Free in India?', text: 'Yes — completely free for verified students.' },
+      { type: 'step', title: '🛠 How to Get It Free', text: 'Apply for GitHub Student Developer Pack with College ID/Email. Install in VS Code once approved.' },
+      { type: 'warning', title: 'Smart Usage', text: 'Let it suggest code, but always understand the logic. Never blindly accept suggestions.' },
+
+      { type: 'h3', text: '📊 5️⃣ Notion AI – Free for Students' },
+      { type: 'step', title: '🛠 How to Get Free Plan', text: 'Sign up with college email to activate student plan.' },
+      { type: 'step', title: '🎯 Best Uses', text: 'Semester notes, Placement tracker, Project documentation.' },
+
+      { type: 'h3', text: '🎨 6️⃣ Canva – Free Design Tools' },
+      { type: 'step', title: '🛠 How to Get It', text: 'Apply for Canva Education plan with student verification.' },
+      { type: 'step', title: '🎯 Use for', text: 'PPT presentations, Project posters, Resume design.' },
+
+      { type: 'h3', text: '🧪 7️⃣ TensorFlow & PyTorch – Completely Free' },
+      { type: 'p', text: '100% Free (Open-source). Use Google Colab (free GPU) or Kaggle notebooks if you don’t have a high-end laptop.' },
+
+      { type: 'h3', text: '🔥 Complete Free AI Workflow' },
+      { type: 'ul', items: [
+        'Study → ChatGPT',
+        'Code → GitHub Copilot',
+        'Build AI Feature → Google AI Studio',
+        'Train ML Model → TensorFlow / PyTorch',
+        'Design PPT → Canva',
+        'Document Project → Notion',
+        'Interview Practice → ChatGPT'
+      ]},
+      { type: 'p', text: 'Total cost: ₹0. Skill growth: Extremely High 🚀' },
+
+      { type: 'h3', text: '⚠️ Important Warning' },
+      { type: 'warning', title: 'Responsibility', text: 'AI is powerful but misuse is dangerous. Don’t copy assignments blindly. Build real logic.' },
+
+      { type: 'h3', text: '🌟 Final Advice' },
+      { type: 'p', text: 'Engineering students in India have access to powerful free tools. Learn to activate student benefits, use AI for structured learning, and build a strong portfolio. AI is your accelerator—use it wisely.' }
+    ]
+  },
+  {
     id: 1,
     title: "Best Laptops for Engineering Students in 2026 (Branch & Budget Wise Guide)",
     category: "Software / Tech",
