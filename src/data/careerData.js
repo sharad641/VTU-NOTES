@@ -146,7 +146,7 @@ export const careerArticles = [
 
       { type: 'h3', text: '🤝 Multi-Agent Systems: AI Teams Working Together' },
       { type: 'p', text: 'Instead of one AI handling everything, modern systems use multiple agents: Research agent, Analysis agent, Writing agent, Review agent. Fach has a specific role.' },
-      { type: 'image', src: '/assets/career/multi-agent-team.png', alt: 'Multi-Agent System Team Collaboration', caption: 'Agents working together in specialized roles like a human team.' },
+
       { type: 'ul', items: [
         'Mimics a human team structure',
         'Increases efficiency and scalability',
