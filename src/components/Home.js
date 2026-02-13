@@ -17,7 +17,7 @@ import './SupportPopup.css';
 import './CareerBanner.css';
 
 import { subjectsData } from '../data/subjectsData';
-import { careerArticles } from '../data/careerData';
+// import { careerArticles } from '../data/careerData'; // Lazy loaded now
 import CommentSection from './CommentSection';
 import SupportSection from './SupportSection';
 import SupportModal from './SupportModal';
@@ -29,7 +29,15 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = React.useState('All');
   const [isPopupOpen, setIsPopupOpen] = React.useState(false);
   const [showWelcomePopup, setShowWelcomePopup] = React.useState(false);
+  const [careerArticles, setCareerArticles] = React.useState([]); // Lazy load state
   const itemsPerPage = 9;
+
+  // Lazy Load Career Data
+  React.useEffect(() => {
+    import('../data/careerData').then(module => {
+      setCareerArticles(module.careerArticles);
+    });
+  }, []);
 
   // Helper to generate gradients based on id
   const getGradient = (id) => {
@@ -90,13 +98,13 @@ const Home = () => {
 
   const featuredSubjects = getAllSubjects();
 
-  // Welcome Popup Logic
+    // Welcome Popup Logic
   React.useEffect(() => {
     const hasSeenPopup = sessionStorage.getItem('welcomePopupSeen');
     if (!hasSeenPopup) {
       const timer = setTimeout(() => {
         setShowWelcomePopup(true);
-      }, 4000); // 4 second delay
+      }, 60000); // 60 second delay (less intrusive)
       return () => clearTimeout(timer);
     }
   }, []);
@@ -147,21 +155,23 @@ const Home = () => {
       }
       
       // REGULAR INTERVAL: Insert other articles every 4th subject (after the first set)
-      else if (subjectCount > 4 && subjectCount % 4 === 0) {
+      else if (subjectCount > 4 && subjectCount % 4 === 0 && careerArticles.length > 0) {
          // Cycle through remaining articles starting from index 2
          const article = careerArticles[articleIdx % careerArticles.length];
-         mixed.push({ type: 'article', data: article });
-         articleIdx++;
-         
-         // If we loop back to 0 or 1 (the special articles), skip them to avoid repetition
-         if (articleIdx % careerArticles.length === 0 || articleIdx % careerArticles.length === 1) {
-             articleIdx = 2; 
+         if (article) {
+             mixed.push({ type: 'article', data: article });
+             articleIdx++;
+             
+             // If we loop back to 0 or 1 (the special articles), skip them to avoid repetition
+             if (articleIdx % careerArticles.length === 0 || articleIdx % careerArticles.length === 1) {
+                 articleIdx = 2; 
+             }
          }
       }
     });
     
     return mixed;
-  }, [searchTerm, selectedCategory, featuredSubjects]);
+  }, [searchTerm, selectedCategory, featuredSubjects, careerArticles]);
 
   const totalPages = Math.ceil(mixedContent.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -364,8 +374,8 @@ const Home = () => {
                 </motion.div>
               )}
 
-              {/* Inject In-Feed Ad after every 6th item (adjusted for mixed content) */}
-              {(idx + 1) % 6 === 0 && (
+              {/* Inject In-Feed Ad after every 12th item (Looking for less ads) */}
+              {(idx + 1) % 12 === 0 && (
                  <motion.div 
                    layout 
                    variants={itemVariants}
@@ -553,7 +563,7 @@ const Home = () => {
         </div>
 
         <div className="insights-grid">
-          {careerArticles.slice(0, 3).map((article, idx) => (
+          {(careerArticles || []).slice(0, 3).map((article, idx) => (
             <motion.div
               key={article.id}
               initial={{ opacity: 0, y: 20 }}

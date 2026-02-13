@@ -152,7 +152,7 @@ function AppContent({ isAuthenticated, userEmail, adminEmail, setIsAuthenticated
     <div className="app-container">
       {!isPdfView && <Navbar />}
       {!isPdfView && <StickyFooterAd />}
-      {!isPdfView && <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />}
+      {/* {!isPdfView && <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />} - Global Top Ad Removed for cleaner UX */}
 
       <Suspense fallback={<LoadingScreen />}>
         <Routes>
