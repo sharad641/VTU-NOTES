@@ -8,6 +8,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #F8F9FA;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
 }
 
 code {
@@ -15,27 +17,37 @@ code {
         monospace;
 }
 
-/* --- Global Slide Bar (Version 3.0) --- */
+/* --- Global Selection (Neon) --- */
+::selection {
+    background: #6366F1;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* --- Global Slide Bar (Premium Dark) --- */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.02);
+    background: #0f172a;
+    /* Dark slate background */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #6366F1;
-    border-radius: 20px;
+    background: linear-gradient(180deg, #6366F1, #A855F7);
+    border-radius: 5px;
+    border: 2px solid #0f172a;
+    /* Creates padding effect */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #4F46E5;
+    background: linear-gradient(180deg, #4F46E5, #9333EA);
 }
 
 /* For Firefox */
 * {
     scrollbar-width: thin;
-    scrollbar-color: #6366F1 rgba(0, 0, 0, 0.02);
+    scrollbar-color: #6366F1 #0f172a;
 }

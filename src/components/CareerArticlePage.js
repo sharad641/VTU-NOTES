@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { 
   HiArrowLeft, HiCalendar, HiTag, HiClock, 
-  HiSpeakerWave, HiPause, HiBookmark, HiListBullet  // Switched to HiListBullet as HiBooking might not exist or be appropriate, but let's check standard icons. actually wait, let me just add HiBooking if it exists, or better yet use HiListBullet for TOC.
+  HiSpeakerWave, HiPause, HiBookmark, HiListBullet, HiHeart, HiShare 
 } from 'react-icons/hi2';
 import { RiWhatsappLine, RiTwitterXLine, RiLinkedinLine, RiLinksLine } from 'react-icons/ri';
 import AdSenseAd from './AdSenseAd';
@@ -45,13 +45,16 @@ const CareerArticlePage = () => {
   const article = careerArticles.find(a => a.id === parseInt(id));
   const [isSpeaking, setIsSpeaking] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
+  const [claps, setClaps] = useState(Math.floor(Math.random() * 500) + 120);
+  const [isClapped, setIsClapped] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   // Extract headings for TOC
   const toc = useMemo(() => {
       if(!article?.fullContent) return [];
       return article.fullContent
         .filter(block => block.type === 'h3')
-        .map(block => block.text);
+        .map(block => block.text.replace(/^[\d\.]+\s*|^\d+️⃣\s*/, ''));
   }, [article]);
 
   const scrollToSection = (text) => {
@@ -68,6 +71,7 @@ const CareerArticlePage = () => {
               top: offsetPosition,
               behavior: 'smooth'
           });
+          setShowMobileMenu(false);
       }
   };
 
@@ -84,6 +88,27 @@ const CareerArticlePage = () => {
     }
   };
 
+  const handleClap = () => {
+      if(!isClapped) {
+          setClaps(prev => prev + 1);
+          setIsClapped(true);
+      }
+  };
+
+  const handleShare = () => {
+      if (navigator.share) {
+          navigator.share({
+              title: article.title,
+              text: article.summary,
+              url: window.location.href,
+          });
+      } else {
+          // Fallback or just ignore if not supported
+          alert("Share link copied to clipboard!");
+          navigator.clipboard.writeText(window.location.href);
+      }
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
     return () => window.speechSynthesis.cancel();
@@ -98,7 +123,7 @@ const CareerArticlePage = () => {
       {/* Navbar Placeholder - Hidden in Focus Mode */}
       {!isFocusMode && <div style={{ height: '80px' }}></div>}
 
-      {/* IMMERSIVE HERO HEADER */}
+      {/* --- IMMERSIVE PARALLAX HERO --- */}
       <div className="immersive-hero-container">
           {article.imageUrl && (
             <div className="immersive-hero-bg">
@@ -108,15 +133,16 @@ const CareerArticlePage = () => {
           )}
           
           <div className="immersive-hero-content">
-                  <motion.div 
-                initial={{ opacity: 0, y: 30 }}
+              <motion.div 
+                initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="hero-text-wrapper"
+                transition={{ duration: 1, ease: "easeOut" }}
               >
                   <div className="hero-badges">
-                      <span className="hero-pill"><HiTag /> {article.category}</span>
-                      <span className="hero-pill-glass"><HiClock /> {article.readingTime || '5 min read'}</span>
+                      <span className="hero-pill">{article.category}</span>
+                      <span className="hero-pill" style={{ background: 'rgba(255,255,255,0.1)', color: '#fff' }}>
+                        {article.readingTime || '5 min read'}
+                      </span>
                   </div>
                   
                   <h1 className="hero-title-main">{article.title}</h1>
@@ -125,22 +151,9 @@ const CareerArticlePage = () => {
                       <div className="author-group">
                           <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix" alt="Author" className="author-img-lg" />
                           <div className="author-text">
-                              <span className="name">VTU Editorial Team</span>
-                              <span className="date">Posted on {article.date}</span>
+                              <span className="name">VTU Editorial</span>
+                              <span className="date">{article.date}</span>
                           </div>
-                      </div>
-                      
-                      <div className="hero-actions">
-                          <button className="hero-action-btn" onClick={handleSpeak} title="Listen">
-                             {isSpeaking ? <HiPause /> : <HiSpeakerWave />}
-                          </button>
-                          <button 
-                            className={`hero-action-btn ${isFocusMode ? 'active' : ''}`} 
-                            onClick={() => setIsFocusMode(!isFocusMode)} 
-                            title="Focus Mode"
-                          >
-                             {isFocusMode ? <HiListBullet /> : <HiBookmark />}
-                          </button>
                       </div>
                   </div>
               </motion.div>
@@ -161,44 +174,29 @@ const CareerArticlePage = () => {
 
         <div className="article-page-layout">
             
-            {/* LEFT: Sticky Sharing Actions - Hidden in Focus Mode */}
-            {!isFocusMode && (
-                <aside className="left-sidebar">
-                    <div className="sticky-left-actions">
-                        <button className="action-btn" title="Refocus" onClick={() => setIsFocusMode(true)}>
-                            <HiListBullet />
-                        </button>
-                        <div className="divider-vertical"></div>
-                        <button className="action-btn" onClick={() => window.open(`https://wa.me/?text=${encodeURIComponent(article.title + ' ' + window.location.href)}`)}>
-                            <RiWhatsappLine />
-                        </button>
-                        <button className="action-btn" onClick={() => window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(window.location.href)}`)}>
-                            <RiTwitterXLine />
-                        </button>
-                        <button className="action-btn" onClick={() => window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`)}>
-                            <RiLinkedinLine />
-                        </button>
-                    </div>
-                </aside>
-            )}
+          {/* LEFT: Sidebar (Hidden in Focus/Mobile) */}
+          {!isFocusMode && (
+              <aside className="left-sidebar">
+                  <div className="sticky-left-actions">
+                      <button className="action-btn" title="Focus Mode" onClick={() => setIsFocusMode(true)}>
+                          <HiBookmark />
+                      </button>
+                      <button className="action-btn" title="Listen" onClick={handleSpeak}>
+                          {isSpeaking ? <HiPause /> : <HiSpeakerWave />}
+                      </button>
+                      <div className="divider-vertical"></div>
+                      <button className="action-btn" onClick={handleShare}>
+                          <HiShare />
+                      </button>
+                  </div>
+              </aside>
+          )}
 
-            {/* CENTER: Main Content */}
-            <main className={isFocusMode ? 'focus-content' : ''}>
-                <article>
-                    
-                    {/* Hero Removed from here (moved up) */}
-
-                    {/* Featured Image */}
-                    {article.imageUrl && (
-                        <motion.div 
-                          initial={{ opacity: 0, y: 30 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                          className="article-featured-image"
-                        >
-                            <img src={article.imageUrl} alt={article.title} />
-                        </motion.div>
-                    )}
+          {/* CENTER: Main Content */}
+          <main className={isFocusMode ? 'focus-content' : ''}>
+              <article>
+                  {/* Hero Removed (handled above) */}
+                  {/* Featured Image removed (parallax handles it) */}
 
                     {/* Key Takeaways - Redesigned */}
                     {article.takeaways && (
@@ -354,60 +352,116 @@ const CareerArticlePage = () => {
                         ))}
                     </div>
 
-                </article>
-            </main>
+                      {/* --- Engagement Section --- */}
+                      <div className="engagement-section">
+                          <div className="engagement-buttons">
+                              <button 
+                                className={`clap-btn-large ${isClapped ? 'clapped' : ''}`} 
+                                onClick={handleClap}
+                              >
+                                  <HiHeart className={isClapped ? 'filled' : ''} />
+                                  <span className="clap-count-badge">{claps}</span>
+                              </button>
+                              
+                              <button 
+                                className="share-btn-large" 
+                                onClick={handleShare}
+                              >
+                                  <HiShare />
+                                  <span>Share</span>
+                              </button>
+                          </div>
+                          <p className="engagement-text">
+                              Liked by <strong>{claps} future engineers</strong>. <br/>
+                              Help others find this by sharing!
+                          </p>
+                      </div>
 
-            {/* RIGHT: Sidebar (TOC + Ads) - Hidden in Focus Mode */}
-            {!isFocusMode && (
-                <aside className="right-sidebar">
-                    <div style={{ position: 'sticky', top: '120px' }}>
-                       
-                       {/* TOC Widget (Mission Control Style) */}
-                       <div className="sidebar-widget toc-widget-modern">
-                           <div className="widget-title">
-                               <span className="pulse-dot"></span>
-                               MISSION CONTROL
-                           </div>
-                           <nav className="toc-nav">
-                              {toc.map((head, i) => (
-                                  <motion.a 
-                                      key={i} 
-                                      onClick={() => scrollToSection(head)}
-                                      whileHover={{ x: 5 }}
-                                      className="toc-link-item"
-                                  >
-                                      <span className="toc-num">{(i+1).toString().padStart(2, '0')}</span>
-                                      {head}
-                                  </motion.a>
-                              ))}
-                           </nav>
-                       </div>
+                      {/* --- NEXT ARTICLE RECOMMENDATION --- */}
+                      {(() => {
+                          const currentIndex = careerArticles.findIndex(a => a.id === article.id);
+                          const nextIndex = (currentIndex + 1) % careerArticles.length;
+                          const nextArticle = careerArticles[nextIndex];
+                          
+                          return (
+                              <div className="next-article-card" onClick={() => navigate(`/career-tools/${nextArticle.id}`)}>
+                                  <div className="next-label">READ NEXT</div>
+                                  <h3 className="next-title">{nextArticle.title}</h3>
+                                  <div className="next-arrow">Read Article →</div>
+                              </div>
+                          );
+                      })()}
+                  </article>
+              </main>
 
-                       <div className="sidebar-widget">
-                            <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="7579321744" style={{ minHeight: '300px' }} />
-                       </div>
+          {/* RIGHT: TOC Sidebar */}
+          {!isFocusMode && (
+              <aside className="right-sidebar">
+                  <div style={{ position: 'sticky', top: '120px' }}>
+                     <div className="sidebar-widget toc-widget-modern">
+                         <div className="widget-title">
+                             <span className="pulse-dot"></span>
+                             ON THIS PAGE
+                         </div>
+                         <nav className="toc-nav">
+                            {toc.map((head, i) => (
+                                <a 
+                                    key={i} 
+                                    onClick={() => scrollToSection(head)}
+                                    className="toc-link-item"
+                                >
+                                    <span className="toc-num">{(i+1).toString().padStart(2, '0')}</span>
+                                    {head}
+                                </a>
+                            ))}
+                         </nav>
+                     </div>
+                     
+                     <div style={{ marginTop: '20px' }}>
+                        <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="7579321744" style={{ minHeight: '300px' }} />
+                     </div>
+                  </div>
+              </aside>
+          )}
 
-                    </div>
-                </aside>
-            )}
-
-        </div>
-        
-        {/* Footer Ad */}
-        <div style={{ marginTop: '80px', maxWidth: '800px', margin: '80px auto 0' }}>
-             <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="5502713194" adFormat="autorelaxed" />
-        </div>
-
-        {/* Floating Toggle for Mobile */}
-        <div className="mobile-fab-container">
-            <button 
-                className="fab-main-btn"
-                onClick={() => setIsFocusMode(!isFocusMode)}
-            >
-                {isFocusMode ? <HiListBullet /> : <HiBookmark />}
-            </button>
-        </div>
       </div>
+      </div>
+      
+      {/* Footer Ad */}
+      <div style={{ maxWidth: '800px', margin: '60px auto' }}>
+           <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="5502713194" adFormat="autorelaxed" />
+      </div>
+
+      {/* --- MOBILE BOTTOM GLASS BAR --- */}
+      <div className="mobile-bottom-bar">
+          <div className={`mobile-action-icon ${isClapped ? 'active' : ''}`} onClick={handleClap}>
+              <HiHeart />
+          </div>
+          <div className="mobile-action-icon" onClick={() => setShowMobileMenu(!showMobileMenu)}>
+              <HiListBullet />
+          </div>
+          <div className="mobile-action-icon" onClick={handleShare}>
+              <HiShare />
+          </div>
+      </div>
+      
+      {/* Mobile TOC Sheet (Simple implementation) */}
+      {showMobileMenu && (
+          <div style={{
+              position: 'fixed', bottom: '100px', left: '20px', right: '20px',
+              background: 'rgba(15, 23, 42, 0.95)', backdropFilter: 'blur(20px)',
+              padding: '24px', borderRadius: '24px', border: '1px solid rgba(255,255,255,0.1)',
+              zIndex: 101, maxHeight: '50vh', overflowY: 'auto'
+          }}>
+              <h4 style={{ color: '#fff', marginBottom: '16px', fontSize: '1.1rem' }}>Table of Contents</h4>
+              {toc.map((head, i) => (
+                <div key={i} onClick={() => scrollToSection(head)} style={{ padding: '12px 0', borderBottom: '1px solid rgba(255,255,255,0.05)', color: '#cbd5e1' }}>
+                    {head}
+                </div>
+              ))}
+          </div>
+      )}
+
     </div>
   );
 };

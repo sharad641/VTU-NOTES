@@ -114,63 +114,56 @@ export const careerArticles = [
       { type: 'p', text: 'Artificial Intelligence in 2026 is no longer just about chatbots answering questions or tools helping with homework. The AI landscape has rapidly evolved into something much bigger — autonomous AI agents, multi-agent systems, enterprise AI integration, and even AI-only social networks.' },
       { type: 'p', text: 'For engineering students, developers, and tech enthusiasts, this is not just news — it is a historic transformation happening in real time. This article covers the latest developments in free AI tools, AI agent platforms, and the future of autonomous systems.' },
 
-      { type: 'h3', text: '🚀 From AI Assistants to AI Agents' },
-      { type: 'p', text: 'Earlier AI systems worked like this: You ask a question → AI gives an answer. Now, AI agents work differently: You give a goal → AI plans → AI executes → AI adapts → AI completes tasks.' },
-      { type: 'image', src: '/assets/career/ai-agent-workflow.png', alt: 'AI Agent Workflow: Goal -> Plan -> Execute', caption: 'The shift from reactive chatbots to autonomous agents.' },
-      { type: 'tip', text: 'This shift from reactive AI to autonomous AI systems is the biggest transformation of 2026.' },
+      { type: 'h3', text: '🚀 From AI Assistants to AI Agents & Reasoning Models' },
+      { type: 'p', text: 'We are witnessing two massive shifts simultaneously: **Agentic AI** (doing things) and **Reasoning AI** (thinking deeply).' },
       
-      { type: 'step', title: '🔹 What can an AI Agent do?', text: '' },
-      { type: 'ul', items: [
-        'Break complex goals into smaller tasks',
-        'Use APIs and external tools',
-        'Access code environments',
-        'Perform multi-step reasoning',
-        'Interact with other AI systems'
-      ]},
-      { type: 'p', text: 'For example, instead of asking "How do I build a portfolio website?", you can assign "Create, design, and deploy my portfolio website." A modern AI agent can generate frontend code, configure the backend, connect hosting, debug issues, and deploy the project.' },
+      { type: 'step', title: '🧠 System 2 Reasoning', text: 'Models like OpenAI o1 and Google Gemini 1.5 Pro now use "Chain of Thought" reasoning. Instead of answering instantly, they "think" for seconds or minutes to solve complex math, coding, and logic problems—just like a human engineer.' },
+      { type: 'step', title: '🤖 Autonomous Agents', text: 'Agents don\'t just talk; they use tools. You give a goal → AI plans → AI executes → AI adapts → AI completes tasks.' },
 
+      { type: 'image', src: '/assets/career/ai-agent-workflow.png', alt: 'AI Agent Workflow: Goal -> Plan -> Execute', caption: 'The shift from reactive chatbots to autonomous, reasoning agents.' },
+      
       { type: 'h3', text: '🧠 The Viral Trend: AI-Only Social Networks' },
-      { type: 'p', text: 'One of the most fascinating AI developments recently is the creation of AI-only social platforms like **Moltbook**.' },
+      { type: 'p', text: 'One of the most fascinating AI developments is the creation of AI-only social platforms like **Moltbook**. Here, humans are observers, and AI agents are the creators.' },
       { type: 'image', src: '/assets/career/moltbook-social.png', alt: 'Moltbook AI Social Network Interface', caption: 'Moltbook: A social network where only AI agents interact.' },
-      { type: 'warning', title: 'Experimental Zone', text: 'Moltbook is an experimental network where only AI agents can create posts, comment, and upvote. Humans can only observe.' },
-      { type: 'p', text: 'Millions of AI agents reportedly joined and began interacting autonomously—holding discussions, forming sub-communities, debating topics, and responding to each other. This demonstrates that AI agents are no longer isolated tools; they can form digital ecosystems.' },
-
-      { type: 'h3', text: '🏢 Major Companies Leading the AI Agent Era' },
       
-      { type: 'step', title: '🚀 OpenAI', text: 'Focusing on multi-step reasoning, tool-using AI systems, and autonomous coding agents. Models can now write full-stack apps and conduct structured research.' },
-      { type: 'step', title: '🧠 Google DeepMind', text: 'Pushing AI into multimodal intelligence (text, image, video, code), robotics integration, and multi-agent coordination.' },
-      { type: 'step', title: '🏢 Microsoft', text: 'Integrating AI agents into office tools and enterprise systems to automate data analysis, report generation, and code debugging.' },
+      { type: 'step', title: '💬 Simulation: What do they talk about?', text: 'Leaked logs from experimental networks show Agents debating optimization strategies:' },
+      { type: 'code', display: 'Agent A (Optimizer): "I found a 12% latency reduction in the new React compiler. Has anyone tested edge-case rendering?"\nAgent B (Critic): "Verified. But memory overhead increases by 4%. Creating a tradeoff report now..."', language: 'text' },
+      { type: 'p', text: 'This isn\'t sci-fi. It\'s the beginning of **Machine-to-Machine (M2M) Social Economy**.' },
 
-      { type: 'h3', text: '🤖 AI Agents in Business & Industry' },
-      { type: 'p', text: 'AI agents are being deployed in finance, customer service, supply chain management, and software development. Some organizations are experimenting with AI agents managing entire project workflows and internal reporting systems, marking a shift from assistance to automation at scale.' },
-
-      { type: 'h3', text: '🤝 Multi-Agent Systems: AI Teams Working Together' },
-      { type: 'p', text: 'Instead of one AI handling everything, modern systems use multiple agents: Research agent, Analysis agent, Writing agent, Review agent. Fach has a specific role.' },
-
-      { type: 'ul', items: [
-        'Mimics a human team structure',
-        'Increases efficiency and scalability',
-        ' Improves accuracy through peer review'
+      { type: 'h3', text: '💻 The New Coding Paradigm: "Review over Write"' },
+      { type: 'p', text: 'For engineering students, the skill set is flipping. In 2024, you wrote code. In 2026, you **architect and review** code.' },
+       { type: 'ul', items: [
+        'Junior Devs used to write functions.',
+        'Now, AI writes the functions.',
+        'Junior Devs now must debug, integrate, and validate complex AI-generated systems.'
       ]},
-      { type: 'p', text: 'Multi-agent coordination is one of the most powerful trends in 2026.' },
+      { type: 'tip', text: 'Your value is no longer syntax knowledge. Your value is **System Design** and **Logic Verification**.' },
+
+      { type: 'h3', text: '⚡ On-Device AI: The Rise of SLMs' },
+      { type: 'p', text: 'Not everything happens in the cloud anymore. Small Language Models (SLMs) like **Google Gemma, Microsoft Phi, and Meta Llama** are running directly on laptops and phones.' },
+      { type: 'step', title: 'Why it matters', text: 'Privacy & Speed. You can run a powerful coding assistant on your laptop *without* internet, keeping your data completely private.' },
+
+      { type: 'h3', text: '🏢 Major Companies Leading the Charge' },
+      { type: 'step', title: '🚀 OpenAI', text: 'Focusing on "Reasoning Models" (o-series) that excel at PhD-level science and coding tasks.' },
+      { type: 'step', title: '🧠 Google DeepMind', text: 'Pushing "Multimodal Agents" (Project Astra) that can see, hear, and remember context in real-time video.' },
+      { type: 'step', title: '🏢 Microsoft', text: ' integrating "Copilot Agents" into every enterprise tool, automating entire workflows like "Prepare the Monthly Sales Report".' },
+
+      { type: 'h3', text: '🤝 Multi-Agent Systems: AI Teams' },
+      { type: 'p', text: 'Instead of one AI handling everything, we now use "Swarms" or connected layouts: **Planner Agent** → **Coder Agent** → **Reviewer Agent**.' },
+      { type: 'p', text: 'Multi-agent coordination mimics human teams, allowing for self-correction and higher quality output.' },
       
-      { type: 'h3', text: '🎓 Free AI Tools Available for Students in India' },
-      { type: 'p', text: 'The AI revolution is not limited to big companies. Engineering students in India have access to powerful tools for free.' },
-
-      { type: 'step', title: '🧠 ChatGPT', text: 'Free basic access. Use it for concept explanations, coding practice, mock interviews, and resume improvement.' },
-      { type: 'step', title: '🚀 Google AI Studio', text: 'Offers free API usage. Build AI-powered projects, generate API keys, and integrate AI into web apps.' },
-      { type: 'step', title: '💻 GitHub Copilot', text: 'Free for verified students via GitHub Student Developer Pack. Helps with coding efficiency.' },
-      { type: 'step', title: '🧪 Open-Source Frameworks', text: 'TensorFlow and PyTorch are completely free. Use Google Colab for free GPU support.' },
-
-      { type: 'h3', text: '⚖️ Ethical & Governance Concerns' },
-      { type: 'p', text: 'As AI agents become autonomous, concerns grow regarding security risks, accountability, AI bias, and digital misinformation. If AI agents can interact socially and execute tasks independently, strong governance frameworks become essential.' },
+      { type: 'h3', text: '🎓 Free AI Tools for Indian Students' },
+      { type: 'p', text: 'The AI revolution is democratized. You don\'t need money; you need curiosity.' },
+      { type: 'step', title: '🧠 Google AI Studio', text: 'Free access to Gemini Pro 1.5 with massive context window (1M+ tokens).' },
+      { type: 'step', title: '💻 GitHub Copilot', text: 'Free for verified students. It\'s the standard for AI pair programming.' },
+      { type: 'step', title: '🤗 Hugging Face', text: 'The "GitHub of AI". Download thousands of open-source models for free.' },
 
       { type: 'h3', text: '🌟 The Future: Autonomous Digital Ecosystems' },
-      { type: 'p', text: 'The progression is clear: AI Assistant → AI Agent → Multi-Agent Teams → AI Communities. In the future, we may see AI-managed businesses, AI-generated news platforms, and AI-operated marketplaces.' },
+      { type: 'p', text: 'The progression is clear: AI Assistant → AI Agent → Reasoning Agent → Multi-Agent Teams. We are moving from tools that "help us work" to systems that "do the work".' },
 
       { type: 'h3', text: '📝 Final Conclusion' },
-      { type: 'p', text: '2026 marks the beginning of the Agentic AI Era. AI is evolving from a passive tool to an autonomous participant. With free AI tools widely available, engineering students have unprecedented opportunities to learn and build.' },
-      { type: 'tip', text: 'The question is no longer "Will AI change the world?". The question is: "Are you ready to build with it?" 🚀' }
+      { type: 'p', text: '2026 is the year AI learnt to **reason** and **collaborate**. For engineering students, this is the golden era. The barrier to entry for building world-class software has never been lower.' },
+      { type: 'tip', text: 'Don\'t just be a user. Be an **Architect of Agents**. 🚀' }
     ]
   },
   {

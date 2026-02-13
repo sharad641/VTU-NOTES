@@ -794,51 +794,84 @@
 ========================================== */
 .pdf-mobile-dock {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(15, 15, 35, 0.95);
-    backdrop-filter: blur(12px);
-    border-top: 1px solid var(--pdf-border);
-    padding: 12px 16px;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 88%;
+    max-width: 380px;
+    background: rgba(15, 15, 35, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    padding: 10px 24px;
     display: none;
-    justify-content: space-around;
-    z-index: 100;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .pdf-mobile-dock.is-hidden {
+    transform: translate(-50%, 150%);
     opacity: 0;
     pointer-events: none;
 }
 
-.dock-item,
-.dock-item-prime {
+.dock-item {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
-    padding: 8px 16px;
     background: transparent;
     border: none;
-    color: #94a3b8;
+    color: #64748b;
     cursor: pointer;
     text-decoration: none;
     font-size: 20px;
     transition: all 0.3s ease;
+    flex: 1;
 }
 
-.dock-item span,
-.dock-item-prime span {
-    font-size: 11px;
+.dock-item span {
+    font-size: 10px;
     font-weight: 600;
 }
 
-.dock-item-prime {
-    color: var(--pdf-primary);
+.dock-item.active,
+.dock-item:hover {
+    color: #fff;
+    transform: translateY(-2px);
 }
 
-.dock-item:active {
-    transform: scale(0.95);
+.dock-item-prime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    background: linear-gradient(135deg, var(--pdf-primary), var(--pdf-secondary));
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    margin-top: -20px;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.5);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 4px solid #0f0f23;
+    /* Cutout effect */
+}
+
+.dock-item-prime:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
+}
+
+.dock-item-prime span {
+    font-size: 10px;
+    font-weight: 700;
 }
 
 /* ==========================================

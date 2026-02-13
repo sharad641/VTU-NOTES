@@ -1,6 +1,6 @@
 // src/components/ModuleDetail.js - MODERNIZED & OPTIMIZED
 import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useNavigationType } from "react-router-dom";
 import "./ModuleDetailModern.css";
 import {
   HiOutlineEye, HiOutlineCloudArrowDown, HiOutlineBookOpen,
@@ -22,10 +22,12 @@ import { moduleDetails } from "../data/moduleDetails";
 const ModuleDetail = () => {
   const { branch, semester, subjectName } = useParams();
   const navigate = useNavigate();
+  const navType = useNavigationType();
 
   // State
   const [activeCategory, setActiveCategory] = useState("all");
-  const [loading, setLoading] = useState(true);
+  // Skip loading animation on POP (back/forward) to allow scroll restoration
+  const [loading, setLoading] = useState(navType !== 'POP');
   const [showDownloadProgress, setShowDownloadProgress] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
 
@@ -74,9 +76,11 @@ const ModuleDetail = () => {
   }, [subjectData, activeCategory]);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 600);
-    return () => clearTimeout(timer);
-  }, []);
+    if (loading) {
+      const timer = setTimeout(() => setLoading(false), 600);
+      return () => clearTimeout(timer);
+    }
+  }, [loading]);
 
   // Handlers
   const showToast = (msg, type = 'success') => {
@@ -377,12 +381,22 @@ const ModuleDetail = () => {
                               </div>
 
                               <div className="module-card-footer-modern">
-                                  <button onClick={() => handleDownloadTrigger(module)} className="card-action-btn download">
+                                  <motion.button 
+                                    whileHover={{ scale: 1.05, boxShadow: "0 0 15px rgba(99, 102, 241, 0.4)" }}
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={() => handleDownloadTrigger(module)} 
+                                    className="card-action-btn download"
+                                  >
                                       <HiOutlineCloudArrowDown /> Download
-                                  </button>
-                                  <button onClick={() => handlePreviewTrigger(module.previewUrl)} className="card-action-btn preview">
+                                  </motion.button>
+                                  <motion.button 
+                                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
+                                    whileTap={{ scale: 0.95 }}
+                                    onClick={() => handlePreviewTrigger(module.previewUrl)} 
+                                    className="card-action-btn preview"
+                                  >
                                       <HiOutlineEye /> Preview
-                                  </button>
+                                  </motion.button>
                               </div>
                           </motion.div>
                           

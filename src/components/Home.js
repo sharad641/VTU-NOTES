@@ -167,6 +167,38 @@ const Home = () => {
   const startIndex = (currentPage - 1) * itemsPerPage;
   const currentItems = mixedContent.slice(startIndex, startIndex + itemsPerPage);
 
+  // --- ANIMATION VARIANTS (Elastic & Smooth) ---
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0, scale: 0.95 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: "spring",
+        stiffness: 70,
+        damping: 12,
+        mass: 0.6
+      }
+    },
+    exit: { 
+      opacity: 0, 
+      scale: 0.9, 
+      transition: { duration: 0.2 } 
+    }
+  };
+
   return (
     <div className="home-extreme-root">
       {/* --- Background Engine --- */}
@@ -245,7 +277,13 @@ const Home = () => {
           </motion.div>
 
         {/* --- 3D Subject Grid (Mixed with Articles) --- */}
-        <div className="subjects-grid-3d">
+        <motion.div 
+          className="subjects-grid-3d"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          key={currentPage} // Trigger stagger on page change
+        >
           <AnimatePresence mode='popLayout'>
             {currentItems.map((item, idx) => (
               <React.Fragment key={`${item.type}-${item.data.id}-${idx}`}>
@@ -254,10 +292,7 @@ const Home = () => {
                 /* --- SUBJECT CARD --- */
                 <motion.div
                   layout
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ delay: idx * 0.05 }}
+                  variants={itemVariants}
                   className="card-perspective-wrapper"
                 >
                   <Link to={item.data.link} className="subject-card-magazine">
@@ -299,10 +334,7 @@ const Home = () => {
                 /* --- FEATURED ARTICLE CARD --- */
                 <motion.div
                   layout
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ delay: idx * 0.05 }}
+                  variants={itemVariants}
                   className="card-perspective-wrapper"
                 >
                    <Link to={`/career-tools/${item.data.id}`} className="article-card-mixed">
@@ -336,8 +368,7 @@ const Home = () => {
               {(idx + 1) % 6 === 0 && (
                  <motion.div 
                    layout 
-                   initial={{ opacity: 0 }} 
-                   animate={{ opacity: 1 }} 
+                   variants={itemVariants}
                    className="card-perspective-wrapper ad-card-home"
                    style={{ 
                      display: 'flex', 
@@ -360,7 +391,7 @@ const Home = () => {
               </React.Fragment>
             ))}
           </AnimatePresence>
-        </div>
+        </motion.div>
 
         {/* --- Premium Pagination --- */}
         {totalPages > 1 && (

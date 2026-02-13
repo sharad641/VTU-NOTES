@@ -29,6 +29,7 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import AdSenseAd from './components/AdSenseAd';
+import StickyFooterAd from './components/StickyFooterAd';
 
 // ========================================
 // LAZY LOAD - Heavy/Less Critical Components
@@ -150,6 +151,7 @@ function AppContent({ isAuthenticated, userEmail, adminEmail, setIsAuthenticated
   return (
     <div className="app-container">
       {!isPdfView && <Navbar />}
+      {!isPdfView && <StickyFooterAd />}
       {!isPdfView && <AdSenseAd adClient="ca-pub-9499544849301534" adSlot="3936951010" />}
 
       <Suspense fallback={<LoadingScreen />}>

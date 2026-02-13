@@ -11,7 +11,7 @@ const InterstitialAdModal = ({ isOpen, onComplete, resourceTitle, isVideoAd = fa
 
   useEffect(() => {
     if (isOpen) {
-      const duration = isVideoAd ? 10 : 5;
+      const duration = 5;
       setTimeLeft(duration);
       setCanClose(false);
       const timer = setInterval(() => {
@@ -48,16 +48,7 @@ const InterstitialAdModal = ({ isOpen, onComplete, resourceTitle, isVideoAd = fa
             <div className="modal-header">
               <h3>Unlock Resource</h3>
               <div className="header-actions">
-                {canClose ? (
-                  <motion.button 
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="interstitial-close-btn" 
-                    onClick={handleClose}
-                  >
-                    <HiXMark />
-                  </motion.button>
-                ) : (
+                {!canClose && (
                   <div className="header-timer">
                     <span className="timer-count">{timeLeft}</span>
                   </div>
@@ -74,6 +65,33 @@ const InterstitialAdModal = ({ isOpen, onComplete, resourceTitle, isVideoAd = fa
                   fullWidthResponsive={true}
                   style={{ display: 'block', minHeight: '250px' }}
                 />
+              </div>
+
+              <div className="modal-footer-action">
+                {canClose ? (
+                  <motion.button
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="continue-resource-btn"
+                    onClick={handleClose}
+                  >
+                    Continue to Resource
+                  </motion.button>
+                ) : (
+                  <div className="unlock-progress-container">
+                    <p className="unlock-text">Unlocking resource...</p>
+                    <div className="unlock-progress-bar">
+                      <motion.div 
+                        className="unlock-progress-fill"
+                        initial={{ width: "0%" }}
+                        animate={{ width: "100%" }}
+                        transition={{ duration: 5, ease: "linear" }}
+                      />
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </motion.div>
