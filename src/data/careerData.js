@@ -1,5 +1,347 @@
 export const careerArticles = [
   {
+    id: 18,
+    title: "The Bengaluru Blueprint: How Engineering Students in India's Silicon Valley Use AI for Study, Projects & Career Growth (2026 Complete Guide)",
+    category: "Career & Future Tech",
+    cpcLevel: "High",
+    imageUrl: "/assets/career/bengaluru-ai-playbook.png",
+    takeaways: [
+      "Bangalore is India's AI Capital with unique opportunities.",
+      "VTU's partnership with Chiac ASI transforms curriculum.",
+      "Hackathons like Google Gen AI Exchange are career accelerators.",
+      "Internships at Black Box & Autonomize are key gateways."
+    ],
+    summary: "A complete guide for Bengaluru's engineering students on leveraging the city's unique AI ecosystem, from VTU's ASI curriculum to internships at top AI labs.",
+    keywords: ["Bengaluru Engineering", "VTU ASI Partnership", "AI Internships", "Hackathons 2026", "Engineering Career Guide"],
+    date: "February 26, 2026",
+    readingTime: "20 min read",
+    fullContent: [
+      { type: 'h3', text: 'Introduction: Bangalore at the Epicenter of India\'s AI Revolution' },
+      { type: 'p', text: 'If the world is racing toward an AI-driven future, Bangalore is India\'s starting line. As February 2026 unfolds, the city\'s engineering students find themselves in an enviable yet demanding position—studying in India\'s undisputed technology capital, where global companies, innovative startups, and forward-thinking universities are converging to reshape engineering education.' },
+      { type: 'p', text: 'This guide is specifically crafted for Bangalore\'s engineering students. Whether you\'re at VTU-affiliated colleges, Manipal\'s Bengaluru campus, Dayananda Sagar University, or any of the dozens of engineering institutions across the city, the opportunities—and challenges—you face are unique to this ecosystem.' },
+      { type: 'p', text: 'In the pages that follow, we\'ll explore how Bangalore\'s students are leveraging AI not as a futuristic concept but as a daily tool for survival and success. We\'ll examine the groundbreaking VTU-ASI partnership that\'s putting Karnataka at the forefront of AI education, the internship opportunities at companies like Black Box and Autonomize that are creating India\'s next generation of AI engineers, and the hackathon culture—exemplified by Google Cloud\'s Gen AI Exchange—that\'s turning classroom concepts into deployable solutions.' },
+      { type: 'p', text: 'This is your guide to thriving as an engineering student in Bangalore, 2026.' },
+
+      { type: 'h3', text: 'Part One: The Bangalore Advantage – Why This City is Different' },
+      
+      { type: 'h3', text: '1.1 India\'s AI Capital' },
+      { type: 'p', text: 'Bangalore\'s engineering students operate in a fundamentally different environment than their peers elsewhere in India. The city hosts the largest concentration of global capability centers (GCCs), AI research labs, and deep-tech startups in the country. Companies like Eurofins Optimed, Capital One, and Black Box are actively hiring from local colleges, while innovative startups like Autonomize offer internships that expose students to cutting-edge work in healthcare AI and document understanding.' },
+      { type: 'p', text: 'This proximity to industry creates a virtuous cycle. Students work on real problems, companies get early access to talent, and curricula evolve to meet industry needs. The result is an engineering education ecosystem that\'s more dynamic, more practical, and more demanding than almost anywhere else in India.' },
+
+      { type: 'h3', text: '1.2 The VTU Transformation' },
+      { type: 'p', text: 'Perhaps nothing illustrates Bangalore\'s unique position better than the February 2026 announcement that Visvesvaraya Technological University (VTU)—which affiliates over 200 engineering colleges across Karnataka, including many in Bangalore—has partnered with UK-based Chiac ASI to introduce training in Artificial Super Intelligence (ASI).' },
+      { type: 'p', text: 'This is not a minor curriculum update. It\'s a fundamental rethinking of what engineering students need to learn. VTU Vice-Chancellor S Vidyashankar put it bluntly: "Talking about just AI engineers is not enough. By 2030, industries will look for ASI engineers. Skill sets required are changing".' },
+      { type: 'step', title: 'The numbers are staggering', text: '' },
+      { type: 'ul', items: [
+        '100 lecturers trained in the pilot project',
+        '1,000 students already using the ASI tool',
+        '1,000+ free internships to be provided by Chiac ASI',
+        '4 lakh engineers targeted for training between 2026-2030'
+      ]},
+      { type: 'p', text: 'What makes this partnership particularly significant is its scope. The ASI tool doesn\'t just teach students existing knowledge—it continuously ingests the 27,000 research papers published weekly across engineering disciplines worldwide, identifying what\'s new and what matters. For Bangalore\'s engineering students, this means their curriculum doesn\'t become outdated between textbook editions. It evolves in real-time.' },
+
+      { type: 'h3', text: 'Part Two: AI in Academic Life – The Bangalore Student\'s Daily Reality' },
+      
+      { type: 'h3', text: '2.1 The New Learning Toolkit' },
+      { type: 'p', text: 'For Bangalore\'s engineering students in 2026, the academic toolkit has expanded far beyond textbooks and lecture notes. The typical student now navigates a complex ecosystem of AI-powered learning tools:' },
+      
+      { type: 'step', title: 'VTU\'s ASI Platform', text: 'Students in VTU-affiliated colleges now have access to the Chiac ASI learning platform, which provides:' },
+      { type: 'ul', items: [
+        'Real-time curriculum updates based on global research',
+        'Personalized learning paths adapted to individual progress',
+        'AI-generated practice problems and explanations',
+        'Digital textbooks that cost around ₹500—less than printed alternatives'
+      ]},
+      { type: 'p', text: 'The platform\'s five-layer teaching framework ensures that both faculty and students develop ASI competencies progressively, from foundational concepts to advanced applications.' },
+
+      { type: 'step', title: 'Specialized AI Degree Programs', text: 'Bangalore\'s premier institutions have launched dedicated AI engineering programs that go beyond traditional computer science:' },
+      { type: 'ul', items: [
+        'At MIT Bengaluru (Manipal Academy of Higher Education), the B.Tech in Computer Science (AI & ML) offers courses dedicated to AI frontiers, preparing students for roles as AI Engineers, Machine Learning Scientists, and Research Scientists. Recruiters include Microsoft, Amazon, Goldman Sachs, and Cisco.',
+        'Dayananda Sagar University offers a B.Tech in AI and Robotics with fees around ₹16.48 lakhs, reflecting the specialized nature of the program.',
+        'Aditya College of Engineering and Technology provides a B.E. in AI & ML (affiliated with VTU) covering algorithms, neural networks, deep learning, NLP, and computer vision, with an emphasis on ethical AI and societal impact.',
+        'BGS College of Engineering and Technology offers 60 seats in its B.E. AI & ML program, with admission through KCET, COMED-K, or JEE.'
+      ]},
+
+      { type: 'h3', text: '2.2 Beyond the Classroom: The Hackathon Culture' },
+      { type: 'p', text: 'If classrooms provide foundational knowledge, hackathons provide the crucible where that knowledge is tested and refined. Bangalore\'s hackathon culture is arguably the most vibrant in India, and 2026 has already seen remarkable examples.' },
+      
+      { type: 'step', title: 'The Google Cloud Gen AI Exchange Hackathon', text: 'This event, which concluded with its final showcase in Bengaluru in November 2025, demonstrated the extraordinary potential of student-led AI innovation. With over 2.7 lakh developer registrations and 4,400+ AI prototypes built, the hackathon revealed the depth of AI talent emerging from India\'s student population.' },
+      { type: 'p', text: 'The student track winners—all of whom presented their solutions to industry juries in Bangalore—included:' },
+      { type: 'ul', items: [
+        'Team Prompt-o-nauts with YouthMind: An AI-powered mental wellness platform offering confidential, stigma-free emotional guidance for young people. The solution blends conversational intelligence with empathetic design, addressing a critical gap in youth mental health support.',
+        'Team Oopsie Operators with ArtisanGully: An agentic AI assistant helping traditional craftsmen showcase their work, tell their stories, and reach digital customers. This solution bridges the gap between India\'s rich artisan heritage and modern e-commerce.',
+        'Team Crewmate with Legal SahAI: A generative AI tool that simplifies complex legal documents into clear, understandable summaries, democratizing access to legal information for citizens unfamiliar with legal jargon.',
+        'Team Technopaths with Parallax: An explainable AI tool that detects misinformation, classifies its severity, and educates users on identifying credible information—a critical capability in an age of digital noise.',
+        'Team Error_404_Not_Found with AI Career & Skills Advisor: A personalized advisor that analyzes individual strengths, identifies skill gaps, and recommends career pathways aligned with emerging roles in India\'s job market.'
+      ]},
+      { type: 'p', text: 'For Bangalore\'s engineering students, these hackathons serve multiple purposes: they provide portfolio-ready projects, create networking opportunities with industry professionals, and often lead to internship and job offers. More importantly, they teach students to build solutions that work in Indian contexts—addressing local problems with global-standard technology.' },
+
+      { type: 'h3', text: '2.3 The Entrepreneurial Turn' },
+      { type: 'p', text: 'VTU\'s Vice-Chancellor articulated a vision that resonates across Bangalore\'s engineering campuses: "Our aim is to encourage students to become job providers, not just job seekers".' },
+      { type: 'p', text: 'This isn\'t empty rhetoric. VTU has launched a one-credit course focused on idea development, design, and prototyping, requiring students to create working models within three months, followed by open-day exhibitions across university centres. The Institutional Innovation Council (IIC) recognition at colleges like Aditya College of Engineering further emphasizes the commitment to fostering creativity and entrepreneurial spirit.' },
+      { type: 'p', text: 'For students, this means their projects aren\'t just assignments to be graded and forgotten. They\'re potential startups, and the Bangalore ecosystem—with its dense concentration of venture capital, mentors, and successful founders—is uniquely positioned to nurture them.' },
+
+      { type: 'h3', text: 'Part Three: AI in Projects – Building Real-World Solutions' },
+      
+      { type: 'h3', text: '3.1 The Project-Centric Curriculum' },
+      { type: 'p', text: 'Bangalore\'s engineering colleges have moved decisively toward project-based learning. The recognition is simple: in a competitive job market, what you\'ve built matters more than what you\'ve studied.' },
+      { type: 'p', text: 'At MIT Bengaluru, the B.Tech in AI & ML emphasizes "hands-on technologies to create applications and solutions for the world that we live in". Students don\'t just learn algorithms—they implement them, test them, and deploy them.' },
+      { type: 'p', text: 'At Aditya College of Engineering and Technology, the curriculum integrates "advanced topics such as deep learning, natural language processing, and computer vision" while emphasizing "ethical considerations in AI and ML applications, focusing on fairness, transparency, and societal impact".' },
+
+      { type: 'h3', text: '3.2 What Students Are Building' },
+      { type: 'p', text: 'Based on industry demand and hackathon trends, Bangalore\'s engineering students in 2026 are focused on several high-impact areas:' },
+      
+      { type: 'step', title: 'Healthcare AI', text: 'With companies like Eurofins Optimed and Autonomize active in Bangalore\'s hiring ecosystem, healthcare AI is a major focus. Autonomize\'s mission—"to help organizations make sense of the world\'s data" with a focus on "unstructured dark data" in healthcare—reflects the kind of problems students are learning to solve.' },
+      { type: 'ul', items: [
+        'Document understanding systems that extract insights from medical records',
+        'Multimodal models combining vision and language for medical imaging analysis',
+        'Chatbots that provide preliminary health guidance while maintaining privacy'
+      ]},
+
+      { type: 'step', title: 'Enterprise AI Solutions', text: 'The presence of global capability centers for companies like Capital One in Bangalore creates demand for students who understand enterprise-scale AI. Capital One\'s MLX team builds "production-grade, AI-driven systems that power intelligent decision-making and automation across business functions".' },
+      { type: 'ul', items: [
+        'AI-powered code review and test generation tools',
+        'Systems for API schema validation and best practice recommendations',
+        'Frameworks for measuring code quality and detecting technical debt'
+      ]},
+
+      { type: 'step', title: 'Generative AI Applications', text: 'The Google Cloud hackathon winners demonstrated the range of generative AI applications Bangalore students are building:' },
+      { type: 'ul', items: [
+        'Personalized trip planners that adapt to budget and interests',
+        'AI investment analysts that synthesize startup materials and market signals',
+        'Autonomous industrial optimization systems for cement plants',
+        'Governance platforms that streamline citizen service delivery'
+      ]},
+
+      { type: 'h3', text: '3.3 The Technology Stack' },
+      { type: 'p', text: 'What tools are Bangalore\'s engineering students using? The Black Box Internship job description provides a revealing snapshot of the skills employers expect:' },
+      { type: 'ul', items: [
+        'Core Programming: Python for AI and data processing, Backend development using Flask or Django, API development and testing',
+        'AI/ML Specialization: Prompt engineering for Generative AI, Retrieval-Augmented Generation (RAG), NLP and foundational AI concepts, Experience with GPT, BERT, and Azure AI tools',
+        'Cloud and Deployment: Azure AI services and cloud deployment, Understanding of data pipelines and ETL workflows, MLOps and model lifecycle management',
+        'Bonus Skills: Frontend basics (React, Angular, or Vue), Documentation and AI compliance awareness, Version control with Git'
+      ]},
+      { type: 'p', text: 'This stack reflects the industry\'s shift from theoretical AI knowledge to practical, deployable skills. Students who master these tools don\'t just understand AI—they can ship it.' },
+
+      { type: 'h3', text: '3.4 Agentic AI: The Next Frontier' },
+      { type: 'p', text: 'The Google Cloud hackathon\'s professional track winner, Team May The Agents Be With You, built a solution using "agentic AI to autonomously optimize cement plant operations". This reflects a broader trend: AI is moving from reactive tools that respond to prompts to proactive agents that pursue goals.' },
+      { type: 'p', text: 'For Bangalore\'s engineering students, this means learning to build systems that:' },
+      { type: 'ul', items: [
+        'Orchestrate multiple AI agents working together',
+        'Maintain context across extended interactions',
+        'Make autonomous decisions within defined parameters',
+        'Integrate with existing enterprise systems'
+      ]},
+      { type: 'p', text: 'The tools for this—CrewAI, AutoGen, LangChain, LangGraph—are rapidly becoming essential parts of the engineering student\'s toolkit.' },
+
+      { type: 'h3', text: 'Part Four: AI and Career Preparation – The Bangalore Job Market in 2026' },
+      
+      { type: 'h3', text: '4.1 What Employers Want' },
+      { type: 'p', text: 'Bangalore\'s job market in 2026 is arguably the most competitive in India for engineering graduates. Understanding what employers seek is essential for students navigating this landscape.' },
+
+      { type: 'step', title: 'The Black Box Internship', text: 'The Black Box AI Engineer Internship offers a window into entry-level expectations. Open to B.Tech, BCA, MCA, and M.Tech students, the program provides:' },
+      { type: 'ul', items: [
+        '3-6 months of hands-on experience at Bangalore office',
+        '₹10,000 monthly stipend',
+        'Work on enterprise AI projects including chatbots, model integration, and deployment pipelines',
+        '1:5 mentor-to-intern ratio',
+        'Pre-placement interviews with up to 80% conversion rate'
+      ]},
+      { type: 'p', text: 'The skills required—Python, Flask/Django, Azure AI, prompt engineering, RAG—reflect the production-focused nature of modern AI engineering. This isn\'t academic AI; it\'s AI that ships.' },
+
+      { type: 'step', title: 'Capital One\'s Lead AI Engineer Role', text: 'At the senior end of the spectrum, Capital One\'s job posting for a Lead AI Engineer in Bangalore reveals what experienced AI engineers look like:' },
+      { type: 'ul', items: [
+        '7+ years of software engineering experience',
+        '3+ years with code analysis tools (ESLint, SonarQube, Checkmarx)',
+        '2+ years focused on LLMs or code-based ML tasks',
+        '2+ years building production ML systems',
+        'Preferred: Master\'s or Doctoral degree with relevant dissertation, published research'
+      ]},
+      { type: 'p', text: 'For students, this signals the importance of depth. Entry-level positions require broad competence; senior roles require specialized expertise and a track record of shipped projects.' },
+
+      { type: 'step', title: 'Eurofins Optimed\'s Software AI Engineer', text: 'The Eurofins posting provides another data point, requiring:' },
+      { type: 'ul', items: [
+        '3-5 years of experience with Azure-based services and AI platforms',
+        'Strong Python skills',
+        'Experience with Azure AI Search, LLM embeddings, vector databases, and RAG architectures',
+        'Knowledge of REST API design'
+      ]},
+      { type: 'p', text: 'Notice the pattern: across all these roles, cloud platforms (especially Azure), RAG architectures, and production deployment skills appear repeatedly.' },
+
+      { type: 'h3', text: '4.2 The Salary Landscape' },
+      { type: 'p', text: 'For Bangalore\'s engineering students, understanding compensation expectations helps with career planning:' },
+      { type: 'ul', items: [
+        'Internship Level: Black Box offers ₹10,000/month for AI engineering interns. Other internships may offer similar or slightly higher stipends.',
+        'Entry-Level (0-2 years): Average fresher AI salary: ₹6-12 LPA. Top performers at premium companies can command higher packages.',
+        'Experienced (3-5 years): Roles like Eurofins\' Software AI Engineer typically command ₹15-25 LPA. Specialized skills (RAG, LLM fine-tuning, Azure AI) command premiums.',
+        'Senior Level (7+ years): Lead roles like Capital One\'s position can range from ₹40-70 LPA or higher. Research publications and advanced degrees significantly increase earning potential.'
+      ]},
+
+      { type: 'h3', text: '4.3 The VTU ASI Advantage' },
+      { type: 'p', text: 'VTU\'s partnership with Chiac ASI positions its students uniquely for the job market. As VC Vidyashankar noted: "Companies now prefer engineers who can contribute immediately rather than spending months in training programmes".' },
+      { type: 'p', text: 'The ASI training provides:' },
+      { type: 'ul', items: [
+        'Exposure to the latest research before it hits textbooks',
+        'Experience with tools that may not yet be widely adopted',
+        'A credential that signals future-readiness to employers'
+      ]},
+      { type: 'p', text: 'Chandra Nagaraju, CEO of Chiac ASI, emphasized the strategic importance: "From a national security perspective, it is an urgent necessity for India to establish leadership in the field of Super Intelligence before 2030". For students, this means their skills aren\'t just commercially valuable—they\'re nationally significant.' },
+
+      { type: 'h3', text: '4.4 The Internship Pipeline' },
+      { type: 'p', text: 'Bangalore\'s engineering students have access to an increasingly structured internship pipeline:' },
+      { type: 'ul', items: [
+        'Black Box: 500 seats available across multiple batches starting February, April, and July 2026. On-site in Bangalore with hybrid flexibility. Open to final-year students and recent graduates.',
+        'Autonomize: Machine Learning internships focused on document understanding for healthcare, using OCR, multimodal models, and LLMs. Open to final-semester students or graduates, with potential for full-time conversion.',
+        'Chiac ASI: 1,000+ free internships promised under the VTU partnership.'
+      ]},
+      { type: 'p', text: 'This pipeline creates multiple on-ramps to industry experience. Students who secure these internships gain not just skills and stipends, but also the network and credentials that lead to full-time offers.' },
+
+      { type: 'h3', text: 'Part Five: The Bangalore Ecosystem – Opportunities Beyond the Classroom' },
+      
+      { type: 'h3', text: '5.1 The Corporate Presence' },
+      { type: 'p', text: 'Bangalore\'s unique advantage is the density of technology companies operating within the city. For engineering students, this means:' },
+      { type: 'ul', items: [
+        'Global Capability Centers (GCCs): Companies like Capital One have established significant AI teams in Bangalore, working on problems that matter globally. Students who intern or work at such centers gain experience that\'s transferable anywhere in the world.',
+        'Product Companies: Autonomize, a global company with expertise in building data products, offers internships in Bangalore focused on cutting-edge problems in healthcare AI.',
+        'IT Services and Consulting: Eurofins Optimed and similar companies provide opportunities to work on enterprise-scale applications for global clients.'
+      ]},
+
+      { type: 'h3', text: '5.2 The Startup Scene' },
+      { type: 'p', text: 'Beyond established companies, Bangalore\'s vibrant startup ecosystem offers unique opportunities for engineering students. Startups typically offer:' },
+      { type: 'ul', items: [
+        'Greater responsibility and ownership earlier in careers',
+        'Exposure to the full product development lifecycle',
+        'Faster learning curves and more varied work',
+        'Potential for equity and wealth creation'
+      ]},
+      { type: 'p', text: 'The Google Cloud hackathon winners demonstrate the kind of startup ideas emerging from Bangalore\'s student community. Students who build impressive projects during hackathons often find themselves courted by founders and investors.' },
+
+      { type: 'h3', text: '5.3 The Research Ecosystem' },
+      { type: 'p', text: 'For students inclined toward research, Bangalore offers significant opportunities:' },
+      { type: 'ul', items: [
+        'University Research: Programs like MIT Bengaluru\'s B.Tech in AI & ML prepare students for "higher education and research at premier national or international universities".',
+        'Industry Research: Companies like Capital One explicitly value research publications, with their Lead AI Engineer role preferring candidates with published research papers at top-tier conferences like ICSE, FSE, ASE, NeurIPS, ICML, ACL, EMNLP.',
+        'Corporate-Academic Collaboration: The VTU-Chiac ASI partnership exemplifies how industry and academia can collaborate to keep curricula current and expose students to cutting-edge research.'
+      ]},
+
+      { type: 'h3', text: '5.4 The Community Dimension' },
+      { type: 'p', text: 'Perhaps uniquely among Indian cities, Bangalore offers a dense network of AI-focused communities:' },
+      { type: 'ul', items: [
+        'Meetups and User Groups: Regular gatherings of AI practitioners, from beginner-friendly study groups to advanced research discussions.',
+        'Hackathons and Competitions: Events like the Google Cloud Gen AI Exchange Hackathon provide structured opportunities to build and showcase skills.',
+        'Conference Access: Bangalore hosts numerous technology conferences, many offering student discounts or volunteer opportunities that provide access to industry leaders.'
+      ]},
+      { type: 'p', text: 'For engineering students, engaging with these communities accelerates learning, expands networks, and often leads to opportunities that never appear on job boards.' },
+
+      { type: 'h3', text: 'Part Six: Challenges and How to Navigate Them' },
+      
+      { type: 'h3', text: '6.1 The Competition Reality' },
+      { type: 'p', text: 'Bangalore\'s advantages—dense corporate presence, vibrant startup scene, world-class educational institutions—come with a corresponding challenge: intense competition.' },
+      { type: 'p', text: 'With multiple engineering colleges across the city producing thousands of graduates annually, standing out requires deliberate effort. The students who succeed are those who:' },
+      { type: 'ul', items: [
+        'Build impressive portfolios of projects',
+        'Secure internships that provide real experience',
+        'Develop specialized skills that are in demand',
+        'Network effectively within the community'
+      ]},
+
+      { type: 'h3', text: '6.2 The Learning Paradox' },
+      { type: 'p', text: 'As with engineering students globally, Bangalore\'s students face the learning paradox: AI tools that make work easier can also make learning harder if not used deliberately.' },
+      { type: 'p', text: 'The VTU approach—integrating ASI tools into the curriculum while ensuring "teachers will not be excluded from classrooms"—recognizes this challenge. Students must learn to use AI as a tool for deeper understanding, not as a substitute for it.' },
+
+      { type: 'h3', text: '6.3 The Employability Gap' },
+      { type: 'p', text: 'VTU\'s VC acknowledged a sobering reality: "around 48,000 graduates have registered under the Yuva Nidhi skill programme, highlighting the need for stronger industry-ready skills".' },
+      { type: 'p', text: 'This employability gap—between what colleges teach and what industry needs—remains a challenge despite curricular reforms. Students who rely solely on their coursework risk graduating without the skills employers actually want.' },
+      { type: 'p', text: 'The solution, as articulated by VTU: "Only industry can give real-time exposure. Just as doctors learn by working with patients in hospitals, engineers must work on live projects to become skilled".' },
+
+      { type: 'h3', text: '6.4 The Cost Equation' },
+      { type: 'p', text: 'Engineering education in Bangalore doesn\'t come cheap:' },
+      { type: 'ul', items: [
+        'Aditya College of Engineering and Technology: Average fees ₹7.25 lakhs for B.E. AI & ML',
+        'Dayananda Sagar University: B.Tech in AI and Robotics at ₹16.48 lakhs',
+        'BGS College of Engineering and Technology: ₹15 lakhs for B.E. AI & ML'
+      ]},
+      { type: 'p', text: 'For students and families making this investment, the return depends on successful career outcomes. This adds pressure to make the most of every opportunity—courses, projects, internships, and networking.' },
+
+      { type: 'h3', text: 'Part Seven: A Practical Guide for Bangalore\'s Engineering Students' },
+      
+      { type: 'h3', text: '7.1 Year-by-Year Roadmap' },
+      { type: 'step', title: 'First Year: Foundation Building', text: 'Master Python programming, take introductory courses in AI/ML, participate in beginner-friendly hackathons, join AI-focused student clubs, and build basic projects.' },
+      { type: 'step', title: 'Second Year: Skill Deepening', text: 'Choose electives aligned with AI/ML specialization, learn key frameworks (TensorFlow, PyTorch), understand cloud platforms (Azure, AWS, GCP), participate in intermediate hackathons, start building a portfolio on GitHub, and apply for mentorship programs.' },
+      { type: 'step', title: 'Third Year: Industry Exposure', text: 'Secure internships (applications typically open in late second year), work on real projects with real users, network at industry events and meetups, consider open-source contributions, refine your portfolio, and explore research opportunities.' },
+      { type: 'step', title: 'Fourth Year: Career Launch', text: 'Apply for full-time positions, leverage internship experiences in interviews, complete capstone project with industry relevance, prepare for technical interviews, and consider higher education options if pursuing research.' },
+
+      { type: 'h3', text: '7.2 Key Opportunities to Target' },
+      { type: 'ul', items: [
+        'Immediate (2026): Black Box Internship (Applications open Jan 15, 2026), VTU-Chiac ASI Training, Autonomize ML Internship.',
+        'Ongoing: Google Cloud Gen AI Exchange Hackathon (annual), company-specific hackathons, university research positions, open-source contributions.'
+      ]},
+
+      { type: 'h3', text: '7.3 Skills to Prioritize' },
+      { type: 'p', text: 'Based on employer requirements and industry trends, Bangalore students should prioritize:' },
+      { type: 'ul', items: [
+        'Foundational: Python programming (intermediate to advanced), Data structures and algorithms, Mathematics for machine learning.',
+        'Core AI/ML: Machine learning fundamentals, Deep learning (neural networks, CNNs, RNNs, transformers), NLP and computer vision basics, LLM architecture and fine-tuning.',
+        'Practical Deployment: Cloud platforms (especially Azure AI), RAG architectures and vector databases, MLOps and model lifecycle management, API development and integration.',
+        'Professional: Version control with Git, Documentation and communication, Problem decomposition, Ethical AI considerations.'
+      ]},
+
+      { type: 'h3', text: '7.4 Building Your Network' },
+      { type: 'p', text: 'In Bangalore\'s dense ecosystem, who you know matters as much as what you know:' },
+      { type: 'ul', items: [
+        'On Campus: Connect with seniors, engage with professors, participate in student chapters.',
+        'Off Campus: Attend tech meetups and conferences, participate in hackathons, engage with company representatives.',
+        'Online: Contribute to GitHub projects, write about your learning journey, engage in AI-focused communities.'
+      ]},
+
+      { type: 'h3', text: 'Conclusion: Your Moment in Bangalore\'s AI Story' },
+      { type: 'p', text: 'The engineering student in Bangalore, 2026, is living through a remarkable moment. The city that established India\'s reputation in IT and software services is now leading its transition to AI. The partnership between VTU and Chiac ASI signals institutional commitment to staying ahead of the curve. Companies like Black Box, Capital One, Eurofins, and Autonomize are creating pathways from education to employment. Hackathons like Google Cloud\'s Gen AI Exchange demonstrate the extraordinary creativity and capability of India\'s student population.' },
+      { type: 'p', text: 'But opportunity without action is just potential. The students who will thrive in this environment are those who:' },
+      { type: 'ul', items: [
+        'Look beyond their coursework to build real skills',
+        'Seek internships and projects that provide industry exposure',
+        'Build portfolios that demonstrate what they can do',
+        'Network intentionally within Bangalore\'s vibrant tech community',
+        'Use AI tools to deepen understanding, not avoid learning'
+      ]},
+      { type: 'p', text: 'As VTU\'s Vice-Chancellor noted, the goal is to create engineers who are not just job seekers but job creators—professionals who can identify problems, build solutions, and drive India\'s technological future.' },
+      { type: 'p', text: 'That future is being written now, in Bangalore\'s classrooms, labs, hackathons, and startups. The question for every engineering student reading this guide is simple: What will you build?' },
+
+      { type: 'h3', text: 'Appendix: Resources for Bangalore Engineering Students' },
+      { type: 'h3', text: 'University Programs (2026 Admissions)' },
+      { type: 'table', headers: ['Institution', 'Program', 'Key Details'], rows: [
+          ['MIT Bengaluru', 'B.Tech CSE (AI & ML)', 'Recruiters: Microsoft, Amazon, Goldman Sachs'],
+          ['Dayananda Sagar University', 'B.Tech AI and Robotics', 'Fees: ~₹16.48 Lakhs'],
+          ['Aditya College of Engineering', 'B.E. AI & ML', 'Fees: ~₹7.25 Lakhs, VTU-affiliated'],
+          ['BGS College of Engineering', 'B.E. AI & ML', '60 seats, VTU-affiliated']
+      ]},
+      { type: 'h3', text: 'Key Employers in Bangalore (Actively Hiring AI Talent)' },
+      { type: 'ul', items: [
+        'Capital One: Lead AI Engineer roles, MLX team',
+        'Eurofins Optimed: Software AI Engineer (Azure AI)',
+        'Black Box: AI Engineer Internship program',
+        'Autonomize: Machine Learning Internships'
+      ]},
+      { type: 'h3', text: 'Upcoming Deadlines' },
+      { type: 'ul', items: [
+        'Black Box Internship Application: Opens January 15, 2026',
+        'KCET Application: January 17 - February 16, 2026',
+        'JEE Main (April Session): February 11-12, 2026 (exam date)'
+      ]},
+      { type: 'h3', text: 'Essential Skills Checklist' },
+      { type: 'ul', items: [
+        'Python (intermediate/advanced)',
+        'Flask/Django for backend development',
+        'Azure AI services familiarity',
+        'Prompt engineering for Generative AI',
+        'RAG architecture understanding',
+        'Git version control',
+        'API design and testing',
+        'Basic frontend (React/Angular/Vue) - bonus'
+      ]}
+    ]
+  },
+  {
     id: 15,
     title: "How Engineering Students Use AI in Daily Life for Study, Projects & Career Growth (2026 Complete Guide)",
     category: "AI & Future Tech",
